@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="shaders\frag.spv" />
+    <None Remove="shaders\vert.spv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="shaders\frag.spv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\vert.spv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AdamantiumVulkan">
+      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.dll</HintPath>
+    </Reference>
+    <Reference Include="AdamantiumVulkan.Core">
+      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AdamantiumVulkan.Shaders">
+      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="AdamantiumVulkan.Windows">
+      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
