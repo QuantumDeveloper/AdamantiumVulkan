@@ -402,7 +402,7 @@ namespace VulkanEngineTestCore
                 createInfo.PpEnabledLayerNames = validationLayers;
             }
 
-            instance = Instance.Create(createInfo, null);
+            instance = Instance.Create(createInfo);
 
             createInfo.Dispose();
         }

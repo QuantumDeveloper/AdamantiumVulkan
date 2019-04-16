@@ -58,7 +58,7 @@ namespace AdamantiumVulkan.Core
             return properties;
         }
 
-        public static Instance Create(in InstanceCreateInfo createInfo, in AllocationCallbacks allocator)
+        public static Instance Create(in InstanceCreateInfo createInfo, in AllocationCallbacks allocator = null)
         {
             VulkanNative.CreateInstance(createInfo, allocator, out var instance);
             return instance;
