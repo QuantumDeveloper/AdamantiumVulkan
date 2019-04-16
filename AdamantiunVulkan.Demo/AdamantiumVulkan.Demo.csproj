@@ -39,18 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="AdamantiumVulkan">
-      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.dll</HintPath>
-    </Reference>
-    <Reference Include="AdamantiumVulkan.Core">
-      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="AdamantiumVulkan.Shaders">
-      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.Shaders.dll</HintPath>
-    </Reference>
-    <Reference Include="AdamantiumVulkan.Windows">
-      <HintPath>..\..\GameEditor\VulkanEngineTest\VulkanEngineTest\AdamantiumVulkan.Windows.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan.Shaders\AdamantiumVulkan.Shaders.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan.Windows\AdamantiumVulkan.Windows.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
   </ItemGroup>
 
 </Project>
