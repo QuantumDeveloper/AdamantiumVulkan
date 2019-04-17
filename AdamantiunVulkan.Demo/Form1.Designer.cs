@@ -465,22 +465,10 @@ namespace VulkanEngineTestCore
 
         private void PickPhysicalDevice()
         {
-            uint deviceCount = 0;
-            instance.EnumeratePhysicalDevices(ref deviceCount, null);
-
-            if (deviceCount == 0)
-            {
-                MessageBox.Show($"No physical devices found");
-                throw new Exception();
-            }
-
-            var devices = new PhysicalDevice[deviceCount];
-            instance.EnumeratePhysicalDevices(ref deviceCount, devices);
-
+            var devices = instance.EnumeratePhysicalDevices();
             physicalDevice = devices[0];
-            physicalDevice.GetPhysicalDeviceMemoryProperties(out var memoryProperties); //TODO: change type to out
-            physicalDevice.GetPhysicalDeviceProperties(out var deviceProperties);
-            physicalDevice.GetPhysicalDeviceFeatures(out var deviceFeatures);
+            var memoryProperties = physicalDevice.GetPhysicalDeviceMemoryProperties();
+            var deviceProperties = physicalDevice.GetPhysicalDeviceProperties();
         }
 
         private void CreateLogicalDevice()
@@ -500,16 +488,13 @@ namespace VulkanEngineTestCore
                 queueInfos.Add(queueCreateInfo);
             }
 
-            physicalDevice.GetPhysicalDeviceFeatures(out var deviceFeatures);
+            var deviceFeatures = physicalDevice.GetPhysicalDeviceFeatures();
 
             var createInfo = new DeviceCreateInfo();
             createInfo.SType = StructureType.DeviceCreateInfo;
-
             createInfo.QueueCreateInfoCount = (uint)queueInfos.Count;
             createInfo.PQueueCreateInfos = queueInfos.ToArray();
-
             createInfo.PEnabledFeatures = deviceFeatures;
-
             createInfo.EnabledExtensionCount = (uint)deviceExtensions.Length;
             createInfo.PpEnabledExtensionNames = deviceExtensions;
 
@@ -519,23 +504,21 @@ namespace VulkanEngineTestCore
                 createInfo.PpEnabledLayerNames = validationLayers;
             }
 
-            var res = physicalDevice.CreateDevice(createInfo, null, out logicalDevice);
-            if (res != Result.Success)
-            {
-                MessageBox.Show($"Сannot create logical device. Returned result = {res}");
-                throw new Exception();
-            }
+            logicalDevice = physicalDevice.CreateDevice(createInfo);
 
             createInfo.Dispose();
 
-            logicalDevice.GetDeviceQueue(indices.graphicsFamily.Value, 0, out graphicsQueue);
-            logicalDevice.GetDeviceQueue(indices.presentFamily.Value, 0, out presentQueue);
+            graphicsQueue = logicalDevice.GetDeviceQueue(indices.graphicsFamily.Value, 0);
+            presentQueue = logicalDevice.GetDeviceQueue(indices.presentFamily.Value, 0);
 
-            //DeviceQueueInfo2 deviceQueueInfo2 = new DeviceQueueInfo2();
-            //deviceQueueInfo2.sType = StructureType.DeviceQueueInfo2;
-            //deviceQueueInfo2.queueFamilyIndex = indices.Value;
-            //logicalDevice.GetDeviceQueue2(deviceQueueInfo2, out queue);
-
+            //DeviceQueueInfo2 queueInfo2 = new DeviceQueueInfo2();
+            //queueInfo2.SType = StructureType.DeviceQueueInfo2;
+            //queueInfo2.QueueFamilyIndex = indices.graphicsFamily.Value;
+            //queueInfo2.QueueIndex = 0;
+            //queueInfo2.Flags = (uint)DeviceQueueCreateFlagBits.ProtectedBit;
+            //graphicsQueue = logicalDevice.GetDeviceQueue2(queueInfo2);
+            //queueInfo2.QueueFamilyIndex = indices.presentFamily.Value;
+            //presentQueue = logicalDevice.GetDeviceQueue2(queueInfo2);
         }
 
         private void CreateSurface()
@@ -544,12 +527,7 @@ namespace VulkanEngineTestCore
             surfaceInfo.SType = StructureType.Win32SurfaceCreateInfoKhr;
             surfaceInfo.Hwnd = this.Handle;
             surfaceInfo.Hinstance = Process.GetCurrentProcess().Handle;
-            var result = instance.CreateWin32SurfaceKHR(surfaceInfo, null, out surface);
-            if (result != Result.Success)
-            {
-                MessageBox.Show($"Сannot create surface. Returned result = {result}");
-                throw new Exception();
-            }
+            surface = instance.CreateWin32SurfaceKHR(surfaceInfo);
         }
 
         QueueFamilyIndices FindQueueFamilies(PhysicalDevice device)
@@ -596,27 +574,9 @@ namespace VulkanEngineTestCore
         SwapChainSupportDetails QuerySwapChainSupport(PhysicalDevice device)
         {
             SwapChainSupportDetails details = new SwapChainSupportDetails();
-
-            device.GetPhysicalDeviceSurfaceCapabilitiesKHR(surface, out details.Capabilities);
-
-            uint formatCount = 0;
-            device.GetPhysicalDeviceSurfaceFormatsKHR(surface, ref formatCount, null);
-
-            if (formatCount != 0)
-            {
-                details.Formats = new SurfaceFormatKHR[formatCount];
-                device.GetPhysicalDeviceSurfaceFormatsKHR(surface, ref formatCount, details.Formats);
-            }
-
-            uint presentModeCount = 0;
-            device.GetPhysicalDeviceSurfacePresentModesKHR(surface, ref presentModeCount, null);
-
-            if (presentModeCount != 0)
-            {
-                details.PresentModes = new PresentModeKHR[presentModeCount];
-                device.GetPhysicalDeviceSurfacePresentModesKHR(surface, ref presentModeCount, details.PresentModes);
-            }
-
+            details.Capabilities = device.GetPhysicalDeviceSurfaceCapabilitiesKHR(surface);
+            details.Formats = device.GetPhysicalDeviceSurfaceFormatsKHR(surface);
+            details.PresentModes = device.GetPhysicalDeviceSurfacePresentModesKHR(surface);
             return details;
         }
 
@@ -664,19 +624,11 @@ namespace VulkanEngineTestCore
             createInfo.PresentMode = presentMode;
             createInfo.Clipped = true;
 
-            var result = logicalDevice.CreateSwapchainKHR(createInfo, null, out swapchain);
-
-            if (result != Result.Success)
-            {
-                MessageBox.Show($"Failed to create swap chain!. Returned result is: {result}");
-                throw new Exception();
-            }
+            swapchain = logicalDevice.CreateSwapchainKHR(createInfo);
 
             createInfo.Dispose();
 
-            logicalDevice.GetSwapchainImagesKHR(swapchain, ref imageCount, null);
-            swapchainImages = new Image[imageCount];
-            logicalDevice.GetSwapchainImagesKHR(swapchain, ref imageCount, swapchainImages);
+            swapchainImages = logicalDevice.GetSwapchainImagesKHR(swapchain);
 
             swapChainImageFormat = surfaceFormat.Format;
             swapChainExtent = extent;

@@ -14,7 +14,7 @@ namespace AdamantiumVulkan.Windows
     using AdamantiumVulkan.Core.Interop;
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 69 Column: 1
-    public static class InstanceExtension
+    public static partial class InstanceExtension
     {
         public static Result CreateWin32SurfaceKHR(this Instance instance, in AdamantiumVulkan.Windows.Win32SurfaceCreateInfoKHR pCreateInfo, in AdamantiumVulkan.Core.AllocationCallbacks pAllocator, out SurfaceKHR pSurface)
         {
