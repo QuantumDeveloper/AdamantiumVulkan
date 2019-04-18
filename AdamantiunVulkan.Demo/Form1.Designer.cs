@@ -55,9 +55,6 @@ namespace VulkanEngineTestCore
             FormClosing += Form1_FormClosing;
         }
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonExit;
-
         class SwapChainSupportDetails
         {
             public SurfaceCapabilitiesKHR Capabilities;

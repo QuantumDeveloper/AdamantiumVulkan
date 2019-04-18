@@ -30,7 +30,7 @@ namespace AdamantiumVulkan.Windows
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 70 Column: 1
-    public static class PhysicalDeviceExtension
+    public static partial class PhysicalDeviceExtension
     {
         public static Bool32 GetPhysicalDeviceWin32PresentationSupportKHR(this PhysicalDevice physicalDevice, uint queueFamilyIndex)
         {
@@ -41,7 +41,7 @@ namespace AdamantiumVulkan.Windows
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 71 Column: 1
-    public static class DeviceExtension
+    public static partial class DeviceExtension
     {
         public static Result GetMemoryWin32HandleKHR(this Device device, in AdamantiumVulkan.Windows.MemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
         {
