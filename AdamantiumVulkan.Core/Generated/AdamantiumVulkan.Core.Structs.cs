@@ -308,16 +308,6 @@ namespace AdamantiumVulkan.Core
 
         private GCHandleReference refpUserData;
 
-        private PFN_vkAllocationFunction pfnAllocation;
-
-        private PFN_vkReallocationFunction pfnReallocation;
-
-        private PFN_vkFreeFunction pfnFree;
-
-        private PFN_vkInternalAllocationNotification pfnInternalAllocation;
-
-        private PFN_vkInternalFreeNotification pfnInternalFree;
-
         public AllocationCallbacks()
         {
         }
@@ -3411,9 +3401,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pWaitDstStageMask != null)
-                    return pWaitDstStageMask;
-
                 return pWaitDstStageMask;
             }
             set
@@ -7385,9 +7372,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pSampleMask != null)
-                    return pSampleMask;
-
                 pSampleMask = Marshal.PtrToStructure<uint>(_internal.pSampleMask);
                 return pSampleMask;
             }
@@ -8030,9 +8014,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pDynamicStates != null)
-                    return pDynamicStates;
-
                 pDynamicStates = Marshal.PtrToStructure<DynamicState>(_internal.pDynamicStates);
                 return pDynamicStates;
             }
@@ -19466,9 +19447,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pResults != null)
-                    return pResults;
-
                 pResults = Marshal.PtrToStructure<Result>(_internal.pResults);
                 return pResults;
             }
@@ -23825,9 +23803,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pViewFormats != null)
-                    return pViewFormats;
-
                 pViewFormats = Marshal.PtrToStructure<Format>(_internal.pViewFormats);
                 return pViewFormats;
             }
@@ -24765,8 +24740,6 @@ namespace AdamantiumVulkan.Core
         private AdamantiumVulkan.Core.Interop.DebugReportCallbackCreateInfoEXT _internal;
 
         private GCHandleReference refpNext;
-
-        private PFN_vkDebugReportCallbackEXT pfnCallback;
 
         private GCHandleReference refpUserData;
 
@@ -26458,9 +26431,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pDisabledValidationChecks != null)
-                    return pDisabledValidationChecks;
-
                 pDisabledValidationChecks = Marshal.PtrToStructure<ValidationCheckEXT>(_internal.pDisabledValidationChecks);
                 return pDisabledValidationChecks;
             }
@@ -27722,9 +27692,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pObjectEntryTypes != null)
-                    return pObjectEntryTypes;
-
                 pObjectEntryTypes = Marshal.PtrToStructure<ObjectEntryTypeNVX>(_internal.pObjectEntryTypes);
                 return pObjectEntryTypes;
             }
@@ -27756,9 +27723,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pObjectEntryUsageFlags != null)
-                    return pObjectEntryUsageFlags;
-
                 pObjectEntryUsageFlags = Marshal.PtrToStructure<uint>(_internal.pObjectEntryUsageFlags);
                 return pObjectEntryUsageFlags;
             }
@@ -30733,8 +30697,6 @@ namespace AdamantiumVulkan.Core
 
         private GCHandleReference refpNext;
 
-        private PFN_vkDebugUtilsMessengerCallbackEXT pfnUserCallback;
-
         private GCHandleReference refpUserData;
 
         public DebugUtilsMessengerCreateInfoEXT()
@@ -33325,9 +33287,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pBindingFlags != null)
-                    return pBindingFlags;
-
                 pBindingFlags = Marshal.PtrToStructure<uint>(_internal.pBindingFlags);
                 return pBindingFlags;
             }
@@ -34053,9 +34012,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pShadingRatePaletteEntries != null)
-                    return pShadingRatePaletteEntries;
-
                 pShadingRatePaletteEntries = Marshal.PtrToStructure<ShadingRatePaletteEntryNV>(_internal.pShadingRatePaletteEntries);
                 return pShadingRatePaletteEntries;
             }
@@ -39375,9 +39331,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pEnabledValidationFeatures != null)
-                    return pEnabledValidationFeatures;
-
                 pEnabledValidationFeatures = Marshal.PtrToStructure<ValidationFeatureEnableEXT>(_internal.pEnabledValidationFeatures);
                 return pEnabledValidationFeatures;
             }
@@ -39404,9 +39357,6 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
-                if(pDisabledValidationFeatures != null)
-                    return pDisabledValidationFeatures;
-
                 pDisabledValidationFeatures = Marshal.PtrToStructure<ValidationFeatureDisableEXT>(_internal.pDisabledValidationFeatures);
                 return pDisabledValidationFeatures;
             }
