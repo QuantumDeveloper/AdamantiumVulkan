@@ -412,6 +412,11 @@ namespace AdamantiumVulkan.Generator
                 .TreatAsPointerToArray(new CustomType("VkBufferCopy"))
                 .SetParameterKind(ParameterKind.In);
 
+            api.Functions("vkCreateGraphicsPipelines", "vkCreateComputePipelines")
+                .WithParameterName("pPipelines")
+                .TreatAsPointerToArray(new CustomType("VkPipeline"), true, "createInfoCount")
+                .SetParameterKind(ParameterKind.Out);
+
 
             api.Classes(classesList).
                 AddProperty("NativePointer").

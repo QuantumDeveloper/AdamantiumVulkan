@@ -278,11 +278,11 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3384 Column: 32
         [DllImport(libraryPath, EntryPoint = "vkCreateGraphicsPipelines", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkCreateGraphicsPipelines([In] Device_T device, [In] PipelineCache_T pipelineCache, [In] uint createInfoCount, AdamantiumVulkan.Core.Interop.GraphicsPipelineCreateInfo pCreateInfos, System.IntPtr pAllocator, [Out] out Pipeline_T pPipelines);
+        internal static extern Result vkCreateGraphicsPipelines([In] Device_T device, [In] PipelineCache_T pipelineCache, [In] uint createInfoCount, AdamantiumVulkan.Core.Interop.GraphicsPipelineCreateInfo pCreateInfos, System.IntPtr pAllocator, [In, Out] Pipeline_T[] pPipelines);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3392 Column: 32
         [DllImport(libraryPath, EntryPoint = "vkCreateComputePipelines", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkCreateComputePipelines([In] Device_T device, [In] PipelineCache_T pipelineCache, [In] uint createInfoCount, AdamantiumVulkan.Core.Interop.ComputePipelineCreateInfo pCreateInfos, System.IntPtr pAllocator, [Out] out Pipeline_T pPipelines);
+        internal static extern Result vkCreateComputePipelines([In] Device_T device, [In] PipelineCache_T pipelineCache, [In] uint createInfoCount, AdamantiumVulkan.Core.Interop.ComputePipelineCreateInfo pCreateInfos, System.IntPtr pAllocator, [In, Out] Pipeline_T[] pPipelines);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3400 Column: 28
         [DllImport(libraryPath, EntryPoint = "vkDestroyPipeline", CallingConvention = CallingConvention.StdCall)]
