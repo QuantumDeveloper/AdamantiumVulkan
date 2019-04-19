@@ -172,5 +172,142 @@ namespace AdamantiumVulkan.Core
 
             return swapchainImages;
         }
+
+        public ImageView CreateImageView(ImageViewCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateImageView(createInfo, allocator, out ImageView view);
+            ResultHelper.CheckResult(result, nameof(CreateImageView));
+            return view;
+        }
+
+        public RenderPass CreateRenderPass(RenderPassCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateRenderPass(createInfo, allocator, out RenderPass renderPass);
+            ResultHelper.CheckResult(result, nameof(CreateRenderPass));
+            return renderPass;
+        }
+
+        public PipelineLayout CreatePipelineLayout(PipelineLayoutCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreatePipelineLayout(createInfo, allocator, out PipelineLayout pipelineLayout);
+            ResultHelper.CheckResult(result, nameof(CreatePipelineLayout));
+            return pipelineLayout;
+        }
+
+        public Pipeline[] CreateGraphicsPipelines(PipelineCache pipelineCache, uint createInfoCount, GraphicsPipelineCreateInfo createInfos, AllocationCallbacks allocator = null)
+        {
+            var result = CreateGraphicsPipelines(pipelineCache, createInfoCount, createInfos, allocator, out Pipeline[] pipelines);
+            ResultHelper.CheckResult(result, nameof(CreateGraphicsPipelines));
+            return pipelines;
+        }
+
+        public Pipeline[] CreateComputePipelines(PipelineCache pipelineCache, uint createInfoCount, ComputePipelineCreateInfo createInfos, AllocationCallbacks allocator = null)
+        {
+            var result = CreateComputePipelines(pipelineCache, createInfoCount, createInfos, allocator, out Pipeline[] pipelines);
+            ResultHelper.CheckResult(result, nameof(CreateComputePipelines));
+            return pipelines;
+        }
+
+        public Framebuffer CreateFramebuffer(FramebufferCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateFramebuffer(createInfo, allocator, out Framebuffer framebuffer);
+            ResultHelper.CheckResult(result, nameof(CreateFramebuffer));
+            return framebuffer;
+        }
+
+        public CommandPool CreateCommandPool(CommandPoolCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateCommandPool(createInfo, allocator, out CommandPool commandPool);
+            ResultHelper.CheckResult(result, nameof(CreateCommandPool));
+            return commandPool;
+        }
+
+        public Buffer CreateBuffer(BufferCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateBuffer(createInfo, allocator, out Buffer buffer);
+            ResultHelper.CheckResult(result, nameof(CreateBuffer));
+            return buffer;
+        }
+
+        public MemoryRequirements GetBufferMemoryRequirements(Buffer buffer)
+        {
+            GetBufferMemoryRequirements(buffer, out MemoryRequirements memoryRequirements);
+            return memoryRequirements;
+        }
+
+        public DeviceMemory AllocateMemory(MemoryAllocateInfo allocateInfo, AllocationCallbacks allocator = null)
+        {
+            var result = AllocateMemory(allocateInfo, allocator, out DeviceMemory deviceMemory);
+            ResultHelper.CheckResult(result, nameof(AllocateMemory));
+            return deviceMemory;
+        }
+
+        public IntPtr MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
+        {
+            var result = MapMemory(memory, offset, size, flags, out IntPtr ppData);
+            ResultHelper.CheckResult(result, nameof(MapMemory));
+            return ppData;
+        }
+
+        public CommandBuffer[] AllocateCommandBuffers(CommandBufferAllocateInfo allocateInfo)
+        {
+            CommandBuffer[] commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
+            var result = AllocateCommandBuffers(allocateInfo, commandBuffers);
+            ResultHelper.CheckResult(result, nameof(AllocateCommandBuffers));
+            return commandBuffers;
+        }
+
+        public Semaphore CreateSemaphore(SemaphoreCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateSemaphore(createInfo, allocator, out Semaphore semaphore);
+            ResultHelper.CheckResult(result, nameof(CreateSemaphore));
+            return semaphore;
+        }
+
+        public Semaphore[] CreateSemaphores(SemaphoreCreateInfo createInfo, uint semaphoreCount, AllocationCallbacks allocator = null)
+        {
+            if (semaphoreCount == 0)
+            {
+                throw new ArgumentOutOfRangeException("Semaphore count should be non-zero");
+            }
+
+            var semaphores = new Semaphore[semaphoreCount];
+            for (int i = 0; i < semaphoreCount; ++i)
+            {
+                semaphores[i] = CreateSemaphore(createInfo, allocator);
+            }
+
+            return semaphores;
+        }
+
+        public Fence CreateFence(FenceCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateFence(createInfo, allocator, out Fence fence);
+            ResultHelper.CheckResult(result, nameof(CreateFence));
+            return fence;
+        }
+
+        public Fence[] CreateFences(FenceCreateInfo createInfo, uint fenceCount, AllocationCallbacks allocator = null)
+        {
+            if (fenceCount == 0)
+            {
+                throw new ArgumentOutOfRangeException("Fence count count should be non-zero");
+            }
+
+            var fences = new Fence[fenceCount];
+            for (int i = 0; i < fenceCount; ++i)
+            {
+                fences[i] = CreateFence(createInfo, allocator);
+            }
+
+            return fences;
+        }
+
+        public ShaderModule CreateShaderModule(ShaderModuleCreateInfo createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateShaderModule(createInfo, allocator, out ShaderModule shaderModule);
+            ResultHelper.CheckResult(result, nameof(CreateShaderModule));
+            return shaderModule;
+        }
     }
 }

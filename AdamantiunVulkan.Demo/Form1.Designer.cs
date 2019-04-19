@@ -464,7 +464,6 @@ namespace VulkanEngineTestCore
         {
             var devices = instance.EnumeratePhysicalDevices();
             physicalDevice = devices[0];
-            var memoryProperties = physicalDevice.GetPhysicalDeviceMemoryProperties();
             var deviceProperties = physicalDevice.GetPhysicalDeviceProperties();
         }
 
@@ -656,12 +655,7 @@ namespace VulkanEngineTestCore
                 subresourceRange.LayerCount = 1;
                 createInfo.SubresourceRange = subresourceRange;
 
-                var result = logicalDevice.CreateImageView(createInfo, null, out swapchainImageViews[i]);
-                if (result != Result.Success)
-                {
-                    MessageBox.Show($"Cannot create Image view with index {i}");
-                    throw new Exception();
-                }
+                swapchainImageViews[i] = logicalDevice.CreateImageView(createInfo);
             }
         }
 
@@ -693,12 +687,7 @@ namespace VulkanEngineTestCore
             renderPassInfo.SubpassCount = 1;
             renderPassInfo.PSubpasses = subpass;
 
-            var result = logicalDevice.CreateRenderPass(renderPassInfo, null, out renderPass);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to create render pass!");
-                throw new Exception();
-            }
+            renderPass = logicalDevice.CreateRenderPass(renderPassInfo);
         }
 
         private void CreateGraphicsPipeline()
@@ -725,16 +714,6 @@ namespace VulkanEngineTestCore
 
             var bindingDescr = GetBindingDescription<Vertex>();
             var attributesDescriptions = GetVertexAttributeDescription<Vertex>();
-
-            //var bindingDescr = GetBindingDescription<Vector2>();
-            //var attributesDescriptions = new VertexInputAttributeDescription[1];
-
-            //var desc = new VertexInputAttributeDescription();
-            //desc.Binding = 0;
-            //desc.Location = 0;
-            //desc.Format = Format.R32g32Sfloat;
-            //desc.Offset = 0;
-            //attributesDescriptions[0] = desc;
 
             var vertexInputInfo = new PipelineVertexInputStateCreateInfo();
             vertexInputInfo.SType = StructureType.PipelineVertexInputStateCreateInfo;
@@ -803,12 +782,7 @@ namespace VulkanEngineTestCore
             pipelineLayoutInfo.SetLayoutCount = 0;
             pipelineLayoutInfo.PushConstantRangeCount = 0;
 
-            var result = logicalDevice.CreatePipelineLayout(pipelineLayoutInfo, null, out pipelineLayout);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to create pipeline layout!");
-                throw new Exception();
-            }
+            pipelineLayout = logicalDevice.CreatePipelineLayout(pipelineLayoutInfo);
 
             var pipelineInfo = new GraphicsPipelineCreateInfo();
             pipelineInfo.SType = StructureType.GraphicsPipelineCreateInfo;
@@ -824,16 +798,12 @@ namespace VulkanEngineTestCore
             pipelineInfo.RenderPass = renderPass;
             pipelineInfo.Subpass = 0;
 
-            result = logicalDevice.CreateGraphicsPipelines(null, 1, pipelineInfo, null, out graphicsPipeline);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to create graphics pipeline!");
-                throw new Exception();
-            }
+            var pipelines = logicalDevice.CreateGraphicsPipelines(null, 1, pipelineInfo);
+            graphicsPipeline = pipelines[0];
 
             pipelineInfo.Dispose();
-            logicalDevice.DestroyShaderModule(vertexShaderModule, null);
-            logicalDevice.DestroyShaderModule(fragmentShaderModule, null);
+            logicalDevice.DestroyShaderModule(vertexShaderModule);
+            logicalDevice.DestroyShaderModule(fragmentShaderModule);
         }
 
         private void CreateFramebuffers()
@@ -852,12 +822,7 @@ namespace VulkanEngineTestCore
                 framebufferInfo.Height = swapChainExtent.height;
                 framebufferInfo.Layers = 1;
 
-                var result = logicalDevice.CreateFramebuffer(framebufferInfo, null, out swapchainFramebuffers[i]);
-                if (result != Result.Success)
-                {
-                    MessageBox.Show("failed to create framebuffer!");
-                    throw new Exception();
-                }
+                swapchainFramebuffers[i] = logicalDevice.CreateFramebuffer(framebufferInfo);
 
                 framebufferInfo.Dispose();
             }
@@ -871,12 +836,7 @@ namespace VulkanEngineTestCore
             poolInfo.SType = StructureType.CommandPoolCreateInfo;
             poolInfo.QueueFamilyIndex = queueFamilyIndices.graphicsFamily.Value;
 
-            var result = logicalDevice.CreateCommandPool(poolInfo, null, out commandPool);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to create graphics command pool!");
-                throw new Exception();
-            }
+            commandPool = logicalDevice.CreateCommandPool(poolInfo);
         }
 
         private void CreateVertexBuffer()
@@ -887,7 +847,7 @@ namespace VulkanEngineTestCore
             DeviceMemory stagingBufferMemory;
             CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostCachedBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
 
-            var result = logicalDevice.MapMemory(stagingBufferMemory, 0, bufferSize, 0, out var data);
+            var data = logicalDevice.MapMemory(stagingBufferMemory, 0, bufferSize, 0);
             unsafe
             {
                 var sourcePtr = GCHandle.Alloc(vertices, GCHandleType.Pinned);
@@ -942,22 +902,15 @@ namespace VulkanEngineTestCore
             bufferInfo.Usage = (uint)usage;
             bufferInfo.SharingMode = SharingMode.Exclusive;
 
-            var result = logicalDevice.CreateBuffer(bufferInfo, null, out buffer);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to create vertex buffer!");
-                throw new Exception();
-            }
+            buffer = logicalDevice.CreateBuffer(bufferInfo);
 
-            MemoryRequirements memoryRequirements;
-            logicalDevice.GetBufferMemoryRequirements(buffer, out memoryRequirements);
+            MemoryRequirements memoryRequirements = logicalDevice.GetBufferMemoryRequirements(buffer);
 
             MemoryAllocateInfo allocInfo = new MemoryAllocateInfo();
             allocInfo.SType = StructureType.MemoryAllocateInfo;
             allocInfo.AllocationSize = memoryRequirements.Size;
 
-            PhysicalDeviceMemoryProperties memProperties;
-            physicalDevice.GetPhysicalDeviceMemoryProperties(out memProperties);
+            var memProperties = physicalDevice.GetPhysicalDeviceMemoryProperties();
 
             var properties = MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit;
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
@@ -970,14 +923,9 @@ namespace VulkanEngineTestCore
                 }
             }
 
-            result = logicalDevice.AllocateMemory(allocInfo, null, out bufferMemory);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to allocate vertex buffer memory!");
-                throw new Exception();
-            }
+            bufferMemory = logicalDevice.AllocateMemory(allocInfo);
 
-            result = logicalDevice.BindBufferMemory(buffer, bufferMemory, 0);
+            var result = logicalDevice.BindBufferMemory(buffer, bufferMemory, 0);
         }
 
         private void CopyBuffer(Buffer srcBuffer, Buffer dstBuffer, ulong size)
@@ -988,8 +936,7 @@ namespace VulkanEngineTestCore
             allocInfo.CommandPool = commandPool;
             allocInfo.CommandBufferCount = 1;
 
-            CommandBuffer[] commandBuffers = new CommandBuffer[1];
-            var result = logicalDevice.AllocateCommandBuffers(allocInfo, commandBuffers);
+            var commandBuffers = logicalDevice.AllocateCommandBuffers(allocInfo);
 
             var beginInfo = new CommandBufferBeginInfo();
             beginInfo.SType = StructureType.CommandBufferBeginInfo;
@@ -1020,8 +967,7 @@ namespace VulkanEngineTestCore
 
         uint FindMemoryType(uint typeFilter, MemoryPropertyFlagBits properties)
         {
-            PhysicalDeviceMemoryProperties memProperties;
-            physicalDevice.GetPhysicalDeviceMemoryProperties(out memProperties);
+            var memProperties = physicalDevice.GetPhysicalDeviceMemoryProperties();
 
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
             {
@@ -1043,14 +989,9 @@ namespace VulkanEngineTestCore
             allocInfo.SType = StructureType.CommandBufferAllocateInfo;
             allocInfo.CommandPool = commandPool;
             allocInfo.Level = CommandBufferLevel.Primary;
-            allocInfo.CommandBufferCount = (uint)commandBuffers.Length;
+            allocInfo.CommandBufferCount = (uint)swapchainFramebuffers.Length;
 
-            var result = logicalDevice.AllocateCommandBuffers(allocInfo, commandBuffers);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to allocate command buffers!");
-                throw new Exception();
-            }
+            commandBuffers = logicalDevice.AllocateCommandBuffers(allocInfo);
 
             for (int i = 0; i < commandBuffers.Length; i++)
             {
@@ -1059,7 +1000,7 @@ namespace VulkanEngineTestCore
                 beginInfo.SType = StructureType.CommandBufferBeginInfo;
                 beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
 
-                result = commandBuffer.BeginCommandBuffer(beginInfo);
+                var result = commandBuffer.BeginCommandBuffer(beginInfo);
                 if (result != Result.Success)
                 {
                     MessageBox.Show("failed to begin recording command buffer!");
@@ -1106,10 +1047,6 @@ namespace VulkanEngineTestCore
 
         private void CreateSyncObjects()
         {
-            imageAvailableSemaphores = new Semaphore[MAX_FRAMES_IN_FLIGHT];
-            renderFinishedSemaphores = new Semaphore[MAX_FRAMES_IN_FLIGHT];
-            inFlightFences = new Fence[MAX_FRAMES_IN_FLIGHT];
-
             var semaphoreInfo = new SemaphoreCreateInfo();
             semaphoreInfo.SType = StructureType.SemaphoreCreateInfo;
 
@@ -1117,29 +1054,9 @@ namespace VulkanEngineTestCore
             fenceInfo.SType = StructureType.FenceCreateInfo;
             fenceInfo.Flags = (uint)FenceCreateFlagBits.SignaledBit;
 
-            for (int i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
-            {
-                var result = logicalDevice.CreateSemaphore(semaphoreInfo, null, out imageAvailableSemaphores[i]);
-                if (result != Result.Success)
-                {
-                    MessageBox.Show("failed to create synchronization objects for a frame!");
-                    throw new Exception();
-                }
-
-                result = logicalDevice.CreateSemaphore(semaphoreInfo, null, out renderFinishedSemaphores[i]);
-                if (result != Result.Success)
-                {
-                    MessageBox.Show("failed to create synchronization objects for a frame!");
-                    throw new Exception();
-                }
-
-                result = logicalDevice.CreateFence(fenceInfo, null, out inFlightFences[i]);
-                if (result != Result.Success)
-                {
-                    MessageBox.Show("failed to create synchronization objects for a frame!");
-                    throw new Exception();
-                }
-            }
+            imageAvailableSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
+            renderFinishedSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
+            inFlightFences = logicalDevice.CreateFences(fenceInfo, (uint)MAX_FRAMES_IN_FLIGHT);
         }
 
         ShaderModule CreateShaderModule(byte[] code)
@@ -1149,13 +1066,7 @@ namespace VulkanEngineTestCore
             createInfo.CodeSize = (ulong)code.Length;
             createInfo.PCode = code;
 
-            var result = logicalDevice.CreateShaderModule(createInfo, null, out var shaderModule);
-            if (result != Result.Success)
-            {
-                MessageBox.Show("failed to create shader module!");
-                throw new Exception();
-            }
-
+            var shaderModule = logicalDevice.CreateShaderModule(createInfo);
             createInfo.Dispose();
             return shaderModule;
         }
