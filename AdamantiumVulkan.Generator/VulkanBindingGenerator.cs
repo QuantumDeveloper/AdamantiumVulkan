@@ -72,7 +72,7 @@ namespace AdamantiumVulkan.Generator
             context.AddPreGeneratorPass(new FunctionToInstanceMethodAction(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.StdCall), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
-            context.AddPreGeneratorPass(new EnumItemsRenamePass(CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new EnumItemsRenamePass(CasePattern.PascalCase, "VkFormat"), ExecutionPassKind.PerTranslationUnit);
 
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function;

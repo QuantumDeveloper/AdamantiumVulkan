@@ -1073,14 +1073,14 @@ namespace VulkanEngineTestCore
 
         SurfaceFormatKHR ChooseSwapSurfaceFormat(SurfaceFormatKHR[] availableFormats)
         {
-            if (availableFormats.Length == 1 && availableFormats[0].Format == Format.Undefined)
+            if (availableFormats.Length == 1 && availableFormats[0].Format == Format.UNDEFINED)
             {
-                return new SurfaceFormatKHR() { Format = Format.B8g8r8a8Unorm, ColorSpace = ColorSpaceKHR.ColorspaceSrgbNonlinearKhr };
+                return new SurfaceFormatKHR() { Format = Format.B8G8R8A8_UNORM, ColorSpace = ColorSpaceKHR.ColorspaceSrgbNonlinearKhr };
             }
 
             foreach (var availableFormat in availableFormats)
             {
-                if (availableFormat.Format == Format.B8g8r8a8Unorm && availableFormat.ColorSpace == ColorSpaceKHR.ColorspaceSrgbNonlinearKhr)
+                if (availableFormat.Format == Format.B8G8R8A8_UNORM && availableFormat.ColorSpace == ColorSpaceKHR.ColorspaceSrgbNonlinearKhr)
                 {
                     return availableFormat;
                 }
@@ -1179,13 +1179,13 @@ namespace VulkanEngineTestCore
             switch (size)
             {
                 case 4:
-                    return Format.R32Sfloat;
+                    return Format.R32_SFLOAT;
                 case 8:
-                    return Format.R32g32Sfloat;
+                    return Format.R32G32_SFLOAT;
                 case 12:
-                    return Format.R32g32b32Sfloat;
+                    return Format.R32G32B32_SFLOAT;
                 case 16:
-                    return Format.R32g32b32a32Sfloat;
+                    return Format.R32G32B32A32_SFLOAT;
 
                 default:
                     throw new Exception($"size {size} is not supported");

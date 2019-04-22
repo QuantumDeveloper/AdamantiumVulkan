@@ -924,535 +924,535 @@ namespace AdamantiumVulkan.Core
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 569 Column: 14
     public enum Format : int
     {
-        Undefined = 0,
+        UNDEFINED = 0,
 
-        R4g4UnormPack8 = 1,
+        R4G4_UNORM_PACK8 = 1,
 
-        R4g4b4a4UnormPack16 = 2,
+        R4G4B4A4_UNORM_PACK16 = 2,
 
-        B4g4r4a4UnormPack16 = 3,
+        B4G4R4A4_UNORM_PACK16 = 3,
 
-        R5g6b5UnormPack16 = 4,
+        R5G6B5_UNORM_PACK16 = 4,
 
-        B5g6r5UnormPack16 = 5,
+        B5G6R5_UNORM_PACK16 = 5,
 
-        R5g5b5a1UnormPack16 = 6,
+        R5G5B5A1_UNORM_PACK16 = 6,
 
-        B5g5r5a1UnormPack16 = 7,
+        B5G5R5A1_UNORM_PACK16 = 7,
 
-        A1r5g5b5UnormPack16 = 8,
+        A1R5G5B5_UNORM_PACK16 = 8,
 
-        R8Unorm = 9,
+        R8_UNORM = 9,
 
-        R8Snorm = 10,
+        R8_SNORM = 10,
 
-        R8Uscaled = 11,
+        R8_USCALED = 11,
 
-        R8Sscaled = 12,
+        R8_SSCALED = 12,
 
-        R8Uint = 13,
+        R8_UINT = 13,
 
-        R8Sint = 14,
+        R8_SINT = 14,
 
-        R8Srgb = 15,
+        R8_SRGB = 15,
 
-        R8g8Unorm = 16,
+        R8G8_UNORM = 16,
 
-        R8g8Snorm = 17,
+        R8G8_SNORM = 17,
 
-        R8g8Uscaled = 18,
+        R8G8_USCALED = 18,
 
-        R8g8Sscaled = 19,
+        R8G8_SSCALED = 19,
 
-        R8g8Uint = 20,
+        R8G8_UINT = 20,
 
-        R8g8Sint = 21,
+        R8G8_SINT = 21,
 
-        R8g8Srgb = 22,
+        R8G8_SRGB = 22,
 
-        R8g8b8Unorm = 23,
+        R8G8B8_UNORM = 23,
 
-        R8g8b8Snorm = 24,
+        R8G8B8_SNORM = 24,
 
-        R8g8b8Uscaled = 25,
+        R8G8B8_USCALED = 25,
 
-        R8g8b8Sscaled = 26,
+        R8G8B8_SSCALED = 26,
 
-        R8g8b8Uint = 27,
+        R8G8B8_UINT = 27,
 
-        R8g8b8Sint = 28,
+        R8G8B8_SINT = 28,
 
-        R8g8b8Srgb = 29,
+        R8G8B8_SRGB = 29,
 
-        B8g8r8Unorm = 30,
+        B8G8R8_UNORM = 30,
 
-        B8g8r8Snorm = 31,
+        B8G8R8_SNORM = 31,
 
-        B8g8r8Uscaled = 32,
+        B8G8R8_USCALED = 32,
 
-        B8g8r8Sscaled = 33,
+        B8G8R8_SSCALED = 33,
 
-        B8g8r8Uint = 34,
+        B8G8R8_UINT = 34,
 
-        B8g8r8Sint = 35,
+        B8G8R8_SINT = 35,
 
-        B8g8r8Srgb = 36,
+        B8G8R8_SRGB = 36,
 
-        R8g8b8a8Unorm = 37,
+        R8G8B8A8_UNORM = 37,
 
-        R8g8b8a8Snorm = 38,
+        R8G8B8A8_SNORM = 38,
 
-        R8g8b8a8Uscaled = 39,
+        R8G8B8A8_USCALED = 39,
 
-        R8g8b8a8Sscaled = 40,
+        R8G8B8A8_SSCALED = 40,
 
-        R8g8b8a8Uint = 41,
+        R8G8B8A8_UINT = 41,
 
-        R8g8b8a8Sint = 42,
+        R8G8B8A8_SINT = 42,
 
-        R8g8b8a8Srgb = 43,
+        R8G8B8A8_SRGB = 43,
 
-        B8g8r8a8Unorm = 44,
+        B8G8R8A8_UNORM = 44,
 
-        B8g8r8a8Snorm = 45,
+        B8G8R8A8_SNORM = 45,
 
-        B8g8r8a8Uscaled = 46,
+        B8G8R8A8_USCALED = 46,
 
-        B8g8r8a8Sscaled = 47,
+        B8G8R8A8_SSCALED = 47,
 
-        B8g8r8a8Uint = 48,
+        B8G8R8A8_UINT = 48,
 
-        B8g8r8a8Sint = 49,
+        B8G8R8A8_SINT = 49,
 
-        B8g8r8a8Srgb = 50,
+        B8G8R8A8_SRGB = 50,
 
-        A8b8g8r8UnormPack32 = 51,
+        A8B8G8R8_UNORM_PACK32 = 51,
 
-        A8b8g8r8SnormPack32 = 52,
+        A8B8G8R8_SNORM_PACK32 = 52,
 
-        A8b8g8r8UscaledPack32 = 53,
+        A8B8G8R8_USCALED_PACK32 = 53,
 
-        A8b8g8r8SscaledPack32 = 54,
+        A8B8G8R8_SSCALED_PACK32 = 54,
 
-        A8b8g8r8UintPack32 = 55,
+        A8B8G8R8_UINT_PACK32 = 55,
 
-        A8b8g8r8SintPack32 = 56,
+        A8B8G8R8_SINT_PACK32 = 56,
 
-        A8b8g8r8SrgbPack32 = 57,
+        A8B8G8R8_SRGB_PACK32 = 57,
 
-        A2r10g10b10UnormPack32 = 58,
+        A2R10G10B10_UNORM_PACK32 = 58,
 
-        A2r10g10b10SnormPack32 = 59,
+        A2R10G10B10_SNORM_PACK32 = 59,
 
-        A2r10g10b10UscaledPack32 = 60,
+        A2R10G10B10_USCALED_PACK32 = 60,
 
-        A2r10g10b10SscaledPack32 = 61,
+        A2R10G10B10_SSCALED_PACK32 = 61,
 
-        A2r10g10b10UintPack32 = 62,
+        A2R10G10B10_UINT_PACK32 = 62,
 
-        A2r10g10b10SintPack32 = 63,
+        A2R10G10B10_SINT_PACK32 = 63,
 
-        A2b10g10r10UnormPack32 = 64,
+        A2B10G10R10_UNORM_PACK32 = 64,
 
-        A2b10g10r10SnormPack32 = 65,
+        A2B10G10R10_SNORM_PACK32 = 65,
 
-        A2b10g10r10UscaledPack32 = 66,
+        A2B10G10R10_USCALED_PACK32 = 66,
 
-        A2b10g10r10SscaledPack32 = 67,
+        A2B10G10R10_SSCALED_PACK32 = 67,
 
-        A2b10g10r10UintPack32 = 68,
+        A2B10G10R10_UINT_PACK32 = 68,
 
-        A2b10g10r10SintPack32 = 69,
+        A2B10G10R10_SINT_PACK32 = 69,
 
-        R16Unorm = 70,
+        R16_UNORM = 70,
 
-        R16Snorm = 71,
+        R16_SNORM = 71,
 
-        R16Uscaled = 72,
+        R16_USCALED = 72,
 
-        R16Sscaled = 73,
+        R16_SSCALED = 73,
 
-        R16Uint = 74,
+        R16_UINT = 74,
 
-        R16Sint = 75,
+        R16_SINT = 75,
 
-        R16Sfloat = 76,
+        R16_SFLOAT = 76,
 
-        R16g16Unorm = 77,
+        R16G16_UNORM = 77,
 
-        R16g16Snorm = 78,
+        R16G16_SNORM = 78,
 
-        R16g16Uscaled = 79,
+        R16G16_USCALED = 79,
 
-        R16g16Sscaled = 80,
+        R16G16_SSCALED = 80,
 
-        R16g16Uint = 81,
+        R16G16_UINT = 81,
 
-        R16g16Sint = 82,
+        R16G16_SINT = 82,
 
-        R16g16Sfloat = 83,
+        R16G16_SFLOAT = 83,
 
-        R16g16b16Unorm = 84,
+        R16G16B16_UNORM = 84,
 
-        R16g16b16Snorm = 85,
+        R16G16B16_SNORM = 85,
 
-        R16g16b16Uscaled = 86,
+        R16G16B16_USCALED = 86,
 
-        R16g16b16Sscaled = 87,
+        R16G16B16_SSCALED = 87,
 
-        R16g16b16Uint = 88,
+        R16G16B16_UINT = 88,
 
-        R16g16b16Sint = 89,
+        R16G16B16_SINT = 89,
 
-        R16g16b16Sfloat = 90,
+        R16G16B16_SFLOAT = 90,
 
-        R16g16b16a16Unorm = 91,
+        R16G16B16A16_UNORM = 91,
 
-        R16g16b16a16Snorm = 92,
+        R16G16B16A16_SNORM = 92,
 
-        R16g16b16a16Uscaled = 93,
+        R16G16B16A16_USCALED = 93,
 
-        R16g16b16a16Sscaled = 94,
+        R16G16B16A16_SSCALED = 94,
 
-        R16g16b16a16Uint = 95,
+        R16G16B16A16_UINT = 95,
 
-        R16g16b16a16Sint = 96,
+        R16G16B16A16_SINT = 96,
 
-        R16g16b16a16Sfloat = 97,
+        R16G16B16A16_SFLOAT = 97,
 
-        R32Uint = 98,
+        R32_UINT = 98,
 
-        R32Sint = 99,
+        R32_SINT = 99,
 
-        R32Sfloat = 100,
+        R32_SFLOAT = 100,
 
-        R32g32Uint = 101,
+        R32G32_UINT = 101,
 
-        R32g32Sint = 102,
+        R32G32_SINT = 102,
 
-        R32g32Sfloat = 103,
+        R32G32_SFLOAT = 103,
 
-        R32g32b32Uint = 104,
+        R32G32B32_UINT = 104,
 
-        R32g32b32Sint = 105,
+        R32G32B32_SINT = 105,
 
-        R32g32b32Sfloat = 106,
+        R32G32B32_SFLOAT = 106,
 
-        R32g32b32a32Uint = 107,
+        R32G32B32A32_UINT = 107,
 
-        R32g32b32a32Sint = 108,
+        R32G32B32A32_SINT = 108,
 
-        R32g32b32a32Sfloat = 109,
+        R32G32B32A32_SFLOAT = 109,
 
-        R64Uint = 110,
+        R64_UINT = 110,
 
-        R64Sint = 111,
+        R64_SINT = 111,
 
-        R64Sfloat = 112,
+        R64_SFLOAT = 112,
 
-        R64g64Uint = 113,
+        R64G64_UINT = 113,
 
-        R64g64Sint = 114,
+        R64G64_SINT = 114,
 
-        R64g64Sfloat = 115,
+        R64G64_SFLOAT = 115,
 
-        R64g64b64Uint = 116,
+        R64G64B64_UINT = 116,
 
-        R64g64b64Sint = 117,
+        R64G64B64_SINT = 117,
 
-        R64g64b64Sfloat = 118,
+        R64G64B64_SFLOAT = 118,
 
-        R64g64b64a64Uint = 119,
+        R64G64B64A64_UINT = 119,
 
-        R64g64b64a64Sint = 120,
+        R64G64B64A64_SINT = 120,
 
-        R64g64b64a64Sfloat = 121,
+        R64G64B64A64_SFLOAT = 121,
 
-        B10g11r11UfloatPack32 = 122,
+        B10G11R11_UFLOAT_PACK32 = 122,
 
-        E5b9g9r9UfloatPack32 = 123,
+        E5B9G9R9_UFLOAT_PACK32 = 123,
 
-        D16Unorm = 124,
+        D16_UNORM = 124,
 
-        X8D24UnormPack32 = 125,
+        X8_D24_UNORM_PACK32 = 125,
 
-        D32Sfloat = 126,
+        D32_SFLOAT = 126,
 
-        S8Uint = 127,
+        S8_UINT = 127,
 
-        D16UnormS8Uint = 128,
+        D16_UNORM_S8_UINT = 128,
 
-        D24UnormS8Uint = 129,
+        D24_UNORM_S8_UINT = 129,
 
-        D32SfloatS8Uint = 130,
+        D32_SFLOAT_S8_UINT = 130,
 
-        Bc1RgbUnormBlock = 131,
+        BC1_RGB_UNORM_BLOCK = 131,
 
-        Bc1RgbSrgbBlock = 132,
+        BC1_RGB_SRGB_BLOCK = 132,
 
-        Bc1RgbaUnormBlock = 133,
+        BC1_RGBA_UNORM_BLOCK = 133,
 
-        Bc1RgbaSrgbBlock = 134,
+        BC1_RGBA_SRGB_BLOCK = 134,
 
-        Bc2UnormBlock = 135,
+        BC2_UNORM_BLOCK = 135,
 
-        Bc2SrgbBlock = 136,
+        BC2_SRGB_BLOCK = 136,
 
-        Bc3UnormBlock = 137,
+        BC3_UNORM_BLOCK = 137,
 
-        Bc3SrgbBlock = 138,
+        BC3_SRGB_BLOCK = 138,
 
-        Bc4UnormBlock = 139,
+        BC4_UNORM_BLOCK = 139,
 
-        Bc4SnormBlock = 140,
+        BC4_SNORM_BLOCK = 140,
 
-        Bc5UnormBlock = 141,
+        BC5_UNORM_BLOCK = 141,
 
-        Bc5SnormBlock = 142,
+        BC5_SNORM_BLOCK = 142,
 
-        Bc6hUfloatBlock = 143,
+        BC6H_UFLOAT_BLOCK = 143,
 
-        Bc6hSfloatBlock = 144,
+        BC6H_SFLOAT_BLOCK = 144,
 
-        Bc7UnormBlock = 145,
+        BC7_UNORM_BLOCK = 145,
 
-        Bc7SrgbBlock = 146,
+        BC7_SRGB_BLOCK = 146,
 
-        Etc2R8g8b8UnormBlock = 147,
+        ETC2_R8G8B8_UNORM_BLOCK = 147,
 
-        Etc2R8g8b8SrgbBlock = 148,
+        ETC2_R8G8B8_SRGB_BLOCK = 148,
 
-        Etc2R8g8b8a1UnormBlock = 149,
+        ETC2_R8G8B8A1_UNORM_BLOCK = 149,
 
-        Etc2R8g8b8a1SrgbBlock = 150,
+        ETC2_R8G8B8A1_SRGB_BLOCK = 150,
 
-        Etc2R8g8b8a8UnormBlock = 151,
+        ETC2_R8G8B8A8_UNORM_BLOCK = 151,
 
-        Etc2R8g8b8a8SrgbBlock = 152,
+        ETC2_R8G8B8A8_SRGB_BLOCK = 152,
 
-        EacR11UnormBlock = 153,
+        EAC_R11_UNORM_BLOCK = 153,
 
-        EacR11SnormBlock = 154,
+        EAC_R11_SNORM_BLOCK = 154,
 
-        EacR11g11UnormBlock = 155,
+        EAC_R11G11_UNORM_BLOCK = 155,
 
-        EacR11g11SnormBlock = 156,
+        EAC_R11G11_SNORM_BLOCK = 156,
 
-        Astc4x4UnormBlock = 157,
+        ASTC_4x4_UNORM_BLOCK = 157,
 
-        Astc4x4SrgbBlock = 158,
+        ASTC_4x4_SRGB_BLOCK = 158,
 
-        Astc5x4UnormBlock = 159,
+        ASTC_5x4_UNORM_BLOCK = 159,
 
-        Astc5x4SrgbBlock = 160,
+        ASTC_5x4_SRGB_BLOCK = 160,
 
-        Astc5x5UnormBlock = 161,
+        ASTC_5x5_UNORM_BLOCK = 161,
 
-        Astc5x5SrgbBlock = 162,
+        ASTC_5x5_SRGB_BLOCK = 162,
 
-        Astc6x5UnormBlock = 163,
+        ASTC_6x5_UNORM_BLOCK = 163,
 
-        Astc6x5SrgbBlock = 164,
+        ASTC_6x5_SRGB_BLOCK = 164,
 
-        Astc6x6UnormBlock = 165,
+        ASTC_6x6_UNORM_BLOCK = 165,
 
-        Astc6x6SrgbBlock = 166,
+        ASTC_6x6_SRGB_BLOCK = 166,
 
-        Astc8x5UnormBlock = 167,
+        ASTC_8x5_UNORM_BLOCK = 167,
 
-        Astc8x5SrgbBlock = 168,
+        ASTC_8x5_SRGB_BLOCK = 168,
 
-        Astc8x6UnormBlock = 169,
+        ASTC_8x6_UNORM_BLOCK = 169,
 
-        Astc8x6SrgbBlock = 170,
+        ASTC_8x6_SRGB_BLOCK = 170,
 
-        Astc8x8UnormBlock = 171,
+        ASTC_8x8_UNORM_BLOCK = 171,
 
-        Astc8x8SrgbBlock = 172,
+        ASTC_8x8_SRGB_BLOCK = 172,
 
-        Astc10x5UnormBlock = 173,
+        ASTC_10x5_UNORM_BLOCK = 173,
 
-        Astc10x5SrgbBlock = 174,
+        ASTC_10x5_SRGB_BLOCK = 174,
 
-        Astc10x6UnormBlock = 175,
+        ASTC_10x6_UNORM_BLOCK = 175,
 
-        Astc10x6SrgbBlock = 176,
+        ASTC_10x6_SRGB_BLOCK = 176,
 
-        Astc10x8UnormBlock = 177,
+        ASTC_10x8_UNORM_BLOCK = 177,
 
-        Astc10x8SrgbBlock = 178,
+        ASTC_10x8_SRGB_BLOCK = 178,
 
-        Astc10x10UnormBlock = 179,
+        ASTC_10x10_UNORM_BLOCK = 179,
 
-        Astc10x10SrgbBlock = 180,
+        ASTC_10x10_SRGB_BLOCK = 180,
 
-        Astc12x10UnormBlock = 181,
+        ASTC_12x10_UNORM_BLOCK = 181,
 
-        Astc12x10SrgbBlock = 182,
+        ASTC_12x10_SRGB_BLOCK = 182,
 
-        Astc12x12UnormBlock = 183,
+        ASTC_12x12_UNORM_BLOCK = 183,
 
-        Astc12x12SrgbBlock = 184,
+        ASTC_12x12_SRGB_BLOCK = 184,
 
-        G8b8g8r8422Unorm = 1000156000,
+        G8B8G8R8_422_UNORM = 1000156000,
 
-        B8g8r8g8422Unorm = 1000156001,
+        B8G8R8G8_422_UNORM = 1000156001,
 
-        G8B8R83plane420Unorm = 1000156002,
+        G8_B8_R8_3PLANE_420_UNORM = 1000156002,
 
-        G8B8r82plane420Unorm = 1000156003,
+        G8_B8R8_2PLANE_420_UNORM = 1000156003,
 
-        G8B8R83plane422Unorm = 1000156004,
+        G8_B8_R8_3PLANE_422_UNORM = 1000156004,
 
-        G8B8r82plane422Unorm = 1000156005,
+        G8_B8R8_2PLANE_422_UNORM = 1000156005,
 
-        G8B8R83plane444Unorm = 1000156006,
+        G8_B8_R8_3PLANE_444_UNORM = 1000156006,
 
-        R10x6UnormPack16 = 1000156007,
+        R10X6_UNORM_PACK16 = 1000156007,
 
-        R10x6g10x6Unorm2pack16 = 1000156008,
+        R10X6G10X6_UNORM_2PACK16 = 1000156008,
 
-        R10x6g10x6b10x6a10x6Unorm4pack16 = 1000156009,
+        R10X6G10X6B10X6A10X6_UNORM_4PACK16 = 1000156009,
 
-        G10x6b10x6g10x6r10x6422Unorm4pack16 = 1000156010,
+        G10X6B10X6G10X6R10X6_422_UNORM_4PACK16 = 1000156010,
 
-        B10x6g10x6r10x6g10x6422Unorm4pack16 = 1000156011,
+        B10X6G10X6R10X6G10X6_422_UNORM_4PACK16 = 1000156011,
 
-        G10x6B10x6R10x63plane420Unorm3pack16 = 1000156012,
+        G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16 = 1000156012,
 
-        G10x6B10x6r10x62plane420Unorm3pack16 = 1000156013,
+        G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16 = 1000156013,
 
-        G10x6B10x6R10x63plane422Unorm3pack16 = 1000156014,
+        G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16 = 1000156014,
 
-        G10x6B10x6r10x62plane422Unorm3pack16 = 1000156015,
+        G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 = 1000156015,
 
-        G10x6B10x6R10x63plane444Unorm3pack16 = 1000156016,
+        G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16 = 1000156016,
 
-        R12x4UnormPack16 = 1000156017,
+        R12X4_UNORM_PACK16 = 1000156017,
 
-        R12x4g12x4Unorm2pack16 = 1000156018,
+        R12X4G12X4_UNORM_2PACK16 = 1000156018,
 
-        R12x4g12x4b12x4a12x4Unorm4pack16 = 1000156019,
+        R12X4G12X4B12X4A12X4_UNORM_4PACK16 = 1000156019,
 
-        G12x4b12x4g12x4r12x4422Unorm4pack16 = 1000156020,
+        G12X4B12X4G12X4R12X4_422_UNORM_4PACK16 = 1000156020,
 
-        B12x4g12x4r12x4g12x4422Unorm4pack16 = 1000156021,
+        B12X4G12X4R12X4G12X4_422_UNORM_4PACK16 = 1000156021,
 
-        G12x4B12x4R12x43plane420Unorm3pack16 = 1000156022,
+        G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16 = 1000156022,
 
-        G12x4B12x4r12x42plane420Unorm3pack16 = 1000156023,
+        G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16 = 1000156023,
 
-        G12x4B12x4R12x43plane422Unorm3pack16 = 1000156024,
+        G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16 = 1000156024,
 
-        G12x4B12x4r12x42plane422Unorm3pack16 = 1000156025,
+        G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16 = 1000156025,
 
-        G12x4B12x4R12x43plane444Unorm3pack16 = 1000156026,
+        G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16 = 1000156026,
 
-        G16b16g16r16422Unorm = 1000156027,
+        G16B16G16R16_422_UNORM = 1000156027,
 
-        B16g16r16g16422Unorm = 1000156028,
+        B16G16R16G16_422_UNORM = 1000156028,
 
-        G16B16R163plane420Unorm = 1000156029,
+        G16_B16_R16_3PLANE_420_UNORM = 1000156029,
 
-        G16B16r162plane420Unorm = 1000156030,
+        G16_B16R16_2PLANE_420_UNORM = 1000156030,
 
-        G16B16R163plane422Unorm = 1000156031,
+        G16_B16_R16_3PLANE_422_UNORM = 1000156031,
 
-        G16B16r162plane422Unorm = 1000156032,
+        G16_B16R16_2PLANE_422_UNORM = 1000156032,
 
-        G16B16R163plane444Unorm = 1000156033,
+        G16_B16_R16_3PLANE_444_UNORM = 1000156033,
 
-        Pvrtc12bppUnormBlockImg = 1000054000,
+        PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
 
-        Pvrtc14bppUnormBlockImg = 1000054001,
+        PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,
 
-        Pvrtc22bppUnormBlockImg = 1000054002,
+        PVRTC2_2BPP_UNORM_BLOCK_IMG = 1000054002,
 
-        Pvrtc24bppUnormBlockImg = 1000054003,
+        PVRTC2_4BPP_UNORM_BLOCK_IMG = 1000054003,
 
-        Pvrtc12bppSrgbBlockImg = 1000054004,
+        PVRTC1_2BPP_SRGB_BLOCK_IMG = 1000054004,
 
-        Pvrtc14bppSrgbBlockImg = 1000054005,
+        PVRTC1_4BPP_SRGB_BLOCK_IMG = 1000054005,
 
-        Pvrtc22bppSrgbBlockImg = 1000054006,
+        PVRTC2_2BPP_SRGB_BLOCK_IMG = 1000054006,
 
-        Pvrtc24bppSrgbBlockImg = 1000054007,
+        PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
 
-        G8b8g8r8422UnormKhr = 1000156000,
+        G8B8G8R8_422_UNORM_KHR = 1000156000,
 
-        B8g8r8g8422UnormKhr = 1000156001,
+        B8G8R8G8_422_UNORM_KHR = 1000156001,
 
-        G8B8R83plane420UnormKhr = 1000156002,
+        G8_B8_R8_3PLANE_420_UNORM_KHR = 1000156002,
 
-        G8B8r82plane420UnormKhr = 1000156003,
+        G8_B8R8_2PLANE_420_UNORM_KHR = 1000156003,
 
-        G8B8R83plane422UnormKhr = 1000156004,
+        G8_B8_R8_3PLANE_422_UNORM_KHR = 1000156004,
 
-        G8B8r82plane422UnormKhr = 1000156005,
+        G8_B8R8_2PLANE_422_UNORM_KHR = 1000156005,
 
-        G8B8R83plane444UnormKhr = 1000156006,
+        G8_B8_R8_3PLANE_444_UNORM_KHR = 1000156006,
 
-        R10x6UnormPack16Khr = 1000156007,
+        R10X6_UNORM_PACK16_KHR = 1000156007,
 
-        R10x6g10x6Unorm2pack16Khr = 1000156008,
+        R10X6G10X6_UNORM_2PACK16_KHR = 1000156008,
 
-        R10x6g10x6b10x6a10x6Unorm4pack16Khr = 1000156009,
+        R10X6G10X6B10X6A10X6_UNORM_4PACK16_KHR = 1000156009,
 
-        G10x6b10x6g10x6r10x6422Unorm4pack16Khr = 1000156010,
+        G10X6B10X6G10X6R10X6_422_UNORM_4PACK16_KHR = 1000156010,
 
-        B10x6g10x6r10x6g10x6422Unorm4pack16Khr = 1000156011,
+        B10X6G10X6R10X6G10X6_422_UNORM_4PACK16_KHR = 1000156011,
 
-        G10x6B10x6R10x63plane420Unorm3pack16Khr = 1000156012,
+        G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR = 1000156012,
 
-        G10x6B10x6r10x62plane420Unorm3pack16Khr = 1000156013,
+        G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16_KHR = 1000156013,
 
-        G10x6B10x6R10x63plane422Unorm3pack16Khr = 1000156014,
+        G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16_KHR = 1000156014,
 
-        G10x6B10x6r10x62plane422Unorm3pack16Khr = 1000156015,
+        G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16_KHR = 1000156015,
 
-        G10x6B10x6R10x63plane444Unorm3pack16Khr = 1000156016,
+        G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16_KHR = 1000156016,
 
-        R12x4UnormPack16Khr = 1000156017,
+        R12X4_UNORM_PACK16_KHR = 1000156017,
 
-        R12x4g12x4Unorm2pack16Khr = 1000156018,
+        R12X4G12X4_UNORM_2PACK16_KHR = 1000156018,
 
-        R12x4g12x4b12x4a12x4Unorm4pack16Khr = 1000156019,
+        R12X4G12X4B12X4A12X4_UNORM_4PACK16_KHR = 1000156019,
 
-        G12x4b12x4g12x4r12x4422Unorm4pack16Khr = 1000156020,
+        G12X4B12X4G12X4R12X4_422_UNORM_4PACK16_KHR = 1000156020,
 
-        B12x4g12x4r12x4g12x4422Unorm4pack16Khr = 1000156021,
+        B12X4G12X4R12X4G12X4_422_UNORM_4PACK16_KHR = 1000156021,
 
-        G12x4B12x4R12x43plane420Unorm3pack16Khr = 1000156022,
+        G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16_KHR = 1000156022,
 
-        G12x4B12x4r12x42plane420Unorm3pack16Khr = 1000156023,
+        G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16_KHR = 1000156023,
 
-        G12x4B12x4R12x43plane422Unorm3pack16Khr = 1000156024,
+        G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16_KHR = 1000156024,
 
-        G12x4B12x4r12x42plane422Unorm3pack16Khr = 1000156025,
+        G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16_KHR = 1000156025,
 
-        G12x4B12x4R12x43plane444Unorm3pack16Khr = 1000156026,
+        G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16_KHR = 1000156026,
 
-        G16b16g16r16422UnormKhr = 1000156027,
+        G16B16G16R16_422_UNORM_KHR = 1000156027,
 
-        B16g16r16g16422UnormKhr = 1000156028,
+        B16G16R16G16_422_UNORM_KHR = 1000156028,
 
-        G16B16R163plane420UnormKhr = 1000156029,
+        G16_B16_R16_3PLANE_420_UNORM_KHR = 1000156029,
 
-        G16B16r162plane420UnormKhr = 1000156030,
+        G16_B16R16_2PLANE_420_UNORM_KHR = 1000156030,
 
-        G16B16R163plane422UnormKhr = 1000156031,
+        G16_B16_R16_3PLANE_422_UNORM_KHR = 1000156031,
 
-        G16B16r162plane422UnormKhr = 1000156032,
+        G16_B16R16_2PLANE_422_UNORM_KHR = 1000156032,
 
-        G16B16R163plane444UnormKhr = 1000156033,
+        G16_B16_R16_3PLANE_444_UNORM_KHR = 1000156033,
 
-        BeginRange = 0,
+        BEGIN_RANGE = 0,
 
-        EndRange = 184,
+        END_RANGE = 184,
 
-        RangeSize = 185,
+        RANGE_SIZE = 185,
 
-        MaxEnum = 2147483647,
+        MAX_ENUM = 2147483647,
 
     }
 
