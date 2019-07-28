@@ -124,7 +124,17 @@ namespace AdamantiumVulkan
         bool isInitialized;
         GCHandle reference;
 
-        public IntPtr Handle => reference.AddrOfPinnedObject();
+        public IntPtr Handle
+        {
+            get
+            {
+                if (reference.IsAllocated)
+                {
+                    return reference.AddrOfPinnedObject();
+                }
+                return IntPtr.Zero;
+            }
+        }
 
         public GCHandleReference(object obj)
         {
@@ -186,7 +196,17 @@ namespace AdamantiumVulkan
 
         GCHandle reference;
 
-        public IntPtr Handle => reference.AddrOfPinnedObject();
+        public IntPtr Handle
+        {
+            get
+            {
+                if (reference.IsAllocated)
+                {
+                    return reference.AddrOfPinnedObject();
+                }
+                return IntPtr.Zero;
+            }
+        }
 
         public StringArrayReference(in string[] strArray, bool isUnicode)
         {

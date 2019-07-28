@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.Generator
     {
         private Module vkMainModule;
         private Module shaderModule;
-        public override void Setup(BindingOptions options)
+        public override void OnSetup(BindingOptions options)
         {
             string library = "vulkan-1";
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
@@ -42,6 +42,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
             vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
             vkMainModule.WrapInteropObjects = true;
+            vkMainModule.GenerateOverloadsForArrayParams = true;
             vkMainModule.OutputPath = mainPath;
 
             shaderModule = options.AddModule(library);
@@ -59,6 +60,7 @@ namespace AdamantiumVulkan.Generator
             shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
             shaderModule.SuppressUnmanagedCodeSecurity = false;
             shaderModule.WrapInteropObjects = true;
+            shaderModule.GenerateOverloadsForArrayParams = true;
             shaderModule.OutputPath = shadersPath;
 
             Module.UtilsOutputName = "Utils";
@@ -66,18 +68,26 @@ namespace AdamantiumVulkan.Generator
             Module.GenerateUtilsForModule = vkMainModule;
         }
 
-        public override void SetupPostProcessing(ProcessingContext context)
+        public override void OnSetupPostProcessing(ProcessingContext context)
         {
             AddFunctionsToFix(context);
+            foreach (var module in context.Options.Modules)
+            {
+                if (module.GenerateOverloadsForArrayParams)
+                {
+                    context.AddPreGeneratorPass(new GenerateFunctionOverloadsPass(), ExecutionPassKind.PerTranslationUnit, module);
+                }
+            }
             context.AddPreGeneratorPass(new FunctionToInstanceMethodAction(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.StdCall), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsRenamePass(CasePattern.PascalCase, "VkFormat"), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new EnumItemsExcludePass(ExcludeCheck.StartsWithIgnoreCase, "BeginRange", "EndRange"), ExecutionPassKind.PerTranslationUnit);
 
             var renameTargets = RenameTargets.Any;
-            renameTargets &= ~RenameTargets.Function;
+            renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct;
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new PrepareStructsBeforeWrappingPass(null), ExecutionPassKind.PerTranslationUnit);
 
             var disposableList = new List<DisposableExtension>();
             disposableList.Add(new DisposableExtension() { Name = "Instance", DisposableContent = "DestroyInstance();" });
@@ -110,6 +120,13 @@ namespace AdamantiumVulkan.Generator
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_EXTERNAL", CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_FOREIGN_EXT", CreateApiVersion());
             context.AddPreGeneratorPass(macroAction, ExecutionPassKind.PerTranslationUnit);
+        }
+
+        public override void OnSetupComplete(ProcessingContext context)
+        {
+            var renameTargets = RenameTargets.Any;
+            renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
+            context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit);
         }
 
         private MacroFunction CreateMakeVersionFunction()
@@ -222,6 +239,7 @@ namespace AdamantiumVulkan.Generator
                 WithParameterType("VkAllocationCallbacks").
                 TreatAsPointerType().
                 SetNullable(true).
+                SetDelegateNullable(true).
                 SetParameterKind(ParameterKind.Readonly);
 
             api.Functions("vkDestroyInstance", "vkDestroyDevice").WithParameterName("pAllocator").TreatAsIs().SetDefaultValue("null");
@@ -417,6 +435,22 @@ namespace AdamantiumVulkan.Generator
                 .TreatAsPointerToArray(new CustomType("VkPipeline"), true, "createInfoCount")
                 .SetParameterKind(ParameterKind.Out);
 
+            api.Function("vkCmdPipelineBarrier").
+                WithParameterName("pMemoryBarriers").
+                TreatAsPointerToArray(new CustomType("vkMemoryBarrier")).
+                SetParameterKind(ParameterKind.In).
+                WithParameterName("pBufferMemoryBarriers").
+                TreatAsPointerToArray(new CustomType("vkBufferMemoryBarrier")).
+                SetParameterKind(ParameterKind.In).
+                WithParameterName("pImageMemoryBarriers").
+                TreatAsPointerToArray(new CustomType("vkImageMemoryBarrier")).
+                SetParameterKind(ParameterKind.In);
+
+            api.Function("vkAllocateDescriptorSets").
+                WithParameterName("pDescriptorSets").
+                TreatAsPointerToArray(new CustomType("VkDescriptorSet_T")).
+                SetParameterKind(ParameterKind.InOut);
+
 
             api.Classes(classesList).
                 AddProperty("NativePointer").
@@ -431,8 +465,13 @@ namespace AdamantiumVulkan.Generator
                 .WithField("pSignalSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "signalSemaphoreCount")
                 .WithField("pWaitDstStageMask").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32));
 
-            api.Class("VkPresentInfoKHR").WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
-                .WithField("pSwapchains").TreatAsPointerToArray(new CustomType("VkSwapchainKHR"), true, "swapchainCount");
+            api.Class("VkPresentInfoKHR")
+                .WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
+                .WithField("pSwapchains").TreatAsPointerToArray(new CustomType("VkSwapchainKHR"), true, "swapchainCount")
+                .WithField("pImageIndices")
+                .TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "swapchainCount")
+                .WithField("pResults").
+                TreatAsPointerToArray(new CustomType("VkResult"), true, "swapchainCount");
 
             api.Class("VkShaderModuleCreateInfo").WithField("pCode").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte), true, "codeSize");
 
@@ -455,6 +494,40 @@ namespace AdamantiumVulkan.Generator
             api.Class("VkSubmitInfo")
                 .WithField("pCommandBuffers")
                 .TreatAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
+
+            api.Class("VkPipelineDynamicStateCreateInfo").
+                WithField("pDynamicStates").
+                TreatAsPointerToArray(new CustomType("VkDynamicState"), true, "dynamicStateCount");
+
+            api.Class("VkImageFormatListCreateInfoKHR").
+                WithField("pViewFormats").
+                TreatAsPointerToArray(new CustomType("VkFormat"), true, "viewFormatCount");
+
+            api.Class("VkValidationFlagsEXT")
+                .WithField("pDisabledValidationChecks").
+                TreatAsPointerToArray(new CustomType("VkValidationCheckEXT"), true, "disabledValidationCheckCount");
+
+            api.Class("VkObjectTableCreateInfoNVX")
+                .WithField("pObjectEntryTypes").
+                TreatAsPointerToArray(new CustomType("VkObjectEntryTypeNVX"), true, "objectCount")
+                .WithField("pObjectEntryCounts").
+                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount")
+                .WithField("pObjectEntryUsageFlags").
+                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount");
+
+            api.Class("VkShadingRatePaletteNV")
+                .WithField("pShadingRatePaletteEntries").
+                TreatAsPointerToArray(new CustomType("VkShadingRatePaletteEntryNV"), true, "shadingRatePaletteEntryCount");
+
+            api.Class("VkValidationFeaturesEXT")
+                .WithField("pEnabledValidationFeatures").
+                TreatAsPointerToArray(new CustomType("VkValidationFeatureEnableEXT"), true, "enabledValidationFeatureCount")
+                .WithField("pDisabledValidationFeatures").
+                TreatAsPointerToArray(new CustomType("VkValidationFeatureDisableEXT"), true, "disabledValidationFeatureCount");
+
+            api.Class("VkDescriptorSetAllocateInfo").
+                WithField("pSetLayouts").
+                TreatAsPointerToArray(new CustomType("VkDescriptorSetLayout"), true, "descriptorSetCount");
 
             var fixingFunctionParameters = new FixIncorrectParametersPass(api);
             ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

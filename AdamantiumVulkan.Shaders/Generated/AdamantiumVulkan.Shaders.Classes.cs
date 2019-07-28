@@ -29,6 +29,46 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
+        /// Takes an assembly string of the format defined in the SPIRV-Tools project (https://github.com/KhronosGroup/SPIRV-Tools/blob/master/syntax.md), assembles it into SPIR-V binary and a shaderc_compilation_result will be returned to hold the results. The assembling will pick options suitable for assembling specified in the additional_options parameter. May be safely called from multiple threads without explicit synchronization. If there was failure in allocating the compiler object, null will be returned.
+        ///</summary>
+        public ShadercCompilationResult ShadercAssembleIntoSpv(string source_assembly, ulong source_assembly_size, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_assemble_into_spv(arg0, source_assembly, source_assembly_size, arg1);
+        }
+
+        ///<summary>
+        /// Like shaderc_compile_into_spv, but the result contains preprocessed source code instead of a SPIR-V binary module
+        ///</summary>
+        public ShadercCompilationResult ShadercCompileIntoPreprocessedText(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_preprocessed_text(arg0, source_text, source_text_size, shader_kind, input_file_name, entry_point_name, arg1);
+        }
+
+        ///<summary>
+        /// Takes a GLSL source string and the associated shader kind, input file name, compiles it according to the given additional_options. If the shader kind is not set to a specified kind, but shaderc_glslc_infer_from_source, the compiler will try to deduce the shader kind from the source string and a failure in deducing will generate an error. Currently only #pragma annotation is supported. If the shader kind is set to one of the default shader kinds, the compiler will fall back to the default shader kind in case it failed to deduce the shader kind from source string. The input_file_name is a null-termintated string. It is used as a tag to identify the source string in cases like emitting error messages. It doesn't have to be a 'file name'. The source string will be compiled into SPIR-V binary and a shaderc_compilation_result will be returned to hold the results. The entry_point_name null-terminated string defines the name of the entry point to associate with this GLSL source. If the additional_options parameter is not null, then the compilation is modified by any options present. May be safely called from multiple threads without explicit synchronization. If there was failure in allocating the compiler object, null will be returned.
+        ///</summary>
+        public ShadercCompilationResult ShadercCompileIntoSpv(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_spv(arg0, source_text, source_text_size, shader_kind, input_file_name, entry_point_name, arg1);
+        }
+
+        ///<summary>
+        /// Like shaderc_compile_into_spv, but the result contains SPIR-V assembly text instead of a SPIR-V binary module. The SPIR-V assembly syntax is as defined by the SPIRV-Tools open source project.
+        ///</summary>
+        public ShadercCompilationResult ShadercCompileIntoSpvAssembly(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_spv_assembly(arg0, source_text, source_text_size, shader_kind, input_file_name, entry_point_name, arg1);
+        }
+
+        ///<summary>
         /// Releases the resources held by the shaderc_compiler_t. After this call it is invalid to make any future calls to functions involving this shaderc_compiler_t.
         ///</summary>
         public void ShadercCompilerRelease()
@@ -37,49 +77,9 @@ namespace AdamantiumVulkan.Shaders
             AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compiler_release(arg0);
         }
 
-        ///<summary>
-        /// Takes a GLSL source string and the associated shader kind, input file name, compiles it according to the given additional_options. If the shader kind is not set to a specified kind, but shaderc_glslc_infer_from_source, the compiler will try to deduce the shader kind from the source string and a failure in deducing will generate an error. Currently only #pragma annotation is supported. If the shader kind is set to one of the default shader kinds, the compiler will fall back to the default shader kind in case it failed to deduce the shader kind from source string. The input_file_name is a null-termintated string. It is used as a tag to identify the source string in cases like emitting error messages. It doesn't have to be a 'file name'. The source string will be compiled into SPIR-V binary and a shaderc_compilation_result will be returned to hold the results. The entry_point_name null-terminated string defines the name of the entry point to associate with this GLSL source. If the additional_options parameter is not null, then the compilation is modified by any options present. May be safely called from multiple threads without explicit synchronization. If there was failure in allocating the compiler object, null will be returned.
-        ///</summary>
-        public ShadercCompilationResultT ShadercCompileIntoSpv(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, ShadercCompileOptionsT additional_options)
-        {
-            var arg0 = this;
-            var arg6 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_spv(arg0, source_text, source_text_size, shader_kind, input_file_name, entry_point_name, arg6);
-        }
-
-        ///<summary>
-        /// Like shaderc_compile_into_spv, but the result contains SPIR-V assembly text instead of a SPIR-V binary module. The SPIR-V assembly syntax is as defined by the SPIRV-Tools open source project.
-        ///</summary>
-        public ShadercCompilationResultT ShadercCompileIntoSpvAssembly(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, ShadercCompileOptionsT additional_options)
-        {
-            var arg0 = this;
-            var arg6 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_spv_assembly(arg0, source_text, source_text_size, shader_kind, input_file_name, entry_point_name, arg6);
-        }
-
-        ///<summary>
-        /// Like shaderc_compile_into_spv, but the result contains preprocessed source code instead of a SPIR-V binary module
-        ///</summary>
-        public ShadercCompilationResultT ShadercCompileIntoPreprocessedText(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, ShadercCompileOptionsT additional_options)
-        {
-            var arg0 = this;
-            var arg6 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_preprocessed_text(arg0, source_text, source_text_size, shader_kind, input_file_name, entry_point_name, arg6);
-        }
-
-        ///<summary>
-        /// Takes an assembly string of the format defined in the SPIRV-Tools project (https://github.com/KhronosGroup/SPIRV-Tools/blob/master/syntax.md), assembles it into SPIR-V binary and a shaderc_compilation_result will be returned to hold the results. The assembling will pick options suitable for assembling specified in the additional_options parameter. May be safely called from multiple threads without explicit synchronization. If there was failure in allocating the compiler object, null will be returned.
-        ///</summary>
-        public ShadercCompilationResultT ShadercAssembleIntoSpv(string source_assembly, ulong source_assembly_size, ShadercCompileOptionsT additional_options)
-        {
-            var arg0 = this;
-            var arg3 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_assemble_into_spv(arg0, source_assembly, source_assembly_size, arg3);
-        }
-
         public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercCompiler(ShadercCompilerT s)
         {
-            return s.__Instance;
+            return s?.__Instance ?? new AdamantiumVulkan.Shaders.Interop.ShadercCompiler();
         }
 
         public static implicit operator ShadercCompilerT(AdamantiumVulkan.Shaders.Interop.ShadercCompiler s)
@@ -107,9 +107,18 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
+        /// Adds a predefined macro to the compilation options. This has the same effect as passing -Dname=value to the command-line compiler. If value is NULL, it has the same effect as passing -Dname to the command-line compiler. If a macro definition with the same name has previously been added, the value is replaced with the new value. The macro name and value are passed in with char pointers, which point to their data, and the lengths of their data. The strings that the name and value pointers point to must remain valid for the duration of the call, but can be modified or deleted after this function has returned. In case of adding a valueless macro, the value argument should be a null pointer or the value_length should be 0u.
+        ///</summary>
+        public void ShadercCompileOptionsAddMacroDefinition(string name, ulong name_length, string value, ulong value_length)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_add_macro_definition(arg0, name, name_length, value, value_length);
+        }
+
+        ///<summary>
         /// Returns a copy of the given shaderc_compile_options_t. If NULL is passed as the parameter the call is the same as shaderc_compile_options_init.
         ///</summary>
-        public ShadercCompileOptionsT ShadercCompileOptionsClone()
+        public ShadercCompileOptions ShadercCompileOptionsClone()
         {
             var arg0 = this;
             return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_clone(arg0);
@@ -125,39 +134,39 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
-        /// Adds a predefined macro to the compilation options. This has the same effect as passing -Dname=value to the command-line compiler. If value is NULL, it has the same effect as passing -Dname to the command-line compiler. If a macro definition with the same name has previously been added, the value is replaced with the new value. The macro name and value are passed in with char pointers, which point to their data, and the lengths of their data. The strings that the name and value pointers point to must remain valid for the duration of the call, but can be modified or deleted after this function has returned. In case of adding a valueless macro, the value argument should be a null pointer or the value_length should be 0u.
+        /// Sets whether the compiler should automatically assign bindings to uniforms that aren't already explicitly bound in the shader source.
         ///</summary>
-        public void ShadercCompileOptionsAddMacroDefinition(string name, ulong name_length, string value, ulong value_length)
+        public void ShadercCompileOptionsSetAutoBindUniforms(byte auto_bind)
         {
             var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_add_macro_definition(arg0, name, name_length, value, value_length);
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_auto_bind_uniforms(arg0, auto_bind);
         }
 
         ///<summary>
-        /// Sets the source language. The default is GLSL.
+        /// Sets whether the compiler should automatically assign locations to uniform variables that don't have explicit locations in the shader source.
         ///</summary>
-        public void ShadercCompileOptionsSetSourceLanguage(ShadercSourceLanguage lang)
+        public void ShadercCompileOptionsSetAutoMapLocations(byte auto_map)
         {
             var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_source_language(arg0, lang);
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_auto_map_locations(arg0, auto_map);
         }
 
         ///<summary>
-        /// Sets the compiler mode to generate debug information in the output.
+        /// Sets the base binding number used for for a uniform resource type when automatically assigning bindings. For GLSL compilation, sets the lowest automatically assigned number. For HLSL compilation, the regsiter number assigned to the resource is added to this specified base.
         ///</summary>
-        public void ShadercCompileOptionsSetGenerateDebugInfo()
+        public void ShadercCompileOptionsSetBindingBase(ShadercUniformKind kind, uint @base)
         {
             var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_generate_debug_info(arg0);
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_binding_base(arg0, kind, @base);
         }
 
         ///<summary>
-        /// Sets the compiler optimization level to the given level. Only the last one takes effect if multiple calls of this function exist.
+        /// Like shaderc_compile_options_set_binding_base, but only takes effect when compiling a given shader stage. The stage is assumed to be one of vertex, fragment, tessellation evaluation, tesselation control, geometry, or compute.
         ///</summary>
-        public void ShadercCompileOptionsSetOptimizationLevel(ShadercOptimizationLevel level)
+        public void ShadercCompileOptionsSetBindingBaseForStage(ShadercShaderKind shader_kind, ShadercUniformKind kind, uint @base)
         {
             var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_optimization_level(arg0, level);
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_binding_base_for_stage(arg0, shader_kind, kind, @base);
         }
 
         ///<summary>
@@ -170,12 +179,93 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
+        /// Sets the compiler mode to generate debug information in the output.
+        ///</summary>
+        public void ShadercCompileOptionsSetGenerateDebugInfo()
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_generate_debug_info(arg0);
+        }
+
+        ///<summary>
+        /// Sets whether the compiler should enable extension SPV_GOOGLE_hlsl_functionality1.
+        ///</summary>
+        public void ShadercCompileOptionsSetHlslFunctionality1(byte enable)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_functionality1(arg0, enable);
+        }
+
+        ///<summary>
+        /// Sets whether the compiler should use HLSL IO mapping rules for bindings. Defaults to false.
+        ///</summary>
+        public void ShadercCompileOptionsSetHlslIoMapping(byte hlsl_iomap)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_io_mapping(arg0, hlsl_iomap);
+        }
+
+        ///<summary>
+        /// Sets whether the compiler should determine block member offsets using HLSL packing rules instead of standard GLSL rules. Defaults to false. Only affects GLSL compilation. HLSL rules are always used when compiling HLSL.
+        ///</summary>
+        public void ShadercCompileOptionsSetHlslOffsets(byte hlsl_offsets)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_offsets(arg0, hlsl_offsets);
+        }
+
+        ///<summary>
+        /// Like shaderc_compile_options_set_hlsl_register_set_and_binding_for_stage, but affects all shader stages.
+        ///</summary>
+        public void ShadercCompileOptionsSetHlslRegisterSetAndBinding(string reg, string set, string binding)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_register_set_and_binding(arg0, reg, set, binding);
+        }
+
+        ///<summary>
+        /// Sets a descriptor set and binding for an HLSL register in the given stage. This method keeps a copy of the string data.
+        ///</summary>
+        public void ShadercCompileOptionsSetHlslRegisterSetAndBindingForStage(ShadercShaderKind shader_kind, string reg, string set, string binding)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_register_set_and_binding_for_stage(arg0, shader_kind, reg, set, binding);
+        }
+
+        ///<summary>
         /// Sets includer callback functions.
         ///</summary>
         public void ShadercCompileOptionsSetIncludeCallbacks(ShadercIncludeResolveFn resolver, ShadercIncludeResultReleaseFn result_releaser, ref System.IntPtr user_data)
         {
             var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_include_callbacks(arg0, resolver, result_releaser, ref user_data);
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_include_callbacks(arg0, resolver, result_releaser, user_data);
+        }
+
+        ///<summary>
+        /// Sets a resource limit.
+        ///</summary>
+        public void ShadercCompileOptionsSetLimit(ShadercLimit limit, int value)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_limit(arg0, limit, value);
+        }
+
+        ///<summary>
+        /// Sets the compiler optimization level to the given level. Only the last one takes effect if multiple calls of this function exist.
+        ///</summary>
+        public void ShadercCompileOptionsSetOptimizationLevel(ShadercOptimizationLevel level)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_optimization_level(arg0, level);
+        }
+
+        ///<summary>
+        /// Sets the source language. The default is GLSL.
+        ///</summary>
+        public void ShadercCompileOptionsSetSourceLanguage(ShadercSourceLanguage lang)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_source_language(arg0, lang);
         }
 
         ///<summary>
@@ -205,99 +295,9 @@ namespace AdamantiumVulkan.Shaders
             AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_warnings_as_errors(arg0);
         }
 
-        ///<summary>
-        /// Sets a resource limit.
-        ///</summary>
-        public void ShadercCompileOptionsSetLimit(ShadercLimit limit, int value)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_limit(arg0, limit, value);
-        }
-
-        ///<summary>
-        /// Sets whether the compiler should automatically assign bindings to uniforms that aren't already explicitly bound in the shader source.
-        ///</summary>
-        public void ShadercCompileOptionsSetAutoBindUniforms(byte auto_bind)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_auto_bind_uniforms(arg0, auto_bind);
-        }
-
-        ///<summary>
-        /// Sets whether the compiler should use HLSL IO mapping rules for bindings. Defaults to false.
-        ///</summary>
-        public void ShadercCompileOptionsSetHlslIoMapping(byte hlsl_iomap)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_io_mapping(arg0, hlsl_iomap);
-        }
-
-        ///<summary>
-        /// Sets whether the compiler should determine block member offsets using HLSL packing rules instead of standard GLSL rules. Defaults to false. Only affects GLSL compilation. HLSL rules are always used when compiling HLSL.
-        ///</summary>
-        public void ShadercCompileOptionsSetHlslOffsets(byte hlsl_offsets)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_offsets(arg0, hlsl_offsets);
-        }
-
-        ///<summary>
-        /// Sets the base binding number used for for a uniform resource type when automatically assigning bindings. For GLSL compilation, sets the lowest automatically assigned number. For HLSL compilation, the regsiter number assigned to the resource is added to this specified base.
-        ///</summary>
-        public void ShadercCompileOptionsSetBindingBase(ShadercUniformKind kind, uint @base)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_binding_base(arg0, kind, @base);
-        }
-
-        ///<summary>
-        /// Like shaderc_compile_options_set_binding_base, but only takes effect when compiling a given shader stage. The stage is assumed to be one of vertex, fragment, tessellation evaluation, tesselation control, geometry, or compute.
-        ///</summary>
-        public void ShadercCompileOptionsSetBindingBaseForStage(ShadercShaderKind shader_kind, ShadercUniformKind kind, uint @base)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_binding_base_for_stage(arg0, shader_kind, kind, @base);
-        }
-
-        ///<summary>
-        /// Sets whether the compiler should automatically assign locations to uniform variables that don't have explicit locations in the shader source.
-        ///</summary>
-        public void ShadercCompileOptionsSetAutoMapLocations(byte auto_map)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_auto_map_locations(arg0, auto_map);
-        }
-
-        ///<summary>
-        /// Sets a descriptor set and binding for an HLSL register in the given stage. This method keeps a copy of the string data.
-        ///</summary>
-        public void ShadercCompileOptionsSetHlslRegisterSetAndBindingForStage(ShadercShaderKind shader_kind, string reg, string set, string binding)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_register_set_and_binding_for_stage(arg0, shader_kind, reg, set, binding);
-        }
-
-        ///<summary>
-        /// Like shaderc_compile_options_set_hlsl_register_set_and_binding_for_stage, but affects all shader stages.
-        ///</summary>
-        public void ShadercCompileOptionsSetHlslRegisterSetAndBinding(string reg, string set, string binding)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_register_set_and_binding(arg0, reg, set, binding);
-        }
-
-        ///<summary>
-        /// Sets whether the compiler should enable extension SPV_GOOGLE_hlsl_functionality1.
-        ///</summary>
-        public void ShadercCompileOptionsSetHlslFunctionality1(byte enable)
-        {
-            var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_functionality1(arg0, enable);
-        }
-
         public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions(ShadercCompileOptionsT s)
         {
-            return s.__Instance;
+            return s?.__Instance ?? new AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions();
         }
 
         public static implicit operator ShadercCompileOptionsT(AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions s)
@@ -325,39 +325,12 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
-        /// Releases the resources held by the result object. It is invalid to use the result object for any further operations.
+        /// Returns a pointer to the start of the compilation output data bytes, either SPIR-V binary or char string. When the source string is compiled into SPIR-V binary, this is guaranteed to be castable to a uint32_t*. If the result contains assembly text or preprocessed source text, the pointer will point to the resulting array of characters.
         ///</summary>
-        public void ShadercResultRelease()
+        public string ShadercResultGetBytes()
         {
             var arg0 = this;
-            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_release(arg0);
-        }
-
-        ///<summary>
-        /// Returns the number of bytes of the compilation output data in a result object.
-        ///</summary>
-        public ulong ShadercResultGetLength()
-        {
-            var arg0 = this;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_length(arg0);
-        }
-
-        ///<summary>
-        /// Returns the number of warnings generated during the compilation.
-        ///</summary>
-        public ulong ShadercResultGetNumWarnings()
-        {
-            var arg0 = this;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_num_warnings(arg0);
-        }
-
-        ///<summary>
-        /// Returns the number of errors generated during the compilation.
-        ///</summary>
-        public ulong ShadercResultGetNumErrors()
-        {
-            var arg0 = this;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_num_errors(arg0);
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_bytes(arg0);
         }
 
         ///<summary>
@@ -370,15 +343,6 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
-        /// Returns a pointer to the start of the compilation output data bytes, either SPIR-V binary or char string. When the source string is compiled into SPIR-V binary, this is guaranteed to be castable to a uint32_t*. If the result contains assembly text or preprocessed source text, the pointer will point to the resulting array of characters.
-        ///</summary>
-        public string ShadercResultGetBytes()
-        {
-            var arg0 = this;
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_bytes(arg0);
-        }
-
-        ///<summary>
         /// Returns a null-terminated string that contains any error messages generated during the compilation.
         ///</summary>
         public string ShadercResultGetErrorMessage()
@@ -387,9 +351,45 @@ namespace AdamantiumVulkan.Shaders
             return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_error_message(arg0);
         }
 
+        ///<summary>
+        /// Returns the number of bytes of the compilation output data in a result object.
+        ///</summary>
+        public ulong ShadercResultGetLength()
+        {
+            var arg0 = this;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_length(arg0);
+        }
+
+        ///<summary>
+        /// Returns the number of errors generated during the compilation.
+        ///</summary>
+        public ulong ShadercResultGetNumErrors()
+        {
+            var arg0 = this;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_num_errors(arg0);
+        }
+
+        ///<summary>
+        /// Returns the number of warnings generated during the compilation.
+        ///</summary>
+        public ulong ShadercResultGetNumWarnings()
+        {
+            var arg0 = this;
+            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_get_num_warnings(arg0);
+        }
+
+        ///<summary>
+        /// Releases the resources held by the result object. It is invalid to use the result object for any further operations.
+        ///</summary>
+        public void ShadercResultRelease()
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_release(arg0);
+        }
+
         public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult(ShadercCompilationResultT s)
         {
-            return s.__Instance;
+            return s?.__Instance ?? new AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult();
         }
 
         public static implicit operator ShadercCompilationResultT(AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult s)
@@ -414,7 +414,10 @@ namespace AdamantiumVulkan.Shaders
         ///</summary>
         public static byte ShadercParseVersionProfile(string str, ref int version, ref ShadercProfile profile)
         {
-            return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_parse_version_profile(str, ref version, ref profile);
+            var arg0 = (int)profile;
+            var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_parse_version_profile(str, ref version, ref arg0);
+            profile = (ShadercProfile)arg0;
+            return result;
         }
 
     }

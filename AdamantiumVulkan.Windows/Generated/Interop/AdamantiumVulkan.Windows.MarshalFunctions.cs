@@ -15,43 +15,43 @@ namespace AdamantiumVulkan.Windows.Interop
 
     public static class VulkanInterop
     {
-        private const string libraryPath = "vulkan-1";
+        public const string LibraryPath = "vulkan-1";
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 49 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkCreateWin32SurfaceKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkCreateWin32SurfaceKHR([In] Instance_T instance, AdamantiumVulkan.Windows.Interop.Win32SurfaceCreateInfoKHR pCreateInfo, System.IntPtr pAllocator, [Out] out SurfaceKHR_T pSurface);
-
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 55 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkGetPhysicalDeviceWin32PresentationSupportKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Bool32 vkGetPhysicalDeviceWin32PresentationSupportKHR([In] PhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex);
-
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 98 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkGetMemoryWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkGetMemoryWin32HandleKHR([In] Device_T device, AdamantiumVulkan.Windows.Interop.MemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle);
-
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 103 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkGetMemoryWin32HandlePropertiesKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkGetMemoryWin32HandlePropertiesKHR([In] Device_T device, [In] ExternalMemoryHandleTypeFlagBits handleType, [In] System.IntPtr handle, [In] AdamantiumVulkan.Windows.Interop.MemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties);
-
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 171 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkImportSemaphoreWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkImportSemaphoreWin32HandleKHR([In] Device_T device, AdamantiumVulkan.Windows.Interop.ImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo);
-
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 175 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkGetSemaphoreWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkGetSemaphoreWin32HandleKHR([In] Device_T device, AdamantiumVulkan.Windows.Interop.SemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle);
-
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 215 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkImportFenceWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkImportFenceWin32HandleKHR([In] Device_T device, AdamantiumVulkan.Windows.Interop.ImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo);
+        [DllImport(LibraryPath, EntryPoint = "vkCreateWin32SurfaceKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkCreateWin32SurfaceKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 219 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkGetFenceWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkGetFenceWin32HandleKHR([In] Device_T device, AdamantiumVulkan.Windows.Interop.FenceGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle);
+        [DllImport(LibraryPath, EntryPoint = "vkGetFenceWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkGetFenceWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pGetWin32HandleInfo, [In, Out] System.IntPtr pHandle);
+
+        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 98 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkGetMemoryWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pGetWin32HandleInfo, [In, Out] System.IntPtr pHandle);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 247 Column: 32
-        [DllImport(libraryPath, EntryPoint = "vkGetMemoryWin32HandleNV", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkGetMemoryWin32HandleNV([In] Device_T device, [In] DeviceMemory_T memory, [In] uint handleType, ref System.IntPtr pHandle);
+        [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandleNV", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkGetMemoryWin32HandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, [In] uint handleType, [In, Out] System.IntPtr pHandle);
+
+        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 103 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandlePropertiesKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkGetMemoryWin32HandlePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ExternalMemoryHandleTypeFlagBits handleType, [In] System.IntPtr handle, [In] System.IntPtr pMemoryWin32HandleProperties);
+
+        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 55 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceWin32PresentationSupportKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern bool vkGetPhysicalDeviceWin32PresentationSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex);
+
+        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 175 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkGetSemaphoreWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pGetWin32HandleInfo, [In, Out] System.IntPtr pHandle);
+
+        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 215 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkImportFenceWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkImportFenceWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pImportFenceWin32HandleInfo);
+
+        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 171 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkImportSemaphoreWin32HandleKHR", CallingConvention = CallingConvention.StdCall)]
+        internal static extern Result vkImportSemaphoreWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pImportSemaphoreWin32HandleInfo);
 
     }
 

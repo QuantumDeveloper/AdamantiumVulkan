@@ -14,25 +14,25 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 34 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Win32SurfaceCreateFlagsKHR
+    public partial struct VkWin32SurfaceCreateFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(Win32SurfaceCreateFlagsKHR w)
+        public static implicit operator uint(VkWin32SurfaceCreateFlagsKHR v)
         {
-            return w.value;
+            return v.value;
         }
 
-        public static implicit operator Win32SurfaceCreateFlagsKHR(uint w)
+        public static implicit operator VkWin32SurfaceCreateFlagsKHR(uint v)
         {
-            return new Win32SurfaceCreateFlagsKHR(){value = w};
+            return new VkWin32SurfaceCreateFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 36 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Win32SurfaceCreateInfoKHR
+    public partial struct VkWin32SurfaceCreateInfoKHR
     {
         public StructureType sType;
 
@@ -48,7 +48,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 64 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportMemoryWin32HandleInfoKHR
+    public partial struct VkImportMemoryWin32HandleInfoKHR
     {
         public StructureType sType;
 
@@ -64,7 +64,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 72 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportMemoryWin32HandleInfoKHR
+    public partial struct VkExportMemoryWin32HandleInfoKHR
     {
         public StructureType sType;
 
@@ -80,7 +80,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 80 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryWin32HandlePropertiesKHR
+    public partial struct VkMemoryWin32HandlePropertiesKHR
     {
         public StructureType sType;
 
@@ -92,13 +92,13 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 86 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryGetWin32HandleInfoKHR
+    public partial struct VkMemoryGetWin32HandleInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ExternalMemoryHandleTypeFlagBits handleType;
 
@@ -106,7 +106,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 114 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Win32KeyedMutexAcquireReleaseInfoKHR
+    public partial struct VkWin32KeyedMutexAcquireReleaseInfoKHR
     {
         public StructureType sType;
 
@@ -130,13 +130,13 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 132 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportSemaphoreWin32HandleInfoKHR
+    public partial struct VkImportSemaphoreWin32HandleInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Semaphore_T semaphore;
+        public VkSemaphore_T semaphore;
 
         public uint flags;
 
@@ -150,7 +150,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 142 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportSemaphoreWin32HandleInfoKHR
+    public partial struct VkExportSemaphoreWin32HandleInfoKHR
     {
         public StructureType sType;
 
@@ -166,7 +166,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 150 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct D3D12FenceSubmitInfoKHR
+    public partial struct VkD3D12FenceSubmitInfoKHR
     {
         public StructureType sType;
 
@@ -184,13 +184,13 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 159 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SemaphoreGetWin32HandleInfoKHR
+    public partial struct VkSemaphoreGetWin32HandleInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Semaphore_T semaphore;
+        public VkSemaphore_T semaphore;
 
         public ExternalSemaphoreHandleTypeFlagBits handleType;
 
@@ -198,13 +198,13 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 185 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportFenceWin32HandleInfoKHR
+    public partial struct VkImportFenceWin32HandleInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Fence_T fence;
+        public VkFence_T fence;
 
         public uint flags;
 
@@ -218,7 +218,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 195 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportFenceWin32HandleInfoKHR
+    public partial struct VkExportFenceWin32HandleInfoKHR
     {
         public StructureType sType;
 
@@ -234,13 +234,13 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 203 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FenceGetWin32HandleInfoKHR
+    public partial struct VkFenceGetWin32HandleInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Fence_T fence;
+        public VkFence_T fence;
 
         public ExternalFenceHandleTypeFlagBits handleType;
 
@@ -248,7 +248,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 229 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportMemoryWin32HandleInfoNV
+    public partial struct VkImportMemoryWin32HandleInfoNV
     {
         public StructureType sType;
 
@@ -262,7 +262,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 236 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportMemoryWin32HandleInfoNV
+    public partial struct VkExportMemoryWin32HandleInfoNV
     {
         public StructureType sType;
 
@@ -276,7 +276,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_win32.h Line: 258 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Win32KeyedMutexAcquireReleaseInfoNV
+    public partial struct VkWin32KeyedMutexAcquireReleaseInfoNV
     {
         public StructureType sType;
 

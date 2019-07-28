@@ -16,10 +16,6 @@ namespace AdamantiumVulkan.Core
     {
         One = 1,
 
-        BeginRange = 1,
-
-        EndRange = 1,
-
         RangeSize = 1,
 
         MaxEnum = 2147483647,
@@ -872,10 +868,6 @@ namespace AdamantiumVulkan.Core
 
         DescriptorSetLayoutSupportKhr = 1000168001,
 
-        BeginRange = 0,
-
-        EndRange = 48,
-
         RangeSize = 49,
 
         MaxEnum = 2147483647,
@@ -895,10 +887,6 @@ namespace AdamantiumVulkan.Core
 
         Instance = 4,
 
-        BeginRange = 0,
-
-        EndRange = 4,
-
         RangeSize = 5,
 
         MaxEnum = 2147483647,
@@ -910,10 +898,6 @@ namespace AdamantiumVulkan.Core
     public enum InternalAllocationType : int
     {
         Executable = 0,
-
-        BeginRange = 0,
-
-        EndRange = 0,
 
         RangeSize = 1,
 
@@ -1465,10 +1449,6 @@ namespace AdamantiumVulkan.Core
 
         _3d = 2,
 
-        BeginRange = 0,
-
-        EndRange = 2,
-
         RangeSize = 3,
 
         MaxEnum = 2147483647,
@@ -1483,10 +1463,6 @@ namespace AdamantiumVulkan.Core
         Linear = 1,
 
         DrmFormatModifierExt = 1000158000,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -1507,10 +1483,6 @@ namespace AdamantiumVulkan.Core
 
         Cpu = 4,
 
-        BeginRange = 0,
-
-        EndRange = 4,
-
         RangeSize = 5,
 
         MaxEnum = 2147483647,
@@ -1530,10 +1502,6 @@ namespace AdamantiumVulkan.Core
 
         AccelerationStructureCompactedSizeNv = 1000165000,
 
-        BeginRange = 0,
-
-        EndRange = 2,
-
         RangeSize = 3,
 
         MaxEnum = 2147483647,
@@ -1547,10 +1515,6 @@ namespace AdamantiumVulkan.Core
         Exclusive = 0,
 
         Concurrent = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -1595,10 +1559,6 @@ namespace AdamantiumVulkan.Core
 
         DepthAttachmentStencilReadOnlyOptimalKhr = 1000117001,
 
-        BeginRange = 0,
-
-        EndRange = 8,
-
         RangeSize = 9,
 
         MaxEnum = 2147483647,
@@ -1621,10 +1581,6 @@ namespace AdamantiumVulkan.Core
         _2dArray = 5,
 
         CubeArray = 6,
-
-        BeginRange = 0,
-
-        EndRange = 6,
 
         RangeSize = 7,
 
@@ -1649,10 +1605,6 @@ namespace AdamantiumVulkan.Core
 
         A = 6,
 
-        BeginRange = 0,
-
-        EndRange = 6,
-
         RangeSize = 7,
 
         MaxEnum = 2147483647,
@@ -1666,10 +1618,6 @@ namespace AdamantiumVulkan.Core
         Vertex = 0,
 
         Instance = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -1702,10 +1650,6 @@ namespace AdamantiumVulkan.Core
 
         PatchList = 10,
 
-        BeginRange = 0,
-
-        EndRange = 10,
-
         RangeSize = 11,
 
         MaxEnum = 2147483647,
@@ -1723,10 +1667,6 @@ namespace AdamantiumVulkan.Core
 
         FillRectangleNv = 1000153000,
 
-        BeginRange = 0,
-
-        EndRange = 2,
-
         RangeSize = 3,
 
         MaxEnum = 2147483647,
@@ -1740,10 +1680,6 @@ namespace AdamantiumVulkan.Core
         CounterClockwise = 0,
 
         Clockwise = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -1770,10 +1706,6 @@ namespace AdamantiumVulkan.Core
 
         Always = 7,
 
-        BeginRange = 0,
-
-        EndRange = 7,
-
         RangeSize = 8,
 
         MaxEnum = 2147483647,
@@ -1798,10 +1730,6 @@ namespace AdamantiumVulkan.Core
         IncrementAndWrap = 6,
 
         DecrementAndWrap = 7,
-
-        BeginRange = 0,
-
-        EndRange = 7,
 
         RangeSize = 8,
 
@@ -1843,10 +1771,6 @@ namespace AdamantiumVulkan.Core
         Nand = 14,
 
         Set = 15,
-
-        BeginRange = 0,
-
-        EndRange = 15,
 
         RangeSize = 16,
 
@@ -1894,10 +1818,6 @@ namespace AdamantiumVulkan.Core
         Src1Alpha = 17,
 
         OneMinusSrc1Alpha = 18,
-
-        BeginRange = 0,
-
-        EndRange = 18,
 
         RangeSize = 19,
 
@@ -2010,10 +1930,6 @@ namespace AdamantiumVulkan.Core
 
         BlueExt = 1000148045,
 
-        BeginRange = 0,
-
-        EndRange = 4,
-
         RangeSize = 5,
 
         MaxEnum = 2147483647,
@@ -2053,10 +1969,6 @@ namespace AdamantiumVulkan.Core
 
         ExclusiveScissorNv = 1000205001,
 
-        BeginRange = 0,
-
-        EndRange = 8,
-
         RangeSize = 9,
 
         MaxEnum = 2147483647,
@@ -2074,10 +1986,6 @@ namespace AdamantiumVulkan.Core
 
         CubicExt = 1000015000,
 
-        BeginRange = 0,
-
-        EndRange = 1,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -2091,10 +1999,6 @@ namespace AdamantiumVulkan.Core
         Nearest = 0,
 
         Linear = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -2114,10 +2018,6 @@ namespace AdamantiumVulkan.Core
         ClampToBorder = 3,
 
         MirrorClampToEdge = 4,
-
-        BeginRange = 0,
-
-        EndRange = 3,
 
         RangeSize = 4,
 
@@ -2139,10 +2039,6 @@ namespace AdamantiumVulkan.Core
         FloatOpaqueWhite = 4,
 
         IntOpaqueWhite = 5,
-
-        BeginRange = 0,
-
-        EndRange = 5,
 
         RangeSize = 6,
 
@@ -2179,10 +2075,6 @@ namespace AdamantiumVulkan.Core
 
         AccelerationStructureNv = 1000165000,
 
-        BeginRange = 0,
-
-        EndRange = 10,
-
         RangeSize = 11,
 
         MaxEnum = 2147483647,
@@ -2198,10 +2090,6 @@ namespace AdamantiumVulkan.Core
 
         DontCare = 2,
 
-        BeginRange = 0,
-
-        EndRange = 2,
-
         RangeSize = 3,
 
         MaxEnum = 2147483647,
@@ -2215,10 +2103,6 @@ namespace AdamantiumVulkan.Core
         Store = 0,
 
         DontCare = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -2235,10 +2119,6 @@ namespace AdamantiumVulkan.Core
 
         RayTracingNv = 1000165000,
 
-        BeginRange = 0,
-
-        EndRange = 1,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -2252,10 +2132,6 @@ namespace AdamantiumVulkan.Core
         Primary = 0,
 
         Secondary = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -2272,10 +2148,6 @@ namespace AdamantiumVulkan.Core
 
         NoneNv = 1000165000,
 
-        BeginRange = 0,
-
-        EndRange = 1,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -2289,10 +2161,6 @@ namespace AdamantiumVulkan.Core
         Inline = 0,
 
         SecondaryCommandBuffers = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -2383,10 +2251,6 @@ namespace AdamantiumVulkan.Core
 
         SamplerYcbcrConversionKhr = 1000156000,
 
-        BeginRange = 0,
-
-        EndRange = 25,
-
         RangeSize = 26,
 
         MaxEnum = 2147483647,
@@ -2401,10 +2265,6 @@ namespace AdamantiumVulkan.Core
         Vsi = 65538,
 
         Kazan = 65539,
-
-        BeginRange = 65537,
-
-        EndRange = 65539,
 
         RangeSize = 3,
 
@@ -3209,10 +3069,6 @@ namespace AdamantiumVulkan.Core
 
         UserClipPlanesOnlyKhr = 1,
 
-        BeginRange = 0,
-
-        EndRange = 1,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -3230,10 +3086,6 @@ namespace AdamantiumVulkan.Core
         UpperLeftKhr = 0,
 
         LowerLeftKhr = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -3264,10 +3116,6 @@ namespace AdamantiumVulkan.Core
 
         Ycbcr2020Khr = 4,
 
-        BeginRange = 0,
-
-        EndRange = 4,
-
         RangeSize = 5,
 
         MaxEnum = 2147483647,
@@ -3285,10 +3133,6 @@ namespace AdamantiumVulkan.Core
         ItuFullKhr = 0,
 
         ItuNarrowKhr = 1,
-
-        BeginRange = 0,
-
-        EndRange = 1,
 
         RangeSize = 2,
 
@@ -3308,10 +3152,6 @@ namespace AdamantiumVulkan.Core
 
         MidpointKhr = 1,
 
-        BeginRange = 0,
-
-        EndRange = 1,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -3327,10 +3167,6 @@ namespace AdamantiumVulkan.Core
         PushDescriptorsKhr = 1,
 
         DescriptorSetKhr = 0,
-
-        BeginRange = 0,
-
-        EndRange = 0,
 
         RangeSize = 1,
 
@@ -3632,10 +3468,6 @@ namespace AdamantiumVulkan.Core
 
         SharedContinuousRefreshKhr = 1000111001,
 
-        BeginRangeKhr = 0,
-
-        EndRangeKhr = 3,
-
         RangeSizeKhr = 4,
 
         MaxEnumKhr = 2147483647,
@@ -3753,10 +3585,6 @@ namespace AdamantiumVulkan.Core
 
         GooglePastelKhr = 10,
 
-        BeginRangeKhr = 1,
-
-        EndRangeKhr = 10,
-
         RangeSizeKhr = 10,
 
         MaxEnumKhr = 2147483647,
@@ -3866,10 +3694,6 @@ namespace AdamantiumVulkan.Core
 
         SamplerYcbcrConversionKhrExt = 1000156000,
 
-        BeginRangeExt = 0,
-
-        EndRangeExt = 33,
-
         RangeSizeExt = 34,
 
         MaxEnumExt = 2147483647,
@@ -3902,10 +3726,6 @@ namespace AdamantiumVulkan.Core
 
         RelaxedAmd = 1,
 
-        BeginRangeAmd = 0,
-
-        EndRangeAmd = 1,
-
         RangeSizeAmd = 2,
 
         MaxEnumAmd = 2147483647,
@@ -3920,10 +3740,6 @@ namespace AdamantiumVulkan.Core
         BinaryAmd = 1,
 
         DisassemblyAmd = 2,
-
-        BeginRangeAmd = 0,
-
-        EndRangeAmd = 2,
 
         RangeSizeAmd = 3,
 
@@ -3969,10 +3785,6 @@ namespace AdamantiumVulkan.Core
 
         ShadersExt = 1,
 
-        BeginRangeExt = 0,
-
-        EndRangeExt = 1,
-
         RangeSizeExt = 2,
 
         MaxEnumExt = 2147483647,
@@ -4008,10 +3820,6 @@ namespace AdamantiumVulkan.Core
 
         DispatchNvx = 7,
 
-        BeginRangeNvx = 0,
-
-        EndRangeNvx = 7,
-
         RangeSizeNvx = 8,
 
         MaxEnumNvx = 2147483647,
@@ -4030,10 +3838,6 @@ namespace AdamantiumVulkan.Core
         VertexBufferNvx = 3,
 
         PushConstantNvx = 4,
-
-        BeginRangeNvx = 0,
-
-        EndRangeNvx = 4,
 
         RangeSizeNvx = 5,
 
@@ -4088,10 +3892,6 @@ namespace AdamantiumVulkan.Core
 
         OnExt = 2,
 
-        BeginRangeExt = 0,
-
-        EndRangeExt = 2,
-
         RangeSizeExt = 3,
 
         MaxEnumExt = 2147483647,
@@ -4104,10 +3904,6 @@ namespace AdamantiumVulkan.Core
     {
         DisplayHotplugExt = 0,
 
-        BeginRangeExt = 0,
-
-        EndRangeExt = 0,
-
         RangeSizeExt = 1,
 
         MaxEnumExt = 2147483647,
@@ -4119,10 +3915,6 @@ namespace AdamantiumVulkan.Core
     public enum DisplayEventTypeEXT : int
     {
         FirstPixelOutExt = 0,
-
-        BeginRangeExt = 0,
-
-        EndRangeExt = 0,
 
         RangeSizeExt = 1,
 
@@ -4149,10 +3941,6 @@ namespace AdamantiumVulkan.Core
 
         NegativeWNv = 7,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 7,
-
         RangeSizeNv = 8,
 
         MaxEnumNv = 2147483647,
@@ -4166,10 +3954,6 @@ namespace AdamantiumVulkan.Core
         InclusiveExt = 0,
 
         ExclusiveExt = 1,
-
-        BeginRangeExt = 0,
-
-        EndRangeExt = 1,
 
         RangeSizeExt = 2,
 
@@ -4185,10 +3969,6 @@ namespace AdamantiumVulkan.Core
         OverestimateExt = 1,
 
         UnderestimateExt = 2,
-
-        BeginRangeExt = 0,
-
-        EndRangeExt = 2,
 
         RangeSizeExt = 3,
 
@@ -4235,10 +4015,6 @@ namespace AdamantiumVulkan.Core
 
         MaxExt = 2,
 
-        BeginRangeExt = 0,
-
-        EndRangeExt = 2,
-
         RangeSizeExt = 3,
 
         MaxEnumExt = 2147483647,
@@ -4253,10 +4029,6 @@ namespace AdamantiumVulkan.Core
         DisjointExt = 1,
 
         ConjointExt = 2,
-
-        BeginRangeExt = 0,
-
-        EndRangeExt = 2,
 
         RangeSizeExt = 3,
 
@@ -4275,10 +4047,6 @@ namespace AdamantiumVulkan.Core
 
         RgbaNv = 3,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 3,
-
         RangeSizeNv = 4,
 
         MaxEnumNv = 2147483647,
@@ -4290,10 +4058,6 @@ namespace AdamantiumVulkan.Core
     public enum ValidationCacheHeaderVersionEXT : int
     {
         OneExt = 1,
-
-        BeginRangeExt = 1,
-
-        EndRangeExt = 1,
 
         RangeSizeExt = 1,
 
@@ -4344,10 +4108,6 @@ namespace AdamantiumVulkan.Core
 
         _1InvocationPer4x4PixelsNv = 11,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 11,
-
         RangeSizeNv = 12,
 
         MaxEnumNv = 2147483647,
@@ -4365,10 +4125,6 @@ namespace AdamantiumVulkan.Core
 
         SampleMajorNv = 3,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 3,
-
         RangeSizeNv = 4,
 
         MaxEnumNv = 2147483647,
@@ -4384,10 +4140,6 @@ namespace AdamantiumVulkan.Core
 
         ProceduralHitGroupNv = 2,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 2,
-
         RangeSizeNv = 3,
 
         MaxEnumNv = 2147483647,
@@ -4401,10 +4153,6 @@ namespace AdamantiumVulkan.Core
         TrianglesNv = 0,
 
         AabbsNv = 1,
-
-        BeginRangeNv = 0,
-
-        EndRangeNv = 1,
 
         RangeSizeNv = 2,
 
@@ -4420,10 +4168,6 @@ namespace AdamantiumVulkan.Core
 
         BottomLevelNv = 1,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 1,
-
         RangeSizeNv = 2,
 
         MaxEnumNv = 2147483647,
@@ -4437,10 +4181,6 @@ namespace AdamantiumVulkan.Core
         CloneNv = 0,
 
         CompactNv = 1,
-
-        BeginRangeNv = 0,
-
-        EndRangeNv = 1,
 
         RangeSizeNv = 2,
 
@@ -4456,10 +4196,6 @@ namespace AdamantiumVulkan.Core
         BuildScratchNv = 1,
 
         UpdateScratchNv = 2,
-
-        BeginRangeNv = 0,
-
-        EndRangeNv = 2,
 
         RangeSizeNv = 3,
 
@@ -4524,10 +4260,6 @@ namespace AdamantiumVulkan.Core
 
         RealtimeExt = 1024,
 
-        BeginRangeExt = 128,
-
-        EndRangeExt = 1024,
-
         RangeSizeExt = 897,
 
         MaxEnumExt = 2147483647,
@@ -4545,10 +4277,6 @@ namespace AdamantiumVulkan.Core
 
         QueryPerformanceCounterExt = 3,
 
-        BeginRangeExt = 0,
-
-        EndRangeExt = 3,
-
         RangeSizeExt = 4,
 
         MaxEnumExt = 2147483647,
@@ -4564,10 +4292,6 @@ namespace AdamantiumVulkan.Core
 
         DisallowedAmd = 2,
 
-        BeginRangeAmd = 0,
-
-        EndRangeAmd = 2,
-
         RangeSizeAmd = 3,
 
         MaxEnumAmd = 2147483647,
@@ -4581,10 +4305,6 @@ namespace AdamantiumVulkan.Core
         GpuAssistedExt = 0,
 
         GpuAssistedReserveBindingSlotExt = 1,
-
-        BeginRangeExt = 0,
-
-        EndRangeExt = 1,
 
         RangeSizeExt = 2,
 
@@ -4608,10 +4328,6 @@ namespace AdamantiumVulkan.Core
         CoreChecksExt = 5,
 
         UniqueHandlesExt = 6,
-
-        BeginRangeExt = 0,
-
-        EndRangeExt = 6,
 
         RangeSizeExt = 7,
 
@@ -4644,10 +4360,6 @@ namespace AdamantiumVulkan.Core
 
         Uint64Nv = 10,
 
-        BeginRangeNv = 0,
-
-        EndRangeNv = 10,
-
         RangeSizeNv = 11,
 
         MaxEnumNv = 2147483647,
@@ -4664,10 +4376,6 @@ namespace AdamantiumVulkan.Core
         SubgroupNv = 3,
 
         QueueFamilyNv = 5,
-
-        BeginRangeNv = 1,
-
-        EndRangeNv = 5,
 
         RangeSizeNv = 5,
 

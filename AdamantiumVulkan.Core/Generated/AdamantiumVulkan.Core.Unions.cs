@@ -10,218 +10,152 @@ namespace AdamantiumVulkan.Core
 {
     using System.Runtime.InteropServices;
     using AdamantiumVulkan;
-    using AdamantiumVulkan.Core.Interop;
 
     public partial class ClearColorValue
     {
-        private AdamantiumVulkan.Core.Interop.ClearColorValue _internal;
-
-        private float[] float32;
-
-        private int[] int32;
-
-        private uint[] uint32;
-
         public ClearColorValue()
         {
         }
 
-        public ClearColorValue(AdamantiumVulkan.Core.Interop.ClearColorValue _internal)
+        public ClearColorValue(AdamantiumVulkan.Core.Interop.VkClearColorValue _internal)
         {
-            this._internal = _internal;
+            var tmpArr0 = new float[4];
+            unsafe
+            {
+                for (int i = 0; i < 4; ++i)
+                {
+                    tmpArr0[i] = _internal.float32[i];
+                }
+            }
+            Float32 = tmpArr0;
+            var tmpArr1 = new int[4];
+            unsafe
+            {
+                for (int i = 0; i < 4; ++i)
+                {
+                    tmpArr1[i] = _internal.int32[i];
+                }
+            }
+            Int32 = tmpArr1;
+            var tmpArr2 = new uint[4];
+            unsafe
+            {
+                for (int i = 0; i < 4; ++i)
+                {
+                    tmpArr2[i] = _internal.uint32[i];
+                }
+            }
+            Uint32 = tmpArr2;
         }
 
         public float[] Float32
         {
-            get
-            {
-                if(float32 != null)
-                    return float32;
-
-                var tmpArr = new float[4];
-                unsafe
-                {
-                    for(int i = 0; i < 4; ++i)
-                    {
-                        tmpArr[i] = _internal.float32[i];
-                    }
-                }
-                float32 = tmpArr;
-                return float32;
-            }
-            set
-            {
-                if(value == null) return;
-
-                if (value.Length > 4)
-                    throw new System.ArgumentOutOfRangeException(nameof(Float32), "Array is out of bounds. Size should not be more than 4");
-
-                unsafe
-                {
-                    for(int i = 0; i < value.Length; ++i)
-                    {
-                        _internal.float32[i] = value[i];
-                    }
-                }
-                float32 = value;
-            }
+            get; set;
         }
 
         public int[] Int32
         {
-            get
-            {
-                if(int32 != null)
-                    return int32;
-
-                var tmpArr = new int[4];
-                unsafe
-                {
-                    for(int i = 0; i < 4; ++i)
-                    {
-                        tmpArr[i] = _internal.int32[i];
-                    }
-                }
-                int32 = tmpArr;
-                return int32;
-            }
-            set
-            {
-                if(value == null) return;
-
-                if (value.Length > 4)
-                    throw new System.ArgumentOutOfRangeException(nameof(Int32), "Array is out of bounds. Size should not be more than 4");
-
-                unsafe
-                {
-                    for(int i = 0; i < value.Length; ++i)
-                    {
-                        _internal.int32[i] = value[i];
-                    }
-                }
-                int32 = value;
-            }
+            get; set;
         }
 
         public uint[] Uint32
         {
-            get
-            {
-                if(uint32 != null)
-                    return uint32;
+            get; set;
+        }
 
-                var tmpArr = new uint[4];
+        public AdamantiumVulkan.Core.Interop.VkClearColorValue ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkClearColorValue();
+            if(Float32 != null)
+            {
+                if (Float32.Length > 4)
+                    throw new System.ArgumentOutOfRangeException(nameof(Float32), "Array is out of bounds. Size should not be more than 4");
+
+                var inputArray0 = Float32;
                 unsafe
                 {
-                    for(int i = 0; i < 4; ++i)
+                    if (inputArray0 != null)
                     {
-                        tmpArr[i] = _internal.uint32[i];
+                        for (int i = 0; i < inputArray0.Length; ++i)
+                        {
+                            _internal.float32[i] = inputArray0[i];
+                        }
                     }
                 }
-                uint32 = tmpArr;
-                return uint32;
             }
-            set
+            if(Int32 != null)
             {
-                if(value == null) return;
+                if (Int32.Length > 4)
+                    throw new System.ArgumentOutOfRangeException(nameof(Int32), "Array is out of bounds. Size should not be more than 4");
 
-                if (value.Length > 4)
+                var inputArray1 = Int32;
+                unsafe
+                {
+                    if (inputArray1 != null)
+                    {
+                        for (int i = 0; i < inputArray1.Length; ++i)
+                        {
+                            _internal.int32[i] = inputArray1[i];
+                        }
+                    }
+                }
+            }
+            if(Uint32 != null)
+            {
+                if (Uint32.Length > 4)
                     throw new System.ArgumentOutOfRangeException(nameof(Uint32), "Array is out of bounds. Size should not be more than 4");
 
+                var inputArray2 = Uint32;
                 unsafe
                 {
-                    for(int i = 0; i < value.Length; ++i)
+                    if (inputArray2 != null)
                     {
-                        _internal.uint32[i] = value[i];
+                        for (int i = 0; i < inputArray2.Length; ++i)
+                        {
+                            _internal.uint32[i] = inputArray2[i];
+                        }
                     }
                 }
-                uint32 = value;
             }
+            return _internal;
         }
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.ClearColorValue(ClearColorValue c)
-        {
-            return c._internal;
-        }
-
-        public static implicit operator ClearColorValue(AdamantiumVulkan.Core.Interop.ClearColorValue c)
-        {
-            return new ClearColorValue(c);
-        }
-
     }
 
     public partial class ClearValue
     {
-        private AdamantiumVulkan.Core.Interop.ClearValue _internal;
-
-        private ClearColorValue color;
-
-        private ClearDepthStencilValue depthStencil;
-
         public ClearValue()
         {
         }
 
-        public ClearValue(AdamantiumVulkan.Core.Interop.ClearValue _internal)
+        public ClearValue(AdamantiumVulkan.Core.Interop.VkClearValue _internal)
         {
-            this._internal = _internal;
+            Color = new ClearColorValue(_internal.color);
+            DepthStencil = new ClearDepthStencilValue(_internal.depthStencil);
         }
 
         public ClearColorValue Color
         {
-            get
-            {
-                if (color != null)
-                {
-                    return color;
-                }
-                color = _internal.color;
-                return color;
-            }
-            set
-            {
-                color = value;
-                _internal.color = value;
-            }
+            get; set;
         }
 
         public ClearDepthStencilValue DepthStencil
         {
-            get
-            {
-                if (depthStencil != null)
-                {
-                    return depthStencil;
-                }
-                depthStencil = _internal.depthStencil;
-                return depthStencil;
-            }
-            set
-            {
-                depthStencil = value;
-                _internal.depthStencil = value;
-            }
+            get; set;
         }
 
-        public static implicit operator AdamantiumVulkan.Core.Interop.ClearValue(ClearValue c)
+        public AdamantiumVulkan.Core.Interop.VkClearValue ToInternal()
         {
-            if (c.Color != null)
+            var _internal = new AdamantiumVulkan.Core.Interop.VkClearValue();
+            if (Color != null)
             {
-                c._internal.color = c.Color;
+                _internal.color = Color.ToInternal();
             }
-            if (c.DepthStencil != null)
+            if (DepthStencil != null)
             {
-                c._internal.depthStencil = c.DepthStencil;
+                _internal.depthStencil = DepthStencil.ToInternal();
             }
-            return c._internal;
+            return _internal;
         }
-
-        public static implicit operator ClearValue(AdamantiumVulkan.Core.Interop.ClearValue c)
-        {
-            return new ClearValue(c);
-        }
-
     }
 
 

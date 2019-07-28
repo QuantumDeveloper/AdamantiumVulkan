@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
+using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core
 {
@@ -308,6 +310,43 @@ namespace AdamantiumVulkan.Core
             var result = CreateShaderModule(createInfo, allocator, out ShaderModule shaderModule);
             ResultHelper.CheckResult(result, nameof(CreateShaderModule));
             return shaderModule;
+        }
+
+        public CommandBuffer BeginSingleTimeCommand(CommandPool commandPool)
+        {
+            var allocInfo = new CommandBufferAllocateInfo();
+            allocInfo.SType = StructureType.CommandBufferAllocateInfo;
+            allocInfo.Level = CommandBufferLevel.Primary;
+            allocInfo.CommandPool = commandPool;
+            allocInfo.CommandBufferCount = 1;
+
+            var commandBuffers = AllocateCommandBuffers(allocInfo);
+
+            var beginInfo = new CommandBufferBeginInfo();
+            beginInfo.SType = StructureType.CommandBufferBeginInfo;
+            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.OneTimeSubmitBit;
+
+            var commandBuffer = commandBuffers[0];
+            commandBuffer.BeginCommandBuffer(beginInfo);
+
+            return commandBuffer;
+        }
+
+        public void EndSingleTimeCommands(Queue queue, CommandPool commandPool, CommandBuffer commandBuffer)
+        {
+            commandBuffer.EndCommandBuffer();
+
+            SubmitInfo submitInfo = new SubmitInfo();
+            submitInfo.SType = StructureType.SubmitInfo;
+            submitInfo.CommandBufferCount = 1;
+            submitInfo.PCommandBuffers = new CommandBuffer[] {commandBuffer};
+
+            var submitInfoArray = new SubmitInfo[1];
+            submitInfoArray[0] = submitInfo;
+            queue.QueueSubmit(1, submitInfoArray, null);
+            queue.QueueWaitIdle();
+
+            FreeCommandBuffers(commandPool, 1, commandBuffer);
         }
     }
 }

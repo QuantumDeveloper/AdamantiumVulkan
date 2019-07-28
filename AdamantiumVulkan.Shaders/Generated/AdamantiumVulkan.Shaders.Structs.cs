@@ -10,17 +10,12 @@ namespace AdamantiumVulkan.Shaders
 {
     using System.Runtime.InteropServices;
     using AdamantiumVulkan.Shaders;
-    using AdamantiumVulkan.Shaders.Interop;
 
     public partial class ShadercIncludeResult : DisposableObject
     {
-        private AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult _internal;
-
         private StringReference refsource_name;
 
         private StringReference refcontent;
-
-        private GCHandleReference refuser_data;
 
         public ShadercIncludeResult()
         {
@@ -28,104 +23,63 @@ namespace AdamantiumVulkan.Shaders
 
         public ShadercIncludeResult(AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult _internal)
         {
-            this._internal = _internal;
+            Source_name = Marshal.PtrToStringAnsi(_internal.source_name);
+            Source_name_length = _internal.source_name_length;
+            Content = Marshal.PtrToStringAnsi(_internal.content);
+            Content_length = _internal.content_length;
+            User_data = _internal.user_data;
         }
 
-        private string source_name;
         public string Source_name
         {
-            get
-            {
-                if(source_name != null)
-                    return source_name;
-
-                source_name = Marshal.PtrToStringAnsi(_internal.source_name);
-                return source_name;
-            }
-            set
-            {
-                refsource_name?.Dispose();
-                refsource_name = new StringReference(value, false);
-                source_name = value;
-                _internal.source_name = refsource_name.Handle;
-            }
+            get; set;
         }
 
         public ulong Source_name_length
         {
-            get => _internal.source_name_length;
-            set
-            {
-                _internal.source_name_length = value;
-            }
+            get; set;
         }
 
-        private string content;
         public string Content
         {
-            get
-            {
-                if(content != null)
-                    return content;
-
-                content = Marshal.PtrToStringAnsi(_internal.content);
-                return content;
-            }
-            set
-            {
-                refcontent?.Dispose();
-                refcontent = new StringReference(value, false);
-                content = value;
-                _internal.content = refcontent.Handle;
-            }
+            get; set;
         }
 
         public ulong Content_length
         {
-            get => _internal.content_length;
-            set
-            {
-                _internal.content_length = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr user_data;
         public System.IntPtr User_data
         {
-            get
-            {
-                if(user_data != null)
-                    return user_data;
-
-                user_data = _internal.user_data;
-                return user_data;
-            }
-            set
-            {
-                refuser_data?.Dispose();
-                refuser_data = new GCHandleReference(value);
-                user_data = value;
-                _internal.user_data = refuser_data.Handle;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refsource_name?.Dispose();
             refcontent?.Dispose();
-            refuser_data?.Dispose();
         }
 
-        public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult(ShadercIncludeResult s)
+        public AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult ToInternal()
         {
-            return s._internal;
+            var _internal = new AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult();
+            refsource_name?.Dispose();
+            if (Source_name != null)
+            {
+                refsource_name = new StringReference(Source_name, false);
+                _internal.source_name = refsource_name.Handle;
+            }
+            _internal.source_name_length = Source_name_length;
+            refcontent?.Dispose();
+            if (Content != null)
+            {
+                refcontent = new StringReference(Content, false);
+                _internal.content = refcontent.Handle;
+            }
+            _internal.content_length = Content_length;
+            _internal.user_data = User_data;
+            return _internal;
         }
-
-        public static implicit operator ShadercIncludeResult(AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult s)
-        {
-            return new ShadercIncludeResult(s);
-        }
-
     }
 
 

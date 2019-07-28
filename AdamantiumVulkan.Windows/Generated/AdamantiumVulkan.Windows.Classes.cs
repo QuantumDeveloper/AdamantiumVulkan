@@ -16,14 +16,18 @@ namespace AdamantiumVulkan.Windows
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 69 Column: 1
     public static partial class InstanceExtension
     {
-        public static Result CreateWin32SurfaceKHR(this Instance instance, in AdamantiumVulkan.Windows.Win32SurfaceCreateInfoKHR pCreateInfo, in AdamantiumVulkan.Core.AllocationCallbacks pAllocator, out SurfaceKHR pSurface)
+        public static Result CreateWin32SurfaceKHR(this AdamantiumVulkan.Core.Instance instance, in Win32SurfaceCreateInfoKHR pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.SurfaceKHR pSurface)
         {
             var arg0 = instance;
-            var arg2 = ReferenceEquals(pAllocator, null) ? IntPtr.Zero : MarshalUtils.MarshalStructToPtr<AdamantiumVulkan.Core.Interop.AllocationCallbacks>(pAllocator);
-            SurfaceKHR_T arg3;
-            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkCreateWin32SurfaceKHR(arg0, pCreateInfo, arg2, out arg3);
+            var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkSurfaceKHR_T arg3;
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkCreateWin32SurfaceKHR(arg0, arg1, arg2, out arg3);
+            pCreateInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg2);
-            pSurface = arg3;
+            pSurface = new SurfaceKHR(arg3);
             return result;
         }
 
@@ -32,7 +36,7 @@ namespace AdamantiumVulkan.Windows
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 70 Column: 1
     public static partial class PhysicalDeviceExtension
     {
-        public static Bool32 GetPhysicalDeviceWin32PresentationSupportKHR(this PhysicalDevice physicalDevice, uint queueFamilyIndex)
+        public static bool GetPhysicalDeviceWin32PresentationSupportKHR(this AdamantiumVulkan.Core.PhysicalDevice physicalDevice, uint queueFamilyIndex)
         {
             var arg0 = physicalDevice;
             return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetPhysicalDeviceWin32PresentationSupportKHR(arg0, queueFamilyIndex);
@@ -43,47 +47,71 @@ namespace AdamantiumVulkan.Windows
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 71 Column: 1
     public static partial class DeviceExtension
     {
-        public static Result GetMemoryWin32HandleKHR(this Device device, in AdamantiumVulkan.Windows.MemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
+        public static Result GetMemoryWin32HandleKHR(this AdamantiumVulkan.Core.Device device, in MemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
         {
             var arg0 = device;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandleKHR(arg0, pGetWin32HandleInfo, ref pHandle);
+            var arg1 = ReferenceEquals(pGetWin32HandleInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGetWin32HandleInfo.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandleKHR(arg0, arg1, pHandle);
+            pGetWin32HandleInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
-        public static Result GetMemoryWin32HandlePropertiesKHR(this Device device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.MemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties)
+        public static Result GetMemoryWin32HandlePropertiesKHR(this AdamantiumVulkan.Core.Device device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, MemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties)
         {
             var arg0 = device;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandlePropertiesKHR(arg0, handleType, handle, pMemoryWin32HandleProperties);
+            var arg1 = ReferenceEquals(pMemoryWin32HandleProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pMemoryWin32HandleProperties.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandlePropertiesKHR(arg0, handleType, handle, arg1);
+            pMemoryWin32HandleProperties?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
-        public static Result ImportSemaphoreWin32HandleKHR(this Device device, in AdamantiumVulkan.Windows.ImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo)
+        public static Result ImportSemaphoreWin32HandleKHR(this AdamantiumVulkan.Core.Device device, in ImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo)
         {
             var arg0 = device;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkImportSemaphoreWin32HandleKHR(arg0, pImportSemaphoreWin32HandleInfo);
+            var arg1 = ReferenceEquals(pImportSemaphoreWin32HandleInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pImportSemaphoreWin32HandleInfo.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkImportSemaphoreWin32HandleKHR(arg0, arg1);
+            pImportSemaphoreWin32HandleInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
-        public static Result GetSemaphoreWin32HandleKHR(this Device device, in AdamantiumVulkan.Windows.SemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
+        public static Result GetSemaphoreWin32HandleKHR(this AdamantiumVulkan.Core.Device device, in SemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
         {
             var arg0 = device;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetSemaphoreWin32HandleKHR(arg0, pGetWin32HandleInfo, ref pHandle);
+            var arg1 = ReferenceEquals(pGetWin32HandleInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGetWin32HandleInfo.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetSemaphoreWin32HandleKHR(arg0, arg1, pHandle);
+            pGetWin32HandleInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
-        public static Result ImportFenceWin32HandleKHR(this Device device, in AdamantiumVulkan.Windows.ImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo)
+        public static Result ImportFenceWin32HandleKHR(this AdamantiumVulkan.Core.Device device, in ImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo)
         {
             var arg0 = device;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkImportFenceWin32HandleKHR(arg0, pImportFenceWin32HandleInfo);
+            var arg1 = ReferenceEquals(pImportFenceWin32HandleInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pImportFenceWin32HandleInfo.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkImportFenceWin32HandleKHR(arg0, arg1);
+            pImportFenceWin32HandleInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
-        public static Result GetFenceWin32HandleKHR(this Device device, in AdamantiumVulkan.Windows.FenceGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
+        public static Result GetFenceWin32HandleKHR(this AdamantiumVulkan.Core.Device device, in FenceGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
         {
             var arg0 = device;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetFenceWin32HandleKHR(arg0, pGetWin32HandleInfo, ref pHandle);
+            var arg1 = ReferenceEquals(pGetWin32HandleInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGetWin32HandleInfo.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetFenceWin32HandleKHR(arg0, arg1, pHandle);
+            pGetWin32HandleInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
-        public static Result GetMemoryWin32HandleNV(this Device device, DeviceMemory memory, uint handleType, ref System.IntPtr pHandle)
+        public static Result GetMemoryWin32HandleNV(this AdamantiumVulkan.Core.Device device, AdamantiumVulkan.Core.DeviceMemory memory, uint handleType, ref System.IntPtr pHandle)
         {
             var arg0 = device;
-            var arg1 = ReferenceEquals(memory, null) ? new DeviceMemory_T() : (DeviceMemory_T)memory;
-            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandleNV(arg0, arg1, handleType, ref pHandle);
+            var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
+            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandleNV(arg0, arg1, handleType, pHandle);
         }
 
     }
