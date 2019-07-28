@@ -179,6 +179,26 @@ namespace AdamantiumVulkan.Core
                 Format.D16_UNORM
             }, 16);
 
+            Init(new Format[]
+            {
+                Format.R8G8B8_UNORM,
+                Format.R8G8B8_SNORM,
+                Format.R8G8B8_USCALED,
+                Format.R8G8B8_SSCALED,
+                Format.R8G8B8_UINT,
+                Format.R8G8B8_SINT,
+                Format.R8G8B8_SRGB,
+                Format.B8G8R8_UNORM,
+                Format.B8G8R8_SNORM,
+                Format.B8G8R8_USCALED,
+                Format.B8G8R8_SSCALED,
+                Format.B8G8R8_UINT,
+                Format.B8G8R8_SINT,
+                Format.B8G8R8_SRGB,
+                Format.D16_UNORM_S8_UINT,
+                Format.D32_SFLOAT_S8_UINT
+            }, 24);
+
             Init(new Format[] 
             {
                 Format.R8G8B8A8_UNORM,

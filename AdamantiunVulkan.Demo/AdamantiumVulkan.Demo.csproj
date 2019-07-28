@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>x64</Platforms>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
@@ -43,6 +43,31 @@
     <ProjectReference Include="..\AdamantiumVulkan.Shaders\AdamantiumVulkan.Shaders.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Windows\AdamantiumVulkan.Windows.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Adamantium.Core">
+      <HintPath>Adamantium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Adamantium.Imaging">
+      <HintPath>Adamantium.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Adamantium.Mathematics">
+      <HintPath>Adamantium.Mathematics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Textures\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Textures\BaseAlbedoTexture_Text.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Textures\ColoredImage.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

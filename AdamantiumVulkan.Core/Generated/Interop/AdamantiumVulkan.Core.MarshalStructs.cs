@@ -13,79 +13,79 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 64 Column: 18
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Flags
+    public partial struct VkFlags
     {
         public uint value;
 
-        public static implicit operator uint(Flags f)
+        public static implicit operator uint(VkFlags v)
         {
-            return f.value;
+            return v.value;
         }
 
-        public static implicit operator Flags(uint f)
+        public static implicit operator VkFlags(uint v)
         {
-            return new Flags(){value = f};
+            return new VkFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 65 Column: 18
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Bool32
+    public partial struct VkBool32
     {
         public uint value;
 
-        public static implicit operator uint(Bool32 b)
+        public static implicit operator uint(VkBool32 v)
         {
-            return b.value;
+            return v.value;
         }
 
-        public static implicit operator Bool32(uint b)
+        public static implicit operator VkBool32(uint v)
         {
-            return new Bool32(){value = b};
+            return new VkBool32(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 66 Column: 18
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceSize
+    public partial struct VkDeviceSize
     {
         public ulong value;
 
-        public static implicit operator ulong(DeviceSize d)
+        public static implicit operator ulong(VkDeviceSize v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DeviceSize(ulong d)
+        public static implicit operator VkDeviceSize(ulong v)
         {
-            return new DeviceSize(){value = d};
+            return new VkDeviceSize(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 67 Column: 18
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SampleMask
+    public partial struct VkSampleMask
     {
         public uint value;
 
-        public static implicit operator uint(SampleMask s)
+        public static implicit operator uint(VkSampleMask v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SampleMask(uint s)
+        public static implicit operator VkSampleMask(uint v)
         {
-            return new SampleMask(){value = s};
+            return new VkSampleMask(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 69 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Instance_T
+    public partial struct VkInstance_T
     {
         public System.IntPtr pointer;
 
@@ -93,7 +93,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 70 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDevice_T
+    public partial struct VkPhysicalDevice_T
     {
         public System.IntPtr pointer;
 
@@ -101,7 +101,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 71 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Device_T
+    public partial struct VkDevice_T
     {
         public System.IntPtr pointer;
 
@@ -109,7 +109,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 72 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Queue_T
+    public partial struct VkQueue_T
     {
         public System.IntPtr pointer;
 
@@ -117,7 +117,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 73 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Semaphore_T
+    public partial struct VkSemaphore_T
     {
         public System.IntPtr pointer;
 
@@ -125,7 +125,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 74 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBuffer_T
+    public partial struct VkCommandBuffer_T
     {
         public System.IntPtr pointer;
 
@@ -133,7 +133,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 75 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Fence_T
+    public partial struct VkFence_T
     {
         public System.IntPtr pointer;
 
@@ -141,7 +141,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 76 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceMemory_T
+    public partial struct VkDeviceMemory_T
     {
         public System.IntPtr pointer;
 
@@ -149,7 +149,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 77 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Buffer_T
+    public partial struct VkBuffer_T
     {
         public System.IntPtr pointer;
 
@@ -157,7 +157,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 78 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Image_T
+    public partial struct VkImage_T
     {
         public System.IntPtr pointer;
 
@@ -165,7 +165,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 79 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Event_T
+    public partial struct VkEvent_T
     {
         public System.IntPtr pointer;
 
@@ -173,7 +173,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 80 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueryPool_T
+    public partial struct VkQueryPool_T
     {
         public System.IntPtr pointer;
 
@@ -181,7 +181,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 81 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferView_T
+    public partial struct VkBufferView_T
     {
         public System.IntPtr pointer;
 
@@ -189,7 +189,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 82 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageView_T
+    public partial struct VkImageView_T
     {
         public System.IntPtr pointer;
 
@@ -197,7 +197,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 83 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderModule_T
+    public partial struct VkShaderModule_T
     {
         public System.IntPtr pointer;
 
@@ -205,7 +205,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 84 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCache_T
+    public partial struct VkPipelineCache_T
     {
         public System.IntPtr pointer;
 
@@ -213,7 +213,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 85 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineLayout_T
+    public partial struct VkPipelineLayout_T
     {
         public System.IntPtr pointer;
 
@@ -221,7 +221,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 86 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPass_T
+    public partial struct VkRenderPass_T
     {
         public System.IntPtr pointer;
 
@@ -229,7 +229,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 87 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Pipeline_T
+    public partial struct VkPipeline_T
     {
         public System.IntPtr pointer;
 
@@ -237,7 +237,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 88 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetLayout_T
+    public partial struct VkDescriptorSetLayout_T
     {
         public System.IntPtr pointer;
 
@@ -245,7 +245,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 89 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Sampler_T
+    public partial struct VkSampler_T
     {
         public System.IntPtr pointer;
 
@@ -253,7 +253,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 90 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorPool_T
+    public partial struct VkDescriptorPool_T
     {
         public System.IntPtr pointer;
 
@@ -261,7 +261,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 91 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSet_T
+    public partial struct VkDescriptorSet_T
     {
         public System.IntPtr pointer;
 
@@ -269,7 +269,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 92 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Framebuffer_T
+    public partial struct VkFramebuffer_T
     {
         public System.IntPtr pointer;
 
@@ -277,7 +277,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 93 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandPool_T
+    public partial struct VkCommandPool_T
     {
         public System.IntPtr pointer;
 
@@ -285,1051 +285,1051 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1327 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct InstanceCreateFlags
+    public partial struct VkInstanceCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(InstanceCreateFlags i)
+        public static implicit operator uint(VkInstanceCreateFlags v)
         {
-            return i.value;
+            return v.value;
         }
 
-        public static implicit operator InstanceCreateFlags(uint i)
+        public static implicit operator VkInstanceCreateFlags(uint v)
         {
-            return new InstanceCreateFlags(){value = i};
+            return new VkInstanceCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1367 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FormatFeatureFlags
+    public partial struct VkFormatFeatureFlags
     {
         public uint value;
 
-        public static implicit operator uint(FormatFeatureFlags f)
+        public static implicit operator uint(VkFormatFeatureFlags v)
         {
-            return f.value;
+            return v.value;
         }
 
-        public static implicit operator FormatFeatureFlags(uint f)
+        public static implicit operator VkFormatFeatureFlags(uint v)
         {
-            return new FormatFeatureFlags(){value = f};
+            return new VkFormatFeatureFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1382 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageUsageFlags
+    public partial struct VkImageUsageFlags
     {
         public uint value;
 
-        public static implicit operator uint(ImageUsageFlags i)
+        public static implicit operator uint(VkImageUsageFlags v)
         {
-            return i.value;
+            return v.value;
         }
 
-        public static implicit operator ImageUsageFlags(uint i)
+        public static implicit operator VkImageUsageFlags(uint v)
         {
-            return new ImageUsageFlags(){value = i};
+            return new VkImageUsageFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1408 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageCreateFlags
+    public partial struct VkImageCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(ImageCreateFlags i)
+        public static implicit operator uint(VkImageCreateFlags v)
         {
-            return i.value;
+            return v.value;
         }
 
-        public static implicit operator ImageCreateFlags(uint i)
+        public static implicit operator VkImageCreateFlags(uint v)
         {
-            return new ImageCreateFlags(){value = i};
+            return new VkImageCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1420 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SampleCountFlags
+    public partial struct VkSampleCountFlags
     {
         public uint value;
 
-        public static implicit operator uint(SampleCountFlags s)
+        public static implicit operator uint(VkSampleCountFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SampleCountFlags(uint s)
+        public static implicit operator VkSampleCountFlags(uint v)
         {
-            return new SampleCountFlags(){value = s};
+            return new VkSampleCountFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1430 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueueFlags
+    public partial struct VkQueueFlags
     {
         public uint value;
 
-        public static implicit operator uint(QueueFlags q)
+        public static implicit operator uint(VkQueueFlags v)
         {
-            return q.value;
+            return v.value;
         }
 
-        public static implicit operator QueueFlags(uint q)
+        public static implicit operator VkQueueFlags(uint v)
         {
-            return new QueueFlags(){value = q};
+            return new VkQueueFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1441 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryPropertyFlags
+    public partial struct VkMemoryPropertyFlags
     {
         public uint value;
 
-        public static implicit operator uint(MemoryPropertyFlags m)
+        public static implicit operator uint(VkMemoryPropertyFlags v)
         {
-            return m.value;
+            return v.value;
         }
 
-        public static implicit operator MemoryPropertyFlags(uint m)
+        public static implicit operator VkMemoryPropertyFlags(uint v)
         {
-            return new MemoryPropertyFlags(){value = m};
+            return new VkMemoryPropertyFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1449 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryHeapFlags
+    public partial struct VkMemoryHeapFlags
     {
         public uint value;
 
-        public static implicit operator uint(MemoryHeapFlags m)
+        public static implicit operator uint(VkMemoryHeapFlags v)
         {
-            return m.value;
+            return v.value;
         }
 
-        public static implicit operator MemoryHeapFlags(uint m)
+        public static implicit operator VkMemoryHeapFlags(uint v)
         {
-            return new MemoryHeapFlags(){value = m};
+            return new VkMemoryHeapFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1450 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceCreateFlags
+    public partial struct VkDeviceCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(DeviceCreateFlags d)
+        public static implicit operator uint(VkDeviceCreateFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DeviceCreateFlags(uint d)
+        public static implicit operator VkDeviceCreateFlags(uint v)
         {
-            return new DeviceCreateFlags(){value = d};
+            return new VkDeviceCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1456 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceQueueCreateFlags
+    public partial struct VkDeviceQueueCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(DeviceQueueCreateFlags d)
+        public static implicit operator uint(VkDeviceQueueCreateFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DeviceQueueCreateFlags(uint d)
+        public static implicit operator VkDeviceQueueCreateFlags(uint v)
         {
-            return new DeviceQueueCreateFlags(){value = d};
+            return new VkDeviceQueueCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1487 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineStageFlags
+    public partial struct VkPipelineStageFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineStageFlags p)
+        public static implicit operator uint(VkPipelineStageFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineStageFlags(uint p)
+        public static implicit operator VkPipelineStageFlags(uint v)
         {
-            return new PipelineStageFlags(){value = p};
+            return new VkPipelineStageFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1488 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryMapFlags
+    public partial struct VkMemoryMapFlags
     {
         public uint value;
 
-        public static implicit operator uint(MemoryMapFlags m)
+        public static implicit operator uint(VkMemoryMapFlags v)
         {
-            return m.value;
+            return v.value;
         }
 
-        public static implicit operator MemoryMapFlags(uint m)
+        public static implicit operator VkMemoryMapFlags(uint v)
         {
-            return new MemoryMapFlags(){value = m};
+            return new VkMemoryMapFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1507 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageAspectFlags
+    public partial struct VkImageAspectFlags
     {
         public uint value;
 
-        public static implicit operator uint(ImageAspectFlags i)
+        public static implicit operator uint(VkImageAspectFlags v)
         {
-            return i.value;
+            return v.value;
         }
 
-        public static implicit operator ImageAspectFlags(uint i)
+        public static implicit operator VkImageAspectFlags(uint v)
         {
-            return new ImageAspectFlags(){value = i};
+            return new VkImageAspectFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1515 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageFormatFlags
+    public partial struct VkSparseImageFormatFlags
     {
         public uint value;
 
-        public static implicit operator uint(SparseImageFormatFlags s)
+        public static implicit operator uint(VkSparseImageFormatFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SparseImageFormatFlags(uint s)
+        public static implicit operator VkSparseImageFormatFlags(uint v)
         {
-            return new SparseImageFormatFlags(){value = s};
+            return new VkSparseImageFormatFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1521 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseMemoryBindFlags
+    public partial struct VkSparseMemoryBindFlags
     {
         public uint value;
 
-        public static implicit operator uint(SparseMemoryBindFlags s)
+        public static implicit operator uint(VkSparseMemoryBindFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SparseMemoryBindFlags(uint s)
+        public static implicit operator VkSparseMemoryBindFlags(uint v)
         {
-            return new SparseMemoryBindFlags(){value = s};
+            return new VkSparseMemoryBindFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1527 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FenceCreateFlags
+    public partial struct VkFenceCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(FenceCreateFlags f)
+        public static implicit operator uint(VkFenceCreateFlags v)
         {
-            return f.value;
+            return v.value;
         }
 
-        public static implicit operator FenceCreateFlags(uint f)
+        public static implicit operator VkFenceCreateFlags(uint v)
         {
-            return new FenceCreateFlags(){value = f};
+            return new VkFenceCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1528 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SemaphoreCreateFlags
+    public partial struct VkSemaphoreCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(SemaphoreCreateFlags s)
+        public static implicit operator uint(VkSemaphoreCreateFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SemaphoreCreateFlags(uint s)
+        public static implicit operator VkSemaphoreCreateFlags(uint v)
         {
-            return new SemaphoreCreateFlags(){value = s};
+            return new VkSemaphoreCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1529 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct EventCreateFlags
+    public partial struct VkEventCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(EventCreateFlags e)
+        public static implicit operator uint(VkEventCreateFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator EventCreateFlags(uint e)
+        public static implicit operator VkEventCreateFlags(uint v)
         {
-            return new EventCreateFlags(){value = e};
+            return new VkEventCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1530 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueryPoolCreateFlags
+    public partial struct VkQueryPoolCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(QueryPoolCreateFlags q)
+        public static implicit operator uint(VkQueryPoolCreateFlags v)
         {
-            return q.value;
+            return v.value;
         }
 
-        public static implicit operator QueryPoolCreateFlags(uint q)
+        public static implicit operator VkQueryPoolCreateFlags(uint v)
         {
-            return new QueryPoolCreateFlags(){value = q};
+            return new VkQueryPoolCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1546 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueryPipelineStatisticFlags
+    public partial struct VkQueryPipelineStatisticFlags
     {
         public uint value;
 
-        public static implicit operator uint(QueryPipelineStatisticFlags q)
+        public static implicit operator uint(VkQueryPipelineStatisticFlags v)
         {
-            return q.value;
+            return v.value;
         }
 
-        public static implicit operator QueryPipelineStatisticFlags(uint q)
+        public static implicit operator VkQueryPipelineStatisticFlags(uint v)
         {
-            return new QueryPipelineStatisticFlags(){value = q};
+            return new VkQueryPipelineStatisticFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1555 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueryResultFlags
+    public partial struct VkQueryResultFlags
     {
         public uint value;
 
-        public static implicit operator uint(QueryResultFlags q)
+        public static implicit operator uint(VkQueryResultFlags v)
         {
-            return q.value;
+            return v.value;
         }
 
-        public static implicit operator QueryResultFlags(uint q)
+        public static implicit operator VkQueryResultFlags(uint v)
         {
-            return new QueryResultFlags(){value = q};
+            return new VkQueryResultFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1565 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferCreateFlags
+    public partial struct VkBufferCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(BufferCreateFlags b)
+        public static implicit operator uint(VkBufferCreateFlags v)
         {
-            return b.value;
+            return v.value;
         }
 
-        public static implicit operator BufferCreateFlags(uint b)
+        public static implicit operator VkBufferCreateFlags(uint v)
         {
-            return new BufferCreateFlags(){value = b};
+            return new VkBufferCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1584 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferUsageFlags
+    public partial struct VkBufferUsageFlags
     {
         public uint value;
 
-        public static implicit operator uint(BufferUsageFlags b)
+        public static implicit operator uint(VkBufferUsageFlags v)
         {
-            return b.value;
+            return v.value;
         }
 
-        public static implicit operator BufferUsageFlags(uint b)
+        public static implicit operator VkBufferUsageFlags(uint v)
         {
-            return new BufferUsageFlags(){value = b};
+            return new VkBufferUsageFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1585 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferViewCreateFlags
+    public partial struct VkBufferViewCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(BufferViewCreateFlags b)
+        public static implicit operator uint(VkBufferViewCreateFlags v)
         {
-            return b.value;
+            return v.value;
         }
 
-        public static implicit operator BufferViewCreateFlags(uint b)
+        public static implicit operator VkBufferViewCreateFlags(uint v)
         {
-            return new BufferViewCreateFlags(){value = b};
+            return new VkBufferViewCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1591 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageViewCreateFlags
+    public partial struct VkImageViewCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(ImageViewCreateFlags i)
+        public static implicit operator uint(VkImageViewCreateFlags v)
         {
-            return i.value;
+            return v.value;
         }
 
-        public static implicit operator ImageViewCreateFlags(uint i)
+        public static implicit operator VkImageViewCreateFlags(uint v)
         {
-            return new ImageViewCreateFlags(){value = i};
+            return new VkImageViewCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1592 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderModuleCreateFlags
+    public partial struct VkShaderModuleCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(ShaderModuleCreateFlags s)
+        public static implicit operator uint(VkShaderModuleCreateFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator ShaderModuleCreateFlags(uint s)
+        public static implicit operator VkShaderModuleCreateFlags(uint v)
         {
-            return new ShaderModuleCreateFlags(){value = s};
+            return new VkShaderModuleCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1593 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCacheCreateFlags
+    public partial struct VkPipelineCacheCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineCacheCreateFlags p)
+        public static implicit operator uint(VkPipelineCacheCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineCacheCreateFlags(uint p)
+        public static implicit operator VkPipelineCacheCreateFlags(uint v)
         {
-            return new PipelineCacheCreateFlags(){value = p};
+            return new VkPipelineCacheCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1606 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCreateFlags
+    public partial struct VkPipelineCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineCreateFlags p)
+        public static implicit operator uint(VkPipelineCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineCreateFlags(uint p)
+        public static implicit operator VkPipelineCreateFlags(uint v)
         {
-            return new PipelineCreateFlags(){value = p};
+            return new VkPipelineCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1607 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineShaderStageCreateFlags
+    public partial struct VkPipelineShaderStageCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineShaderStageCreateFlags p)
+        public static implicit operator uint(VkPipelineShaderStageCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineShaderStageCreateFlags(uint p)
+        public static implicit operator VkPipelineShaderStageCreateFlags(uint v)
         {
-            return new PipelineShaderStageCreateFlags(){value = p};
+            return new VkPipelineShaderStageCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1628 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineVertexInputStateCreateFlags
+    public partial struct VkPipelineVertexInputStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineVertexInputStateCreateFlags p)
+        public static implicit operator uint(VkPipelineVertexInputStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineVertexInputStateCreateFlags(uint p)
+        public static implicit operator VkPipelineVertexInputStateCreateFlags(uint v)
         {
-            return new PipelineVertexInputStateCreateFlags(){value = p};
+            return new VkPipelineVertexInputStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1629 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineInputAssemblyStateCreateFlags
+    public partial struct VkPipelineInputAssemblyStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineInputAssemblyStateCreateFlags p)
+        public static implicit operator uint(VkPipelineInputAssemblyStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineInputAssemblyStateCreateFlags(uint p)
+        public static implicit operator VkPipelineInputAssemblyStateCreateFlags(uint v)
         {
-            return new PipelineInputAssemblyStateCreateFlags(){value = p};
+            return new VkPipelineInputAssemblyStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1630 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineTessellationStateCreateFlags
+    public partial struct VkPipelineTessellationStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineTessellationStateCreateFlags p)
+        public static implicit operator uint(VkPipelineTessellationStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineTessellationStateCreateFlags(uint p)
+        public static implicit operator VkPipelineTessellationStateCreateFlags(uint v)
         {
-            return new PipelineTessellationStateCreateFlags(){value = p};
+            return new VkPipelineTessellationStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1631 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportStateCreateFlags
+    public partial struct VkPipelineViewportStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineViewportStateCreateFlags p)
+        public static implicit operator uint(VkPipelineViewportStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineViewportStateCreateFlags(uint p)
+        public static implicit operator VkPipelineViewportStateCreateFlags(uint v)
         {
-            return new PipelineViewportStateCreateFlags(){value = p};
+            return new VkPipelineViewportStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1632 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationStateCreateFlags
+    public partial struct VkPipelineRasterizationStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineRasterizationStateCreateFlags p)
+        public static implicit operator uint(VkPipelineRasterizationStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineRasterizationStateCreateFlags(uint p)
+        public static implicit operator VkPipelineRasterizationStateCreateFlags(uint v)
         {
-            return new PipelineRasterizationStateCreateFlags(){value = p};
+            return new VkPipelineRasterizationStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1641 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CullModeFlags
+    public partial struct VkCullModeFlags
     {
         public uint value;
 
-        public static implicit operator uint(CullModeFlags c)
+        public static implicit operator uint(VkCullModeFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CullModeFlags(uint c)
+        public static implicit operator VkCullModeFlags(uint v)
         {
-            return new CullModeFlags(){value = c};
+            return new VkCullModeFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1642 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineMultisampleStateCreateFlags
+    public partial struct VkPipelineMultisampleStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineMultisampleStateCreateFlags p)
+        public static implicit operator uint(VkPipelineMultisampleStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineMultisampleStateCreateFlags(uint p)
+        public static implicit operator VkPipelineMultisampleStateCreateFlags(uint v)
         {
-            return new PipelineMultisampleStateCreateFlags(){value = p};
+            return new VkPipelineMultisampleStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1643 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineDepthStencilStateCreateFlags
+    public partial struct VkPipelineDepthStencilStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineDepthStencilStateCreateFlags p)
+        public static implicit operator uint(VkPipelineDepthStencilStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineDepthStencilStateCreateFlags(uint p)
+        public static implicit operator VkPipelineDepthStencilStateCreateFlags(uint v)
         {
-            return new PipelineDepthStencilStateCreateFlags(){value = p};
+            return new VkPipelineDepthStencilStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1644 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineColorBlendStateCreateFlags
+    public partial struct VkPipelineColorBlendStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineColorBlendStateCreateFlags p)
+        public static implicit operator uint(VkPipelineColorBlendStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineColorBlendStateCreateFlags(uint p)
+        public static implicit operator VkPipelineColorBlendStateCreateFlags(uint v)
         {
-            return new PipelineColorBlendStateCreateFlags(){value = p};
+            return new VkPipelineColorBlendStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1653 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ColorComponentFlags
+    public partial struct VkColorComponentFlags
     {
         public uint value;
 
-        public static implicit operator uint(ColorComponentFlags c)
+        public static implicit operator uint(VkColorComponentFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator ColorComponentFlags(uint c)
+        public static implicit operator VkColorComponentFlags(uint v)
         {
-            return new ColorComponentFlags(){value = c};
+            return new VkColorComponentFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1654 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineDynamicStateCreateFlags
+    public partial struct VkPipelineDynamicStateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineDynamicStateCreateFlags p)
+        public static implicit operator uint(VkPipelineDynamicStateCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineDynamicStateCreateFlags(uint p)
+        public static implicit operator VkPipelineDynamicStateCreateFlags(uint v)
         {
-            return new PipelineDynamicStateCreateFlags(){value = p};
+            return new VkPipelineDynamicStateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1655 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineLayoutCreateFlags
+    public partial struct VkPipelineLayoutCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(PipelineLayoutCreateFlags p)
+        public static implicit operator uint(VkPipelineLayoutCreateFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineLayoutCreateFlags(uint p)
+        public static implicit operator VkPipelineLayoutCreateFlags(uint v)
         {
-            return new PipelineLayoutCreateFlags(){value = p};
+            return new VkPipelineLayoutCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1656 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderStageFlags
+    public partial struct VkShaderStageFlags
     {
         public uint value;
 
-        public static implicit operator uint(ShaderStageFlags s)
+        public static implicit operator uint(VkShaderStageFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator ShaderStageFlags(uint s)
+        public static implicit operator VkShaderStageFlags(uint v)
         {
-            return new ShaderStageFlags(){value = s};
+            return new VkShaderStageFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1663 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerCreateFlags
+    public partial struct VkSamplerCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(SamplerCreateFlags s)
+        public static implicit operator uint(VkSamplerCreateFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SamplerCreateFlags(uint s)
+        public static implicit operator VkSamplerCreateFlags(uint v)
         {
-            return new SamplerCreateFlags(){value = s};
+            return new VkSamplerCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1670 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetLayoutCreateFlags
+    public partial struct VkDescriptorSetLayoutCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(DescriptorSetLayoutCreateFlags d)
+        public static implicit operator uint(VkDescriptorSetLayoutCreateFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DescriptorSetLayoutCreateFlags(uint d)
+        public static implicit operator VkDescriptorSetLayoutCreateFlags(uint v)
         {
-            return new DescriptorSetLayoutCreateFlags(){value = d};
+            return new VkDescriptorSetLayoutCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1677 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorPoolCreateFlags
+    public partial struct VkDescriptorPoolCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(DescriptorPoolCreateFlags d)
+        public static implicit operator uint(VkDescriptorPoolCreateFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DescriptorPoolCreateFlags(uint d)
+        public static implicit operator VkDescriptorPoolCreateFlags(uint v)
         {
-            return new DescriptorPoolCreateFlags(){value = d};
+            return new VkDescriptorPoolCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1678 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorPoolResetFlags
+    public partial struct VkDescriptorPoolResetFlags
     {
         public uint value;
 
-        public static implicit operator uint(DescriptorPoolResetFlags d)
+        public static implicit operator uint(VkDescriptorPoolResetFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DescriptorPoolResetFlags(uint d)
+        public static implicit operator VkDescriptorPoolResetFlags(uint v)
         {
-            return new DescriptorPoolResetFlags(){value = d};
+            return new VkDescriptorPoolResetFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1679 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FramebufferCreateFlags
+    public partial struct VkFramebufferCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(FramebufferCreateFlags f)
+        public static implicit operator uint(VkFramebufferCreateFlags v)
         {
-            return f.value;
+            return v.value;
         }
 
-        public static implicit operator FramebufferCreateFlags(uint f)
+        public static implicit operator VkFramebufferCreateFlags(uint v)
         {
-            return new FramebufferCreateFlags(){value = f};
+            return new VkFramebufferCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1680 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassCreateFlags
+    public partial struct VkRenderPassCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(RenderPassCreateFlags r)
+        public static implicit operator uint(VkRenderPassCreateFlags v)
         {
-            return r.value;
+            return v.value;
         }
 
-        public static implicit operator RenderPassCreateFlags(uint r)
+        public static implicit operator VkRenderPassCreateFlags(uint v)
         {
-            return new RenderPassCreateFlags(){value = r};
+            return new VkRenderPassCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1686 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AttachmentDescriptionFlags
+    public partial struct VkAttachmentDescriptionFlags
     {
         public uint value;
 
-        public static implicit operator uint(AttachmentDescriptionFlags a)
+        public static implicit operator uint(VkAttachmentDescriptionFlags v)
         {
-            return a.value;
+            return v.value;
         }
 
-        public static implicit operator AttachmentDescriptionFlags(uint a)
+        public static implicit operator VkAttachmentDescriptionFlags(uint v)
         {
-            return new AttachmentDescriptionFlags(){value = a};
+            return new VkAttachmentDescriptionFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1693 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassDescriptionFlags
+    public partial struct VkSubpassDescriptionFlags
     {
         public uint value;
 
-        public static implicit operator uint(SubpassDescriptionFlags s)
+        public static implicit operator uint(VkSubpassDescriptionFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SubpassDescriptionFlags(uint s)
+        public static implicit operator VkSubpassDescriptionFlags(uint v)
         {
-            return new SubpassDescriptionFlags(){value = s};
+            return new VkSubpassDescriptionFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1726 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AccessFlags
+    public partial struct VkAccessFlags
     {
         public uint value;
 
-        public static implicit operator uint(AccessFlags a)
+        public static implicit operator uint(VkAccessFlags v)
         {
-            return a.value;
+            return v.value;
         }
 
-        public static implicit operator AccessFlags(uint a)
+        public static implicit operator VkAccessFlags(uint v)
         {
-            return new AccessFlags(){value = a};
+            return new VkAccessFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1736 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DependencyFlags
+    public partial struct VkDependencyFlags
     {
         public uint value;
 
-        public static implicit operator uint(DependencyFlags d)
+        public static implicit operator uint(VkDependencyFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DependencyFlags(uint d)
+        public static implicit operator VkDependencyFlags(uint v)
         {
-            return new DependencyFlags(){value = d};
+            return new VkDependencyFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1744 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandPoolCreateFlags
+    public partial struct VkCommandPoolCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(CommandPoolCreateFlags c)
+        public static implicit operator uint(VkCommandPoolCreateFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CommandPoolCreateFlags(uint c)
+        public static implicit operator VkCommandPoolCreateFlags(uint v)
         {
-            return new CommandPoolCreateFlags(){value = c};
+            return new VkCommandPoolCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1750 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandPoolResetFlags
+    public partial struct VkCommandPoolResetFlags
     {
         public uint value;
 
-        public static implicit operator uint(CommandPoolResetFlags c)
+        public static implicit operator uint(VkCommandPoolResetFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CommandPoolResetFlags(uint c)
+        public static implicit operator VkCommandPoolResetFlags(uint v)
         {
-            return new CommandPoolResetFlags(){value = c};
+            return new VkCommandPoolResetFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1758 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBufferUsageFlags
+    public partial struct VkCommandBufferUsageFlags
     {
         public uint value;
 
-        public static implicit operator uint(CommandBufferUsageFlags c)
+        public static implicit operator uint(VkCommandBufferUsageFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CommandBufferUsageFlags(uint c)
+        public static implicit operator VkCommandBufferUsageFlags(uint v)
         {
-            return new CommandBufferUsageFlags(){value = c};
+            return new VkCommandBufferUsageFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1764 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueryControlFlags
+    public partial struct VkQueryControlFlags
     {
         public uint value;
 
-        public static implicit operator uint(QueryControlFlags q)
+        public static implicit operator uint(VkQueryControlFlags v)
         {
-            return q.value;
+            return v.value;
         }
 
-        public static implicit operator QueryControlFlags(uint q)
+        public static implicit operator VkQueryControlFlags(uint v)
         {
-            return new QueryControlFlags(){value = q};
+            return new VkQueryControlFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1770 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBufferResetFlags
+    public partial struct VkCommandBufferResetFlags
     {
         public uint value;
 
-        public static implicit operator uint(CommandBufferResetFlags c)
+        public static implicit operator uint(VkCommandBufferResetFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CommandBufferResetFlags(uint c)
+        public static implicit operator VkCommandBufferResetFlags(uint v)
         {
-            return new CommandBufferResetFlags(){value = c};
+            return new VkCommandBufferResetFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1778 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct StencilFaceFlags
+    public partial struct VkStencilFaceFlags
     {
         public uint value;
 
-        public static implicit operator uint(StencilFaceFlags s)
+        public static implicit operator uint(VkStencilFaceFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator StencilFaceFlags(uint s)
+        public static implicit operator VkStencilFaceFlags(uint v)
         {
-            return new StencilFaceFlags(){value = s};
+            return new VkStencilFaceFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1780 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ApplicationInfo
+    public partial struct VkApplicationInfo
     {
         public StructureType sType;
 
@@ -1349,7 +1349,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1790 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct InstanceCreateInfo
+    public partial struct VkInstanceCreateInfo
     {
         public StructureType sType;
 
@@ -1371,7 +1371,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1830 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AllocationCallbacks
+    public partial struct VkAllocationCallbacks
     {
         public System.IntPtr pUserData;
 
@@ -1389,7 +1389,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1839 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFeatures
+    public partial struct VkPhysicalDeviceFeatures
     {
         public bool robustBufferAccess;
 
@@ -1505,7 +1505,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1897 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FormatProperties
+    public partial struct VkFormatProperties
     {
         public uint linearTilingFeatures;
 
@@ -1517,7 +1517,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1903 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Extent3D
+    public partial struct VkExtent3D
     {
         public uint width;
 
@@ -1529,9 +1529,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1909 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageFormatProperties
+    public partial struct VkImageFormatProperties
     {
-        public Extent3D maxExtent;
+        public VkExtent3D maxExtent;
 
         public uint maxMipLevels;
 
@@ -1545,7 +1545,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1917 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceLimits
+    public partial struct VkPhysicalDeviceLimits
     {
         public uint maxImageDimension1D;
 
@@ -1763,7 +1763,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2026 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSparseProperties
+    public partial struct VkPhysicalDeviceSparseProperties
     {
         public bool residencyStandard2DBlockShape;
 
@@ -1779,7 +1779,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2034 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceProperties
+    public partial struct VkPhysicalDeviceProperties
     {
         public uint apiVersion;
 
@@ -1795,15 +1795,15 @@ namespace AdamantiumVulkan.Core.Interop
 
         public unsafe fixed byte pipelineCacheUUID[16];
 
-        public PhysicalDeviceLimits limits;
+        public VkPhysicalDeviceLimits limits;
 
-        public PhysicalDeviceSparseProperties sparseProperties;
+        public VkPhysicalDeviceSparseProperties sparseProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2046 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueueFamilyProperties
+    public partial struct VkQueueFamilyProperties
     {
         public uint queueFlags;
 
@@ -1811,13 +1811,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint timestampValidBits;
 
-        public Extent3D minImageTransferGranularity;
+        public VkExtent3D minImageTransferGranularity;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2053 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryType
+    public partial struct VkMemoryType
     {
         public uint propertyFlags;
 
@@ -1827,7 +1827,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2058 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryHeap
+    public partial struct VkMemoryHeap
     {
         public ulong size;
 
@@ -1837,23 +1837,23 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2063 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMemoryProperties
+    public partial struct VkPhysicalDeviceMemoryProperties
     {
         public uint memoryTypeCount;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
-        public MemoryType[] memoryTypes;
+        public VkMemoryType[] memoryTypes;
 
         public uint memoryHeapCount;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public MemoryHeap[] memoryHeaps;
+        public VkMemoryHeap[] memoryHeaps;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2071 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceQueueCreateInfo
+    public partial struct VkDeviceQueueCreateInfo
     {
         public StructureType sType;
 
@@ -1871,7 +1871,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2080 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceCreateInfo
+    public partial struct VkDeviceCreateInfo
     {
         public StructureType sType;
 
@@ -1897,7 +1897,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2093 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExtensionProperties
+    public partial struct VkExtensionProperties
     {
         public unsafe fixed sbyte extensionName[256];
 
@@ -1907,7 +1907,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2098 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct LayerProperties
+    public partial struct VkLayerProperties
     {
         public unsafe fixed sbyte layerName[256];
 
@@ -1921,7 +1921,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2105 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubmitInfo
+    public partial struct VkSubmitInfo
     {
         public StructureType sType;
 
@@ -1945,7 +1945,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2117 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryAllocateInfo
+    public partial struct VkMemoryAllocateInfo
     {
         public StructureType sType;
 
@@ -1959,13 +1959,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2124 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MappedMemoryRange
+    public partial struct VkMappedMemoryRange
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ulong offset;
 
@@ -1975,7 +1975,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2132 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryRequirements
+    public partial struct VkMemoryRequirements
     {
         public ulong size;
 
@@ -1987,11 +1987,11 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2138 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageFormatProperties
+    public partial struct VkSparseImageFormatProperties
     {
         public uint aspectMask;
 
-        public Extent3D imageGranularity;
+        public VkExtent3D imageGranularity;
 
         public uint flags;
 
@@ -1999,9 +1999,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2144 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageMemoryRequirements
+    public partial struct VkSparseImageMemoryRequirements
     {
-        public SparseImageFormatProperties formatProperties;
+        public VkSparseImageFormatProperties formatProperties;
 
         public uint imageMipTailFirstLod;
 
@@ -2015,13 +2015,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2152 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseMemoryBind
+    public partial struct VkSparseMemoryBind
     {
         public ulong resourceOffset;
 
         public ulong size;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ulong memoryOffset;
 
@@ -2031,9 +2031,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2160 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseBufferMemoryBindInfo
+    public partial struct VkSparseBufferMemoryBindInfo
     {
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public uint bindCount;
 
@@ -2043,9 +2043,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2166 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageOpaqueMemoryBindInfo
+    public partial struct VkSparseImageOpaqueMemoryBindInfo
     {
-        public Image_T image;
+        public VkImage_T image;
 
         public uint bindCount;
 
@@ -2055,7 +2055,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2172 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageSubresource
+    public partial struct VkImageSubresource
     {
         public uint aspectMask;
 
@@ -2067,7 +2067,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2178 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Offset3D
+    public partial struct VkOffset3D
     {
         public int x;
 
@@ -2079,15 +2079,15 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2184 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageMemoryBind
+    public partial struct VkSparseImageMemoryBind
     {
-        public ImageSubresource subresource;
+        public VkImageSubresource subresource;
 
-        public Offset3D offset;
+        public VkOffset3D offset;
 
-        public Extent3D extent;
+        public VkExtent3D extent;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ulong memoryOffset;
 
@@ -2097,9 +2097,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2193 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageMemoryBindInfo
+    public partial struct VkSparseImageMemoryBindInfo
     {
-        public Image_T image;
+        public VkImage_T image;
 
         public uint bindCount;
 
@@ -2109,7 +2109,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2199 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindSparseInfo
+    public partial struct VkBindSparseInfo
     {
         public StructureType sType;
 
@@ -2139,7 +2139,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2214 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FenceCreateInfo
+    public partial struct VkFenceCreateInfo
     {
         public StructureType sType;
 
@@ -2151,7 +2151,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2220 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SemaphoreCreateInfo
+    public partial struct VkSemaphoreCreateInfo
     {
         public StructureType sType;
 
@@ -2163,7 +2163,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2226 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct EventCreateInfo
+    public partial struct VkEventCreateInfo
     {
         public StructureType sType;
 
@@ -2175,7 +2175,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2232 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueryPoolCreateInfo
+    public partial struct VkQueryPoolCreateInfo
     {
         public StructureType sType;
 
@@ -2193,7 +2193,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2241 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferCreateInfo
+    public partial struct VkBufferCreateInfo
     {
         public StructureType sType;
 
@@ -2215,7 +2215,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2252 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferViewCreateInfo
+    public partial struct VkBufferViewCreateInfo
     {
         public StructureType sType;
 
@@ -2223,7 +2223,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public Format format;
 
@@ -2235,7 +2235,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2262 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageCreateInfo
+    public partial struct VkImageCreateInfo
     {
         public StructureType sType;
 
@@ -2247,7 +2247,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public Format format;
 
-        public Extent3D extent;
+        public VkExtent3D extent;
 
         public uint mipLevels;
 
@@ -2271,7 +2271,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2280 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubresourceLayout
+    public partial struct VkSubresourceLayout
     {
         public ulong offset;
 
@@ -2287,7 +2287,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2288 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ComponentMapping
+    public partial struct VkComponentMapping
     {
         public ComponentSwizzle r;
 
@@ -2301,7 +2301,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2295 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageSubresourceRange
+    public partial struct VkImageSubresourceRange
     {
         public uint aspectMask;
 
@@ -2317,7 +2317,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2303 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageViewCreateInfo
+    public partial struct VkImageViewCreateInfo
     {
         public StructureType sType;
 
@@ -2325,21 +2325,21 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public Image_T image;
+        public VkImage_T image;
 
         public ImageViewType viewType;
 
         public Format format;
 
-        public ComponentMapping components;
+        public VkComponentMapping components;
 
-        public ImageSubresourceRange subresourceRange;
+        public VkImageSubresourceRange subresourceRange;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2314 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderModuleCreateInfo
+    public partial struct VkShaderModuleCreateInfo
     {
         public StructureType sType;
 
@@ -2355,7 +2355,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2322 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCacheCreateInfo
+    public partial struct VkPipelineCacheCreateInfo
     {
         public StructureType sType;
 
@@ -2371,7 +2371,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2330 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SpecializationMapEntry
+    public partial struct VkSpecializationMapEntry
     {
         public uint constantID;
 
@@ -2383,7 +2383,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2336 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SpecializationInfo
+    public partial struct VkSpecializationInfo
     {
         public uint mapEntryCount;
 
@@ -2397,7 +2397,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2343 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineShaderStageCreateInfo
+    public partial struct VkPipelineShaderStageCreateInfo
     {
         public StructureType sType;
 
@@ -2407,7 +2407,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public ShaderStageFlagBits stage;
 
-        public ShaderModule_T module;
+        public VkShaderModule_T module;
 
         public System.IntPtr pName;
 
@@ -2417,7 +2417,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2353 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VertexInputBindingDescription
+    public partial struct VkVertexInputBindingDescription
     {
         public uint binding;
 
@@ -2429,7 +2429,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2359 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VertexInputAttributeDescription
+    public partial struct VkVertexInputAttributeDescription
     {
         public uint location;
 
@@ -2443,7 +2443,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2366 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineVertexInputStateCreateInfo
+    public partial struct VkPipelineVertexInputStateCreateInfo
     {
         public StructureType sType;
 
@@ -2463,7 +2463,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2376 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineInputAssemblyStateCreateInfo
+    public partial struct VkPipelineInputAssemblyStateCreateInfo
     {
         public StructureType sType;
 
@@ -2479,7 +2479,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2384 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineTessellationStateCreateInfo
+    public partial struct VkPipelineTessellationStateCreateInfo
     {
         public StructureType sType;
 
@@ -2493,7 +2493,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2391 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Viewport
+    public partial struct VkViewport
     {
         public float x;
 
@@ -2511,7 +2511,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2400 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Offset2D
+    public partial struct VkOffset2D
     {
         public int x;
 
@@ -2521,7 +2521,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2405 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Extent2D
+    public partial struct VkExtent2D
     {
         public uint width;
 
@@ -2531,17 +2531,17 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2410 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct Rect2D
+    public partial struct VkRect2D
     {
-        public Offset2D offset;
+        public VkOffset2D offset;
 
-        public Extent2D extent;
+        public VkExtent2D extent;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2415 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportStateCreateInfo
+    public partial struct VkPipelineViewportStateCreateInfo
     {
         public StructureType sType;
 
@@ -2561,7 +2561,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2425 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationStateCreateInfo
+    public partial struct VkPipelineRasterizationStateCreateInfo
     {
         public StructureType sType;
 
@@ -2593,7 +2593,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2441 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineMultisampleStateCreateInfo
+    public partial struct VkPipelineMultisampleStateCreateInfo
     {
         public StructureType sType;
 
@@ -2617,7 +2617,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2453 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct StencilOpState
+    public partial struct VkStencilOpState
     {
         public StencilOp failOp;
 
@@ -2637,7 +2637,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2463 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineDepthStencilStateCreateInfo
+    public partial struct VkPipelineDepthStencilStateCreateInfo
     {
         public StructureType sType;
 
@@ -2655,9 +2655,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public bool stencilTestEnable;
 
-        public StencilOpState front;
+        public VkStencilOpState front;
 
-        public StencilOpState back;
+        public VkStencilOpState back;
 
         public float minDepthBounds;
 
@@ -2667,7 +2667,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2478 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineColorBlendAttachmentState
+    public partial struct VkPipelineColorBlendAttachmentState
     {
         public bool blendEnable;
 
@@ -2689,7 +2689,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2489 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineColorBlendStateCreateInfo
+    public partial struct VkPipelineColorBlendStateCreateInfo
     {
         public StructureType sType;
 
@@ -2711,7 +2711,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2500 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineDynamicStateCreateInfo
+    public partial struct VkPipelineDynamicStateCreateInfo
     {
         public StructureType sType;
 
@@ -2727,7 +2727,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2508 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GraphicsPipelineCreateInfo
+    public partial struct VkGraphicsPipelineCreateInfo
     {
         public StructureType sType;
 
@@ -2757,13 +2757,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public System.IntPtr pDynamicState;
 
-        public PipelineLayout_T layout;
+        public VkPipelineLayout_T layout;
 
-        public RenderPass_T renderPass;
+        public VkRenderPass_T renderPass;
 
         public uint subpass;
 
-        public Pipeline_T basePipelineHandle;
+        public VkPipeline_T basePipelineHandle;
 
         public int basePipelineIndex;
 
@@ -2771,7 +2771,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2530 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ComputePipelineCreateInfo
+    public partial struct VkComputePipelineCreateInfo
     {
         public StructureType sType;
 
@@ -2779,11 +2779,11 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public PipelineShaderStageCreateInfo stage;
+        public VkPipelineShaderStageCreateInfo stage;
 
-        public PipelineLayout_T layout;
+        public VkPipelineLayout_T layout;
 
-        public Pipeline_T basePipelineHandle;
+        public VkPipeline_T basePipelineHandle;
 
         public int basePipelineIndex;
 
@@ -2791,7 +2791,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2540 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PushConstantRange
+    public partial struct VkPushConstantRange
     {
         public uint stageFlags;
 
@@ -2803,7 +2803,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2546 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineLayoutCreateInfo
+    public partial struct VkPipelineLayoutCreateInfo
     {
         public StructureType sType;
 
@@ -2823,7 +2823,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2556 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerCreateInfo
+    public partial struct VkSamplerCreateInfo
     {
         public StructureType sType;
 
@@ -2865,7 +2865,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2577 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetLayoutBinding
+    public partial struct VkDescriptorSetLayoutBinding
     {
         public uint binding;
 
@@ -2881,7 +2881,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2585 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetLayoutCreateInfo
+    public partial struct VkDescriptorSetLayoutCreateInfo
     {
         public StructureType sType;
 
@@ -2897,7 +2897,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2593 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorPoolSize
+    public partial struct VkDescriptorPoolSize
     {
         public DescriptorType type;
 
@@ -2907,7 +2907,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2598 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorPoolCreateInfo
+    public partial struct VkDescriptorPoolCreateInfo
     {
         public StructureType sType;
 
@@ -2925,13 +2925,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2607 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetAllocateInfo
+    public partial struct VkDescriptorSetAllocateInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DescriptorPool_T descriptorPool;
+        public VkDescriptorPool_T descriptorPool;
 
         public uint descriptorSetCount;
 
@@ -2941,11 +2941,11 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2615 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorImageInfo
+    public partial struct VkDescriptorImageInfo
     {
-        public Sampler_T sampler;
+        public VkSampler_T sampler;
 
-        public ImageView_T imageView;
+        public VkImageView_T imageView;
 
         public ImageLayout imageLayout;
 
@@ -2953,9 +2953,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2621 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorBufferInfo
+    public partial struct VkDescriptorBufferInfo
     {
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public ulong offset;
 
@@ -2965,13 +2965,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2627 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct WriteDescriptorSet
+    public partial struct VkWriteDescriptorSet
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DescriptorSet_T dstSet;
+        public VkDescriptorSet_T dstSet;
 
         public uint dstBinding;
 
@@ -2991,19 +2991,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2640 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CopyDescriptorSet
+    public partial struct VkCopyDescriptorSet
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DescriptorSet_T srcSet;
+        public VkDescriptorSet_T srcSet;
 
         public uint srcBinding;
 
         public uint srcArrayElement;
 
-        public DescriptorSet_T dstSet;
+        public VkDescriptorSet_T dstSet;
 
         public uint dstBinding;
 
@@ -3015,7 +3015,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2652 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FramebufferCreateInfo
+    public partial struct VkFramebufferCreateInfo
     {
         public StructureType sType;
 
@@ -3023,7 +3023,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public RenderPass_T renderPass;
+        public VkRenderPass_T renderPass;
 
         public uint attachmentCount;
 
@@ -3039,7 +3039,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2664 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AttachmentDescription
+    public partial struct VkAttachmentDescription
     {
         public uint flags;
 
@@ -3063,7 +3063,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2676 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AttachmentReference
+    public partial struct VkAttachmentReference
     {
         public uint attachment;
 
@@ -3073,7 +3073,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2681 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassDescription
+    public partial struct VkSubpassDescription
     {
         public uint flags;
 
@@ -3099,7 +3099,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2694 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassDependency
+    public partial struct VkSubpassDependency
     {
         public uint srcSubpass;
 
@@ -3119,7 +3119,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2704 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassCreateInfo
+    public partial struct VkRenderPassCreateInfo
     {
         public StructureType sType;
 
@@ -3143,7 +3143,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2716 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandPoolCreateInfo
+    public partial struct VkCommandPoolCreateInfo
     {
         public StructureType sType;
 
@@ -3157,13 +3157,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2723 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBufferAllocateInfo
+    public partial struct VkCommandBufferAllocateInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public CommandPool_T commandPool;
+        public VkCommandPool_T commandPool;
 
         public CommandBufferLevel level;
 
@@ -3173,17 +3173,17 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2731 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBufferInheritanceInfo
+    public partial struct VkCommandBufferInheritanceInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public RenderPass_T renderPass;
+        public VkRenderPass_T renderPass;
 
         public uint subpass;
 
-        public Framebuffer_T framebuffer;
+        public VkFramebuffer_T framebuffer;
 
         public bool occlusionQueryEnable;
 
@@ -3195,7 +3195,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2742 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBufferBeginInfo
+    public partial struct VkCommandBufferBeginInfo
     {
         public StructureType sType;
 
@@ -3209,7 +3209,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2749 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferCopy
+    public partial struct VkBufferCopy
     {
         public ulong srcOffset;
 
@@ -3221,7 +3221,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2755 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageSubresourceLayers
+    public partial struct VkImageSubresourceLayers
     {
         public uint aspectMask;
 
@@ -3235,39 +3235,39 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2762 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageCopy
+    public partial struct VkImageCopy
     {
-        public ImageSubresourceLayers srcSubresource;
+        public VkImageSubresourceLayers srcSubresource;
 
-        public Offset3D srcOffset;
+        public VkOffset3D srcOffset;
 
-        public ImageSubresourceLayers dstSubresource;
+        public VkImageSubresourceLayers dstSubresource;
 
-        public Offset3D dstOffset;
+        public VkOffset3D dstOffset;
 
-        public Extent3D extent;
+        public VkExtent3D extent;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2770 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageBlit
+    public partial struct VkImageBlit
     {
-        public ImageSubresourceLayers srcSubresource;
+        public VkImageSubresourceLayers srcSubresource;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public Offset3D[] srcOffsets;
+        public VkOffset3D[] srcOffsets;
 
-        public ImageSubresourceLayers dstSubresource;
+        public VkImageSubresourceLayers dstSubresource;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public Offset3D[] dstOffsets;
+        public VkOffset3D[] dstOffsets;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2777 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferImageCopy
+    public partial struct VkBufferImageCopy
     {
         public ulong bufferOffset;
 
@@ -3275,17 +3275,17 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint bufferImageHeight;
 
-        public ImageSubresourceLayers imageSubresource;
+        public VkImageSubresourceLayers imageSubresource;
 
-        public Offset3D imageOffset;
+        public VkOffset3D imageOffset;
 
-        public Extent3D imageExtent;
+        public VkExtent3D imageExtent;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2792 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ClearDepthStencilValue
+    public partial struct VkClearDepthStencilValue
     {
         public float depth;
 
@@ -3295,21 +3295,21 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2802 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ClearAttachment
+    public partial struct VkClearAttachment
     {
         public uint aspectMask;
 
         public uint colorAttachment;
 
-        public ClearValue clearValue;
+        public VkClearValue clearValue;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2808 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ClearRect
+    public partial struct VkClearRect
     {
-        public Rect2D rect;
+        public VkRect2D rect;
 
         public uint baseArrayLayer;
 
@@ -3319,23 +3319,23 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2814 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageResolve
+    public partial struct VkImageResolve
     {
-        public ImageSubresourceLayers srcSubresource;
+        public VkImageSubresourceLayers srcSubresource;
 
-        public Offset3D srcOffset;
+        public VkOffset3D srcOffset;
 
-        public ImageSubresourceLayers dstSubresource;
+        public VkImageSubresourceLayers dstSubresource;
 
-        public Offset3D dstOffset;
+        public VkOffset3D dstOffset;
 
-        public Extent3D extent;
+        public VkExtent3D extent;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2822 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryBarrier
+    public partial struct VkMemoryBarrier
     {
         public StructureType sType;
 
@@ -3349,7 +3349,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2829 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferMemoryBarrier
+    public partial struct VkBufferMemoryBarrier
     {
         public StructureType sType;
 
@@ -3363,7 +3363,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint dstQueueFamilyIndex;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public ulong offset;
 
@@ -3373,7 +3373,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2841 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageMemoryBarrier
+    public partial struct VkImageMemoryBarrier
     {
         public StructureType sType;
 
@@ -3391,25 +3391,25 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint dstQueueFamilyIndex;
 
-        public Image_T image;
+        public VkImage_T image;
 
-        public ImageSubresourceRange subresourceRange;
+        public VkImageSubresourceRange subresourceRange;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2854 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassBeginInfo
+    public partial struct VkRenderPassBeginInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public RenderPass_T renderPass;
+        public VkRenderPass_T renderPass;
 
-        public Framebuffer_T framebuffer;
+        public VkFramebuffer_T framebuffer;
 
-        public Rect2D renderArea;
+        public VkRect2D renderArea;
 
         public uint clearValueCount;
 
@@ -3419,7 +3419,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2864 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DispatchIndirectCommand
+    public partial struct VkDispatchIndirectCommand
     {
         public uint x;
 
@@ -3431,7 +3431,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2870 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DrawIndexedIndirectCommand
+    public partial struct VkDrawIndexedIndirectCommand
     {
         public uint indexCount;
 
@@ -3447,7 +3447,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2878 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DrawIndirectCommand
+    public partial struct VkDrawIndirectCommand
     {
         public uint vertexCount;
 
@@ -3461,7 +3461,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2885 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BaseOutStructure
+    public partial struct VkBaseOutStructure
     {
         public StructureType sType;
 
@@ -3471,7 +3471,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2890 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BaseInStructure
+    public partial struct VkBaseInStructure
     {
         public StructureType sType;
 
@@ -3481,7 +3481,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3838 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerYcbcrConversion_T
+    public partial struct VkSamplerYcbcrConversion_T
     {
         public System.IntPtr pointer;
 
@@ -3489,7 +3489,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3839 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorUpdateTemplate_T
+    public partial struct VkDescriptorUpdateTemplate_T
     {
         public System.IntPtr pointer;
 
@@ -3497,241 +3497,241 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3930 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubgroupFeatureFlags
+    public partial struct VkSubgroupFeatureFlags
     {
         public uint value;
 
-        public static implicit operator uint(SubgroupFeatureFlags s)
+        public static implicit operator uint(VkSubgroupFeatureFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SubgroupFeatureFlags(uint s)
+        public static implicit operator VkSubgroupFeatureFlags(uint v)
         {
-            return new SubgroupFeatureFlags(){value = s};
+            return new VkSubgroupFeatureFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3943 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PeerMemoryFeatureFlags
+    public partial struct VkPeerMemoryFeatureFlags
     {
         public uint value;
 
-        public static implicit operator uint(PeerMemoryFeatureFlags p)
+        public static implicit operator uint(VkPeerMemoryFeatureFlags v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PeerMemoryFeatureFlags(uint p)
+        public static implicit operator VkPeerMemoryFeatureFlags(uint v)
         {
-            return new PeerMemoryFeatureFlags(){value = p};
+            return new VkPeerMemoryFeatureFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3950 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryAllocateFlags
+    public partial struct VkMemoryAllocateFlags
     {
         public uint value;
 
-        public static implicit operator uint(MemoryAllocateFlags m)
+        public static implicit operator uint(VkMemoryAllocateFlags v)
         {
-            return m.value;
+            return v.value;
         }
 
-        public static implicit operator MemoryAllocateFlags(uint m)
+        public static implicit operator VkMemoryAllocateFlags(uint v)
         {
-            return new MemoryAllocateFlags(){value = m};
+            return new VkMemoryAllocateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3951 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandPoolTrimFlags
+    public partial struct VkCommandPoolTrimFlags
     {
         public uint value;
 
-        public static implicit operator uint(CommandPoolTrimFlags c)
+        public static implicit operator uint(VkCommandPoolTrimFlags v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CommandPoolTrimFlags(uint c)
+        public static implicit operator VkCommandPoolTrimFlags(uint v)
         {
-            return new CommandPoolTrimFlags(){value = c};
+            return new VkCommandPoolTrimFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3952 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorUpdateTemplateCreateFlags
+    public partial struct VkDescriptorUpdateTemplateCreateFlags
     {
         public uint value;
 
-        public static implicit operator uint(DescriptorUpdateTemplateCreateFlags d)
+        public static implicit operator uint(VkDescriptorUpdateTemplateCreateFlags v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DescriptorUpdateTemplateCreateFlags(uint d)
+        public static implicit operator VkDescriptorUpdateTemplateCreateFlags(uint v)
         {
-            return new DescriptorUpdateTemplateCreateFlags(){value = d};
+            return new VkDescriptorUpdateTemplateCreateFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3975 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryHandleTypeFlags
+    public partial struct VkExternalMemoryHandleTypeFlags
     {
         public uint value;
 
-        public static implicit operator uint(ExternalMemoryHandleTypeFlags e)
+        public static implicit operator uint(VkExternalMemoryHandleTypeFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalMemoryHandleTypeFlags(uint e)
+        public static implicit operator VkExternalMemoryHandleTypeFlags(uint v)
         {
-            return new ExternalMemoryHandleTypeFlags(){value = e};
+            return new VkExternalMemoryHandleTypeFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3986 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryFeatureFlags
+    public partial struct VkExternalMemoryFeatureFlags
     {
         public uint value;
 
-        public static implicit operator uint(ExternalMemoryFeatureFlags e)
+        public static implicit operator uint(VkExternalMemoryFeatureFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalMemoryFeatureFlags(uint e)
+        public static implicit operator VkExternalMemoryFeatureFlags(uint v)
         {
-            return new ExternalMemoryFeatureFlags(){value = e};
+            return new VkExternalMemoryFeatureFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3999 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalFenceHandleTypeFlags
+    public partial struct VkExternalFenceHandleTypeFlags
     {
         public uint value;
 
-        public static implicit operator uint(ExternalFenceHandleTypeFlags e)
+        public static implicit operator uint(VkExternalFenceHandleTypeFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalFenceHandleTypeFlags(uint e)
+        public static implicit operator VkExternalFenceHandleTypeFlags(uint v)
         {
-            return new ExternalFenceHandleTypeFlags(){value = e};
+            return new VkExternalFenceHandleTypeFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4008 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalFenceFeatureFlags
+    public partial struct VkExternalFenceFeatureFlags
     {
         public uint value;
 
-        public static implicit operator uint(ExternalFenceFeatureFlags e)
+        public static implicit operator uint(VkExternalFenceFeatureFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalFenceFeatureFlags(uint e)
+        public static implicit operator VkExternalFenceFeatureFlags(uint v)
         {
-            return new ExternalFenceFeatureFlags(){value = e};
+            return new VkExternalFenceFeatureFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4015 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FenceImportFlags
+    public partial struct VkFenceImportFlags
     {
         public uint value;
 
-        public static implicit operator uint(FenceImportFlags f)
+        public static implicit operator uint(VkFenceImportFlags v)
         {
-            return f.value;
+            return v.value;
         }
 
-        public static implicit operator FenceImportFlags(uint f)
+        public static implicit operator VkFenceImportFlags(uint v)
         {
-            return new FenceImportFlags(){value = f};
+            return new VkFenceImportFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4022 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SemaphoreImportFlags
+    public partial struct VkSemaphoreImportFlags
     {
         public uint value;
 
-        public static implicit operator uint(SemaphoreImportFlags s)
+        public static implicit operator uint(VkSemaphoreImportFlags v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SemaphoreImportFlags(uint s)
+        public static implicit operator VkSemaphoreImportFlags(uint v)
         {
-            return new SemaphoreImportFlags(){value = s};
+            return new VkSemaphoreImportFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4037 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalSemaphoreHandleTypeFlags
+    public partial struct VkExternalSemaphoreHandleTypeFlags
     {
         public uint value;
 
-        public static implicit operator uint(ExternalSemaphoreHandleTypeFlags e)
+        public static implicit operator uint(VkExternalSemaphoreHandleTypeFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalSemaphoreHandleTypeFlags(uint e)
+        public static implicit operator VkExternalSemaphoreHandleTypeFlags(uint v)
         {
-            return new ExternalSemaphoreHandleTypeFlags(){value = e};
+            return new VkExternalSemaphoreHandleTypeFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4046 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalSemaphoreFeatureFlags
+    public partial struct VkExternalSemaphoreFeatureFlags
     {
         public uint value;
 
-        public static implicit operator uint(ExternalSemaphoreFeatureFlags e)
+        public static implicit operator uint(VkExternalSemaphoreFeatureFlags v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalSemaphoreFeatureFlags(uint e)
+        public static implicit operator VkExternalSemaphoreFeatureFlags(uint v)
         {
-            return new ExternalSemaphoreFeatureFlags(){value = e};
+            return new VkExternalSemaphoreFeatureFlags(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4048 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSubgroupProperties
+    public partial struct VkPhysicalDeviceSubgroupProperties
     {
         public StructureType sType;
 
@@ -3749,15 +3749,15 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4057 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindBufferMemoryInfo
+    public partial struct VkBindBufferMemoryInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ulong memoryOffset;
 
@@ -3765,15 +3765,15 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4065 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindImageMemoryInfo
+    public partial struct VkBindImageMemoryInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Image_T image;
+        public VkImage_T image;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ulong memoryOffset;
 
@@ -3781,7 +3781,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4073 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDevice16BitStorageFeatures
+    public partial struct VkPhysicalDevice16BitStorageFeatures
     {
         public StructureType sType;
 
@@ -3799,7 +3799,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4082 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryDedicatedRequirements
+    public partial struct VkMemoryDedicatedRequirements
     {
         public StructureType sType;
 
@@ -3813,21 +3813,21 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4089 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryDedicatedAllocateInfo
+    public partial struct VkMemoryDedicatedAllocateInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Image_T image;
+        public VkImage_T image;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4096 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryAllocateFlagsInfo
+    public partial struct VkMemoryAllocateFlagsInfo
     {
         public StructureType sType;
 
@@ -3841,7 +3841,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4103 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupRenderPassBeginInfo
+    public partial struct VkDeviceGroupRenderPassBeginInfo
     {
         public StructureType sType;
 
@@ -3857,7 +3857,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4111 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupCommandBufferBeginInfo
+    public partial struct VkDeviceGroupCommandBufferBeginInfo
     {
         public StructureType sType;
 
@@ -3869,7 +3869,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4117 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupSubmitInfo
+    public partial struct VkDeviceGroupSubmitInfo
     {
         public StructureType sType;
 
@@ -3891,7 +3891,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4128 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupBindSparseInfo
+    public partial struct VkDeviceGroupBindSparseInfo
     {
         public StructureType sType;
 
@@ -3905,7 +3905,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4135 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindBufferMemoryDeviceGroupInfo
+    public partial struct VkBindBufferMemoryDeviceGroupInfo
     {
         public StructureType sType;
 
@@ -3919,7 +3919,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4142 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindImageMemoryDeviceGroupInfo
+    public partial struct VkBindImageMemoryDeviceGroupInfo
     {
         public StructureType sType;
 
@@ -3937,7 +3937,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4151 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceGroupProperties
+    public partial struct VkPhysicalDeviceGroupProperties
     {
         public StructureType sType;
 
@@ -3946,7 +3946,7 @@ namespace AdamantiumVulkan.Core.Interop
         public uint physicalDeviceCount;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
-        public PhysicalDevice_T[] physicalDevices;
+        public VkPhysicalDevice_T[] physicalDevices;
 
         public bool subsetAllocation;
 
@@ -3954,7 +3954,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4159 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupDeviceCreateInfo
+    public partial struct VkDeviceGroupDeviceCreateInfo
     {
         public StructureType sType;
 
@@ -3968,115 +3968,115 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4166 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferMemoryRequirementsInfo2
+    public partial struct VkBufferMemoryRequirementsInfo2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4172 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageMemoryRequirementsInfo2
+    public partial struct VkImageMemoryRequirementsInfo2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Image_T image;
+        public VkImage_T image;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4178 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageSparseMemoryRequirementsInfo2
+    public partial struct VkImageSparseMemoryRequirementsInfo2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Image_T image;
+        public VkImage_T image;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4184 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryRequirements2
+    public partial struct VkMemoryRequirements2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public MemoryRequirements memoryRequirements;
+        public VkMemoryRequirements memoryRequirements;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4192 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageMemoryRequirements2
+    public partial struct VkSparseImageMemoryRequirements2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SparseImageMemoryRequirements memoryRequirements;
+        public VkSparseImageMemoryRequirements memoryRequirements;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4198 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFeatures2
+    public partial struct VkPhysicalDeviceFeatures2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public PhysicalDeviceFeatures features;
+        public VkPhysicalDeviceFeatures features;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4204 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceProperties2
+    public partial struct VkPhysicalDeviceProperties2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public PhysicalDeviceProperties properties;
+        public VkPhysicalDeviceProperties properties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4210 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FormatProperties2
+    public partial struct VkFormatProperties2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public FormatProperties formatProperties;
+        public VkFormatProperties formatProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4216 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageFormatProperties2
+    public partial struct VkImageFormatProperties2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public ImageFormatProperties imageFormatProperties;
+        public VkImageFormatProperties imageFormatProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4222 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceImageFormatInfo2
+    public partial struct VkPhysicalDeviceImageFormatInfo2
     {
         public StructureType sType;
 
@@ -4096,43 +4096,43 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4232 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueueFamilyProperties2
+    public partial struct VkQueueFamilyProperties2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public QueueFamilyProperties queueFamilyProperties;
+        public VkQueueFamilyProperties queueFamilyProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4238 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMemoryProperties2
+    public partial struct VkPhysicalDeviceMemoryProperties2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public PhysicalDeviceMemoryProperties memoryProperties;
+        public VkPhysicalDeviceMemoryProperties memoryProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4244 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SparseImageFormatProperties2
+    public partial struct VkSparseImageFormatProperties2
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SparseImageFormatProperties properties;
+        public VkSparseImageFormatProperties properties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4250 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSparseImageFormatInfo2
+    public partial struct VkPhysicalDeviceSparseImageFormatInfo2
     {
         public StructureType sType;
 
@@ -4152,7 +4152,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4260 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDevicePointClippingProperties
+    public partial struct VkPhysicalDevicePointClippingProperties
     {
         public StructureType sType;
 
@@ -4164,7 +4164,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4266 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct InputAttachmentAspectReference
+    public partial struct VkInputAttachmentAspectReference
     {
         public uint subpass;
 
@@ -4176,7 +4176,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4272 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassInputAttachmentAspectCreateInfo
+    public partial struct VkRenderPassInputAttachmentAspectCreateInfo
     {
         public StructureType sType;
 
@@ -4190,7 +4190,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4279 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageViewUsageCreateInfo
+    public partial struct VkImageViewUsageCreateInfo
     {
         public StructureType sType;
 
@@ -4202,7 +4202,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4285 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineTessellationDomainOriginStateCreateInfo
+    public partial struct VkPipelineTessellationDomainOriginStateCreateInfo
     {
         public StructureType sType;
 
@@ -4214,7 +4214,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4291 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassMultiviewCreateInfo
+    public partial struct VkRenderPassMultiviewCreateInfo
     {
         public StructureType sType;
 
@@ -4236,7 +4236,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4302 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMultiviewFeatures
+    public partial struct VkPhysicalDeviceMultiviewFeatures
     {
         public StructureType sType;
 
@@ -4252,7 +4252,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4310 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMultiviewProperties
+    public partial struct VkPhysicalDeviceMultiviewProperties
     {
         public StructureType sType;
 
@@ -4266,7 +4266,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4317 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceVariablePointerFeatures
+    public partial struct VkPhysicalDeviceVariablePointerFeatures
     {
         public StructureType sType;
 
@@ -4280,7 +4280,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4324 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceProtectedMemoryFeatures
+    public partial struct VkPhysicalDeviceProtectedMemoryFeatures
     {
         public StructureType sType;
 
@@ -4292,7 +4292,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4330 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceProtectedMemoryProperties
+    public partial struct VkPhysicalDeviceProtectedMemoryProperties
     {
         public StructureType sType;
 
@@ -4304,7 +4304,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4336 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceQueueInfo2
+    public partial struct VkDeviceQueueInfo2
     {
         public StructureType sType;
 
@@ -4320,7 +4320,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4344 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ProtectedSubmitInfo
+    public partial struct VkProtectedSubmitInfo
     {
         public StructureType sType;
 
@@ -4332,7 +4332,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4350 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerYcbcrConversionCreateInfo
+    public partial struct VkSamplerYcbcrConversionCreateInfo
     {
         public StructureType sType;
 
@@ -4344,7 +4344,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public SamplerYcbcrRange ycbcrRange;
 
-        public ComponentMapping components;
+        public VkComponentMapping components;
 
         public ChromaLocation xChromaOffset;
 
@@ -4358,19 +4358,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4363 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerYcbcrConversionInfo
+    public partial struct VkSamplerYcbcrConversionInfo
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SamplerYcbcrConversion_T conversion;
+        public VkSamplerYcbcrConversion_T conversion;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4369 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindImagePlaneMemoryInfo
+    public partial struct VkBindImagePlaneMemoryInfo
     {
         public StructureType sType;
 
@@ -4382,7 +4382,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4375 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImagePlaneMemoryRequirementsInfo
+    public partial struct VkImagePlaneMemoryRequirementsInfo
     {
         public StructureType sType;
 
@@ -4394,7 +4394,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4381 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSamplerYcbcrConversionFeatures
+    public partial struct VkPhysicalDeviceSamplerYcbcrConversionFeatures
     {
         public StructureType sType;
 
@@ -4406,7 +4406,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4387 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerYcbcrConversionImageFormatProperties
+    public partial struct VkSamplerYcbcrConversionImageFormatProperties
     {
         public StructureType sType;
 
@@ -4418,7 +4418,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4393 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorUpdateTemplateEntry
+    public partial struct VkDescriptorUpdateTemplateEntry
     {
         public uint dstBinding;
 
@@ -4436,7 +4436,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4402 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorUpdateTemplateCreateInfo
+    public partial struct VkDescriptorUpdateTemplateCreateInfo
     {
         public StructureType sType;
 
@@ -4450,11 +4450,11 @@ namespace AdamantiumVulkan.Core.Interop
 
         public DescriptorUpdateTemplateType templateType;
 
-        public DescriptorSetLayout_T descriptorSetLayout;
+        public VkDescriptorSetLayout_T descriptorSetLayout;
 
         public PipelineBindPoint pipelineBindPoint;
 
-        public PipelineLayout_T pipelineLayout;
+        public VkPipelineLayout_T pipelineLayout;
 
         public uint set;
 
@@ -4462,7 +4462,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4415 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryProperties
+    public partial struct VkExternalMemoryProperties
     {
         public uint externalMemoryFeatures;
 
@@ -4474,7 +4474,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4421 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceExternalImageFormatInfo
+    public partial struct VkPhysicalDeviceExternalImageFormatInfo
     {
         public StructureType sType;
 
@@ -4486,19 +4486,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4427 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalImageFormatProperties
+    public partial struct VkExternalImageFormatProperties
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public ExternalMemoryProperties externalMemoryProperties;
+        public VkExternalMemoryProperties externalMemoryProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4433 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceExternalBufferInfo
+    public partial struct VkPhysicalDeviceExternalBufferInfo
     {
         public StructureType sType;
 
@@ -4514,19 +4514,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4441 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalBufferProperties
+    public partial struct VkExternalBufferProperties
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public ExternalMemoryProperties externalMemoryProperties;
+        public VkExternalMemoryProperties externalMemoryProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4447 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceIDProperties
+    public partial struct VkPhysicalDeviceIDProperties
     {
         public StructureType sType;
 
@@ -4546,7 +4546,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4457 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryImageCreateInfo
+    public partial struct VkExternalMemoryImageCreateInfo
     {
         public StructureType sType;
 
@@ -4558,7 +4558,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4463 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryBufferCreateInfo
+    public partial struct VkExternalMemoryBufferCreateInfo
     {
         public StructureType sType;
 
@@ -4570,7 +4570,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4469 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportMemoryAllocateInfo
+    public partial struct VkExportMemoryAllocateInfo
     {
         public StructureType sType;
 
@@ -4582,7 +4582,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4475 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceExternalFenceInfo
+    public partial struct VkPhysicalDeviceExternalFenceInfo
     {
         public StructureType sType;
 
@@ -4594,7 +4594,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4481 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalFenceProperties
+    public partial struct VkExternalFenceProperties
     {
         public StructureType sType;
 
@@ -4610,7 +4610,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4489 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportFenceCreateInfo
+    public partial struct VkExportFenceCreateInfo
     {
         public StructureType sType;
 
@@ -4622,7 +4622,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4495 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportSemaphoreCreateInfo
+    public partial struct VkExportSemaphoreCreateInfo
     {
         public StructureType sType;
 
@@ -4634,7 +4634,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4501 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceExternalSemaphoreInfo
+    public partial struct VkPhysicalDeviceExternalSemaphoreInfo
     {
         public StructureType sType;
 
@@ -4646,7 +4646,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4507 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalSemaphoreProperties
+    public partial struct VkExternalSemaphoreProperties
     {
         public StructureType sType;
 
@@ -4662,7 +4662,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4515 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMaintenance3Properties
+    public partial struct VkPhysicalDeviceMaintenance3Properties
     {
         public StructureType sType;
 
@@ -4676,7 +4676,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4522 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetLayoutSupport
+    public partial struct VkDescriptorSetLayoutSupport
     {
         public StructureType sType;
 
@@ -4688,7 +4688,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4528 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceShaderDrawParameterFeatures
+    public partial struct VkPhysicalDeviceShaderDrawParameterFeatures
     {
         public StructureType sType;
 
@@ -4700,7 +4700,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4712 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceKHR_T
+    public partial struct VkSurfaceKHR_T
     {
         public System.IntPtr pointer;
 
@@ -4708,53 +4708,53 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4767 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceTransformFlagsKHR
+    public partial struct VkSurfaceTransformFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(SurfaceTransformFlagsKHR s)
+        public static implicit operator uint(VkSurfaceTransformFlagsKHR v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SurfaceTransformFlagsKHR(uint s)
+        public static implicit operator VkSurfaceTransformFlagsKHR(uint v)
         {
-            return new SurfaceTransformFlagsKHR(){value = s};
+            return new VkSurfaceTransformFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4776 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CompositeAlphaFlagsKHR
+    public partial struct VkCompositeAlphaFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(CompositeAlphaFlagsKHR c)
+        public static implicit operator uint(VkCompositeAlphaFlagsKHR v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CompositeAlphaFlagsKHR(uint c)
+        public static implicit operator VkCompositeAlphaFlagsKHR(uint v)
         {
-            return new CompositeAlphaFlagsKHR(){value = c};
+            return new VkCompositeAlphaFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4778 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceCapabilitiesKHR
+    public partial struct VkSurfaceCapabilitiesKHR
     {
         public uint minImageCount;
 
         public uint maxImageCount;
 
-        public Extent2D currentExtent;
+        public VkExtent2D currentExtent;
 
-        public Extent2D minImageExtent;
+        public VkExtent2D minImageExtent;
 
-        public Extent2D maxImageExtent;
+        public VkExtent2D maxImageExtent;
 
         public uint maxImageArrayLayers;
 
@@ -4770,7 +4770,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4791 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceFormatKHR
+    public partial struct VkSurfaceFormatKHR
     {
         public Format format;
 
@@ -4780,7 +4780,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4834 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SwapchainKHR_T
+    public partial struct VkSwapchainKHR_T
     {
         public System.IntPtr pointer;
 
@@ -4788,43 +4788,43 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4846 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SwapchainCreateFlagsKHR
+    public partial struct VkSwapchainCreateFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(SwapchainCreateFlagsKHR s)
+        public static implicit operator uint(VkSwapchainCreateFlagsKHR v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SwapchainCreateFlagsKHR(uint s)
+        public static implicit operator VkSwapchainCreateFlagsKHR(uint v)
         {
-            return new SwapchainCreateFlagsKHR(){value = s};
+            return new VkSwapchainCreateFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4855 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupPresentModeFlagsKHR
+    public partial struct VkDeviceGroupPresentModeFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(DeviceGroupPresentModeFlagsKHR d)
+        public static implicit operator uint(VkDeviceGroupPresentModeFlagsKHR v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DeviceGroupPresentModeFlagsKHR(uint d)
+        public static implicit operator VkDeviceGroupPresentModeFlagsKHR(uint v)
         {
-            return new DeviceGroupPresentModeFlagsKHR(){value = d};
+            return new VkDeviceGroupPresentModeFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4857 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SwapchainCreateInfoKHR
+    public partial struct VkSwapchainCreateInfoKHR
     {
         public StructureType sType;
 
@@ -4832,7 +4832,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public SurfaceKHR_T surface;
+        public VkSurfaceKHR_T surface;
 
         public uint minImageCount;
 
@@ -4840,7 +4840,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public ColorSpaceKHR imageColorSpace;
 
-        public Extent2D imageExtent;
+        public VkExtent2D imageExtent;
 
         public uint imageArrayLayers;
 
@@ -4860,13 +4860,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public bool clipped;
 
-        public SwapchainKHR_T oldSwapchain;
+        public VkSwapchainKHR_T oldSwapchain;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4878 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PresentInfoKHR
+    public partial struct VkPresentInfoKHR
     {
         public StructureType sType;
 
@@ -4888,25 +4888,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4889 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageSwapchainCreateInfoKHR
+    public partial struct VkImageSwapchainCreateInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SwapchainKHR_T swapchain;
+        public VkSwapchainKHR_T swapchain;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4895 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindImageMemorySwapchainInfoKHR
+    public partial struct VkBindImageMemorySwapchainInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SwapchainKHR_T swapchain;
+        public VkSwapchainKHR_T swapchain;
 
         public uint imageIndex;
 
@@ -4914,19 +4914,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4902 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AcquireNextImageInfoKHR
+    public partial struct VkAcquireNextImageInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SwapchainKHR_T swapchain;
+        public VkSwapchainKHR_T swapchain;
 
         public ulong timeout;
 
-        public Semaphore_T semaphore;
+        public VkSemaphore_T semaphore;
 
-        public Fence_T fence;
+        public VkFence_T fence;
 
         public uint deviceMask;
 
@@ -4934,7 +4934,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4912 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupPresentCapabilitiesKHR
+    public partial struct VkDeviceGroupPresentCapabilitiesKHR
     {
         public StructureType sType;
 
@@ -4948,7 +4948,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4919 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupPresentInfoKHR
+    public partial struct VkDeviceGroupPresentInfoKHR
     {
         public StructureType sType;
 
@@ -4964,7 +4964,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4927 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGroupSwapchainCreateInfoKHR
+    public partial struct VkDeviceGroupSwapchainCreateInfoKHR
     {
         public StructureType sType;
 
@@ -4976,7 +4976,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4996 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayKHR_T
+    public partial struct VkDisplayKHR_T
     {
         public System.IntPtr pointer;
 
@@ -4984,7 +4984,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4997 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayModeKHR_T
+    public partial struct VkDisplayModeKHR_T
     {
         public System.IntPtr pointer;
 
@@ -4992,69 +4992,69 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5010 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPlaneAlphaFlagsKHR
+    public partial struct VkDisplayPlaneAlphaFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(DisplayPlaneAlphaFlagsKHR d)
+        public static implicit operator uint(VkDisplayPlaneAlphaFlagsKHR v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DisplayPlaneAlphaFlagsKHR(uint d)
+        public static implicit operator VkDisplayPlaneAlphaFlagsKHR(uint v)
         {
-            return new DisplayPlaneAlphaFlagsKHR(){value = d};
+            return new VkDisplayPlaneAlphaFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5011 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayModeCreateFlagsKHR
+    public partial struct VkDisplayModeCreateFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(DisplayModeCreateFlagsKHR d)
+        public static implicit operator uint(VkDisplayModeCreateFlagsKHR v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DisplayModeCreateFlagsKHR(uint d)
+        public static implicit operator VkDisplayModeCreateFlagsKHR(uint v)
         {
-            return new DisplayModeCreateFlagsKHR(){value = d};
+            return new VkDisplayModeCreateFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5012 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplaySurfaceCreateFlagsKHR
+    public partial struct VkDisplaySurfaceCreateFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(DisplaySurfaceCreateFlagsKHR d)
+        public static implicit operator uint(VkDisplaySurfaceCreateFlagsKHR v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DisplaySurfaceCreateFlagsKHR(uint d)
+        public static implicit operator VkDisplaySurfaceCreateFlagsKHR(uint v)
         {
-            return new DisplaySurfaceCreateFlagsKHR(){value = d};
+            return new VkDisplaySurfaceCreateFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5014 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPropertiesKHR
+    public partial struct VkDisplayPropertiesKHR
     {
-        public DisplayKHR_T display;
+        public VkDisplayKHR_T display;
 
         public System.IntPtr displayName;
 
-        public Extent2D physicalDimensions;
+        public VkExtent2D physicalDimensions;
 
-        public Extent2D physicalResolution;
+        public VkExtent2D physicalResolution;
 
         public uint supportedTransforms;
 
@@ -5066,9 +5066,9 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5024 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayModeParametersKHR
+    public partial struct VkDisplayModeParametersKHR
     {
-        public Extent2D visibleRegion;
+        public VkExtent2D visibleRegion;
 
         public uint refreshRate;
 
@@ -5076,17 +5076,17 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5029 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayModePropertiesKHR
+    public partial struct VkDisplayModePropertiesKHR
     {
-        public DisplayModeKHR_T displayMode;
+        public VkDisplayModeKHR_T displayMode;
 
-        public DisplayModeParametersKHR parameters;
+        public VkDisplayModeParametersKHR parameters;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5034 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayModeCreateInfoKHR
+    public partial struct VkDisplayModeCreateInfoKHR
     {
         public StructureType sType;
 
@@ -5094,39 +5094,39 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public DisplayModeParametersKHR parameters;
+        public VkDisplayModeParametersKHR parameters;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5041 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPlaneCapabilitiesKHR
+    public partial struct VkDisplayPlaneCapabilitiesKHR
     {
         public uint supportedAlpha;
 
-        public Offset2D minSrcPosition;
+        public VkOffset2D minSrcPosition;
 
-        public Offset2D maxSrcPosition;
+        public VkOffset2D maxSrcPosition;
 
-        public Extent2D minSrcExtent;
+        public VkExtent2D minSrcExtent;
 
-        public Extent2D maxSrcExtent;
+        public VkExtent2D maxSrcExtent;
 
-        public Offset2D minDstPosition;
+        public VkOffset2D minDstPosition;
 
-        public Offset2D maxDstPosition;
+        public VkOffset2D maxDstPosition;
 
-        public Extent2D minDstExtent;
+        public VkExtent2D minDstExtent;
 
-        public Extent2D maxDstExtent;
+        public VkExtent2D maxDstExtent;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5053 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPlanePropertiesKHR
+    public partial struct VkDisplayPlanePropertiesKHR
     {
-        public DisplayKHR_T currentDisplay;
+        public VkDisplayKHR_T currentDisplay;
 
         public uint currentStackIndex;
 
@@ -5134,7 +5134,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5058 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplaySurfaceCreateInfoKHR
+    public partial struct VkDisplaySurfaceCreateInfoKHR
     {
         public StructureType sType;
 
@@ -5142,7 +5142,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public DisplayModeKHR_T displayMode;
+        public VkDisplayModeKHR_T displayMode;
 
         public uint planeIndex;
 
@@ -5154,21 +5154,21 @@ namespace AdamantiumVulkan.Core.Interop
 
         public DisplayPlaneAlphaFlagBitsKHR alphaMode;
 
-        public Extent2D imageExtent;
+        public VkExtent2D imageExtent;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5127 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPresentInfoKHR
+    public partial struct VkDisplayPresentInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Rect2D srcRect;
+        public VkRect2D srcRect;
 
-        public Rect2D dstRect;
+        public VkRect2D dstRect;
 
         public bool persistent;
 
@@ -5176,97 +5176,97 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5234 Column: 34
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PeerMemoryFeatureFlagsKHR
+    public partial struct VkPeerMemoryFeatureFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(PeerMemoryFeatureFlagsKHR p)
+        public static implicit operator uint(VkPeerMemoryFeatureFlagsKHR v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PeerMemoryFeatureFlagsKHR(uint p)
+        public static implicit operator VkPeerMemoryFeatureFlagsKHR(uint v)
         {
-            return new PeerMemoryFeatureFlagsKHR(){value = p};
+            return new VkPeerMemoryFeatureFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5238 Column: 31
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryAllocateFlagsKHR
+    public partial struct VkMemoryAllocateFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(MemoryAllocateFlagsKHR m)
+        public static implicit operator uint(VkMemoryAllocateFlagsKHR v)
         {
-            return m.value;
+            return v.value;
         }
 
-        public static implicit operator MemoryAllocateFlagsKHR(uint m)
+        public static implicit operator VkMemoryAllocateFlagsKHR(uint v)
         {
-            return new MemoryAllocateFlagsKHR(){value = m};
+            return new VkMemoryAllocateFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5293 Column: 32
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandPoolTrimFlagsKHR
+    public partial struct VkCommandPoolTrimFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(CommandPoolTrimFlagsKHR c)
+        public static implicit operator uint(VkCommandPoolTrimFlagsKHR v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator CommandPoolTrimFlagsKHR(uint c)
+        public static implicit operator VkCommandPoolTrimFlagsKHR(uint v)
         {
-            return new CommandPoolTrimFlagsKHR(){value = c};
+            return new VkCommandPoolTrimFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5329 Column: 41
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryHandleTypeFlagsKHR
+    public partial struct VkExternalMemoryHandleTypeFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ExternalMemoryHandleTypeFlagsKHR e)
+        public static implicit operator uint(VkExternalMemoryHandleTypeFlagsKHR v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalMemoryHandleTypeFlagsKHR(uint e)
+        public static implicit operator VkExternalMemoryHandleTypeFlagsKHR(uint v)
         {
-            return new ExternalMemoryHandleTypeFlagsKHR(){value = e};
+            return new VkExternalMemoryHandleTypeFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5333 Column: 38
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryFeatureFlagsKHR
+    public partial struct VkExternalMemoryFeatureFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ExternalMemoryFeatureFlagsKHR e)
+        public static implicit operator uint(VkExternalMemoryFeatureFlagsKHR v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalMemoryFeatureFlagsKHR(uint e)
+        public static implicit operator VkExternalMemoryFeatureFlagsKHR(uint v)
         {
-            return new ExternalMemoryFeatureFlagsKHR(){value = e};
+            return new VkExternalMemoryFeatureFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5377 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportMemoryFdInfoKHR
+    public partial struct VkImportMemoryFdInfoKHR
     {
         public StructureType sType;
 
@@ -5280,7 +5280,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5384 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryFdPropertiesKHR
+    public partial struct VkMemoryFdPropertiesKHR
     {
         public StructureType sType;
 
@@ -5292,13 +5292,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5390 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryGetFdInfoKHR
+    public partial struct VkMemoryGetFdInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ExternalMemoryHandleTypeFlagBits handleType;
 
@@ -5306,67 +5306,67 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5418 Column: 44
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalSemaphoreHandleTypeFlagsKHR
+    public partial struct VkExternalSemaphoreHandleTypeFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ExternalSemaphoreHandleTypeFlagsKHR e)
+        public static implicit operator uint(VkExternalSemaphoreHandleTypeFlagsKHR v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalSemaphoreHandleTypeFlagsKHR(uint e)
+        public static implicit operator VkExternalSemaphoreHandleTypeFlagsKHR(uint v)
         {
-            return new ExternalSemaphoreHandleTypeFlagsKHR(){value = e};
+            return new VkExternalSemaphoreHandleTypeFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5422 Column: 41
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalSemaphoreFeatureFlagsKHR
+    public partial struct VkExternalSemaphoreFeatureFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ExternalSemaphoreFeatureFlagsKHR e)
+        public static implicit operator uint(VkExternalSemaphoreFeatureFlagsKHR v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalSemaphoreFeatureFlagsKHR(uint e)
+        public static implicit operator VkExternalSemaphoreFeatureFlagsKHR(uint v)
         {
-            return new ExternalSemaphoreFeatureFlagsKHR(){value = e};
+            return new VkExternalSemaphoreFeatureFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5445 Column: 32
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SemaphoreImportFlagsKHR
+    public partial struct VkSemaphoreImportFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(SemaphoreImportFlagsKHR s)
+        public static implicit operator uint(VkSemaphoreImportFlagsKHR v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SemaphoreImportFlagsKHR(uint s)
+        public static implicit operator VkSemaphoreImportFlagsKHR(uint v)
         {
-            return new SemaphoreImportFlagsKHR(){value = s};
+            return new VkSemaphoreImportFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5458 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportSemaphoreFdInfoKHR
+    public partial struct VkImportSemaphoreFdInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Semaphore_T semaphore;
+        public VkSemaphore_T semaphore;
 
         public uint flags;
 
@@ -5378,13 +5378,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5467 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SemaphoreGetFdInfoKHR
+    public partial struct VkSemaphoreGetFdInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Semaphore_T semaphore;
+        public VkSemaphore_T semaphore;
 
         public ExternalSemaphoreHandleTypeFlagBits handleType;
 
@@ -5392,7 +5392,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5493 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDevicePushDescriptorPropertiesKHR
+    public partial struct VkPhysicalDevicePushDescriptorPropertiesKHR
     {
         public StructureType sType;
 
@@ -5404,7 +5404,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5524 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFloat16Int8FeaturesKHR
+    public partial struct VkPhysicalDeviceFloat16Int8FeaturesKHR
     {
         public StructureType sType;
 
@@ -5418,11 +5418,11 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5545 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RectLayerKHR
+    public partial struct VkRectLayerKHR
     {
-        public Offset2D offset;
+        public VkOffset2D offset;
 
-        public Extent2D extent;
+        public VkExtent2D extent;
 
         public uint layer;
 
@@ -5430,7 +5430,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5551 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PresentRegionKHR
+    public partial struct VkPresentRegionKHR
     {
         public uint rectangleCount;
 
@@ -5440,7 +5440,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5556 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PresentRegionsKHR
+    public partial struct VkPresentRegionsKHR
     {
         public StructureType sType;
 
@@ -5454,25 +5454,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5575 Column: 47
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorUpdateTemplateCreateFlagsKHR
+    public partial struct VkDescriptorUpdateTemplateCreateFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(DescriptorUpdateTemplateCreateFlagsKHR d)
+        public static implicit operator uint(VkDescriptorUpdateTemplateCreateFlagsKHR v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DescriptorUpdateTemplateCreateFlagsKHR(uint d)
+        public static implicit operator VkDescriptorUpdateTemplateCreateFlagsKHR(uint v)
         {
-            return new DescriptorUpdateTemplateCreateFlagsKHR(){value = d};
+            return new VkDescriptorUpdateTemplateCreateFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5610 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AttachmentDescription2KHR
+    public partial struct VkAttachmentDescription2KHR
     {
         public StructureType sType;
 
@@ -5500,7 +5500,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5624 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AttachmentReference2KHR
+    public partial struct VkAttachmentReference2KHR
     {
         public StructureType sType;
 
@@ -5516,7 +5516,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5632 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassDescription2KHR
+    public partial struct VkSubpassDescription2KHR
     {
         public StructureType sType;
 
@@ -5548,7 +5548,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5648 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassDependency2KHR
+    public partial struct VkSubpassDependency2KHR
     {
         public StructureType sType;
 
@@ -5574,7 +5574,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5661 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassCreateInfo2KHR
+    public partial struct VkRenderPassCreateInfo2KHR
     {
         public StructureType sType;
 
@@ -5602,7 +5602,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5675 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassBeginInfoKHR
+    public partial struct VkSubpassBeginInfoKHR
     {
         public StructureType sType;
 
@@ -5614,7 +5614,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5681 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassEndInfoKHR
+    public partial struct VkSubpassEndInfoKHR
     {
         public StructureType sType;
 
@@ -5624,7 +5624,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5718 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SharedPresentSurfaceCapabilitiesKHR
+    public partial struct VkSharedPresentSurfaceCapabilitiesKHR
     {
         public StructureType sType;
 
@@ -5636,67 +5636,67 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5737 Column: 40
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalFenceHandleTypeFlagsKHR
+    public partial struct VkExternalFenceHandleTypeFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ExternalFenceHandleTypeFlagsKHR e)
+        public static implicit operator uint(VkExternalFenceHandleTypeFlagsKHR v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalFenceHandleTypeFlagsKHR(uint e)
+        public static implicit operator VkExternalFenceHandleTypeFlagsKHR(uint v)
         {
-            return new ExternalFenceHandleTypeFlagsKHR(){value = e};
+            return new VkExternalFenceHandleTypeFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5741 Column: 37
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalFenceFeatureFlagsKHR
+    public partial struct VkExternalFenceFeatureFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ExternalFenceFeatureFlagsKHR e)
+        public static implicit operator uint(VkExternalFenceFeatureFlagsKHR v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalFenceFeatureFlagsKHR(uint e)
+        public static implicit operator VkExternalFenceFeatureFlagsKHR(uint v)
         {
-            return new ExternalFenceFeatureFlagsKHR(){value = e};
+            return new VkExternalFenceFeatureFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5764 Column: 28
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FenceImportFlagsKHR
+    public partial struct VkFenceImportFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(FenceImportFlagsKHR f)
+        public static implicit operator uint(VkFenceImportFlagsKHR v)
         {
-            return f.value;
+            return v.value;
         }
 
-        public static implicit operator FenceImportFlagsKHR(uint f)
+        public static implicit operator VkFenceImportFlagsKHR(uint v)
         {
-            return new FenceImportFlagsKHR(){value = f};
+            return new VkFenceImportFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5777 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportFenceFdInfoKHR
+    public partial struct VkImportFenceFdInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Fence_T fence;
+        public VkFence_T fence;
 
         public uint flags;
 
@@ -5708,13 +5708,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5786 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FenceGetFdInfoKHR
+    public partial struct VkFenceGetFdInfoKHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Fence_T fence;
+        public VkFence_T fence;
 
         public ExternalFenceHandleTypeFlagBits handleType;
 
@@ -5722,85 +5722,85 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5833 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSurfaceInfo2KHR
+    public partial struct VkPhysicalDeviceSurfaceInfo2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SurfaceKHR_T surface;
+        public VkSurfaceKHR_T surface;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5839 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceCapabilities2KHR
+    public partial struct VkSurfaceCapabilities2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SurfaceCapabilitiesKHR surfaceCapabilities;
+        public VkSurfaceCapabilitiesKHR surfaceCapabilities;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5845 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceFormat2KHR
+    public partial struct VkSurfaceFormat2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public SurfaceFormatKHR surfaceFormat;
+        public VkSurfaceFormatKHR surfaceFormat;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5880 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayProperties2KHR
+    public partial struct VkDisplayProperties2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DisplayPropertiesKHR displayProperties;
+        public VkDisplayPropertiesKHR displayProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5886 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPlaneProperties2KHR
+    public partial struct VkDisplayPlaneProperties2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DisplayPlanePropertiesKHR displayPlaneProperties;
+        public VkDisplayPlanePropertiesKHR displayPlaneProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5892 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayModeProperties2KHR
+    public partial struct VkDisplayModeProperties2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DisplayModePropertiesKHR displayModeProperties;
+        public VkDisplayModePropertiesKHR displayModeProperties;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5898 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPlaneInfo2KHR
+    public partial struct VkDisplayPlaneInfo2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DisplayModeKHR_T mode;
+        public VkDisplayModeKHR_T mode;
 
         public uint planeIndex;
 
@@ -5808,19 +5808,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5905 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPlaneCapabilities2KHR
+    public partial struct VkDisplayPlaneCapabilities2KHR
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public DisplayPlaneCapabilitiesKHR capabilities;
+        public VkDisplayPlaneCapabilitiesKHR capabilities;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5999 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageFormatListCreateInfoKHR
+    public partial struct VkImageFormatListCreateInfoKHR
     {
         public StructureType sType;
 
@@ -5834,7 +5834,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6124 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDevice8BitStorageFeaturesKHR
+    public partial struct VkPhysicalDevice8BitStorageFeaturesKHR
     {
         public StructureType sType;
 
@@ -5850,7 +5850,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6138 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceShaderAtomicInt64FeaturesKHR
+    public partial struct VkPhysicalDeviceShaderAtomicInt64FeaturesKHR
     {
         public StructureType sType;
 
@@ -5864,7 +5864,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6171 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ConformanceVersionKHR
+    public partial struct VkConformanceVersionKHR
     {
         public byte major;
 
@@ -5878,7 +5878,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6178 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDriverPropertiesKHR
+    public partial struct VkPhysicalDeviceDriverPropertiesKHR
     {
         public StructureType sType;
 
@@ -5890,13 +5890,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public unsafe fixed sbyte driverInfo[256];
 
-        public ConformanceVersionKHR conformanceVersion;
+        public VkConformanceVersionKHR conformanceVersion;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6193 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFloatControlsPropertiesKHR
+    public partial struct VkPhysicalDeviceFloatControlsPropertiesKHR
     {
         public StructureType sType;
 
@@ -5940,25 +5940,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6230 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ResolveModeFlagsKHR
+    public partial struct VkResolveModeFlagsKHR
     {
         public uint value;
 
-        public static implicit operator uint(ResolveModeFlagsKHR r)
+        public static implicit operator uint(VkResolveModeFlagsKHR v)
         {
-            return r.value;
+            return v.value;
         }
 
-        public static implicit operator ResolveModeFlagsKHR(uint r)
+        public static implicit operator VkResolveModeFlagsKHR(uint v)
         {
-            return new ResolveModeFlagsKHR(){value = r};
+            return new VkResolveModeFlagsKHR(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6232 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassDescriptionDepthStencilResolveKHR
+    public partial struct VkSubpassDescriptionDepthStencilResolveKHR
     {
         public StructureType sType;
 
@@ -5974,7 +5974,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6240 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDepthStencilResolvePropertiesKHR
+    public partial struct VkPhysicalDeviceDepthStencilResolvePropertiesKHR
     {
         public StructureType sType;
 
@@ -5992,7 +5992,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6260 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceVulkanMemoryModelFeaturesKHR
+    public partial struct VkPhysicalDeviceVulkanMemoryModelFeaturesKHR
     {
         public StructureType sType;
 
@@ -6008,7 +6008,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6271 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugReportCallbackEXT_T
+    public partial struct VkDebugReportCallbackEXT_T
     {
         public System.IntPtr pointer;
 
@@ -6016,25 +6016,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6334 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugReportFlagsEXT
+    public partial struct VkDebugReportFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(DebugReportFlagsEXT d)
+        public static implicit operator uint(VkDebugReportFlagsEXT v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DebugReportFlagsEXT(uint d)
+        public static implicit operator VkDebugReportFlagsEXT(uint v)
         {
-            return new DebugReportFlagsEXT(){value = d};
+            return new VkDebugReportFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6346 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugReportCallbackCreateInfoEXT
+    public partial struct VkDebugReportCallbackCreateInfoEXT
     {
         public StructureType sType;
 
@@ -6050,7 +6050,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6411 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationStateRasterizationOrderAMD
+    public partial struct VkPipelineRasterizationStateRasterizationOrderAMD
     {
         public StructureType sType;
 
@@ -6062,7 +6062,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6433 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugMarkerObjectNameInfoEXT
+    public partial struct VkDebugMarkerObjectNameInfoEXT
     {
         public StructureType sType;
 
@@ -6078,7 +6078,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6441 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugMarkerObjectTagInfoEXT
+    public partial struct VkDebugMarkerObjectTagInfoEXT
     {
         public StructureType sType;
 
@@ -6098,7 +6098,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6451 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugMarkerMarkerInfoEXT
+    public partial struct VkDebugMarkerMarkerInfoEXT
     {
         public StructureType sType;
 
@@ -6112,7 +6112,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6495 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DedicatedAllocationImageCreateInfoNV
+    public partial struct VkDedicatedAllocationImageCreateInfoNV
     {
         public StructureType sType;
 
@@ -6124,7 +6124,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6501 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DedicatedAllocationBufferCreateInfoNV
+    public partial struct VkDedicatedAllocationBufferCreateInfoNV
     {
         public StructureType sType;
 
@@ -6136,39 +6136,39 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6507 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DedicatedAllocationMemoryAllocateInfoNV
+    public partial struct VkDedicatedAllocationMemoryAllocateInfoNV
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Image_T image;
+        public VkImage_T image;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6520 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationStateStreamCreateFlagsEXT
+    public partial struct VkPipelineRasterizationStateStreamCreateFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(PipelineRasterizationStateStreamCreateFlagsEXT p)
+        public static implicit operator uint(VkPipelineRasterizationStateStreamCreateFlagsEXT v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineRasterizationStateStreamCreateFlagsEXT(uint p)
+        public static implicit operator VkPipelineRasterizationStateStreamCreateFlagsEXT(uint v)
         {
-            return new PipelineRasterizationStateStreamCreateFlagsEXT(){value = p};
+            return new VkPipelineRasterizationStateStreamCreateFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6522 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceTransformFeedbackFeaturesEXT
+    public partial struct VkPhysicalDeviceTransformFeedbackFeaturesEXT
     {
         public StructureType sType;
 
@@ -6182,7 +6182,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6529 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceTransformFeedbackPropertiesEXT
+    public partial struct VkPhysicalDeviceTransformFeedbackPropertiesEXT
     {
         public StructureType sType;
 
@@ -6212,7 +6212,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6544 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationStateStreamCreateInfoEXT
+    public partial struct VkPipelineRasterizationStateStreamCreateInfoEXT
     {
         public StructureType sType;
 
@@ -6226,7 +6226,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6651 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct TextureLODGatherFormatPropertiesAMD
+    public partial struct VkTextureLODGatherFormatPropertiesAMD
     {
         public StructureType sType;
 
@@ -6238,7 +6238,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6674 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderResourceUsageAMD
+    public partial struct VkShaderResourceUsageAMD
     {
         public uint numUsedVgprs;
 
@@ -6254,11 +6254,11 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6682 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderStatisticsInfoAMD
+    public partial struct VkShaderStatisticsInfoAMD
     {
         public uint shaderStageMask;
 
-        public ShaderResourceUsageAMD resourceUsage;
+        public VkShaderResourceUsageAMD resourceUsage;
 
         public uint numPhysicalVgprs;
 
@@ -6274,7 +6274,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6714 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceCornerSampledImageFeaturesNV
+    public partial struct VkPhysicalDeviceCornerSampledImageFeaturesNV
     {
         public StructureType sType;
 
@@ -6286,45 +6286,45 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6739 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryHandleTypeFlagsNV
+    public partial struct VkExternalMemoryHandleTypeFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(ExternalMemoryHandleTypeFlagsNV e)
+        public static implicit operator uint(VkExternalMemoryHandleTypeFlagsNV v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalMemoryHandleTypeFlagsNV(uint e)
+        public static implicit operator VkExternalMemoryHandleTypeFlagsNV(uint v)
         {
-            return new ExternalMemoryHandleTypeFlagsNV(){value = e};
+            return new VkExternalMemoryHandleTypeFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6747 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryFeatureFlagsNV
+    public partial struct VkExternalMemoryFeatureFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(ExternalMemoryFeatureFlagsNV e)
+        public static implicit operator uint(VkExternalMemoryFeatureFlagsNV v)
         {
-            return e.value;
+            return v.value;
         }
 
-        public static implicit operator ExternalMemoryFeatureFlagsNV(uint e)
+        public static implicit operator VkExternalMemoryFeatureFlagsNV(uint v)
         {
-            return new ExternalMemoryFeatureFlagsNV(){value = e};
+            return new VkExternalMemoryFeatureFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6749 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalImageFormatPropertiesNV
+    public partial struct VkExternalImageFormatPropertiesNV
     {
-        public ImageFormatProperties imageFormatProperties;
+        public VkImageFormatProperties imageFormatProperties;
 
         public uint externalMemoryFeatures;
 
@@ -6336,7 +6336,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6775 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExternalMemoryImageCreateInfoNV
+    public partial struct VkExternalMemoryImageCreateInfoNV
     {
         public StructureType sType;
 
@@ -6348,7 +6348,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6781 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ExportMemoryAllocateInfoNV
+    public partial struct VkExportMemoryAllocateInfoNV
     {
         public StructureType sType;
 
@@ -6360,7 +6360,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6803 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ValidationFlagsEXT
+    public partial struct VkValidationFlagsEXT
     {
         public StructureType sType;
 
@@ -6374,7 +6374,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6826 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageViewASTCDecodeModeEXT
+    public partial struct VkImageViewASTCDecodeModeEXT
     {
         public StructureType sType;
 
@@ -6386,7 +6386,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6832 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceASTCDecodeFeaturesEXT
+    public partial struct VkPhysicalDeviceASTCDecodeFeaturesEXT
     {
         public StructureType sType;
 
@@ -6398,31 +6398,31 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6849 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ConditionalRenderingFlagsEXT
+    public partial struct VkConditionalRenderingFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(ConditionalRenderingFlagsEXT c)
+        public static implicit operator uint(VkConditionalRenderingFlagsEXT v)
         {
-            return c.value;
+            return v.value;
         }
 
-        public static implicit operator ConditionalRenderingFlagsEXT(uint c)
+        public static implicit operator VkConditionalRenderingFlagsEXT(uint v)
         {
-            return new ConditionalRenderingFlagsEXT(){value = c};
+            return new VkConditionalRenderingFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6851 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ConditionalRenderingBeginInfoEXT
+    public partial struct VkConditionalRenderingBeginInfoEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public ulong offset;
 
@@ -6432,7 +6432,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6859 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceConditionalRenderingFeaturesEXT
+    public partial struct VkPhysicalDeviceConditionalRenderingFeaturesEXT
     {
         public StructureType sType;
 
@@ -6446,7 +6446,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6866 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CommandBufferInheritanceConditionalRenderingInfoEXT
+    public partial struct VkCommandBufferInheritanceConditionalRenderingInfoEXT
     {
         public StructureType sType;
 
@@ -6458,7 +6458,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6886 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTableNVX_T
+    public partial struct VkObjectTableNVX_T
     {
         public System.IntPtr pointer;
 
@@ -6466,7 +6466,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6887 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct IndirectCommandsLayoutNVX_T
+    public partial struct VkIndirectCommandsLayoutNVX_T
     {
         public System.IntPtr pointer;
 
@@ -6474,43 +6474,43 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6928 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct IndirectCommandsLayoutUsageFlagsNVX
+    public partial struct VkIndirectCommandsLayoutUsageFlagsNVX
     {
         public uint value;
 
-        public static implicit operator uint(IndirectCommandsLayoutUsageFlagsNVX i)
+        public static implicit operator uint(VkIndirectCommandsLayoutUsageFlagsNVX v)
         {
-            return i.value;
+            return v.value;
         }
 
-        public static implicit operator IndirectCommandsLayoutUsageFlagsNVX(uint i)
+        public static implicit operator VkIndirectCommandsLayoutUsageFlagsNVX(uint v)
         {
-            return new IndirectCommandsLayoutUsageFlagsNVX(){value = i};
+            return new VkIndirectCommandsLayoutUsageFlagsNVX(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6935 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectEntryUsageFlagsNVX
+    public partial struct VkObjectEntryUsageFlagsNVX
     {
         public uint value;
 
-        public static implicit operator uint(ObjectEntryUsageFlagsNVX o)
+        public static implicit operator uint(VkObjectEntryUsageFlagsNVX v)
         {
-            return o.value;
+            return v.value;
         }
 
-        public static implicit operator ObjectEntryUsageFlagsNVX(uint o)
+        public static implicit operator VkObjectEntryUsageFlagsNVX(uint v)
         {
-            return new ObjectEntryUsageFlagsNVX(){value = o};
+            return new VkObjectEntryUsageFlagsNVX(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6937 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGeneratedCommandsFeaturesNVX
+    public partial struct VkDeviceGeneratedCommandsFeaturesNVX
     {
         public StructureType sType;
 
@@ -6522,7 +6522,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6943 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceGeneratedCommandsLimitsNVX
+    public partial struct VkDeviceGeneratedCommandsLimitsNVX
     {
         public StructureType sType;
 
@@ -6542,11 +6542,11 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6953 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct IndirectCommandsTokenNVX
+    public partial struct VkIndirectCommandsTokenNVX
     {
         public IndirectCommandsTokenTypeNVX tokenType;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public ulong offset;
 
@@ -6554,7 +6554,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6959 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct IndirectCommandsLayoutTokenNVX
+    public partial struct VkIndirectCommandsLayoutTokenNVX
     {
         public IndirectCommandsTokenTypeNVX tokenType;
 
@@ -6568,7 +6568,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6966 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct IndirectCommandsLayoutCreateInfoNVX
+    public partial struct VkIndirectCommandsLayoutCreateInfoNVX
     {
         public StructureType sType;
 
@@ -6586,15 +6586,15 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6975 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CmdProcessCommandsInfoNVX
+    public partial struct VkCmdProcessCommandsInfoNVX
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public ObjectTableNVX_T objectTable;
+        public VkObjectTableNVX_T objectTable;
 
-        public IndirectCommandsLayoutNVX_T indirectCommandsLayout;
+        public VkIndirectCommandsLayoutNVX_T indirectCommandsLayout;
 
         public uint indirectCommandsTokenCount;
 
@@ -6602,13 +6602,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint maxSequencesCount;
 
-        public CommandBuffer_T targetCommandBuffer;
+        public VkCommandBuffer_T targetCommandBuffer;
 
-        public Buffer_T sequencesCountBuffer;
+        public VkBuffer_T sequencesCountBuffer;
 
         public ulong sequencesCountOffset;
 
-        public Buffer_T sequencesIndexBuffer;
+        public VkBuffer_T sequencesIndexBuffer;
 
         public ulong sequencesIndexOffset;
 
@@ -6616,15 +6616,15 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6990 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CmdReserveSpaceForCommandsInfoNVX
+    public partial struct VkCmdReserveSpaceForCommandsInfoNVX
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public ObjectTableNVX_T objectTable;
+        public VkObjectTableNVX_T objectTable;
 
-        public IndirectCommandsLayoutNVX_T indirectCommandsLayout;
+        public VkIndirectCommandsLayoutNVX_T indirectCommandsLayout;
 
         public uint maxSequencesCount;
 
@@ -6632,7 +6632,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6998 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTableCreateInfoNVX
+    public partial struct VkObjectTableCreateInfoNVX
     {
         public StructureType sType;
 
@@ -6660,7 +6660,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7012 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTableEntryNVX
+    public partial struct VkObjectTableEntryNVX
     {
         public ObjectEntryTypeNVX type;
 
@@ -6670,51 +6670,51 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7017 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTablePipelineEntryNVX
+    public partial struct VkObjectTablePipelineEntryNVX
     {
         public ObjectEntryTypeNVX type;
 
         public uint flags;
 
-        public Pipeline_T pipeline;
+        public VkPipeline_T pipeline;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7023 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTableDescriptorSetEntryNVX
+    public partial struct VkObjectTableDescriptorSetEntryNVX
     {
         public ObjectEntryTypeNVX type;
 
         public uint flags;
 
-        public PipelineLayout_T pipelineLayout;
+        public VkPipelineLayout_T pipelineLayout;
 
-        public DescriptorSet_T descriptorSet;
+        public VkDescriptorSet_T descriptorSet;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7030 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTableVertexBufferEntryNVX
+    public partial struct VkObjectTableVertexBufferEntryNVX
     {
         public ObjectEntryTypeNVX type;
 
         public uint flags;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7036 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTableIndexBufferEntryNVX
+    public partial struct VkObjectTableIndexBufferEntryNVX
     {
         public ObjectEntryTypeNVX type;
 
         public uint flags;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
         public IndexType indexType;
 
@@ -6722,13 +6722,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7043 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ObjectTablePushConstantEntryNVX
+    public partial struct VkObjectTablePushConstantEntryNVX
     {
         public ObjectEntryTypeNVX type;
 
         public uint flags;
 
-        public PipelineLayout_T pipelineLayout;
+        public VkPipelineLayout_T pipelineLayout;
 
         public uint stageFlags;
 
@@ -6736,7 +6736,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7116 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ViewportWScalingNV
+    public partial struct VkViewportWScalingNV
     {
         public float xcoeff;
 
@@ -6746,7 +6746,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7121 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportWScalingStateCreateInfoNV
+    public partial struct VkPipelineViewportWScalingStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -6762,25 +6762,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7161 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceCounterFlagsEXT
+    public partial struct VkSurfaceCounterFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(SurfaceCounterFlagsEXT s)
+        public static implicit operator uint(VkSurfaceCounterFlagsEXT v)
         {
-            return s.value;
+            return v.value;
         }
 
-        public static implicit operator SurfaceCounterFlagsEXT(uint s)
+        public static implicit operator VkSurfaceCounterFlagsEXT(uint v)
         {
-            return new SurfaceCounterFlagsEXT(){value = s};
+            return new VkSurfaceCounterFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7163 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SurfaceCapabilities2EXT
+    public partial struct VkSurfaceCapabilities2EXT
     {
         public StructureType sType;
 
@@ -6790,11 +6790,11 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint maxImageCount;
 
-        public Extent2D currentExtent;
+        public VkExtent2D currentExtent;
 
-        public Extent2D minImageExtent;
+        public VkExtent2D minImageExtent;
 
-        public Extent2D maxImageExtent;
+        public VkExtent2D maxImageExtent;
 
         public uint maxImageArrayLayers;
 
@@ -6812,7 +6812,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7220 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayPowerInfoEXT
+    public partial struct VkDisplayPowerInfoEXT
     {
         public StructureType sType;
 
@@ -6824,7 +6824,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7226 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceEventInfoEXT
+    public partial struct VkDeviceEventInfoEXT
     {
         public StructureType sType;
 
@@ -6836,7 +6836,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7232 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DisplayEventInfoEXT
+    public partial struct VkDisplayEventInfoEXT
     {
         public StructureType sType;
 
@@ -6848,7 +6848,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7238 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SwapchainCounterCreateInfoEXT
+    public partial struct VkSwapchainCounterCreateInfoEXT
     {
         public StructureType sType;
 
@@ -6860,7 +6860,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7280 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RefreshCycleDurationGOOGLE
+    public partial struct VkRefreshCycleDurationGOOGLE
     {
         public ulong refreshDuration;
 
@@ -6868,7 +6868,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7284 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PastPresentationTimingGOOGLE
+    public partial struct VkPastPresentationTimingGOOGLE
     {
         public uint presentID;
 
@@ -6884,7 +6884,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7292 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PresentTimeGOOGLE
+    public partial struct VkPresentTimeGOOGLE
     {
         public uint presentID;
 
@@ -6894,7 +6894,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7297 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PresentTimesInfoGOOGLE
+    public partial struct VkPresentTimesInfoGOOGLE
     {
         public StructureType sType;
 
@@ -6908,7 +6908,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7340 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX
+    public partial struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX
     {
         public StructureType sType;
 
@@ -6920,25 +6920,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7368 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportSwizzleStateCreateFlagsNV
+    public partial struct VkPipelineViewportSwizzleStateCreateFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(PipelineViewportSwizzleStateCreateFlagsNV p)
+        public static implicit operator uint(VkPipelineViewportSwizzleStateCreateFlagsNV v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineViewportSwizzleStateCreateFlagsNV(uint p)
+        public static implicit operator VkPipelineViewportSwizzleStateCreateFlagsNV(uint v)
         {
-            return new PipelineViewportSwizzleStateCreateFlagsNV(){value = p};
+            return new VkPipelineViewportSwizzleStateCreateFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7370 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ViewportSwizzleNV
+    public partial struct VkViewportSwizzleNV
     {
         public ViewportCoordinateSwizzleNV x;
 
@@ -6952,7 +6952,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7377 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportSwizzleStateCreateInfoNV
+    public partial struct VkPipelineViewportSwizzleStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -6968,25 +6968,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7401 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineDiscardRectangleStateCreateFlagsEXT
+    public partial struct VkPipelineDiscardRectangleStateCreateFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(PipelineDiscardRectangleStateCreateFlagsEXT p)
+        public static implicit operator uint(VkPipelineDiscardRectangleStateCreateFlagsEXT v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineDiscardRectangleStateCreateFlagsEXT(uint p)
+        public static implicit operator VkPipelineDiscardRectangleStateCreateFlagsEXT(uint v)
         {
-            return new PipelineDiscardRectangleStateCreateFlagsEXT(){value = p};
+            return new VkPipelineDiscardRectangleStateCreateFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7403 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDiscardRectanglePropertiesEXT
+    public partial struct VkPhysicalDeviceDiscardRectanglePropertiesEXT
     {
         public StructureType sType;
 
@@ -6998,7 +6998,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7409 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineDiscardRectangleStateCreateInfoEXT
+    public partial struct VkPipelineDiscardRectangleStateCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7016,25 +7016,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7444 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationConservativeStateCreateFlagsEXT
+    public partial struct VkPipelineRasterizationConservativeStateCreateFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(PipelineRasterizationConservativeStateCreateFlagsEXT p)
+        public static implicit operator uint(VkPipelineRasterizationConservativeStateCreateFlagsEXT v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineRasterizationConservativeStateCreateFlagsEXT(uint p)
+        public static implicit operator VkPipelineRasterizationConservativeStateCreateFlagsEXT(uint v)
         {
-            return new PipelineRasterizationConservativeStateCreateFlagsEXT(){value = p};
+            return new VkPipelineRasterizationConservativeStateCreateFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7446 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceConservativeRasterizationPropertiesEXT
+    public partial struct VkPhysicalDeviceConservativeRasterizationPropertiesEXT
     {
         public StructureType sType;
 
@@ -7062,7 +7062,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7460 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationConservativeStateCreateInfoEXT
+    public partial struct VkPipelineRasterizationConservativeStateCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7078,25 +7078,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7474 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationDepthClipStateCreateFlagsEXT
+    public partial struct VkPipelineRasterizationDepthClipStateCreateFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(PipelineRasterizationDepthClipStateCreateFlagsEXT p)
+        public static implicit operator uint(VkPipelineRasterizationDepthClipStateCreateFlagsEXT v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineRasterizationDepthClipStateCreateFlagsEXT(uint p)
+        public static implicit operator VkPipelineRasterizationDepthClipStateCreateFlagsEXT(uint v)
         {
-            return new PipelineRasterizationDepthClipStateCreateFlagsEXT(){value = p};
+            return new VkPipelineRasterizationDepthClipStateCreateFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7476 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDepthClipEnableFeaturesEXT
+    public partial struct VkPhysicalDeviceDepthClipEnableFeaturesEXT
     {
         public StructureType sType;
 
@@ -7108,7 +7108,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7482 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRasterizationDepthClipStateCreateInfoEXT
+    public partial struct VkPipelineRasterizationDepthClipStateCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7122,7 +7122,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7500 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct XYColorEXT
+    public partial struct VkXYColorEXT
     {
         public float x;
 
@@ -7132,19 +7132,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7505 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct HdrMetadataEXT
+    public partial struct VkHdrMetadataEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public XYColorEXT displayPrimaryRed;
+        public VkXYColorEXT displayPrimaryRed;
 
-        public XYColorEXT displayPrimaryGreen;
+        public VkXYColorEXT displayPrimaryGreen;
 
-        public XYColorEXT displayPrimaryBlue;
+        public VkXYColorEXT displayPrimaryBlue;
 
-        public XYColorEXT whitePoint;
+        public VkXYColorEXT whitePoint;
 
         public float maxLuminance;
 
@@ -7158,7 +7158,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7541 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessengerEXT_T
+    public partial struct VkDebugUtilsMessengerEXT_T
     {
         public System.IntPtr pointer;
 
@@ -7166,79 +7166,79 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7546 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessengerCallbackDataFlagsEXT
+    public partial struct VkDebugUtilsMessengerCallbackDataFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(DebugUtilsMessengerCallbackDataFlagsEXT d)
+        public static implicit operator uint(VkDebugUtilsMessengerCallbackDataFlagsEXT v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DebugUtilsMessengerCallbackDataFlagsEXT(uint d)
+        public static implicit operator VkDebugUtilsMessengerCallbackDataFlagsEXT(uint v)
         {
-            return new DebugUtilsMessengerCallbackDataFlagsEXT(){value = d};
+            return new VkDebugUtilsMessengerCallbackDataFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7547 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessengerCreateFlagsEXT
+    public partial struct VkDebugUtilsMessengerCreateFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(DebugUtilsMessengerCreateFlagsEXT d)
+        public static implicit operator uint(VkDebugUtilsMessengerCreateFlagsEXT v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DebugUtilsMessengerCreateFlagsEXT(uint d)
+        public static implicit operator VkDebugUtilsMessengerCreateFlagsEXT(uint v)
         {
-            return new DebugUtilsMessengerCreateFlagsEXT(){value = d};
+            return new VkDebugUtilsMessengerCreateFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7556 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessageSeverityFlagsEXT
+    public partial struct VkDebugUtilsMessageSeverityFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(DebugUtilsMessageSeverityFlagsEXT d)
+        public static implicit operator uint(VkDebugUtilsMessageSeverityFlagsEXT v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DebugUtilsMessageSeverityFlagsEXT(uint d)
+        public static implicit operator VkDebugUtilsMessageSeverityFlagsEXT(uint v)
         {
-            return new DebugUtilsMessageSeverityFlagsEXT(){value = d};
+            return new VkDebugUtilsMessageSeverityFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7564 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessageTypeFlagsEXT
+    public partial struct VkDebugUtilsMessageTypeFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(DebugUtilsMessageTypeFlagsEXT d)
+        public static implicit operator uint(VkDebugUtilsMessageTypeFlagsEXT v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DebugUtilsMessageTypeFlagsEXT(uint d)
+        public static implicit operator VkDebugUtilsMessageTypeFlagsEXT(uint v)
         {
-            return new DebugUtilsMessageTypeFlagsEXT(){value = d};
+            return new VkDebugUtilsMessageTypeFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7566 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsObjectNameInfoEXT
+    public partial struct VkDebugUtilsObjectNameInfoEXT
     {
         public StructureType sType;
 
@@ -7254,7 +7254,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7574 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsObjectTagInfoEXT
+    public partial struct VkDebugUtilsObjectTagInfoEXT
     {
         public StructureType sType;
 
@@ -7274,7 +7274,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7584 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsLabelEXT
+    public partial struct VkDebugUtilsLabelEXT
     {
         public StructureType sType;
 
@@ -7288,7 +7288,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7591 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessengerCallbackDataEXT
+    public partial struct VkDebugUtilsMessengerCallbackDataEXT
     {
         public StructureType sType;
 
@@ -7318,7 +7318,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7612 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DebugUtilsMessengerCreateInfoEXT
+    public partial struct VkDebugUtilsMessengerCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7338,7 +7338,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7699 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SamplerReductionModeCreateInfoEXT
+    public partial struct VkSamplerReductionModeCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7350,7 +7350,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7705 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSamplerFilterMinmaxPropertiesEXT
+    public partial struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT
     {
         public StructureType sType;
 
@@ -7364,7 +7364,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7733 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceInlineUniformBlockFeaturesEXT
+    public partial struct VkPhysicalDeviceInlineUniformBlockFeaturesEXT
     {
         public StructureType sType;
 
@@ -7378,7 +7378,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7740 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceInlineUniformBlockPropertiesEXT
+    public partial struct VkPhysicalDeviceInlineUniformBlockPropertiesEXT
     {
         public StructureType sType;
 
@@ -7398,7 +7398,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7750 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct WriteDescriptorSetInlineUniformBlockEXT
+    public partial struct VkWriteDescriptorSetInlineUniformBlockEXT
     {
         public StructureType sType;
 
@@ -7412,7 +7412,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7757 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorPoolInlineUniformBlockCreateInfoEXT
+    public partial struct VkDescriptorPoolInlineUniformBlockCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7424,7 +7424,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7774 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SampleLocationEXT
+    public partial struct VkSampleLocationEXT
     {
         public float x;
 
@@ -7434,7 +7434,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7779 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SampleLocationsInfoEXT
+    public partial struct VkSampleLocationsInfoEXT
     {
         public StructureType sType;
 
@@ -7442,7 +7442,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public SampleCountFlagBits sampleLocationsPerPixel;
 
-        public Extent2D sampleLocationGridSize;
+        public VkExtent2D sampleLocationGridSize;
 
         public uint sampleLocationsCount;
 
@@ -7452,27 +7452,27 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7788 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AttachmentSampleLocationsEXT
+    public partial struct VkAttachmentSampleLocationsEXT
     {
         public uint attachmentIndex;
 
-        public SampleLocationsInfoEXT sampleLocationsInfo;
+        public VkSampleLocationsInfoEXT sampleLocationsInfo;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7793 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct SubpassSampleLocationsEXT
+    public partial struct VkSubpassSampleLocationsEXT
     {
         public uint subpassIndex;
 
-        public SampleLocationsInfoEXT sampleLocationsInfo;
+        public VkSampleLocationsInfoEXT sampleLocationsInfo;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7798 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassSampleLocationsBeginInfoEXT
+    public partial struct VkRenderPassSampleLocationsBeginInfoEXT
     {
         public StructureType sType;
 
@@ -7490,7 +7490,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7807 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineSampleLocationsStateCreateInfoEXT
+    public partial struct VkPipelineSampleLocationsStateCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7498,13 +7498,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public bool sampleLocationsEnable;
 
-        public SampleLocationsInfoEXT sampleLocationsInfo;
+        public VkSampleLocationsInfoEXT sampleLocationsInfo;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7814 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceSampleLocationsPropertiesEXT
+    public partial struct VkPhysicalDeviceSampleLocationsPropertiesEXT
     {
         public StructureType sType;
 
@@ -7512,7 +7512,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint sampleLocationSampleCounts;
 
-        public Extent2D maxSampleLocationGridSize;
+        public VkExtent2D maxSampleLocationGridSize;
 
         public unsafe fixed float sampleLocationCoordinateRange[2];
 
@@ -7524,19 +7524,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7824 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MultisamplePropertiesEXT
+    public partial struct VkMultisamplePropertiesEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Extent2D maxSampleLocationGridSize;
+        public VkExtent2D maxSampleLocationGridSize;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7860 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceBlendOperationAdvancedFeaturesEXT
+    public partial struct VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT
     {
         public StructureType sType;
 
@@ -7548,7 +7548,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7866 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceBlendOperationAdvancedPropertiesEXT
+    public partial struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT
     {
         public StructureType sType;
 
@@ -7570,7 +7570,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7877 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineColorBlendAdvancedStateCreateInfoEXT
+    public partial struct VkPipelineColorBlendAdvancedStateCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7586,25 +7586,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7891 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCoverageToColorStateCreateFlagsNV
+    public partial struct VkPipelineCoverageToColorStateCreateFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(PipelineCoverageToColorStateCreateFlagsNV p)
+        public static implicit operator uint(VkPipelineCoverageToColorStateCreateFlagsNV v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineCoverageToColorStateCreateFlagsNV(uint p)
+        public static implicit operator VkPipelineCoverageToColorStateCreateFlagsNV(uint v)
         {
-            return new PipelineCoverageToColorStateCreateFlagsNV(){value = p};
+            return new VkPipelineCoverageToColorStateCreateFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7893 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCoverageToColorStateCreateInfoNV
+    public partial struct VkPipelineCoverageToColorStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -7620,25 +7620,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7919 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCoverageModulationStateCreateFlagsNV
+    public partial struct VkPipelineCoverageModulationStateCreateFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(PipelineCoverageModulationStateCreateFlagsNV p)
+        public static implicit operator uint(VkPipelineCoverageModulationStateCreateFlagsNV v)
         {
-            return p.value;
+            return v.value;
         }
 
-        public static implicit operator PipelineCoverageModulationStateCreateFlagsNV(uint p)
+        public static implicit operator VkPipelineCoverageModulationStateCreateFlagsNV(uint v)
         {
-            return new PipelineCoverageModulationStateCreateFlagsNV(){value = p};
+            return new VkPipelineCoverageModulationStateCreateFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7921 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineCoverageModulationStateCreateInfoNV
+    public partial struct VkPipelineCoverageModulationStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -7658,7 +7658,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7947 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DrmFormatModifierPropertiesEXT
+    public partial struct VkDrmFormatModifierPropertiesEXT
     {
         public ulong drmFormatModifier;
 
@@ -7670,7 +7670,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7953 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DrmFormatModifierPropertiesListEXT
+    public partial struct VkDrmFormatModifierPropertiesListEXT
     {
         public StructureType sType;
 
@@ -7684,7 +7684,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7960 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceImageDrmFormatModifierInfoEXT
+    public partial struct VkPhysicalDeviceImageDrmFormatModifierInfoEXT
     {
         public StructureType sType;
 
@@ -7702,7 +7702,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7969 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageDrmFormatModifierListCreateInfoEXT
+    public partial struct VkImageDrmFormatModifierListCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7716,7 +7716,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7976 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageDrmFormatModifierExplicitCreateInfoEXT
+    public partial struct VkImageDrmFormatModifierExplicitCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7732,7 +7732,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7984 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageDrmFormatModifierPropertiesEXT
+    public partial struct VkImageDrmFormatModifierPropertiesEXT
     {
         public StructureType sType;
 
@@ -7744,7 +7744,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8001 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ValidationCacheEXT_T
+    public partial struct VkValidationCacheEXT_T
     {
         public System.IntPtr pointer;
 
@@ -7752,25 +7752,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8015 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ValidationCacheCreateFlagsEXT
+    public partial struct VkValidationCacheCreateFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(ValidationCacheCreateFlagsEXT v)
+        public static implicit operator uint(VkValidationCacheCreateFlagsEXT v)
         {
             return v.value;
         }
 
-        public static implicit operator ValidationCacheCreateFlagsEXT(uint v)
+        public static implicit operator VkValidationCacheCreateFlagsEXT(uint v)
         {
-            return new ValidationCacheCreateFlagsEXT(){value = v};
+            return new VkValidationCacheCreateFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8017 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ValidationCacheCreateInfoEXT
+    public partial struct VkValidationCacheCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7786,37 +7786,37 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8025 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShaderModuleValidationCacheCreateInfoEXT
+    public partial struct VkShaderModuleValidationCacheCreateInfoEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public ValidationCacheEXT_T validationCache;
+        public VkValidationCacheEXT_T validationCache;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8074 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorBindingFlagsEXT
+    public partial struct VkDescriptorBindingFlagsEXT
     {
         public uint value;
 
-        public static implicit operator uint(DescriptorBindingFlagsEXT d)
+        public static implicit operator uint(VkDescriptorBindingFlagsEXT v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DescriptorBindingFlagsEXT(uint d)
+        public static implicit operator VkDescriptorBindingFlagsEXT(uint v)
         {
-            return new DescriptorBindingFlagsEXT(){value = d};
+            return new VkDescriptorBindingFlagsEXT(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8076 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetLayoutBindingFlagsCreateInfoEXT
+    public partial struct VkDescriptorSetLayoutBindingFlagsCreateInfoEXT
     {
         public StructureType sType;
 
@@ -7830,7 +7830,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8083 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDescriptorIndexingFeaturesEXT
+    public partial struct VkPhysicalDeviceDescriptorIndexingFeaturesEXT
     {
         public StructureType sType;
 
@@ -7880,7 +7880,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8108 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDescriptorIndexingPropertiesEXT
+    public partial struct VkPhysicalDeviceDescriptorIndexingPropertiesEXT
     {
         public StructureType sType;
 
@@ -7936,7 +7936,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8136 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetVariableDescriptorCountAllocateInfoEXT
+    public partial struct VkDescriptorSetVariableDescriptorCountAllocateInfoEXT
     {
         public StructureType sType;
 
@@ -7950,7 +7950,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8143 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DescriptorSetVariableDescriptorCountLayoutSupportEXT
+    public partial struct VkDescriptorSetVariableDescriptorCountLayoutSupportEXT
     {
         public StructureType sType;
 
@@ -7962,7 +7962,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8191 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ShadingRatePaletteNV
+    public partial struct VkShadingRatePaletteNV
     {
         public uint shadingRatePaletteEntryCount;
 
@@ -7972,7 +7972,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8196 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportShadingRateImageStateCreateInfoNV
+    public partial struct VkPipelineViewportShadingRateImageStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -7988,7 +7988,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8204 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceShadingRateImageFeaturesNV
+    public partial struct VkPhysicalDeviceShadingRateImageFeaturesNV
     {
         public StructureType sType;
 
@@ -8002,13 +8002,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8211 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceShadingRateImagePropertiesNV
+    public partial struct VkPhysicalDeviceShadingRateImagePropertiesNV
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Extent2D shadingRateTexelSize;
+        public VkExtent2D shadingRateTexelSize;
 
         public uint shadingRatePaletteSize;
 
@@ -8018,7 +8018,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8219 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CoarseSampleLocationNV
+    public partial struct VkCoarseSampleLocationNV
     {
         public uint pixelX;
 
@@ -8030,7 +8030,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8225 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CoarseSampleOrderCustomNV
+    public partial struct VkCoarseSampleOrderCustomNV
     {
         public ShadingRatePaletteEntryNV shadingRate;
 
@@ -8044,7 +8044,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8232 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportCoarseSampleOrderStateCreateInfoNV
+    public partial struct VkPipelineViewportCoarseSampleOrderStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -8060,7 +8060,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8265 Column: 1
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AccelerationStructureNV_T
+    public partial struct VkAccelerationStructureNV_T
     {
         public System.IntPtr pointer;
 
@@ -8068,61 +8068,61 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8325 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GeometryFlagsNV
+    public partial struct VkGeometryFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(GeometryFlagsNV g)
+        public static implicit operator uint(VkGeometryFlagsNV v)
         {
-            return g.value;
+            return v.value;
         }
 
-        public static implicit operator GeometryFlagsNV(uint g)
+        public static implicit operator VkGeometryFlagsNV(uint v)
         {
-            return new GeometryFlagsNV(){value = g};
+            return new VkGeometryFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8334 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GeometryInstanceFlagsNV
+    public partial struct VkGeometryInstanceFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(GeometryInstanceFlagsNV g)
+        public static implicit operator uint(VkGeometryInstanceFlagsNV v)
         {
-            return g.value;
+            return v.value;
         }
 
-        public static implicit operator GeometryInstanceFlagsNV(uint g)
+        public static implicit operator VkGeometryInstanceFlagsNV(uint v)
         {
-            return new GeometryInstanceFlagsNV(){value = g};
+            return new VkGeometryInstanceFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8344 Column: 17
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BuildAccelerationStructureFlagsNV
+    public partial struct VkBuildAccelerationStructureFlagsNV
     {
         public uint value;
 
-        public static implicit operator uint(BuildAccelerationStructureFlagsNV b)
+        public static implicit operator uint(VkBuildAccelerationStructureFlagsNV v)
         {
-            return b.value;
+            return v.value;
         }
 
-        public static implicit operator BuildAccelerationStructureFlagsNV(uint b)
+        public static implicit operator VkBuildAccelerationStructureFlagsNV(uint v)
         {
-            return new BuildAccelerationStructureFlagsNV(){value = b};
+            return new VkBuildAccelerationStructureFlagsNV(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8346 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RayTracingShaderGroupCreateInfoNV
+    public partial struct VkRayTracingShaderGroupCreateInfoNV
     {
         public StructureType sType;
 
@@ -8142,7 +8142,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8356 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RayTracingPipelineCreateInfoNV
+    public partial struct VkRayTracingPipelineCreateInfoNV
     {
         public StructureType sType;
 
@@ -8160,9 +8160,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint maxRecursionDepth;
 
-        public PipelineLayout_T layout;
+        public VkPipelineLayout_T layout;
 
-        public Pipeline_T basePipelineHandle;
+        public VkPipeline_T basePipelineHandle;
 
         public int basePipelineIndex;
 
@@ -8170,13 +8170,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8370 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GeometryTrianglesNV
+    public partial struct VkGeometryTrianglesNV
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Buffer_T vertexData;
+        public VkBuffer_T vertexData;
 
         public ulong vertexOffset;
 
@@ -8186,7 +8186,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public Format vertexFormat;
 
-        public Buffer_T indexData;
+        public VkBuffer_T indexData;
 
         public ulong indexOffset;
 
@@ -8194,7 +8194,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public IndexType indexType;
 
-        public Buffer_T transformData;
+        public VkBuffer_T transformData;
 
         public ulong transformOffset;
 
@@ -8202,13 +8202,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8386 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GeometryAABBNV
+    public partial struct VkGeometryAABBNV
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Buffer_T aabbData;
+        public VkBuffer_T aabbData;
 
         public uint numAABBs;
 
@@ -8220,17 +8220,17 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8395 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GeometryDataNV
+    public partial struct VkGeometryDataNV
     {
-        public GeometryTrianglesNV triangles;
+        public VkGeometryTrianglesNV triangles;
 
-        public GeometryAABBNV aabbs;
+        public VkGeometryAABBNV aabbs;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8400 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct GeometryNV
+    public partial struct VkGeometryNV
     {
         public StructureType sType;
 
@@ -8238,7 +8238,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public GeometryTypeNV geometryType;
 
-        public GeometryDataNV geometry;
+        public VkGeometryDataNV geometry;
 
         public uint flags;
 
@@ -8246,7 +8246,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8408 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AccelerationStructureInfoNV
+    public partial struct VkAccelerationStructureInfoNV
     {
         public StructureType sType;
 
@@ -8266,7 +8266,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8418 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AccelerationStructureCreateInfoNV
+    public partial struct VkAccelerationStructureCreateInfoNV
     {
         public StructureType sType;
 
@@ -8274,21 +8274,21 @@ namespace AdamantiumVulkan.Core.Interop
 
         public ulong compactedSize;
 
-        public AccelerationStructureInfoNV info;
+        public VkAccelerationStructureInfoNV info;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8425 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BindAccelerationStructureMemoryInfoNV
+    public partial struct VkBindAccelerationStructureMemoryInfoNV
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public AccelerationStructureNV_T accelerationStructure;
+        public VkAccelerationStructureNV_T accelerationStructure;
 
-        public DeviceMemory_T memory;
+        public VkDeviceMemory_T memory;
 
         public ulong memoryOffset;
 
@@ -8300,7 +8300,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8435 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct WriteDescriptorSetAccelerationStructureNV
+    public partial struct VkWriteDescriptorSetAccelerationStructureNV
     {
         public StructureType sType;
 
@@ -8314,7 +8314,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8442 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct AccelerationStructureMemoryRequirementsInfoNV
+    public partial struct VkAccelerationStructureMemoryRequirementsInfoNV
     {
         public StructureType sType;
 
@@ -8322,13 +8322,13 @@ namespace AdamantiumVulkan.Core.Interop
 
         public AccelerationStructureMemoryRequirementsTypeNV type;
 
-        public AccelerationStructureNV_T accelerationStructure;
+        public VkAccelerationStructureNV_T accelerationStructure;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8449 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceRayTracingPropertiesNV
+    public partial struct VkPhysicalDeviceRayTracingPropertiesNV
     {
         public StructureType sType;
 
@@ -8354,7 +8354,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8572 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceRepresentativeFragmentTestFeaturesNV
+    public partial struct VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV
     {
         public StructureType sType;
 
@@ -8366,7 +8366,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8578 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineRepresentativeFragmentTestStateCreateInfoNV
+    public partial struct VkPipelineRepresentativeFragmentTestStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -8378,7 +8378,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8590 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceImageViewImageFormatInfoEXT
+    public partial struct VkPhysicalDeviceImageViewImageFormatInfoEXT
     {
         public StructureType sType;
 
@@ -8390,7 +8390,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8596 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct FilterCubicImageViewImageFormatPropertiesEXT
+    public partial struct VkFilterCubicImageViewImageFormatPropertiesEXT
     {
         public StructureType sType;
 
@@ -8404,7 +8404,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8621 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceQueueGlobalPriorityCreateInfoEXT
+    public partial struct VkDeviceQueueGlobalPriorityCreateInfoEXT
     {
         public StructureType sType;
 
@@ -8416,7 +8416,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8633 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImportMemoryHostPointerInfoEXT
+    public partial struct VkImportMemoryHostPointerInfoEXT
     {
         public StructureType sType;
 
@@ -8430,7 +8430,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8640 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryHostPointerPropertiesEXT
+    public partial struct VkMemoryHostPointerPropertiesEXT
     {
         public StructureType sType;
 
@@ -8442,7 +8442,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8646 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceExternalMemoryHostPropertiesEXT
+    public partial struct VkPhysicalDeviceExternalMemoryHostPropertiesEXT
     {
         public StructureType sType;
 
@@ -8454,7 +8454,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8694 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CalibratedTimestampInfoEXT
+    public partial struct VkCalibratedTimestampInfoEXT
     {
         public StructureType sType;
 
@@ -8466,7 +8466,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8722 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceShaderCorePropertiesAMD
+    public partial struct VkPhysicalDeviceShaderCorePropertiesAMD
     {
         public StructureType sType;
 
@@ -8504,7 +8504,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8758 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceMemoryOverallocationCreateInfoAMD
+    public partial struct VkDeviceMemoryOverallocationCreateInfoAMD
     {
         public StructureType sType;
 
@@ -8516,7 +8516,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8770 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceVertexAttributeDivisorPropertiesEXT
+    public partial struct VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT
     {
         public StructureType sType;
 
@@ -8528,7 +8528,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8776 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VertexInputBindingDivisorDescriptionEXT
+    public partial struct VkVertexInputBindingDivisorDescriptionEXT
     {
         public uint binding;
 
@@ -8538,7 +8538,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8781 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineVertexInputDivisorStateCreateInfoEXT
+    public partial struct VkPipelineVertexInputDivisorStateCreateInfoEXT
     {
         public StructureType sType;
 
@@ -8552,7 +8552,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8788 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceVertexAttributeDivisorFeaturesEXT
+    public partial struct VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT
     {
         public StructureType sType;
 
@@ -8566,7 +8566,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8806 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceComputeShaderDerivativesFeaturesNV
+    public partial struct VkPhysicalDeviceComputeShaderDerivativesFeaturesNV
     {
         public StructureType sType;
 
@@ -8580,7 +8580,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8819 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMeshShaderFeaturesNV
+    public partial struct VkPhysicalDeviceMeshShaderFeaturesNV
     {
         public StructureType sType;
 
@@ -8594,7 +8594,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8826 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMeshShaderPropertiesNV
+    public partial struct VkPhysicalDeviceMeshShaderPropertiesNV
     {
         public StructureType sType;
 
@@ -8630,7 +8630,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8844 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DrawMeshTasksIndirectCommandNV
+    public partial struct VkDrawMeshTasksIndirectCommandNV
     {
         public uint taskCount;
 
@@ -8640,7 +8640,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8881 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFragmentShaderBarycentricFeaturesNV
+    public partial struct VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV
     {
         public StructureType sType;
 
@@ -8652,7 +8652,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8893 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceShaderImageFootprintFeaturesNV
+    public partial struct VkPhysicalDeviceShaderImageFootprintFeaturesNV
     {
         public StructureType sType;
 
@@ -8664,7 +8664,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8905 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PipelineViewportExclusiveScissorStateCreateInfoNV
+    public partial struct VkPipelineViewportExclusiveScissorStateCreateInfoNV
     {
         public StructureType sType;
 
@@ -8678,7 +8678,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8912 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceExclusiveScissorFeaturesNV
+    public partial struct VkPhysicalDeviceExclusiveScissorFeaturesNV
     {
         public StructureType sType;
 
@@ -8690,7 +8690,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8933 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct QueueFamilyCheckpointPropertiesNV
+    public partial struct VkQueueFamilyCheckpointPropertiesNV
     {
         public StructureType sType;
 
@@ -8702,7 +8702,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8939 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CheckpointDataNV
+    public partial struct VkCheckpointDataNV
     {
         public StructureType sType;
 
@@ -8716,7 +8716,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8965 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDevicePCIBusInfoPropertiesEXT
+    public partial struct VkPhysicalDevicePCIBusInfoPropertiesEXT
     {
         public StructureType sType;
 
@@ -8734,7 +8734,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8980 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFragmentDensityMapFeaturesEXT
+    public partial struct VkPhysicalDeviceFragmentDensityMapFeaturesEXT
     {
         public StructureType sType;
 
@@ -8750,15 +8750,15 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8988 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceFragmentDensityMapPropertiesEXT
+    public partial struct VkPhysicalDeviceFragmentDensityMapPropertiesEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Extent2D minFragmentDensityTexelSize;
+        public VkExtent2D minFragmentDensityTexelSize;
 
-        public Extent2D maxFragmentDensityTexelSize;
+        public VkExtent2D maxFragmentDensityTexelSize;
 
         public bool fragmentDensityInvocations;
 
@@ -8766,19 +8766,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8996 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct RenderPassFragmentDensityMapCreateInfoEXT
+    public partial struct VkRenderPassFragmentDensityMapCreateInfoEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public AttachmentReference fragmentDensityMapAttachment;
+        public VkAttachmentReference fragmentDensityMapAttachment;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9008 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceScalarBlockLayoutFeaturesEXT
+    public partial struct VkPhysicalDeviceScalarBlockLayoutFeaturesEXT
     {
         public StructureType sType;
 
@@ -8790,7 +8790,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9030 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMemoryBudgetPropertiesEXT
+    public partial struct VkPhysicalDeviceMemoryBudgetPropertiesEXT
     {
         public StructureType sType;
 
@@ -8804,7 +8804,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9043 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceMemoryPriorityFeaturesEXT
+    public partial struct VkPhysicalDeviceMemoryPriorityFeaturesEXT
     {
         public StructureType sType;
 
@@ -8816,7 +8816,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9049 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct MemoryPriorityAllocateInfoEXT
+    public partial struct VkMemoryPriorityAllocateInfoEXT
     {
         public StructureType sType;
 
@@ -8828,7 +8828,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9061 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV
+    public partial struct VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV
     {
         public StructureType sType;
 
@@ -8840,25 +8840,25 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9070 Column: 18
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct DeviceAddress
+    public partial struct VkDeviceAddress
     {
         public ulong value;
 
-        public static implicit operator ulong(DeviceAddress d)
+        public static implicit operator ulong(VkDeviceAddress v)
         {
-            return d.value;
+            return v.value;
         }
 
-        public static implicit operator DeviceAddress(ulong d)
+        public static implicit operator VkDeviceAddress(ulong v)
         {
-            return new DeviceAddress(){value = d};
+            return new VkDeviceAddress(){value = v};
         }
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9075 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceBufferAddressFeaturesEXT
+    public partial struct VkPhysicalDeviceBufferAddressFeaturesEXT
     {
         public StructureType sType;
 
@@ -8874,19 +8874,19 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9083 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferDeviceAddressInfoEXT
+    public partial struct VkBufferDeviceAddressInfoEXT
     {
         public StructureType sType;
 
         public System.IntPtr pNext;
 
-        public Buffer_T buffer;
+        public VkBuffer_T buffer;
 
     }
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9089 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct BufferDeviceAddressCreateInfoEXT
+    public partial struct VkBufferDeviceAddressCreateInfoEXT
     {
         public StructureType sType;
 
@@ -8898,7 +8898,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9108 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ImageStencilUsageCreateInfoEXT
+    public partial struct VkImageStencilUsageCreateInfoEXT
     {
         public StructureType sType;
 
@@ -8910,7 +8910,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9144 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct ValidationFeaturesEXT
+    public partial struct VkValidationFeaturesEXT
     {
         public StructureType sType;
 
@@ -8928,7 +8928,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9189 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct CooperativeMatrixPropertiesNV
+    public partial struct VkCooperativeMatrixPropertiesNV
     {
         public StructureType sType;
 
@@ -8954,7 +8954,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9202 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceCooperativeMatrixFeaturesNV
+    public partial struct VkPhysicalDeviceCooperativeMatrixFeaturesNV
     {
         public StructureType sType;
 
@@ -8968,7 +8968,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9209 Column: 16
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct PhysicalDeviceCooperativeMatrixPropertiesNV
+    public partial struct VkPhysicalDeviceCooperativeMatrixPropertiesNV
     {
         public StructureType sType;
 

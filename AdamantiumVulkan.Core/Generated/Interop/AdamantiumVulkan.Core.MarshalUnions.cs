@@ -12,7 +12,7 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2786 Column: 15
     [StructLayout(LayoutKind.Explicit)]
-    public partial struct ClearColorValue
+    public partial struct VkClearColorValue
     {
         [FieldOffset(0)]
         public unsafe fixed float float32[4];
@@ -27,13 +27,13 @@ namespace AdamantiumVulkan.Core.Interop
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 2797 Column: 15
     [StructLayout(LayoutKind.Explicit)]
-    public partial struct ClearValue
+    public partial struct VkClearValue
     {
         [FieldOffset(0)]
-        public ClearColorValue color;
+        public VkClearColorValue color;
 
         [FieldOffset(0)]
-        public ClearDepthStencilValue depthStencil;
+        public VkClearDepthStencilValue depthStencil;
 
     }
 

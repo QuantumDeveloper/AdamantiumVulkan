@@ -10,457 +10,283 @@ namespace AdamantiumVulkan.Windows
 {
     using System.Runtime.InteropServices;
     using AdamantiumVulkan;
-    using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core;
+    using AdamantiumVulkan.Windows.Interop;
+    using AdamantiumVulkan.Core.Interop;
 
     public partial class Win32SurfaceCreateInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.Win32SurfaceCreateInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         public Win32SurfaceCreateInfoKHR()
         {
         }
 
-        public Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.Win32SurfaceCreateInfoKHR _internal)
+        public Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Flags = _internal.flags;
+            Hinstance = _internal.hinstance;
+            Hwnd = _internal.hwnd;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public uint Flags
         {
-            get => _internal.flags;
-            set
-            {
-                _internal.flags = value;
-            }
+            get; set;
         }
 
         public System.IntPtr Hinstance
         {
-            get => _internal.hinstance;
-            set
-            {
-                _internal.hinstance = value;
-            }
+            get; set;
         }
 
         public System.IntPtr Hwnd
         {
-            get => _internal.hwnd;
-            set
-            {
-                _internal.hwnd = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.Win32SurfaceCreateInfoKHR(Win32SurfaceCreateInfoKHR w)
+        public AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR ToInternal()
         {
-            return w._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.flags = Flags;
+            _internal.hinstance = Hinstance;
+            _internal.hwnd = Hwnd;
+            return _internal;
         }
-
-        public static implicit operator Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.Win32SurfaceCreateInfoKHR w)
-        {
-            return new Win32SurfaceCreateInfoKHR(w);
-        }
-
     }
 
     public partial class ImportMemoryWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         public ImportMemoryWin32HandleInfoKHR()
         {
         }
 
-        public ImportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoKHR _internal)
+        public ImportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            HandleType = _internal.handleType;
+            Handle = _internal.handle;
+            Name = _internal.name;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public ExternalMemoryHandleTypeFlagBits HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         public System.IntPtr Handle
         {
-            get => _internal.handle;
-            set
-            {
-                _internal.handle = value;
-            }
+            get; set;
         }
 
         public char Name
         {
-            get => _internal.name;
-            set
-            {
-                _internal.name = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoKHR(ImportMemoryWin32HandleInfoKHR i)
+        public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR ToInternal()
         {
-            return i._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.handleType = HandleType;
+            _internal.handle = Handle;
+            _internal.name = Name;
+            return _internal;
         }
-
-        public static implicit operator ImportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoKHR i)
-        {
-            return new ImportMemoryWin32HandleInfoKHR(i);
-        }
-
     }
 
     public partial class ExportMemoryWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpAttributes;
 
         public ExportMemoryWin32HandleInfoKHR()
         {
         }
 
-        public ExportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoKHR _internal)
+        public ExportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            PAttributes = _internal.pAttributes;
+            DwAccess = _internal.dwAccess;
+            Name = _internal.name;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
-        private object pAttributes;
         public object PAttributes
         {
-            get
-            {
-                if(pAttributes != null)
-                    return pAttributes;
-
-                pAttributes = _internal.pAttributes;
-                return pAttributes;
-            }
-            set
-            {
-                refpAttributes?.Dispose();
-                refpAttributes = new StructReference(value);
-                pAttributes = value;
-                _internal.pAttributes = refpAttributes.Handle;
-            }
+            get; set;
         }
 
         public uint DwAccess
         {
-            get => _internal.dwAccess;
-            set
-            {
-                _internal.dwAccess = value;
-            }
+            get; set;
         }
 
         public char Name
         {
-            get => _internal.name;
-            set
-            {
-                _internal.name = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
+        }
+
+        public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
             refpAttributes?.Dispose();
+            if (PAttributes != null)
+            {
+                refpAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = refpAttributes.Handle;
+            }
+            _internal.dwAccess = DwAccess;
+            _internal.name = Name;
+            return _internal;
         }
-
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoKHR(ExportMemoryWin32HandleInfoKHR e)
-        {
-            return e._internal;
-        }
-
-        public static implicit operator ExportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoKHR e)
-        {
-            return new ExportMemoryWin32HandleInfoKHR(e);
-        }
-
     }
 
     public partial class MemoryWin32HandlePropertiesKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.MemoryWin32HandlePropertiesKHR _internal;
-
-        private GCHandleReference refpNext;
-
         public MemoryWin32HandlePropertiesKHR()
         {
         }
 
-        public MemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Windows.Interop.MemoryWin32HandlePropertiesKHR _internal)
+        public MemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            MemoryTypeBits = _internal.memoryTypeBits;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public uint MemoryTypeBits
         {
-            get => _internal.memoryTypeBits;
-            set
-            {
-                _internal.memoryTypeBits = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.MemoryWin32HandlePropertiesKHR(MemoryWin32HandlePropertiesKHR m)
+        public AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR ToInternal()
         {
-            return m._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.memoryTypeBits = MemoryTypeBits;
+            return _internal;
         }
-
-        public static implicit operator MemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Windows.Interop.MemoryWin32HandlePropertiesKHR m)
-        {
-            return new MemoryWin32HandlePropertiesKHR(m);
-        }
-
     }
 
     public partial class MemoryGetWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.MemoryGetWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
-        private DeviceMemory memory;
-
         public MemoryGetWin32HandleInfoKHR()
         {
         }
 
-        public MemoryGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.MemoryGetWin32HandleInfoKHR _internal)
+        public MemoryGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Memory = new DeviceMemory(_internal.memory);
+            HandleType = _internal.handleType;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public DeviceMemory Memory
         {
-            get
-            {
-                if (memory != null)
-                {
-                    return memory;
-                }
-                memory = _internal.memory;
-                return memory;
-            }
-            set
-            {
-                memory = value;
-                _internal.memory = value;
-            }
+            get; set;
         }
 
         public ExternalMemoryHandleTypeFlagBits HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.MemoryGetWin32HandleInfoKHR(MemoryGetWin32HandleInfoKHR m)
+        public AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR ToInternal()
         {
-            if (m.Memory != null)
-            {
-                m._internal.memory = m.Memory;
-            }
-            return m._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.memory = Memory;
+            _internal.handleType = HandleType;
+            return _internal;
         }
-
-        public static implicit operator MemoryGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.MemoryGetWin32HandleInfoKHR m)
-        {
-            return new MemoryGetWin32HandleInfoKHR(m);
-        }
-
     }
 
     public partial class Win32KeyedMutexAcquireReleaseInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpAcquireSyncs;
 
         private StructReference refpAcquireKeys;
@@ -475,393 +301,266 @@ namespace AdamantiumVulkan.Windows
         {
         }
 
-        public Win32KeyedMutexAcquireReleaseInfoKHR(AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoKHR _internal)
+        public Win32KeyedMutexAcquireReleaseInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            AcquireCount = _internal.acquireCount;
+            PAcquireSyncs = new DeviceMemory(Marshal.PtrToStructure<DeviceMemory>(_internal.pAcquireSyncs));
+            Marshal.FreeHGlobal(_internal.pAcquireSyncs);
+            if(_internal.pAcquireKeys != System.IntPtr.Zero)
+            {
+                PAcquireKeys = (ulong?)_internal.pAcquireKeys;
+                Marshal.FreeHGlobal(_internal.pAcquireKeys);
+            }
+            if(_internal.pAcquireTimeouts != System.IntPtr.Zero)
+            {
+                PAcquireTimeouts = (uint?)_internal.pAcquireTimeouts;
+                Marshal.FreeHGlobal(_internal.pAcquireTimeouts);
+            }
+            ReleaseCount = _internal.releaseCount;
+            PReleaseSyncs = new DeviceMemory(Marshal.PtrToStructure<DeviceMemory>(_internal.pReleaseSyncs));
+            Marshal.FreeHGlobal(_internal.pReleaseSyncs);
+            if(_internal.pReleaseKeys != System.IntPtr.Zero)
+            {
+                PReleaseKeys = (ulong?)_internal.pReleaseKeys;
+                Marshal.FreeHGlobal(_internal.pReleaseKeys);
+            }
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public uint AcquireCount
         {
-            get => _internal.acquireCount;
-            set
-            {
-                _internal.acquireCount = value;
-            }
+            get; set;
         }
 
-        private DeviceMemory pAcquireSyncs;
         public DeviceMemory PAcquireSyncs
         {
-            get
-            {
-                if(pAcquireSyncs != null)
-                    return pAcquireSyncs;
-
-                pAcquireSyncs = Marshal.PtrToStructure<DeviceMemory>(_internal.pAcquireSyncs);
-                return pAcquireSyncs;
-            }
-            set
-            {
-                refpAcquireSyncs?.Dispose();
-                AdamantiumVulkan.Core.Interop.DeviceMemory_T tmp = value;
-                refpAcquireSyncs = new StructReference(tmp);
-                pAcquireSyncs = value;
-                _internal.pAcquireSyncs = refpAcquireSyncs.Handle;
-            }
+            get; set;
         }
 
-        public ulong PAcquireKeys
+        public ulong? PAcquireKeys
         {
-            get
-            {
-                return Marshal.PtrToStructure<ulong>(_internal.pAcquireKeys);
-            }
-            set
-            {
-                refpAcquireKeys?.Dispose();
-                refpAcquireKeys = new StructReference(value);
-                _internal.pAcquireKeys = refpAcquireKeys.Handle;
-            }
+            get; set;
         }
 
-        public uint PAcquireTimeouts
+        public uint? PAcquireTimeouts
         {
-            get
-            {
-                return Marshal.PtrToStructure<uint>(_internal.pAcquireTimeouts);
-            }
-            set
-            {
-                refpAcquireTimeouts?.Dispose();
-                refpAcquireTimeouts = new StructReference(value);
-                _internal.pAcquireTimeouts = refpAcquireTimeouts.Handle;
-            }
+            get; set;
         }
 
         public uint ReleaseCount
         {
-            get => _internal.releaseCount;
-            set
-            {
-                _internal.releaseCount = value;
-            }
+            get; set;
         }
 
-        private DeviceMemory pReleaseSyncs;
         public DeviceMemory PReleaseSyncs
         {
-            get
-            {
-                if(pReleaseSyncs != null)
-                    return pReleaseSyncs;
-
-                pReleaseSyncs = Marshal.PtrToStructure<DeviceMemory>(_internal.pReleaseSyncs);
-                return pReleaseSyncs;
-            }
-            set
-            {
-                refpReleaseSyncs?.Dispose();
-                AdamantiumVulkan.Core.Interop.DeviceMemory_T tmp = value;
-                refpReleaseSyncs = new StructReference(tmp);
-                pReleaseSyncs = value;
-                _internal.pReleaseSyncs = refpReleaseSyncs.Handle;
-            }
+            get; set;
         }
 
-        public ulong PReleaseKeys
+        public ulong? PReleaseKeys
         {
-            get
-            {
-                return Marshal.PtrToStructure<ulong>(_internal.pReleaseKeys);
-            }
-            set
-            {
-                refpReleaseKeys?.Dispose();
-                refpReleaseKeys = new StructReference(value);
-                _internal.pReleaseKeys = refpReleaseKeys.Handle;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
-            refpAcquireSyncs?.Dispose();
             refpAcquireKeys?.Dispose();
             refpAcquireTimeouts?.Dispose();
             refpReleaseSyncs?.Dispose();
             refpReleaseKeys?.Dispose();
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoKHR(Win32KeyedMutexAcquireReleaseInfoKHR w)
+        public AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR ToInternal()
         {
-            return w._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.acquireCount = AcquireCount;
+            refpAcquireSyncs?.Dispose();
+            if (PAcquireSyncs != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = PAcquireSyncs;
+                refpAcquireSyncs = new StructReference(struct0);
+                _internal.pAcquireSyncs = refpAcquireSyncs.Handle;
+            }
+            refpAcquireKeys?.Dispose();
+            if (PAcquireKeys != null)
+            {
+                refpAcquireKeys = new StructReference(PAcquireKeys);
+                _internal.pAcquireKeys = refpAcquireKeys.Handle;
+            }
+            refpAcquireTimeouts?.Dispose();
+            if (PAcquireTimeouts != null)
+            {
+                refpAcquireTimeouts = new StructReference(PAcquireTimeouts);
+                _internal.pAcquireTimeouts = refpAcquireTimeouts.Handle;
+            }
+            _internal.releaseCount = ReleaseCount;
+            refpReleaseSyncs?.Dispose();
+            if (PReleaseSyncs != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct3 = PReleaseSyncs;
+                refpReleaseSyncs = new StructReference(struct3);
+                _internal.pReleaseSyncs = refpReleaseSyncs.Handle;
+            }
+            refpReleaseKeys?.Dispose();
+            if (PReleaseKeys != null)
+            {
+                refpReleaseKeys = new StructReference(PReleaseKeys);
+                _internal.pReleaseKeys = refpReleaseKeys.Handle;
+            }
+            return _internal;
         }
-
-        public static implicit operator Win32KeyedMutexAcquireReleaseInfoKHR(AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoKHR w)
-        {
-            return new Win32KeyedMutexAcquireReleaseInfoKHR(w);
-        }
-
     }
 
     public partial class ImportSemaphoreWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ImportSemaphoreWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
-        private Semaphore semaphore;
-
         public ImportSemaphoreWin32HandleInfoKHR()
         {
         }
 
-        public ImportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ImportSemaphoreWin32HandleInfoKHR _internal)
+        public ImportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Semaphore = new Semaphore(_internal.semaphore);
+            Flags = _internal.flags;
+            HandleType = _internal.handleType;
+            Handle = _internal.handle;
+            Name = _internal.name;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public Semaphore Semaphore
         {
-            get
-            {
-                if (semaphore != null)
-                {
-                    return semaphore;
-                }
-                semaphore = _internal.semaphore;
-                return semaphore;
-            }
-            set
-            {
-                semaphore = value;
-                _internal.semaphore = value;
-            }
+            get; set;
         }
 
         public uint Flags
         {
-            get => _internal.flags;
-            set
-            {
-                _internal.flags = value;
-            }
+            get; set;
         }
 
         public ExternalSemaphoreHandleTypeFlagBits HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         public System.IntPtr Handle
         {
-            get => _internal.handle;
-            set
-            {
-                _internal.handle = value;
-            }
+            get; set;
         }
 
         public char Name
         {
-            get => _internal.name;
-            set
-            {
-                _internal.name = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ImportSemaphoreWin32HandleInfoKHR(ImportSemaphoreWin32HandleInfoKHR i)
+        public AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR ToInternal()
         {
-            if (i.Semaphore != null)
-            {
-                i._internal.semaphore = i.Semaphore;
-            }
-            return i._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.semaphore = Semaphore;
+            _internal.flags = Flags;
+            _internal.handleType = HandleType;
+            _internal.handle = Handle;
+            _internal.name = Name;
+            return _internal;
         }
-
-        public static implicit operator ImportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ImportSemaphoreWin32HandleInfoKHR i)
-        {
-            return new ImportSemaphoreWin32HandleInfoKHR(i);
-        }
-
     }
 
     public partial class ExportSemaphoreWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ExportSemaphoreWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpAttributes;
 
         public ExportSemaphoreWin32HandleInfoKHR()
         {
         }
 
-        public ExportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ExportSemaphoreWin32HandleInfoKHR _internal)
+        public ExportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            PAttributes = _internal.pAttributes;
+            DwAccess = _internal.dwAccess;
+            Name = _internal.name;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
-        private object pAttributes;
         public object PAttributes
         {
-            get
-            {
-                if(pAttributes != null)
-                    return pAttributes;
-
-                pAttributes = _internal.pAttributes;
-                return pAttributes;
-            }
-            set
-            {
-                refpAttributes?.Dispose();
-                refpAttributes = new StructReference(value);
-                pAttributes = value;
-                _internal.pAttributes = refpAttributes.Handle;
-            }
+            get; set;
         }
 
         public uint DwAccess
         {
-            get => _internal.dwAccess;
-            set
-            {
-                _internal.dwAccess = value;
-            }
+            get; set;
         }
 
         public char Name
         {
-            get => _internal.name;
-            set
-            {
-                _internal.name = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
+        }
+
+        public AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
             refpAttributes?.Dispose();
+            if (PAttributes != null)
+            {
+                refpAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = refpAttributes.Handle;
+            }
+            _internal.dwAccess = DwAccess;
+            _internal.name = Name;
+            return _internal;
         }
-
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ExportSemaphoreWin32HandleInfoKHR(ExportSemaphoreWin32HandleInfoKHR e)
-        {
-            return e._internal;
-        }
-
-        public static implicit operator ExportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ExportSemaphoreWin32HandleInfoKHR e)
-        {
-            return new ExportSemaphoreWin32HandleInfoKHR(e);
-        }
-
     }
 
     public partial class D3D12FenceSubmitInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.D3D12FenceSubmitInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpWaitSemaphoreValues;
 
         private StructReference refpSignalSemaphoreValues;
@@ -870,694 +569,426 @@ namespace AdamantiumVulkan.Windows
         {
         }
 
-        public D3D12FenceSubmitInfoKHR(AdamantiumVulkan.Windows.Interop.D3D12FenceSubmitInfoKHR _internal)
+        public D3D12FenceSubmitInfoKHR(AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            WaitSemaphoreValuesCount = _internal.waitSemaphoreValuesCount;
+            if(_internal.pWaitSemaphoreValues != System.IntPtr.Zero)
+            {
+                PWaitSemaphoreValues = (ulong?)_internal.pWaitSemaphoreValues;
+                Marshal.FreeHGlobal(_internal.pWaitSemaphoreValues);
+            }
+            SignalSemaphoreValuesCount = _internal.signalSemaphoreValuesCount;
+            if(_internal.pSignalSemaphoreValues != System.IntPtr.Zero)
+            {
+                PSignalSemaphoreValues = (ulong?)_internal.pSignalSemaphoreValues;
+                Marshal.FreeHGlobal(_internal.pSignalSemaphoreValues);
+            }
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public uint WaitSemaphoreValuesCount
         {
-            get => _internal.waitSemaphoreValuesCount;
-            set
-            {
-                _internal.waitSemaphoreValuesCount = value;
-            }
+            get; set;
         }
 
-        public ulong PWaitSemaphoreValues
+        public ulong? PWaitSemaphoreValues
         {
-            get
-            {
-                return Marshal.PtrToStructure<ulong>(_internal.pWaitSemaphoreValues);
-            }
-            set
-            {
-                refpWaitSemaphoreValues?.Dispose();
-                refpWaitSemaphoreValues = new StructReference(value);
-                _internal.pWaitSemaphoreValues = refpWaitSemaphoreValues.Handle;
-            }
+            get; set;
         }
 
         public uint SignalSemaphoreValuesCount
         {
-            get => _internal.signalSemaphoreValuesCount;
-            set
-            {
-                _internal.signalSemaphoreValuesCount = value;
-            }
+            get; set;
         }
 
-        public ulong PSignalSemaphoreValues
+        public ulong? PSignalSemaphoreValues
         {
-            get
-            {
-                return Marshal.PtrToStructure<ulong>(_internal.pSignalSemaphoreValues);
-            }
-            set
-            {
-                refpSignalSemaphoreValues?.Dispose();
-                refpSignalSemaphoreValues = new StructReference(value);
-                _internal.pSignalSemaphoreValues = refpSignalSemaphoreValues.Handle;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
-            refpWaitSemaphoreValues?.Dispose();
             refpSignalSemaphoreValues?.Dispose();
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.D3D12FenceSubmitInfoKHR(D3D12FenceSubmitInfoKHR d)
+        public AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR ToInternal()
         {
-            return d._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.waitSemaphoreValuesCount = WaitSemaphoreValuesCount;
+            refpWaitSemaphoreValues?.Dispose();
+            if (PWaitSemaphoreValues != null)
+            {
+                refpWaitSemaphoreValues = new StructReference(PWaitSemaphoreValues);
+                _internal.pWaitSemaphoreValues = refpWaitSemaphoreValues.Handle;
+            }
+            _internal.signalSemaphoreValuesCount = SignalSemaphoreValuesCount;
+            refpSignalSemaphoreValues?.Dispose();
+            if (PSignalSemaphoreValues != null)
+            {
+                refpSignalSemaphoreValues = new StructReference(PSignalSemaphoreValues);
+                _internal.pSignalSemaphoreValues = refpSignalSemaphoreValues.Handle;
+            }
+            return _internal;
         }
-
-        public static implicit operator D3D12FenceSubmitInfoKHR(AdamantiumVulkan.Windows.Interop.D3D12FenceSubmitInfoKHR d)
-        {
-            return new D3D12FenceSubmitInfoKHR(d);
-        }
-
     }
 
     public partial class SemaphoreGetWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.SemaphoreGetWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
-        private Semaphore semaphore;
-
         public SemaphoreGetWin32HandleInfoKHR()
         {
         }
 
-        public SemaphoreGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.SemaphoreGetWin32HandleInfoKHR _internal)
+        public SemaphoreGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Semaphore = new Semaphore(_internal.semaphore);
+            HandleType = _internal.handleType;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public Semaphore Semaphore
         {
-            get
-            {
-                if (semaphore != null)
-                {
-                    return semaphore;
-                }
-                semaphore = _internal.semaphore;
-                return semaphore;
-            }
-            set
-            {
-                semaphore = value;
-                _internal.semaphore = value;
-            }
+            get; set;
         }
 
         public ExternalSemaphoreHandleTypeFlagBits HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.SemaphoreGetWin32HandleInfoKHR(SemaphoreGetWin32HandleInfoKHR s)
+        public AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR ToInternal()
         {
-            if (s.Semaphore != null)
-            {
-                s._internal.semaphore = s.Semaphore;
-            }
-            return s._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.semaphore = Semaphore;
+            _internal.handleType = HandleType;
+            return _internal;
         }
-
-        public static implicit operator SemaphoreGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.SemaphoreGetWin32HandleInfoKHR s)
-        {
-            return new SemaphoreGetWin32HandleInfoKHR(s);
-        }
-
     }
 
     public partial class ImportFenceWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ImportFenceWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
-        private Fence fence;
-
         public ImportFenceWin32HandleInfoKHR()
         {
         }
 
-        public ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ImportFenceWin32HandleInfoKHR _internal)
+        public ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Fence = new Fence(_internal.fence);
+            Flags = _internal.flags;
+            HandleType = _internal.handleType;
+            Handle = _internal.handle;
+            Name = _internal.name;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public Fence Fence
         {
-            get
-            {
-                if (fence != null)
-                {
-                    return fence;
-                }
-                fence = _internal.fence;
-                return fence;
-            }
-            set
-            {
-                fence = value;
-                _internal.fence = value;
-            }
+            get; set;
         }
 
         public uint Flags
         {
-            get => _internal.flags;
-            set
-            {
-                _internal.flags = value;
-            }
+            get; set;
         }
 
         public ExternalFenceHandleTypeFlagBits HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         public System.IntPtr Handle
         {
-            get => _internal.handle;
-            set
-            {
-                _internal.handle = value;
-            }
+            get; set;
         }
 
         public char Name
         {
-            get => _internal.name;
-            set
-            {
-                _internal.name = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ImportFenceWin32HandleInfoKHR(ImportFenceWin32HandleInfoKHR i)
+        public AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR ToInternal()
         {
-            if (i.Fence != null)
-            {
-                i._internal.fence = i.Fence;
-            }
-            return i._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.fence = Fence;
+            _internal.flags = Flags;
+            _internal.handleType = HandleType;
+            _internal.handle = Handle;
+            _internal.name = Name;
+            return _internal;
         }
-
-        public static implicit operator ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ImportFenceWin32HandleInfoKHR i)
-        {
-            return new ImportFenceWin32HandleInfoKHR(i);
-        }
-
     }
 
     public partial class ExportFenceWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ExportFenceWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpAttributes;
 
         public ExportFenceWin32HandleInfoKHR()
         {
         }
 
-        public ExportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ExportFenceWin32HandleInfoKHR _internal)
+        public ExportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            PAttributes = _internal.pAttributes;
+            DwAccess = _internal.dwAccess;
+            Name = _internal.name;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
-        private object pAttributes;
         public object PAttributes
         {
-            get
-            {
-                if(pAttributes != null)
-                    return pAttributes;
-
-                pAttributes = _internal.pAttributes;
-                return pAttributes;
-            }
-            set
-            {
-                refpAttributes?.Dispose();
-                refpAttributes = new StructReference(value);
-                pAttributes = value;
-                _internal.pAttributes = refpAttributes.Handle;
-            }
+            get; set;
         }
 
         public uint DwAccess
         {
-            get => _internal.dwAccess;
-            set
-            {
-                _internal.dwAccess = value;
-            }
+            get; set;
         }
 
         public char Name
         {
-            get => _internal.name;
-            set
-            {
-                _internal.name = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
+        }
+
+        public AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
             refpAttributes?.Dispose();
+            if (PAttributes != null)
+            {
+                refpAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = refpAttributes.Handle;
+            }
+            _internal.dwAccess = DwAccess;
+            _internal.name = Name;
+            return _internal;
         }
-
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ExportFenceWin32HandleInfoKHR(ExportFenceWin32HandleInfoKHR e)
-        {
-            return e._internal;
-        }
-
-        public static implicit operator ExportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.ExportFenceWin32HandleInfoKHR e)
-        {
-            return new ExportFenceWin32HandleInfoKHR(e);
-        }
-
     }
 
     public partial class FenceGetWin32HandleInfoKHR : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.FenceGetWin32HandleInfoKHR _internal;
-
-        private GCHandleReference refpNext;
-
-        private Fence fence;
-
         public FenceGetWin32HandleInfoKHR()
         {
         }
 
-        public FenceGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.FenceGetWin32HandleInfoKHR _internal)
+        public FenceGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Fence = new Fence(_internal.fence);
+            HandleType = _internal.handleType;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public Fence Fence
         {
-            get
-            {
-                if (fence != null)
-                {
-                    return fence;
-                }
-                fence = _internal.fence;
-                return fence;
-            }
-            set
-            {
-                fence = value;
-                _internal.fence = value;
-            }
+            get; set;
         }
 
         public ExternalFenceHandleTypeFlagBits HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.FenceGetWin32HandleInfoKHR(FenceGetWin32HandleInfoKHR f)
+        public AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR ToInternal()
         {
-            if (f.Fence != null)
-            {
-                f._internal.fence = f.Fence;
-            }
-            return f._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.fence = Fence;
+            _internal.handleType = HandleType;
+            return _internal;
         }
-
-        public static implicit operator FenceGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.FenceGetWin32HandleInfoKHR f)
-        {
-            return new FenceGetWin32HandleInfoKHR(f);
-        }
-
     }
 
     public partial class ImportMemoryWin32HandleInfoNV : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoNV _internal;
-
-        private GCHandleReference refpNext;
-
         public ImportMemoryWin32HandleInfoNV()
         {
         }
 
-        public ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoNV _internal)
+        public ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            HandleType = _internal.handleType;
+            Handle = _internal.handle;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public uint HandleType
         {
-            get => _internal.handleType;
-            set
-            {
-                _internal.handleType = value;
-            }
+            get; set;
         }
 
         public System.IntPtr Handle
         {
-            get => _internal.handle;
-            set
-            {
-                _internal.handle = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoNV(ImportMemoryWin32HandleInfoNV i)
+        public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV ToInternal()
         {
-            return i._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.handleType = HandleType;
+            _internal.handle = Handle;
+            return _internal;
         }
-
-        public static implicit operator ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.ImportMemoryWin32HandleInfoNV i)
-        {
-            return new ImportMemoryWin32HandleInfoNV(i);
-        }
-
     }
 
     public partial class ExportMemoryWin32HandleInfoNV : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoNV _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpAttributes;
 
         public ExportMemoryWin32HandleInfoNV()
         {
         }
 
-        public ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoNV _internal)
+        public ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            PAttributes = _internal.pAttributes;
+            DwAccess = _internal.dwAccess;
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
-        private object pAttributes;
         public object PAttributes
         {
-            get
-            {
-                if(pAttributes != null)
-                    return pAttributes;
-
-                pAttributes = _internal.pAttributes;
-                return pAttributes;
-            }
-            set
-            {
-                refpAttributes?.Dispose();
-                refpAttributes = new StructReference(value);
-                pAttributes = value;
-                _internal.pAttributes = refpAttributes.Handle;
-            }
+            get; set;
         }
 
         public uint DwAccess
         {
-            get => _internal.dwAccess;
-            set
-            {
-                _internal.dwAccess = value;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
+
+        }
+
+        public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
             refpAttributes?.Dispose();
+            if (PAttributes != null)
+            {
+                refpAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = refpAttributes.Handle;
+            }
+            _internal.dwAccess = DwAccess;
+            return _internal;
         }
-
-        public static implicit operator AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoNV(ExportMemoryWin32HandleInfoNV e)
-        {
-            return e._internal;
-        }
-
-        public static implicit operator ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.ExportMemoryWin32HandleInfoNV e)
-        {
-            return new ExportMemoryWin32HandleInfoNV(e);
-        }
-
     }
 
     public partial class Win32KeyedMutexAcquireReleaseInfoNV : DisposableObject
     {
-        private AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoNV _internal;
-
-        private GCHandleReference refpNext;
-
         private StructReference refpAcquireSyncs;
 
         private StructReference refpAcquireKeys;
@@ -1572,162 +1003,127 @@ namespace AdamantiumVulkan.Windows
         {
         }
 
-        public Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoNV _internal)
+        public Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV _internal)
         {
-            this._internal = _internal;
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            AcquireCount = _internal.acquireCount;
+            PAcquireSyncs = new DeviceMemory(Marshal.PtrToStructure<DeviceMemory>(_internal.pAcquireSyncs));
+            Marshal.FreeHGlobal(_internal.pAcquireSyncs);
+            if(_internal.pAcquireKeys != System.IntPtr.Zero)
+            {
+                PAcquireKeys = (ulong?)_internal.pAcquireKeys;
+                Marshal.FreeHGlobal(_internal.pAcquireKeys);
+            }
+            if(_internal.pAcquireTimeoutMilliseconds != System.IntPtr.Zero)
+            {
+                PAcquireTimeoutMilliseconds = (uint?)_internal.pAcquireTimeoutMilliseconds;
+                Marshal.FreeHGlobal(_internal.pAcquireTimeoutMilliseconds);
+            }
+            ReleaseCount = _internal.releaseCount;
+            PReleaseSyncs = new DeviceMemory(Marshal.PtrToStructure<DeviceMemory>(_internal.pReleaseSyncs));
+            Marshal.FreeHGlobal(_internal.pReleaseSyncs);
+            if(_internal.pReleaseKeys != System.IntPtr.Zero)
+            {
+                PReleaseKeys = (ulong?)_internal.pReleaseKeys;
+                Marshal.FreeHGlobal(_internal.pReleaseKeys);
+            }
         }
 
         public StructureType SType
         {
-            get => _internal.sType;
-            set
-            {
-                _internal.sType = value;
-            }
+            get; set;
         }
 
-        private System.IntPtr pNext;
         public System.IntPtr PNext
         {
-            get
-            {
-                if(pNext != null)
-                    return pNext;
-
-                pNext = _internal.pNext;
-                return pNext;
-            }
-            set
-            {
-                refpNext?.Dispose();
-                refpNext = new GCHandleReference(value);
-                pNext = value;
-                _internal.pNext = refpNext.Handle;
-            }
+            get; set;
         }
 
         public uint AcquireCount
         {
-            get => _internal.acquireCount;
-            set
-            {
-                _internal.acquireCount = value;
-            }
+            get; set;
         }
 
-        private DeviceMemory pAcquireSyncs;
         public DeviceMemory PAcquireSyncs
         {
-            get
-            {
-                if(pAcquireSyncs != null)
-                    return pAcquireSyncs;
-
-                pAcquireSyncs = Marshal.PtrToStructure<DeviceMemory>(_internal.pAcquireSyncs);
-                return pAcquireSyncs;
-            }
-            set
-            {
-                refpAcquireSyncs?.Dispose();
-                AdamantiumVulkan.Core.Interop.DeviceMemory_T tmp = value;
-                refpAcquireSyncs = new StructReference(tmp);
-                pAcquireSyncs = value;
-                _internal.pAcquireSyncs = refpAcquireSyncs.Handle;
-            }
+            get; set;
         }
 
-        public ulong PAcquireKeys
+        public ulong? PAcquireKeys
         {
-            get
-            {
-                return Marshal.PtrToStructure<ulong>(_internal.pAcquireKeys);
-            }
-            set
-            {
-                refpAcquireKeys?.Dispose();
-                refpAcquireKeys = new StructReference(value);
-                _internal.pAcquireKeys = refpAcquireKeys.Handle;
-            }
+            get; set;
         }
 
-        public uint PAcquireTimeoutMilliseconds
+        public uint? PAcquireTimeoutMilliseconds
         {
-            get
-            {
-                return Marshal.PtrToStructure<uint>(_internal.pAcquireTimeoutMilliseconds);
-            }
-            set
-            {
-                refpAcquireTimeoutMilliseconds?.Dispose();
-                refpAcquireTimeoutMilliseconds = new StructReference(value);
-                _internal.pAcquireTimeoutMilliseconds = refpAcquireTimeoutMilliseconds.Handle;
-            }
+            get; set;
         }
 
         public uint ReleaseCount
         {
-            get => _internal.releaseCount;
-            set
-            {
-                _internal.releaseCount = value;
-            }
+            get; set;
         }
 
-        private DeviceMemory pReleaseSyncs;
         public DeviceMemory PReleaseSyncs
         {
-            get
-            {
-                if(pReleaseSyncs != null)
-                    return pReleaseSyncs;
-
-                pReleaseSyncs = Marshal.PtrToStructure<DeviceMemory>(_internal.pReleaseSyncs);
-                return pReleaseSyncs;
-            }
-            set
-            {
-                refpReleaseSyncs?.Dispose();
-                AdamantiumVulkan.Core.Interop.DeviceMemory_T tmp = value;
-                refpReleaseSyncs = new StructReference(tmp);
-                pReleaseSyncs = value;
-                _internal.pReleaseSyncs = refpReleaseSyncs.Handle;
-            }
+            get; set;
         }
 
-        public ulong PReleaseKeys
+        public ulong? PReleaseKeys
         {
-            get
-            {
-                return Marshal.PtrToStructure<ulong>(_internal.pReleaseKeys);
-            }
-            set
-            {
-                refpReleaseKeys?.Dispose();
-                refpReleaseKeys = new StructReference(value);
-                _internal.pReleaseKeys = refpReleaseKeys.Handle;
-            }
+            get; set;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpNext?.Dispose();
-            refpAcquireSyncs?.Dispose();
             refpAcquireKeys?.Dispose();
             refpAcquireTimeoutMilliseconds?.Dispose();
             refpReleaseSyncs?.Dispose();
             refpReleaseKeys?.Dispose();
         }
 
-        public static implicit operator AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoNV(Win32KeyedMutexAcquireReleaseInfoNV w)
+        public AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV ToInternal()
         {
-            return w._internal;
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.acquireCount = AcquireCount;
+            refpAcquireSyncs?.Dispose();
+            if (PAcquireSyncs != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = PAcquireSyncs;
+                refpAcquireSyncs = new StructReference(struct0);
+                _internal.pAcquireSyncs = refpAcquireSyncs.Handle;
+            }
+            refpAcquireKeys?.Dispose();
+            if (PAcquireKeys != null)
+            {
+                refpAcquireKeys = new StructReference(PAcquireKeys);
+                _internal.pAcquireKeys = refpAcquireKeys.Handle;
+            }
+            refpAcquireTimeoutMilliseconds?.Dispose();
+            if (PAcquireTimeoutMilliseconds != null)
+            {
+                refpAcquireTimeoutMilliseconds = new StructReference(PAcquireTimeoutMilliseconds);
+                _internal.pAcquireTimeoutMilliseconds = refpAcquireTimeoutMilliseconds.Handle;
+            }
+            _internal.releaseCount = ReleaseCount;
+            refpReleaseSyncs?.Dispose();
+            if (PReleaseSyncs != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct3 = PReleaseSyncs;
+                refpReleaseSyncs = new StructReference(struct3);
+                _internal.pReleaseSyncs = refpReleaseSyncs.Handle;
+            }
+            refpReleaseKeys?.Dispose();
+            if (PReleaseKeys != null)
+            {
+                refpReleaseKeys = new StructReference(PReleaseKeys);
+                _internal.pReleaseKeys = refpReleaseKeys.Handle;
+            }
+            return _internal;
         }
-
-        public static implicit operator Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.Win32KeyedMutexAcquireReleaseInfoNV w)
-        {
-            return new Win32KeyedMutexAcquireReleaseInfoNV(w);
-        }
-
     }
 
 
