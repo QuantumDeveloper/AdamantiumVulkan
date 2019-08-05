@@ -1,5 +1,6 @@
 ﻿using QuantumBinding.Generator;
 using QuantumBinding.Generator.AST;
+using QuantumBinding.Generator.BindingsMapping;
 using QuantumBinding.Generator.CodeGeneration;
 using QuantumBinding.Generator.ProcessingFluentApi;
 using QuantumBinding.Generator.Processors;
@@ -27,6 +28,7 @@ namespace AdamantiumVulkan.Generator
             options.GenerateSequentialLayout = true;
             options.DebugMode = true;
             options.ConvertRules.PodTypesAsSimpleTypes = true;
+            options.PathToBindingsFile = "VulkanBindings.xml";
             vkMainModule = options.AddModule(library);
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("_WIN32");
@@ -68,16 +70,13 @@ namespace AdamantiumVulkan.Generator
             Module.GenerateUtilsForModule = vkMainModule;
         }
 
-        public override void OnSetupPostProcessing(ProcessingContext context)
+        public override void OnBeforeSetupPasses(ProcessingContext context)
         {
             AddFunctionsToFix(context);
-            foreach (var module in context.Options.Modules)
-            {
-                if (module.GenerateOverloadsForArrayParams)
-                {
-                    context.AddPreGeneratorPass(new GenerateFunctionOverloadsPass(), ExecutionPassKind.PerTranslationUnit, module);
-                }
-            }
+        }
+
+        public override void OnSetupPostProcessing(ProcessingContext context)
+        {
             context.AddPreGeneratorPass(new FunctionToInstanceMethodAction(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.StdCall), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
@@ -166,124 +165,129 @@ namespace AdamantiumVulkan.Generator
         private void AddFunctionsToFix(ProcessingContext ctx)
         {
             PostProcessingApi api = new PostProcessingApi();
-            api.Function("vkEnumerateInstanceExtensionProperties").
-                WithParameterName("pProperties").
-                TreatAsPointerToArray(new CustomType("VkExtensionProperties")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkEnumerateInstanceExtensionProperties").
+            //    WithParameterName("pProperties").
+            //    TreatAsPointerToArray(new CustomType("VkExtensionProperties")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkEnumerateInstanceLayerProperties").
-                WithParameterName("pProperties").
-                TreatAsPointerToArray(new CustomType("VkLayerProperties")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkEnumerateInstanceLayerProperties").
+            //    WithParameterName("pProperties").
+            //    TreatAsPointerToArray(new CustomType("VkLayerProperties")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkEnumeratePhysicalDevices").
-                WithParameterName("pPhysicalDevices").
-                TreatAsPointerToArray(new CustomType("VkPhysicalDevice")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkEnumeratePhysicalDevices").
+            //    WithParameterName("pPhysicalDevices").
+            //    TreatAsPointerToArray(new CustomType("VkPhysicalDevice")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("VkGetPhysicalDeviceProperties").
-                WithParameterName("pProperties").
-                TreatAsIs().
-                SetParameterKind(ParameterKind.Out);
+            //api.Function("VkGetPhysicalDeviceProperties").
+            //    WithParameterName("pProperties").
+            //    TreatAsIs().
+            //    SetParameterKind(ParameterKind.Out);
 
-            api.Function("VkGetPhysicalDeviceFeatures").
-                WithParameterName("pFeatures").
-                TreatAsIs().
-                SetParameterKind(ParameterKind.Out);
+            //api.Function("VkGetPhysicalDeviceFeatures").
+            //    WithParameterName("pFeatures").
+            //    TreatAsIs().
+            //    SetParameterKind(ParameterKind.Out);
 
-            api.Function("vkCmdBindTransformFeedbackBuffersEXT").
-                WithParameterName("pOffsets").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkCmdBindTransformFeedbackBuffersEXT").
+            //    WithParameterName("pOffsets").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
+            //    SetParameterKind(ParameterKind.InOut).
+            //    WithParameterName("pSizes").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkCmdBindTransformFeedbackBuffersEXT").
-                WithParameterName("pSizes").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkCmdBeginTransformFeedbackEXT").
+            //    WithParameterName("pCounterBufferOffsets").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("VkCmdBeginTransformFeedbackEXT").
-                WithParameterName("pCounterBufferOffsets").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkCmdEndTransformFeedbackEXT").
+            //    WithParameterName("pCounterBufferOffsets").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("VkCmdEndTransformFeedbackEXT").
-                WithParameterName("pCounterBufferOffsets").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkCmdBindVertexBuffers").
+            //    WithParameterName("pOffsets").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkCmdBindVertexBuffers").
-                WithParameterName("pOffsets").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Functions(
+            //        "vkGetPhysicalDeviceMemoryProperties", 
+            //        "vkGetPhysicalDeviceMemoryProperties2", 
+            //        "vkGetPhysicalDeviceMemoryProperties2KHR").
+            //    WithParameterName("pMemoryProperties").
+            //    TreatAsIs().
+            //    SetParameterKind(ParameterKind.Out);
 
-            api.Functions("vkGetPhysicalDeviceMemoryProperties", "vkGetPhysicalDeviceMemoryProperties2", "vkGetPhysicalDeviceMemoryProperties2KHR").
-                WithParameterName("pMemoryProperties").
-                TreatAsIs().
-                SetParameterKind(ParameterKind.Out);
+            //api.Function("vkGetPhysicalDeviceQueueFamilyProperties").
+            //    WithParameterName("pQueueFamilyProperties").
+            //    TreatAsPointerToArray(new CustomType("VkQueueFamilyProperties")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkGetPhysicalDeviceQueueFamilyProperties").
-                WithParameterName("pQueueFamilyProperties").
-                TreatAsPointerToArray(new CustomType("VkQueueFamilyProperties")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkGetPhysicalDeviceQueueFamilyProperties2").
+            //    WithParameterName("pQueueFamilyProperties").
+            //    TreatAsPointerToArray(new CustomType("VkQueueFamilyProperties2")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkGetPhysicalDeviceQueueFamilyProperties2").
-                WithParameterName("pQueueFamilyProperties").
-                TreatAsPointerToArray(new CustomType("VkQueueFamilyProperties2")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.AllFunctions().
+            //    WithParameterType("VkAllocationCallbacks").
+            //    TreatAsPointerType().
+            //    SetNullable(true).
+            //    SetDelegateNullable(true).
+            //    SetParameterKind(ParameterKind.Readonly);
 
+            //api.Functions("vkDestroyInstance", "vkDestroyDevice").
+            //    WithParameterName("pAllocator").
+            //    TreatAsIs().
+            //    SetDefaultValue("null");
 
-            api.Delegate("PFN_vkGetInstanceProcAddr").WithReturnType(new BuiltinType(PrimitiveType.Void));
-            api.Delegate("PFN_vkGetDeviceProcAddr").WithReturnType(new BuiltinType(PrimitiveType.Void));
+            //api.Delegate("PFN_vkGetInstanceProcAddr").WithReturnType(new BuiltinType(PrimitiveType.Void));
+            //api.Delegate("PFN_vkGetDeviceProcAddr").WithReturnType(new BuiltinType(PrimitiveType.Void));
 
-            api.AllFunctions().
-                WithParameterType("VkAllocationCallbacks").
-                TreatAsPointerType().
-                SetNullable(true).
-                SetDelegateNullable(true).
-                SetParameterKind(ParameterKind.Readonly);
-
-            api.Functions("vkDestroyInstance", "vkDestroyDevice").WithParameterName("pAllocator").TreatAsIs().SetDefaultValue("null");
-
-            var structsList = new List<string>();
-            structsList.Add("VkInstance_T");
-            structsList.Add("VkPhysicalDevice_T");
-            structsList.Add("VkDevice_T");
-            structsList.Add("VkQueue_T");
-            structsList.Add("VkSemaphore_T");
-            structsList.Add("VkCommandBuffer_T");
-            structsList.Add("VkFence_T");
-            structsList.Add("VkDeviceMemory_T");
-            structsList.Add("VkBuffer_T");
-            structsList.Add("VkImage_T");
-            structsList.Add("VkEvent_T");
-            structsList.Add("VkQueryPool_T");
-            structsList.Add("VkBufferView_T");
-            structsList.Add("VkImageView_T");
-            structsList.Add("VkShaderModule_T");
-            structsList.Add("VkPipelineCache_T");
-            structsList.Add("VkPipelineLayout_T");
-            structsList.Add("VkRenderPass_T");
-            structsList.Add("VkPipeline_T");
-            structsList.Add("VkDescriptorSetLayout_T");
-            structsList.Add("VkSampler_T");
-            structsList.Add("VkDescriptorPool_T");
-            structsList.Add("VkDescriptorSet_T");
-            structsList.Add("VkFramebuffer_T");
-            structsList.Add("VkCommandPool_T");
-            structsList.Add("VkSamplerYcbcrConversion_T");
-            structsList.Add("VkDescriptorUpdateTemplate_T");
-            structsList.Add("VkSurfaceKHR_T");
-            structsList.Add("VkSwapchainKHR_T");
-            structsList.Add("VkDisplayKHR_T");
-            structsList.Add("VkDisplayModeKHR_T");
-            structsList.Add("VkDescriptorUpdateTemplateKHR_T");
-            structsList.Add("VkSamplerYcbcrConversionKHR_T");
-            structsList.Add("VkDebugReportCallbackEXT_T");
-            structsList.Add("VkObjectTableNVX_T");
-            structsList.Add("VkIndirectCommandsLayoutNVX_T");
-            structsList.Add("VkDebugUtilsMessengerEXT_T");
-            structsList.Add("VkValidationCacheEXT_T");
-            structsList.Add("VkAccelerationStructureNV_T");
+            var structsList = new List<string>
+            {
+                "VkInstance_T",
+                "VkPhysicalDevice_T",
+                "VkDevice_T",
+                "VkQueue_T",
+                "VkSemaphore_T",
+                "VkCommandBuffer_T",
+                "VkFence_T",
+                "VkDeviceMemory_T",
+                "VkBuffer_T",
+                "VkImage_T",
+                "VkEvent_T",
+                "VkQueryPool_T",
+                "VkBufferView_T",
+                "VkImageView_T",
+                "VkShaderModule_T",
+                "VkPipelineCache_T",
+                "VkPipelineLayout_T",
+                "VkRenderPass_T",
+                "VkPipeline_T",
+                "VkDescriptorSetLayout_T",
+                "VkSampler_T",
+                "VkDescriptorPool_T",
+                "VkDescriptorSet_T",
+                "VkFramebuffer_T",
+                "VkCommandPool_T",
+                "VkSamplerYcbcrConversion_T",
+                "VkDescriptorUpdateTemplate_T",
+                "VkSurfaceKHR_T",
+                "VkSwapchainKHR_T",
+                "VkDisplayKHR_T",
+                "VkDisplayModeKHR_T",
+                "VkDescriptorUpdateTemplateKHR_T",
+                "VkSamplerYcbcrConversionKHR_T",
+                "VkDebugReportCallbackEXT_T",
+                "VkObjectTableNVX_T",
+                "VkIndirectCommandsLayoutNVX_T",
+                "VkDebugUtilsMessengerEXT_T",
+                "VkValidationCacheEXT_T",
+                "VkAccelerationStructureNV_T"
+            };
 
             //api.Classes(structsList).
             //    AddField("pointer").
@@ -334,7 +338,13 @@ namespace AdamantiumVulkan.Generator
                 "VkAccelerationStructureNV",
             };
 
-            var defaultParamFunctions = new string[]
+            api.Classes(classesList).
+                AddProperty("NativePointer").
+                SetField("__Instance.pointer").
+                SetType(propertyType).
+                SetGetter(new Method());
+
+            var defaultParamFunctions = new[]
             {
                 "vkDestroySurfaceKHR",
                 "vkDestroyDebugReportCallbackEXT",
@@ -370,100 +380,106 @@ namespace AdamantiumVulkan.Generator
 
             api.Functions(defaultParamFunctions).WithParameterName("pAllocator").TreatAsIs().SetDefaultValue("null");
 
-            api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").WithParameterName("pSurfaceCapabilities").TreatAsIs().SetParameterKind(ParameterKind.Out);
+            //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
+            //    WithParameterName("pSurfaceCapabilities").
+            //    TreatAsIs().
+            //    SetParameterKind(ParameterKind.Out);
 
-            api.Function("vkGetPhysicalDeviceSurfaceFormatsKHR").
-                WithParameterName("pSurfaceFormats").
-                TreatAsPointerToArray(new CustomType("VkSurfaceFormatKHR")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkGetPhysicalDeviceSurfaceFormatsKHR").
+            //    WithParameterName("pSurfaceFormats").
+            //    TreatAsPointerToArray(new CustomType("VkSurfaceFormatKHR")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkGetPhysicalDeviceSurfacePresentModesKHR").
-                WithParameterName("pPresentModes").
-                TreatAsPointerToArray(new CustomType("VkPresentModeKHR")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkGetPhysicalDeviceSurfacePresentModesKHR").
+            //    WithParameterName("pPresentModes").
+            //    TreatAsPointerToArray(new CustomType("VkPresentModeKHR")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkGetSwapchainImagesKHR").
-                WithParameterName("pSwapchainImages").
-                TreatAsPointerToArray(new CustomType("VkImage")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkGetSwapchainImagesKHR").
+            //    WithParameterName("pSwapchainImages").
+            //    TreatAsPointerToArray(new CustomType("VkImage")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkGetInstanceProcAddr").WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
-            api.Function("vkGetDeviceProcAddr").WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
+            //api.Function("vkGetInstanceProcAddr").
+            //    WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
 
-            api.Function("vkAllocateCommandBuffers").
-                WithParameterName("pCommandBuffers").
-                TreatAsPointerToArray(new CustomType("VkCommandBuffer")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkGetDeviceProcAddr").
+            //    WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
 
-            api.Function("vkWaitForFences").
-                WithParameterName("pFences").
-                TreatAsPointerToArray(new CustomType("VkFence")).
-                SetParameterKind(ParameterKind.In);
+            //api.Function("vkAllocateCommandBuffers").
+            //    WithParameterName("pCommandBuffers").
+            //    TreatAsPointerToArray(new CustomType("VkCommandBuffer")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Function("vkResetFences").
-                WithParameterName("pFences").
-                TreatAsPointerToArray(new CustomType("VkFence")).
-                SetParameterKind(ParameterKind.In);
+            //api.Function("vkWaitForFences").
+            //    WithParameterName("pFences").
+            //    TreatAsPointerToArray(new CustomType("VkFence")).
+            //    SetParameterKind(ParameterKind.In);
 
-            api.Function("vkQueueSubmit").
-                WithParameterName("pSubmits").
-                TreatAsPointerToArray(new CustomType("VkSubmitInfo")).
-                SetParameterKind(ParameterKind.In);
+            //api.Function("vkResetFences").
+            //    WithParameterName("pFences").
+            //    TreatAsPointerToArray(new CustomType("VkFence")).
+            //    SetParameterKind(ParameterKind.In);
 
-            api.Function("vkFreeCommandBuffers").
-                WithParameterName("pCommandBuffers").
-                TreatAsPointerToArray(new CustomType("VkCommandBuffer")).
-                SetParameterKind(ParameterKind.In);
+            //api.Function("vkQueueSubmit").
+            //    WithParameterName("pSubmits").
+            //    TreatAsPointerToArray(new CustomType("VkSubmitInfo")).
+            //    SetParameterKind(ParameterKind.In);
 
-            api.Functions("vKGetBufferMemoryRequirements", "vKGetImageMemoryRequirements")
-                .WithParameterName("pMemoryRequirements")
-                .TreatAsIs()
-                .SetParameterKind(ParameterKind.Out);
+            //api.Function("vkFreeCommandBuffers").
+            //    WithParameterName("pCommandBuffers").
+            //    TreatAsPointerToArray(new CustomType("VkCommandBuffer")).
+            //    SetParameterKind(ParameterKind.In);
 
-            api.Function("vkCmdBindVertexBuffers")
-                .WithParameterName("pBuffers")
-                .TreatAsPointerToArray(new CustomType("VkBuffer"), true)
-                .SetParameterKind(ParameterKind.In);
+            //api.Functions("vKGetBufferMemoryRequirements", "vKGetImageMemoryRequirements")
+            //    .WithParameterName("pMemoryRequirements")
+            //    .TreatAsIs()
+            //    .SetParameterKind(ParameterKind.Out);
 
-            api.Function("vkCmdCopyBuffer")
-                .WithParameterName("pRegions")
-                .TreatAsPointerToArray(new CustomType("VkBufferCopy"))
-                .SetParameterKind(ParameterKind.In);
+            //api.Function("vkCmdBindVertexBuffers")
+            //    .WithParameterName("pBuffers")
+            //    .TreatAsPointerToArray(new CustomType("VkBuffer"), true)
+            //    .SetParameterKind(ParameterKind.In);
 
-            api.Functions("vkCreateGraphicsPipelines", "vkCreateComputePipelines")
-                .WithParameterName("pPipelines")
-                .TreatAsPointerToArray(new CustomType("VkPipeline"), true, "createInfoCount")
-                .SetParameterKind(ParameterKind.Out);
+            //api.Function("vkCmdCopyBuffer")
+            //    .WithParameterName("pRegions")
+            //    .TreatAsPointerToArray(new CustomType("VkBufferCopy"))
+            //    .SetParameterKind(ParameterKind.In);
 
-            api.Function("vkCmdPipelineBarrier").
-                WithParameterName("pMemoryBarriers").
-                TreatAsPointerToArray(new CustomType("vkMemoryBarrier")).
-                SetParameterKind(ParameterKind.In).
-                WithParameterName("pBufferMemoryBarriers").
-                TreatAsPointerToArray(new CustomType("vkBufferMemoryBarrier")).
-                SetParameterKind(ParameterKind.In).
-                WithParameterName("pImageMemoryBarriers").
-                TreatAsPointerToArray(new CustomType("vkImageMemoryBarrier")).
-                SetParameterKind(ParameterKind.In);
+            //api.Functions("vkCreateGraphicsPipelines", "vkCreateComputePipelines")
+            //    .WithParameterName("pPipelines")
+            //    .TreatAsPointerToArray(new CustomType("VkPipeline"), true, "createInfoCount")
+            //    .SetParameterKind(ParameterKind.Out);
 
-            api.Function("vkAllocateDescriptorSets").
-                WithParameterName("pDescriptorSets").
-                TreatAsPointerToArray(new CustomType("VkDescriptorSet_T")).
-                SetParameterKind(ParameterKind.InOut);
+            //api.Function("vkCmdPipelineBarrier").
+            //    WithParameterName("pMemoryBarriers").
+            //    TreatAsPointerToArray(new CustomType("vkMemoryBarrier")).
+            //    SetParameterKind(ParameterKind.In).
+            //    WithParameterName("pBufferMemoryBarriers").
+            //    TreatAsPointerToArray(new CustomType("vkBufferMemoryBarrier")).
+            //    SetParameterKind(ParameterKind.In).
+            //    WithParameterName("pImageMemoryBarriers").
+            //    TreatAsPointerToArray(new CustomType("vkImageMemoryBarrier")).
+            //    SetParameterKind(ParameterKind.In);
 
+            //api.Function("vkAllocateDescriptorSets").
+            //    WithParameterName("pDescriptorSets").
+            //    TreatAsPointerToArray(new CustomType("VkDescriptorSet_T")).
+            //    SetParameterKind(ParameterKind.InOut);
 
-            api.Classes(classesList).
-                AddProperty("NativePointer").
-                SetField("__Instance.pointer").
-                SetType(propertyType).SetGetter(new Method());
+            //api.Class("VkBool32").
+            //    SetUnderlyingType(new BuiltinType(PrimitiveType.Bool32));
 
-            api.Class("VkBool32").SetUnderlyingType(new BuiltinType(PrimitiveType.Bool32));
+            api.Class("VkDeviceCreateInfo").
+                WithField("pQueueCreateInfos").
+                TreatAsPointerToArray(new CustomType("VkDeviceQueueCreateInfo"), true, "queueCreateInfoCount");
 
-            api.Class("VkDeviceCreateInfo").WithField("pQueueCreateInfos").TreatAsPointerToArray(new CustomType("VkDeviceQueueCreateInfo"), true, "queueCreateInfoCount");
-
-            api.Class("VkSubmitInfo").WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
-                .WithField("pSignalSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "signalSemaphoreCount")
-                .WithField("pWaitDstStageMask").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32));
+            api.Class("VkSubmitInfo").WithField("pWaitSemaphores").
+                TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
+                .WithField("pSignalSemaphores").
+                TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "signalSemaphoreCount")
+                .WithField("pWaitDstStageMask").
+                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32));
 
             api.Class("VkPresentInfoKHR")
                 .WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
@@ -473,9 +489,11 @@ namespace AdamantiumVulkan.Generator
                 .WithField("pResults").
                 TreatAsPointerToArray(new CustomType("VkResult"), true, "swapchainCount");
 
-            api.Class("VkShaderModuleCreateInfo").WithField("pCode").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte), true, "codeSize");
+            api.Class("VkShaderModuleCreateInfo").
+                WithField("pCode").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte), true, "codeSize");
 
-            api.Class("VkSwapchainCreateInfoKHR").WithField("pQueueFamilyIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "queueFamilyIndexCount");
+            api.Class("VkSwapchainCreateInfoKHR").
+                WithField("pQueueFamilyIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "queueFamilyIndexCount");
 
             api.Class("VkGraphicsPipelineCreateInfo")
                 .WithField("pStages")

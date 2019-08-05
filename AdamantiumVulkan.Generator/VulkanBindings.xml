@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bindings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:noNamespaceSchemaLocation="Bindings.xsd">
+
+  <Classes>
+    <Class Name="VkBool32">
+      <UnderlyingNativeType xsi:type="BuiltinTypeMap" Type="Bool32"/>
+    </Class>
+  </Classes>
+
+  <Functions>
+    <Function Name="vkEnumerateInstanceExtensionProperties">
+      <Parameters>
+        <Parameter Name="pProperties" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkExtensionProperties"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+  
+    <Function Name="vkEnumerateInstanceLayerProperties">
+      <Parameters>
+        <Parameter Name="pProperties" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkLayerProperties"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+  
+    <Function Name="vkEnumeratePhysicalDevices">
+      <Parameters>
+        <Parameter Name="pPhysicalDevices" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkPhysicalDevice"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceProperties">
+      <Parameters>
+        <Parameter Name="pProperties" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceFeatures">
+      <Parameters>
+        <Parameter Name="pFeatures" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCmdBindTransformFeedbackBuffersEXT">
+      <Parameters>
+        <Parameter Name="pOffsets" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt64"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      <Parameter Name="pSizes" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt64"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCmdBeginTransformFeedbackEXT">
+      <Parameters>
+        <Parameter Name="pCounterBufferOffsets" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt64"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCmdEndTransformFeedbackEXT">
+      <Parameters>
+        <Parameter Name="pCounterBufferOffsets" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt64"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCmdBindVertexBuffers">
+      <Parameters>
+        <Parameter Name="pOffsets" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt64"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+        <Parameter Name="pBuffers" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkBuffer"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceMemoryProperties">
+      <Parameters>
+        <Parameter Name="pMemoryProperties" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceMemoryProperties2">
+      <Parameters>
+        <Parameter Name="pMemoryProperties" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceMemoryProperties2KHR">
+      <Parameters>
+        <Parameter Name="pMemoryProperties" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceQueueFamilyProperties">
+      <Parameters>
+        <Parameter Name="pQueueFamilyProperties" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkQueueFamilyProperties"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceQueueFamilyProperties2">
+      <Parameters>
+        <Parameter Name="pQueueFamilyProperties" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkQueueFamilyProperties2"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkDestroyInstance">
+      <Parameters>
+        <Parameter Name="pAllocator" DefaultValue="null"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkDestroyDevice">
+      <Parameters>
+        <Parameter Name="pAllocator" DefaultValue="null"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceSurfaceCapabilitiesKHR">
+      <Parameters>
+        <Parameter Name="pSurfaceCapabilities" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceSurfaceFormatsKHR">
+      <Parameters>
+        <Parameter Name="pSurfaceFormats" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSurfaceFormatKHR"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetPhysicalDeviceSurfacePresentModesKHR">
+      <Parameters>
+        <Parameter Name="pPresentModes" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkPresentModeKHR"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetSwapchainImagesKHR">
+      <Parameters>
+        <Parameter Name="pSwapchainImages" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkImage"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetInstanceProcAddr">
+      <ReturnType xsi:type="BuiltinTypeMap" Type="IntPtr"/>
+    </Function>
+
+    <Function Name="vkGetDeviceProcAddr">
+      <ReturnType xsi:type="BuiltinTypeMap" Type="IntPtr"/>
+    </Function>
+
+    <Function Name="vkAllocateCommandBuffers">
+      <Parameters>
+        <Parameter Name="pCommandBuffers" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkCommandBuffer"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkWaitForFences">
+      <Parameters>
+        <Parameter Name="pFences" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkFence"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkResetFences">
+      <Parameters>
+        <Parameter Name="pFences" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSubmitInfo"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkQueueSubmit">
+      <Parameters>
+        <Parameter Name="pSubmits" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSubmitInfo"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkFreeCommandBuffers">
+      <Parameters>
+        <Parameter Name="pCommandBuffers" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkCommandBuffer"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetBufferMemoryRequirements">
+      <Parameters>
+        <Parameter Name="pMemoryRequirements" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkGetImageMemoryRequirements">
+      <Parameters>
+        <Parameter Name="pMemoryRequirements" ParameterKind="Out"/>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCmdCopyBuffer">
+      <Parameters>
+        <Parameter Name="pRegions" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkBufferCopy"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCreateGraphicsPipelines">
+      <Parameters>
+        <Parameter Name="pPipelines" ParameterKind="Out">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="createInfoCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkPipeline"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCreateComputePipelines">
+      <Parameters>
+        <Parameter Name="pPipelines" ParameterKind="Out">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="createInfoCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkPipeline"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkCmdPipelineBarrier">
+      <Parameters>
+        <Parameter Name="pMemoryBarriers" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="vkMemoryBarrier"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+        <Parameter Name="pBufferMemoryBarriers" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="vkBufferMemoryBarrier"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+        <Parameter Name="pImageMemoryBarriers" ParameterKind="In">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="vkImageMemoryBarrier"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+    <Function Name="vkAllocateDescriptorSets">
+      <Parameters>
+        <Parameter Name="pDescriptorSets" ParameterKind="InOut">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="CustomTypeMap" Name="VkDescriptorSet_T"/>
+            </Pointee>
+          </Type>
+        </Parameter>
+      </Parameters>
+    </Function>
+
+  </Functions>
+
+  <Delegates>
+    <Delegate Name="PFN_vkGetInstanceProcAddr">
+      <ReturnType xsi:type="BuiltinTypeMap" Type="Void"/>
+    </Delegate>
+
+    <Delegate Name="PFN_vkGetDeviceProcAddr">
+      <ReturnType xsi:type="BuiltinTypeMap" Type="Void"/>
+    </Delegate>
+  </Delegates>
+
+  <SharedParameters>
+    <Parameter Name="" ParameterKind="Readonly">
+      <Type xsi:type="PointerTypeMap" IsNullable="true" IsNullableForDelegate="true">
+        <Pointee xsi:type="CustomTypeMap" Name="VkAllocationCallbacks"/>
+      </Type>
+    </Parameter>
+  </SharedParameters>
+
+</Bindings>

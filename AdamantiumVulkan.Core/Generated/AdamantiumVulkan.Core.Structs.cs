@@ -5465,9 +5465,14 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DynamicStateCount = _internal.dynamicStateCount;
-            PDynamicStates = new DynamicState[_internal.dynamicStateCount];
-            MarshalUtils.IntPtrToManagedArray<DynamicState>(_internal.pDynamicStates, PDynamicStates);
+            var tmppDynamicStates = new int[_internal.dynamicStateCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pDynamicStates, tmppDynamicStates);
             Marshal.FreeHGlobal(_internal.pDynamicStates);
+            PDynamicStates = new AdamantiumVulkan.Core.DynamicState[_internal.dynamicStateCount];
+            for (int i = 0; i < tmppDynamicStates.Length; ++i)
+            {
+                PDynamicStates[i] = (AdamantiumVulkan.Core.DynamicState)tmppDynamicStates[i];
+            }
         }
 
         public StructureType SType
@@ -12526,9 +12531,14 @@ namespace AdamantiumVulkan.Core
             PImageIndices = new uint[_internal.swapchainCount];
             MarshalUtils.IntPtrToManagedArray<uint>(_internal.pImageIndices, PImageIndices);
             Marshal.FreeHGlobal(_internal.pImageIndices);
-            PResults = new Result[_internal.swapchainCount];
-            MarshalUtils.IntPtrToManagedArray<Result>(_internal.pResults, PResults);
+            var tmppResults = new int[_internal.swapchainCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pResults, tmppResults);
             Marshal.FreeHGlobal(_internal.pResults);
+            PResults = new AdamantiumVulkan.Core.Result[_internal.swapchainCount];
+            for (int i = 0; i < tmppResults.Length; ++i)
+            {
+                PResults[i] = (AdamantiumVulkan.Core.Result)tmppResults[i];
+            }
         }
 
         public StructureType SType
@@ -15146,9 +15156,14 @@ namespace AdamantiumVulkan.Core
             SType = _internal.sType;
             PNext = _internal.pNext;
             ViewFormatCount = _internal.viewFormatCount;
-            PViewFormats = new Format[_internal.viewFormatCount];
-            MarshalUtils.IntPtrToManagedArray<Format>(_internal.pViewFormats, PViewFormats);
+            var tmppViewFormats = new int[_internal.viewFormatCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pViewFormats, tmppViewFormats);
             Marshal.FreeHGlobal(_internal.pViewFormats);
+            PViewFormats = new AdamantiumVulkan.Core.Format[_internal.viewFormatCount];
+            for (int i = 0; i < tmppViewFormats.Length; ++i)
+            {
+                PViewFormats[i] = (AdamantiumVulkan.Core.Format)tmppViewFormats[i];
+            }
         }
 
         public StructureType SType
@@ -16842,9 +16857,14 @@ namespace AdamantiumVulkan.Core
             SType = _internal.sType;
             PNext = _internal.pNext;
             DisabledValidationCheckCount = _internal.disabledValidationCheckCount;
-            PDisabledValidationChecks = new ValidationCheckEXT[_internal.disabledValidationCheckCount];
-            MarshalUtils.IntPtrToManagedArray<ValidationCheckEXT>(_internal.pDisabledValidationChecks, PDisabledValidationChecks);
+            var tmppDisabledValidationChecks = new int[_internal.disabledValidationCheckCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pDisabledValidationChecks, tmppDisabledValidationChecks);
             Marshal.FreeHGlobal(_internal.pDisabledValidationChecks);
+            PDisabledValidationChecks = new AdamantiumVulkan.Core.ValidationCheckEXT[_internal.disabledValidationCheckCount];
+            for (int i = 0; i < tmppDisabledValidationChecks.Length; ++i)
+            {
+                PDisabledValidationChecks[i] = (AdamantiumVulkan.Core.ValidationCheckEXT)tmppDisabledValidationChecks[i];
+            }
         }
 
         public StructureType SType
@@ -17588,9 +17608,14 @@ namespace AdamantiumVulkan.Core
             SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectCount = _internal.objectCount;
-            PObjectEntryTypes = new ObjectEntryTypeNVX[_internal.objectCount];
-            MarshalUtils.IntPtrToManagedArray<ObjectEntryTypeNVX>(_internal.pObjectEntryTypes, PObjectEntryTypes);
+            var tmppObjectEntryTypes = new int[_internal.objectCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pObjectEntryTypes, tmppObjectEntryTypes);
             Marshal.FreeHGlobal(_internal.pObjectEntryTypes);
+            PObjectEntryTypes = new AdamantiumVulkan.Core.ObjectEntryTypeNVX[_internal.objectCount];
+            for (int i = 0; i < tmppObjectEntryTypes.Length; ++i)
+            {
+                PObjectEntryTypes[i] = (AdamantiumVulkan.Core.ObjectEntryTypeNVX)tmppObjectEntryTypes[i];
+            }
             PObjectEntryCounts = new uint[_internal.objectCount];
             MarshalUtils.IntPtrToManagedArray<uint>(_internal.pObjectEntryCounts, PObjectEntryCounts);
             Marshal.FreeHGlobal(_internal.pObjectEntryCounts);
@@ -21672,9 +21697,14 @@ namespace AdamantiumVulkan.Core
         public ShadingRatePaletteNV(AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV _internal)
         {
             ShadingRatePaletteEntryCount = _internal.shadingRatePaletteEntryCount;
-            PShadingRatePaletteEntries = new ShadingRatePaletteEntryNV[_internal.shadingRatePaletteEntryCount];
-            MarshalUtils.IntPtrToManagedArray<ShadingRatePaletteEntryNV>(_internal.pShadingRatePaletteEntries, PShadingRatePaletteEntries);
+            var tmppShadingRatePaletteEntries = new int[_internal.shadingRatePaletteEntryCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pShadingRatePaletteEntries, tmppShadingRatePaletteEntries);
             Marshal.FreeHGlobal(_internal.pShadingRatePaletteEntries);
+            PShadingRatePaletteEntries = new AdamantiumVulkan.Core.ShadingRatePaletteEntryNV[_internal.shadingRatePaletteEntryCount];
+            for (int i = 0; i < tmppShadingRatePaletteEntries.Length; ++i)
+            {
+                PShadingRatePaletteEntries[i] = (AdamantiumVulkan.Core.ShadingRatePaletteEntryNV)tmppShadingRatePaletteEntries[i];
+            }
         }
 
         public uint ShadingRatePaletteEntryCount
@@ -24977,13 +25007,23 @@ namespace AdamantiumVulkan.Core
             SType = _internal.sType;
             PNext = _internal.pNext;
             EnabledValidationFeatureCount = _internal.enabledValidationFeatureCount;
-            PEnabledValidationFeatures = new ValidationFeatureEnableEXT[_internal.enabledValidationFeatureCount];
-            MarshalUtils.IntPtrToManagedArray<ValidationFeatureEnableEXT>(_internal.pEnabledValidationFeatures, PEnabledValidationFeatures);
+            var tmppEnabledValidationFeatures = new int[_internal.enabledValidationFeatureCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pEnabledValidationFeatures, tmppEnabledValidationFeatures);
             Marshal.FreeHGlobal(_internal.pEnabledValidationFeatures);
+            PEnabledValidationFeatures = new AdamantiumVulkan.Core.ValidationFeatureEnableEXT[_internal.enabledValidationFeatureCount];
+            for (int i = 0; i < tmppEnabledValidationFeatures.Length; ++i)
+            {
+                PEnabledValidationFeatures[i] = (AdamantiumVulkan.Core.ValidationFeatureEnableEXT)tmppEnabledValidationFeatures[i];
+            }
             DisabledValidationFeatureCount = _internal.disabledValidationFeatureCount;
-            PDisabledValidationFeatures = new ValidationFeatureDisableEXT[_internal.disabledValidationFeatureCount];
-            MarshalUtils.IntPtrToManagedArray<ValidationFeatureDisableEXT>(_internal.pDisabledValidationFeatures, PDisabledValidationFeatures);
+            var tmppDisabledValidationFeatures = new int[_internal.disabledValidationFeatureCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pDisabledValidationFeatures, tmppDisabledValidationFeatures);
             Marshal.FreeHGlobal(_internal.pDisabledValidationFeatures);
+            PDisabledValidationFeatures = new AdamantiumVulkan.Core.ValidationFeatureDisableEXT[_internal.disabledValidationFeatureCount];
+            for (int i = 0; i < tmppDisabledValidationFeatures.Length; ++i)
+            {
+                PDisabledValidationFeatures[i] = (AdamantiumVulkan.Core.ValidationFeatureDisableEXT)tmppDisabledValidationFeatures[i];
+            }
         }
 
         public StructureType SType
