@@ -166,7 +166,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3651 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", CallingConvention = CallingConvention.StdCall)]
-        internal static extern void vkCmdCopyBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, [In] VkBufferCopy[] pRegions);
+        internal static extern void vkCmdCopyBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, [In] AdamantiumVulkan.Core.Interop.VkBufferCopy[] pRegions);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3651 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", CallingConvention = CallingConvention.StdCall)]
@@ -318,7 +318,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3762 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier", CallingConvention = CallingConvention.StdCall)]
-        internal static extern void vkCmdPipelineBarrier([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint dependencyFlags, [In] uint memoryBarrierCount, [In] VkMemoryBarrier[] pMemoryBarriers, [In] uint bufferMemoryBarrierCount, [In] VkBufferMemoryBarrier[] pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, [In] VkImageMemoryBarrier[] pImageMemoryBarriers);
+        internal static extern void vkCmdPipelineBarrier([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint dependencyFlags, [In] uint memoryBarrierCount, [In] AdamantiumVulkan.Core.Interop.VkMemoryBarrier[] pMemoryBarriers, [In] uint bufferMemoryBarrierCount, [In] AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier[] pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, [In] AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier[] pImageMemoryBarriers);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3762 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier", CallingConvention = CallingConvention.StdCall)]
@@ -770,7 +770,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3098 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceExtensionProperties", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkEnumerateInstanceExtensionProperties([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, [In, Out] VkExtensionProperties[] pProperties);
+        internal static extern Result vkEnumerateInstanceExtensionProperties([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkExtensionProperties[] pProperties);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3098 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceExtensionProperties", CallingConvention = CallingConvention.StdCall)]
@@ -778,7 +778,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3109 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceLayerProperties", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, [In, Out] VkLayerProperties[] pProperties);
+        internal static extern Result vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkLayerProperties[] pProperties);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3109 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceLayerProperties", CallingConvention = CallingConvention.StdCall)]
@@ -1102,7 +1102,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3071 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", CallingConvention = CallingConvention.StdCall)]
-        internal static extern void vkGetPhysicalDeviceQueueFamilyProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] VkQueueFamilyProperties[] pQueueFamilyProperties);
+        internal static extern void vkGetPhysicalDeviceQueueFamilyProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties[] pQueueFamilyProperties);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3071 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", CallingConvention = CallingConvention.StdCall)]
@@ -1110,7 +1110,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4637 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2", CallingConvention = CallingConvention.StdCall)]
-        internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] VkQueueFamilyProperties2[] pQueueFamilyProperties);
+        internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2[] pQueueFamilyProperties);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4637 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2", CallingConvention = CallingConvention.StdCall)]
@@ -1150,7 +1150,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4820 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormatsKHR", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, [In, Out] VkSurfaceFormatKHR[] pSurfaceFormats);
+        internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, [In, Out] AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR[] pSurfaceFormats);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4820 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormatsKHR", CallingConvention = CallingConvention.StdCall)]
@@ -1266,7 +1266,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3124 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit", CallingConvention = CallingConvention.StdCall)]
-        internal static extern Result vkQueueSubmit([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, [In] uint submitCount, [In] VkSubmitInfo[] pSubmits, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
+        internal static extern Result vkQueueSubmit([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, [In] uint submitCount, [In] AdamantiumVulkan.Core.Interop.VkSubmitInfo[] pSubmits, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3124 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit", CallingConvention = CallingConvention.StdCall)]

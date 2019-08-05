@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Bindings"
+    elementFormDefault="qualified"
+    
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:simpleType name="ClassTypeMap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Struct"></xs:enumeration>
+      <xs:enumeration value="Class"></xs:enumeration>
+      <xs:enumeration value="Union"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AccessSpecifier">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Public"></xs:enumeration>
+      <xs:enumeration value="Private"></xs:enumeration>
+      <xs:enumeration value="Internal"></xs:enumeration>
+      <xs:enumeration value="Protected"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CallingConventionMap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Winapi"/>
+      <xs:enumeration value="Cdecl"/>
+      <xs:enumeration value="StdCall"/>
+      <xs:enumeration value="ThisCall"/>
+      <xs:enumeration value="FastCall"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ParameterKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="In" />
+      <xs:enumeration value="Out" />
+      <xs:enumeration value="InOut" />
+      <xs:enumeration value="Readonly" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ArraySizeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Constant" />
+      <xs:enumeration value="Variable" />
+      <xs:enumeration value="Dependent" />
+      <xs:enumeration value="Incomplete" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PrimitiveType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Null" />
+      <xs:enumeration value="Void" />
+      <xs:enumeration value="IntPtr" />
+      <xs:enumeration value="UintPtr" />
+      <xs:enumeration value="Char" />
+      <xs:enumeration value="UChar" />
+      <xs:enumeration value="SChar" />
+      <xs:enumeration value="WideChar" />
+      <xs:enumeration value="Byte" />
+      <xs:enumeration value="Sbyte" />
+      <xs:enumeration value="Bool" />
+      <xs:enumeration value="Bool32" />
+      <xs:enumeration value="Int16" />
+      <xs:enumeration value="Int32" />
+      <xs:enumeration value="Int64" />
+      <xs:enumeration value="UInt16" />
+      <xs:enumeration value="UInt32" />
+      <xs:enumeration value="UInt64" />
+      <xs:enumeration value="Float" />
+      <xs:enumeration value="Double" />
+      <xs:enumeration value="Decimal" />
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="BindingTypeMap" abstract="true">
+    <xs:attribute name="IsConst" type="xs:boolean"/>
+    <xs:attribute name="IsVolatile" type="xs:boolean"/>
+    <xs:attribute name="IsRestrict" type="xs:boolean"/>
+  </xs:complexType>
+
+  <xs:complexType name="PointerTypeMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BindingTypeMap">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Pointee" type="BindingTypeMap"/>
+        </xs:sequence>
+        <xs:attribute name="IsNullable" type="xs:boolean" use="optional"/>
+        <xs:attribute name="IsNullableForDelegate" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ArrayTypeMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BindingTypeMap">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="ElementType" type="BindingTypeMap"/>
+        </xs:sequence>
+        <xs:attribute name="SizeType" type="ArraySizeType" use="optional"/>
+        <xs:attribute name="Size" type="xs:long" use="optional"/>
+        <xs:attribute name="ElementSize" type="xs:long" use="optional"/>
+        <xs:attribute name="ArraySizeSource" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BuiltinTypeMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BindingTypeMap">
+        <xs:attribute name="Type" type="PrimitiveType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CustomTypeMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BindingTypeMap">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="IsInSystemHeader" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+    
+  <xs:complexType name="MapBase" abstract="true">
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="AccessSpecifier" type="AccessSpecifier"/>
+    <xs:attribute name="IsIgnored" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="ParameterMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="MapBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Type" type="BindingTypeMap"/>
+        </xs:sequence>
+        <xs:attribute name="ParameterKind" type="ParameterKind" use="optional"/>
+        <xs:attribute name="DefaultValue" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ParametersArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" nillable="true" type="ParameterMap" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FunctionMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="MapBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="ReturnType" type="BindingTypeMap"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Parameters" type="ParametersArray"/>
+        </xs:sequence>
+        <xs:attribute name="DllName" type="xs:string"/>
+        <xs:attribute name="EntryPoint" type="xs:string"/>
+        <xs:attribute name="CallingConvention" type="CallingConventionMap"/>
+        <xs:attribute name="SuppressUnmanagedCodeSecurity" type="xs:boolean"/>
+        <xs:attribute name="IsPointerToConstChar" type="xs:boolean"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DelegateMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="MapBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="ReturnType" type="BindingTypeMap" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Parameters" type="ParametersArray" />
+        </xs:sequence>
+        <xs:attribute name="CallingConvention" type="CallingConventionMap" />
+        <xs:attribute name="SuppressUnmanagedCodeSecurity" type="xs:boolean" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AttributeMap">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AttributesArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attribute" nillable="true" type="AttributeMap" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Field">
+    <xs:complexContent mixed="false">
+      <xs:extension base="MapBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Type" type="BindingTypeMap" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Attributes" type="AttributesArray" />
+        </xs:sequence>
+        <xs:attribute name="RemoveExistingAttributes" type="xs:boolean"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FieldsArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Field" nillable="true" type="Field" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="MapBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Type" type="BindingTypeMap" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Field" type="Field" />
+        </xs:sequence>
+        <xs:attribute name="Getter" type="xs:boolean"/>
+        <xs:attribute name="Setter" type="xs:boolean"/>
+        <xs:attribute name="IsAutoProperty" type="xs:boolean"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PropertiesArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="PropertyMap" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ClassMap">
+    <xs:complexContent mixed="false">
+      <xs:extension base="MapBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="UnderlyingNativeType" type="BindingTypeMap" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Fields" type="FieldsArray" />
+          <xs:element minOccurs="0" maxOccurs="1" name="FieldsToAdd" type="FieldsArray" />
+          <xs:element minOccurs="0" maxOccurs="1" name="PropertiesToAdd" type="PropertiesArray" />
+        </xs:sequence>
+        <xs:attribute name="ClassType" type="ClassTypeMap" />
+        <xs:attribute name="ConnectedTo" type="xs:string" />
+        <xs:attribute name="IsSimpleType" type="xs:boolean" />
+        <xs:attribute name="IsTypedef" type="xs:boolean" />
+        <xs:attribute name="IsPointer" type="xs:boolean" />
+        <xs:attribute name="IsUnsafe" type="xs:boolean"/>
+        <xs:attribute name="InnerStructName" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FunctionsArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Function" nillable="true" type="FunctionMap" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelegatesArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Delegate" nillable="true" type="DelegateMap" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ClassesArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Class" nillable="true" type="ClassMap" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BindingsMap">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Classes" type="ClassesArray" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Functions" type="FunctionsArray" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Delegates" type="DelegatesArray" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SharedParameters" type="ParametersArray" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Bindings" nillable="true" type="BindingsMap" />
+
+</xs:schema>
