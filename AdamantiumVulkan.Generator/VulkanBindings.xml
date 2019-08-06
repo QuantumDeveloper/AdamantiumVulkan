@@ -6,6 +6,257 @@
     <Class Name="VkBool32">
       <UnderlyingNativeType xsi:type="BuiltinTypeMap" Type="Bool32"/>
     </Class>
+
+    <Class Name="VkDeviceCreateInfo">
+      <Fields>
+        <Field Name="pQueueCreateInfos">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="queueCreateInfoCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkDeviceQueueCreateInfo"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkSubmitInfo">
+      <Fields>
+        <Field Name="pWaitSemaphores">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="waitSemaphoreCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSemaphore"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pSignalSemaphores">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="signalSemaphoreCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSemaphore"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pWaitDstStageMask">
+          <Type xsi:type="PointerTypeMap">
+            <Pointee xsi:type="ArrayTypeMap">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt32"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pCommandBuffers">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="commandBufferCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkCommandBuffer"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkPresentInfoKHR">
+      <Fields>
+        <Field Name="pWaitSemaphores">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="waitSemaphoreCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSemaphore"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pSwapchains">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="swapchainCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkSwapchainKHR"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pImageIndices">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="swapchainCount">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt32"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pResults">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="swapchainCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkResult"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkShaderModuleCreateInfo">
+      <Fields>
+        <Field Name="pCode">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="codeSize">
+              <ElementType xsi:type="BuiltinTypeMap" Type="Byte"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkSwapchainCreateInfoKHR">
+      <Fields>
+        <Field Name="pQueueFamilyIndices">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="queueFamilyIndexCount">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt32"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+    
+    <Class Name="VkGraphicsPipelineCreateInfo">
+      <Fields>
+        <Field Name="pStages">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="stageCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkPipelineShaderStageCreateInfo"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkRenderPassBeginInfo">
+      <Fields>
+        <Field Name="pClearValues">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="clearValueCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkClearValue"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkPipelineVertexInputStateCreateInfo">
+      <Fields>
+        <Field Name="pVertexBindingDescriptions">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="vertexBindingDescriptionCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkVertexInputBindingDescription"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pVertexAttributeDescriptions">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="vertexAttributeDescriptionCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkVertexInputAttributeDescription"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkPipelineDynamicStateCreateInfo">
+      <Fields>
+        <Field Name="pDynamicStates">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="dynamicStateCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkDynamicState"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkImageFormatListCreateInfoKHR">
+      <Fields>
+        <Field Name="pViewFormats">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="viewFormatCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkFormat"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkValidationFlagsEXT">
+      <Fields>
+        <Field Name="pDisabledValidationChecks">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="disabledValidationCheckCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkValidationCheckEXT"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkObjectTableCreateInfoNVX">
+      <Fields>
+        <Field Name="pObjectEntryTypes">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="objectCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkObjectEntryTypeNVX"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pObjectEntryCounts">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="objectCount">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt32"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pObjectEntryUsageFlags">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="objectCount">
+              <ElementType xsi:type="BuiltinTypeMap" Type="UInt32"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkShadingRatePaletteNV">
+      <Fields>
+        <Field Name="pShadingRatePaletteEntries">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="shadingRatePaletteEntryCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkShadingRatePaletteEntryNV"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkValidationFeaturesEXT">
+      <Fields>
+        <Field Name="pEnabledValidationFeatures">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="enabledValidationFeatureCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkValidationFeatureEnableEXT"/>
+            </Pointee>
+          </Type>
+        </Field>
+        <Field Name="pDisabledValidationFeatures">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="disabledValidationFeatureCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkValidationFeatureDisableEXT"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkDescriptorSetAllocateInfo">
+      <Fields>
+        <Field Name="pSetLayouts">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="descriptorSetCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkDescriptorSetLayout"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+    
   </Classes>
 
   <Functions>
