@@ -470,82 +470,81 @@ namespace AdamantiumVulkan.Generator
             //api.Class("VkBool32").
             //    SetUnderlyingType(new BuiltinType(PrimitiveType.Bool32));
 
-            api.Class("VkDeviceCreateInfo").
-                WithField("pQueueCreateInfos").
-                TreatAsPointerToArray(new CustomType("VkDeviceQueueCreateInfo"), true, "queueCreateInfoCount");
+            //api.Class("VkDeviceCreateInfo").
+            //    WithField("pQueueCreateInfos").
+            //    TreatAsPointerToArray(new CustomType("VkDeviceQueueCreateInfo"), true, "queueCreateInfoCount");
 
-            api.Class("VkSubmitInfo").WithField("pWaitSemaphores").
-                TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
-                .WithField("pSignalSemaphores").
-                TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "signalSemaphoreCount")
-                .WithField("pWaitDstStageMask").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32));
+            //api.Class("VkSubmitInfo").
+            //    WithField("pWaitSemaphores").
+            //    TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
+            //    .WithField("pSignalSemaphores").
+            //    TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "signalSemaphoreCount")
+            //    .WithField("pWaitDstStageMask").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32));
 
-            api.Class("VkPresentInfoKHR")
-                .WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
-                .WithField("pSwapchains").TreatAsPointerToArray(new CustomType("VkSwapchainKHR"), true, "swapchainCount")
-                .WithField("pImageIndices")
-                .TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "swapchainCount")
-                .WithField("pResults").
-                TreatAsPointerToArray(new CustomType("VkResult"), true, "swapchainCount");
+            //api.Class("VkPresentInfoKHR")
+            //    .WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
+            //    .WithField("pSwapchains").TreatAsPointerToArray(new CustomType("VkSwapchainKHR"), true, "swapchainCount")
+            //    .WithField("pImageIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "swapchainCount")
+            //    .WithField("pResults").TreatAsPointerToArray(new CustomType("VkResult"), true, "swapchainCount");
 
-            api.Class("VkShaderModuleCreateInfo").
-                WithField("pCode").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte), true, "codeSize");
+            //api.Class("VkShaderModuleCreateInfo").
+            //    WithField("pCode").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte), true, "codeSize");
 
-            api.Class("VkSwapchainCreateInfoKHR").
-                WithField("pQueueFamilyIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "queueFamilyIndexCount");
+            //api.Class("VkSwapchainCreateInfoKHR").
+            //    WithField("pQueueFamilyIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "queueFamilyIndexCount");
 
-            api.Class("VkGraphicsPipelineCreateInfo")
-                .WithField("pStages")
-                .TreatAsPointerToArray(new CustomType("VkPipelineShaderStageCreateInfo"), true, "stageCount");
+            //api.Class("VkGraphicsPipelineCreateInfo")
+            //    .WithField("pStages")
+            //    .TreatAsPointerToArray(new CustomType("VkPipelineShaderStageCreateInfo"), true, "stageCount");
 
-            api.Class("VkRenderPassBeginInfo")
-                .WithField("pClearValues")
-                .TreatAsPointerToArray(new CustomType("VkClearValue"), true, "clearValueCount");
+            //api.Class("VkRenderPassBeginInfo")
+            //    .WithField("pClearValues")
+            //    .TreatAsPointerToArray(new CustomType("VkClearValue"), true, "clearValueCount");
 
-            api.Class("VkPipelineVertexInputStateCreateInfo")
-                .WithField("pVertexBindingDescriptions")
-                .TreatAsPointerToArray(new CustomType("VkVertexInputBindingDescription"), true, "vertexBindingDescriptionCount")
-                .WithField("pVertexAttributeDescriptions")
-                .TreatAsPointerToArray(new CustomType("VkVertexInputAttributeDescription"), true, "vertexAttributeDescriptionCount");
+            //api.Class("VkPipelineVertexInputStateCreateInfo")
+            //    .WithField("pVertexBindingDescriptions")
+            //    .TreatAsPointerToArray(new CustomType("VkVertexInputBindingDescription"), true, "vertexBindingDescriptionCount")
+            //    .WithField("pVertexAttributeDescriptions")
+            //    .TreatAsPointerToArray(new CustomType("VkVertexInputAttributeDescription"), true, "vertexAttributeDescriptionCount");
 
-            api.Class("VkSubmitInfo")
-                .WithField("pCommandBuffers")
-                .TreatAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
+            //api.Class("VkSubmitInfo")
+            //    .WithField("pCommandBuffers")
+            //    .TreatAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
 
-            api.Class("VkPipelineDynamicStateCreateInfo").
-                WithField("pDynamicStates").
-                TreatAsPointerToArray(new CustomType("VkDynamicState"), true, "dynamicStateCount");
+            //api.Class("VkPipelineDynamicStateCreateInfo").
+            //    WithField("pDynamicStates").
+            //    TreatAsPointerToArray(new CustomType("VkDynamicState"), true, "dynamicStateCount");
 
-            api.Class("VkImageFormatListCreateInfoKHR").
-                WithField("pViewFormats").
-                TreatAsPointerToArray(new CustomType("VkFormat"), true, "viewFormatCount");
+            //api.Class("VkImageFormatListCreateInfoKHR").
+            //    WithField("pViewFormats").
+            //    TreatAsPointerToArray(new CustomType("VkFormat"), true, "viewFormatCount");
 
-            api.Class("VkValidationFlagsEXT")
-                .WithField("pDisabledValidationChecks").
-                TreatAsPointerToArray(new CustomType("VkValidationCheckEXT"), true, "disabledValidationCheckCount");
+            //api.Class("VkValidationFlagsEXT")
+            //    .WithField("pDisabledValidationChecks").
+            //    TreatAsPointerToArray(new CustomType("VkValidationCheckEXT"), true, "disabledValidationCheckCount");
 
-            api.Class("VkObjectTableCreateInfoNVX")
-                .WithField("pObjectEntryTypes").
-                TreatAsPointerToArray(new CustomType("VkObjectEntryTypeNVX"), true, "objectCount")
-                .WithField("pObjectEntryCounts").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount")
-                .WithField("pObjectEntryUsageFlags").
-                TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount");
+            //api.Class("VkObjectTableCreateInfoNVX")
+            //    .WithField("pObjectEntryTypes").
+            //    TreatAsPointerToArray(new CustomType("VkObjectEntryTypeNVX"), true, "objectCount")
+            //    .WithField("pObjectEntryCounts").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount")
+            //    .WithField("pObjectEntryUsageFlags").
+            //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount");
 
-            api.Class("VkShadingRatePaletteNV")
-                .WithField("pShadingRatePaletteEntries").
-                TreatAsPointerToArray(new CustomType("VkShadingRatePaletteEntryNV"), true, "shadingRatePaletteEntryCount");
+            //api.Class("VkShadingRatePaletteNV")
+            //    .WithField("pShadingRatePaletteEntries").
+            //    TreatAsPointerToArray(new CustomType("VkShadingRatePaletteEntryNV"), true, "shadingRatePaletteEntryCount");
 
-            api.Class("VkValidationFeaturesEXT")
-                .WithField("pEnabledValidationFeatures").
-                TreatAsPointerToArray(new CustomType("VkValidationFeatureEnableEXT"), true, "enabledValidationFeatureCount")
-                .WithField("pDisabledValidationFeatures").
-                TreatAsPointerToArray(new CustomType("VkValidationFeatureDisableEXT"), true, "disabledValidationFeatureCount");
+            //api.Class("VkValidationFeaturesEXT")
+            //    .WithField("pEnabledValidationFeatures").
+            //    TreatAsPointerToArray(new CustomType("VkValidationFeatureEnableEXT"), true, "enabledValidationFeatureCount")
+            //    .WithField("pDisabledValidationFeatures").
+            //    TreatAsPointerToArray(new CustomType("VkValidationFeatureDisableEXT"), true, "disabledValidationFeatureCount");
 
-            api.Class("VkDescriptorSetAllocateInfo").
-                WithField("pSetLayouts").
-                TreatAsPointerToArray(new CustomType("VkDescriptorSetLayout"), true, "descriptorSetCount");
+            //api.Class("VkDescriptorSetAllocateInfo").
+            //    WithField("pSetLayouts").
+            //    TreatAsPointerToArray(new CustomType("VkDescriptorSetLayout"), true, "descriptorSetCount");
 
             var fixingFunctionParameters = new FixIncorrectParametersPass(api);
             ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);
