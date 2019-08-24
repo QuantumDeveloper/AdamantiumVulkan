@@ -29,35 +29,11 @@ namespace AdamantiumVulkan.Windows
             Hwnd = _internal.hwnd;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public System.IntPtr Hinstance
-        {
-            get; set;
-        }
-
-        public System.IntPtr Hwnd
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public System.IntPtr Hinstance { get; set; }
+        public System.IntPtr Hwnd { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR ToInternal()
         {
@@ -69,6 +45,12 @@ namespace AdamantiumVulkan.Windows
             _internal.hwnd = Hwnd;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportMemoryWin32HandleInfoKHR : DisposableObject
@@ -86,35 +68,11 @@ namespace AdamantiumVulkan.Windows
             Name = _internal.name;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public System.IntPtr Handle
-        {
-            get; set;
-        }
-
-        public char Name
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
+        public System.IntPtr Handle { get; set; }
+        public char Name { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR ToInternal()
         {
@@ -126,6 +84,12 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportMemoryWin32HandleInfoKHR : DisposableObject
@@ -145,35 +109,11 @@ namespace AdamantiumVulkan.Windows
             Name = _internal.name;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public object PAttributes
-        {
-            get; set;
-        }
-
-        public uint DwAccess
-        {
-            get; set;
-        }
-
-        public char Name
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public object PAttributes { get; set; }
+        public uint DwAccess { get; set; }
+        public char Name { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR ToInternal()
         {
@@ -190,6 +130,13 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttributes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryWin32HandlePropertiesKHR : DisposableObject
@@ -205,25 +152,9 @@ namespace AdamantiumVulkan.Windows
             MemoryTypeBits = _internal.memoryTypeBits;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MemoryTypeBits
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint MemoryTypeBits { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR ToInternal()
         {
@@ -233,6 +164,12 @@ namespace AdamantiumVulkan.Windows
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryGetWin32HandleInfoKHR : DisposableObject
@@ -249,30 +186,10 @@ namespace AdamantiumVulkan.Windows
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR ToInternal()
         {
@@ -283,6 +200,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class Win32KeyedMutexAcquireReleaseInfoKHR : DisposableObject
@@ -328,58 +251,15 @@ namespace AdamantiumVulkan.Windows
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint AcquireCount
-        {
-            get; set;
-        }
-
-        public DeviceMemory PAcquireSyncs
-        {
-            get; set;
-        }
-
-        public ulong? PAcquireKeys
-        {
-            get; set;
-        }
-
-        public uint? PAcquireTimeouts
-        {
-            get; set;
-        }
-
-        public uint ReleaseCount
-        {
-            get; set;
-        }
-
-        public DeviceMemory PReleaseSyncs
-        {
-            get; set;
-        }
-
-        public ulong? PReleaseKeys
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpAcquireKeys?.Dispose();
-            refpAcquireTimeouts?.Dispose();
-            refpReleaseSyncs?.Dispose();
-            refpReleaseKeys?.Dispose();
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint AcquireCount { get; set; }
+        public DeviceMemory PAcquireSyncs { get; set; }
+        public ulong? PAcquireKeys { get; set; }
+        public uint? PAcquireTimeouts { get; set; }
+        public uint ReleaseCount { get; set; }
+        public DeviceMemory PReleaseSyncs { get; set; }
+        public ulong? PReleaseKeys { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR ToInternal()
         {
@@ -422,6 +302,17 @@ namespace AdamantiumVulkan.Windows
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAcquireSyncs?.Dispose();
+            refpAcquireKeys?.Dispose();
+            refpAcquireTimeouts?.Dispose();
+            refpReleaseSyncs?.Dispose();
+            refpReleaseKeys?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportSemaphoreWin32HandleInfoKHR : DisposableObject
@@ -441,45 +332,13 @@ namespace AdamantiumVulkan.Windows
             Name = _internal.name;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Semaphore Semaphore
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ExternalSemaphoreHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public System.IntPtr Handle
-        {
-            get; set;
-        }
-
-        public char Name
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Semaphore Semaphore { get; set; }
+        public uint Flags { get; set; }
+        public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
+        public System.IntPtr Handle { get; set; }
+        public char Name { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR ToInternal()
         {
@@ -493,6 +352,12 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportSemaphoreWin32HandleInfoKHR : DisposableObject
@@ -512,35 +377,11 @@ namespace AdamantiumVulkan.Windows
             Name = _internal.name;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public object PAttributes
-        {
-            get; set;
-        }
-
-        public uint DwAccess
-        {
-            get; set;
-        }
-
-        public char Name
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public object PAttributes { get; set; }
+        public uint DwAccess { get; set; }
+        public char Name { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR ToInternal()
         {
@@ -557,6 +398,13 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttributes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class D3D12FenceSubmitInfoKHR : DisposableObject
@@ -587,40 +435,12 @@ namespace AdamantiumVulkan.Windows
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint WaitSemaphoreValuesCount
-        {
-            get; set;
-        }
-
-        public ulong? PWaitSemaphoreValues
-        {
-            get; set;
-        }
-
-        public uint SignalSemaphoreValuesCount
-        {
-            get; set;
-        }
-
-        public ulong? PSignalSemaphoreValues
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpSignalSemaphoreValues?.Dispose();
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint WaitSemaphoreValuesCount { get; set; }
+        public ulong? PWaitSemaphoreValues { get; set; }
+        public uint SignalSemaphoreValuesCount { get; set; }
+        public ulong? PSignalSemaphoreValues { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR ToInternal()
         {
@@ -643,6 +463,14 @@ namespace AdamantiumVulkan.Windows
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpWaitSemaphoreValues?.Dispose();
+            refpSignalSemaphoreValues?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SemaphoreGetWin32HandleInfoKHR : DisposableObject
@@ -659,30 +487,10 @@ namespace AdamantiumVulkan.Windows
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Semaphore Semaphore
-        {
-            get; set;
-        }
-
-        public ExternalSemaphoreHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Semaphore Semaphore { get; set; }
+        public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR ToInternal()
         {
@@ -693,6 +501,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportFenceWin32HandleInfoKHR : DisposableObject
@@ -712,45 +526,13 @@ namespace AdamantiumVulkan.Windows
             Name = _internal.name;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Fence Fence
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ExternalFenceHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public System.IntPtr Handle
-        {
-            get; set;
-        }
-
-        public char Name
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Fence Fence { get; set; }
+        public uint Flags { get; set; }
+        public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
+        public System.IntPtr Handle { get; set; }
+        public char Name { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR ToInternal()
         {
@@ -764,6 +546,12 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportFenceWin32HandleInfoKHR : DisposableObject
@@ -783,35 +571,11 @@ namespace AdamantiumVulkan.Windows
             Name = _internal.name;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public object PAttributes
-        {
-            get; set;
-        }
-
-        public uint DwAccess
-        {
-            get; set;
-        }
-
-        public char Name
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public object PAttributes { get; set; }
+        public uint DwAccess { get; set; }
+        public char Name { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR ToInternal()
         {
@@ -828,6 +592,13 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttributes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class FenceGetWin32HandleInfoKHR : DisposableObject
@@ -844,30 +615,10 @@ namespace AdamantiumVulkan.Windows
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Fence Fence
-        {
-            get; set;
-        }
-
-        public ExternalFenceHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Fence Fence { get; set; }
+        public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR ToInternal()
         {
@@ -878,6 +629,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportMemoryWin32HandleInfoNV : DisposableObject
@@ -894,30 +651,10 @@ namespace AdamantiumVulkan.Windows
             Handle = _internal.handle;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleType
-        {
-            get; set;
-        }
-
-        public System.IntPtr Handle
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint HandleType { get; set; }
+        public System.IntPtr Handle { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV ToInternal()
         {
@@ -928,6 +665,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handle = Handle;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportMemoryWin32HandleInfoNV : DisposableObject
@@ -946,30 +689,10 @@ namespace AdamantiumVulkan.Windows
             DwAccess = _internal.dwAccess;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public object PAttributes
-        {
-            get; set;
-        }
-
-        public uint DwAccess
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public object PAttributes { get; set; }
+        public uint DwAccess { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV ToInternal()
         {
@@ -985,6 +708,13 @@ namespace AdamantiumVulkan.Windows
             _internal.dwAccess = DwAccess;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttributes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class Win32KeyedMutexAcquireReleaseInfoNV : DisposableObject
@@ -1030,58 +760,15 @@ namespace AdamantiumVulkan.Windows
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint AcquireCount
-        {
-            get; set;
-        }
-
-        public DeviceMemory PAcquireSyncs
-        {
-            get; set;
-        }
-
-        public ulong? PAcquireKeys
-        {
-            get; set;
-        }
-
-        public uint? PAcquireTimeoutMilliseconds
-        {
-            get; set;
-        }
-
-        public uint ReleaseCount
-        {
-            get; set;
-        }
-
-        public DeviceMemory PReleaseSyncs
-        {
-            get; set;
-        }
-
-        public ulong? PReleaseKeys
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpAcquireKeys?.Dispose();
-            refpAcquireTimeoutMilliseconds?.Dispose();
-            refpReleaseSyncs?.Dispose();
-            refpReleaseKeys?.Dispose();
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint AcquireCount { get; set; }
+        public DeviceMemory PAcquireSyncs { get; set; }
+        public ulong? PAcquireKeys { get; set; }
+        public uint? PAcquireTimeoutMilliseconds { get; set; }
+        public uint ReleaseCount { get; set; }
+        public DeviceMemory PReleaseSyncs { get; set; }
+        public ulong? PReleaseKeys { get; set; }
 
         public AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV ToInternal()
         {
@@ -1124,6 +811,17 @@ namespace AdamantiumVulkan.Windows
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAcquireSyncs?.Dispose();
+            refpAcquireKeys?.Dispose();
+            refpAcquireTimeoutMilliseconds?.Dispose();
+            refpReleaseSyncs?.Dispose();
+            refpReleaseKeys?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
 

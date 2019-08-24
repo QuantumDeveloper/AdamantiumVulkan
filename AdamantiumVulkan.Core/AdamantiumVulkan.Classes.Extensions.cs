@@ -315,7 +315,6 @@ namespace AdamantiumVulkan.Core
         public CommandBuffer BeginSingleTimeCommand(CommandPool commandPool)
         {
             var allocInfo = new CommandBufferAllocateInfo();
-            allocInfo.SType = StructureType.CommandBufferAllocateInfo;
             allocInfo.Level = CommandBufferLevel.Primary;
             allocInfo.CommandPool = commandPool;
             allocInfo.CommandBufferCount = 1;
@@ -323,7 +322,6 @@ namespace AdamantiumVulkan.Core
             var commandBuffers = AllocateCommandBuffers(allocInfo);
 
             var beginInfo = new CommandBufferBeginInfo();
-            beginInfo.SType = StructureType.CommandBufferBeginInfo;
             beginInfo.Flags = (uint)CommandBufferUsageFlagBits.OneTimeSubmitBit;
 
             var commandBuffer = commandBuffers[0];
@@ -337,7 +335,6 @@ namespace AdamantiumVulkan.Core
             commandBuffer.EndCommandBuffer();
 
             SubmitInfo submitInfo = new SubmitInfo();
-            submitInfo.SType = StructureType.SubmitInfo;
             submitInfo.CommandBufferCount = 1;
             submitInfo.PCommandBuffers = new CommandBuffer[] {commandBuffer};
 

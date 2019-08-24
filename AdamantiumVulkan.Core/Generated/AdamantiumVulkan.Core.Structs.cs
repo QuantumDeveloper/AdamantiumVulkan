@@ -24,7 +24,6 @@ namespace AdamantiumVulkan.Core
 
         public ApplicationInfo(AdamantiumVulkan.Core.Interop.VkApplicationInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PApplicationName = Marshal.PtrToStringAnsi(_internal.pApplicationName);
             ApplicationVersion = _internal.applicationVersion;
@@ -33,45 +32,13 @@ namespace AdamantiumVulkan.Core
             ApiVersion = _internal.apiVersion;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public string PApplicationName
-        {
-            get; set;
-        }
-
-        public uint ApplicationVersion
-        {
-            get; set;
-        }
-
-        public string PEngineName
-        {
-            get; set;
-        }
-
-        public uint EngineVersion
-        {
-            get; set;
-        }
-
-        public uint ApiVersion
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpEngineName?.Dispose();
-        }
+        public StructureType SType => StructureType.ApplicationInfo;
+        public System.IntPtr PNext { get; set; }
+        public string PApplicationName { get; set; }
+        public uint ApplicationVersion { get; set; }
+        public string PEngineName { get; set; }
+        public uint EngineVersion { get; set; }
+        public uint ApiVersion { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkApplicationInfo ToInternal()
         {
@@ -95,6 +62,14 @@ namespace AdamantiumVulkan.Core
             _internal.apiVersion = ApiVersion;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpApplicationName?.Dispose();
+            refpEngineName?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class InstanceCreateInfo : DisposableObject
@@ -111,7 +86,6 @@ namespace AdamantiumVulkan.Core
 
         public InstanceCreateInfo(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             PApplicationInfo = new ApplicationInfo(Marshal.PtrToStructure<VkApplicationInfo>(_internal.pApplicationInfo));
@@ -120,51 +94,14 @@ namespace AdamantiumVulkan.Core
             EnabledExtensionCount = _internal.enabledExtensionCount;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ApplicationInfo PApplicationInfo
-        {
-            get; set;
-        }
-
-        public uint EnabledLayerCount
-        {
-            get; set;
-        }
-
-        public string[] PpEnabledLayerNames
-        {
-            get; set;
-        }
-
-        public uint EnabledExtensionCount
-        {
-            get; set;
-        }
-
-        public string[] PpEnabledExtensionNames
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refppEnabledLayerNames?.Dispose();
-            refppEnabledExtensionNames?.Dispose();
-        }
+        public StructureType SType => StructureType.InstanceCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ApplicationInfo PApplicationInfo { get; set; }
+        public uint EnabledLayerCount { get; set; }
+        public string[] PpEnabledLayerNames { get; set; }
+        public uint EnabledExtensionCount { get; set; }
+        public string[] PpEnabledExtensionNames { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo ToInternal()
         {
@@ -195,6 +132,15 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpApplicationInfo?.Dispose();
+            refppEnabledLayerNames?.Dispose();
+            refppEnabledExtensionNames?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AllocationCallbacks : DisposableObject
@@ -213,40 +159,12 @@ namespace AdamantiumVulkan.Core
             PfnInternalFree = _internal.pfnInternalFree;
         }
 
-        public System.IntPtr PUserData
-        {
-            get; set;
-        }
-
-        public PFN_vkAllocationFunction PfnAllocation
-        {
-            get; set;
-        }
-
-        public PFN_vkReallocationFunction PfnReallocation
-        {
-            get; set;
-        }
-
-        public PFN_vkFreeFunction PfnFree
-        {
-            get; set;
-        }
-
-        public PFN_vkInternalAllocationNotification PfnInternalAllocation
-        {
-            get; set;
-        }
-
-        public PFN_vkInternalFreeNotification PfnInternalFree
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public System.IntPtr PUserData { get; set; }
+        public PFN_vkAllocationFunction PfnAllocation { get; set; }
+        public PFN_vkReallocationFunction PfnReallocation { get; set; }
+        public PFN_vkFreeFunction PfnFree { get; set; }
+        public PFN_vkInternalAllocationNotification PfnInternalAllocation { get; set; }
+        public PFN_vkInternalFreeNotification PfnInternalFree { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAllocationCallbacks ToInternal()
         {
@@ -259,6 +177,12 @@ namespace AdamantiumVulkan.Core
             _internal.pfnInternalFree = PfnInternalFree;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PUserData);
+        }
+
     }
 
     public partial class PhysicalDeviceFeatures
@@ -326,280 +250,61 @@ namespace AdamantiumVulkan.Core
             InheritedQueries = _internal.inheritedQueries;
         }
 
-        public bool RobustBufferAccess
-        {
-            get; set;
-        }
-
-        public bool FullDrawIndexUint32
-        {
-            get; set;
-        }
-
-        public bool ImageCubeArray
-        {
-            get; set;
-        }
-
-        public bool IndependentBlend
-        {
-            get; set;
-        }
-
-        public bool GeometryShader
-        {
-            get; set;
-        }
-
-        public bool TessellationShader
-        {
-            get; set;
-        }
-
-        public bool SampleRateShading
-        {
-            get; set;
-        }
-
-        public bool DualSrcBlend
-        {
-            get; set;
-        }
-
-        public bool LogicOp
-        {
-            get; set;
-        }
-
-        public bool MultiDrawIndirect
-        {
-            get; set;
-        }
-
-        public bool DrawIndirectFirstInstance
-        {
-            get; set;
-        }
-
-        public bool DepthClamp
-        {
-            get; set;
-        }
-
-        public bool DepthBiasClamp
-        {
-            get; set;
-        }
-
-        public bool FillModeNonSolid
-        {
-            get; set;
-        }
-
-        public bool DepthBounds
-        {
-            get; set;
-        }
-
-        public bool WideLines
-        {
-            get; set;
-        }
-
-        public bool LargePoints
-        {
-            get; set;
-        }
-
-        public bool AlphaToOne
-        {
-            get; set;
-        }
-
-        public bool MultiViewport
-        {
-            get; set;
-        }
-
-        public bool SamplerAnisotropy
-        {
-            get; set;
-        }
-
-        public bool TextureCompressionETC2
-        {
-            get; set;
-        }
-
-        public bool TextureCompressionASTC_LDR
-        {
-            get; set;
-        }
-
-        public bool TextureCompressionBC
-        {
-            get; set;
-        }
-
-        public bool OcclusionQueryPrecise
-        {
-            get; set;
-        }
-
-        public bool PipelineStatisticsQuery
-        {
-            get; set;
-        }
-
-        public bool VertexPipelineStoresAndAtomics
-        {
-            get; set;
-        }
-
-        public bool FragmentStoresAndAtomics
-        {
-            get; set;
-        }
-
-        public bool ShaderTessellationAndGeometryPointSize
-        {
-            get; set;
-        }
-
-        public bool ShaderImageGatherExtended
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageExtendedFormats
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageMultisample
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageReadWithoutFormat
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageWriteWithoutFormat
-        {
-            get; set;
-        }
-
-        public bool ShaderUniformBufferArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderSampledImageArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageBufferArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderClipDistance
-        {
-            get; set;
-        }
-
-        public bool ShaderCullDistance
-        {
-            get; set;
-        }
-
-        public bool ShaderFloat64
-        {
-            get; set;
-        }
-
-        public bool ShaderInt64
-        {
-            get; set;
-        }
-
-        public bool ShaderInt16
-        {
-            get; set;
-        }
-
-        public bool ShaderResourceResidency
-        {
-            get; set;
-        }
-
-        public bool ShaderResourceMinLod
-        {
-            get; set;
-        }
-
-        public bool SparseBinding
-        {
-            get; set;
-        }
-
-        public bool SparseResidencyBuffer
-        {
-            get; set;
-        }
-
-        public bool SparseResidencyImage2D
-        {
-            get; set;
-        }
-
-        public bool SparseResidencyImage3D
-        {
-            get; set;
-        }
-
-        public bool SparseResidency2Samples
-        {
-            get; set;
-        }
-
-        public bool SparseResidency4Samples
-        {
-            get; set;
-        }
-
-        public bool SparseResidency8Samples
-        {
-            get; set;
-        }
-
-        public bool SparseResidency16Samples
-        {
-            get; set;
-        }
-
-        public bool SparseResidencyAliased
-        {
-            get; set;
-        }
-
-        public bool VariableMultisampleRate
-        {
-            get; set;
-        }
-
-        public bool InheritedQueries
-        {
-            get; set;
-        }
+        public bool RobustBufferAccess { get; set; }
+        public bool FullDrawIndexUint32 { get; set; }
+        public bool ImageCubeArray { get; set; }
+        public bool IndependentBlend { get; set; }
+        public bool GeometryShader { get; set; }
+        public bool TessellationShader { get; set; }
+        public bool SampleRateShading { get; set; }
+        public bool DualSrcBlend { get; set; }
+        public bool LogicOp { get; set; }
+        public bool MultiDrawIndirect { get; set; }
+        public bool DrawIndirectFirstInstance { get; set; }
+        public bool DepthClamp { get; set; }
+        public bool DepthBiasClamp { get; set; }
+        public bool FillModeNonSolid { get; set; }
+        public bool DepthBounds { get; set; }
+        public bool WideLines { get; set; }
+        public bool LargePoints { get; set; }
+        public bool AlphaToOne { get; set; }
+        public bool MultiViewport { get; set; }
+        public bool SamplerAnisotropy { get; set; }
+        public bool TextureCompressionETC2 { get; set; }
+        public bool TextureCompressionASTC_LDR { get; set; }
+        public bool TextureCompressionBC { get; set; }
+        public bool OcclusionQueryPrecise { get; set; }
+        public bool PipelineStatisticsQuery { get; set; }
+        public bool VertexPipelineStoresAndAtomics { get; set; }
+        public bool FragmentStoresAndAtomics { get; set; }
+        public bool ShaderTessellationAndGeometryPointSize { get; set; }
+        public bool ShaderImageGatherExtended { get; set; }
+        public bool ShaderStorageImageExtendedFormats { get; set; }
+        public bool ShaderStorageImageMultisample { get; set; }
+        public bool ShaderStorageImageReadWithoutFormat { get; set; }
+        public bool ShaderStorageImageWriteWithoutFormat { get; set; }
+        public bool ShaderUniformBufferArrayDynamicIndexing { get; set; }
+        public bool ShaderSampledImageArrayDynamicIndexing { get; set; }
+        public bool ShaderStorageBufferArrayDynamicIndexing { get; set; }
+        public bool ShaderStorageImageArrayDynamicIndexing { get; set; }
+        public bool ShaderClipDistance { get; set; }
+        public bool ShaderCullDistance { get; set; }
+        public bool ShaderFloat64 { get; set; }
+        public bool ShaderInt64 { get; set; }
+        public bool ShaderInt16 { get; set; }
+        public bool ShaderResourceResidency { get; set; }
+        public bool ShaderResourceMinLod { get; set; }
+        public bool SparseBinding { get; set; }
+        public bool SparseResidencyBuffer { get; set; }
+        public bool SparseResidencyImage2D { get; set; }
+        public bool SparseResidencyImage3D { get; set; }
+        public bool SparseResidency2Samples { get; set; }
+        public bool SparseResidency4Samples { get; set; }
+        public bool SparseResidency8Samples { get; set; }
+        public bool SparseResidency16Samples { get; set; }
+        public bool SparseResidencyAliased { get; set; }
+        public bool VariableMultisampleRate { get; set; }
+        public bool InheritedQueries { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures ToInternal()
         {
@@ -676,20 +381,9 @@ namespace AdamantiumVulkan.Core
             BufferFeatures = _internal.bufferFeatures;
         }
 
-        public uint LinearTilingFeatures
-        {
-            get; set;
-        }
-
-        public uint OptimalTilingFeatures
-        {
-            get; set;
-        }
-
-        public uint BufferFeatures
-        {
-            get; set;
-        }
+        public uint LinearTilingFeatures { get; set; }
+        public uint OptimalTilingFeatures { get; set; }
+        public uint BufferFeatures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFormatProperties ToInternal()
         {
@@ -714,20 +408,9 @@ namespace AdamantiumVulkan.Core
             Depth = _internal.depth;
         }
 
-        public uint Width
-        {
-            get; set;
-        }
-
-        public uint Height
-        {
-            get; set;
-        }
-
-        public uint Depth
-        {
-            get; set;
-        }
+        public uint Width { get; set; }
+        public uint Height { get; set; }
+        public uint Depth { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExtent3D ToInternal()
         {
@@ -754,30 +437,11 @@ namespace AdamantiumVulkan.Core
             MaxResourceSize = _internal.maxResourceSize;
         }
 
-        public Extent3D MaxExtent
-        {
-            get; set;
-        }
-
-        public uint MaxMipLevels
-        {
-            get; set;
-        }
-
-        public uint MaxArrayLayers
-        {
-            get; set;
-        }
-
-        public uint SampleCounts
-        {
-            get; set;
-        }
-
-        public ulong MaxResourceSize
-        {
-            get; set;
-        }
+        public Extent3D MaxExtent { get; set; }
+        public uint MaxMipLevels { get; set; }
+        public uint MaxArrayLayers { get; set; }
+        public uint SampleCounts { get; set; }
+        public ulong MaxResourceSize { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageFormatProperties ToInternal()
         {
@@ -958,535 +622,112 @@ namespace AdamantiumVulkan.Core
             NonCoherentAtomSize = _internal.nonCoherentAtomSize;
         }
 
-        public uint MaxImageDimension1D
-        {
-            get; set;
-        }
-
-        public uint MaxImageDimension2D
-        {
-            get; set;
-        }
-
-        public uint MaxImageDimension3D
-        {
-            get; set;
-        }
-
-        public uint MaxImageDimensionCube
-        {
-            get; set;
-        }
-
-        public uint MaxImageArrayLayers
-        {
-            get; set;
-        }
-
-        public uint MaxTexelBufferElements
-        {
-            get; set;
-        }
-
-        public uint MaxUniformBufferRange
-        {
-            get; set;
-        }
-
-        public uint MaxStorageBufferRange
-        {
-            get; set;
-        }
-
-        public uint MaxPushConstantsSize
-        {
-            get; set;
-        }
-
-        public uint MaxMemoryAllocationCount
-        {
-            get; set;
-        }
-
-        public uint MaxSamplerAllocationCount
-        {
-            get; set;
-        }
-
-        public ulong BufferImageGranularity
-        {
-            get; set;
-        }
-
-        public ulong SparseAddressSpaceSize
-        {
-            get; set;
-        }
-
-        public uint MaxBoundDescriptorSets
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorSamplers
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUniformBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorStorageBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorSampledImages
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorStorageImages
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorInputAttachments
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageResources
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetSamplers
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUniformBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUniformBuffersDynamic
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetStorageBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetStorageBuffersDynamic
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetSampledImages
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetStorageImages
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetInputAttachments
-        {
-            get; set;
-        }
-
-        public uint MaxVertexInputAttributes
-        {
-            get; set;
-        }
-
-        public uint MaxVertexInputBindings
-        {
-            get; set;
-        }
-
-        public uint MaxVertexInputAttributeOffset
-        {
-            get; set;
-        }
-
-        public uint MaxVertexInputBindingStride
-        {
-            get; set;
-        }
-
-        public uint MaxVertexOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationGenerationLevel
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationPatchSize
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationControlPerVertexInputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationControlPerVertexOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationControlPerPatchOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationControlTotalOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationEvaluationInputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxTessellationEvaluationOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxGeometryShaderInvocations
-        {
-            get; set;
-        }
-
-        public uint MaxGeometryInputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxGeometryOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxGeometryOutputVertices
-        {
-            get; set;
-        }
-
-        public uint MaxGeometryTotalOutputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxFragmentInputComponents
-        {
-            get; set;
-        }
-
-        public uint MaxFragmentOutputAttachments
-        {
-            get; set;
-        }
-
-        public uint MaxFragmentDualSrcAttachments
-        {
-            get; set;
-        }
-
-        public uint MaxFragmentCombinedOutputResources
-        {
-            get; set;
-        }
-
-        public uint MaxComputeSharedMemorySize
-        {
-            get; set;
-        }
-
-        public uint[] MaxComputeWorkGroupCount
-        {
-            get; set;
-        }
-
-        public uint MaxComputeWorkGroupInvocations
-        {
-            get; set;
-        }
-
-        public uint[] MaxComputeWorkGroupSize
-        {
-            get; set;
-        }
-
-        public uint SubPixelPrecisionBits
-        {
-            get; set;
-        }
-
-        public uint SubTexelPrecisionBits
-        {
-            get; set;
-        }
-
-        public uint MipmapPrecisionBits
-        {
-            get; set;
-        }
-
-        public uint MaxDrawIndexedIndexValue
-        {
-            get; set;
-        }
-
-        public uint MaxDrawIndirectCount
-        {
-            get; set;
-        }
-
-        public float MaxSamplerLodBias
-        {
-            get; set;
-        }
-
-        public float MaxSamplerAnisotropy
-        {
-            get; set;
-        }
-
-        public uint MaxViewports
-        {
-            get; set;
-        }
-
-        public uint[] MaxViewportDimensions
-        {
-            get; set;
-        }
-
-        public float[] ViewportBoundsRange
-        {
-            get; set;
-        }
-
-        public uint ViewportSubPixelBits
-        {
-            get; set;
-        }
-
-        public ulong MinMemoryMapAlignment
-        {
-            get; set;
-        }
-
-        public ulong MinTexelBufferOffsetAlignment
-        {
-            get; set;
-        }
-
-        public ulong MinUniformBufferOffsetAlignment
-        {
-            get; set;
-        }
-
-        public ulong MinStorageBufferOffsetAlignment
-        {
-            get; set;
-        }
-
-        public int MinTexelOffset
-        {
-            get; set;
-        }
-
-        public uint MaxTexelOffset
-        {
-            get; set;
-        }
-
-        public int MinTexelGatherOffset
-        {
-            get; set;
-        }
-
-        public uint MaxTexelGatherOffset
-        {
-            get; set;
-        }
-
-        public float MinInterpolationOffset
-        {
-            get; set;
-        }
-
-        public float MaxInterpolationOffset
-        {
-            get; set;
-        }
-
-        public uint SubPixelInterpolationOffsetBits
-        {
-            get; set;
-        }
-
-        public uint MaxFramebufferWidth
-        {
-            get; set;
-        }
-
-        public uint MaxFramebufferHeight
-        {
-            get; set;
-        }
-
-        public uint MaxFramebufferLayers
-        {
-            get; set;
-        }
-
-        public uint FramebufferColorSampleCounts
-        {
-            get; set;
-        }
-
-        public uint FramebufferDepthSampleCounts
-        {
-            get; set;
-        }
-
-        public uint FramebufferStencilSampleCounts
-        {
-            get; set;
-        }
-
-        public uint FramebufferNoAttachmentsSampleCounts
-        {
-            get; set;
-        }
-
-        public uint MaxColorAttachments
-        {
-            get; set;
-        }
-
-        public uint SampledImageColorSampleCounts
-        {
-            get; set;
-        }
-
-        public uint SampledImageIntegerSampleCounts
-        {
-            get; set;
-        }
-
-        public uint SampledImageDepthSampleCounts
-        {
-            get; set;
-        }
-
-        public uint SampledImageStencilSampleCounts
-        {
-            get; set;
-        }
-
-        public uint StorageImageSampleCounts
-        {
-            get; set;
-        }
-
-        public uint MaxSampleMaskWords
-        {
-            get; set;
-        }
-
-        public bool TimestampComputeAndGraphics
-        {
-            get; set;
-        }
-
-        public float TimestampPeriod
-        {
-            get; set;
-        }
-
-        public uint MaxClipDistances
-        {
-            get; set;
-        }
-
-        public uint MaxCullDistances
-        {
-            get; set;
-        }
-
-        public uint MaxCombinedClipAndCullDistances
-        {
-            get; set;
-        }
-
-        public uint DiscreteQueuePriorities
-        {
-            get; set;
-        }
-
-        public float[] PointSizeRange
-        {
-            get; set;
-        }
-
-        public float[] LineWidthRange
-        {
-            get; set;
-        }
-
-        public float PointSizeGranularity
-        {
-            get; set;
-        }
-
-        public float LineWidthGranularity
-        {
-            get; set;
-        }
-
-        public bool StrictLines
-        {
-            get; set;
-        }
-
-        public bool StandardSampleLocations
-        {
-            get; set;
-        }
-
-        public ulong OptimalBufferCopyOffsetAlignment
-        {
-            get; set;
-        }
-
-        public ulong OptimalBufferCopyRowPitchAlignment
-        {
-            get; set;
-        }
-
-        public ulong NonCoherentAtomSize
-        {
-            get; set;
-        }
+        public uint MaxImageDimension1D { get; set; }
+        public uint MaxImageDimension2D { get; set; }
+        public uint MaxImageDimension3D { get; set; }
+        public uint MaxImageDimensionCube { get; set; }
+        public uint MaxImageArrayLayers { get; set; }
+        public uint MaxTexelBufferElements { get; set; }
+        public uint MaxUniformBufferRange { get; set; }
+        public uint MaxStorageBufferRange { get; set; }
+        public uint MaxPushConstantsSize { get; set; }
+        public uint MaxMemoryAllocationCount { get; set; }
+        public uint MaxSamplerAllocationCount { get; set; }
+        public ulong BufferImageGranularity { get; set; }
+        public ulong SparseAddressSpaceSize { get; set; }
+        public uint MaxBoundDescriptorSets { get; set; }
+        public uint MaxPerStageDescriptorSamplers { get; set; }
+        public uint MaxPerStageDescriptorUniformBuffers { get; set; }
+        public uint MaxPerStageDescriptorStorageBuffers { get; set; }
+        public uint MaxPerStageDescriptorSampledImages { get; set; }
+        public uint MaxPerStageDescriptorStorageImages { get; set; }
+        public uint MaxPerStageDescriptorInputAttachments { get; set; }
+        public uint MaxPerStageResources { get; set; }
+        public uint MaxDescriptorSetSamplers { get; set; }
+        public uint MaxDescriptorSetUniformBuffers { get; set; }
+        public uint MaxDescriptorSetUniformBuffersDynamic { get; set; }
+        public uint MaxDescriptorSetStorageBuffers { get; set; }
+        public uint MaxDescriptorSetStorageBuffersDynamic { get; set; }
+        public uint MaxDescriptorSetSampledImages { get; set; }
+        public uint MaxDescriptorSetStorageImages { get; set; }
+        public uint MaxDescriptorSetInputAttachments { get; set; }
+        public uint MaxVertexInputAttributes { get; set; }
+        public uint MaxVertexInputBindings { get; set; }
+        public uint MaxVertexInputAttributeOffset { get; set; }
+        public uint MaxVertexInputBindingStride { get; set; }
+        public uint MaxVertexOutputComponents { get; set; }
+        public uint MaxTessellationGenerationLevel { get; set; }
+        public uint MaxTessellationPatchSize { get; set; }
+        public uint MaxTessellationControlPerVertexInputComponents { get; set; }
+        public uint MaxTessellationControlPerVertexOutputComponents { get; set; }
+        public uint MaxTessellationControlPerPatchOutputComponents { get; set; }
+        public uint MaxTessellationControlTotalOutputComponents { get; set; }
+        public uint MaxTessellationEvaluationInputComponents { get; set; }
+        public uint MaxTessellationEvaluationOutputComponents { get; set; }
+        public uint MaxGeometryShaderInvocations { get; set; }
+        public uint MaxGeometryInputComponents { get; set; }
+        public uint MaxGeometryOutputComponents { get; set; }
+        public uint MaxGeometryOutputVertices { get; set; }
+        public uint MaxGeometryTotalOutputComponents { get; set; }
+        public uint MaxFragmentInputComponents { get; set; }
+        public uint MaxFragmentOutputAttachments { get; set; }
+        public uint MaxFragmentDualSrcAttachments { get; set; }
+        public uint MaxFragmentCombinedOutputResources { get; set; }
+        public uint MaxComputeSharedMemorySize { get; set; }
+        public uint[] MaxComputeWorkGroupCount { get; set; }
+        public uint MaxComputeWorkGroupInvocations { get; set; }
+        public uint[] MaxComputeWorkGroupSize { get; set; }
+        public uint SubPixelPrecisionBits { get; set; }
+        public uint SubTexelPrecisionBits { get; set; }
+        public uint MipmapPrecisionBits { get; set; }
+        public uint MaxDrawIndexedIndexValue { get; set; }
+        public uint MaxDrawIndirectCount { get; set; }
+        public float MaxSamplerLodBias { get; set; }
+        public float MaxSamplerAnisotropy { get; set; }
+        public uint MaxViewports { get; set; }
+        public uint[] MaxViewportDimensions { get; set; }
+        public float[] ViewportBoundsRange { get; set; }
+        public uint ViewportSubPixelBits { get; set; }
+        public ulong MinMemoryMapAlignment { get; set; }
+        public ulong MinTexelBufferOffsetAlignment { get; set; }
+        public ulong MinUniformBufferOffsetAlignment { get; set; }
+        public ulong MinStorageBufferOffsetAlignment { get; set; }
+        public int MinTexelOffset { get; set; }
+        public uint MaxTexelOffset { get; set; }
+        public int MinTexelGatherOffset { get; set; }
+        public uint MaxTexelGatherOffset { get; set; }
+        public float MinInterpolationOffset { get; set; }
+        public float MaxInterpolationOffset { get; set; }
+        public uint SubPixelInterpolationOffsetBits { get; set; }
+        public uint MaxFramebufferWidth { get; set; }
+        public uint MaxFramebufferHeight { get; set; }
+        public uint MaxFramebufferLayers { get; set; }
+        public uint FramebufferColorSampleCounts { get; set; }
+        public uint FramebufferDepthSampleCounts { get; set; }
+        public uint FramebufferStencilSampleCounts { get; set; }
+        public uint FramebufferNoAttachmentsSampleCounts { get; set; }
+        public uint MaxColorAttachments { get; set; }
+        public uint SampledImageColorSampleCounts { get; set; }
+        public uint SampledImageIntegerSampleCounts { get; set; }
+        public uint SampledImageDepthSampleCounts { get; set; }
+        public uint SampledImageStencilSampleCounts { get; set; }
+        public uint StorageImageSampleCounts { get; set; }
+        public uint MaxSampleMaskWords { get; set; }
+        public bool TimestampComputeAndGraphics { get; set; }
+        public float TimestampPeriod { get; set; }
+        public uint MaxClipDistances { get; set; }
+        public uint MaxCullDistances { get; set; }
+        public uint MaxCombinedClipAndCullDistances { get; set; }
+        public uint DiscreteQueuePriorities { get; set; }
+        public float[] PointSizeRange { get; set; }
+        public float[] LineWidthRange { get; set; }
+        public float PointSizeGranularity { get; set; }
+        public float LineWidthGranularity { get; set; }
+        public bool StrictLines { get; set; }
+        public bool StandardSampleLocations { get; set; }
+        public ulong OptimalBufferCopyOffsetAlignment { get; set; }
+        public ulong OptimalBufferCopyRowPitchAlignment { get; set; }
+        public ulong NonCoherentAtomSize { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits ToInternal()
         {
@@ -1712,30 +953,11 @@ namespace AdamantiumVulkan.Core
             ResidencyNonResidentStrict = _internal.residencyNonResidentStrict;
         }
 
-        public bool ResidencyStandard2DBlockShape
-        {
-            get; set;
-        }
-
-        public bool ResidencyStandard2DMultisampleBlockShape
-        {
-            get; set;
-        }
-
-        public bool ResidencyStandard3DBlockShape
-        {
-            get; set;
-        }
-
-        public bool ResidencyAlignedMipSize
-        {
-            get; set;
-        }
-
-        public bool ResidencyNonResidentStrict
-        {
-            get; set;
-        }
+        public bool ResidencyStandard2DBlockShape { get; set; }
+        public bool ResidencyStandard2DMultisampleBlockShape { get; set; }
+        public bool ResidencyStandard3DBlockShape { get; set; }
+        public bool ResidencyAlignedMipSize { get; set; }
+        public bool ResidencyNonResidentStrict { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties ToInternal()
         {
@@ -1784,50 +1006,15 @@ namespace AdamantiumVulkan.Core
             SparseProperties = new PhysicalDeviceSparseProperties(_internal.sparseProperties);
         }
 
-        public uint ApiVersion
-        {
-            get; set;
-        }
-
-        public uint DriverVersion
-        {
-            get; set;
-        }
-
-        public uint VendorID
-        {
-            get; set;
-        }
-
-        public uint DeviceID
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceType DeviceType
-        {
-            get; set;
-        }
-
-        public string DeviceName
-        {
-            get; set;
-        }
-
-        public string PipelineCacheUUID
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceLimits Limits
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceSparseProperties SparseProperties
-        {
-            get; set;
-        }
+        public uint ApiVersion { get; set; }
+        public uint DriverVersion { get; set; }
+        public uint VendorID { get; set; }
+        public uint DeviceID { get; set; }
+        public PhysicalDeviceType DeviceType { get; set; }
+        public string DeviceName { get; set; }
+        public string PipelineCacheUUID { get; set; }
+        public PhysicalDeviceLimits Limits { get; set; }
+        public PhysicalDeviceSparseProperties SparseProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties ToInternal()
         {
@@ -1897,25 +1084,10 @@ namespace AdamantiumVulkan.Core
             MinImageTransferGranularity = new Extent3D(_internal.minImageTransferGranularity);
         }
 
-        public uint QueueFlags
-        {
-            get; set;
-        }
-
-        public uint QueueCount
-        {
-            get; set;
-        }
-
-        public uint TimestampValidBits
-        {
-            get; set;
-        }
-
-        public Extent3D MinImageTransferGranularity
-        {
-            get; set;
-        }
+        public uint QueueFlags { get; set; }
+        public uint QueueCount { get; set; }
+        public uint TimestampValidBits { get; set; }
+        public Extent3D MinImageTransferGranularity { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties ToInternal()
         {
@@ -1943,15 +1115,8 @@ namespace AdamantiumVulkan.Core
             HeapIndex = _internal.heapIndex;
         }
 
-        public uint PropertyFlags
-        {
-            get; set;
-        }
-
-        public uint HeapIndex
-        {
-            get; set;
-        }
+        public uint PropertyFlags { get; set; }
+        public uint HeapIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryType ToInternal()
         {
@@ -1974,15 +1139,8 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
         }
 
-        public ulong Size
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
+        public ulong Size { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryHeap ToInternal()
         {
@@ -2015,25 +1173,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public uint MemoryTypeCount
-        {
-            get; set;
-        }
-
-        public MemoryType[] MemoryTypes
-        {
-            get; set;
-        }
-
-        public uint MemoryHeapCount
-        {
-            get; set;
-        }
-
-        public MemoryHeap[] MemoryHeaps
-        {
-            get; set;
-        }
+        public uint MemoryTypeCount { get; set; }
+        public MemoryType[] MemoryTypes { get; set; }
+        public uint MemoryHeapCount { get; set; }
+        public MemoryHeap[] MemoryHeaps { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties ToInternal()
         {
@@ -2076,7 +1219,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceQueueCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             QueueFamilyIndex = _internal.queueFamilyIndex;
@@ -2088,40 +1230,12 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndex
-        {
-            get; set;
-        }
-
-        public uint QueueCount
-        {
-            get; set;
-        }
-
-        public float? PQueuePriorities
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceQueueCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint QueueFamilyIndex { get; set; }
+        public uint QueueCount { get; set; }
+        public float? PQueuePriorities { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo ToInternal()
         {
@@ -2139,6 +1253,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpQueuePriorities?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceCreateInfo : DisposableObject
@@ -2157,7 +1278,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             QueueCreateInfoCount = _internal.queueCreateInfoCount;
@@ -2170,62 +1290,16 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pEnabledFeatures);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint QueueCreateInfoCount
-        {
-            get; set;
-        }
-
-        public DeviceQueueCreateInfo[] PQueueCreateInfos
-        {
-            get; set;
-        }
-
-        public uint EnabledLayerCount
-        {
-            get; set;
-        }
-
-        public string[] PpEnabledLayerNames
-        {
-            get; set;
-        }
-
-        public uint EnabledExtensionCount
-        {
-            get; set;
-        }
-
-        public string[] PpEnabledExtensionNames
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceFeatures PEnabledFeatures
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refppEnabledLayerNames?.Dispose();
-            refppEnabledExtensionNames?.Dispose();
-            refpEnabledFeatures?.Dispose();
-        }
+        public StructureType SType => StructureType.DeviceCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint QueueCreateInfoCount { get; set; }
+        public DeviceQueueCreateInfo[] PQueueCreateInfos { get; set; }
+        public uint EnabledLayerCount { get; set; }
+        public string[] PpEnabledLayerNames { get; set; }
+        public uint EnabledExtensionCount { get; set; }
+        public string[] PpEnabledExtensionNames { get; set; }
+        public PhysicalDeviceFeatures PEnabledFeatures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo ToInternal()
         {
@@ -2268,6 +1342,16 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpQueueCreateInfos?.Dispose();
+            refppEnabledLayerNames?.Dispose();
+            refppEnabledExtensionNames?.Dispose();
+            refpEnabledFeatures?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExtensionProperties
@@ -2290,15 +1374,8 @@ namespace AdamantiumVulkan.Core
             SpecVersion = _internal.specVersion;
         }
 
-        public string ExtensionName
-        {
-            get; set;
-        }
-
-        public uint SpecVersion
-        {
-            get; set;
-        }
+        public string ExtensionName { get; set; }
+        public uint SpecVersion { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExtensionProperties ToInternal()
         {
@@ -2355,25 +1432,10 @@ namespace AdamantiumVulkan.Core
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
         }
 
-        public string LayerName
-        {
-            get; set;
-        }
-
-        public uint SpecVersion
-        {
-            get; set;
-        }
-
-        public uint ImplementationVersion
-        {
-            get; set;
-        }
-
-        public string Description
-        {
-            get; set;
-        }
+        public string LayerName { get; set; }
+        public uint SpecVersion { get; set; }
+        public uint ImplementationVersion { get; set; }
+        public string Description { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkLayerProperties ToInternal()
         {
@@ -2434,7 +1496,6 @@ namespace AdamantiumVulkan.Core
 
         public SubmitInfo(AdamantiumVulkan.Core.Interop.VkSubmitInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             WaitSemaphoreCount = _internal.waitSemaphoreCount;
             PWaitSemaphores = new Semaphore[_internal.waitSemaphoreCount];
@@ -2450,57 +1511,15 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSignalSemaphores);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint WaitSemaphoreCount
-        {
-            get; set;
-        }
-
-        public Semaphore[] PWaitSemaphores
-        {
-            get; set;
-        }
-
-        public uint[] PWaitDstStageMask
-        {
-            get; set;
-        }
-
-        public uint CommandBufferCount
-        {
-            get; set;
-        }
-
-        public CommandBuffer[] PCommandBuffers
-        {
-            get; set;
-        }
-
-        public uint SignalSemaphoreCount
-        {
-            get; set;
-        }
-
-        public Semaphore[] PSignalSemaphores
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpWaitDstStageMask?.Dispose();
-            refpCommandBuffers?.Dispose();
-            refpSignalSemaphores?.Dispose();
-        }
+        public StructureType SType => StructureType.SubmitInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint WaitSemaphoreCount { get; set; }
+        public Semaphore[] PWaitSemaphores { get; set; }
+        public uint[] PWaitDstStageMask { get; set; }
+        public uint CommandBufferCount { get; set; }
+        public CommandBuffer[] PCommandBuffers { get; set; }
+        public uint SignalSemaphoreCount { get; set; }
+        public Semaphore[] PSignalSemaphores { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubmitInfo ToInternal()
         {
@@ -2556,6 +1575,16 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpWaitSemaphores?.Dispose();
+            refpWaitDstStageMask?.Dispose();
+            refpCommandBuffers?.Dispose();
+            refpSignalSemaphores?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryAllocateInfo : DisposableObject
@@ -2566,36 +1595,15 @@ namespace AdamantiumVulkan.Core
 
         public MemoryAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AllocationSize = _internal.allocationSize;
             MemoryTypeIndex = _internal.memoryTypeIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong AllocationSize
-        {
-            get; set;
-        }
-
-        public uint MemoryTypeIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryAllocateInfo;
+        public System.IntPtr PNext { get; set; }
+        public ulong AllocationSize { get; set; }
+        public uint MemoryTypeIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo ToInternal()
         {
@@ -2606,6 +1614,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeIndex = MemoryTypeIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MappedMemoryRange : DisposableObject
@@ -2616,42 +1630,17 @@ namespace AdamantiumVulkan.Core
 
         public MappedMemoryRange(AdamantiumVulkan.Core.Interop.VkMappedMemoryRange _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Memory = new DeviceMemory(_internal.memory);
             Offset = _internal.offset;
             Size = _internal.size;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MappedMemoryRange;
+        public System.IntPtr PNext { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ulong Offset { get; set; }
+        public ulong Size { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMappedMemoryRange ToInternal()
         {
@@ -2663,6 +1652,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryRequirements
@@ -2678,20 +1673,9 @@ namespace AdamantiumVulkan.Core
             MemoryTypeBits = _internal.memoryTypeBits;
         }
 
-        public ulong Size
-        {
-            get; set;
-        }
-
-        public ulong Alignment
-        {
-            get; set;
-        }
-
-        public uint MemoryTypeBits
-        {
-            get; set;
-        }
+        public ulong Size { get; set; }
+        public ulong Alignment { get; set; }
+        public uint MemoryTypeBits { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryRequirements ToInternal()
         {
@@ -2716,20 +1700,9 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
         }
 
-        public uint AspectMask
-        {
-            get; set;
-        }
-
-        public Extent3D ImageGranularity
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
+        public uint AspectMask { get; set; }
+        public Extent3D ImageGranularity { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties ToInternal()
         {
@@ -2759,30 +1732,11 @@ namespace AdamantiumVulkan.Core
             ImageMipTailStride = _internal.imageMipTailStride;
         }
 
-        public SparseImageFormatProperties FormatProperties
-        {
-            get; set;
-        }
-
-        public uint ImageMipTailFirstLod
-        {
-            get; set;
-        }
-
-        public ulong ImageMipTailSize
-        {
-            get; set;
-        }
-
-        public ulong ImageMipTailOffset
-        {
-            get; set;
-        }
-
-        public ulong ImageMipTailStride
-        {
-            get; set;
-        }
+        public SparseImageFormatProperties FormatProperties { get; set; }
+        public uint ImageMipTailFirstLod { get; set; }
+        public ulong ImageMipTailSize { get; set; }
+        public ulong ImageMipTailOffset { get; set; }
+        public ulong ImageMipTailStride { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements ToInternal()
         {
@@ -2814,30 +1768,11 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
         }
 
-        public ulong ResourceOffset
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ulong MemoryOffset
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
+        public ulong ResourceOffset { get; set; }
+        public ulong Size { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ulong MemoryOffset { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseMemoryBind ToInternal()
         {
@@ -2867,25 +1802,9 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pBinds);
         }
 
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public uint BindCount
-        {
-            get; set;
-        }
-
-        public SparseMemoryBind PBinds
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public Buffer Buffer { get; set; }
+        public uint BindCount { get; set; }
+        public SparseMemoryBind PBinds { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo ToInternal()
         {
@@ -2901,6 +1820,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpBinds?.Dispose();
+        }
+
     }
 
     public partial class SparseImageOpaqueMemoryBindInfo : DisposableObject
@@ -2919,25 +1844,9 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pBinds);
         }
 
-        public Image Image
-        {
-            get; set;
-        }
-
-        public uint BindCount
-        {
-            get; set;
-        }
-
-        public SparseMemoryBind PBinds
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public Image Image { get; set; }
+        public uint BindCount { get; set; }
+        public SparseMemoryBind PBinds { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo ToInternal()
         {
@@ -2953,6 +1862,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpBinds?.Dispose();
+        }
+
     }
 
     public partial class ImageSubresource
@@ -2968,20 +1883,9 @@ namespace AdamantiumVulkan.Core
             ArrayLayer = _internal.arrayLayer;
         }
 
-        public uint AspectMask
-        {
-            get; set;
-        }
-
-        public uint MipLevel
-        {
-            get; set;
-        }
-
-        public uint ArrayLayer
-        {
-            get; set;
-        }
+        public uint AspectMask { get; set; }
+        public uint MipLevel { get; set; }
+        public uint ArrayLayer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageSubresource ToInternal()
         {
@@ -3006,20 +1910,9 @@ namespace AdamantiumVulkan.Core
             Z = _internal.z;
         }
 
-        public int X
-        {
-            get; set;
-        }
-
-        public int Y
-        {
-            get; set;
-        }
-
-        public int Z
-        {
-            get; set;
-        }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkOffset3D ToInternal()
         {
@@ -3047,35 +1940,12 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
         }
 
-        public ImageSubresource Subresource
-        {
-            get; set;
-        }
-
-        public Offset3D Offset
-        {
-            get; set;
-        }
-
-        public Extent3D Extent
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ulong MemoryOffset
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
+        public ImageSubresource Subresource { get; set; }
+        public Offset3D Offset { get; set; }
+        public Extent3D Extent { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ulong MemoryOffset { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind ToInternal()
         {
@@ -3115,25 +1985,9 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pBinds);
         }
 
-        public Image Image
-        {
-            get; set;
-        }
-
-        public uint BindCount
-        {
-            get; set;
-        }
-
-        public SparseImageMemoryBind PBinds
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public Image Image { get; set; }
+        public uint BindCount { get; set; }
+        public SparseImageMemoryBind PBinds { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo ToInternal()
         {
@@ -3149,6 +2003,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpBinds?.Dispose();
+        }
+
     }
 
     public partial class BindSparseInfo : DisposableObject
@@ -3169,7 +2029,6 @@ namespace AdamantiumVulkan.Core
 
         public BindSparseInfo(AdamantiumVulkan.Core.Interop.VkBindSparseInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             WaitSemaphoreCount = _internal.waitSemaphoreCount;
             PWaitSemaphores = new Semaphore(Marshal.PtrToStructure<Semaphore>(_internal.pWaitSemaphores));
@@ -3188,73 +2047,18 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSignalSemaphores);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint WaitSemaphoreCount
-        {
-            get; set;
-        }
-
-        public Semaphore PWaitSemaphores
-        {
-            get; set;
-        }
-
-        public uint BufferBindCount
-        {
-            get; set;
-        }
-
-        public SparseBufferMemoryBindInfo PBufferBinds
-        {
-            get; set;
-        }
-
-        public uint ImageOpaqueBindCount
-        {
-            get; set;
-        }
-
-        public SparseImageOpaqueMemoryBindInfo PImageOpaqueBinds
-        {
-            get; set;
-        }
-
-        public uint ImageBindCount
-        {
-            get; set;
-        }
-
-        public SparseImageMemoryBindInfo PImageBinds
-        {
-            get; set;
-        }
-
-        public uint SignalSemaphoreCount
-        {
-            get; set;
-        }
-
-        public Semaphore PSignalSemaphores
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpBufferBinds?.Dispose();
-            refpImageOpaqueBinds?.Dispose();
-            refpImageBinds?.Dispose();
-            refpSignalSemaphores?.Dispose();
-        }
+        public StructureType SType => StructureType.BindSparseInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint WaitSemaphoreCount { get; set; }
+        public Semaphore PWaitSemaphores { get; set; }
+        public uint BufferBindCount { get; set; }
+        public SparseBufferMemoryBindInfo PBufferBinds { get; set; }
+        public uint ImageOpaqueBindCount { get; set; }
+        public SparseImageOpaqueMemoryBindInfo PImageOpaqueBinds { get; set; }
+        public uint ImageBindCount { get; set; }
+        public SparseImageMemoryBindInfo PImageBinds { get; set; }
+        public uint SignalSemaphoreCount { get; set; }
+        public Semaphore PSignalSemaphores { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindSparseInfo ToInternal()
         {
@@ -3303,6 +2107,17 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpWaitSemaphores?.Dispose();
+            refpBufferBinds?.Dispose();
+            refpImageOpaqueBinds?.Dispose();
+            refpImageBinds?.Dispose();
+            refpSignalSemaphores?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class FenceCreateInfo : DisposableObject
@@ -3313,30 +2128,13 @@ namespace AdamantiumVulkan.Core
 
         public FenceCreateInfo(AdamantiumVulkan.Core.Interop.VkFenceCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.FenceCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFenceCreateInfo ToInternal()
         {
@@ -3346,6 +2144,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SemaphoreCreateInfo : DisposableObject
@@ -3356,30 +2160,13 @@ namespace AdamantiumVulkan.Core
 
         public SemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SemaphoreCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo ToInternal()
         {
@@ -3389,6 +2176,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class EventCreateInfo : DisposableObject
@@ -3399,30 +2192,13 @@ namespace AdamantiumVulkan.Core
 
         public EventCreateInfo(AdamantiumVulkan.Core.Interop.VkEventCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.EventCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkEventCreateInfo ToInternal()
         {
@@ -3432,6 +2208,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class QueryPoolCreateInfo : DisposableObject
@@ -3442,7 +2224,6 @@ namespace AdamantiumVulkan.Core
 
         public QueryPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             QueryType = _internal.queryType;
@@ -3450,40 +2231,12 @@ namespace AdamantiumVulkan.Core
             PipelineStatistics = _internal.pipelineStatistics;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public QueryType QueryType
-        {
-            get; set;
-        }
-
-        public uint QueryCount
-        {
-            get; set;
-        }
-
-        public uint PipelineStatistics
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.QueryPoolCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public QueryType QueryType { get; set; }
+        public uint QueryCount { get; set; }
+        public uint PipelineStatistics { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo ToInternal()
         {
@@ -3496,6 +2249,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferCreateInfo : DisposableObject
@@ -3508,7 +2267,6 @@ namespace AdamantiumVulkan.Core
 
         public BufferCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Size = _internal.size;
@@ -3522,50 +2280,14 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
-
-        public uint Usage
-        {
-            get; set;
-        }
-
-        public SharingMode SharingMode
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndexCount
-        {
-            get; set;
-        }
-
-        public uint? PQueueFamilyIndices
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BufferCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ulong Size { get; set; }
+        public uint Usage { get; set; }
+        public SharingMode SharingMode { get; set; }
+        public uint QueueFamilyIndexCount { get; set; }
+        public uint? PQueueFamilyIndices { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferCreateInfo ToInternal()
         {
@@ -3585,6 +2307,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpQueueFamilyIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferViewCreateInfo : DisposableObject
@@ -3595,7 +2324,6 @@ namespace AdamantiumVulkan.Core
 
         public BufferViewCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Buffer = new Buffer(_internal.buffer);
@@ -3604,45 +2332,13 @@ namespace AdamantiumVulkan.Core
             Range = _internal.range;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public ulong Range
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BufferViewCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public Buffer Buffer { get; set; }
+        public Format Format { get; set; }
+        public ulong Offset { get; set; }
+        public ulong Range { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo ToInternal()
         {
@@ -3656,6 +2352,12 @@ namespace AdamantiumVulkan.Core
             _internal.range = Range;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageCreateInfo : DisposableObject
@@ -3668,7 +2370,6 @@ namespace AdamantiumVulkan.Core
 
         public ImageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             ImageType = _internal.imageType;
@@ -3689,85 +2390,21 @@ namespace AdamantiumVulkan.Core
             InitialLayout = _internal.initialLayout;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ImageType ImageType
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public Extent3D Extent
-        {
-            get; set;
-        }
-
-        public uint MipLevels
-        {
-            get; set;
-        }
-
-        public uint ArrayLayers
-        {
-            get; set;
-        }
-
-        public SampleCountFlagBits Samples
-        {
-            get; set;
-        }
-
-        public ImageTiling Tiling
-        {
-            get; set;
-        }
-
-        public uint Usage
-        {
-            get; set;
-        }
-
-        public SharingMode SharingMode
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndexCount
-        {
-            get; set;
-        }
-
-        public uint? PQueueFamilyIndices
-        {
-            get; set;
-        }
-
-        public ImageLayout InitialLayout
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ImageType ImageType { get; set; }
+        public Format Format { get; set; }
+        public Extent3D Extent { get; set; }
+        public uint MipLevels { get; set; }
+        public uint ArrayLayers { get; set; }
+        public SampleCountFlagBits Samples { get; set; }
+        public ImageTiling Tiling { get; set; }
+        public uint Usage { get; set; }
+        public SharingMode SharingMode { get; set; }
+        public uint QueueFamilyIndexCount { get; set; }
+        public uint? PQueueFamilyIndices { get; set; }
+        public ImageLayout InitialLayout { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageCreateInfo ToInternal()
         {
@@ -3797,6 +2434,13 @@ namespace AdamantiumVulkan.Core
             _internal.initialLayout = InitialLayout;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpQueueFamilyIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SubresourceLayout
@@ -3814,30 +2458,11 @@ namespace AdamantiumVulkan.Core
             DepthPitch = _internal.depthPitch;
         }
 
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
-
-        public ulong RowPitch
-        {
-            get; set;
-        }
-
-        public ulong ArrayPitch
-        {
-            get; set;
-        }
-
-        public ulong DepthPitch
-        {
-            get; set;
-        }
+        public ulong Offset { get; set; }
+        public ulong Size { get; set; }
+        public ulong RowPitch { get; set; }
+        public ulong ArrayPitch { get; set; }
+        public ulong DepthPitch { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubresourceLayout ToInternal()
         {
@@ -3865,25 +2490,10 @@ namespace AdamantiumVulkan.Core
             A = _internal.a;
         }
 
-        public ComponentSwizzle R
-        {
-            get; set;
-        }
-
-        public ComponentSwizzle G
-        {
-            get; set;
-        }
-
-        public ComponentSwizzle B
-        {
-            get; set;
-        }
-
-        public ComponentSwizzle A
-        {
-            get; set;
-        }
+        public ComponentSwizzle R { get; set; }
+        public ComponentSwizzle G { get; set; }
+        public ComponentSwizzle B { get; set; }
+        public ComponentSwizzle A { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkComponentMapping ToInternal()
         {
@@ -3911,30 +2521,11 @@ namespace AdamantiumVulkan.Core
             LayerCount = _internal.layerCount;
         }
 
-        public uint AspectMask
-        {
-            get; set;
-        }
-
-        public uint BaseMipLevel
-        {
-            get; set;
-        }
-
-        public uint LevelCount
-        {
-            get; set;
-        }
-
-        public uint BaseArrayLayer
-        {
-            get; set;
-        }
-
-        public uint LayerCount
-        {
-            get; set;
-        }
+        public uint AspectMask { get; set; }
+        public uint BaseMipLevel { get; set; }
+        public uint LevelCount { get; set; }
+        public uint BaseArrayLayer { get; set; }
+        public uint LayerCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageSubresourceRange ToInternal()
         {
@@ -3956,7 +2547,6 @@ namespace AdamantiumVulkan.Core
 
         public ImageViewCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Image = new Image(_internal.image);
@@ -3966,50 +2556,14 @@ namespace AdamantiumVulkan.Core
             SubresourceRange = new ImageSubresourceRange(_internal.subresourceRange);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        public ImageViewType ViewType
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public ComponentMapping Components
-        {
-            get; set;
-        }
-
-        public ImageSubresourceRange SubresourceRange
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageViewCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public Image Image { get; set; }
+        public ImageViewType ViewType { get; set; }
+        public Format Format { get; set; }
+        public ComponentMapping Components { get; set; }
+        public ImageSubresourceRange SubresourceRange { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo ToInternal()
         {
@@ -4030,6 +2584,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ShaderModuleCreateInfo : DisposableObject
@@ -4042,7 +2602,6 @@ namespace AdamantiumVulkan.Core
 
         public ShaderModuleCreateInfo(AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             CodeSize = _internal.codeSize;
@@ -4051,35 +2610,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pCode);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ulong CodeSize
-        {
-            get; set;
-        }
-
-        public byte[] PCode
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ShaderModuleCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ulong CodeSize { get; set; }
+        public byte[] PCode { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo ToInternal()
         {
@@ -4101,6 +2636,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpCode?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineCacheCreateInfo : DisposableObject
@@ -4111,42 +2653,17 @@ namespace AdamantiumVulkan.Core
 
         public PipelineCacheCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             InitialDataSize = _internal.initialDataSize;
             PInitialData = _internal.pInitialData;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ulong InitialDataSize
-        {
-            get; set;
-        }
-
-        public System.IntPtr PInitialData
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineCacheCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ulong InitialDataSize { get; set; }
+        public System.IntPtr PInitialData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo ToInternal()
         {
@@ -4158,6 +2675,13 @@ namespace AdamantiumVulkan.Core
             _internal.pInitialData = PInitialData;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PInitialData);
+        }
+
     }
 
     public partial class SpecializationMapEntry
@@ -4173,20 +2697,9 @@ namespace AdamantiumVulkan.Core
             Size = _internal.size;
         }
 
-        public uint ConstantID
-        {
-            get; set;
-        }
-
-        public uint Offset
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
+        public uint ConstantID { get; set; }
+        public uint Offset { get; set; }
+        public ulong Size { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry ToInternal()
         {
@@ -4215,30 +2728,10 @@ namespace AdamantiumVulkan.Core
             PData = _internal.pData;
         }
 
-        public uint MapEntryCount
-        {
-            get; set;
-        }
-
-        public SpecializationMapEntry PMapEntries
-        {
-            get; set;
-        }
-
-        public ulong DataSize
-        {
-            get; set;
-        }
-
-        public System.IntPtr PData
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public uint MapEntryCount { get; set; }
+        public SpecializationMapEntry PMapEntries { get; set; }
+        public ulong DataSize { get; set; }
+        public System.IntPtr PData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSpecializationInfo ToInternal()
         {
@@ -4255,6 +2748,13 @@ namespace AdamantiumVulkan.Core
             _internal.pData = PData;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpMapEntries?.Dispose();
+            Marshal.FreeHGlobal(PData);
+        }
+
     }
 
     public partial class PipelineShaderStageCreateInfo : DisposableObject
@@ -4269,7 +2769,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineShaderStageCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Stage = _internal.stage;
@@ -4279,45 +2778,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSpecializationInfo);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ShaderStageFlagBits Stage
-        {
-            get; set;
-        }
-
-        public ShaderModule Module
-        {
-            get; set;
-        }
-
-        public string PName
-        {
-            get; set;
-        }
-
-        public SpecializationInfo PSpecializationInfo
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpSpecializationInfo?.Dispose();
-        }
+        public StructureType SType => StructureType.PipelineShaderStageCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ShaderStageFlagBits Stage { get; set; }
+        public ShaderModule Module { get; set; }
+        public string PName { get; set; }
+        public SpecializationInfo PSpecializationInfo { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo ToInternal()
         {
@@ -4342,6 +2809,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpName?.Dispose();
+            refpSpecializationInfo?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class VertexInputBindingDescription
@@ -4357,20 +2832,9 @@ namespace AdamantiumVulkan.Core
             InputRate = _internal.inputRate;
         }
 
-        public uint Binding
-        {
-            get; set;
-        }
-
-        public uint Stride
-        {
-            get; set;
-        }
-
-        public VertexInputRate InputRate
-        {
-            get; set;
-        }
+        public uint Binding { get; set; }
+        public uint Stride { get; set; }
+        public VertexInputRate InputRate { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription ToInternal()
         {
@@ -4396,25 +2860,10 @@ namespace AdamantiumVulkan.Core
             Offset = _internal.offset;
         }
 
-        public uint Location
-        {
-            get; set;
-        }
-
-        public uint Binding
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public uint Offset
-        {
-            get; set;
-        }
+        public uint Location { get; set; }
+        public uint Binding { get; set; }
+        public Format Format { get; set; }
+        public uint Offset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription ToInternal()
         {
@@ -4439,7 +2888,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineVertexInputStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             VertexBindingDescriptionCount = _internal.vertexBindingDescriptionCount;
@@ -4452,45 +2900,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pVertexAttributeDescriptions);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint VertexBindingDescriptionCount
-        {
-            get; set;
-        }
-
-        public VertexInputBindingDescription[] PVertexBindingDescriptions
-        {
-            get; set;
-        }
-
-        public uint VertexAttributeDescriptionCount
-        {
-            get; set;
-        }
-
-        public VertexInputAttributeDescription[] PVertexAttributeDescriptions
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpVertexAttributeDescriptions?.Dispose();
-        }
+        public StructureType SType => StructureType.PipelineVertexInputStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint VertexBindingDescriptionCount { get; set; }
+        public VertexInputBindingDescription[] PVertexBindingDescriptions { get; set; }
+        public uint VertexAttributeDescriptionCount { get; set; }
+        public VertexInputAttributeDescription[] PVertexAttributeDescriptions { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo ToInternal()
         {
@@ -4524,6 +2940,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpVertexBindingDescriptions?.Dispose();
+            refpVertexAttributeDescriptions?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineInputAssemblyStateCreateInfo : DisposableObject
@@ -4534,42 +2958,17 @@ namespace AdamantiumVulkan.Core
 
         public PipelineInputAssemblyStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Topology = _internal.topology;
             PrimitiveRestartEnable = _internal.primitiveRestartEnable;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PrimitiveTopology Topology
-        {
-            get; set;
-        }
-
-        public bool PrimitiveRestartEnable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineInputAssemblyStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public PrimitiveTopology Topology { get; set; }
+        public bool PrimitiveRestartEnable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo ToInternal()
         {
@@ -4581,6 +2980,12 @@ namespace AdamantiumVulkan.Core
             _internal.primitiveRestartEnable = PrimitiveRestartEnable;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineTessellationStateCreateInfo : DisposableObject
@@ -4591,36 +2996,15 @@ namespace AdamantiumVulkan.Core
 
         public PipelineTessellationStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             PatchControlPoints = _internal.patchControlPoints;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint PatchControlPoints
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineTessellationStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint PatchControlPoints { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo ToInternal()
         {
@@ -4631,6 +3015,12 @@ namespace AdamantiumVulkan.Core
             _internal.patchControlPoints = PatchControlPoints;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class Viewport
@@ -4649,35 +3039,12 @@ namespace AdamantiumVulkan.Core
             MaxDepth = _internal.maxDepth;
         }
 
-        public float X
-        {
-            get; set;
-        }
-
-        public float Y
-        {
-            get; set;
-        }
-
-        public float Width
-        {
-            get; set;
-        }
-
-        public float Height
-        {
-            get; set;
-        }
-
-        public float MinDepth
-        {
-            get; set;
-        }
-
-        public float MaxDepth
-        {
-            get; set;
-        }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Width { get; set; }
+        public float Height { get; set; }
+        public float MinDepth { get; set; }
+        public float MaxDepth { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkViewport ToInternal()
         {
@@ -4704,15 +3071,8 @@ namespace AdamantiumVulkan.Core
             Y = _internal.y;
         }
 
-        public int X
-        {
-            get; set;
-        }
-
-        public int Y
-        {
-            get; set;
-        }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkOffset2D ToInternal()
         {
@@ -4735,15 +3095,8 @@ namespace AdamantiumVulkan.Core
             Height = _internal.height;
         }
 
-        public uint Width
-        {
-            get; set;
-        }
-
-        public uint Height
-        {
-            get; set;
-        }
+        public uint Width { get; set; }
+        public uint Height { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExtent2D ToInternal()
         {
@@ -4766,15 +3119,8 @@ namespace AdamantiumVulkan.Core
             Extent = new Extent2D(_internal.extent);
         }
 
-        public Offset2D Offset
-        {
-            get; set;
-        }
-
-        public Extent2D Extent
-        {
-            get; set;
-        }
+        public Offset2D Offset { get; set; }
+        public Extent2D Extent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRect2D ToInternal()
         {
@@ -4803,7 +3149,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineViewportStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             ViewportCount = _internal.viewportCount;
@@ -4814,45 +3159,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pScissors);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint ViewportCount
-        {
-            get; set;
-        }
-
-        public Viewport PViewports
-        {
-            get; set;
-        }
-
-        public uint ScissorCount
-        {
-            get; set;
-        }
-
-        public Rect2D PScissors
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpScissors?.Dispose();
-        }
+        public StructureType SType => StructureType.PipelineViewportStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint ViewportCount { get; set; }
+        public Viewport PViewports { get; set; }
+        public uint ScissorCount { get; set; }
+        public Rect2D PScissors { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo ToInternal()
         {
@@ -4878,6 +3191,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpViewports?.Dispose();
+            refpScissors?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineRasterizationStateCreateInfo : DisposableObject
@@ -4888,7 +3209,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRasterizationStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DepthClampEnable = _internal.depthClampEnable;
@@ -4903,75 +3223,19 @@ namespace AdamantiumVulkan.Core
             LineWidth = _internal.lineWidth;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public bool DepthClampEnable
-        {
-            get; set;
-        }
-
-        public bool RasterizerDiscardEnable
-        {
-            get; set;
-        }
-
-        public PolygonMode PolygonMode
-        {
-            get; set;
-        }
-
-        public uint CullMode
-        {
-            get; set;
-        }
-
-        public FrontFace FrontFace
-        {
-            get; set;
-        }
-
-        public bool DepthBiasEnable
-        {
-            get; set;
-        }
-
-        public float DepthBiasConstantFactor
-        {
-            get; set;
-        }
-
-        public float DepthBiasClamp
-        {
-            get; set;
-        }
-
-        public float DepthBiasSlopeFactor
-        {
-            get; set;
-        }
-
-        public float LineWidth
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineRasterizationStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public bool DepthClampEnable { get; set; }
+        public bool RasterizerDiscardEnable { get; set; }
+        public PolygonMode PolygonMode { get; set; }
+        public uint CullMode { get; set; }
+        public FrontFace FrontFace { get; set; }
+        public bool DepthBiasEnable { get; set; }
+        public float DepthBiasConstantFactor { get; set; }
+        public float DepthBiasClamp { get; set; }
+        public float DepthBiasSlopeFactor { get; set; }
+        public float LineWidth { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo ToInternal()
         {
@@ -4991,6 +3255,12 @@ namespace AdamantiumVulkan.Core
             _internal.lineWidth = LineWidth;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineMultisampleStateCreateInfo : DisposableObject
@@ -5003,7 +3273,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineMultisampleStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             RasterizationSamples = _internal.rasterizationSamples;
@@ -5018,55 +3287,15 @@ namespace AdamantiumVulkan.Core
             AlphaToOneEnable = _internal.alphaToOneEnable;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public SampleCountFlagBits RasterizationSamples
-        {
-            get; set;
-        }
-
-        public bool SampleShadingEnable
-        {
-            get; set;
-        }
-
-        public float MinSampleShading
-        {
-            get; set;
-        }
-
-        public uint? PSampleMask
-        {
-            get; set;
-        }
-
-        public bool AlphaToCoverageEnable
-        {
-            get; set;
-        }
-
-        public bool AlphaToOneEnable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineMultisampleStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public SampleCountFlagBits RasterizationSamples { get; set; }
+        public bool SampleShadingEnable { get; set; }
+        public float MinSampleShading { get; set; }
+        public uint? PSampleMask { get; set; }
+        public bool AlphaToCoverageEnable { get; set; }
+        public bool AlphaToOneEnable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo ToInternal()
         {
@@ -5087,6 +3316,13 @@ namespace AdamantiumVulkan.Core
             _internal.alphaToOneEnable = AlphaToOneEnable;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpSampleMask?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class StencilOpState
@@ -5106,40 +3342,13 @@ namespace AdamantiumVulkan.Core
             Reference = _internal.reference;
         }
 
-        public StencilOp FailOp
-        {
-            get; set;
-        }
-
-        public StencilOp PassOp
-        {
-            get; set;
-        }
-
-        public StencilOp DepthFailOp
-        {
-            get; set;
-        }
-
-        public CompareOp CompareOp
-        {
-            get; set;
-        }
-
-        public uint CompareMask
-        {
-            get; set;
-        }
-
-        public uint WriteMask
-        {
-            get; set;
-        }
-
-        public uint Reference
-        {
-            get; set;
-        }
+        public StencilOp FailOp { get; set; }
+        public StencilOp PassOp { get; set; }
+        public StencilOp DepthFailOp { get; set; }
+        public CompareOp CompareOp { get; set; }
+        public uint CompareMask { get; set; }
+        public uint WriteMask { get; set; }
+        public uint Reference { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkStencilOpState ToInternal()
         {
@@ -5163,7 +3372,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineDepthStencilStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DepthTestEnable = _internal.depthTestEnable;
@@ -5177,70 +3385,18 @@ namespace AdamantiumVulkan.Core
             MaxDepthBounds = _internal.maxDepthBounds;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public bool DepthTestEnable
-        {
-            get; set;
-        }
-
-        public bool DepthWriteEnable
-        {
-            get; set;
-        }
-
-        public CompareOp DepthCompareOp
-        {
-            get; set;
-        }
-
-        public bool DepthBoundsTestEnable
-        {
-            get; set;
-        }
-
-        public bool StencilTestEnable
-        {
-            get; set;
-        }
-
-        public StencilOpState Front
-        {
-            get; set;
-        }
-
-        public StencilOpState Back
-        {
-            get; set;
-        }
-
-        public float MinDepthBounds
-        {
-            get; set;
-        }
-
-        public float MaxDepthBounds
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineDepthStencilStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public bool DepthTestEnable { get; set; }
+        public bool DepthWriteEnable { get; set; }
+        public CompareOp DepthCompareOp { get; set; }
+        public bool DepthBoundsTestEnable { get; set; }
+        public bool StencilTestEnable { get; set; }
+        public StencilOpState Front { get; set; }
+        public StencilOpState Back { get; set; }
+        public float MinDepthBounds { get; set; }
+        public float MaxDepthBounds { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo ToInternal()
         {
@@ -5265,6 +3421,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDepthBounds = MaxDepthBounds;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineColorBlendAttachmentState
@@ -5285,45 +3447,14 @@ namespace AdamantiumVulkan.Core
             ColorWriteMask = _internal.colorWriteMask;
         }
 
-        public bool BlendEnable
-        {
-            get; set;
-        }
-
-        public BlendFactor SrcColorBlendFactor
-        {
-            get; set;
-        }
-
-        public BlendFactor DstColorBlendFactor
-        {
-            get; set;
-        }
-
-        public BlendOp ColorBlendOp
-        {
-            get; set;
-        }
-
-        public BlendFactor SrcAlphaBlendFactor
-        {
-            get; set;
-        }
-
-        public BlendFactor DstAlphaBlendFactor
-        {
-            get; set;
-        }
-
-        public BlendOp AlphaBlendOp
-        {
-            get; set;
-        }
-
-        public uint ColorWriteMask
-        {
-            get; set;
-        }
+        public bool BlendEnable { get; set; }
+        public BlendFactor SrcColorBlendFactor { get; set; }
+        public BlendFactor DstColorBlendFactor { get; set; }
+        public BlendOp ColorBlendOp { get; set; }
+        public BlendFactor SrcAlphaBlendFactor { get; set; }
+        public BlendFactor DstAlphaBlendFactor { get; set; }
+        public BlendOp AlphaBlendOp { get; set; }
+        public uint ColorWriteMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState ToInternal()
         {
@@ -5350,7 +3481,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineColorBlendStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             LogicOpEnable = _internal.logicOpEnable;
@@ -5369,50 +3499,14 @@ namespace AdamantiumVulkan.Core
             BlendConstants = tmpArr0;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public bool LogicOpEnable
-        {
-            get; set;
-        }
-
-        public LogicOp LogicOp
-        {
-            get; set;
-        }
-
-        public uint AttachmentCount
-        {
-            get; set;
-        }
-
-        public PipelineColorBlendAttachmentState PAttachments
-        {
-            get; set;
-        }
-
-        public float[] BlendConstants
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineColorBlendStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public bool LogicOpEnable { get; set; }
+        public LogicOp LogicOp { get; set; }
+        public uint AttachmentCount { get; set; }
+        public PipelineColorBlendAttachmentState PAttachments { get; set; }
+        public float[] BlendConstants { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo ToInternal()
         {
@@ -5449,6 +3543,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttachments?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineDynamicStateCreateInfo : DisposableObject
@@ -5461,7 +3562,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineDynamicStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DynamicStateCount = _internal.dynamicStateCount;
@@ -5475,35 +3575,11 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint DynamicStateCount
-        {
-            get; set;
-        }
-
-        public DynamicState[] PDynamicStates
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineDynamicStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint DynamicStateCount { get; set; }
+        public DynamicState[] PDynamicStates { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo ToInternal()
         {
@@ -5525,6 +3601,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDynamicStates?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class GraphicsPipelineCreateInfo : DisposableObject
@@ -5555,7 +3638,6 @@ namespace AdamantiumVulkan.Core
 
         public GraphicsPipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             StageCount = _internal.stageCount;
@@ -5587,113 +3669,25 @@ namespace AdamantiumVulkan.Core
             BasePipelineIndex = _internal.basePipelineIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint StageCount
-        {
-            get; set;
-        }
-
-        public PipelineShaderStageCreateInfo[] PStages
-        {
-            get; set;
-        }
-
-        public PipelineVertexInputStateCreateInfo PVertexInputState
-        {
-            get; set;
-        }
-
-        public PipelineInputAssemblyStateCreateInfo PInputAssemblyState
-        {
-            get; set;
-        }
-
-        public PipelineTessellationStateCreateInfo PTessellationState
-        {
-            get; set;
-        }
-
-        public PipelineViewportStateCreateInfo PViewportState
-        {
-            get; set;
-        }
-
-        public PipelineRasterizationStateCreateInfo PRasterizationState
-        {
-            get; set;
-        }
-
-        public PipelineMultisampleStateCreateInfo PMultisampleState
-        {
-            get; set;
-        }
-
-        public PipelineDepthStencilStateCreateInfo PDepthStencilState
-        {
-            get; set;
-        }
-
-        public PipelineColorBlendStateCreateInfo PColorBlendState
-        {
-            get; set;
-        }
-
-        public PipelineDynamicStateCreateInfo PDynamicState
-        {
-            get; set;
-        }
-
-        public PipelineLayout Layout
-        {
-            get; set;
-        }
-
-        public RenderPass RenderPass
-        {
-            get; set;
-        }
-
-        public uint Subpass
-        {
-            get; set;
-        }
-
-        public Pipeline BasePipelineHandle
-        {
-            get; set;
-        }
-
-        public int BasePipelineIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpVertexInputState?.Dispose();
-            refpInputAssemblyState?.Dispose();
-            refpTessellationState?.Dispose();
-            refpViewportState?.Dispose();
-            refpRasterizationState?.Dispose();
-            refpMultisampleState?.Dispose();
-            refpDepthStencilState?.Dispose();
-            refpColorBlendState?.Dispose();
-            refpDynamicState?.Dispose();
-        }
+        public StructureType SType => StructureType.GraphicsPipelineCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint StageCount { get; set; }
+        public PipelineShaderStageCreateInfo[] PStages { get; set; }
+        public PipelineVertexInputStateCreateInfo PVertexInputState { get; set; }
+        public PipelineInputAssemblyStateCreateInfo PInputAssemblyState { get; set; }
+        public PipelineTessellationStateCreateInfo PTessellationState { get; set; }
+        public PipelineViewportStateCreateInfo PViewportState { get; set; }
+        public PipelineRasterizationStateCreateInfo PRasterizationState { get; set; }
+        public PipelineMultisampleStateCreateInfo PMultisampleState { get; set; }
+        public PipelineDepthStencilStateCreateInfo PDepthStencilState { get; set; }
+        public PipelineColorBlendStateCreateInfo PColorBlendState { get; set; }
+        public PipelineDynamicStateCreateInfo PDynamicState { get; set; }
+        public PipelineLayout Layout { get; set; }
+        public RenderPass RenderPass { get; set; }
+        public uint Subpass { get; set; }
+        public Pipeline BasePipelineHandle { get; set; }
+        public int BasePipelineIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo ToInternal()
         {
@@ -5783,6 +3777,22 @@ namespace AdamantiumVulkan.Core
             _internal.basePipelineIndex = BasePipelineIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpStages?.Dispose();
+            refpVertexInputState?.Dispose();
+            refpInputAssemblyState?.Dispose();
+            refpTessellationState?.Dispose();
+            refpViewportState?.Dispose();
+            refpRasterizationState?.Dispose();
+            refpMultisampleState?.Dispose();
+            refpDepthStencilState?.Dispose();
+            refpColorBlendState?.Dispose();
+            refpDynamicState?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ComputePipelineCreateInfo : DisposableObject
@@ -5793,7 +3803,6 @@ namespace AdamantiumVulkan.Core
 
         public ComputePipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Stage = new PipelineShaderStageCreateInfo(_internal.stage);
@@ -5802,45 +3811,13 @@ namespace AdamantiumVulkan.Core
             BasePipelineIndex = _internal.basePipelineIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PipelineShaderStageCreateInfo Stage
-        {
-            get; set;
-        }
-
-        public PipelineLayout Layout
-        {
-            get; set;
-        }
-
-        public Pipeline BasePipelineHandle
-        {
-            get; set;
-        }
-
-        public int BasePipelineIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ComputePipelineCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public PipelineShaderStageCreateInfo Stage { get; set; }
+        public PipelineLayout Layout { get; set; }
+        public Pipeline BasePipelineHandle { get; set; }
+        public int BasePipelineIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo ToInternal()
         {
@@ -5857,6 +3834,12 @@ namespace AdamantiumVulkan.Core
             _internal.basePipelineIndex = BasePipelineIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PushConstantRange
@@ -5872,20 +3855,9 @@ namespace AdamantiumVulkan.Core
             Size = _internal.size;
         }
 
-        public uint StageFlags
-        {
-            get; set;
-        }
-
-        public uint Offset
-        {
-            get; set;
-        }
-
-        public uint Size
-        {
-            get; set;
-        }
+        public uint StageFlags { get; set; }
+        public uint Offset { get; set; }
+        public uint Size { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPushConstantRange ToInternal()
         {
@@ -5909,7 +3881,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             SetLayoutCount = _internal.setLayoutCount;
@@ -5920,45 +3891,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pPushConstantRanges);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint SetLayoutCount
-        {
-            get; set;
-        }
-
-        public DescriptorSetLayout PSetLayouts
-        {
-            get; set;
-        }
-
-        public uint PushConstantRangeCount
-        {
-            get; set;
-        }
-
-        public PushConstantRange PPushConstantRanges
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpPushConstantRanges?.Dispose();
-        }
+        public StructureType SType => StructureType.PipelineLayoutCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint SetLayoutCount { get; set; }
+        public DescriptorSetLayout PSetLayouts { get; set; }
+        public uint PushConstantRangeCount { get; set; }
+        public PushConstantRange PPushConstantRanges { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo ToInternal()
         {
@@ -5984,6 +3923,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpSetLayouts?.Dispose();
+            refpPushConstantRanges?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SamplerCreateInfo : DisposableObject
@@ -5994,7 +3941,6 @@ namespace AdamantiumVulkan.Core
 
         public SamplerCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             MagFilter = _internal.magFilter;
@@ -6014,100 +3960,24 @@ namespace AdamantiumVulkan.Core
             UnnormalizedCoordinates = _internal.unnormalizedCoordinates;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Filter MagFilter
-        {
-            get; set;
-        }
-
-        public Filter MinFilter
-        {
-            get; set;
-        }
-
-        public SamplerMipmapMode MipmapMode
-        {
-            get; set;
-        }
-
-        public SamplerAddressMode AddressModeU
-        {
-            get; set;
-        }
-
-        public SamplerAddressMode AddressModeV
-        {
-            get; set;
-        }
-
-        public SamplerAddressMode AddressModeW
-        {
-            get; set;
-        }
-
-        public float MipLodBias
-        {
-            get; set;
-        }
-
-        public bool AnisotropyEnable
-        {
-            get; set;
-        }
-
-        public float MaxAnisotropy
-        {
-            get; set;
-        }
-
-        public bool CompareEnable
-        {
-            get; set;
-        }
-
-        public CompareOp CompareOp
-        {
-            get; set;
-        }
-
-        public float MinLod
-        {
-            get; set;
-        }
-
-        public float MaxLod
-        {
-            get; set;
-        }
-
-        public BorderColor BorderColor
-        {
-            get; set;
-        }
-
-        public bool UnnormalizedCoordinates
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SamplerCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public Filter MagFilter { get; set; }
+        public Filter MinFilter { get; set; }
+        public SamplerMipmapMode MipmapMode { get; set; }
+        public SamplerAddressMode AddressModeU { get; set; }
+        public SamplerAddressMode AddressModeV { get; set; }
+        public SamplerAddressMode AddressModeW { get; set; }
+        public float MipLodBias { get; set; }
+        public bool AnisotropyEnable { get; set; }
+        public float MaxAnisotropy { get; set; }
+        public bool CompareEnable { get; set; }
+        public CompareOp CompareOp { get; set; }
+        public float MinLod { get; set; }
+        public float MaxLod { get; set; }
+        public BorderColor BorderColor { get; set; }
+        public bool UnnormalizedCoordinates { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo ToInternal()
         {
@@ -6132,6 +4002,12 @@ namespace AdamantiumVulkan.Core
             _internal.unnormalizedCoordinates = UnnormalizedCoordinates;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorSetLayoutBinding : DisposableObject
@@ -6152,35 +4028,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pImmutableSamplers);
         }
 
-        public uint Binding
-        {
-            get; set;
-        }
-
-        public DescriptorType DescriptorType
-        {
-            get; set;
-        }
-
-        public uint DescriptorCount
-        {
-            get; set;
-        }
-
-        public uint StageFlags
-        {
-            get; set;
-        }
-
-        public Sampler PImmutableSamplers
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public uint Binding { get; set; }
+        public DescriptorType DescriptorType { get; set; }
+        public uint DescriptorCount { get; set; }
+        public uint StageFlags { get; set; }
+        public Sampler PImmutableSamplers { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding ToInternal()
         {
@@ -6198,6 +4050,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpImmutableSamplers?.Dispose();
+        }
+
     }
 
     public partial class DescriptorSetLayoutCreateInfo : DisposableObject
@@ -6210,7 +4068,6 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorSetLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             BindingCount = _internal.bindingCount;
@@ -6218,35 +4075,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pBindings);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint BindingCount
-        {
-            get; set;
-        }
-
-        public DescriptorSetLayoutBinding PBindings
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorSetLayoutCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint BindingCount { get; set; }
+        public DescriptorSetLayoutBinding PBindings { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo ToInternal()
         {
@@ -6264,6 +4097,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpBindings?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorPoolSize
@@ -6278,15 +4118,8 @@ namespace AdamantiumVulkan.Core
             DescriptorCount = _internal.descriptorCount;
         }
 
-        public DescriptorType Type
-        {
-            get; set;
-        }
-
-        public uint DescriptorCount
-        {
-            get; set;
-        }
+        public DescriptorType Type { get; set; }
+        public uint DescriptorCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize ToInternal()
         {
@@ -6307,7 +4140,6 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             MaxSets = _internal.maxSets;
@@ -6316,40 +4148,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pPoolSizes);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint MaxSets
-        {
-            get; set;
-        }
-
-        public uint PoolSizeCount
-        {
-            get; set;
-        }
-
-        public DescriptorPoolSize PPoolSizes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorPoolCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint MaxSets { get; set; }
+        public uint PoolSizeCount { get; set; }
+        public DescriptorPoolSize PPoolSizes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo ToInternal()
         {
@@ -6368,6 +4172,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpPoolSizes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorSetAllocateInfo : DisposableObject
@@ -6380,7 +4191,6 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorSetAllocateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DescriptorPool = new DescriptorPool(_internal.descriptorPool);
             DescriptorSetCount = _internal.descriptorSetCount;
@@ -6389,35 +4199,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSetLayouts);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DescriptorPool DescriptorPool
-        {
-            get; set;
-        }
-
-        public uint DescriptorSetCount
-        {
-            get; set;
-        }
-
-        public DescriptorSetLayout[] PSetLayouts
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorSetAllocateInfo;
+        public System.IntPtr PNext { get; set; }
+        public DescriptorPool DescriptorPool { get; set; }
+        public uint DescriptorSetCount { get; set; }
+        public DescriptorSetLayout[] PSetLayouts { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo ToInternal()
         {
@@ -6439,6 +4225,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpSetLayouts?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorImageInfo
@@ -6454,20 +4247,9 @@ namespace AdamantiumVulkan.Core
             ImageLayout = _internal.imageLayout;
         }
 
-        public Sampler Sampler
-        {
-            get; set;
-        }
-
-        public ImageView ImageView
-        {
-            get; set;
-        }
-
-        public ImageLayout ImageLayout
-        {
-            get; set;
-        }
+        public Sampler Sampler { get; set; }
+        public ImageView ImageView { get; set; }
+        public ImageLayout ImageLayout { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo ToInternal()
         {
@@ -6492,20 +4274,9 @@ namespace AdamantiumVulkan.Core
             Range = _internal.range;
         }
 
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public ulong Range
-        {
-            get; set;
-        }
+        public Buffer Buffer { get; set; }
+        public ulong Offset { get; set; }
+        public ulong Range { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo ToInternal()
         {
@@ -6531,7 +4302,6 @@ namespace AdamantiumVulkan.Core
 
         public WriteDescriptorSet(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DstSet = new DescriptorSet(_internal.dstSet);
             DstBinding = _internal.dstBinding;
@@ -6546,61 +4316,16 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pTexelBufferView);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DescriptorSet DstSet
-        {
-            get; set;
-        }
-
-        public uint DstBinding
-        {
-            get; set;
-        }
-
-        public uint DstArrayElement
-        {
-            get; set;
-        }
-
-        public uint DescriptorCount
-        {
-            get; set;
-        }
-
-        public DescriptorType DescriptorType
-        {
-            get; set;
-        }
-
-        public DescriptorImageInfo PImageInfo
-        {
-            get; set;
-        }
-
-        public DescriptorBufferInfo PBufferInfo
-        {
-            get; set;
-        }
-
-        public BufferView PTexelBufferView
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpBufferInfo?.Dispose();
-            refpTexelBufferView?.Dispose();
-        }
+        public StructureType SType => StructureType.WriteDescriptorSet;
+        public System.IntPtr PNext { get; set; }
+        public DescriptorSet DstSet { get; set; }
+        public uint DstBinding { get; set; }
+        public uint DstArrayElement { get; set; }
+        public uint DescriptorCount { get; set; }
+        public DescriptorType DescriptorType { get; set; }
+        public DescriptorImageInfo PImageInfo { get; set; }
+        public DescriptorBufferInfo PBufferInfo { get; set; }
+        public BufferView PTexelBufferView { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet ToInternal()
         {
@@ -6635,6 +4360,15 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpImageInfo?.Dispose();
+            refpBufferInfo?.Dispose();
+            refpTexelBufferView?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CopyDescriptorSet : DisposableObject
@@ -6645,7 +4379,6 @@ namespace AdamantiumVulkan.Core
 
         public CopyDescriptorSet(AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcSet = new DescriptorSet(_internal.srcSet);
             SrcBinding = _internal.srcBinding;
@@ -6656,55 +4389,15 @@ namespace AdamantiumVulkan.Core
             DescriptorCount = _internal.descriptorCount;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DescriptorSet SrcSet
-        {
-            get; set;
-        }
-
-        public uint SrcBinding
-        {
-            get; set;
-        }
-
-        public uint SrcArrayElement
-        {
-            get; set;
-        }
-
-        public DescriptorSet DstSet
-        {
-            get; set;
-        }
-
-        public uint DstBinding
-        {
-            get; set;
-        }
-
-        public uint DstArrayElement
-        {
-            get; set;
-        }
-
-        public uint DescriptorCount
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CopyDescriptorSet;
+        public System.IntPtr PNext { get; set; }
+        public DescriptorSet SrcSet { get; set; }
+        public uint SrcBinding { get; set; }
+        public uint SrcArrayElement { get; set; }
+        public DescriptorSet DstSet { get; set; }
+        public uint DstBinding { get; set; }
+        public uint DstArrayElement { get; set; }
+        public uint DescriptorCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet ToInternal()
         {
@@ -6720,6 +4413,12 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorCount = DescriptorCount;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class FramebufferCreateInfo : DisposableObject
@@ -6732,7 +4431,6 @@ namespace AdamantiumVulkan.Core
 
         public FramebufferCreateInfo(AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             RenderPass = new RenderPass(_internal.renderPass);
@@ -6744,55 +4442,15 @@ namespace AdamantiumVulkan.Core
             Layers = _internal.layers;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public RenderPass RenderPass
-        {
-            get; set;
-        }
-
-        public uint AttachmentCount
-        {
-            get; set;
-        }
-
-        public ImageView PAttachments
-        {
-            get; set;
-        }
-
-        public uint Width
-        {
-            get; set;
-        }
-
-        public uint Height
-        {
-            get; set;
-        }
-
-        public uint Layers
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.FramebufferCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public RenderPass RenderPass { get; set; }
+        public uint AttachmentCount { get; set; }
+        public ImageView PAttachments { get; set; }
+        public uint Width { get; set; }
+        public uint Height { get; set; }
+        public uint Layers { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo ToInternal()
         {
@@ -6814,6 +4472,13 @@ namespace AdamantiumVulkan.Core
             _internal.layers = Layers;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttachments?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AttachmentDescription
@@ -6835,50 +4500,15 @@ namespace AdamantiumVulkan.Core
             FinalLayout = _internal.finalLayout;
         }
 
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public SampleCountFlagBits Samples
-        {
-            get; set;
-        }
-
-        public AttachmentLoadOp LoadOp
-        {
-            get; set;
-        }
-
-        public AttachmentStoreOp StoreOp
-        {
-            get; set;
-        }
-
-        public AttachmentLoadOp StencilLoadOp
-        {
-            get; set;
-        }
-
-        public AttachmentStoreOp StencilStoreOp
-        {
-            get; set;
-        }
-
-        public ImageLayout InitialLayout
-        {
-            get; set;
-        }
-
-        public ImageLayout FinalLayout
-        {
-            get; set;
-        }
+        public uint Flags { get; set; }
+        public Format Format { get; set; }
+        public SampleCountFlagBits Samples { get; set; }
+        public AttachmentLoadOp LoadOp { get; set; }
+        public AttachmentStoreOp StoreOp { get; set; }
+        public AttachmentLoadOp StencilLoadOp { get; set; }
+        public AttachmentStoreOp StencilStoreOp { get; set; }
+        public ImageLayout InitialLayout { get; set; }
+        public ImageLayout FinalLayout { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAttachmentDescription ToInternal()
         {
@@ -6908,15 +4538,8 @@ namespace AdamantiumVulkan.Core
             Layout = _internal.layout;
         }
 
-        public uint Attachment
-        {
-            get; set;
-        }
-
-        public ImageLayout Layout
-        {
-            get; set;
-        }
+        public uint Attachment { get; set; }
+        public ImageLayout Layout { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAttachmentReference ToInternal()
         {
@@ -6965,63 +4588,16 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PipelineBindPoint PipelineBindPoint
-        {
-            get; set;
-        }
-
-        public uint InputAttachmentCount
-        {
-            get; set;
-        }
-
-        public AttachmentReference PInputAttachments
-        {
-            get; set;
-        }
-
-        public uint ColorAttachmentCount
-        {
-            get; set;
-        }
-
-        public AttachmentReference PColorAttachments
-        {
-            get; set;
-        }
-
-        public AttachmentReference PResolveAttachments
-        {
-            get; set;
-        }
-
-        public AttachmentReference PDepthStencilAttachment
-        {
-            get; set;
-        }
-
-        public uint PreserveAttachmentCount
-        {
-            get; set;
-        }
-
-        public uint? PPreserveAttachments
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpColorAttachments?.Dispose();
-            refpResolveAttachments?.Dispose();
-            refpDepthStencilAttachment?.Dispose();
-            refpPreserveAttachments?.Dispose();
-        }
+        public uint Flags { get; set; }
+        public PipelineBindPoint PipelineBindPoint { get; set; }
+        public uint InputAttachmentCount { get; set; }
+        public AttachmentReference PInputAttachments { get; set; }
+        public uint ColorAttachmentCount { get; set; }
+        public AttachmentReference PColorAttachments { get; set; }
+        public AttachmentReference PResolveAttachments { get; set; }
+        public AttachmentReference PDepthStencilAttachment { get; set; }
+        public uint PreserveAttachmentCount { get; set; }
+        public uint? PPreserveAttachments { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDescription ToInternal()
         {
@@ -7067,6 +4643,16 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpInputAttachments?.Dispose();
+            refpColorAttachments?.Dispose();
+            refpResolveAttachments?.Dispose();
+            refpDepthStencilAttachment?.Dispose();
+            refpPreserveAttachments?.Dispose();
+        }
+
     }
 
     public partial class SubpassDependency
@@ -7086,40 +4672,13 @@ namespace AdamantiumVulkan.Core
             DependencyFlags = _internal.dependencyFlags;
         }
 
-        public uint SrcSubpass
-        {
-            get; set;
-        }
-
-        public uint DstSubpass
-        {
-            get; set;
-        }
-
-        public uint SrcStageMask
-        {
-            get; set;
-        }
-
-        public uint DstStageMask
-        {
-            get; set;
-        }
-
-        public uint SrcAccessMask
-        {
-            get; set;
-        }
-
-        public uint DstAccessMask
-        {
-            get; set;
-        }
-
-        public uint DependencyFlags
-        {
-            get; set;
-        }
+        public uint SrcSubpass { get; set; }
+        public uint DstSubpass { get; set; }
+        public uint SrcStageMask { get; set; }
+        public uint DstStageMask { get; set; }
+        public uint SrcAccessMask { get; set; }
+        public uint DstAccessMask { get; set; }
+        public uint DependencyFlags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDependency ToInternal()
         {
@@ -7149,7 +4708,6 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             AttachmentCount = _internal.attachmentCount;
@@ -7163,56 +4721,15 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pDependencies);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint AttachmentCount
-        {
-            get; set;
-        }
-
-        public AttachmentDescription PAttachments
-        {
-            get; set;
-        }
-
-        public uint SubpassCount
-        {
-            get; set;
-        }
-
-        public SubpassDescription PSubpasses
-        {
-            get; set;
-        }
-
-        public uint DependencyCount
-        {
-            get; set;
-        }
-
-        public SubpassDependency PDependencies
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpSubpasses?.Dispose();
-            refpDependencies?.Dispose();
-        }
+        public StructureType SType => StructureType.RenderPassCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint AttachmentCount { get; set; }
+        public AttachmentDescription PAttachments { get; set; }
+        public uint SubpassCount { get; set; }
+        public SubpassDescription PSubpasses { get; set; }
+        public uint DependencyCount { get; set; }
+        public SubpassDependency PDependencies { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo ToInternal()
         {
@@ -7246,6 +4763,15 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttachments?.Dispose();
+            refpSubpasses?.Dispose();
+            refpDependencies?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CommandPoolCreateInfo : DisposableObject
@@ -7256,36 +4782,15 @@ namespace AdamantiumVulkan.Core
 
         public CommandPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             QueueFamilyIndex = _internal.queueFamilyIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CommandPoolCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint QueueFamilyIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo ToInternal()
         {
@@ -7296,6 +4801,12 @@ namespace AdamantiumVulkan.Core
             _internal.queueFamilyIndex = QueueFamilyIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CommandBufferAllocateInfo : DisposableObject
@@ -7306,42 +4817,17 @@ namespace AdamantiumVulkan.Core
 
         public CommandBufferAllocateInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CommandPool = new CommandPool(_internal.commandPool);
             Level = _internal.level;
             CommandBufferCount = _internal.commandBufferCount;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public CommandPool CommandPool
-        {
-            get; set;
-        }
-
-        public CommandBufferLevel Level
-        {
-            get; set;
-        }
-
-        public uint CommandBufferCount
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CommandBufferAllocateInfo;
+        public System.IntPtr PNext { get; set; }
+        public CommandPool CommandPool { get; set; }
+        public CommandBufferLevel Level { get; set; }
+        public uint CommandBufferCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo ToInternal()
         {
@@ -7353,6 +4839,12 @@ namespace AdamantiumVulkan.Core
             _internal.commandBufferCount = CommandBufferCount;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CommandBufferInheritanceInfo : DisposableObject
@@ -7363,7 +4855,6 @@ namespace AdamantiumVulkan.Core
 
         public CommandBufferInheritanceInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             RenderPass = new RenderPass(_internal.renderPass);
             Subpass = _internal.subpass;
@@ -7373,50 +4864,14 @@ namespace AdamantiumVulkan.Core
             PipelineStatistics = _internal.pipelineStatistics;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public RenderPass RenderPass
-        {
-            get; set;
-        }
-
-        public uint Subpass
-        {
-            get; set;
-        }
-
-        public Framebuffer Framebuffer
-        {
-            get; set;
-        }
-
-        public bool OcclusionQueryEnable
-        {
-            get; set;
-        }
-
-        public uint QueryFlags
-        {
-            get; set;
-        }
-
-        public uint PipelineStatistics
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CommandBufferInheritanceInfo;
+        public System.IntPtr PNext { get; set; }
+        public RenderPass RenderPass { get; set; }
+        public uint Subpass { get; set; }
+        public Framebuffer Framebuffer { get; set; }
+        public bool OcclusionQueryEnable { get; set; }
+        public uint QueryFlags { get; set; }
+        public uint PipelineStatistics { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo ToInternal()
         {
@@ -7431,6 +4886,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CommandBufferBeginInfo : DisposableObject
@@ -7443,37 +4904,16 @@ namespace AdamantiumVulkan.Core
 
         public CommandBufferBeginInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             PInheritanceInfo = new CommandBufferInheritanceInfo(Marshal.PtrToStructure<VkCommandBufferInheritanceInfo>(_internal.pInheritanceInfo));
             Marshal.FreeHGlobal(_internal.pInheritanceInfo);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public CommandBufferInheritanceInfo PInheritanceInfo
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CommandBufferBeginInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public CommandBufferInheritanceInfo PInheritanceInfo { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo ToInternal()
         {
@@ -7490,6 +4930,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpInheritanceInfo?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferCopy
@@ -7505,20 +4952,9 @@ namespace AdamantiumVulkan.Core
             Size = _internal.size;
         }
 
-        public ulong SrcOffset
-        {
-            get; set;
-        }
-
-        public ulong DstOffset
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
+        public ulong SrcOffset { get; set; }
+        public ulong DstOffset { get; set; }
+        public ulong Size { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferCopy ToInternal()
         {
@@ -7544,25 +4980,10 @@ namespace AdamantiumVulkan.Core
             LayerCount = _internal.layerCount;
         }
 
-        public uint AspectMask
-        {
-            get; set;
-        }
-
-        public uint MipLevel
-        {
-            get; set;
-        }
-
-        public uint BaseArrayLayer
-        {
-            get; set;
-        }
-
-        public uint LayerCount
-        {
-            get; set;
-        }
+        public uint AspectMask { get; set; }
+        public uint MipLevel { get; set; }
+        public uint BaseArrayLayer { get; set; }
+        public uint LayerCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers ToInternal()
         {
@@ -7590,30 +5011,11 @@ namespace AdamantiumVulkan.Core
             Extent = new Extent3D(_internal.extent);
         }
 
-        public ImageSubresourceLayers SrcSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D SrcOffset
-        {
-            get; set;
-        }
-
-        public ImageSubresourceLayers DstSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D DstOffset
-        {
-            get; set;
-        }
-
-        public Extent3D Extent
-        {
-            get; set;
-        }
+        public ImageSubresourceLayers SrcSubresource { get; set; }
+        public Offset3D SrcOffset { get; set; }
+        public ImageSubresourceLayers DstSubresource { get; set; }
+        public Offset3D DstOffset { get; set; }
+        public Extent3D Extent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageCopy ToInternal()
         {
@@ -7664,25 +5066,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public ImageSubresourceLayers SrcSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D[] SrcOffsets
-        {
-            get; set;
-        }
-
-        public ImageSubresourceLayers DstSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D[] DstOffsets
-        {
-            get; set;
-        }
+        public ImageSubresourceLayers SrcSubresource { get; set; }
+        public Offset3D[] SrcOffsets { get; set; }
+        public ImageSubresourceLayers DstSubresource { get; set; }
+        public Offset3D[] DstOffsets { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageBlit ToInternal()
         {
@@ -7737,35 +5124,12 @@ namespace AdamantiumVulkan.Core
             ImageExtent = new Extent3D(_internal.imageExtent);
         }
 
-        public ulong BufferOffset
-        {
-            get; set;
-        }
-
-        public uint BufferRowLength
-        {
-            get; set;
-        }
-
-        public uint BufferImageHeight
-        {
-            get; set;
-        }
-
-        public ImageSubresourceLayers ImageSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D ImageOffset
-        {
-            get; set;
-        }
-
-        public Extent3D ImageExtent
-        {
-            get; set;
-        }
+        public ulong BufferOffset { get; set; }
+        public uint BufferRowLength { get; set; }
+        public uint BufferImageHeight { get; set; }
+        public ImageSubresourceLayers ImageSubresource { get; set; }
+        public Offset3D ImageOffset { get; set; }
+        public Extent3D ImageExtent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferImageCopy ToInternal()
         {
@@ -7801,15 +5165,8 @@ namespace AdamantiumVulkan.Core
             Stencil = _internal.stencil;
         }
 
-        public float Depth
-        {
-            get; set;
-        }
-
-        public uint Stencil
-        {
-            get; set;
-        }
+        public float Depth { get; set; }
+        public uint Stencil { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue ToInternal()
         {
@@ -7833,20 +5190,9 @@ namespace AdamantiumVulkan.Core
             ClearValue = new ClearValue(_internal.clearValue);
         }
 
-        public uint AspectMask
-        {
-            get; set;
-        }
-
-        public uint ColorAttachment
-        {
-            get; set;
-        }
-
-        public ClearValue ClearValue
-        {
-            get; set;
-        }
+        public uint AspectMask { get; set; }
+        public uint ColorAttachment { get; set; }
+        public ClearValue ClearValue { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkClearAttachment ToInternal()
         {
@@ -7874,20 +5220,9 @@ namespace AdamantiumVulkan.Core
             LayerCount = _internal.layerCount;
         }
 
-        public Rect2D Rect
-        {
-            get; set;
-        }
-
-        public uint BaseArrayLayer
-        {
-            get; set;
-        }
-
-        public uint LayerCount
-        {
-            get; set;
-        }
+        public Rect2D Rect { get; set; }
+        public uint BaseArrayLayer { get; set; }
+        public uint LayerCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkClearRect ToInternal()
         {
@@ -7917,30 +5252,11 @@ namespace AdamantiumVulkan.Core
             Extent = new Extent3D(_internal.extent);
         }
 
-        public ImageSubresourceLayers SrcSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D SrcOffset
-        {
-            get; set;
-        }
-
-        public ImageSubresourceLayers DstSubresource
-        {
-            get; set;
-        }
-
-        public Offset3D DstOffset
-        {
-            get; set;
-        }
-
-        public Extent3D Extent
-        {
-            get; set;
-        }
+        public ImageSubresourceLayers SrcSubresource { get; set; }
+        public Offset3D SrcOffset { get; set; }
+        public ImageSubresourceLayers DstSubresource { get; set; }
+        public Offset3D DstOffset { get; set; }
+        public Extent3D Extent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageResolve ToInternal()
         {
@@ -7977,36 +5293,15 @@ namespace AdamantiumVulkan.Core
 
         public MemoryBarrier(AdamantiumVulkan.Core.Interop.VkMemoryBarrier _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcAccessMask = _internal.srcAccessMask;
             DstAccessMask = _internal.dstAccessMask;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SrcAccessMask
-        {
-            get; set;
-        }
-
-        public uint DstAccessMask
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryBarrier;
+        public System.IntPtr PNext { get; set; }
+        public uint SrcAccessMask { get; set; }
+        public uint DstAccessMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryBarrier ToInternal()
         {
@@ -8017,6 +5312,12 @@ namespace AdamantiumVulkan.Core
             _internal.dstAccessMask = DstAccessMask;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferMemoryBarrier : DisposableObject
@@ -8027,7 +5328,6 @@ namespace AdamantiumVulkan.Core
 
         public BufferMemoryBarrier(AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcAccessMask = _internal.srcAccessMask;
             DstAccessMask = _internal.dstAccessMask;
@@ -8038,55 +5338,15 @@ namespace AdamantiumVulkan.Core
             Size = _internal.size;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SrcAccessMask
-        {
-            get; set;
-        }
-
-        public uint DstAccessMask
-        {
-            get; set;
-        }
-
-        public uint SrcQueueFamilyIndex
-        {
-            get; set;
-        }
-
-        public uint DstQueueFamilyIndex
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public ulong Size
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BufferMemoryBarrier;
+        public System.IntPtr PNext { get; set; }
+        public uint SrcAccessMask { get; set; }
+        public uint DstAccessMask { get; set; }
+        public uint SrcQueueFamilyIndex { get; set; }
+        public uint DstQueueFamilyIndex { get; set; }
+        public Buffer Buffer { get; set; }
+        public ulong Offset { get; set; }
+        public ulong Size { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier ToInternal()
         {
@@ -8102,6 +5362,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageMemoryBarrier : DisposableObject
@@ -8112,7 +5378,6 @@ namespace AdamantiumVulkan.Core
 
         public ImageMemoryBarrier(AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcAccessMask = _internal.srcAccessMask;
             DstAccessMask = _internal.dstAccessMask;
@@ -8124,60 +5389,16 @@ namespace AdamantiumVulkan.Core
             SubresourceRange = new ImageSubresourceRange(_internal.subresourceRange);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SrcAccessMask
-        {
-            get; set;
-        }
-
-        public uint DstAccessMask
-        {
-            get; set;
-        }
-
-        public ImageLayout OldLayout
-        {
-            get; set;
-        }
-
-        public ImageLayout NewLayout
-        {
-            get; set;
-        }
-
-        public uint SrcQueueFamilyIndex
-        {
-            get; set;
-        }
-
-        public uint DstQueueFamilyIndex
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        public ImageSubresourceRange SubresourceRange
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageMemoryBarrier;
+        public System.IntPtr PNext { get; set; }
+        public uint SrcAccessMask { get; set; }
+        public uint DstAccessMask { get; set; }
+        public ImageLayout OldLayout { get; set; }
+        public ImageLayout NewLayout { get; set; }
+        public uint SrcQueueFamilyIndex { get; set; }
+        public uint DstQueueFamilyIndex { get; set; }
+        public Image Image { get; set; }
+        public ImageSubresourceRange SubresourceRange { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier ToInternal()
         {
@@ -8197,6 +5418,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RenderPassBeginInfo : DisposableObject
@@ -8209,7 +5436,6 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             RenderPass = new RenderPass(_internal.renderPass);
             Framebuffer = new Framebuffer(_internal.framebuffer);
@@ -8220,45 +5446,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pClearValues);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public RenderPass RenderPass
-        {
-            get; set;
-        }
-
-        public Framebuffer Framebuffer
-        {
-            get; set;
-        }
-
-        public Rect2D RenderArea
-        {
-            get; set;
-        }
-
-        public uint ClearValueCount
-        {
-            get; set;
-        }
-
-        public ClearValue[] PClearValues
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.RenderPassBeginInfo;
+        public System.IntPtr PNext { get; set; }
+        public RenderPass RenderPass { get; set; }
+        public Framebuffer Framebuffer { get; set; }
+        public Rect2D RenderArea { get; set; }
+        public uint ClearValueCount { get; set; }
+        public ClearValue[] PClearValues { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo ToInternal()
         {
@@ -8285,6 +5479,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpClearValues?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DispatchIndirectCommand
@@ -8300,20 +5501,9 @@ namespace AdamantiumVulkan.Core
             Z = _internal.z;
         }
 
-        public uint X
-        {
-            get; set;
-        }
-
-        public uint Y
-        {
-            get; set;
-        }
-
-        public uint Z
-        {
-            get; set;
-        }
+        public uint X { get; set; }
+        public uint Y { get; set; }
+        public uint Z { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDispatchIndirectCommand ToInternal()
         {
@@ -8340,30 +5530,11 @@ namespace AdamantiumVulkan.Core
             FirstInstance = _internal.firstInstance;
         }
 
-        public uint IndexCount
-        {
-            get; set;
-        }
-
-        public uint InstanceCount
-        {
-            get; set;
-        }
-
-        public uint FirstIndex
-        {
-            get; set;
-        }
-
-        public int VertexOffset
-        {
-            get; set;
-        }
-
-        public uint FirstInstance
-        {
-            get; set;
-        }
+        public uint IndexCount { get; set; }
+        public uint InstanceCount { get; set; }
+        public uint FirstIndex { get; set; }
+        public int VertexOffset { get; set; }
+        public uint FirstInstance { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDrawIndexedIndirectCommand ToInternal()
         {
@@ -8391,25 +5562,10 @@ namespace AdamantiumVulkan.Core
             FirstInstance = _internal.firstInstance;
         }
 
-        public uint VertexCount
-        {
-            get; set;
-        }
-
-        public uint InstanceCount
-        {
-            get; set;
-        }
-
-        public uint FirstVertex
-        {
-            get; set;
-        }
-
-        public uint FirstInstance
-        {
-            get; set;
-        }
+        public uint VertexCount { get; set; }
+        public uint InstanceCount { get; set; }
+        public uint FirstVertex { get; set; }
+        public uint FirstInstance { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDrawIndirectCommand ToInternal()
         {
@@ -8437,20 +5593,8 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pNext);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public BaseOutStructure PNext
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public BaseOutStructure PNext { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBaseOutStructure ToInternal()
         {
@@ -8465,6 +5609,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpNext?.Dispose();
+        }
+
     }
 
     public partial class BaseInStructure : DisposableObject
@@ -8482,20 +5632,8 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pNext);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public BaseInStructure PNext
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public BaseInStructure PNext { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBaseInStructure ToInternal()
         {
@@ -8510,6 +5648,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpNext?.Dispose();
+        }
+
     }
 
     public partial class PhysicalDeviceSubgroupProperties : DisposableObject
@@ -8520,7 +5664,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSubgroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SubgroupSize = _internal.subgroupSize;
             SupportedStages = _internal.supportedStages;
@@ -8528,40 +5671,12 @@ namespace AdamantiumVulkan.Core
             QuadOperationsInAllStages = _internal.quadOperationsInAllStages;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SubgroupSize
-        {
-            get; set;
-        }
-
-        public uint SupportedStages
-        {
-            get; set;
-        }
-
-        public uint SupportedOperations
-        {
-            get; set;
-        }
-
-        public bool QuadOperationsInAllStages
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceSubgroupProperties;
+        public System.IntPtr PNext { get; set; }
+        public uint SubgroupSize { get; set; }
+        public uint SupportedStages { get; set; }
+        public uint SupportedOperations { get; set; }
+        public bool QuadOperationsInAllStages { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties ToInternal()
         {
@@ -8574,6 +5689,12 @@ namespace AdamantiumVulkan.Core
             _internal.quadOperationsInAllStages = QuadOperationsInAllStages;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindBufferMemoryInfo : DisposableObject
@@ -8584,42 +5705,17 @@ namespace AdamantiumVulkan.Core
 
         public BindBufferMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Buffer = new Buffer(_internal.buffer);
             Memory = new DeviceMemory(_internal.memory);
             MemoryOffset = _internal.memoryOffset;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ulong MemoryOffset
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BindBufferMemoryInfo;
+        public System.IntPtr PNext { get; set; }
+        public Buffer Buffer { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ulong MemoryOffset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo ToInternal()
         {
@@ -8631,6 +5727,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryOffset = MemoryOffset;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindImageMemoryInfo : DisposableObject
@@ -8641,42 +5743,17 @@ namespace AdamantiumVulkan.Core
 
         public BindImageMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Image = new Image(_internal.image);
             Memory = new DeviceMemory(_internal.memory);
             MemoryOffset = _internal.memoryOffset;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ulong MemoryOffset
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BindImageMemoryInfo;
+        public System.IntPtr PNext { get; set; }
+        public Image Image { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ulong MemoryOffset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo ToInternal()
         {
@@ -8688,6 +5765,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryOffset = MemoryOffset;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDevice16BitStorageFeatures : DisposableObject
@@ -8698,7 +5781,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDevice16BitStorageFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             StorageBuffer16BitAccess = _internal.storageBuffer16BitAccess;
             UniformAndStorageBuffer16BitAccess = _internal.uniformAndStorageBuffer16BitAccess;
@@ -8706,40 +5788,12 @@ namespace AdamantiumVulkan.Core
             StorageInputOutput16 = _internal.storageInputOutput16;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool StorageBuffer16BitAccess
-        {
-            get; set;
-        }
-
-        public bool UniformAndStorageBuffer16BitAccess
-        {
-            get; set;
-        }
-
-        public bool StoragePushConstant16
-        {
-            get; set;
-        }
-
-        public bool StorageInputOutput16
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDevice16bitStorageFeatures;
+        public System.IntPtr PNext { get; set; }
+        public bool StorageBuffer16BitAccess { get; set; }
+        public bool UniformAndStorageBuffer16BitAccess { get; set; }
+        public bool StoragePushConstant16 { get; set; }
+        public bool StorageInputOutput16 { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures ToInternal()
         {
@@ -8752,6 +5806,12 @@ namespace AdamantiumVulkan.Core
             _internal.storageInputOutput16 = StorageInputOutput16;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryDedicatedRequirements : DisposableObject
@@ -8762,36 +5822,15 @@ namespace AdamantiumVulkan.Core
 
         public MemoryDedicatedRequirements(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PrefersDedicatedAllocation = _internal.prefersDedicatedAllocation;
             RequiresDedicatedAllocation = _internal.requiresDedicatedAllocation;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool PrefersDedicatedAllocation
-        {
-            get; set;
-        }
-
-        public bool RequiresDedicatedAllocation
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryDedicatedRequirements;
+        public System.IntPtr PNext { get; set; }
+        public bool PrefersDedicatedAllocation { get; set; }
+        public bool RequiresDedicatedAllocation { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements ToInternal()
         {
@@ -8802,6 +5841,12 @@ namespace AdamantiumVulkan.Core
             _internal.requiresDedicatedAllocation = RequiresDedicatedAllocation;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryDedicatedAllocateInfo : DisposableObject
@@ -8812,36 +5857,15 @@ namespace AdamantiumVulkan.Core
 
         public MemoryDedicatedAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Image = new Image(_internal.image);
             Buffer = new Buffer(_internal.buffer);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryDedicatedAllocateInfo;
+        public System.IntPtr PNext { get; set; }
+        public Image Image { get; set; }
+        public Buffer Buffer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo ToInternal()
         {
@@ -8852,6 +5876,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryAllocateFlagsInfo : DisposableObject
@@ -8862,36 +5892,15 @@ namespace AdamantiumVulkan.Core
 
         public MemoryAllocateFlagsInfo(AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DeviceMask = _internal.deviceMask;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint DeviceMask
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryAllocateFlagsInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint DeviceMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo ToInternal()
         {
@@ -8902,6 +5911,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupRenderPassBeginInfo : DisposableObject
@@ -8914,7 +5929,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupRenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DeviceMask = _internal.deviceMask;
             DeviceRenderAreaCount = _internal.deviceRenderAreaCount;
@@ -8922,35 +5936,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pDeviceRenderAreas);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DeviceMask
-        {
-            get; set;
-        }
-
-        public uint DeviceRenderAreaCount
-        {
-            get; set;
-        }
-
-        public Rect2D PDeviceRenderAreas
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupRenderPassBeginInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint DeviceMask { get; set; }
+        public uint DeviceRenderAreaCount { get; set; }
+        public Rect2D PDeviceRenderAreas { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo ToInternal()
         {
@@ -8968,6 +5958,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDeviceRenderAreas?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupCommandBufferBeginInfo : DisposableObject
@@ -8978,30 +5975,13 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupCommandBufferBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DeviceMask = _internal.deviceMask;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DeviceMask
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupCommandBufferBeginInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint DeviceMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo ToInternal()
         {
@@ -9011,6 +5991,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupSubmitInfo : DisposableObject
@@ -9027,7 +6013,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupSubmitInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             WaitSemaphoreCount = _internal.waitSemaphoreCount;
             if(_internal.pWaitSemaphoreDeviceIndices != System.IntPtr.Zero)
@@ -9049,51 +6034,14 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint WaitSemaphoreCount
-        {
-            get; set;
-        }
-
-        public uint? PWaitSemaphoreDeviceIndices
-        {
-            get; set;
-        }
-
-        public uint CommandBufferCount
-        {
-            get; set;
-        }
-
-        public uint? PCommandBufferDeviceMasks
-        {
-            get; set;
-        }
-
-        public uint SignalSemaphoreCount
-        {
-            get; set;
-        }
-
-        public uint? PSignalSemaphoreDeviceIndices
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpCommandBufferDeviceMasks?.Dispose();
-            refpSignalSemaphoreDeviceIndices?.Dispose();
-        }
+        public StructureType SType => StructureType.DeviceGroupSubmitInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint WaitSemaphoreCount { get; set; }
+        public uint? PWaitSemaphoreDeviceIndices { get; set; }
+        public uint CommandBufferCount { get; set; }
+        public uint? PCommandBufferDeviceMasks { get; set; }
+        public uint SignalSemaphoreCount { get; set; }
+        public uint? PSignalSemaphoreDeviceIndices { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo ToInternal()
         {
@@ -9123,6 +6071,15 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpWaitSemaphoreDeviceIndices?.Dispose();
+            refpCommandBufferDeviceMasks?.Dispose();
+            refpSignalSemaphoreDeviceIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupBindSparseInfo : DisposableObject
@@ -9133,36 +6090,15 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupBindSparseInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ResourceDeviceIndex = _internal.resourceDeviceIndex;
             MemoryDeviceIndex = _internal.memoryDeviceIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ResourceDeviceIndex
-        {
-            get; set;
-        }
-
-        public uint MemoryDeviceIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupBindSparseInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint ResourceDeviceIndex { get; set; }
+        public uint MemoryDeviceIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo ToInternal()
         {
@@ -9173,6 +6109,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryDeviceIndex = MemoryDeviceIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindBufferMemoryDeviceGroupInfo : DisposableObject
@@ -9185,7 +6127,6 @@ namespace AdamantiumVulkan.Core
 
         public BindBufferMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DeviceIndexCount = _internal.deviceIndexCount;
             if(_internal.pDeviceIndices != System.IntPtr.Zero)
@@ -9195,30 +6136,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DeviceIndexCount
-        {
-            get; set;
-        }
-
-        public uint? PDeviceIndices
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BindBufferMemoryDeviceGroupInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint DeviceIndexCount { get; set; }
+        public uint? PDeviceIndices { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo ToInternal()
         {
@@ -9234,6 +6155,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDeviceIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindImageMemoryDeviceGroupInfo : DisposableObject
@@ -9248,7 +6176,6 @@ namespace AdamantiumVulkan.Core
 
         public BindImageMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DeviceIndexCount = _internal.deviceIndexCount;
             if(_internal.pDeviceIndices != System.IntPtr.Zero)
@@ -9261,40 +6188,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSplitInstanceBindRegions);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DeviceIndexCount
-        {
-            get; set;
-        }
-
-        public uint? PDeviceIndices
-        {
-            get; set;
-        }
-
-        public uint SplitInstanceBindRegionCount
-        {
-            get; set;
-        }
-
-        public Rect2D PSplitInstanceBindRegions
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpSplitInstanceBindRegions?.Dispose();
-        }
+        public StructureType SType => StructureType.BindImageMemoryDeviceGroupInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint DeviceIndexCount { get; set; }
+        public uint? PDeviceIndices { get; set; }
+        public uint SplitInstanceBindRegionCount { get; set; }
+        public Rect2D PSplitInstanceBindRegions { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo ToInternal()
         {
@@ -9318,6 +6217,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDeviceIndices?.Dispose();
+            refpSplitInstanceBindRegions?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceGroupProperties : DisposableObject
@@ -9328,7 +6235,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceGroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PhysicalDeviceCount = _internal.physicalDeviceCount;
             PhysicalDevices = new PhysicalDevice[32];
@@ -9339,35 +6245,11 @@ namespace AdamantiumVulkan.Core
             SubsetAllocation = _internal.subsetAllocation;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint PhysicalDeviceCount
-        {
-            get; set;
-        }
-
-        public PhysicalDevice[] PhysicalDevices
-        {
-            get; set;
-        }
-
-        public bool SubsetAllocation
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceGroupProperties;
+        public System.IntPtr PNext { get; set; }
+        public uint PhysicalDeviceCount { get; set; }
+        public PhysicalDevice[] PhysicalDevices { get; set; }
+        public bool SubsetAllocation { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties ToInternal()
         {
@@ -9389,6 +6271,12 @@ namespace AdamantiumVulkan.Core
             _internal.subsetAllocation = SubsetAllocation;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupDeviceCreateInfo : DisposableObject
@@ -9401,37 +6289,16 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupDeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PhysicalDeviceCount = _internal.physicalDeviceCount;
             PPhysicalDevices = new PhysicalDevice(Marshal.PtrToStructure<PhysicalDevice>(_internal.pPhysicalDevices));
             Marshal.FreeHGlobal(_internal.pPhysicalDevices);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint PhysicalDeviceCount
-        {
-            get; set;
-        }
-
-        public PhysicalDevice PPhysicalDevices
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupDeviceCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint PhysicalDeviceCount { get; set; }
+        public PhysicalDevice PPhysicalDevices { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo ToInternal()
         {
@@ -9448,6 +6315,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpPhysicalDevices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferMemoryRequirementsInfo2 : DisposableObject
@@ -9458,30 +6332,13 @@ namespace AdamantiumVulkan.Core
 
         public BufferMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Buffer = new Buffer(_internal.buffer);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BufferMemoryRequirementsInfo2;
+        public System.IntPtr PNext { get; set; }
+        public Buffer Buffer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2 ToInternal()
         {
@@ -9491,6 +6348,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageMemoryRequirementsInfo2 : DisposableObject
@@ -9501,30 +6364,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Image = new Image(_internal.image);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageMemoryRequirementsInfo2;
+        public System.IntPtr PNext { get; set; }
+        public Image Image { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2 ToInternal()
         {
@@ -9534,6 +6380,12 @@ namespace AdamantiumVulkan.Core
             _internal.image = Image;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageSparseMemoryRequirementsInfo2 : DisposableObject
@@ -9544,30 +6396,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageSparseMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Image = new Image(_internal.image);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageSparseMemoryRequirementsInfo2;
+        public System.IntPtr PNext { get; set; }
+        public Image Image { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2 ToInternal()
         {
@@ -9577,6 +6412,12 @@ namespace AdamantiumVulkan.Core
             _internal.image = Image;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryRequirements2 : DisposableObject
@@ -9587,30 +6428,13 @@ namespace AdamantiumVulkan.Core
 
         public MemoryRequirements2(AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MemoryRequirements = new MemoryRequirements(_internal.memoryRequirements);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public MemoryRequirements MemoryRequirements
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryRequirements2;
+        public System.IntPtr PNext { get; set; }
+        public MemoryRequirements MemoryRequirements { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 ToInternal()
         {
@@ -9623,6 +6447,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SparseImageMemoryRequirements2 : DisposableObject
@@ -9633,30 +6463,13 @@ namespace AdamantiumVulkan.Core
 
         public SparseImageMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MemoryRequirements = new SparseImageMemoryRequirements(_internal.memoryRequirements);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SparseImageMemoryRequirements MemoryRequirements
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SparseImageMemoryRequirements2;
+        public System.IntPtr PNext { get; set; }
+        public SparseImageMemoryRequirements MemoryRequirements { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 ToInternal()
         {
@@ -9669,6 +6482,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceFeatures2 : DisposableObject
@@ -9679,30 +6498,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Features = new PhysicalDeviceFeatures(_internal.features);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceFeatures Features
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceFeatures2;
+        public System.IntPtr PNext { get; set; }
+        public PhysicalDeviceFeatures Features { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 ToInternal()
         {
@@ -9715,6 +6517,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceProperties2 : DisposableObject
@@ -9725,30 +6533,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Properties = new PhysicalDeviceProperties(_internal.properties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceProperties Properties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceProperties2;
+        public System.IntPtr PNext { get; set; }
+        public PhysicalDeviceProperties Properties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2 ToInternal()
         {
@@ -9761,6 +6552,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class FormatProperties2 : DisposableObject
@@ -9771,30 +6568,13 @@ namespace AdamantiumVulkan.Core
 
         public FormatProperties2(AdamantiumVulkan.Core.Interop.VkFormatProperties2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             FormatProperties = new FormatProperties(_internal.formatProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public FormatProperties FormatProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.FormatProperties2;
+        public System.IntPtr PNext { get; set; }
+        public FormatProperties FormatProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFormatProperties2 ToInternal()
         {
@@ -9807,6 +6587,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageFormatProperties2 : DisposableObject
@@ -9817,30 +6603,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ImageFormatProperties = new ImageFormatProperties(_internal.imageFormatProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ImageFormatProperties ImageFormatProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageFormatProperties2;
+        public System.IntPtr PNext { get; set; }
+        public ImageFormatProperties ImageFormatProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 ToInternal()
         {
@@ -9853,6 +6622,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceImageFormatInfo2 : DisposableObject
@@ -9863,7 +6638,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Format = _internal.format;
             Type = _internal.type;
@@ -9872,45 +6646,13 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public ImageType Type
-        {
-            get; set;
-        }
-
-        public ImageTiling Tiling
-        {
-            get; set;
-        }
-
-        public uint Usage
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceImageFormatInfo2;
+        public System.IntPtr PNext { get; set; }
+        public Format Format { get; set; }
+        public ImageType Type { get; set; }
+        public ImageTiling Tiling { get; set; }
+        public uint Usage { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 ToInternal()
         {
@@ -9924,6 +6666,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class QueueFamilyProperties2 : DisposableObject
@@ -9934,30 +6682,13 @@ namespace AdamantiumVulkan.Core
 
         public QueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             QueueFamilyProperties = new QueueFamilyProperties(_internal.queueFamilyProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public QueueFamilyProperties QueueFamilyProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.QueueFamilyProperties2;
+        public System.IntPtr PNext { get; set; }
+        public QueueFamilyProperties QueueFamilyProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 ToInternal()
         {
@@ -9970,6 +6701,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryProperties2 : DisposableObject
@@ -9980,30 +6717,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMemoryProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MemoryProperties = new PhysicalDeviceMemoryProperties(_internal.memoryProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public PhysicalDeviceMemoryProperties MemoryProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMemoryProperties2;
+        public System.IntPtr PNext { get; set; }
+        public PhysicalDeviceMemoryProperties MemoryProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 ToInternal()
         {
@@ -10016,6 +6736,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SparseImageFormatProperties2 : DisposableObject
@@ -10026,30 +6752,13 @@ namespace AdamantiumVulkan.Core
 
         public SparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Properties = new SparseImageFormatProperties(_internal.properties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SparseImageFormatProperties Properties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SparseImageFormatProperties2;
+        public System.IntPtr PNext { get; set; }
+        public SparseImageFormatProperties Properties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 ToInternal()
         {
@@ -10062,6 +6771,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceSparseImageFormatInfo2 : DisposableObject
@@ -10072,7 +6787,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSparseImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Format = _internal.format;
             Type = _internal.type;
@@ -10081,45 +6795,13 @@ namespace AdamantiumVulkan.Core
             Tiling = _internal.tiling;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public ImageType Type
-        {
-            get; set;
-        }
-
-        public SampleCountFlagBits Samples
-        {
-            get; set;
-        }
-
-        public uint Usage
-        {
-            get; set;
-        }
-
-        public ImageTiling Tiling
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceSparseImageFormatInfo2;
+        public System.IntPtr PNext { get; set; }
+        public Format Format { get; set; }
+        public ImageType Type { get; set; }
+        public SampleCountFlagBits Samples { get; set; }
+        public uint Usage { get; set; }
+        public ImageTiling Tiling { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2 ToInternal()
         {
@@ -10133,6 +6815,12 @@ namespace AdamantiumVulkan.Core
             _internal.tiling = Tiling;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDevicePointClippingProperties : DisposableObject
@@ -10143,30 +6831,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDevicePointClippingProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PointClippingBehavior = _internal.pointClippingBehavior;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public PointClippingBehavior PointClippingBehavior
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDevicePointClippingProperties;
+        public System.IntPtr PNext { get; set; }
+        public PointClippingBehavior PointClippingBehavior { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties ToInternal()
         {
@@ -10176,6 +6847,12 @@ namespace AdamantiumVulkan.Core
             _internal.pointClippingBehavior = PointClippingBehavior;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class InputAttachmentAspectReference
@@ -10191,20 +6868,9 @@ namespace AdamantiumVulkan.Core
             AspectMask = _internal.aspectMask;
         }
 
-        public uint Subpass
-        {
-            get; set;
-        }
-
-        public uint InputAttachmentIndex
-        {
-            get; set;
-        }
-
-        public uint AspectMask
-        {
-            get; set;
-        }
+        public uint Subpass { get; set; }
+        public uint InputAttachmentIndex { get; set; }
+        public uint AspectMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference ToInternal()
         {
@@ -10226,37 +6892,16 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassInputAttachmentAspectCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AspectReferenceCount = _internal.aspectReferenceCount;
             PAspectReferences = new InputAttachmentAspectReference(Marshal.PtrToStructure<VkInputAttachmentAspectReference>(_internal.pAspectReferences));
             Marshal.FreeHGlobal(_internal.pAspectReferences);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint AspectReferenceCount
-        {
-            get; set;
-        }
-
-        public InputAttachmentAspectReference PAspectReferences
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.RenderPassInputAttachmentAspectCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint AspectReferenceCount { get; set; }
+        public InputAttachmentAspectReference PAspectReferences { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo ToInternal()
         {
@@ -10273,6 +6918,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAspectReferences?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageViewUsageCreateInfo : DisposableObject
@@ -10283,30 +6935,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageViewUsageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Usage = _internal.usage;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Usage
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageViewUsageCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Usage { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo ToInternal()
         {
@@ -10316,6 +6951,12 @@ namespace AdamantiumVulkan.Core
             _internal.usage = Usage;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineTessellationDomainOriginStateCreateInfo : DisposableObject
@@ -10326,30 +6967,13 @@ namespace AdamantiumVulkan.Core
 
         public PipelineTessellationDomainOriginStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DomainOrigin = _internal.domainOrigin;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public TessellationDomainOrigin DomainOrigin
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineTessellationDomainOriginStateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public TessellationDomainOrigin DomainOrigin { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo ToInternal()
         {
@@ -10359,6 +6983,12 @@ namespace AdamantiumVulkan.Core
             _internal.domainOrigin = DomainOrigin;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RenderPassMultiviewCreateInfo : DisposableObject
@@ -10375,7 +7005,6 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassMultiviewCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SubpassCount = _internal.subpassCount;
             if(_internal.pViewMasks != System.IntPtr.Zero)
@@ -10397,51 +7026,14 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SubpassCount
-        {
-            get; set;
-        }
-
-        public uint? PViewMasks
-        {
-            get; set;
-        }
-
-        public uint DependencyCount
-        {
-            get; set;
-        }
-
-        public int? PViewOffsets
-        {
-            get; set;
-        }
-
-        public uint CorrelationMaskCount
-        {
-            get; set;
-        }
-
-        public uint? PCorrelationMasks
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpViewOffsets?.Dispose();
-            refpCorrelationMasks?.Dispose();
-        }
+        public StructureType SType => StructureType.RenderPassMultiviewCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint SubpassCount { get; set; }
+        public uint? PViewMasks { get; set; }
+        public uint DependencyCount { get; set; }
+        public int? PViewOffsets { get; set; }
+        public uint CorrelationMaskCount { get; set; }
+        public uint? PCorrelationMasks { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo ToInternal()
         {
@@ -10471,6 +7063,15 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpViewMasks?.Dispose();
+            refpViewOffsets?.Dispose();
+            refpCorrelationMasks?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMultiviewFeatures : DisposableObject
@@ -10481,42 +7082,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMultiviewFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Multiview = _internal.multiview;
             MultiviewGeometryShader = _internal.multiviewGeometryShader;
             MultiviewTessellationShader = _internal.multiviewTessellationShader;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool Multiview
-        {
-            get; set;
-        }
-
-        public bool MultiviewGeometryShader
-        {
-            get; set;
-        }
-
-        public bool MultiviewTessellationShader
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMultiviewFeatures;
+        public System.IntPtr PNext { get; set; }
+        public bool Multiview { get; set; }
+        public bool MultiviewGeometryShader { get; set; }
+        public bool MultiviewTessellationShader { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures ToInternal()
         {
@@ -10528,6 +7104,12 @@ namespace AdamantiumVulkan.Core
             _internal.multiviewTessellationShader = MultiviewTessellationShader;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMultiviewProperties : DisposableObject
@@ -10538,36 +7120,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMultiviewProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxMultiviewViewCount = _internal.maxMultiviewViewCount;
             MaxMultiviewInstanceIndex = _internal.maxMultiviewInstanceIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxMultiviewViewCount
-        {
-            get; set;
-        }
-
-        public uint MaxMultiviewInstanceIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMultiviewProperties;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxMultiviewViewCount { get; set; }
+        public uint MaxMultiviewInstanceIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewProperties ToInternal()
         {
@@ -10578,6 +7139,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxMultiviewInstanceIndex = MaxMultiviewInstanceIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceVariablePointerFeatures : DisposableObject
@@ -10588,36 +7155,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceVariablePointerFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointerFeatures _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             VariablePointersStorageBuffer = _internal.variablePointersStorageBuffer;
             VariablePointers = _internal.variablePointers;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool VariablePointersStorageBuffer
-        {
-            get; set;
-        }
-
-        public bool VariablePointers
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceVariablePointerFeatures;
+        public System.IntPtr PNext { get; set; }
+        public bool VariablePointersStorageBuffer { get; set; }
+        public bool VariablePointers { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointerFeatures ToInternal()
         {
@@ -10628,6 +7174,12 @@ namespace AdamantiumVulkan.Core
             _internal.variablePointers = VariablePointers;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceProtectedMemoryFeatures : DisposableObject
@@ -10638,30 +7190,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceProtectedMemoryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ProtectedMemory = _internal.protectedMemory;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ProtectedMemory
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceProtectedMemoryFeatures;
+        public System.IntPtr PNext { get; set; }
+        public bool ProtectedMemory { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures ToInternal()
         {
@@ -10671,6 +7206,12 @@ namespace AdamantiumVulkan.Core
             _internal.protectedMemory = ProtectedMemory;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceProtectedMemoryProperties : DisposableObject
@@ -10681,30 +7222,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceProtectedMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ProtectedNoFault = _internal.protectedNoFault;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ProtectedNoFault
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceProtectedMemoryProperties;
+        public System.IntPtr PNext { get; set; }
+        public bool ProtectedNoFault { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties ToInternal()
         {
@@ -10714,6 +7238,12 @@ namespace AdamantiumVulkan.Core
             _internal.protectedNoFault = ProtectedNoFault;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceQueueInfo2 : DisposableObject
@@ -10724,42 +7254,17 @@ namespace AdamantiumVulkan.Core
 
         public DeviceQueueInfo2(AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2 _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             QueueFamilyIndex = _internal.queueFamilyIndex;
             QueueIndex = _internal.queueIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndex
-        {
-            get; set;
-        }
-
-        public uint QueueIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceQueueInfo2;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint QueueFamilyIndex { get; set; }
+        public uint QueueIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2 ToInternal()
         {
@@ -10771,6 +7276,12 @@ namespace AdamantiumVulkan.Core
             _internal.queueIndex = QueueIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ProtectedSubmitInfo : DisposableObject
@@ -10781,30 +7292,13 @@ namespace AdamantiumVulkan.Core
 
         public ProtectedSubmitInfo(AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ProtectedSubmit = _internal.protectedSubmit;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ProtectedSubmit
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ProtectedSubmitInfo;
+        public System.IntPtr PNext { get; set; }
+        public bool ProtectedSubmit { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo ToInternal()
         {
@@ -10814,6 +7308,12 @@ namespace AdamantiumVulkan.Core
             _internal.protectedSubmit = ProtectedSubmit;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SamplerYcbcrConversionCreateInfo : DisposableObject
@@ -10824,7 +7324,6 @@ namespace AdamantiumVulkan.Core
 
         public SamplerYcbcrConversionCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Format = _internal.format;
             YcbcrModel = _internal.ycbcrModel;
@@ -10836,60 +7335,16 @@ namespace AdamantiumVulkan.Core
             ForceExplicitReconstruction = _internal.forceExplicitReconstruction;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public SamplerYcbcrModelConversion YcbcrModel
-        {
-            get; set;
-        }
-
-        public SamplerYcbcrRange YcbcrRange
-        {
-            get; set;
-        }
-
-        public ComponentMapping Components
-        {
-            get; set;
-        }
-
-        public ChromaLocation XChromaOffset
-        {
-            get; set;
-        }
-
-        public ChromaLocation YChromaOffset
-        {
-            get; set;
-        }
-
-        public Filter ChromaFilter
-        {
-            get; set;
-        }
-
-        public bool ForceExplicitReconstruction
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SamplerYcbcrConversionCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public Format Format { get; set; }
+        public SamplerYcbcrModelConversion YcbcrModel { get; set; }
+        public SamplerYcbcrRange YcbcrRange { get; set; }
+        public ComponentMapping Components { get; set; }
+        public ChromaLocation XChromaOffset { get; set; }
+        public ChromaLocation YChromaOffset { get; set; }
+        public Filter ChromaFilter { get; set; }
+        public bool ForceExplicitReconstruction { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo ToInternal()
         {
@@ -10909,6 +7364,12 @@ namespace AdamantiumVulkan.Core
             _internal.forceExplicitReconstruction = ForceExplicitReconstruction;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SamplerYcbcrConversionInfo : DisposableObject
@@ -10919,30 +7380,13 @@ namespace AdamantiumVulkan.Core
 
         public SamplerYcbcrConversionInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Conversion = new SamplerYcbcrConversion(_internal.conversion);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SamplerYcbcrConversion Conversion
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SamplerYcbcrConversionInfo;
+        public System.IntPtr PNext { get; set; }
+        public SamplerYcbcrConversion Conversion { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo ToInternal()
         {
@@ -10952,6 +7396,12 @@ namespace AdamantiumVulkan.Core
             _internal.conversion = Conversion;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindImagePlaneMemoryInfo : DisposableObject
@@ -10962,30 +7412,13 @@ namespace AdamantiumVulkan.Core
 
         public BindImagePlaneMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PlaneAspect = _internal.planeAspect;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ImageAspectFlagBits PlaneAspect
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BindImagePlaneMemoryInfo;
+        public System.IntPtr PNext { get; set; }
+        public ImageAspectFlagBits PlaneAspect { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo ToInternal()
         {
@@ -10995,6 +7428,12 @@ namespace AdamantiumVulkan.Core
             _internal.planeAspect = PlaneAspect;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImagePlaneMemoryRequirementsInfo : DisposableObject
@@ -11005,30 +7444,13 @@ namespace AdamantiumVulkan.Core
 
         public ImagePlaneMemoryRequirementsInfo(AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PlaneAspect = _internal.planeAspect;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ImageAspectFlagBits PlaneAspect
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImagePlaneMemoryRequirementsInfo;
+        public System.IntPtr PNext { get; set; }
+        public ImageAspectFlagBits PlaneAspect { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo ToInternal()
         {
@@ -11038,6 +7460,12 @@ namespace AdamantiumVulkan.Core
             _internal.planeAspect = PlaneAspect;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : DisposableObject
@@ -11048,30 +7476,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSamplerYcbcrConversionFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SamplerYcbcrConversion = _internal.samplerYcbcrConversion;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool SamplerYcbcrConversion
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceSamplerYcbcrConversionFeatures;
+        public System.IntPtr PNext { get; set; }
+        public bool SamplerYcbcrConversion { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures ToInternal()
         {
@@ -11081,6 +7492,12 @@ namespace AdamantiumVulkan.Core
             _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SamplerYcbcrConversionImageFormatProperties : DisposableObject
@@ -11091,30 +7508,13 @@ namespace AdamantiumVulkan.Core
 
         public SamplerYcbcrConversionImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CombinedImageSamplerDescriptorCount = _internal.combinedImageSamplerDescriptorCount;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint CombinedImageSamplerDescriptorCount
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SamplerYcbcrConversionImageFormatProperties;
+        public System.IntPtr PNext { get; set; }
+        public uint CombinedImageSamplerDescriptorCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties ToInternal()
         {
@@ -11124,6 +7524,12 @@ namespace AdamantiumVulkan.Core
             _internal.combinedImageSamplerDescriptorCount = CombinedImageSamplerDescriptorCount;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorUpdateTemplateEntry
@@ -11142,35 +7548,12 @@ namespace AdamantiumVulkan.Core
             Stride = _internal.stride;
         }
 
-        public uint DstBinding
-        {
-            get; set;
-        }
-
-        public uint DstArrayElement
-        {
-            get; set;
-        }
-
-        public uint DescriptorCount
-        {
-            get; set;
-        }
-
-        public DescriptorType DescriptorType
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public ulong Stride
-        {
-            get; set;
-        }
+        public uint DstBinding { get; set; }
+        public uint DstArrayElement { get; set; }
+        public uint DescriptorCount { get; set; }
+        public DescriptorType DescriptorType { get; set; }
+        public ulong Offset { get; set; }
+        public ulong Stride { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry ToInternal()
         {
@@ -11195,7 +7578,6 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorUpdateTemplateCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DescriptorUpdateEntryCount = _internal.descriptorUpdateEntryCount;
@@ -11208,60 +7590,16 @@ namespace AdamantiumVulkan.Core
             Set = _internal.set;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint DescriptorUpdateEntryCount
-        {
-            get; set;
-        }
-
-        public DescriptorUpdateTemplateEntry PDescriptorUpdateEntries
-        {
-            get; set;
-        }
-
-        public DescriptorUpdateTemplateType TemplateType
-        {
-            get; set;
-        }
-
-        public DescriptorSetLayout DescriptorSetLayout
-        {
-            get; set;
-        }
-
-        public PipelineBindPoint PipelineBindPoint
-        {
-            get; set;
-        }
-
-        public PipelineLayout PipelineLayout
-        {
-            get; set;
-        }
-
-        public uint Set
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorUpdateTemplateCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint DescriptorUpdateEntryCount { get; set; }
+        public DescriptorUpdateTemplateEntry PDescriptorUpdateEntries { get; set; }
+        public DescriptorUpdateTemplateType TemplateType { get; set; }
+        public DescriptorSetLayout DescriptorSetLayout { get; set; }
+        public PipelineBindPoint PipelineBindPoint { get; set; }
+        public PipelineLayout PipelineLayout { get; set; }
+        public uint Set { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo ToInternal()
         {
@@ -11284,6 +7622,13 @@ namespace AdamantiumVulkan.Core
             _internal.set = Set;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDescriptorUpdateEntries?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalMemoryProperties
@@ -11299,20 +7644,9 @@ namespace AdamantiumVulkan.Core
             CompatibleHandleTypes = _internal.compatibleHandleTypes;
         }
 
-        public uint ExternalMemoryFeatures
-        {
-            get; set;
-        }
-
-        public uint ExportFromImportedHandleTypes
-        {
-            get; set;
-        }
-
-        public uint CompatibleHandleTypes
-        {
-            get; set;
-        }
+        public uint ExternalMemoryFeatures { get; set; }
+        public uint ExportFromImportedHandleTypes { get; set; }
+        public uint CompatibleHandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties ToInternal()
         {
@@ -11332,30 +7666,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceExternalImageFormatInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceExternalImageFormatInfo;
+        public System.IntPtr PNext { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo ToInternal()
         {
@@ -11365,6 +7682,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalImageFormatProperties : DisposableObject
@@ -11375,30 +7698,13 @@ namespace AdamantiumVulkan.Core
 
         public ExternalImageFormatProperties(AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ExternalMemoryProperties = new ExternalMemoryProperties(_internal.externalMemoryProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalMemoryProperties ExternalMemoryProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalImageFormatProperties;
+        public System.IntPtr PNext { get; set; }
+        public ExternalMemoryProperties ExternalMemoryProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties ToInternal()
         {
@@ -11411,6 +7717,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalBufferInfo : DisposableObject
@@ -11421,42 +7733,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceExternalBufferInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Usage = _internal.usage;
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint Usage
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceExternalBufferInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint Usage { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo ToInternal()
         {
@@ -11468,6 +7755,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalBufferProperties : DisposableObject
@@ -11478,30 +7771,13 @@ namespace AdamantiumVulkan.Core
 
         public ExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkExternalBufferProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ExternalMemoryProperties = new ExternalMemoryProperties(_internal.externalMemoryProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalMemoryProperties ExternalMemoryProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalBufferProperties;
+        public System.IntPtr PNext { get; set; }
+        public ExternalMemoryProperties ExternalMemoryProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalBufferProperties ToInternal()
         {
@@ -11514,6 +7790,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceIDProperties : DisposableObject
@@ -11524,7 +7806,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceIDProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             var tmpArr0 = new byte[16];
             unsafe
@@ -11557,45 +7838,13 @@ namespace AdamantiumVulkan.Core
             DeviceLUIDValid = _internal.deviceLUIDValid;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public string DeviceUUID
-        {
-            get; set;
-        }
-
-        public string DriverUUID
-        {
-            get; set;
-        }
-
-        public string DeviceLUID
-        {
-            get; set;
-        }
-
-        public uint DeviceNodeMask
-        {
-            get; set;
-        }
-
-        public bool DeviceLUIDValid
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceIdProperties;
+        public System.IntPtr PNext { get; set; }
+        public string DeviceUUID { get; set; }
+        public string DriverUUID { get; set; }
+        public string DeviceLUID { get; set; }
+        public uint DeviceNodeMask { get; set; }
+        public bool DeviceLUIDValid { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties ToInternal()
         {
@@ -11657,6 +7906,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceLUIDValid = DeviceLUIDValid;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalMemoryImageCreateInfo : DisposableObject
@@ -11667,30 +7922,13 @@ namespace AdamantiumVulkan.Core
 
         public ExternalMemoryImageCreateInfo(AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalMemoryImageCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo ToInternal()
         {
@@ -11700,6 +7938,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalMemoryBufferCreateInfo : DisposableObject
@@ -11710,30 +7954,13 @@ namespace AdamantiumVulkan.Core
 
         public ExternalMemoryBufferCreateInfo(AdamantiumVulkan.Core.Interop.VkExternalMemoryBufferCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalMemoryBufferCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryBufferCreateInfo ToInternal()
         {
@@ -11743,6 +7970,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportMemoryAllocateInfo : DisposableObject
@@ -11753,30 +7986,13 @@ namespace AdamantiumVulkan.Core
 
         public ExportMemoryAllocateInfo(AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExportMemoryAllocateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfo ToInternal()
         {
@@ -11786,6 +8002,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalFenceInfo : DisposableObject
@@ -11796,30 +8018,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceExternalFenceInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalFenceHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceExternalFenceInfo;
+        public System.IntPtr PNext { get; set; }
+        public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo ToInternal()
         {
@@ -11829,6 +8034,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalFenceProperties : DisposableObject
@@ -11839,42 +8050,17 @@ namespace AdamantiumVulkan.Core
 
         public ExternalFenceProperties(AdamantiumVulkan.Core.Interop.VkExternalFenceProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ExportFromImportedHandleTypes = _internal.exportFromImportedHandleTypes;
             CompatibleHandleTypes = _internal.compatibleHandleTypes;
             ExternalFenceFeatures = _internal.externalFenceFeatures;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ExportFromImportedHandleTypes
-        {
-            get; set;
-        }
-
-        public uint CompatibleHandleTypes
-        {
-            get; set;
-        }
-
-        public uint ExternalFenceFeatures
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalFenceProperties;
+        public System.IntPtr PNext { get; set; }
+        public uint ExportFromImportedHandleTypes { get; set; }
+        public uint CompatibleHandleTypes { get; set; }
+        public uint ExternalFenceFeatures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalFenceProperties ToInternal()
         {
@@ -11886,6 +8072,12 @@ namespace AdamantiumVulkan.Core
             _internal.externalFenceFeatures = ExternalFenceFeatures;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportFenceCreateInfo : DisposableObject
@@ -11896,30 +8088,13 @@ namespace AdamantiumVulkan.Core
 
         public ExportFenceCreateInfo(AdamantiumVulkan.Core.Interop.VkExportFenceCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExportFenceCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExportFenceCreateInfo ToInternal()
         {
@@ -11929,6 +8104,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportSemaphoreCreateInfo : DisposableObject
@@ -11939,30 +8120,13 @@ namespace AdamantiumVulkan.Core
 
         public ExportSemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExportSemaphoreCreateInfo;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo ToInternal()
         {
@@ -11972,6 +8136,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalSemaphoreInfo : DisposableObject
@@ -11982,30 +8152,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceExternalSemaphoreInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalSemaphoreHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceExternalSemaphoreInfo;
+        public System.IntPtr PNext { get; set; }
+        public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo ToInternal()
         {
@@ -12015,6 +8168,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalSemaphoreProperties : DisposableObject
@@ -12025,42 +8184,17 @@ namespace AdamantiumVulkan.Core
 
         public ExternalSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ExportFromImportedHandleTypes = _internal.exportFromImportedHandleTypes;
             CompatibleHandleTypes = _internal.compatibleHandleTypes;
             ExternalSemaphoreFeatures = _internal.externalSemaphoreFeatures;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ExportFromImportedHandleTypes
-        {
-            get; set;
-        }
-
-        public uint CompatibleHandleTypes
-        {
-            get; set;
-        }
-
-        public uint ExternalSemaphoreFeatures
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalSemaphoreProperties;
+        public System.IntPtr PNext { get; set; }
+        public uint ExportFromImportedHandleTypes { get; set; }
+        public uint CompatibleHandleTypes { get; set; }
+        public uint ExternalSemaphoreFeatures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties ToInternal()
         {
@@ -12072,6 +8206,12 @@ namespace AdamantiumVulkan.Core
             _internal.externalSemaphoreFeatures = ExternalSemaphoreFeatures;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMaintenance3Properties : DisposableObject
@@ -12082,36 +8222,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMaintenance3Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxPerSetDescriptors = _internal.maxPerSetDescriptors;
             MaxMemoryAllocationSize = _internal.maxMemoryAllocationSize;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxPerSetDescriptors
-        {
-            get; set;
-        }
-
-        public ulong MaxMemoryAllocationSize
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMaintenance3Properties;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxPerSetDescriptors { get; set; }
+        public ulong MaxMemoryAllocationSize { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties ToInternal()
         {
@@ -12122,6 +8241,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorSetLayoutSupport : DisposableObject
@@ -12132,30 +8257,13 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorSetLayoutSupport(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Supported = _internal.supported;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool Supported
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorSetLayoutSupport;
+        public System.IntPtr PNext { get; set; }
+        public bool Supported { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport ToInternal()
         {
@@ -12165,6 +8273,12 @@ namespace AdamantiumVulkan.Core
             _internal.supported = Supported;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderDrawParameterFeatures : DisposableObject
@@ -12175,30 +8289,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderDrawParameterFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParameterFeatures _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShaderDrawParameters = _internal.shaderDrawParameters;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ShaderDrawParameters
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceShaderDrawParameterFeatures;
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderDrawParameters { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParameterFeatures ToInternal()
         {
@@ -12208,6 +8305,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderDrawParameters = ShaderDrawParameters;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SurfaceCapabilitiesKHR
@@ -12230,55 +8333,16 @@ namespace AdamantiumVulkan.Core
             SupportedUsageFlags = _internal.supportedUsageFlags;
         }
 
-        public uint MinImageCount
-        {
-            get; set;
-        }
-
-        public uint MaxImageCount
-        {
-            get; set;
-        }
-
-        public Extent2D CurrentExtent
-        {
-            get; set;
-        }
-
-        public Extent2D MinImageExtent
-        {
-            get; set;
-        }
-
-        public Extent2D MaxImageExtent
-        {
-            get; set;
-        }
-
-        public uint MaxImageArrayLayers
-        {
-            get; set;
-        }
-
-        public uint SupportedTransforms
-        {
-            get; set;
-        }
-
-        public SurfaceTransformFlagBitsKHR CurrentTransform
-        {
-            get; set;
-        }
-
-        public uint SupportedCompositeAlpha
-        {
-            get; set;
-        }
-
-        public uint SupportedUsageFlags
-        {
-            get; set;
-        }
+        public uint MinImageCount { get; set; }
+        public uint MaxImageCount { get; set; }
+        public Extent2D CurrentExtent { get; set; }
+        public Extent2D MinImageExtent { get; set; }
+        public Extent2D MaxImageExtent { get; set; }
+        public uint MaxImageArrayLayers { get; set; }
+        public uint SupportedTransforms { get; set; }
+        public SurfaceTransformFlagBitsKHR CurrentTransform { get; set; }
+        public uint SupportedCompositeAlpha { get; set; }
+        public uint SupportedUsageFlags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR ToInternal()
         {
@@ -12318,15 +8382,8 @@ namespace AdamantiumVulkan.Core
             ColorSpace = _internal.colorSpace;
         }
 
-        public Format Format
-        {
-            get; set;
-        }
-
-        public ColorSpaceKHR ColorSpace
-        {
-            get; set;
-        }
+        public Format Format { get; set; }
+        public ColorSpaceKHR ColorSpace { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR ToInternal()
         {
@@ -12347,7 +8404,6 @@ namespace AdamantiumVulkan.Core
 
         public SwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Surface = new SurfaceKHR(_internal.surface);
@@ -12369,100 +8425,24 @@ namespace AdamantiumVulkan.Core
             OldSwapchain = new SwapchainKHR(_internal.oldSwapchain);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public SurfaceKHR Surface
-        {
-            get; set;
-        }
-
-        public uint MinImageCount
-        {
-            get; set;
-        }
-
-        public Format ImageFormat
-        {
-            get; set;
-        }
-
-        public ColorSpaceKHR ImageColorSpace
-        {
-            get; set;
-        }
-
-        public Extent2D ImageExtent
-        {
-            get; set;
-        }
-
-        public uint ImageArrayLayers
-        {
-            get; set;
-        }
-
-        public uint ImageUsage
-        {
-            get; set;
-        }
-
-        public SharingMode ImageSharingMode
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndexCount
-        {
-            get; set;
-        }
-
-        public uint[] PQueueFamilyIndices
-        {
-            get; set;
-        }
-
-        public SurfaceTransformFlagBitsKHR PreTransform
-        {
-            get; set;
-        }
-
-        public CompositeAlphaFlagBitsKHR CompositeAlpha
-        {
-            get; set;
-        }
-
-        public PresentModeKHR PresentMode
-        {
-            get; set;
-        }
-
-        public bool Clipped
-        {
-            get; set;
-        }
-
-        public SwapchainKHR OldSwapchain
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SwapchainCreateInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public SurfaceKHR Surface { get; set; }
+        public uint MinImageCount { get; set; }
+        public Format ImageFormat { get; set; }
+        public ColorSpaceKHR ImageColorSpace { get; set; }
+        public Extent2D ImageExtent { get; set; }
+        public uint ImageArrayLayers { get; set; }
+        public uint ImageUsage { get; set; }
+        public SharingMode ImageSharingMode { get; set; }
+        public uint QueueFamilyIndexCount { get; set; }
+        public uint[] PQueueFamilyIndices { get; set; }
+        public SurfaceTransformFlagBitsKHR PreTransform { get; set; }
+        public CompositeAlphaFlagBitsKHR CompositeAlpha { get; set; }
+        public PresentModeKHR PresentMode { get; set; }
+        public bool Clipped { get; set; }
+        public SwapchainKHR OldSwapchain { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR ToInternal()
         {
@@ -12500,6 +8480,13 @@ namespace AdamantiumVulkan.Core
             _internal.oldSwapchain = OldSwapchain;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpQueueFamilyIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PresentInfoKHR : DisposableObject
@@ -12518,7 +8505,6 @@ namespace AdamantiumVulkan.Core
 
         public PresentInfoKHR(AdamantiumVulkan.Core.Interop.VkPresentInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             WaitSemaphoreCount = _internal.waitSemaphoreCount;
             PWaitSemaphores = new Semaphore[_internal.waitSemaphoreCount];
@@ -12541,52 +8527,14 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint WaitSemaphoreCount
-        {
-            get; set;
-        }
-
-        public Semaphore[] PWaitSemaphores
-        {
-            get; set;
-        }
-
-        public uint SwapchainCount
-        {
-            get; set;
-        }
-
-        public SwapchainKHR[] PSwapchains
-        {
-            get; set;
-        }
-
-        public uint[] PImageIndices
-        {
-            get; set;
-        }
-
-        public Result[] PResults
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpSwapchains?.Dispose();
-            refpImageIndices?.Dispose();
-            refpResults?.Dispose();
-        }
+        public StructureType SType => StructureType.PresentInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint WaitSemaphoreCount { get; set; }
+        public Semaphore[] PWaitSemaphores { get; set; }
+        public uint SwapchainCount { get; set; }
+        public SwapchainKHR[] PSwapchains { get; set; }
+        public uint[] PImageIndices { get; set; }
+        public Result[] PResults { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPresentInfoKHR ToInternal()
         {
@@ -12641,6 +8589,16 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpWaitSemaphores?.Dispose();
+            refpSwapchains?.Dispose();
+            refpImageIndices?.Dispose();
+            refpResults?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageSwapchainCreateInfoKHR : DisposableObject
@@ -12651,30 +8609,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Swapchain = new SwapchainKHR(_internal.swapchain);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SwapchainKHR Swapchain
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageSwapchainCreateInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public SwapchainKHR Swapchain { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR ToInternal()
         {
@@ -12684,6 +8625,12 @@ namespace AdamantiumVulkan.Core
             _internal.swapchain = Swapchain;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindImageMemorySwapchainInfoKHR : DisposableObject
@@ -12694,36 +8641,15 @@ namespace AdamantiumVulkan.Core
 
         public BindImageMemorySwapchainInfoKHR(AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Swapchain = new SwapchainKHR(_internal.swapchain);
             ImageIndex = _internal.imageIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SwapchainKHR Swapchain
-        {
-            get; set;
-        }
-
-        public uint ImageIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BindImageMemorySwapchainInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public SwapchainKHR Swapchain { get; set; }
+        public uint ImageIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR ToInternal()
         {
@@ -12734,6 +8660,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageIndex = ImageIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AcquireNextImageInfoKHR : DisposableObject
@@ -12744,7 +8676,6 @@ namespace AdamantiumVulkan.Core
 
         public AcquireNextImageInfoKHR(AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Swapchain = new SwapchainKHR(_internal.swapchain);
             Timeout = _internal.timeout;
@@ -12753,45 +8684,13 @@ namespace AdamantiumVulkan.Core
             DeviceMask = _internal.deviceMask;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SwapchainKHR Swapchain
-        {
-            get; set;
-        }
-
-        public ulong Timeout
-        {
-            get; set;
-        }
-
-        public Semaphore Semaphore
-        {
-            get; set;
-        }
-
-        public Fence Fence
-        {
-            get; set;
-        }
-
-        public uint DeviceMask
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.AcquireNextImageInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public SwapchainKHR Swapchain { get; set; }
+        public ulong Timeout { get; set; }
+        public Semaphore Semaphore { get; set; }
+        public Fence Fence { get; set; }
+        public uint DeviceMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR ToInternal()
         {
@@ -12805,6 +8704,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupPresentCapabilitiesKHR : DisposableObject
@@ -12815,7 +8720,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupPresentCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             var tmpArr0 = new uint[32];
             unsafe
@@ -12829,30 +8733,10 @@ namespace AdamantiumVulkan.Core
             Modes = _internal.modes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint[] PresentMask
-        {
-            get; set;
-        }
-
-        public uint Modes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupPresentCapabilitiesKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint[] PresentMask { get; set; }
+        public uint Modes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR ToInternal()
         {
@@ -12879,6 +8763,12 @@ namespace AdamantiumVulkan.Core
             _internal.modes = Modes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupPresentInfoKHR : DisposableObject
@@ -12891,7 +8781,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SwapchainCount = _internal.swapchainCount;
             if(_internal.pDeviceMasks != System.IntPtr.Zero)
@@ -12902,35 +8791,11 @@ namespace AdamantiumVulkan.Core
             Mode = _internal.mode;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SwapchainCount
-        {
-            get; set;
-        }
-
-        public uint? PDeviceMasks
-        {
-            get; set;
-        }
-
-        public DeviceGroupPresentModeFlagBitsKHR Mode
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupPresentInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint SwapchainCount { get; set; }
+        public uint? PDeviceMasks { get; set; }
+        public DeviceGroupPresentModeFlagBitsKHR Mode { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR ToInternal()
         {
@@ -12947,6 +8812,13 @@ namespace AdamantiumVulkan.Core
             _internal.mode = Mode;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDeviceMasks?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGroupSwapchainCreateInfoKHR : DisposableObject
@@ -12957,30 +8829,13 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGroupSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Modes = _internal.modes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Modes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGroupSwapchainCreateInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint Modes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR ToInternal()
         {
@@ -12990,6 +8845,12 @@ namespace AdamantiumVulkan.Core
             _internal.modes = Modes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPropertiesKHR : DisposableObject
@@ -13011,45 +8872,13 @@ namespace AdamantiumVulkan.Core
             PersistentContent = _internal.persistentContent;
         }
 
-        public DisplayKHR Display
-        {
-            get; set;
-        }
-
-        public string DisplayName
-        {
-            get; set;
-        }
-
-        public Extent2D PhysicalDimensions
-        {
-            get; set;
-        }
-
-        public Extent2D PhysicalResolution
-        {
-            get; set;
-        }
-
-        public uint SupportedTransforms
-        {
-            get; set;
-        }
-
-        public bool PlaneReorderPossible
-        {
-            get; set;
-        }
-
-        public bool PersistentContent
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public DisplayKHR Display { get; set; }
+        public string DisplayName { get; set; }
+        public Extent2D PhysicalDimensions { get; set; }
+        public Extent2D PhysicalResolution { get; set; }
+        public uint SupportedTransforms { get; set; }
+        public bool PlaneReorderPossible { get; set; }
+        public bool PersistentContent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR ToInternal()
         {
@@ -13074,6 +8903,12 @@ namespace AdamantiumVulkan.Core
             _internal.persistentContent = PersistentContent;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refdisplayName?.Dispose();
+        }
+
     }
 
     public partial class DisplayModeParametersKHR
@@ -13088,15 +8923,8 @@ namespace AdamantiumVulkan.Core
             RefreshRate = _internal.refreshRate;
         }
 
-        public Extent2D VisibleRegion
-        {
-            get; set;
-        }
-
-        public uint RefreshRate
-        {
-            get; set;
-        }
+        public Extent2D VisibleRegion { get; set; }
+        public uint RefreshRate { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR ToInternal()
         {
@@ -13122,15 +8950,8 @@ namespace AdamantiumVulkan.Core
             Parameters = new DisplayModeParametersKHR(_internal.parameters);
         }
 
-        public DisplayModeKHR DisplayMode
-        {
-            get; set;
-        }
-
-        public DisplayModeParametersKHR Parameters
-        {
-            get; set;
-        }
+        public DisplayModeKHR DisplayMode { get; set; }
+        public DisplayModeParametersKHR Parameters { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR ToInternal()
         {
@@ -13152,36 +8973,15 @@ namespace AdamantiumVulkan.Core
 
         public DisplayModeCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Parameters = new DisplayModeParametersKHR(_internal.parameters);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public DisplayModeParametersKHR Parameters
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayModeCreateInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public DisplayModeParametersKHR Parameters { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR ToInternal()
         {
@@ -13195,6 +8995,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPlaneCapabilitiesKHR
@@ -13216,50 +9022,15 @@ namespace AdamantiumVulkan.Core
             MaxDstExtent = new Extent2D(_internal.maxDstExtent);
         }
 
-        public uint SupportedAlpha
-        {
-            get; set;
-        }
-
-        public Offset2D MinSrcPosition
-        {
-            get; set;
-        }
-
-        public Offset2D MaxSrcPosition
-        {
-            get; set;
-        }
-
-        public Extent2D MinSrcExtent
-        {
-            get; set;
-        }
-
-        public Extent2D MaxSrcExtent
-        {
-            get; set;
-        }
-
-        public Offset2D MinDstPosition
-        {
-            get; set;
-        }
-
-        public Offset2D MaxDstPosition
-        {
-            get; set;
-        }
-
-        public Extent2D MinDstExtent
-        {
-            get; set;
-        }
-
-        public Extent2D MaxDstExtent
-        {
-            get; set;
-        }
+        public uint SupportedAlpha { get; set; }
+        public Offset2D MinSrcPosition { get; set; }
+        public Offset2D MaxSrcPosition { get; set; }
+        public Extent2D MinSrcExtent { get; set; }
+        public Extent2D MaxSrcExtent { get; set; }
+        public Offset2D MinDstPosition { get; set; }
+        public Offset2D MaxDstPosition { get; set; }
+        public Extent2D MinDstExtent { get; set; }
+        public Extent2D MaxDstExtent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR ToInternal()
         {
@@ -13313,15 +9084,8 @@ namespace AdamantiumVulkan.Core
             CurrentStackIndex = _internal.currentStackIndex;
         }
 
-        public DisplayKHR CurrentDisplay
-        {
-            get; set;
-        }
-
-        public uint CurrentStackIndex
-        {
-            get; set;
-        }
+        public DisplayKHR CurrentDisplay { get; set; }
+        public uint CurrentStackIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR ToInternal()
         {
@@ -13340,7 +9104,6 @@ namespace AdamantiumVulkan.Core
 
         public DisplaySurfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DisplayMode = new DisplayModeKHR(_internal.displayMode);
@@ -13352,60 +9115,16 @@ namespace AdamantiumVulkan.Core
             ImageExtent = new Extent2D(_internal.imageExtent);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public DisplayModeKHR DisplayMode
-        {
-            get; set;
-        }
-
-        public uint PlaneIndex
-        {
-            get; set;
-        }
-
-        public uint PlaneStackIndex
-        {
-            get; set;
-        }
-
-        public SurfaceTransformFlagBitsKHR Transform
-        {
-            get; set;
-        }
-
-        public float GlobalAlpha
-        {
-            get; set;
-        }
-
-        public DisplayPlaneAlphaFlagBitsKHR AlphaMode
-        {
-            get; set;
-        }
-
-        public Extent2D ImageExtent
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplaySurfaceCreateInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public DisplayModeKHR DisplayMode { get; set; }
+        public uint PlaneIndex { get; set; }
+        public uint PlaneStackIndex { get; set; }
+        public SurfaceTransformFlagBitsKHR Transform { get; set; }
+        public float GlobalAlpha { get; set; }
+        public DisplayPlaneAlphaFlagBitsKHR AlphaMode { get; set; }
+        public Extent2D ImageExtent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR ToInternal()
         {
@@ -13425,6 +9144,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPresentInfoKHR : DisposableObject
@@ -13435,42 +9160,17 @@ namespace AdamantiumVulkan.Core
 
         public DisplayPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcRect = new Rect2D(_internal.srcRect);
             DstRect = new Rect2D(_internal.dstRect);
             Persistent = _internal.persistent;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Rect2D SrcRect
-        {
-            get; set;
-        }
-
-        public Rect2D DstRect
-        {
-            get; set;
-        }
-
-        public bool Persistent
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayPresentInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public Rect2D SrcRect { get; set; }
+        public Rect2D DstRect { get; set; }
+        public bool Persistent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR ToInternal()
         {
@@ -13488,6 +9188,12 @@ namespace AdamantiumVulkan.Core
             _internal.persistent = Persistent;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportMemoryFdInfoKHR : DisposableObject
@@ -13498,36 +9204,15 @@ namespace AdamantiumVulkan.Core
 
         public ImportMemoryFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleType = _internal.handleType;
             Fd = _internal.fd;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public int Fd
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImportMemoryFdInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
+        public int Fd { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR ToInternal()
         {
@@ -13538,6 +9223,12 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryFdPropertiesKHR : DisposableObject
@@ -13548,30 +9239,13 @@ namespace AdamantiumVulkan.Core
 
         public MemoryFdPropertiesKHR(AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MemoryTypeBits = _internal.memoryTypeBits;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MemoryTypeBits
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryFdPropertiesKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint MemoryTypeBits { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR ToInternal()
         {
@@ -13581,6 +9255,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryGetFdInfoKHR : DisposableObject
@@ -13591,36 +9271,15 @@ namespace AdamantiumVulkan.Core
 
         public MemoryGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Memory = new DeviceMemory(_internal.memory);
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryGetFdInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR ToInternal()
         {
@@ -13631,6 +9290,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportSemaphoreFdInfoKHR : DisposableObject
@@ -13641,7 +9306,6 @@ namespace AdamantiumVulkan.Core
 
         public ImportSemaphoreFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Semaphore = new Semaphore(_internal.semaphore);
             Flags = _internal.flags;
@@ -13649,40 +9313,12 @@ namespace AdamantiumVulkan.Core
             Fd = _internal.fd;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Semaphore Semaphore
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ExternalSemaphoreHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public int Fd
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImportSemaphoreFdInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public Semaphore Semaphore { get; set; }
+        public uint Flags { get; set; }
+        public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
+        public int Fd { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR ToInternal()
         {
@@ -13695,6 +9331,12 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SemaphoreGetFdInfoKHR : DisposableObject
@@ -13705,36 +9347,15 @@ namespace AdamantiumVulkan.Core
 
         public SemaphoreGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Semaphore = new Semaphore(_internal.semaphore);
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Semaphore Semaphore
-        {
-            get; set;
-        }
-
-        public ExternalSemaphoreHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SemaphoreGetFdInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public Semaphore Semaphore { get; set; }
+        public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR ToInternal()
         {
@@ -13745,6 +9366,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDevicePushDescriptorPropertiesKHR : DisposableObject
@@ -13760,25 +9387,9 @@ namespace AdamantiumVulkan.Core
             MaxPushDescriptors = _internal.maxPushDescriptors;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxPushDescriptors
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint MaxPushDescriptors { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR ToInternal()
         {
@@ -13788,6 +9399,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxPushDescriptors = MaxPushDescriptors;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceFloat16Int8FeaturesKHR : DisposableObject
@@ -13798,36 +9415,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFloat16Int8FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloat16Int8FeaturesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShaderFloat16 = _internal.shaderFloat16;
             ShaderInt8 = _internal.shaderInt8;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ShaderFloat16
-        {
-            get; set;
-        }
-
-        public bool ShaderInt8
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceFloat16Int8FeaturesKhr;
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderFloat16 { get; set; }
+        public bool ShaderInt8 { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloat16Int8FeaturesKHR ToInternal()
         {
@@ -13838,6 +9434,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderInt8 = ShaderInt8;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RectLayerKHR
@@ -13853,20 +9455,9 @@ namespace AdamantiumVulkan.Core
             Layer = _internal.layer;
         }
 
-        public Offset2D Offset
-        {
-            get; set;
-        }
-
-        public Extent2D Extent
-        {
-            get; set;
-        }
-
-        public uint Layer
-        {
-            get; set;
-        }
+        public Offset2D Offset { get; set; }
+        public Extent2D Extent { get; set; }
+        public uint Layer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRectLayerKHR ToInternal()
         {
@@ -13899,20 +9490,8 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pRectangles);
         }
 
-        public uint RectangleCount
-        {
-            get; set;
-        }
-
-        public RectLayerKHR PRectangles
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public uint RectangleCount { get; set; }
+        public RectLayerKHR PRectangles { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPresentRegionKHR ToInternal()
         {
@@ -13927,6 +9506,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRectangles?.Dispose();
+        }
+
     }
 
     public partial class PresentRegionsKHR : DisposableObject
@@ -13939,37 +9524,16 @@ namespace AdamantiumVulkan.Core
 
         public PresentRegionsKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SwapchainCount = _internal.swapchainCount;
             PRegions = new PresentRegionKHR(Marshal.PtrToStructure<VkPresentRegionKHR>(_internal.pRegions));
             Marshal.FreeHGlobal(_internal.pRegions);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SwapchainCount
-        {
-            get; set;
-        }
-
-        public PresentRegionKHR PRegions
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PresentRegionsKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint SwapchainCount { get; set; }
+        public PresentRegionKHR PRegions { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR ToInternal()
         {
@@ -13986,6 +9550,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AttachmentDescription2KHR : DisposableObject
@@ -13996,7 +9567,6 @@ namespace AdamantiumVulkan.Core
 
         public AttachmentDescription2KHR(AdamantiumVulkan.Core.Interop.VkAttachmentDescription2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Format = _internal.format;
@@ -14009,65 +9579,17 @@ namespace AdamantiumVulkan.Core
             FinalLayout = _internal.finalLayout;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Format Format
-        {
-            get; set;
-        }
-
-        public SampleCountFlagBits Samples
-        {
-            get; set;
-        }
-
-        public AttachmentLoadOp LoadOp
-        {
-            get; set;
-        }
-
-        public AttachmentStoreOp StoreOp
-        {
-            get; set;
-        }
-
-        public AttachmentLoadOp StencilLoadOp
-        {
-            get; set;
-        }
-
-        public AttachmentStoreOp StencilStoreOp
-        {
-            get; set;
-        }
-
-        public ImageLayout InitialLayout
-        {
-            get; set;
-        }
-
-        public ImageLayout FinalLayout
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.AttachmentDescription2Khr;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public Format Format { get; set; }
+        public SampleCountFlagBits Samples { get; set; }
+        public AttachmentLoadOp LoadOp { get; set; }
+        public AttachmentStoreOp StoreOp { get; set; }
+        public AttachmentLoadOp StencilLoadOp { get; set; }
+        public AttachmentStoreOp StencilStoreOp { get; set; }
+        public ImageLayout InitialLayout { get; set; }
+        public ImageLayout FinalLayout { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAttachmentDescription2KHR ToInternal()
         {
@@ -14085,6 +9607,12 @@ namespace AdamantiumVulkan.Core
             _internal.finalLayout = FinalLayout;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AttachmentReference2KHR : DisposableObject
@@ -14095,42 +9623,17 @@ namespace AdamantiumVulkan.Core
 
         public AttachmentReference2KHR(AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Attachment = _internal.attachment;
             Layout = _internal.layout;
             AspectMask = _internal.aspectMask;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Attachment
-        {
-            get; set;
-        }
-
-        public ImageLayout Layout
-        {
-            get; set;
-        }
-
-        public uint AspectMask
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.AttachmentReference2Khr;
+        public System.IntPtr PNext { get; set; }
+        public uint Attachment { get; set; }
+        public ImageLayout Layout { get; set; }
+        public uint AspectMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR ToInternal()
         {
@@ -14142,6 +9645,12 @@ namespace AdamantiumVulkan.Core
             _internal.aspectMask = AspectMask;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SubpassDescription2KHR : DisposableObject
@@ -14162,7 +9671,6 @@ namespace AdamantiumVulkan.Core
 
         public SubpassDescription2KHR(AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             PipelineBindPoint = _internal.pipelineBindPoint;
@@ -14185,78 +9693,19 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PipelineBindPoint PipelineBindPoint
-        {
-            get; set;
-        }
-
-        public uint ViewMask
-        {
-            get; set;
-        }
-
-        public uint InputAttachmentCount
-        {
-            get; set;
-        }
-
-        public AttachmentReference2KHR PInputAttachments
-        {
-            get; set;
-        }
-
-        public uint ColorAttachmentCount
-        {
-            get; set;
-        }
-
-        public AttachmentReference2KHR PColorAttachments
-        {
-            get; set;
-        }
-
-        public AttachmentReference2KHR PResolveAttachments
-        {
-            get; set;
-        }
-
-        public AttachmentReference2KHR PDepthStencilAttachment
-        {
-            get; set;
-        }
-
-        public uint PreserveAttachmentCount
-        {
-            get; set;
-        }
-
-        public uint? PPreserveAttachments
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpColorAttachments?.Dispose();
-            refpResolveAttachments?.Dispose();
-            refpDepthStencilAttachment?.Dispose();
-            refpPreserveAttachments?.Dispose();
-        }
+        public StructureType SType => StructureType.SubpassDescription2Khr;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public PipelineBindPoint PipelineBindPoint { get; set; }
+        public uint ViewMask { get; set; }
+        public uint InputAttachmentCount { get; set; }
+        public AttachmentReference2KHR PInputAttachments { get; set; }
+        public uint ColorAttachmentCount { get; set; }
+        public AttachmentReference2KHR PColorAttachments { get; set; }
+        public AttachmentReference2KHR PResolveAttachments { get; set; }
+        public AttachmentReference2KHR PDepthStencilAttachment { get; set; }
+        public uint PreserveAttachmentCount { get; set; }
+        public uint? PPreserveAttachments { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR ToInternal()
         {
@@ -14305,6 +9754,17 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpInputAttachments?.Dispose();
+            refpColorAttachments?.Dispose();
+            refpResolveAttachments?.Dispose();
+            refpDepthStencilAttachment?.Dispose();
+            refpPreserveAttachments?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SubpassDependency2KHR : DisposableObject
@@ -14315,7 +9775,6 @@ namespace AdamantiumVulkan.Core
 
         public SubpassDependency2KHR(AdamantiumVulkan.Core.Interop.VkSubpassDependency2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcSubpass = _internal.srcSubpass;
             DstSubpass = _internal.dstSubpass;
@@ -14327,60 +9786,16 @@ namespace AdamantiumVulkan.Core
             ViewOffset = _internal.viewOffset;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SrcSubpass
-        {
-            get; set;
-        }
-
-        public uint DstSubpass
-        {
-            get; set;
-        }
-
-        public uint SrcStageMask
-        {
-            get; set;
-        }
-
-        public uint DstStageMask
-        {
-            get; set;
-        }
-
-        public uint SrcAccessMask
-        {
-            get; set;
-        }
-
-        public uint DstAccessMask
-        {
-            get; set;
-        }
-
-        public uint DependencyFlags
-        {
-            get; set;
-        }
-
-        public int ViewOffset
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SubpassDependency2Khr;
+        public System.IntPtr PNext { get; set; }
+        public uint SrcSubpass { get; set; }
+        public uint DstSubpass { get; set; }
+        public uint SrcStageMask { get; set; }
+        public uint DstStageMask { get; set; }
+        public uint SrcAccessMask { get; set; }
+        public uint DstAccessMask { get; set; }
+        public uint DependencyFlags { get; set; }
+        public int ViewOffset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDependency2KHR ToInternal()
         {
@@ -14397,6 +9812,12 @@ namespace AdamantiumVulkan.Core
             _internal.viewOffset = ViewOffset;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RenderPassCreateInfo2KHR : DisposableObject
@@ -14415,7 +9836,6 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassCreateInfo2KHR(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             AttachmentCount = _internal.attachmentCount;
@@ -14435,67 +9855,17 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint AttachmentCount
-        {
-            get; set;
-        }
-
-        public AttachmentDescription2KHR PAttachments
-        {
-            get; set;
-        }
-
-        public uint SubpassCount
-        {
-            get; set;
-        }
-
-        public SubpassDescription2KHR PSubpasses
-        {
-            get; set;
-        }
-
-        public uint DependencyCount
-        {
-            get; set;
-        }
-
-        public SubpassDependency2KHR PDependencies
-        {
-            get; set;
-        }
-
-        public uint CorrelatedViewMaskCount
-        {
-            get; set;
-        }
-
-        public uint? PCorrelatedViewMasks
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpSubpasses?.Dispose();
-            refpDependencies?.Dispose();
-            refpCorrelatedViewMasks?.Dispose();
-        }
+        public StructureType SType => StructureType.RenderPassCreateInfo2Khr;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint AttachmentCount { get; set; }
+        public AttachmentDescription2KHR PAttachments { get; set; }
+        public uint SubpassCount { get; set; }
+        public SubpassDescription2KHR PSubpasses { get; set; }
+        public uint DependencyCount { get; set; }
+        public SubpassDependency2KHR PDependencies { get; set; }
+        public uint CorrelatedViewMaskCount { get; set; }
+        public uint? PCorrelatedViewMasks { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2KHR ToInternal()
         {
@@ -14536,6 +9906,16 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttachments?.Dispose();
+            refpSubpasses?.Dispose();
+            refpDependencies?.Dispose();
+            refpCorrelatedViewMasks?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SubpassBeginInfoKHR : DisposableObject
@@ -14546,30 +9926,13 @@ namespace AdamantiumVulkan.Core
 
         public SubpassBeginInfoKHR(AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Contents = _internal.contents;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SubpassContents Contents
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SubpassBeginInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public SubpassContents Contents { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR ToInternal()
         {
@@ -14579,6 +9942,12 @@ namespace AdamantiumVulkan.Core
             _internal.contents = Contents;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SubpassEndInfoKHR : DisposableObject
@@ -14589,24 +9958,11 @@ namespace AdamantiumVulkan.Core
 
         public SubpassEndInfoKHR(AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SubpassEndInfoKhr;
+        public System.IntPtr PNext { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR ToInternal()
         {
@@ -14615,6 +9971,12 @@ namespace AdamantiumVulkan.Core
             _internal.pNext = PNext;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SharedPresentSurfaceCapabilitiesKHR : DisposableObject
@@ -14625,30 +9987,13 @@ namespace AdamantiumVulkan.Core
 
         public SharedPresentSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SharedPresentSupportedUsageFlags = _internal.sharedPresentSupportedUsageFlags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SharedPresentSupportedUsageFlags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SharedPresentSurfaceCapabilitiesKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint SharedPresentSupportedUsageFlags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR ToInternal()
         {
@@ -14658,6 +10003,12 @@ namespace AdamantiumVulkan.Core
             _internal.sharedPresentSupportedUsageFlags = SharedPresentSupportedUsageFlags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportFenceFdInfoKHR : DisposableObject
@@ -14668,7 +10019,6 @@ namespace AdamantiumVulkan.Core
 
         public ImportFenceFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Fence = new Fence(_internal.fence);
             Flags = _internal.flags;
@@ -14676,40 +10026,12 @@ namespace AdamantiumVulkan.Core
             Fd = _internal.fd;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Fence Fence
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ExternalFenceHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public int Fd
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImportFenceFdInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public Fence Fence { get; set; }
+        public uint Flags { get; set; }
+        public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
+        public int Fd { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR ToInternal()
         {
@@ -14722,6 +10044,12 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class FenceGetFdInfoKHR : DisposableObject
@@ -14732,36 +10060,15 @@ namespace AdamantiumVulkan.Core
 
         public FenceGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Fence = new Fence(_internal.fence);
             HandleType = _internal.handleType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Fence Fence
-        {
-            get; set;
-        }
-
-        public ExternalFenceHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.FenceGetFdInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public Fence Fence { get; set; }
+        public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR ToInternal()
         {
@@ -14772,6 +10079,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceSurfaceInfo2KHR : DisposableObject
@@ -14782,30 +10095,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSurfaceInfo2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Surface = new SurfaceKHR(_internal.surface);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SurfaceKHR Surface
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceSurfaceInfo2Khr;
+        public System.IntPtr PNext { get; set; }
+        public SurfaceKHR Surface { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR ToInternal()
         {
@@ -14815,6 +10111,12 @@ namespace AdamantiumVulkan.Core
             _internal.surface = Surface;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SurfaceCapabilities2KHR : DisposableObject
@@ -14825,30 +10127,13 @@ namespace AdamantiumVulkan.Core
 
         public SurfaceCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SurfaceCapabilities = new SurfaceCapabilitiesKHR(_internal.surfaceCapabilities);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SurfaceCapabilitiesKHR SurfaceCapabilities
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SurfaceCapabilities2Khr;
+        public System.IntPtr PNext { get; set; }
+        public SurfaceCapabilitiesKHR SurfaceCapabilities { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR ToInternal()
         {
@@ -14861,6 +10146,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SurfaceFormat2KHR : DisposableObject
@@ -14871,30 +10162,13 @@ namespace AdamantiumVulkan.Core
 
         public SurfaceFormat2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SurfaceFormat = new SurfaceFormatKHR(_internal.surfaceFormat);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SurfaceFormatKHR SurfaceFormat
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SurfaceFormat2Khr;
+        public System.IntPtr PNext { get; set; }
+        public SurfaceFormatKHR SurfaceFormat { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR ToInternal()
         {
@@ -14907,6 +10181,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayProperties2KHR : DisposableObject
@@ -14917,30 +10197,13 @@ namespace AdamantiumVulkan.Core
 
         public DisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DisplayProperties = new DisplayPropertiesKHR(_internal.displayProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayPropertiesKHR DisplayProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayProperties2Khr;
+        public System.IntPtr PNext { get; set; }
+        public DisplayPropertiesKHR DisplayProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR ToInternal()
         {
@@ -14953,6 +10216,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPlaneProperties2KHR : DisposableObject
@@ -14963,30 +10232,13 @@ namespace AdamantiumVulkan.Core
 
         public DisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DisplayPlaneProperties = new DisplayPlanePropertiesKHR(_internal.displayPlaneProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayPlanePropertiesKHR DisplayPlaneProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayPlaneProperties2Khr;
+        public System.IntPtr PNext { get; set; }
+        public DisplayPlanePropertiesKHR DisplayPlaneProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR ToInternal()
         {
@@ -14999,6 +10251,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayModeProperties2KHR : DisposableObject
@@ -15009,30 +10267,13 @@ namespace AdamantiumVulkan.Core
 
         public DisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DisplayModeProperties = new DisplayModePropertiesKHR(_internal.displayModeProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayModePropertiesKHR DisplayModeProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayModeProperties2Khr;
+        public System.IntPtr PNext { get; set; }
+        public DisplayModePropertiesKHR DisplayModeProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR ToInternal()
         {
@@ -15045,6 +10286,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPlaneInfo2KHR : DisposableObject
@@ -15055,36 +10302,15 @@ namespace AdamantiumVulkan.Core
 
         public DisplayPlaneInfo2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Mode = new DisplayModeKHR(_internal.mode);
             PlaneIndex = _internal.planeIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayModeKHR Mode
-        {
-            get; set;
-        }
-
-        public uint PlaneIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayPlaneInfo2Khr;
+        public System.IntPtr PNext { get; set; }
+        public DisplayModeKHR Mode { get; set; }
+        public uint PlaneIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR ToInternal()
         {
@@ -15095,6 +10321,12 @@ namespace AdamantiumVulkan.Core
             _internal.planeIndex = PlaneIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPlaneCapabilities2KHR : DisposableObject
@@ -15105,30 +10337,13 @@ namespace AdamantiumVulkan.Core
 
         public DisplayPlaneCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Capabilities = new DisplayPlaneCapabilitiesKHR(_internal.capabilities);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayPlaneCapabilitiesKHR Capabilities
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayPlaneCapabilities2Khr;
+        public System.IntPtr PNext { get; set; }
+        public DisplayPlaneCapabilitiesKHR Capabilities { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR ToInternal()
         {
@@ -15141,6 +10356,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageFormatListCreateInfoKHR : DisposableObject
@@ -15153,7 +10374,6 @@ namespace AdamantiumVulkan.Core
 
         public ImageFormatListCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ViewFormatCount = _internal.viewFormatCount;
             var tmppViewFormats = new int[_internal.viewFormatCount];
@@ -15166,30 +10386,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ViewFormatCount
-        {
-            get; set;
-        }
-
-        public Format[] PViewFormats
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageFormatListCreateInfoKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint ViewFormatCount { get; set; }
+        public Format[] PViewFormats { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfoKHR ToInternal()
         {
@@ -15210,6 +10410,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpViewFormats?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDevice8BitStorageFeaturesKHR : DisposableObject
@@ -15220,42 +10427,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDevice8BitStorageFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeaturesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             StorageBuffer8BitAccess = _internal.storageBuffer8BitAccess;
             UniformAndStorageBuffer8BitAccess = _internal.uniformAndStorageBuffer8BitAccess;
             StoragePushConstant8 = _internal.storagePushConstant8;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool StorageBuffer8BitAccess
-        {
-            get; set;
-        }
-
-        public bool UniformAndStorageBuffer8BitAccess
-        {
-            get; set;
-        }
-
-        public bool StoragePushConstant8
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDevice8bitStorageFeaturesKhr;
+        public System.IntPtr PNext { get; set; }
+        public bool StorageBuffer8BitAccess { get; set; }
+        public bool UniformAndStorageBuffer8BitAccess { get; set; }
+        public bool StoragePushConstant8 { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeaturesKHR ToInternal()
         {
@@ -15267,6 +10449,12 @@ namespace AdamantiumVulkan.Core
             _internal.storagePushConstant8 = StoragePushConstant8;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : DisposableObject
@@ -15277,36 +10465,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderAtomicInt64FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64FeaturesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShaderBufferInt64Atomics = _internal.shaderBufferInt64Atomics;
             ShaderSharedInt64Atomics = _internal.shaderSharedInt64Atomics;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ShaderBufferInt64Atomics
-        {
-            get; set;
-        }
-
-        public bool ShaderSharedInt64Atomics
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceShaderAtomicInt64FeaturesKhr;
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderBufferInt64Atomics { get; set; }
+        public bool ShaderSharedInt64Atomics { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64FeaturesKHR ToInternal()
         {
@@ -15317,6 +10484,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ConformanceVersionKHR
@@ -15333,25 +10506,10 @@ namespace AdamantiumVulkan.Core
             Patch = _internal.patch;
         }
 
-        public byte Major
-        {
-            get; set;
-        }
-
-        public byte Minor
-        {
-            get; set;
-        }
-
-        public byte Subminor
-        {
-            get; set;
-        }
-
-        public byte Patch
-        {
-            get; set;
-        }
+        public byte Major { get; set; }
+        public byte Minor { get; set; }
+        public byte Subminor { get; set; }
+        public byte Patch { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkConformanceVersionKHR ToInternal()
         {
@@ -15372,7 +10530,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDriverPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverPropertiesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DriverID = _internal.driverID;
             var tmpArr0 = new byte[256];
@@ -15396,40 +10553,12 @@ namespace AdamantiumVulkan.Core
             ConformanceVersion = new ConformanceVersionKHR(_internal.conformanceVersion);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DriverIdKHR DriverID
-        {
-            get; set;
-        }
-
-        public string DriverName
-        {
-            get; set;
-        }
-
-        public string DriverInfo
-        {
-            get; set;
-        }
-
-        public ConformanceVersionKHR ConformanceVersion
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDriverPropertiesKhr;
+        public System.IntPtr PNext { get; set; }
+        public DriverIdKHR DriverID { get; set; }
+        public string DriverName { get; set; }
+        public string DriverInfo { get; set; }
+        public ConformanceVersionKHR ConformanceVersion { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverPropertiesKHR ToInternal()
         {
@@ -15477,6 +10606,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceFloatControlsPropertiesKHR : DisposableObject
@@ -15487,7 +10622,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFloatControlsPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsPropertiesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SeparateDenormSettings = _internal.separateDenormSettings;
             SeparateRoundingModeSettings = _internal.separateRoundingModeSettings;
@@ -15508,105 +10642,25 @@ namespace AdamantiumVulkan.Core
             ShaderRoundingModeRTZFloat64 = _internal.shaderRoundingModeRTZFloat64;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool SeparateDenormSettings
-        {
-            get; set;
-        }
-
-        public bool SeparateRoundingModeSettings
-        {
-            get; set;
-        }
-
-        public bool ShaderSignedZeroInfNanPreserveFloat16
-        {
-            get; set;
-        }
-
-        public bool ShaderSignedZeroInfNanPreserveFloat32
-        {
-            get; set;
-        }
-
-        public bool ShaderSignedZeroInfNanPreserveFloat64
-        {
-            get; set;
-        }
-
-        public bool ShaderDenormPreserveFloat16
-        {
-            get; set;
-        }
-
-        public bool ShaderDenormPreserveFloat32
-        {
-            get; set;
-        }
-
-        public bool ShaderDenormPreserveFloat64
-        {
-            get; set;
-        }
-
-        public bool ShaderDenormFlushToZeroFloat16
-        {
-            get; set;
-        }
-
-        public bool ShaderDenormFlushToZeroFloat32
-        {
-            get; set;
-        }
-
-        public bool ShaderDenormFlushToZeroFloat64
-        {
-            get; set;
-        }
-
-        public bool ShaderRoundingModeRTEFloat16
-        {
-            get; set;
-        }
-
-        public bool ShaderRoundingModeRTEFloat32
-        {
-            get; set;
-        }
-
-        public bool ShaderRoundingModeRTEFloat64
-        {
-            get; set;
-        }
-
-        public bool ShaderRoundingModeRTZFloat16
-        {
-            get; set;
-        }
-
-        public bool ShaderRoundingModeRTZFloat32
-        {
-            get; set;
-        }
-
-        public bool ShaderRoundingModeRTZFloat64
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceFloatControlsPropertiesKhr;
+        public System.IntPtr PNext { get; set; }
+        public bool SeparateDenormSettings { get; set; }
+        public bool SeparateRoundingModeSettings { get; set; }
+        public bool ShaderSignedZeroInfNanPreserveFloat16 { get; set; }
+        public bool ShaderSignedZeroInfNanPreserveFloat32 { get; set; }
+        public bool ShaderSignedZeroInfNanPreserveFloat64 { get; set; }
+        public bool ShaderDenormPreserveFloat16 { get; set; }
+        public bool ShaderDenormPreserveFloat32 { get; set; }
+        public bool ShaderDenormPreserveFloat64 { get; set; }
+        public bool ShaderDenormFlushToZeroFloat16 { get; set; }
+        public bool ShaderDenormFlushToZeroFloat32 { get; set; }
+        public bool ShaderDenormFlushToZeroFloat64 { get; set; }
+        public bool ShaderRoundingModeRTEFloat16 { get; set; }
+        public bool ShaderRoundingModeRTEFloat32 { get; set; }
+        public bool ShaderRoundingModeRTEFloat64 { get; set; }
+        public bool ShaderRoundingModeRTZFloat16 { get; set; }
+        public bool ShaderRoundingModeRTZFloat32 { get; set; }
+        public bool ShaderRoundingModeRTZFloat64 { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsPropertiesKHR ToInternal()
         {
@@ -15632,6 +10686,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SubpassDescriptionDepthStencilResolveKHR : DisposableObject
@@ -15644,7 +10704,6 @@ namespace AdamantiumVulkan.Core
 
         public SubpassDescriptionDepthStencilResolveKHR(AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolveKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DepthResolveMode = _internal.depthResolveMode;
             StencilResolveMode = _internal.stencilResolveMode;
@@ -15652,35 +10711,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pDepthStencilResolveAttachment);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ResolveModeFlagBitsKHR DepthResolveMode
-        {
-            get; set;
-        }
-
-        public ResolveModeFlagBitsKHR StencilResolveMode
-        {
-            get; set;
-        }
-
-        public AttachmentReference2KHR PDepthStencilResolveAttachment
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SubpassDescriptionDepthStencilResolveKhr;
+        public System.IntPtr PNext { get; set; }
+        public ResolveModeFlagBitsKHR DepthResolveMode { get; set; }
+        public ResolveModeFlagBitsKHR StencilResolveMode { get; set; }
+        public AttachmentReference2KHR PDepthStencilResolveAttachment { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolveKHR ToInternal()
         {
@@ -15698,6 +10733,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDepthStencilResolveAttachment?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceDepthStencilResolvePropertiesKHR : DisposableObject
@@ -15708,7 +10750,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDepthStencilResolvePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolvePropertiesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SupportedDepthResolveModes = _internal.supportedDepthResolveModes;
             SupportedStencilResolveModes = _internal.supportedStencilResolveModes;
@@ -15716,40 +10757,12 @@ namespace AdamantiumVulkan.Core
             IndependentResolve = _internal.independentResolve;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SupportedDepthResolveModes
-        {
-            get; set;
-        }
-
-        public uint SupportedStencilResolveModes
-        {
-            get; set;
-        }
-
-        public bool IndependentResolveNone
-        {
-            get; set;
-        }
-
-        public bool IndependentResolve
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDepthStencilResolvePropertiesKhr;
+        public System.IntPtr PNext { get; set; }
+        public uint SupportedDepthResolveModes { get; set; }
+        public uint SupportedStencilResolveModes { get; set; }
+        public bool IndependentResolveNone { get; set; }
+        public bool IndependentResolve { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolvePropertiesKHR ToInternal()
         {
@@ -15762,6 +10775,12 @@ namespace AdamantiumVulkan.Core
             _internal.independentResolve = IndependentResolve;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : DisposableObject
@@ -15772,42 +10791,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceVulkanMemoryModelFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeaturesKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             VulkanMemoryModel = _internal.vulkanMemoryModel;
             VulkanMemoryModelDeviceScope = _internal.vulkanMemoryModelDeviceScope;
             VulkanMemoryModelAvailabilityVisibilityChains = _internal.vulkanMemoryModelAvailabilityVisibilityChains;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool VulkanMemoryModel
-        {
-            get; set;
-        }
-
-        public bool VulkanMemoryModelDeviceScope
-        {
-            get; set;
-        }
-
-        public bool VulkanMemoryModelAvailabilityVisibilityChains
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceVulkanMemoryModelFeaturesKhr;
+        public System.IntPtr PNext { get; set; }
+        public bool VulkanMemoryModel { get; set; }
+        public bool VulkanMemoryModelDeviceScope { get; set; }
+        public bool VulkanMemoryModelAvailabilityVisibilityChains { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeaturesKHR ToInternal()
         {
@@ -15819,6 +10813,12 @@ namespace AdamantiumVulkan.Core
             _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugReportCallbackCreateInfoEXT : DisposableObject
@@ -15829,42 +10829,17 @@ namespace AdamantiumVulkan.Core
 
         public DebugReportCallbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             PfnCallback = _internal.pfnCallback;
             PUserData = _internal.pUserData;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PFN_vkDebugReportCallbackEXT PfnCallback
-        {
-            get; set;
-        }
-
-        public System.IntPtr PUserData
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugReportCallbackCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public PFN_vkDebugReportCallbackEXT PfnCallback { get; set; }
+        public System.IntPtr PUserData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT ToInternal()
         {
@@ -15876,6 +10851,13 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PUserData);
+        }
+
     }
 
     public partial class PipelineRasterizationStateRasterizationOrderAMD : DisposableObject
@@ -15886,30 +10868,13 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRasterizationStateRasterizationOrderAMD(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             RasterizationOrder = _internal.rasterizationOrder;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public RasterizationOrderAMD RasterizationOrder
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineRasterizationStateRasterizationOrderAmd;
+        public System.IntPtr PNext { get; set; }
+        public RasterizationOrderAMD RasterizationOrder { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD ToInternal()
         {
@@ -15919,6 +10884,12 @@ namespace AdamantiumVulkan.Core
             _internal.rasterizationOrder = RasterizationOrder;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugMarkerObjectNameInfoEXT : DisposableObject
@@ -15931,42 +10902,17 @@ namespace AdamantiumVulkan.Core
 
         public DebugMarkerObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectType = _internal.objectType;
             Object = _internal.@object;
             PObjectName = Marshal.PtrToStringAnsi(_internal.pObjectName);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DebugReportObjectTypeEXT ObjectType
-        {
-            get; set;
-        }
-
-        public ulong Object
-        {
-            get; set;
-        }
-
-        public string PObjectName
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugMarkerObjectNameInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public DebugReportObjectTypeEXT ObjectType { get; set; }
+        public ulong Object { get; set; }
+        public string PObjectName { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT ToInternal()
         {
@@ -15983,6 +10929,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpObjectName?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugMarkerObjectTagInfoEXT : DisposableObject
@@ -15993,7 +10946,6 @@ namespace AdamantiumVulkan.Core
 
         public DebugMarkerObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectType = _internal.objectType;
             Object = _internal.@object;
@@ -16002,45 +10954,13 @@ namespace AdamantiumVulkan.Core
             PTag = _internal.pTag;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DebugReportObjectTypeEXT ObjectType
-        {
-            get; set;
-        }
-
-        public ulong Object
-        {
-            get; set;
-        }
-
-        public ulong TagName
-        {
-            get; set;
-        }
-
-        public ulong TagSize
-        {
-            get; set;
-        }
-
-        public System.IntPtr PTag
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugMarkerObjectTagInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public DebugReportObjectTypeEXT ObjectType { get; set; }
+        public ulong Object { get; set; }
+        public ulong TagName { get; set; }
+        public ulong TagSize { get; set; }
+        public System.IntPtr PTag { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT ToInternal()
         {
@@ -16054,6 +10974,13 @@ namespace AdamantiumVulkan.Core
             _internal.pTag = PTag;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PTag);
+        }
+
     }
 
     public partial class DebugMarkerMarkerInfoEXT : DisposableObject
@@ -16066,7 +10993,6 @@ namespace AdamantiumVulkan.Core
 
         public DebugMarkerMarkerInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PMarkerName = Marshal.PtrToStringAnsi(_internal.pMarkerName);
             var tmpArr0 = new float[4];
@@ -16080,30 +11006,10 @@ namespace AdamantiumVulkan.Core
             Color = tmpArr0;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public string PMarkerName
-        {
-            get; set;
-        }
-
-        public float[] Color
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugMarkerMarkerInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public string PMarkerName { get; set; }
+        public float[] Color { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT ToInternal()
         {
@@ -16135,6 +11041,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpMarkerName?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DedicatedAllocationImageCreateInfoNV : DisposableObject
@@ -16145,30 +11058,13 @@ namespace AdamantiumVulkan.Core
 
         public DedicatedAllocationImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DedicatedAllocation = _internal.dedicatedAllocation;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool DedicatedAllocation
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DedicatedAllocationImageCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public bool DedicatedAllocation { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV ToInternal()
         {
@@ -16178,6 +11074,12 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocation = DedicatedAllocation;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DedicatedAllocationBufferCreateInfoNV : DisposableObject
@@ -16188,30 +11090,13 @@ namespace AdamantiumVulkan.Core
 
         public DedicatedAllocationBufferCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DedicatedAllocation = _internal.dedicatedAllocation;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool DedicatedAllocation
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DedicatedAllocationBufferCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public bool DedicatedAllocation { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV ToInternal()
         {
@@ -16221,6 +11106,12 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocation = DedicatedAllocation;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DedicatedAllocationMemoryAllocateInfoNV : DisposableObject
@@ -16231,36 +11122,15 @@ namespace AdamantiumVulkan.Core
 
         public DedicatedAllocationMemoryAllocateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationMemoryAllocateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Image = new Image(_internal.image);
             Buffer = new Buffer(_internal.buffer);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Image Image
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DedicatedAllocationMemoryAllocateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public Image Image { get; set; }
+        public Buffer Buffer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationMemoryAllocateInfoNV ToInternal()
         {
@@ -16271,6 +11141,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : DisposableObject
@@ -16281,36 +11157,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceTransformFeedbackFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             TransformFeedback = _internal.transformFeedback;
             GeometryStreams = _internal.geometryStreams;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool TransformFeedback
-        {
-            get; set;
-        }
-
-        public bool GeometryStreams
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceTransformFeedbackFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool TransformFeedback { get; set; }
+        public bool GeometryStreams { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT ToInternal()
         {
@@ -16321,6 +11176,12 @@ namespace AdamantiumVulkan.Core
             _internal.geometryStreams = GeometryStreams;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : DisposableObject
@@ -16331,7 +11192,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceTransformFeedbackPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxTransformFeedbackStreams = _internal.maxTransformFeedbackStreams;
             MaxTransformFeedbackBuffers = _internal.maxTransformFeedbackBuffers;
@@ -16345,70 +11205,18 @@ namespace AdamantiumVulkan.Core
             TransformFeedbackDraw = _internal.transformFeedbackDraw;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxTransformFeedbackStreams
-        {
-            get; set;
-        }
-
-        public uint MaxTransformFeedbackBuffers
-        {
-            get; set;
-        }
-
-        public ulong MaxTransformFeedbackBufferSize
-        {
-            get; set;
-        }
-
-        public uint MaxTransformFeedbackStreamDataSize
-        {
-            get; set;
-        }
-
-        public uint MaxTransformFeedbackBufferDataSize
-        {
-            get; set;
-        }
-
-        public uint MaxTransformFeedbackBufferDataStride
-        {
-            get; set;
-        }
-
-        public bool TransformFeedbackQueries
-        {
-            get; set;
-        }
-
-        public bool TransformFeedbackStreamsLinesTriangles
-        {
-            get; set;
-        }
-
-        public bool TransformFeedbackRasterizationStreamSelect
-        {
-            get; set;
-        }
-
-        public bool TransformFeedbackDraw
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceTransformFeedbackPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxTransformFeedbackStreams { get; set; }
+        public uint MaxTransformFeedbackBuffers { get; set; }
+        public ulong MaxTransformFeedbackBufferSize { get; set; }
+        public uint MaxTransformFeedbackStreamDataSize { get; set; }
+        public uint MaxTransformFeedbackBufferDataSize { get; set; }
+        public uint MaxTransformFeedbackBufferDataStride { get; set; }
+        public bool TransformFeedbackQueries { get; set; }
+        public bool TransformFeedbackStreamsLinesTriangles { get; set; }
+        public bool TransformFeedbackRasterizationStreamSelect { get; set; }
+        public bool TransformFeedbackDraw { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT ToInternal()
         {
@@ -16427,6 +11235,12 @@ namespace AdamantiumVulkan.Core
             _internal.transformFeedbackDraw = TransformFeedbackDraw;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineRasterizationStateStreamCreateInfoEXT : DisposableObject
@@ -16437,36 +11251,15 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRasterizationStateStreamCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             RasterizationStream = _internal.rasterizationStream;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint RasterizationStream
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineRasterizationStateStreamCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint RasterizationStream { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT ToInternal()
         {
@@ -16477,6 +11270,12 @@ namespace AdamantiumVulkan.Core
             _internal.rasterizationStream = RasterizationStream;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class TextureLODGatherFormatPropertiesAMD : DisposableObject
@@ -16487,30 +11286,13 @@ namespace AdamantiumVulkan.Core
 
         public TextureLODGatherFormatPropertiesAMD(AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SupportsTextureGatherLODBiasAMD = _internal.supportsTextureGatherLODBiasAMD;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool SupportsTextureGatherLODBiasAMD
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.TextureLodGatherFormatPropertiesAmd;
+        public System.IntPtr PNext { get; set; }
+        public bool SupportsTextureGatherLODBiasAMD { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD ToInternal()
         {
@@ -16520,6 +11302,12 @@ namespace AdamantiumVulkan.Core
             _internal.supportsTextureGatherLODBiasAMD = SupportsTextureGatherLODBiasAMD;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ShaderResourceUsageAMD
@@ -16537,30 +11325,11 @@ namespace AdamantiumVulkan.Core
             ScratchMemUsageInBytes = _internal.scratchMemUsageInBytes;
         }
 
-        public uint NumUsedVgprs
-        {
-            get; set;
-        }
-
-        public uint NumUsedSgprs
-        {
-            get; set;
-        }
-
-        public uint LdsSizePerLocalWorkGroup
-        {
-            get; set;
-        }
-
-        public ulong LdsUsageSizeInBytes
-        {
-            get; set;
-        }
-
-        public ulong ScratchMemUsageInBytes
-        {
-            get; set;
-        }
+        public uint NumUsedVgprs { get; set; }
+        public uint NumUsedSgprs { get; set; }
+        public uint LdsSizePerLocalWorkGroup { get; set; }
+        public ulong LdsUsageSizeInBytes { get; set; }
+        public ulong ScratchMemUsageInBytes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD ToInternal()
         {
@@ -16599,40 +11368,13 @@ namespace AdamantiumVulkan.Core
             ComputeWorkGroupSize = tmpArr0;
         }
 
-        public uint ShaderStageMask
-        {
-            get; set;
-        }
-
-        public ShaderResourceUsageAMD ResourceUsage
-        {
-            get; set;
-        }
-
-        public uint NumPhysicalVgprs
-        {
-            get; set;
-        }
-
-        public uint NumPhysicalSgprs
-        {
-            get; set;
-        }
-
-        public uint NumAvailableVgprs
-        {
-            get; set;
-        }
-
-        public uint NumAvailableSgprs
-        {
-            get; set;
-        }
-
-        public uint[] ComputeWorkGroupSize
-        {
-            get; set;
-        }
+        public uint ShaderStageMask { get; set; }
+        public ShaderResourceUsageAMD ResourceUsage { get; set; }
+        public uint NumPhysicalVgprs { get; set; }
+        public uint NumPhysicalSgprs { get; set; }
+        public uint NumAvailableVgprs { get; set; }
+        public uint NumAvailableSgprs { get; set; }
+        public uint[] ComputeWorkGroupSize { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD ToInternal()
         {
@@ -16675,30 +11417,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceCornerSampledImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CornerSampledImage = _internal.cornerSampledImage;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool CornerSampledImage
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceCornerSampledImageFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool CornerSampledImage { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV ToInternal()
         {
@@ -16708,6 +11433,12 @@ namespace AdamantiumVulkan.Core
             _internal.cornerSampledImage = CornerSampledImage;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExternalImageFormatPropertiesNV
@@ -16724,25 +11455,10 @@ namespace AdamantiumVulkan.Core
             CompatibleHandleTypes = _internal.compatibleHandleTypes;
         }
 
-        public ImageFormatProperties ImageFormatProperties
-        {
-            get; set;
-        }
-
-        public uint ExternalMemoryFeatures
-        {
-            get; set;
-        }
-
-        public uint ExportFromImportedHandleTypes
-        {
-            get; set;
-        }
-
-        public uint CompatibleHandleTypes
-        {
-            get; set;
-        }
+        public ImageFormatProperties ImageFormatProperties { get; set; }
+        public uint ExternalMemoryFeatures { get; set; }
+        public uint ExportFromImportedHandleTypes { get; set; }
+        public uint CompatibleHandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV ToInternal()
         {
@@ -16766,30 +11482,13 @@ namespace AdamantiumVulkan.Core
 
         public ExternalMemoryImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExternalMemoryImageCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV ToInternal()
         {
@@ -16799,6 +11498,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ExportMemoryAllocateInfoNV : DisposableObject
@@ -16809,30 +11514,13 @@ namespace AdamantiumVulkan.Core
 
         public ExportMemoryAllocateInfoNV(AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleTypes = _internal.handleTypes;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint HandleTypes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ExportMemoryAllocateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint HandleTypes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV ToInternal()
         {
@@ -16842,6 +11530,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ValidationFlagsEXT : DisposableObject
@@ -16854,7 +11548,6 @@ namespace AdamantiumVulkan.Core
 
         public ValidationFlagsEXT(AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DisabledValidationCheckCount = _internal.disabledValidationCheckCount;
             var tmppDisabledValidationChecks = new int[_internal.disabledValidationCheckCount];
@@ -16867,30 +11560,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DisabledValidationCheckCount
-        {
-            get; set;
-        }
-
-        public ValidationCheckEXT[] PDisabledValidationChecks
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ValidationFlagsExt;
+        public System.IntPtr PNext { get; set; }
+        public uint DisabledValidationCheckCount { get; set; }
+        public ValidationCheckEXT[] PDisabledValidationChecks { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT ToInternal()
         {
@@ -16911,6 +11584,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDisabledValidationChecks?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageViewASTCDecodeModeEXT : DisposableObject
@@ -16921,30 +11601,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageViewASTCDecodeModeEXT(AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DecodeMode = _internal.decodeMode;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Format DecodeMode
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageViewAstcDecodeModeExt;
+        public System.IntPtr PNext { get; set; }
+        public Format DecodeMode { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT ToInternal()
         {
@@ -16954,6 +11617,12 @@ namespace AdamantiumVulkan.Core
             _internal.decodeMode = DecodeMode;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceASTCDecodeFeaturesEXT : DisposableObject
@@ -16964,30 +11633,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceASTCDecodeFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DecodeModeSharedExponent = _internal.decodeModeSharedExponent;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool DecodeModeSharedExponent
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceAstcDecodeFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool DecodeModeSharedExponent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT ToInternal()
         {
@@ -16997,6 +11649,12 @@ namespace AdamantiumVulkan.Core
             _internal.decodeModeSharedExponent = DecodeModeSharedExponent;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ConditionalRenderingBeginInfoEXT : DisposableObject
@@ -17007,42 +11665,17 @@ namespace AdamantiumVulkan.Core
 
         public ConditionalRenderingBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Buffer = new Buffer(_internal.buffer);
             Offset = _internal.offset;
             Flags = _internal.flags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ConditionalRenderingBeginInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public Buffer Buffer { get; set; }
+        public ulong Offset { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT ToInternal()
         {
@@ -17054,6 +11687,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : DisposableObject
@@ -17064,36 +11703,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceConditionalRenderingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ConditionalRendering = _internal.conditionalRendering;
             InheritedConditionalRendering = _internal.inheritedConditionalRendering;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ConditionalRendering
-        {
-            get; set;
-        }
-
-        public bool InheritedConditionalRendering
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceConditionalRenderingFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool ConditionalRendering { get; set; }
+        public bool InheritedConditionalRendering { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT ToInternal()
         {
@@ -17104,6 +11722,12 @@ namespace AdamantiumVulkan.Core
             _internal.inheritedConditionalRendering = InheritedConditionalRendering;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : DisposableObject
@@ -17114,30 +11738,13 @@ namespace AdamantiumVulkan.Core
 
         public CommandBufferInheritanceConditionalRenderingInfoEXT(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ConditionalRenderingEnable = _internal.conditionalRenderingEnable;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ConditionalRenderingEnable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CommandBufferInheritanceConditionalRenderingInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public bool ConditionalRenderingEnable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT ToInternal()
         {
@@ -17147,6 +11754,12 @@ namespace AdamantiumVulkan.Core
             _internal.conditionalRenderingEnable = ConditionalRenderingEnable;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGeneratedCommandsFeaturesNVX : DisposableObject
@@ -17157,30 +11770,13 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGeneratedCommandsFeaturesNVX(AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ComputeBindingPointSupport = _internal.computeBindingPointSupport;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ComputeBindingPointSupport
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGeneratedCommandsFeaturesNvx;
+        public System.IntPtr PNext { get; set; }
+        public bool ComputeBindingPointSupport { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX ToInternal()
         {
@@ -17190,6 +11786,12 @@ namespace AdamantiumVulkan.Core
             _internal.computeBindingPointSupport = ComputeBindingPointSupport;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceGeneratedCommandsLimitsNVX : DisposableObject
@@ -17200,7 +11802,6 @@ namespace AdamantiumVulkan.Core
 
         public DeviceGeneratedCommandsLimitsNVX(AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsLimitsNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxIndirectCommandsLayoutTokenCount = _internal.maxIndirectCommandsLayoutTokenCount;
             MaxObjectEntryCounts = _internal.maxObjectEntryCounts;
@@ -17209,45 +11810,13 @@ namespace AdamantiumVulkan.Core
             MinCommandsTokenBufferOffsetAlignment = _internal.minCommandsTokenBufferOffsetAlignment;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxIndirectCommandsLayoutTokenCount
-        {
-            get; set;
-        }
-
-        public uint MaxObjectEntryCounts
-        {
-            get; set;
-        }
-
-        public uint MinSequenceCountBufferOffsetAlignment
-        {
-            get; set;
-        }
-
-        public uint MinSequenceIndexBufferOffsetAlignment
-        {
-            get; set;
-        }
-
-        public uint MinCommandsTokenBufferOffsetAlignment
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceGeneratedCommandsLimitsNvx;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxIndirectCommandsLayoutTokenCount { get; set; }
+        public uint MaxObjectEntryCounts { get; set; }
+        public uint MinSequenceCountBufferOffsetAlignment { get; set; }
+        public uint MinSequenceIndexBufferOffsetAlignment { get; set; }
+        public uint MinCommandsTokenBufferOffsetAlignment { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsLimitsNVX ToInternal()
         {
@@ -17261,6 +11830,12 @@ namespace AdamantiumVulkan.Core
             _internal.minCommandsTokenBufferOffsetAlignment = MinCommandsTokenBufferOffsetAlignment;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class IndirectCommandsTokenNVX
@@ -17276,20 +11851,9 @@ namespace AdamantiumVulkan.Core
             Offset = _internal.offset;
         }
 
-        public IndirectCommandsTokenTypeNVX TokenType
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
+        public IndirectCommandsTokenTypeNVX TokenType { get; set; }
+        public Buffer Buffer { get; set; }
+        public ulong Offset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsTokenNVX ToInternal()
         {
@@ -17315,25 +11879,10 @@ namespace AdamantiumVulkan.Core
             Divisor = _internal.divisor;
         }
 
-        public IndirectCommandsTokenTypeNVX TokenType
-        {
-            get; set;
-        }
-
-        public uint BindingUnit
-        {
-            get; set;
-        }
-
-        public uint DynamicCount
-        {
-            get; set;
-        }
-
-        public uint Divisor
-        {
-            get; set;
-        }
+        public IndirectCommandsTokenTypeNVX TokenType { get; set; }
+        public uint BindingUnit { get; set; }
+        public uint DynamicCount { get; set; }
+        public uint Divisor { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNVX ToInternal()
         {
@@ -17356,7 +11905,6 @@ namespace AdamantiumVulkan.Core
 
         public IndirectCommandsLayoutCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PipelineBindPoint = _internal.pipelineBindPoint;
             Flags = _internal.flags;
@@ -17365,40 +11913,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pTokens);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public PipelineBindPoint PipelineBindPoint
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint TokenCount
-        {
-            get; set;
-        }
-
-        public IndirectCommandsLayoutTokenNVX PTokens
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.IndirectCommandsLayoutCreateInfoNvx;
+        public System.IntPtr PNext { get; set; }
+        public PipelineBindPoint PipelineBindPoint { get; set; }
+        public uint Flags { get; set; }
+        public uint TokenCount { get; set; }
+        public IndirectCommandsLayoutTokenNVX PTokens { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX ToInternal()
         {
@@ -17417,6 +11937,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpTokens?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CmdProcessCommandsInfoNVX : DisposableObject
@@ -17429,7 +11956,6 @@ namespace AdamantiumVulkan.Core
 
         public CmdProcessCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectTable = new ObjectTableNVX(_internal.objectTable);
             IndirectCommandsLayout = new IndirectCommandsLayoutNVX(_internal.indirectCommandsLayout);
@@ -17444,70 +11970,18 @@ namespace AdamantiumVulkan.Core
             SequencesIndexOffset = _internal.sequencesIndexOffset;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ObjectTableNVX ObjectTable
-        {
-            get; set;
-        }
-
-        public IndirectCommandsLayoutNVX IndirectCommandsLayout
-        {
-            get; set;
-        }
-
-        public uint IndirectCommandsTokenCount
-        {
-            get; set;
-        }
-
-        public IndirectCommandsTokenNVX PIndirectCommandsTokens
-        {
-            get; set;
-        }
-
-        public uint MaxSequencesCount
-        {
-            get; set;
-        }
-
-        public CommandBuffer TargetCommandBuffer
-        {
-            get; set;
-        }
-
-        public Buffer SequencesCountBuffer
-        {
-            get; set;
-        }
-
-        public ulong SequencesCountOffset
-        {
-            get; set;
-        }
-
-        public Buffer SequencesIndexBuffer
-        {
-            get; set;
-        }
-
-        public ulong SequencesIndexOffset
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CmdProcessCommandsInfoNvx;
+        public System.IntPtr PNext { get; set; }
+        public ObjectTableNVX ObjectTable { get; set; }
+        public IndirectCommandsLayoutNVX IndirectCommandsLayout { get; set; }
+        public uint IndirectCommandsTokenCount { get; set; }
+        public IndirectCommandsTokenNVX PIndirectCommandsTokens { get; set; }
+        public uint MaxSequencesCount { get; set; }
+        public CommandBuffer TargetCommandBuffer { get; set; }
+        public Buffer SequencesCountBuffer { get; set; }
+        public ulong SequencesCountOffset { get; set; }
+        public Buffer SequencesIndexBuffer { get; set; }
+        public ulong SequencesIndexOffset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX ToInternal()
         {
@@ -17532,6 +12006,13 @@ namespace AdamantiumVulkan.Core
             _internal.sequencesIndexOffset = SequencesIndexOffset;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpIndirectCommandsTokens?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CmdReserveSpaceForCommandsInfoNVX : DisposableObject
@@ -17542,42 +12023,17 @@ namespace AdamantiumVulkan.Core
 
         public CmdReserveSpaceForCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectTable = new ObjectTableNVX(_internal.objectTable);
             IndirectCommandsLayout = new IndirectCommandsLayoutNVX(_internal.indirectCommandsLayout);
             MaxSequencesCount = _internal.maxSequencesCount;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ObjectTableNVX ObjectTable
-        {
-            get; set;
-        }
-
-        public IndirectCommandsLayoutNVX IndirectCommandsLayout
-        {
-            get; set;
-        }
-
-        public uint MaxSequencesCount
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CmdReserveSpaceForCommandsInfoNvx;
+        public System.IntPtr PNext { get; set; }
+        public ObjectTableNVX ObjectTable { get; set; }
+        public IndirectCommandsLayoutNVX IndirectCommandsLayout { get; set; }
+        public uint MaxSequencesCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX ToInternal()
         {
@@ -17589,6 +12045,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxSequencesCount = MaxSequencesCount;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ObjectTableCreateInfoNVX : DisposableObject
@@ -17605,7 +12067,6 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTableCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkObjectTableCreateInfoNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectCount = _internal.objectCount;
             var tmppObjectEntryTypes = new int[_internal.objectCount];
@@ -17629,66 +12090,17 @@ namespace AdamantiumVulkan.Core
             MaxPipelineLayouts = _internal.maxPipelineLayouts;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ObjectCount
-        {
-            get; set;
-        }
-
-        public ObjectEntryTypeNVX[] PObjectEntryTypes
-        {
-            get; set;
-        }
-
-        public uint[] PObjectEntryCounts
-        {
-            get; set;
-        }
-
-        public uint[] PObjectEntryUsageFlags
-        {
-            get; set;
-        }
-
-        public uint MaxUniformBuffersPerDescriptor
-        {
-            get; set;
-        }
-
-        public uint MaxStorageBuffersPerDescriptor
-        {
-            get; set;
-        }
-
-        public uint MaxStorageImagesPerDescriptor
-        {
-            get; set;
-        }
-
-        public uint MaxSampledImagesPerDescriptor
-        {
-            get; set;
-        }
-
-        public uint MaxPipelineLayouts
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpObjectEntryCounts?.Dispose();
-            refpObjectEntryUsageFlags?.Dispose();
-        }
+        public StructureType SType => StructureType.ObjectTableCreateInfoNvx;
+        public System.IntPtr PNext { get; set; }
+        public uint ObjectCount { get; set; }
+        public ObjectEntryTypeNVX[] PObjectEntryTypes { get; set; }
+        public uint[] PObjectEntryCounts { get; set; }
+        public uint[] PObjectEntryUsageFlags { get; set; }
+        public uint MaxUniformBuffersPerDescriptor { get; set; }
+        public uint MaxStorageBuffersPerDescriptor { get; set; }
+        public uint MaxStorageImagesPerDescriptor { get; set; }
+        public uint MaxSampledImagesPerDescriptor { get; set; }
+        public uint MaxPipelineLayouts { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTableCreateInfoNVX ToInternal()
         {
@@ -17736,6 +12148,15 @@ namespace AdamantiumVulkan.Core
             _internal.maxPipelineLayouts = MaxPipelineLayouts;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpObjectEntryTypes?.Dispose();
+            refpObjectEntryCounts?.Dispose();
+            refpObjectEntryUsageFlags?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ObjectTableEntryNVX
@@ -17750,15 +12171,8 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
         }
 
-        public ObjectEntryTypeNVX Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
+        public ObjectEntryTypeNVX Type { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTableEntryNVX ToInternal()
         {
@@ -17782,20 +12196,9 @@ namespace AdamantiumVulkan.Core
             Pipeline = new Pipeline(_internal.pipeline);
         }
 
-        public ObjectEntryTypeNVX Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Pipeline Pipeline
-        {
-            get; set;
-        }
+        public ObjectEntryTypeNVX Type { get; set; }
+        public uint Flags { get; set; }
+        public Pipeline Pipeline { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTablePipelineEntryNVX ToInternal()
         {
@@ -17821,25 +12224,10 @@ namespace AdamantiumVulkan.Core
             DescriptorSet = new DescriptorSet(_internal.descriptorSet);
         }
 
-        public ObjectEntryTypeNVX Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PipelineLayout PipelineLayout
-        {
-            get; set;
-        }
-
-        public DescriptorSet DescriptorSet
-        {
-            get; set;
-        }
+        public ObjectEntryTypeNVX Type { get; set; }
+        public uint Flags { get; set; }
+        public PipelineLayout PipelineLayout { get; set; }
+        public DescriptorSet DescriptorSet { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTableDescriptorSetEntryNVX ToInternal()
         {
@@ -17865,20 +12253,9 @@ namespace AdamantiumVulkan.Core
             Buffer = new Buffer(_internal.buffer);
         }
 
-        public ObjectEntryTypeNVX Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
+        public ObjectEntryTypeNVX Type { get; set; }
+        public uint Flags { get; set; }
+        public Buffer Buffer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTableVertexBufferEntryNVX ToInternal()
         {
@@ -17904,25 +12281,10 @@ namespace AdamantiumVulkan.Core
             IndexType = _internal.indexType;
         }
 
-        public ObjectEntryTypeNVX Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        public IndexType IndexType
-        {
-            get; set;
-        }
+        public ObjectEntryTypeNVX Type { get; set; }
+        public uint Flags { get; set; }
+        public Buffer Buffer { get; set; }
+        public IndexType IndexType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTableIndexBufferEntryNVX ToInternal()
         {
@@ -17949,25 +12311,10 @@ namespace AdamantiumVulkan.Core
             StageFlags = _internal.stageFlags;
         }
 
-        public ObjectEntryTypeNVX Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public PipelineLayout PipelineLayout
-        {
-            get; set;
-        }
-
-        public uint StageFlags
-        {
-            get; set;
-        }
+        public ObjectEntryTypeNVX Type { get; set; }
+        public uint Flags { get; set; }
+        public PipelineLayout PipelineLayout { get; set; }
+        public uint StageFlags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkObjectTablePushConstantEntryNVX ToInternal()
         {
@@ -17992,15 +12339,8 @@ namespace AdamantiumVulkan.Core
             Ycoeff = _internal.ycoeff;
         }
 
-        public float Xcoeff
-        {
-            get; set;
-        }
-
-        public float Ycoeff
-        {
-            get; set;
-        }
+        public float Xcoeff { get; set; }
+        public float Ycoeff { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkViewportWScalingNV ToInternal()
         {
@@ -18021,7 +12361,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineViewportWScalingStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ViewportWScalingEnable = _internal.viewportWScalingEnable;
             ViewportCount = _internal.viewportCount;
@@ -18029,35 +12368,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pViewportWScalings);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ViewportWScalingEnable
-        {
-            get; set;
-        }
-
-        public uint ViewportCount
-        {
-            get; set;
-        }
-
-        public ViewportWScalingNV PViewportWScalings
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineViewportWScalingStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public bool ViewportWScalingEnable { get; set; }
+        public uint ViewportCount { get; set; }
+        public ViewportWScalingNV PViewportWScalings { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV ToInternal()
         {
@@ -18075,6 +12390,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpViewportWScalings?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SurfaceCapabilities2EXT : DisposableObject
@@ -18085,7 +12407,6 @@ namespace AdamantiumVulkan.Core
 
         public SurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MinImageCount = _internal.minImageCount;
             MaxImageCount = _internal.maxImageCount;
@@ -18100,75 +12421,19 @@ namespace AdamantiumVulkan.Core
             SupportedSurfaceCounters = _internal.supportedSurfaceCounters;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MinImageCount
-        {
-            get; set;
-        }
-
-        public uint MaxImageCount
-        {
-            get; set;
-        }
-
-        public Extent2D CurrentExtent
-        {
-            get; set;
-        }
-
-        public Extent2D MinImageExtent
-        {
-            get; set;
-        }
-
-        public Extent2D MaxImageExtent
-        {
-            get; set;
-        }
-
-        public uint MaxImageArrayLayers
-        {
-            get; set;
-        }
-
-        public uint SupportedTransforms
-        {
-            get; set;
-        }
-
-        public SurfaceTransformFlagBitsKHR CurrentTransform
-        {
-            get; set;
-        }
-
-        public uint SupportedCompositeAlpha
-        {
-            get; set;
-        }
-
-        public uint SupportedUsageFlags
-        {
-            get; set;
-        }
-
-        public uint SupportedSurfaceCounters
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SurfaceCapabilities2Ext;
+        public System.IntPtr PNext { get; set; }
+        public uint MinImageCount { get; set; }
+        public uint MaxImageCount { get; set; }
+        public Extent2D CurrentExtent { get; set; }
+        public Extent2D MinImageExtent { get; set; }
+        public Extent2D MaxImageExtent { get; set; }
+        public uint MaxImageArrayLayers { get; set; }
+        public uint SupportedTransforms { get; set; }
+        public SurfaceTransformFlagBitsKHR CurrentTransform { get; set; }
+        public uint SupportedCompositeAlpha { get; set; }
+        public uint SupportedUsageFlags { get; set; }
+        public uint SupportedSurfaceCounters { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT ToInternal()
         {
@@ -18197,6 +12462,12 @@ namespace AdamantiumVulkan.Core
             _internal.supportedSurfaceCounters = SupportedSurfaceCounters;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayPowerInfoEXT : DisposableObject
@@ -18207,30 +12478,13 @@ namespace AdamantiumVulkan.Core
 
         public DisplayPowerInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PowerState = _internal.powerState;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayPowerStateEXT PowerState
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DisplayPowerInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public DisplayPowerStateEXT PowerState { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT ToInternal()
         {
@@ -18240,6 +12494,12 @@ namespace AdamantiumVulkan.Core
             _internal.powerState = PowerState;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceEventInfoEXT : DisposableObject
@@ -18250,30 +12510,13 @@ namespace AdamantiumVulkan.Core
 
         public DeviceEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DeviceEvent = _internal.deviceEvent;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DeviceEventTypeEXT DeviceEvent
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceEventInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public DeviceEventTypeEXT DeviceEvent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT ToInternal()
         {
@@ -18283,6 +12526,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceEvent = DeviceEvent;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DisplayEventInfoEXT : DisposableObject
@@ -18298,25 +12547,9 @@ namespace AdamantiumVulkan.Core
             DisplayEvent = _internal.displayEvent;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public DisplayEventTypeEXT DisplayEvent
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public DisplayEventTypeEXT DisplayEvent { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT ToInternal()
         {
@@ -18326,6 +12559,12 @@ namespace AdamantiumVulkan.Core
             _internal.displayEvent = DisplayEvent;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SwapchainCounterCreateInfoEXT : DisposableObject
@@ -18336,30 +12575,13 @@ namespace AdamantiumVulkan.Core
 
         public SwapchainCounterCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SurfaceCounters = _internal.surfaceCounters;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SurfaceCounters
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SwapchainCounterCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint SurfaceCounters { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT ToInternal()
         {
@@ -18369,6 +12591,12 @@ namespace AdamantiumVulkan.Core
             _internal.surfaceCounters = SurfaceCounters;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RefreshCycleDurationGOOGLE
@@ -18382,10 +12610,7 @@ namespace AdamantiumVulkan.Core
             RefreshDuration = _internal.refreshDuration;
         }
 
-        public ulong RefreshDuration
-        {
-            get; set;
-        }
+        public ulong RefreshDuration { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE ToInternal()
         {
@@ -18410,30 +12635,11 @@ namespace AdamantiumVulkan.Core
             PresentMargin = _internal.presentMargin;
         }
 
-        public uint PresentID
-        {
-            get; set;
-        }
-
-        public ulong DesiredPresentTime
-        {
-            get; set;
-        }
-
-        public ulong ActualPresentTime
-        {
-            get; set;
-        }
-
-        public ulong EarliestPresentTime
-        {
-            get; set;
-        }
-
-        public ulong PresentMargin
-        {
-            get; set;
-        }
+        public uint PresentID { get; set; }
+        public ulong DesiredPresentTime { get; set; }
+        public ulong ActualPresentTime { get; set; }
+        public ulong EarliestPresentTime { get; set; }
+        public ulong PresentMargin { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE ToInternal()
         {
@@ -18459,15 +12665,8 @@ namespace AdamantiumVulkan.Core
             DesiredPresentTime = _internal.desiredPresentTime;
         }
 
-        public uint PresentID
-        {
-            get; set;
-        }
-
-        public ulong DesiredPresentTime
-        {
-            get; set;
-        }
+        public uint PresentID { get; set; }
+        public ulong DesiredPresentTime { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE ToInternal()
         {
@@ -18488,37 +12687,16 @@ namespace AdamantiumVulkan.Core
 
         public PresentTimesInfoGOOGLE(AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SwapchainCount = _internal.swapchainCount;
             PTimes = new PresentTimeGOOGLE(Marshal.PtrToStructure<VkPresentTimeGOOGLE>(_internal.pTimes));
             Marshal.FreeHGlobal(_internal.pTimes);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SwapchainCount
-        {
-            get; set;
-        }
-
-        public PresentTimeGOOGLE PTimes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PresentTimesInfoGoogle;
+        public System.IntPtr PNext { get; set; }
+        public uint SwapchainCount { get; set; }
+        public PresentTimeGOOGLE PTimes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE ToInternal()
         {
@@ -18535,6 +12713,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpTimes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX : DisposableObject
@@ -18545,30 +12730,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PerViewPositionAllComponents = _internal.perViewPositionAllComponents;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool PerViewPositionAllComponents
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMultiviewPerViewAttributesPropertiesNvx;
+        public System.IntPtr PNext { get; set; }
+        public bool PerViewPositionAllComponents { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX ToInternal()
         {
@@ -18578,6 +12746,12 @@ namespace AdamantiumVulkan.Core
             _internal.perViewPositionAllComponents = PerViewPositionAllComponents;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ViewportSwizzleNV
@@ -18594,25 +12768,10 @@ namespace AdamantiumVulkan.Core
             W = _internal.w;
         }
 
-        public ViewportCoordinateSwizzleNV X
-        {
-            get; set;
-        }
-
-        public ViewportCoordinateSwizzleNV Y
-        {
-            get; set;
-        }
-
-        public ViewportCoordinateSwizzleNV Z
-        {
-            get; set;
-        }
-
-        public ViewportCoordinateSwizzleNV W
-        {
-            get; set;
-        }
+        public ViewportCoordinateSwizzleNV X { get; set; }
+        public ViewportCoordinateSwizzleNV Y { get; set; }
+        public ViewportCoordinateSwizzleNV Z { get; set; }
+        public ViewportCoordinateSwizzleNV W { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV ToInternal()
         {
@@ -18635,7 +12794,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineViewportSwizzleStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             ViewportCount = _internal.viewportCount;
@@ -18643,35 +12801,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pViewportSwizzles);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint ViewportCount
-        {
-            get; set;
-        }
-
-        public ViewportSwizzleNV PViewportSwizzles
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineViewportSwizzleStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint ViewportCount { get; set; }
+        public ViewportSwizzleNV PViewportSwizzles { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV ToInternal()
         {
@@ -18689,6 +12823,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpViewportSwizzles?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceDiscardRectanglePropertiesEXT : DisposableObject
@@ -18699,30 +12840,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDiscardRectanglePropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxDiscardRectangles = _internal.maxDiscardRectangles;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxDiscardRectangles
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDiscardRectanglePropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxDiscardRectangles { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT ToInternal()
         {
@@ -18732,6 +12856,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDiscardRectangles = MaxDiscardRectangles;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineDiscardRectangleStateCreateInfoEXT : DisposableObject
@@ -18744,7 +12874,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineDiscardRectangleStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DiscardRectangleMode = _internal.discardRectangleMode;
@@ -18753,40 +12882,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pDiscardRectangles);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public DiscardRectangleModeEXT DiscardRectangleMode
-        {
-            get; set;
-        }
-
-        public uint DiscardRectangleCount
-        {
-            get; set;
-        }
-
-        public Rect2D PDiscardRectangles
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineDiscardRectangleStateCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public DiscardRectangleModeEXT DiscardRectangleMode { get; set; }
+        public uint DiscardRectangleCount { get; set; }
+        public Rect2D PDiscardRectangles { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT ToInternal()
         {
@@ -18805,6 +12906,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDiscardRectangles?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceConservativeRasterizationPropertiesEXT : DisposableObject
@@ -18815,7 +12923,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceConservativeRasterizationPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PrimitiveOverestimationSize = _internal.primitiveOverestimationSize;
             MaxExtraPrimitiveOverestimationSize = _internal.maxExtraPrimitiveOverestimationSize;
@@ -18828,65 +12935,17 @@ namespace AdamantiumVulkan.Core
             ConservativeRasterizationPostDepthCoverage = _internal.conservativeRasterizationPostDepthCoverage;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public float PrimitiveOverestimationSize
-        {
-            get; set;
-        }
-
-        public float MaxExtraPrimitiveOverestimationSize
-        {
-            get; set;
-        }
-
-        public float ExtraPrimitiveOverestimationSizeGranularity
-        {
-            get; set;
-        }
-
-        public bool PrimitiveUnderestimation
-        {
-            get; set;
-        }
-
-        public bool ConservativePointAndLineRasterization
-        {
-            get; set;
-        }
-
-        public bool DegenerateTrianglesRasterized
-        {
-            get; set;
-        }
-
-        public bool DegenerateLinesRasterized
-        {
-            get; set;
-        }
-
-        public bool FullyCoveredFragmentShaderInputVariable
-        {
-            get; set;
-        }
-
-        public bool ConservativeRasterizationPostDepthCoverage
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceConservativeRasterizationPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public float PrimitiveOverestimationSize { get; set; }
+        public float MaxExtraPrimitiveOverestimationSize { get; set; }
+        public float ExtraPrimitiveOverestimationSizeGranularity { get; set; }
+        public bool PrimitiveUnderestimation { get; set; }
+        public bool ConservativePointAndLineRasterization { get; set; }
+        public bool DegenerateTrianglesRasterized { get; set; }
+        public bool DegenerateLinesRasterized { get; set; }
+        public bool FullyCoveredFragmentShaderInputVariable { get; set; }
+        public bool ConservativeRasterizationPostDepthCoverage { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT ToInternal()
         {
@@ -18904,6 +12963,12 @@ namespace AdamantiumVulkan.Core
             _internal.conservativeRasterizationPostDepthCoverage = ConservativeRasterizationPostDepthCoverage;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineRasterizationConservativeStateCreateInfoEXT : DisposableObject
@@ -18914,42 +12979,17 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRasterizationConservativeStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             ConservativeRasterizationMode = _internal.conservativeRasterizationMode;
             ExtraPrimitiveOverestimationSize = _internal.extraPrimitiveOverestimationSize;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ConservativeRasterizationModeEXT ConservativeRasterizationMode
-        {
-            get; set;
-        }
-
-        public float ExtraPrimitiveOverestimationSize
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineRasterizationConservativeStateCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ConservativeRasterizationModeEXT ConservativeRasterizationMode { get; set; }
+        public float ExtraPrimitiveOverestimationSize { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT ToInternal()
         {
@@ -18961,6 +13001,12 @@ namespace AdamantiumVulkan.Core
             _internal.extraPrimitiveOverestimationSize = ExtraPrimitiveOverestimationSize;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : DisposableObject
@@ -18971,30 +13017,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDepthClipEnableFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DepthClipEnable = _internal.depthClipEnable;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool DepthClipEnable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDepthClipEnableFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool DepthClipEnable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT ToInternal()
         {
@@ -19004,6 +13033,12 @@ namespace AdamantiumVulkan.Core
             _internal.depthClipEnable = DepthClipEnable;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : DisposableObject
@@ -19014,36 +13049,15 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRasterizationDepthClipStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DepthClipEnable = _internal.depthClipEnable;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public bool DepthClipEnable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineRasterizationDepthClipStateCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public bool DepthClipEnable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT ToInternal()
         {
@@ -19054,6 +13068,12 @@ namespace AdamantiumVulkan.Core
             _internal.depthClipEnable = DepthClipEnable;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class XYColorEXT
@@ -19068,15 +13088,8 @@ namespace AdamantiumVulkan.Core
             Y = _internal.y;
         }
 
-        public float X
-        {
-            get; set;
-        }
-
-        public float Y
-        {
-            get; set;
-        }
+        public float X { get; set; }
+        public float Y { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkXYColorEXT ToInternal()
         {
@@ -19095,7 +13108,6 @@ namespace AdamantiumVulkan.Core
 
         public HdrMetadataEXT(AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DisplayPrimaryRed = new XYColorEXT(_internal.displayPrimaryRed);
             DisplayPrimaryGreen = new XYColorEXT(_internal.displayPrimaryGreen);
@@ -19107,60 +13119,16 @@ namespace AdamantiumVulkan.Core
             MaxFrameAverageLightLevel = _internal.maxFrameAverageLightLevel;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public XYColorEXT DisplayPrimaryRed
-        {
-            get; set;
-        }
-
-        public XYColorEXT DisplayPrimaryGreen
-        {
-            get; set;
-        }
-
-        public XYColorEXT DisplayPrimaryBlue
-        {
-            get; set;
-        }
-
-        public XYColorEXT WhitePoint
-        {
-            get; set;
-        }
-
-        public float MaxLuminance
-        {
-            get; set;
-        }
-
-        public float MinLuminance
-        {
-            get; set;
-        }
-
-        public float MaxContentLightLevel
-        {
-            get; set;
-        }
-
-        public float MaxFrameAverageLightLevel
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.HdrMetadataExt;
+        public System.IntPtr PNext { get; set; }
+        public XYColorEXT DisplayPrimaryRed { get; set; }
+        public XYColorEXT DisplayPrimaryGreen { get; set; }
+        public XYColorEXT DisplayPrimaryBlue { get; set; }
+        public XYColorEXT WhitePoint { get; set; }
+        public float MaxLuminance { get; set; }
+        public float MinLuminance { get; set; }
+        public float MaxContentLightLevel { get; set; }
+        public float MaxFrameAverageLightLevel { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT ToInternal()
         {
@@ -19189,6 +13157,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxFrameAverageLightLevel = MaxFrameAverageLightLevel;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugUtilsObjectNameInfoEXT : DisposableObject
@@ -19201,42 +13175,17 @@ namespace AdamantiumVulkan.Core
 
         public DebugUtilsObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectType = _internal.objectType;
             ObjectHandle = _internal.objectHandle;
             PObjectName = Marshal.PtrToStringAnsi(_internal.pObjectName);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ObjectType ObjectType
-        {
-            get; set;
-        }
-
-        public ulong ObjectHandle
-        {
-            get; set;
-        }
-
-        public string PObjectName
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugUtilsObjectNameInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ObjectType ObjectType { get; set; }
+        public ulong ObjectHandle { get; set; }
+        public string PObjectName { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT ToInternal()
         {
@@ -19253,6 +13202,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpObjectName?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugUtilsObjectTagInfoEXT : DisposableObject
@@ -19263,7 +13219,6 @@ namespace AdamantiumVulkan.Core
 
         public DebugUtilsObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ObjectType = _internal.objectType;
             ObjectHandle = _internal.objectHandle;
@@ -19272,45 +13227,13 @@ namespace AdamantiumVulkan.Core
             PTag = _internal.pTag;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ObjectType ObjectType
-        {
-            get; set;
-        }
-
-        public ulong ObjectHandle
-        {
-            get; set;
-        }
-
-        public ulong TagName
-        {
-            get; set;
-        }
-
-        public ulong TagSize
-        {
-            get; set;
-        }
-
-        public System.IntPtr PTag
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugUtilsObjectTagInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ObjectType ObjectType { get; set; }
+        public ulong ObjectHandle { get; set; }
+        public ulong TagName { get; set; }
+        public ulong TagSize { get; set; }
+        public System.IntPtr PTag { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT ToInternal()
         {
@@ -19324,6 +13247,13 @@ namespace AdamantiumVulkan.Core
             _internal.pTag = PTag;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PTag);
+        }
+
     }
 
     public partial class DebugUtilsLabelEXT : DisposableObject
@@ -19336,7 +13266,6 @@ namespace AdamantiumVulkan.Core
 
         public DebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PLabelName = Marshal.PtrToStringAnsi(_internal.pLabelName);
             var tmpArr0 = new float[4];
@@ -19350,30 +13279,10 @@ namespace AdamantiumVulkan.Core
             Color = tmpArr0;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public string PLabelName
-        {
-            get; set;
-        }
-
-        public float[] Color
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugUtilsLabelExt;
+        public System.IntPtr PNext { get; set; }
+        public string PLabelName { get; set; }
+        public float[] Color { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT ToInternal()
         {
@@ -19405,6 +13314,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpLabelName?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugUtilsMessengerCallbackDataEXT : DisposableObject
@@ -19425,7 +13341,6 @@ namespace AdamantiumVulkan.Core
 
         public DebugUtilsMessengerCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             PMessageIdName = Marshal.PtrToStringAnsi(_internal.pMessageIdName);
@@ -19442,73 +13357,18 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pObjects);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public string PMessageIdName
-        {
-            get; set;
-        }
-
-        public int MessageIdNumber
-        {
-            get; set;
-        }
-
-        public string PMessage
-        {
-            get; set;
-        }
-
-        public uint QueueLabelCount
-        {
-            get; set;
-        }
-
-        public DebugUtilsLabelEXT PQueueLabels
-        {
-            get; set;
-        }
-
-        public uint CmdBufLabelCount
-        {
-            get; set;
-        }
-
-        public DebugUtilsLabelEXT PCmdBufLabels
-        {
-            get; set;
-        }
-
-        public uint ObjectCount
-        {
-            get; set;
-        }
-
-        public DebugUtilsObjectNameInfoEXT PObjects
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpMessage?.Dispose();
-            refpQueueLabels?.Dispose();
-            refpCmdBufLabels?.Dispose();
-            refpObjects?.Dispose();
-        }
+        public StructureType SType => StructureType.DebugUtilsMessengerCallbackDataExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public string PMessageIdName { get; set; }
+        public int MessageIdNumber { get; set; }
+        public string PMessage { get; set; }
+        public uint QueueLabelCount { get; set; }
+        public DebugUtilsLabelEXT PQueueLabels { get; set; }
+        public uint CmdBufLabelCount { get; set; }
+        public DebugUtilsLabelEXT PCmdBufLabels { get; set; }
+        public uint ObjectCount { get; set; }
+        public DebugUtilsObjectNameInfoEXT PObjects { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT ToInternal()
         {
@@ -19555,6 +13415,17 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpMessageIdName?.Dispose();
+            refpMessage?.Dispose();
+            refpQueueLabels?.Dispose();
+            refpCmdBufLabels?.Dispose();
+            refpObjects?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DebugUtilsMessengerCreateInfoEXT : DisposableObject
@@ -19565,7 +13436,6 @@ namespace AdamantiumVulkan.Core
 
         public DebugUtilsMessengerCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             MessageSeverity = _internal.messageSeverity;
@@ -19574,45 +13444,13 @@ namespace AdamantiumVulkan.Core
             PUserData = _internal.pUserData;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint MessageSeverity
-        {
-            get; set;
-        }
-
-        public uint MessageType
-        {
-            get; set;
-        }
-
-        public PFN_vkDebugUtilsMessengerCallbackEXT PfnUserCallback
-        {
-            get; set;
-        }
-
-        public System.IntPtr PUserData
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DebugUtilsMessengerCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint MessageSeverity { get; set; }
+        public uint MessageType { get; set; }
+        public PFN_vkDebugUtilsMessengerCallbackEXT PfnUserCallback { get; set; }
+        public System.IntPtr PUserData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT ToInternal()
         {
@@ -19626,6 +13464,13 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PUserData);
+        }
+
     }
 
     public partial class SamplerReductionModeCreateInfoEXT : DisposableObject
@@ -19636,30 +13481,13 @@ namespace AdamantiumVulkan.Core
 
         public SamplerReductionModeCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ReductionMode = _internal.reductionMode;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SamplerReductionModeEXT ReductionMode
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SamplerReductionModeCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public SamplerReductionModeEXT ReductionMode { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfoEXT ToInternal()
         {
@@ -19669,6 +13497,12 @@ namespace AdamantiumVulkan.Core
             _internal.reductionMode = ReductionMode;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : DisposableObject
@@ -19679,36 +13513,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSamplerFilterMinmaxPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             FilterMinmaxSingleComponentFormats = _internal.filterMinmaxSingleComponentFormats;
             FilterMinmaxImageComponentMapping = _internal.filterMinmaxImageComponentMapping;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool FilterMinmaxSingleComponentFormats
-        {
-            get; set;
-        }
-
-        public bool FilterMinmaxImageComponentMapping
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceSamplerFilterMinmaxPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool FilterMinmaxSingleComponentFormats { get; set; }
+        public bool FilterMinmaxImageComponentMapping { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT ToInternal()
         {
@@ -19719,6 +13532,12 @@ namespace AdamantiumVulkan.Core
             _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : DisposableObject
@@ -19729,36 +13548,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceInlineUniformBlockFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             InlineUniformBlock = _internal.inlineUniformBlock;
             DescriptorBindingInlineUniformBlockUpdateAfterBind = _internal.descriptorBindingInlineUniformBlockUpdateAfterBind;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool InlineUniformBlock
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingInlineUniformBlockUpdateAfterBind
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceInlineUniformBlockFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool InlineUniformBlock { get; set; }
+        public bool DescriptorBindingInlineUniformBlockUpdateAfterBind { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeaturesEXT ToInternal()
         {
@@ -19769,6 +13567,12 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : DisposableObject
@@ -19779,7 +13583,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceInlineUniformBlockPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxInlineUniformBlockSize = _internal.maxInlineUniformBlockSize;
             MaxPerStageDescriptorInlineUniformBlocks = _internal.maxPerStageDescriptorInlineUniformBlocks;
@@ -19788,45 +13591,13 @@ namespace AdamantiumVulkan.Core
             MaxDescriptorSetUpdateAfterBindInlineUniformBlocks = _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxInlineUniformBlockSize
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorInlineUniformBlocks
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetInlineUniformBlocks
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindInlineUniformBlocks
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceInlineUniformBlockPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxInlineUniformBlockSize { get; set; }
+        public uint MaxPerStageDescriptorInlineUniformBlocks { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks { get; set; }
+        public uint MaxDescriptorSetInlineUniformBlocks { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindInlineUniformBlocks { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockPropertiesEXT ToInternal()
         {
@@ -19840,6 +13611,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class WriteDescriptorSetInlineUniformBlockEXT : DisposableObject
@@ -19850,36 +13627,15 @@ namespace AdamantiumVulkan.Core
 
         public WriteDescriptorSetInlineUniformBlockEXT(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlockEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DataSize = _internal.dataSize;
             PData = _internal.pData;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DataSize
-        {
-            get; set;
-        }
-
-        public System.IntPtr PData
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.WriteDescriptorSetInlineUniformBlockExt;
+        public System.IntPtr PNext { get; set; }
+        public uint DataSize { get; set; }
+        public System.IntPtr PData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlockEXT ToInternal()
         {
@@ -19890,6 +13646,13 @@ namespace AdamantiumVulkan.Core
             _internal.pData = PData;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PData);
+        }
+
     }
 
     public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : DisposableObject
@@ -19900,30 +13663,13 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorPoolInlineUniformBlockCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxInlineUniformBlockBindings = _internal.maxInlineUniformBlockBindings;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxInlineUniformBlockBindings
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorPoolInlineUniformBlockCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxInlineUniformBlockBindings { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfoEXT ToInternal()
         {
@@ -19933,6 +13679,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxInlineUniformBlockBindings = MaxInlineUniformBlockBindings;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class SampleLocationEXT
@@ -19947,15 +13699,8 @@ namespace AdamantiumVulkan.Core
             Y = _internal.y;
         }
 
-        public float X
-        {
-            get; set;
-        }
-
-        public float Y
-        {
-            get; set;
-        }
+        public float X { get; set; }
+        public float Y { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSampleLocationEXT ToInternal()
         {
@@ -19976,7 +13721,6 @@ namespace AdamantiumVulkan.Core
 
         public SampleLocationsInfoEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SampleLocationsPerPixel = _internal.sampleLocationsPerPixel;
             SampleLocationGridSize = new Extent2D(_internal.sampleLocationGridSize);
@@ -19985,40 +13729,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSampleLocations);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public SampleCountFlagBits SampleLocationsPerPixel
-        {
-            get; set;
-        }
-
-        public Extent2D SampleLocationGridSize
-        {
-            get; set;
-        }
-
-        public uint SampleLocationsCount
-        {
-            get; set;
-        }
-
-        public SampleLocationEXT PSampleLocations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.SampleLocationsInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public SampleCountFlagBits SampleLocationsPerPixel { get; set; }
+        public Extent2D SampleLocationGridSize { get; set; }
+        public uint SampleLocationsCount { get; set; }
+        public SampleLocationEXT PSampleLocations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT ToInternal()
         {
@@ -20040,6 +13756,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpSampleLocations?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AttachmentSampleLocationsEXT
@@ -20054,15 +13777,8 @@ namespace AdamantiumVulkan.Core
             SampleLocationsInfo = new SampleLocationsInfoEXT(_internal.sampleLocationsInfo);
         }
 
-        public uint AttachmentIndex
-        {
-            get; set;
-        }
-
-        public SampleLocationsInfoEXT SampleLocationsInfo
-        {
-            get; set;
-        }
+        public uint AttachmentIndex { get; set; }
+        public SampleLocationsInfoEXT SampleLocationsInfo { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT ToInternal()
         {
@@ -20088,15 +13804,8 @@ namespace AdamantiumVulkan.Core
             SampleLocationsInfo = new SampleLocationsInfoEXT(_internal.sampleLocationsInfo);
         }
 
-        public uint SubpassIndex
-        {
-            get; set;
-        }
-
-        public SampleLocationsInfoEXT SampleLocationsInfo
-        {
-            get; set;
-        }
+        public uint SubpassIndex { get; set; }
+        public SampleLocationsInfoEXT SampleLocationsInfo { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT ToInternal()
         {
@@ -20122,7 +13831,6 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassSampleLocationsBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AttachmentInitialSampleLocationsCount = _internal.attachmentInitialSampleLocationsCount;
             PAttachmentInitialSampleLocations = new AttachmentSampleLocationsEXT(Marshal.PtrToStructure<VkAttachmentSampleLocationsEXT>(_internal.pAttachmentInitialSampleLocations));
@@ -20132,40 +13840,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pPostSubpassSampleLocations);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint AttachmentInitialSampleLocationsCount
-        {
-            get; set;
-        }
-
-        public AttachmentSampleLocationsEXT PAttachmentInitialSampleLocations
-        {
-            get; set;
-        }
-
-        public uint PostSubpassSampleLocationsCount
-        {
-            get; set;
-        }
-
-        public SubpassSampleLocationsEXT PPostSubpassSampleLocations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpPostSubpassSampleLocations?.Dispose();
-        }
+        public StructureType SType => StructureType.RenderPassSampleLocationsBeginInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint AttachmentInitialSampleLocationsCount { get; set; }
+        public AttachmentSampleLocationsEXT PAttachmentInitialSampleLocations { get; set; }
+        public uint PostSubpassSampleLocationsCount { get; set; }
+        public SubpassSampleLocationsEXT PPostSubpassSampleLocations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT ToInternal()
         {
@@ -20190,6 +13870,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAttachmentInitialSampleLocations?.Dispose();
+            refpPostSubpassSampleLocations?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineSampleLocationsStateCreateInfoEXT : DisposableObject
@@ -20200,36 +13888,15 @@ namespace AdamantiumVulkan.Core
 
         public PipelineSampleLocationsStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SampleLocationsEnable = _internal.sampleLocationsEnable;
             SampleLocationsInfo = new SampleLocationsInfoEXT(_internal.sampleLocationsInfo);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool SampleLocationsEnable
-        {
-            get; set;
-        }
-
-        public SampleLocationsInfoEXT SampleLocationsInfo
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineSampleLocationsStateCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public bool SampleLocationsEnable { get; set; }
+        public SampleLocationsInfoEXT SampleLocationsInfo { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT ToInternal()
         {
@@ -20243,6 +13910,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceSampleLocationsPropertiesEXT : DisposableObject
@@ -20253,7 +13926,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSampleLocationsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SampleLocationSampleCounts = _internal.sampleLocationSampleCounts;
             MaxSampleLocationGridSize = new Extent2D(_internal.maxSampleLocationGridSize);
@@ -20270,45 +13942,13 @@ namespace AdamantiumVulkan.Core
             VariableSampleLocations = _internal.variableSampleLocations;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint SampleLocationSampleCounts
-        {
-            get; set;
-        }
-
-        public Extent2D MaxSampleLocationGridSize
-        {
-            get; set;
-        }
-
-        public float[] SampleLocationCoordinateRange
-        {
-            get; set;
-        }
-
-        public uint SampleLocationSubPixelBits
-        {
-            get; set;
-        }
-
-        public bool VariableSampleLocations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceSampleLocationsPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint SampleLocationSampleCounts { get; set; }
+        public Extent2D MaxSampleLocationGridSize { get; set; }
+        public float[] SampleLocationCoordinateRange { get; set; }
+        public uint SampleLocationSubPixelBits { get; set; }
+        public bool VariableSampleLocations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT ToInternal()
         {
@@ -20341,6 +13981,12 @@ namespace AdamantiumVulkan.Core
             _internal.variableSampleLocations = VariableSampleLocations;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MultisamplePropertiesEXT : DisposableObject
@@ -20351,30 +13997,13 @@ namespace AdamantiumVulkan.Core
 
         public MultisamplePropertiesEXT(AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxSampleLocationGridSize = new Extent2D(_internal.maxSampleLocationGridSize);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Extent2D MaxSampleLocationGridSize
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MultisamplePropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public Extent2D MaxSampleLocationGridSize { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT ToInternal()
         {
@@ -20387,6 +14016,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : DisposableObject
@@ -20397,30 +14032,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceBlendOperationAdvancedFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AdvancedBlendCoherentOperations = _internal.advancedBlendCoherentOperations;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool AdvancedBlendCoherentOperations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceBlendOperationAdvancedFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool AdvancedBlendCoherentOperations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT ToInternal()
         {
@@ -20430,6 +14048,12 @@ namespace AdamantiumVulkan.Core
             _internal.advancedBlendCoherentOperations = AdvancedBlendCoherentOperations;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : DisposableObject
@@ -20440,7 +14064,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceBlendOperationAdvancedPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AdvancedBlendMaxColorAttachments = _internal.advancedBlendMaxColorAttachments;
             AdvancedBlendIndependentBlend = _internal.advancedBlendIndependentBlend;
@@ -20450,50 +14073,14 @@ namespace AdamantiumVulkan.Core
             AdvancedBlendAllOperations = _internal.advancedBlendAllOperations;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint AdvancedBlendMaxColorAttachments
-        {
-            get; set;
-        }
-
-        public bool AdvancedBlendIndependentBlend
-        {
-            get; set;
-        }
-
-        public bool AdvancedBlendNonPremultipliedSrcColor
-        {
-            get; set;
-        }
-
-        public bool AdvancedBlendNonPremultipliedDstColor
-        {
-            get; set;
-        }
-
-        public bool AdvancedBlendCorrelatedOverlap
-        {
-            get; set;
-        }
-
-        public bool AdvancedBlendAllOperations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceBlendOperationAdvancedPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint AdvancedBlendMaxColorAttachments { get; set; }
+        public bool AdvancedBlendIndependentBlend { get; set; }
+        public bool AdvancedBlendNonPremultipliedSrcColor { get; set; }
+        public bool AdvancedBlendNonPremultipliedDstColor { get; set; }
+        public bool AdvancedBlendCorrelatedOverlap { get; set; }
+        public bool AdvancedBlendAllOperations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT ToInternal()
         {
@@ -20508,6 +14095,12 @@ namespace AdamantiumVulkan.Core
             _internal.advancedBlendAllOperations = AdvancedBlendAllOperations;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : DisposableObject
@@ -20518,42 +14111,17 @@ namespace AdamantiumVulkan.Core
 
         public PipelineColorBlendAdvancedStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SrcPremultiplied = _internal.srcPremultiplied;
             DstPremultiplied = _internal.dstPremultiplied;
             BlendOverlap = _internal.blendOverlap;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool SrcPremultiplied
-        {
-            get; set;
-        }
-
-        public bool DstPremultiplied
-        {
-            get; set;
-        }
-
-        public BlendOverlapEXT BlendOverlap
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineColorBlendAdvancedStateCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public bool SrcPremultiplied { get; set; }
+        public bool DstPremultiplied { get; set; }
+        public BlendOverlapEXT BlendOverlap { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT ToInternal()
         {
@@ -20565,6 +14133,12 @@ namespace AdamantiumVulkan.Core
             _internal.blendOverlap = BlendOverlap;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineCoverageToColorStateCreateInfoNV : DisposableObject
@@ -20575,42 +14149,17 @@ namespace AdamantiumVulkan.Core
 
         public PipelineCoverageToColorStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             CoverageToColorEnable = _internal.coverageToColorEnable;
             CoverageToColorLocation = _internal.coverageToColorLocation;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public bool CoverageToColorEnable
-        {
-            get; set;
-        }
-
-        public uint CoverageToColorLocation
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineCoverageToColorStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public bool CoverageToColorEnable { get; set; }
+        public uint CoverageToColorLocation { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV ToInternal()
         {
@@ -20622,6 +14171,12 @@ namespace AdamantiumVulkan.Core
             _internal.coverageToColorLocation = CoverageToColorLocation;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineCoverageModulationStateCreateInfoNV : DisposableObject
@@ -20634,7 +14189,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineCoverageModulationStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             CoverageModulationMode = _internal.coverageModulationMode;
@@ -20647,45 +14201,13 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public CoverageModulationModeNV CoverageModulationMode
-        {
-            get; set;
-        }
-
-        public bool CoverageModulationTableEnable
-        {
-            get; set;
-        }
-
-        public uint CoverageModulationTableCount
-        {
-            get; set;
-        }
-
-        public float? PCoverageModulationTable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineCoverageModulationStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public CoverageModulationModeNV CoverageModulationMode { get; set; }
+        public bool CoverageModulationTableEnable { get; set; }
+        public uint CoverageModulationTableCount { get; set; }
+        public float? PCoverageModulationTable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV ToInternal()
         {
@@ -20704,6 +14226,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpCoverageModulationTable?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DrmFormatModifierPropertiesEXT
@@ -20719,20 +14248,9 @@ namespace AdamantiumVulkan.Core
             DrmFormatModifierTilingFeatures = _internal.drmFormatModifierTilingFeatures;
         }
 
-        public ulong DrmFormatModifier
-        {
-            get; set;
-        }
-
-        public uint DrmFormatModifierPlaneCount
-        {
-            get; set;
-        }
-
-        public uint DrmFormatModifierTilingFeatures
-        {
-            get; set;
-        }
+        public ulong DrmFormatModifier { get; set; }
+        public uint DrmFormatModifierPlaneCount { get; set; }
+        public uint DrmFormatModifierTilingFeatures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT ToInternal()
         {
@@ -20754,37 +14272,16 @@ namespace AdamantiumVulkan.Core
 
         public DrmFormatModifierPropertiesListEXT(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DrmFormatModifierCount = _internal.drmFormatModifierCount;
             PDrmFormatModifierProperties = new DrmFormatModifierPropertiesEXT(Marshal.PtrToStructure<VkDrmFormatModifierPropertiesEXT>(_internal.pDrmFormatModifierProperties));
             Marshal.FreeHGlobal(_internal.pDrmFormatModifierProperties);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DrmFormatModifierCount
-        {
-            get; set;
-        }
-
-        public DrmFormatModifierPropertiesEXT PDrmFormatModifierProperties
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DrmFormatModifierPropertiesListExt;
+        public System.IntPtr PNext { get; set; }
+        public uint DrmFormatModifierCount { get; set; }
+        public DrmFormatModifierPropertiesEXT PDrmFormatModifierProperties { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT ToInternal()
         {
@@ -20801,6 +14298,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDrmFormatModifierProperties?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : DisposableObject
@@ -20813,7 +14317,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceImageDrmFormatModifierInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DrmFormatModifier = _internal.drmFormatModifier;
             SharingMode = _internal.sharingMode;
@@ -20825,40 +14328,12 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong DrmFormatModifier
-        {
-            get; set;
-        }
-
-        public SharingMode SharingMode
-        {
-            get; set;
-        }
-
-        public uint QueueFamilyIndexCount
-        {
-            get; set;
-        }
-
-        public uint? PQueueFamilyIndices
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceImageDrmFormatModifierInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ulong DrmFormatModifier { get; set; }
+        public SharingMode SharingMode { get; set; }
+        public uint QueueFamilyIndexCount { get; set; }
+        public uint? PQueueFamilyIndices { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT ToInternal()
         {
@@ -20876,6 +14351,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpQueueFamilyIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageDrmFormatModifierListCreateInfoEXT : DisposableObject
@@ -20888,7 +14370,6 @@ namespace AdamantiumVulkan.Core
 
         public ImageDrmFormatModifierListCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DrmFormatModifierCount = _internal.drmFormatModifierCount;
             if(_internal.pDrmFormatModifiers != System.IntPtr.Zero)
@@ -20898,30 +14379,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DrmFormatModifierCount
-        {
-            get; set;
-        }
-
-        public ulong? PDrmFormatModifiers
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageDrmFormatModifierListCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint DrmFormatModifierCount { get; set; }
+        public ulong? PDrmFormatModifiers { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT ToInternal()
         {
@@ -20937,6 +14398,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDrmFormatModifiers?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageDrmFormatModifierExplicitCreateInfoEXT : DisposableObject
@@ -20949,7 +14417,6 @@ namespace AdamantiumVulkan.Core
 
         public ImageDrmFormatModifierExplicitCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DrmFormatModifier = _internal.drmFormatModifier;
             DrmFormatModifierPlaneCount = _internal.drmFormatModifierPlaneCount;
@@ -20957,35 +14424,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pPlaneLayouts);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong DrmFormatModifier
-        {
-            get; set;
-        }
-
-        public uint DrmFormatModifierPlaneCount
-        {
-            get; set;
-        }
-
-        public SubresourceLayout PPlaneLayouts
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageDrmFormatModifierExplicitCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ulong DrmFormatModifier { get; set; }
+        public uint DrmFormatModifierPlaneCount { get; set; }
+        public SubresourceLayout PPlaneLayouts { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT ToInternal()
         {
@@ -21003,6 +14446,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpPlaneLayouts?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageDrmFormatModifierPropertiesEXT : DisposableObject
@@ -21013,30 +14463,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageDrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DrmFormatModifier = _internal.drmFormatModifier;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong DrmFormatModifier
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageDrmFormatModifierPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public ulong DrmFormatModifier { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT ToInternal()
         {
@@ -21046,6 +14479,12 @@ namespace AdamantiumVulkan.Core
             _internal.drmFormatModifier = DrmFormatModifier;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ValidationCacheCreateInfoEXT : DisposableObject
@@ -21056,42 +14495,17 @@ namespace AdamantiumVulkan.Core
 
         public ValidationCacheCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             InitialDataSize = _internal.initialDataSize;
             PInitialData = _internal.pInitialData;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public ulong InitialDataSize
-        {
-            get; set;
-        }
-
-        public System.IntPtr PInitialData
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ValidationCacheCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public ulong InitialDataSize { get; set; }
+        public System.IntPtr PInitialData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT ToInternal()
         {
@@ -21103,6 +14517,13 @@ namespace AdamantiumVulkan.Core
             _internal.pInitialData = PInitialData;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PInitialData);
+        }
+
     }
 
     public partial class ShaderModuleValidationCacheCreateInfoEXT : DisposableObject
@@ -21113,30 +14534,13 @@ namespace AdamantiumVulkan.Core
 
         public ShaderModuleValidationCacheCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ValidationCache = new ValidationCacheEXT(_internal.validationCache);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ValidationCacheEXT ValidationCache
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ShaderModuleValidationCacheCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ValidationCacheEXT ValidationCache { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT ToInternal()
         {
@@ -21146,6 +14550,12 @@ namespace AdamantiumVulkan.Core
             _internal.validationCache = ValidationCache;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : DisposableObject
@@ -21158,7 +14568,6 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorSetLayoutBindingFlagsCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             BindingCount = _internal.bindingCount;
             if(_internal.pBindingFlags != System.IntPtr.Zero)
@@ -21168,30 +14577,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint BindingCount
-        {
-            get; set;
-        }
-
-        public uint? PBindingFlags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorSetLayoutBindingFlagsCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint BindingCount { get; set; }
+        public uint? PBindingFlags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfoEXT ToInternal()
         {
@@ -21207,6 +14596,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpBindingFlags?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceDescriptorIndexingFeaturesEXT : DisposableObject
@@ -21217,7 +14613,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDescriptorIndexingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShaderInputAttachmentArrayDynamicIndexing = _internal.shaderInputAttachmentArrayDynamicIndexing;
             ShaderUniformTexelBufferArrayDynamicIndexing = _internal.shaderUniformTexelBufferArrayDynamicIndexing;
@@ -21241,120 +14636,28 @@ namespace AdamantiumVulkan.Core
             RuntimeDescriptorArray = _internal.runtimeDescriptorArray;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ShaderInputAttachmentArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderUniformTexelBufferArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageTexelBufferArrayDynamicIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderUniformBufferArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderSampledImageArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageBufferArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderInputAttachmentArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderUniformTexelBufferArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageTexelBufferArrayNonUniformIndexing
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingUniformBufferUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingSampledImageUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingStorageImageUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingStorageBufferUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingUniformTexelBufferUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingStorageTexelBufferUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingUpdateUnusedWhilePending
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingPartiallyBound
-        {
-            get; set;
-        }
-
-        public bool DescriptorBindingVariableDescriptorCount
-        {
-            get; set;
-        }
-
-        public bool RuntimeDescriptorArray
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDescriptorIndexingFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderInputAttachmentArrayDynamicIndexing { get; set; }
+        public bool ShaderUniformTexelBufferArrayDynamicIndexing { get; set; }
+        public bool ShaderStorageTexelBufferArrayDynamicIndexing { get; set; }
+        public bool ShaderUniformBufferArrayNonUniformIndexing { get; set; }
+        public bool ShaderSampledImageArrayNonUniformIndexing { get; set; }
+        public bool ShaderStorageBufferArrayNonUniformIndexing { get; set; }
+        public bool ShaderStorageImageArrayNonUniformIndexing { get; set; }
+        public bool ShaderInputAttachmentArrayNonUniformIndexing { get; set; }
+        public bool ShaderUniformTexelBufferArrayNonUniformIndexing { get; set; }
+        public bool ShaderStorageTexelBufferArrayNonUniformIndexing { get; set; }
+        public bool DescriptorBindingUniformBufferUpdateAfterBind { get; set; }
+        public bool DescriptorBindingSampledImageUpdateAfterBind { get; set; }
+        public bool DescriptorBindingStorageImageUpdateAfterBind { get; set; }
+        public bool DescriptorBindingStorageBufferUpdateAfterBind { get; set; }
+        public bool DescriptorBindingUniformTexelBufferUpdateAfterBind { get; set; }
+        public bool DescriptorBindingStorageTexelBufferUpdateAfterBind { get; set; }
+        public bool DescriptorBindingUpdateUnusedWhilePending { get; set; }
+        public bool DescriptorBindingPartiallyBound { get; set; }
+        public bool DescriptorBindingVariableDescriptorCount { get; set; }
+        public bool RuntimeDescriptorArray { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeaturesEXT ToInternal()
         {
@@ -21383,6 +14686,12 @@ namespace AdamantiumVulkan.Core
             _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : DisposableObject
@@ -21393,7 +14702,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDescriptorIndexingPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxUpdateAfterBindDescriptorsInAllPools = _internal.maxUpdateAfterBindDescriptorsInAllPools;
             ShaderUniformBufferArrayNonUniformIndexingNative = _internal.shaderUniformBufferArrayNonUniformIndexingNative;
@@ -21420,135 +14728,31 @@ namespace AdamantiumVulkan.Core
             MaxDescriptorSetUpdateAfterBindInputAttachments = _internal.maxDescriptorSetUpdateAfterBindInputAttachments;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxUpdateAfterBindDescriptorsInAllPools
-        {
-            get; set;
-        }
-
-        public bool ShaderUniformBufferArrayNonUniformIndexingNative
-        {
-            get; set;
-        }
-
-        public bool ShaderSampledImageArrayNonUniformIndexingNative
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageBufferArrayNonUniformIndexingNative
-        {
-            get; set;
-        }
-
-        public bool ShaderStorageImageArrayNonUniformIndexingNative
-        {
-            get; set;
-        }
-
-        public bool ShaderInputAttachmentArrayNonUniformIndexingNative
-        {
-            get; set;
-        }
-
-        public bool RobustBufferAccessUpdateAfterBind
-        {
-            get; set;
-        }
-
-        public bool QuadDivergentImplicitLod
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindSamplers
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindUniformBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindStorageBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindSampledImages
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindStorageImages
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageDescriptorUpdateAfterBindInputAttachments
-        {
-            get; set;
-        }
-
-        public uint MaxPerStageUpdateAfterBindResources
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindSamplers
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindUniformBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindStorageBuffers
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindSampledImages
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindStorageImages
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetUpdateAfterBindInputAttachments
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDescriptorIndexingPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxUpdateAfterBindDescriptorsInAllPools { get; set; }
+        public bool ShaderUniformBufferArrayNonUniformIndexingNative { get; set; }
+        public bool ShaderSampledImageArrayNonUniformIndexingNative { get; set; }
+        public bool ShaderStorageBufferArrayNonUniformIndexingNative { get; set; }
+        public bool ShaderStorageImageArrayNonUniformIndexingNative { get; set; }
+        public bool ShaderInputAttachmentArrayNonUniformIndexingNative { get; set; }
+        public bool RobustBufferAccessUpdateAfterBind { get; set; }
+        public bool QuadDivergentImplicitLod { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindSamplers { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindUniformBuffers { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindStorageBuffers { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindSampledImages { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindStorageImages { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindInputAttachments { get; set; }
+        public uint MaxPerStageUpdateAfterBindResources { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindSamplers { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindUniformBuffers { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindStorageBuffers { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindSampledImages { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindStorageImages { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindInputAttachments { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingPropertiesEXT ToInternal()
         {
@@ -21580,6 +14784,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : DisposableObject
@@ -21592,7 +14802,6 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorSetVariableDescriptorCountAllocateInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DescriptorSetCount = _internal.descriptorSetCount;
             if(_internal.pDescriptorCounts != System.IntPtr.Zero)
@@ -21602,30 +14811,10 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint DescriptorSetCount
-        {
-            get; set;
-        }
-
-        public uint? PDescriptorCounts
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorSetVariableDescriptorCountAllocateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint DescriptorSetCount { get; set; }
+        public uint? PDescriptorCounts { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfoEXT ToInternal()
         {
@@ -21641,6 +14830,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDescriptorCounts?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DescriptorSetVariableDescriptorCountLayoutSupportEXT : DisposableObject
@@ -21651,30 +14847,13 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorSetVariableDescriptorCountLayoutSupportEXT(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupportEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxVariableDescriptorCount = _internal.maxVariableDescriptorCount;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxVariableDescriptorCount
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DescriptorSetVariableDescriptorCountLayoutSupportExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxVariableDescriptorCount { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupportEXT ToInternal()
         {
@@ -21684,6 +14863,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxVariableDescriptorCount = MaxVariableDescriptorCount;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ShadingRatePaletteNV : DisposableObject
@@ -21707,20 +14892,8 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public uint ShadingRatePaletteEntryCount
-        {
-            get; set;
-        }
-
-        public ShadingRatePaletteEntryNV[] PShadingRatePaletteEntries
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public uint ShadingRatePaletteEntryCount { get; set; }
+        public ShadingRatePaletteEntryNV[] PShadingRatePaletteEntries { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV ToInternal()
         {
@@ -21739,6 +14912,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpShadingRatePaletteEntries?.Dispose();
+        }
+
     }
 
     public partial class PipelineViewportShadingRateImageStateCreateInfoNV : DisposableObject
@@ -21751,7 +14930,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineViewportShadingRateImageStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShadingRateImageEnable = _internal.shadingRateImageEnable;
             ViewportCount = _internal.viewportCount;
@@ -21759,35 +14937,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pShadingRatePalettes);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ShadingRateImageEnable
-        {
-            get; set;
-        }
-
-        public uint ViewportCount
-        {
-            get; set;
-        }
-
-        public ShadingRatePaletteNV PShadingRatePalettes
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineViewportShadingRateImageStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public bool ShadingRateImageEnable { get; set; }
+        public uint ViewportCount { get; set; }
+        public ShadingRatePaletteNV PShadingRatePalettes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV ToInternal()
         {
@@ -21805,6 +14959,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpShadingRatePalettes?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceShadingRateImageFeaturesNV : DisposableObject
@@ -21815,36 +14976,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShadingRateImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShadingRateImage = _internal.shadingRateImage;
             ShadingRateCoarseSampleOrder = _internal.shadingRateCoarseSampleOrder;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ShadingRateImage
-        {
-            get; set;
-        }
-
-        public bool ShadingRateCoarseSampleOrder
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceShadingRateImageFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool ShadingRateImage { get; set; }
+        public bool ShadingRateCoarseSampleOrder { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV ToInternal()
         {
@@ -21855,6 +14995,12 @@ namespace AdamantiumVulkan.Core
             _internal.shadingRateCoarseSampleOrder = ShadingRateCoarseSampleOrder;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceShadingRateImagePropertiesNV : DisposableObject
@@ -21865,42 +15011,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShadingRateImagePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShadingRateTexelSize = new Extent2D(_internal.shadingRateTexelSize);
             ShadingRatePaletteSize = _internal.shadingRatePaletteSize;
             ShadingRateMaxCoarseSamples = _internal.shadingRateMaxCoarseSamples;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Extent2D ShadingRateTexelSize
-        {
-            get; set;
-        }
-
-        public uint ShadingRatePaletteSize
-        {
-            get; set;
-        }
-
-        public uint ShadingRateMaxCoarseSamples
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceShadingRateImagePropertiesNv;
+        public System.IntPtr PNext { get; set; }
+        public Extent2D ShadingRateTexelSize { get; set; }
+        public uint ShadingRatePaletteSize { get; set; }
+        public uint ShadingRateMaxCoarseSamples { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV ToInternal()
         {
@@ -21915,6 +15036,12 @@ namespace AdamantiumVulkan.Core
             _internal.shadingRateMaxCoarseSamples = ShadingRateMaxCoarseSamples;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CoarseSampleLocationNV
@@ -21930,20 +15057,9 @@ namespace AdamantiumVulkan.Core
             Sample = _internal.sample;
         }
 
-        public uint PixelX
-        {
-            get; set;
-        }
-
-        public uint PixelY
-        {
-            get; set;
-        }
-
-        public uint Sample
-        {
-            get; set;
-        }
+        public uint PixelX { get; set; }
+        public uint PixelY { get; set; }
+        public uint Sample { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV ToInternal()
         {
@@ -21972,30 +15088,10 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pSampleLocations);
         }
 
-        public ShadingRatePaletteEntryNV ShadingRate
-        {
-            get; set;
-        }
-
-        public uint SampleCount
-        {
-            get; set;
-        }
-
-        public uint SampleLocationCount
-        {
-            get; set;
-        }
-
-        public CoarseSampleLocationNV PSampleLocations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public ShadingRatePaletteEntryNV ShadingRate { get; set; }
+        public uint SampleCount { get; set; }
+        public uint SampleLocationCount { get; set; }
+        public CoarseSampleLocationNV PSampleLocations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV ToInternal()
         {
@@ -22012,6 +15108,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpSampleLocations?.Dispose();
+        }
+
     }
 
     public partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV : DisposableObject
@@ -22024,7 +15126,6 @@ namespace AdamantiumVulkan.Core
 
         public PipelineViewportCoarseSampleOrderStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             SampleOrderType = _internal.sampleOrderType;
             CustomSampleOrderCount = _internal.customSampleOrderCount;
@@ -22032,35 +15133,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pCustomSampleOrders);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public CoarseSampleOrderTypeNV SampleOrderType
-        {
-            get; set;
-        }
-
-        public uint CustomSampleOrderCount
-        {
-            get; set;
-        }
-
-        public CoarseSampleOrderCustomNV PCustomSampleOrders
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineViewportCoarseSampleOrderStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public CoarseSampleOrderTypeNV SampleOrderType { get; set; }
+        public uint CustomSampleOrderCount { get; set; }
+        public CoarseSampleOrderCustomNV PCustomSampleOrders { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV ToInternal()
         {
@@ -22078,6 +15155,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpCustomSampleOrders?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RayTracingShaderGroupCreateInfoNV : DisposableObject
@@ -22088,7 +15172,6 @@ namespace AdamantiumVulkan.Core
 
         public RayTracingShaderGroupCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Type = _internal.type;
             GeneralShader = _internal.generalShader;
@@ -22097,45 +15180,13 @@ namespace AdamantiumVulkan.Core
             IntersectionShader = _internal.intersectionShader;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public RayTracingShaderGroupTypeNV Type
-        {
-            get; set;
-        }
-
-        public uint GeneralShader
-        {
-            get; set;
-        }
-
-        public uint ClosestHitShader
-        {
-            get; set;
-        }
-
-        public uint AnyHitShader
-        {
-            get; set;
-        }
-
-        public uint IntersectionShader
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.RayTracingShaderGroupCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public RayTracingShaderGroupTypeNV Type { get; set; }
+        public uint GeneralShader { get; set; }
+        public uint ClosestHitShader { get; set; }
+        public uint AnyHitShader { get; set; }
+        public uint IntersectionShader { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV ToInternal()
         {
@@ -22149,6 +15200,12 @@ namespace AdamantiumVulkan.Core
             _internal.intersectionShader = IntersectionShader;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RayTracingPipelineCreateInfoNV : DisposableObject
@@ -22163,7 +15220,6 @@ namespace AdamantiumVulkan.Core
 
         public RayTracingPipelineCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             StageCount = _internal.stageCount;
@@ -22178,65 +15234,17 @@ namespace AdamantiumVulkan.Core
             BasePipelineIndex = _internal.basePipelineIndex;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint StageCount
-        {
-            get; set;
-        }
-
-        public PipelineShaderStageCreateInfo PStages
-        {
-            get; set;
-        }
-
-        public uint GroupCount
-        {
-            get; set;
-        }
-
-        public RayTracingShaderGroupCreateInfoNV PGroups
-        {
-            get; set;
-        }
-
-        public uint MaxRecursionDepth
-        {
-            get; set;
-        }
-
-        public PipelineLayout Layout
-        {
-            get; set;
-        }
-
-        public Pipeline BasePipelineHandle
-        {
-            get; set;
-        }
-
-        public int BasePipelineIndex
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpGroups?.Dispose();
-        }
+        public StructureType SType => StructureType.RayTracingPipelineCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint StageCount { get; set; }
+        public PipelineShaderStageCreateInfo PStages { get; set; }
+        public uint GroupCount { get; set; }
+        public RayTracingShaderGroupCreateInfoNV PGroups { get; set; }
+        public uint MaxRecursionDepth { get; set; }
+        public PipelineLayout Layout { get; set; }
+        public Pipeline BasePipelineHandle { get; set; }
+        public int BasePipelineIndex { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV ToInternal()
         {
@@ -22266,6 +15274,14 @@ namespace AdamantiumVulkan.Core
             _internal.basePipelineIndex = BasePipelineIndex;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpStages?.Dispose();
+            refpGroups?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class GeometryTrianglesNV : DisposableObject
@@ -22276,7 +15292,6 @@ namespace AdamantiumVulkan.Core
 
         public GeometryTrianglesNV(AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             VertexData = new Buffer(_internal.vertexData);
             VertexOffset = _internal.vertexOffset;
@@ -22291,75 +15306,19 @@ namespace AdamantiumVulkan.Core
             TransformOffset = _internal.transformOffset;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Buffer VertexData
-        {
-            get; set;
-        }
-
-        public ulong VertexOffset
-        {
-            get; set;
-        }
-
-        public uint VertexCount
-        {
-            get; set;
-        }
-
-        public ulong VertexStride
-        {
-            get; set;
-        }
-
-        public Format VertexFormat
-        {
-            get; set;
-        }
-
-        public Buffer IndexData
-        {
-            get; set;
-        }
-
-        public ulong IndexOffset
-        {
-            get; set;
-        }
-
-        public uint IndexCount
-        {
-            get; set;
-        }
-
-        public IndexType IndexType
-        {
-            get; set;
-        }
-
-        public Buffer TransformData
-        {
-            get; set;
-        }
-
-        public ulong TransformOffset
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.GeometryTrianglesNv;
+        public System.IntPtr PNext { get; set; }
+        public Buffer VertexData { get; set; }
+        public ulong VertexOffset { get; set; }
+        public uint VertexCount { get; set; }
+        public ulong VertexStride { get; set; }
+        public Format VertexFormat { get; set; }
+        public Buffer IndexData { get; set; }
+        public ulong IndexOffset { get; set; }
+        public uint IndexCount { get; set; }
+        public IndexType IndexType { get; set; }
+        public Buffer TransformData { get; set; }
+        public ulong TransformOffset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV ToInternal()
         {
@@ -22379,6 +15338,12 @@ namespace AdamantiumVulkan.Core
             _internal.transformOffset = TransformOffset;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class GeometryAABBNV : DisposableObject
@@ -22389,7 +15354,6 @@ namespace AdamantiumVulkan.Core
 
         public GeometryAABBNV(AdamantiumVulkan.Core.Interop.VkGeometryAABBNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AabbData = new Buffer(_internal.aabbData);
             NumAABBs = _internal.numAABBs;
@@ -22397,40 +15361,12 @@ namespace AdamantiumVulkan.Core
             Offset = _internal.offset;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Buffer AabbData
-        {
-            get; set;
-        }
-
-        public uint NumAABBs
-        {
-            get; set;
-        }
-
-        public uint Stride
-        {
-            get; set;
-        }
-
-        public ulong Offset
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.GeometryAabbNv;
+        public System.IntPtr PNext { get; set; }
+        public Buffer AabbData { get; set; }
+        public uint NumAABBs { get; set; }
+        public uint Stride { get; set; }
+        public ulong Offset { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkGeometryAABBNV ToInternal()
         {
@@ -22443,6 +15379,12 @@ namespace AdamantiumVulkan.Core
             _internal.offset = Offset;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class GeometryDataNV
@@ -22457,15 +15399,8 @@ namespace AdamantiumVulkan.Core
             Aabbs = new GeometryAABBNV(_internal.aabbs);
         }
 
-        public GeometryTrianglesNV Triangles
-        {
-            get; set;
-        }
-
-        public GeometryAABBNV Aabbs
-        {
-            get; set;
-        }
+        public GeometryTrianglesNV Triangles { get; set; }
+        public GeometryAABBNV Aabbs { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkGeometryDataNV ToInternal()
         {
@@ -22490,42 +15425,17 @@ namespace AdamantiumVulkan.Core
 
         public GeometryNV(AdamantiumVulkan.Core.Interop.VkGeometryNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             GeometryType = _internal.geometryType;
             Geometry = new GeometryDataNV(_internal.geometry);
             Flags = _internal.flags;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public GeometryTypeNV GeometryType
-        {
-            get; set;
-        }
-
-        public GeometryDataNV Geometry
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.GeometryNv;
+        public System.IntPtr PNext { get; set; }
+        public GeometryTypeNV GeometryType { get; set; }
+        public GeometryDataNV Geometry { get; set; }
+        public uint Flags { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkGeometryNV ToInternal()
         {
@@ -22540,6 +15450,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AccelerationStructureInfoNV : DisposableObject
@@ -22552,7 +15468,6 @@ namespace AdamantiumVulkan.Core
 
         public AccelerationStructureInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Type = _internal.type;
             Flags = _internal.flags;
@@ -22562,45 +15477,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pGeometries);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public AccelerationStructureTypeNV Type
-        {
-            get; set;
-        }
-
-        public uint Flags
-        {
-            get; set;
-        }
-
-        public uint InstanceCount
-        {
-            get; set;
-        }
-
-        public uint GeometryCount
-        {
-            get; set;
-        }
-
-        public GeometryNV PGeometries
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.AccelerationStructureInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureTypeNV Type { get; set; }
+        public uint Flags { get; set; }
+        public uint InstanceCount { get; set; }
+        public uint GeometryCount { get; set; }
+        public GeometryNV PGeometries { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV ToInternal()
         {
@@ -22620,6 +15503,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpGeometries?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AccelerationStructureCreateInfoNV : DisposableObject
@@ -22630,36 +15520,15 @@ namespace AdamantiumVulkan.Core
 
         public AccelerationStructureCreateInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CompactedSize = _internal.compactedSize;
             Info = new AccelerationStructureInfoNV(_internal.info);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong CompactedSize
-        {
-            get; set;
-        }
-
-        public AccelerationStructureInfoNV Info
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.AccelerationStructureCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public ulong CompactedSize { get; set; }
+        public AccelerationStructureInfoNV Info { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV ToInternal()
         {
@@ -22673,6 +15542,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BindAccelerationStructureMemoryInfoNV : DisposableObject
@@ -22685,7 +15560,6 @@ namespace AdamantiumVulkan.Core
 
         public BindAccelerationStructureMemoryInfoNV(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AccelerationStructure = new AccelerationStructureNV(_internal.accelerationStructure);
             Memory = new DeviceMemory(_internal.memory);
@@ -22698,45 +15572,13 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public AccelerationStructureNV AccelerationStructure
-        {
-            get; set;
-        }
-
-        public DeviceMemory Memory
-        {
-            get; set;
-        }
-
-        public ulong MemoryOffset
-        {
-            get; set;
-        }
-
-        public uint DeviceIndexCount
-        {
-            get; set;
-        }
-
-        public uint? PDeviceIndices
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BindAccelerationStructureMemoryInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureNV AccelerationStructure { get; set; }
+        public DeviceMemory Memory { get; set; }
+        public ulong MemoryOffset { get; set; }
+        public uint DeviceIndexCount { get; set; }
+        public uint? PDeviceIndices { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV ToInternal()
         {
@@ -22755,6 +15597,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpDeviceIndices?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class WriteDescriptorSetAccelerationStructureNV : DisposableObject
@@ -22767,37 +15616,16 @@ namespace AdamantiumVulkan.Core
 
         public WriteDescriptorSetAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             AccelerationStructureCount = _internal.accelerationStructureCount;
             PAccelerationStructures = new AccelerationStructureNV(Marshal.PtrToStructure<AccelerationStructureNV>(_internal.pAccelerationStructures));
             Marshal.FreeHGlobal(_internal.pAccelerationStructures);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint AccelerationStructureCount
-        {
-            get; set;
-        }
-
-        public AccelerationStructureNV PAccelerationStructures
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.WriteDescriptorSetAccelerationStructureNv;
+        public System.IntPtr PNext { get; set; }
+        public uint AccelerationStructureCount { get; set; }
+        public AccelerationStructureNV PAccelerationStructures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV ToInternal()
         {
@@ -22814,6 +15642,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAccelerationStructures?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class AccelerationStructureMemoryRequirementsInfoNV : DisposableObject
@@ -22824,36 +15659,15 @@ namespace AdamantiumVulkan.Core
 
         public AccelerationStructureMemoryRequirementsInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Type = _internal.type;
             AccelerationStructure = new AccelerationStructureNV(_internal.accelerationStructure);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public AccelerationStructureMemoryRequirementsTypeNV Type
-        {
-            get; set;
-        }
-
-        public AccelerationStructureNV AccelerationStructure
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.AccelerationStructureMemoryRequirementsInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureMemoryRequirementsTypeNV Type { get; set; }
+        public AccelerationStructureNV AccelerationStructure { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV ToInternal()
         {
@@ -22864,6 +15678,12 @@ namespace AdamantiumVulkan.Core
             _internal.accelerationStructure = AccelerationStructure;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceRayTracingPropertiesNV : DisposableObject
@@ -22874,7 +15694,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceRayTracingPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShaderGroupHandleSize = _internal.shaderGroupHandleSize;
             MaxRecursionDepth = _internal.maxRecursionDepth;
@@ -22886,60 +15705,16 @@ namespace AdamantiumVulkan.Core
             MaxDescriptorSetAccelerationStructures = _internal.maxDescriptorSetAccelerationStructures;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ShaderGroupHandleSize
-        {
-            get; set;
-        }
-
-        public uint MaxRecursionDepth
-        {
-            get; set;
-        }
-
-        public uint MaxShaderGroupStride
-        {
-            get; set;
-        }
-
-        public uint ShaderGroupBaseAlignment
-        {
-            get; set;
-        }
-
-        public ulong MaxGeometryCount
-        {
-            get; set;
-        }
-
-        public ulong MaxInstanceCount
-        {
-            get; set;
-        }
-
-        public ulong MaxTriangleCount
-        {
-            get; set;
-        }
-
-        public uint MaxDescriptorSetAccelerationStructures
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceRayTracingPropertiesNv;
+        public System.IntPtr PNext { get; set; }
+        public uint ShaderGroupHandleSize { get; set; }
+        public uint MaxRecursionDepth { get; set; }
+        public uint MaxShaderGroupStride { get; set; }
+        public uint ShaderGroupBaseAlignment { get; set; }
+        public ulong MaxGeometryCount { get; set; }
+        public ulong MaxInstanceCount { get; set; }
+        public ulong MaxTriangleCount { get; set; }
+        public uint MaxDescriptorSetAccelerationStructures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV ToInternal()
         {
@@ -22956,6 +15731,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : DisposableObject
@@ -22966,30 +15747,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceRepresentativeFragmentTestFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             RepresentativeFragmentTest = _internal.representativeFragmentTest;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool RepresentativeFragmentTest
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceRepresentativeFragmentTestFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool RepresentativeFragmentTest { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV ToInternal()
         {
@@ -22999,6 +15763,12 @@ namespace AdamantiumVulkan.Core
             _internal.representativeFragmentTest = RepresentativeFragmentTest;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : DisposableObject
@@ -23009,30 +15779,13 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRepresentativeFragmentTestStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             RepresentativeFragmentTestEnable = _internal.representativeFragmentTestEnable;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool RepresentativeFragmentTestEnable
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineRepresentativeFragmentTestStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public bool RepresentativeFragmentTestEnable { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV ToInternal()
         {
@@ -23042,6 +15795,12 @@ namespace AdamantiumVulkan.Core
             _internal.representativeFragmentTestEnable = RepresentativeFragmentTestEnable;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceImageViewImageFormatInfoEXT : DisposableObject
@@ -23052,30 +15811,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceImageViewImageFormatInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ImageViewType = _internal.imageViewType;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ImageViewType ImageViewType
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceImageViewImageFormatInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ImageViewType ImageViewType { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT ToInternal()
         {
@@ -23085,6 +15827,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageViewType = ImageViewType;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class FilterCubicImageViewImageFormatPropertiesEXT : DisposableObject
@@ -23095,36 +15843,15 @@ namespace AdamantiumVulkan.Core
 
         public FilterCubicImageViewImageFormatPropertiesEXT(AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             FilterCubic = _internal.filterCubic;
             FilterCubicMinmax = _internal.filterCubicMinmax;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool FilterCubic
-        {
-            get; set;
-        }
-
-        public bool FilterCubicMinmax
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.FilterCubicImageViewImageFormatPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool FilterCubic { get; set; }
+        public bool FilterCubicMinmax { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT ToInternal()
         {
@@ -23135,6 +15862,12 @@ namespace AdamantiumVulkan.Core
             _internal.filterCubicMinmax = FilterCubicMinmax;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceQueueGlobalPriorityCreateInfoEXT : DisposableObject
@@ -23145,30 +15878,13 @@ namespace AdamantiumVulkan.Core
 
         public DeviceQueueGlobalPriorityCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             GlobalPriority = _internal.globalPriority;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public QueueGlobalPriorityEXT GlobalPriority
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceQueueGlobalPriorityCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public QueueGlobalPriorityEXT GlobalPriority { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoEXT ToInternal()
         {
@@ -23178,6 +15894,12 @@ namespace AdamantiumVulkan.Core
             _internal.globalPriority = GlobalPriority;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImportMemoryHostPointerInfoEXT : DisposableObject
@@ -23188,36 +15910,15 @@ namespace AdamantiumVulkan.Core
 
         public ImportMemoryHostPointerInfoEXT(AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             HandleType = _internal.handleType;
             PHostPointer = _internal.pHostPointer;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ExternalMemoryHandleTypeFlagBits HandleType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PHostPointer
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImportMemoryHostPointerInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
+        public System.IntPtr PHostPointer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT ToInternal()
         {
@@ -23228,6 +15929,13 @@ namespace AdamantiumVulkan.Core
             _internal.pHostPointer = PHostPointer;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PHostPointer);
+        }
+
     }
 
     public partial class MemoryHostPointerPropertiesEXT : DisposableObject
@@ -23238,30 +15946,13 @@ namespace AdamantiumVulkan.Core
 
         public MemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MemoryTypeBits = _internal.memoryTypeBits;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MemoryTypeBits
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryHostPointerPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MemoryTypeBits { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT ToInternal()
         {
@@ -23271,6 +15962,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : DisposableObject
@@ -23281,30 +15978,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceExternalMemoryHostPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MinImportedHostPointerAlignment = _internal.minImportedHostPointerAlignment;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong MinImportedHostPointerAlignment
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceExternalMemoryHostPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public ulong MinImportedHostPointerAlignment { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT ToInternal()
         {
@@ -23314,6 +15994,12 @@ namespace AdamantiumVulkan.Core
             _internal.minImportedHostPointerAlignment = MinImportedHostPointerAlignment;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CalibratedTimestampInfoEXT : DisposableObject
@@ -23324,30 +16010,13 @@ namespace AdamantiumVulkan.Core
 
         public CalibratedTimestampInfoEXT(AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             TimeDomain = _internal.timeDomain;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public TimeDomainEXT TimeDomain
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CalibratedTimestampInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public TimeDomainEXT TimeDomain { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT ToInternal()
         {
@@ -23357,6 +16026,12 @@ namespace AdamantiumVulkan.Core
             _internal.timeDomain = TimeDomain;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderCorePropertiesAMD : DisposableObject
@@ -23367,7 +16042,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderCorePropertiesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ShaderEngineCount = _internal.shaderEngineCount;
             ShaderArraysPerEngineCount = _internal.shaderArraysPerEngineCount;
@@ -23385,90 +16059,22 @@ namespace AdamantiumVulkan.Core
             VgprAllocationGranularity = _internal.vgprAllocationGranularity;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ShaderEngineCount
-        {
-            get; set;
-        }
-
-        public uint ShaderArraysPerEngineCount
-        {
-            get; set;
-        }
-
-        public uint ComputeUnitsPerShaderArray
-        {
-            get; set;
-        }
-
-        public uint SimdPerComputeUnit
-        {
-            get; set;
-        }
-
-        public uint WavefrontsPerSimd
-        {
-            get; set;
-        }
-
-        public uint WavefrontSize
-        {
-            get; set;
-        }
-
-        public uint SgprsPerSimd
-        {
-            get; set;
-        }
-
-        public uint MinSgprAllocation
-        {
-            get; set;
-        }
-
-        public uint MaxSgprAllocation
-        {
-            get; set;
-        }
-
-        public uint SgprAllocationGranularity
-        {
-            get; set;
-        }
-
-        public uint VgprsPerSimd
-        {
-            get; set;
-        }
-
-        public uint MinVgprAllocation
-        {
-            get; set;
-        }
-
-        public uint MaxVgprAllocation
-        {
-            get; set;
-        }
-
-        public uint VgprAllocationGranularity
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceShaderCorePropertiesAmd;
+        public System.IntPtr PNext { get; set; }
+        public uint ShaderEngineCount { get; set; }
+        public uint ShaderArraysPerEngineCount { get; set; }
+        public uint ComputeUnitsPerShaderArray { get; set; }
+        public uint SimdPerComputeUnit { get; set; }
+        public uint WavefrontsPerSimd { get; set; }
+        public uint WavefrontSize { get; set; }
+        public uint SgprsPerSimd { get; set; }
+        public uint MinSgprAllocation { get; set; }
+        public uint MaxSgprAllocation { get; set; }
+        public uint SgprAllocationGranularity { get; set; }
+        public uint VgprsPerSimd { get; set; }
+        public uint MinVgprAllocation { get; set; }
+        public uint MaxVgprAllocation { get; set; }
+        public uint VgprAllocationGranularity { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD ToInternal()
         {
@@ -23491,6 +16097,12 @@ namespace AdamantiumVulkan.Core
             _internal.vgprAllocationGranularity = VgprAllocationGranularity;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DeviceMemoryOverallocationCreateInfoAMD : DisposableObject
@@ -23501,30 +16113,13 @@ namespace AdamantiumVulkan.Core
 
         public DeviceMemoryOverallocationCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             OverallocationBehavior = _internal.overallocationBehavior;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public MemoryOverallocationBehaviorAMD OverallocationBehavior
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.DeviceMemoryOverallocationCreateInfoAmd;
+        public System.IntPtr PNext { get; set; }
+        public MemoryOverallocationBehaviorAMD OverallocationBehavior { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD ToInternal()
         {
@@ -23534,6 +16129,12 @@ namespace AdamantiumVulkan.Core
             _internal.overallocationBehavior = OverallocationBehavior;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : DisposableObject
@@ -23544,30 +16145,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceVertexAttributeDivisorPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxVertexAttribDivisor = _internal.maxVertexAttribDivisor;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxVertexAttribDivisor
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceVertexAttributeDivisorPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxVertexAttribDivisor { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT ToInternal()
         {
@@ -23577,6 +16161,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class VertexInputBindingDivisorDescriptionEXT
@@ -23591,15 +16181,8 @@ namespace AdamantiumVulkan.Core
             Divisor = _internal.divisor;
         }
 
-        public uint Binding
-        {
-            get; set;
-        }
-
-        public uint Divisor
-        {
-            get; set;
-        }
+        public uint Binding { get; set; }
+        public uint Divisor { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT ToInternal()
         {
@@ -23620,37 +16203,16 @@ namespace AdamantiumVulkan.Core
 
         public PipelineVertexInputDivisorStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             VertexBindingDivisorCount = _internal.vertexBindingDivisorCount;
             PVertexBindingDivisors = new VertexInputBindingDivisorDescriptionEXT(Marshal.PtrToStructure<VkVertexInputBindingDivisorDescriptionEXT>(_internal.pVertexBindingDivisors));
             Marshal.FreeHGlobal(_internal.pVertexBindingDivisors);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint VertexBindingDivisorCount
-        {
-            get; set;
-        }
-
-        public VertexInputBindingDivisorDescriptionEXT PVertexBindingDivisors
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineVertexInputDivisorStateCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint VertexBindingDivisorCount { get; set; }
+        public VertexInputBindingDivisorDescriptionEXT PVertexBindingDivisors { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoEXT ToInternal()
         {
@@ -23667,6 +16229,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpVertexBindingDivisors?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceVertexAttributeDivisorFeaturesEXT : DisposableObject
@@ -23677,36 +16246,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceVertexAttributeDivisorFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             VertexAttributeInstanceRateDivisor = _internal.vertexAttributeInstanceRateDivisor;
             VertexAttributeInstanceRateZeroDivisor = _internal.vertexAttributeInstanceRateZeroDivisor;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool VertexAttributeInstanceRateDivisor
-        {
-            get; set;
-        }
-
-        public bool VertexAttributeInstanceRateZeroDivisor
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceVertexAttributeDivisorFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool VertexAttributeInstanceRateDivisor { get; set; }
+        public bool VertexAttributeInstanceRateZeroDivisor { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT ToInternal()
         {
@@ -23717,6 +16265,12 @@ namespace AdamantiumVulkan.Core
             _internal.vertexAttributeInstanceRateZeroDivisor = VertexAttributeInstanceRateZeroDivisor;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : DisposableObject
@@ -23727,36 +16281,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceComputeShaderDerivativesFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ComputeDerivativeGroupQuads = _internal.computeDerivativeGroupQuads;
             ComputeDerivativeGroupLinear = _internal.computeDerivativeGroupLinear;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ComputeDerivativeGroupQuads
-        {
-            get; set;
-        }
-
-        public bool ComputeDerivativeGroupLinear
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceComputeShaderDerivativesFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool ComputeDerivativeGroupQuads { get; set; }
+        public bool ComputeDerivativeGroupLinear { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV ToInternal()
         {
@@ -23767,6 +16300,12 @@ namespace AdamantiumVulkan.Core
             _internal.computeDerivativeGroupLinear = ComputeDerivativeGroupLinear;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMeshShaderFeaturesNV : DisposableObject
@@ -23777,36 +16316,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMeshShaderFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             TaskShader = _internal.taskShader;
             MeshShader = _internal.meshShader;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool TaskShader
-        {
-            get; set;
-        }
-
-        public bool MeshShader
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMeshShaderFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool TaskShader { get; set; }
+        public bool MeshShader { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV ToInternal()
         {
@@ -23817,6 +16335,12 @@ namespace AdamantiumVulkan.Core
             _internal.meshShader = MeshShader;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMeshShaderPropertiesNV : DisposableObject
@@ -23827,7 +16351,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMeshShaderPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MaxDrawMeshTasksCount = _internal.maxDrawMeshTasksCount;
             MaxTaskWorkGroupInvocations = _internal.maxTaskWorkGroupInvocations;
@@ -23860,85 +16383,21 @@ namespace AdamantiumVulkan.Core
             MeshOutputPerPrimitiveGranularity = _internal.meshOutputPerPrimitiveGranularity;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MaxDrawMeshTasksCount
-        {
-            get; set;
-        }
-
-        public uint MaxTaskWorkGroupInvocations
-        {
-            get; set;
-        }
-
-        public uint[] MaxTaskWorkGroupSize
-        {
-            get; set;
-        }
-
-        public uint MaxTaskTotalMemorySize
-        {
-            get; set;
-        }
-
-        public uint MaxTaskOutputCount
-        {
-            get; set;
-        }
-
-        public uint MaxMeshWorkGroupInvocations
-        {
-            get; set;
-        }
-
-        public uint[] MaxMeshWorkGroupSize
-        {
-            get; set;
-        }
-
-        public uint MaxMeshTotalMemorySize
-        {
-            get; set;
-        }
-
-        public uint MaxMeshOutputVertices
-        {
-            get; set;
-        }
-
-        public uint MaxMeshOutputPrimitives
-        {
-            get; set;
-        }
-
-        public uint MaxMeshMultiviewViewCount
-        {
-            get; set;
-        }
-
-        public uint MeshOutputPerVertexGranularity
-        {
-            get; set;
-        }
-
-        public uint MeshOutputPerPrimitiveGranularity
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMeshShaderPropertiesNv;
+        public System.IntPtr PNext { get; set; }
+        public uint MaxDrawMeshTasksCount { get; set; }
+        public uint MaxTaskWorkGroupInvocations { get; set; }
+        public uint[] MaxTaskWorkGroupSize { get; set; }
+        public uint MaxTaskTotalMemorySize { get; set; }
+        public uint MaxTaskOutputCount { get; set; }
+        public uint MaxMeshWorkGroupInvocations { get; set; }
+        public uint[] MaxMeshWorkGroupSize { get; set; }
+        public uint MaxMeshTotalMemorySize { get; set; }
+        public uint MaxMeshOutputVertices { get; set; }
+        public uint MaxMeshOutputPrimitives { get; set; }
+        public uint MaxMeshMultiviewViewCount { get; set; }
+        public uint MeshOutputPerVertexGranularity { get; set; }
+        public uint MeshOutputPerPrimitiveGranularity { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV ToInternal()
         {
@@ -23992,6 +16451,12 @@ namespace AdamantiumVulkan.Core
             _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class DrawMeshTasksIndirectCommandNV
@@ -24006,15 +16471,8 @@ namespace AdamantiumVulkan.Core
             FirstTask = _internal.firstTask;
         }
 
-        public uint TaskCount
-        {
-            get; set;
-        }
-
-        public uint FirstTask
-        {
-            get; set;
-        }
+        public uint TaskCount { get; set; }
+        public uint FirstTask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV ToInternal()
         {
@@ -24033,30 +16491,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFragmentShaderBarycentricFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             FragmentShaderBarycentric = _internal.fragmentShaderBarycentric;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool FragmentShaderBarycentric
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceFragmentShaderBarycentricFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool FragmentShaderBarycentric { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV ToInternal()
         {
@@ -24066,6 +16507,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentShaderBarycentric = FragmentShaderBarycentric;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : DisposableObject
@@ -24076,30 +16523,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderImageFootprintFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ImageFootprint = _internal.imageFootprint;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ImageFootprint
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceShaderImageFootprintFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool ImageFootprint { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV ToInternal()
         {
@@ -24109,6 +16539,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageFootprint = ImageFootprint;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : DisposableObject
@@ -24121,37 +16557,16 @@ namespace AdamantiumVulkan.Core
 
         public PipelineViewportExclusiveScissorStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ExclusiveScissorCount = _internal.exclusiveScissorCount;
             PExclusiveScissors = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pExclusiveScissors));
             Marshal.FreeHGlobal(_internal.pExclusiveScissors);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint ExclusiveScissorCount
-        {
-            get; set;
-        }
-
-        public Rect2D PExclusiveScissors
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PipelineViewportExclusiveScissorStateCreateInfoNv;
+        public System.IntPtr PNext { get; set; }
+        public uint ExclusiveScissorCount { get; set; }
+        public Rect2D PExclusiveScissors { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV ToInternal()
         {
@@ -24168,6 +16583,13 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpExclusiveScissors?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceExclusiveScissorFeaturesNV : DisposableObject
@@ -24178,30 +16600,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceExclusiveScissorFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ExclusiveScissor = _internal.exclusiveScissor;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ExclusiveScissor
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceExclusiveScissorFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool ExclusiveScissor { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV ToInternal()
         {
@@ -24211,6 +16616,12 @@ namespace AdamantiumVulkan.Core
             _internal.exclusiveScissor = ExclusiveScissor;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class QueueFamilyCheckpointPropertiesNV : DisposableObject
@@ -24221,30 +16632,13 @@ namespace AdamantiumVulkan.Core
 
         public QueueFamilyCheckpointPropertiesNV(AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CheckpointExecutionStageMask = _internal.checkpointExecutionStageMask;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint CheckpointExecutionStageMask
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.QueueFamilyCheckpointPropertiesNv;
+        public System.IntPtr PNext { get; set; }
+        public uint CheckpointExecutionStageMask { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV ToInternal()
         {
@@ -24254,6 +16648,12 @@ namespace AdamantiumVulkan.Core
             _internal.checkpointExecutionStageMask = CheckpointExecutionStageMask;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CheckpointDataNV : DisposableObject
@@ -24264,36 +16664,15 @@ namespace AdamantiumVulkan.Core
 
         public CheckpointDataNV(AdamantiumVulkan.Core.Interop.VkCheckpointDataNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Stage = _internal.stage;
             PCheckpointMarker = _internal.pCheckpointMarker;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public PipelineStageFlagBits Stage
-        {
-            get; set;
-        }
-
-        public System.IntPtr PCheckpointMarker
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CheckpointDataNv;
+        public System.IntPtr PNext { get; set; }
+        public PipelineStageFlagBits Stage { get; set; }
+        public System.IntPtr PCheckpointMarker { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCheckpointDataNV ToInternal()
         {
@@ -24304,6 +16683,13 @@ namespace AdamantiumVulkan.Core
             _internal.pCheckpointMarker = PCheckpointMarker;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+            Marshal.FreeHGlobal(PCheckpointMarker);
+        }
+
     }
 
     public partial class PhysicalDevicePCIBusInfoPropertiesEXT : DisposableObject
@@ -24314,7 +16700,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDevicePCIBusInfoPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             PciDomain = _internal.pciDomain;
             PciBus = _internal.pciBus;
@@ -24322,40 +16707,12 @@ namespace AdamantiumVulkan.Core
             PciFunction = _internal.pciFunction;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint PciDomain
-        {
-            get; set;
-        }
-
-        public uint PciBus
-        {
-            get; set;
-        }
-
-        public uint PciDevice
-        {
-            get; set;
-        }
-
-        public uint PciFunction
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDevicePciBusInfoPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint PciDomain { get; set; }
+        public uint PciBus { get; set; }
+        public uint PciDevice { get; set; }
+        public uint PciFunction { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT ToInternal()
         {
@@ -24368,6 +16725,12 @@ namespace AdamantiumVulkan.Core
             _internal.pciFunction = PciFunction;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : DisposableObject
@@ -24378,42 +16741,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFragmentDensityMapFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             FragmentDensityMap = _internal.fragmentDensityMap;
             FragmentDensityMapDynamic = _internal.fragmentDensityMapDynamic;
             FragmentDensityMapNonSubsampledImages = _internal.fragmentDensityMapNonSubsampledImages;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool FragmentDensityMap
-        {
-            get; set;
-        }
-
-        public bool FragmentDensityMapDynamic
-        {
-            get; set;
-        }
-
-        public bool FragmentDensityMapNonSubsampledImages
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceFragmentDensityMapFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool FragmentDensityMap { get; set; }
+        public bool FragmentDensityMapDynamic { get; set; }
+        public bool FragmentDensityMapNonSubsampledImages { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT ToInternal()
         {
@@ -24425,6 +16763,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentDensityMapNonSubsampledImages = FragmentDensityMapNonSubsampledImages;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : DisposableObject
@@ -24435,42 +16779,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFragmentDensityMapPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MinFragmentDensityTexelSize = new Extent2D(_internal.minFragmentDensityTexelSize);
             MaxFragmentDensityTexelSize = new Extent2D(_internal.maxFragmentDensityTexelSize);
             FragmentDensityInvocations = _internal.fragmentDensityInvocations;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Extent2D MinFragmentDensityTexelSize
-        {
-            get; set;
-        }
-
-        public Extent2D MaxFragmentDensityTexelSize
-        {
-            get; set;
-        }
-
-        public bool FragmentDensityInvocations
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceFragmentDensityMapPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public Extent2D MinFragmentDensityTexelSize { get; set; }
+        public Extent2D MaxFragmentDensityTexelSize { get; set; }
+        public bool FragmentDensityInvocations { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT ToInternal()
         {
@@ -24488,6 +16807,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentDensityInvocations = FragmentDensityInvocations;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class RenderPassFragmentDensityMapCreateInfoEXT : DisposableObject
@@ -24498,30 +16823,13 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassFragmentDensityMapCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             FragmentDensityMapAttachment = new AttachmentReference(_internal.fragmentDensityMapAttachment);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public AttachmentReference FragmentDensityMapAttachment
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.RenderPassFragmentDensityMapCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public AttachmentReference FragmentDensityMapAttachment { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT ToInternal()
         {
@@ -24534,6 +16842,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : DisposableObject
@@ -24544,30 +16858,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceScalarBlockLayoutFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             ScalarBlockLayout = _internal.scalarBlockLayout;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool ScalarBlockLayout
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceScalarBlockLayoutFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool ScalarBlockLayout { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeaturesEXT ToInternal()
         {
@@ -24577,6 +16874,12 @@ namespace AdamantiumVulkan.Core
             _internal.scalarBlockLayout = ScalarBlockLayout;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : DisposableObject
@@ -24587,7 +16890,6 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMemoryBudgetPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             var tmpArr0 = new ulong[16];
             unsafe
@@ -24609,30 +16911,10 @@ namespace AdamantiumVulkan.Core
             HeapUsage = tmpArr1;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong[] HeapBudget
-        {
-            get; set;
-        }
-
-        public ulong[] HeapUsage
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMemoryBudgetPropertiesExt;
+        public System.IntPtr PNext { get; set; }
+        public ulong[] HeapBudget { get; set; }
+        public ulong[] HeapUsage { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT ToInternal()
         {
@@ -24675,6 +16957,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : DisposableObject
@@ -24685,30 +16973,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceMemoryPriorityFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MemoryPriority = _internal.memoryPriority;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool MemoryPriority
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceMemoryPriorityFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool MemoryPriority { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT ToInternal()
         {
@@ -24718,6 +16989,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryPriority = MemoryPriority;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class MemoryPriorityAllocateInfoEXT : DisposableObject
@@ -24728,30 +17005,13 @@ namespace AdamantiumVulkan.Core
 
         public MemoryPriorityAllocateInfoEXT(AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Priority = _internal.priority;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public float Priority
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.MemoryPriorityAllocateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public float Priority { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT ToInternal()
         {
@@ -24761,6 +17021,12 @@ namespace AdamantiumVulkan.Core
             _internal.priority = Priority;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : DisposableObject
@@ -24771,30 +17037,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DedicatedAllocationImageAliasing = _internal.dedicatedAllocationImageAliasing;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool DedicatedAllocationImageAliasing
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool DedicatedAllocationImageAliasing { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV ToInternal()
         {
@@ -24804,6 +17053,12 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocationImageAliasing = DedicatedAllocationImageAliasing;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceBufferAddressFeaturesEXT : DisposableObject
@@ -24814,42 +17069,17 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceBufferAddressFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferAddressFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             BufferDeviceAddress = _internal.bufferDeviceAddress;
             BufferDeviceAddressCaptureReplay = _internal.bufferDeviceAddressCaptureReplay;
             BufferDeviceAddressMultiDevice = _internal.bufferDeviceAddressMultiDevice;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool BufferDeviceAddress
-        {
-            get; set;
-        }
-
-        public bool BufferDeviceAddressCaptureReplay
-        {
-            get; set;
-        }
-
-        public bool BufferDeviceAddressMultiDevice
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceBufferAddressFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public bool BufferDeviceAddress { get; set; }
+        public bool BufferDeviceAddressCaptureReplay { get; set; }
+        public bool BufferDeviceAddressMultiDevice { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferAddressFeaturesEXT ToInternal()
         {
@@ -24861,6 +17091,12 @@ namespace AdamantiumVulkan.Core
             _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferDeviceAddressInfoEXT : DisposableObject
@@ -24871,30 +17107,13 @@ namespace AdamantiumVulkan.Core
 
         public BufferDeviceAddressInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Buffer = new Buffer(_internal.buffer);
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public Buffer Buffer
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BufferDeviceAddressInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public Buffer Buffer { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfoEXT ToInternal()
         {
@@ -24904,6 +17123,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class BufferDeviceAddressCreateInfoEXT : DisposableObject
@@ -24914,30 +17139,13 @@ namespace AdamantiumVulkan.Core
 
         public BufferDeviceAddressCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             DeviceAddress = _internal.deviceAddress;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public ulong DeviceAddress
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.BufferDeviceAddressCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public ulong DeviceAddress { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT ToInternal()
         {
@@ -24947,6 +17155,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceAddress = DeviceAddress;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ImageStencilUsageCreateInfoEXT : DisposableObject
@@ -24957,30 +17171,13 @@ namespace AdamantiumVulkan.Core
 
         public ImageStencilUsageCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             StencilUsage = _internal.stencilUsage;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint StencilUsage
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.ImageStencilUsageCreateInfoExt;
+        public System.IntPtr PNext { get; set; }
+        public uint StencilUsage { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfoEXT ToInternal()
         {
@@ -24990,6 +17187,12 @@ namespace AdamantiumVulkan.Core
             _internal.stencilUsage = StencilUsage;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class ValidationFeaturesEXT : DisposableObject
@@ -25004,7 +17207,6 @@ namespace AdamantiumVulkan.Core
 
         public ValidationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             EnabledValidationFeatureCount = _internal.enabledValidationFeatureCount;
             var tmppEnabledValidationFeatures = new int[_internal.enabledValidationFeatureCount];
@@ -25026,40 +17228,12 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint EnabledValidationFeatureCount
-        {
-            get; set;
-        }
-
-        public ValidationFeatureEnableEXT[] PEnabledValidationFeatures
-        {
-            get; set;
-        }
-
-        public uint DisabledValidationFeatureCount
-        {
-            get; set;
-        }
-
-        public ValidationFeatureDisableEXT[] PDisabledValidationFeatures
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refpDisabledValidationFeatures?.Dispose();
-        }
+        public StructureType SType => StructureType.ValidationFeaturesExt;
+        public System.IntPtr PNext { get; set; }
+        public uint EnabledValidationFeatureCount { get; set; }
+        public ValidationFeatureEnableEXT[] PEnabledValidationFeatures { get; set; }
+        public uint DisabledValidationFeatureCount { get; set; }
+        public ValidationFeatureDisableEXT[] PDisabledValidationFeatures { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT ToInternal()
         {
@@ -25092,6 +17266,14 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpEnabledValidationFeatures?.Dispose();
+            refpDisabledValidationFeatures?.Dispose();
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class CooperativeMatrixPropertiesNV : DisposableObject
@@ -25102,7 +17284,6 @@ namespace AdamantiumVulkan.Core
 
         public CooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             MSize = _internal.MSize;
             NSize = _internal.NSize;
@@ -25114,60 +17295,16 @@ namespace AdamantiumVulkan.Core
             Scope = _internal.scope;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint MSize
-        {
-            get; set;
-        }
-
-        public uint NSize
-        {
-            get; set;
-        }
-
-        public uint KSize
-        {
-            get; set;
-        }
-
-        public ComponentTypeNV AType
-        {
-            get; set;
-        }
-
-        public ComponentTypeNV BType
-        {
-            get; set;
-        }
-
-        public ComponentTypeNV CType
-        {
-            get; set;
-        }
-
-        public ComponentTypeNV DType
-        {
-            get; set;
-        }
-
-        public ScopeNV Scope
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.CooperativeMatrixPropertiesNv;
+        public System.IntPtr PNext { get; set; }
+        public uint MSize { get; set; }
+        public uint NSize { get; set; }
+        public uint KSize { get; set; }
+        public ComponentTypeNV AType { get; set; }
+        public ComponentTypeNV BType { get; set; }
+        public ComponentTypeNV CType { get; set; }
+        public ComponentTypeNV DType { get; set; }
+        public ScopeNV Scope { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV ToInternal()
         {
@@ -25184,6 +17321,12 @@ namespace AdamantiumVulkan.Core
             _internal.scope = Scope;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : DisposableObject
@@ -25194,36 +17337,15 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceCooperativeMatrixFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CooperativeMatrix = _internal.cooperativeMatrix;
             CooperativeMatrixRobustBufferAccess = _internal.cooperativeMatrixRobustBufferAccess;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public bool CooperativeMatrix
-        {
-            get; set;
-        }
-
-        public bool CooperativeMatrixRobustBufferAccess
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceCooperativeMatrixFeaturesNv;
+        public System.IntPtr PNext { get; set; }
+        public bool CooperativeMatrix { get; set; }
+        public bool CooperativeMatrixRobustBufferAccess { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV ToInternal()
         {
@@ -25234,6 +17356,12 @@ namespace AdamantiumVulkan.Core
             _internal.cooperativeMatrixRobustBufferAccess = CooperativeMatrixRobustBufferAccess;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
     public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : DisposableObject
@@ -25244,30 +17372,13 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixPropertiesNV _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             CooperativeMatrixSupportedStages = _internal.cooperativeMatrixSupportedStages;
         }
 
-        public StructureType SType
-        {
-            get; set;
-        }
-
-        public System.IntPtr PNext
-        {
-            get; set;
-        }
-
-        public uint CooperativeMatrixSupportedStages
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-
-        }
+        public StructureType SType => StructureType.PhysicalDeviceCooperativeMatrixPropertiesNv;
+        public System.IntPtr PNext { get; set; }
+        public uint CooperativeMatrixSupportedStages { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixPropertiesNV ToInternal()
         {
@@ -25277,6 +17388,12 @@ namespace AdamantiumVulkan.Core
             _internal.cooperativeMatrixSupportedStages = CooperativeMatrixSupportedStages;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            Marshal.FreeHGlobal(PNext);
+        }
+
     }
 
 
