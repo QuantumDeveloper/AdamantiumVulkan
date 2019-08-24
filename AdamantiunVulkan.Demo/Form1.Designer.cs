@@ -46,7 +46,7 @@ namespace VulkanEngineTestCore
         private void InitializeComponent()
         {
             this.ClientSize = new System.Drawing.Size(800, 600);
-            enableValidationLayers = true;
+            enableValidationLayers = false;
             _pauseEvent = new AutoResetEvent(false);
             debugCallback = DebugCallback;
             InitVulkan();
@@ -323,7 +323,6 @@ namespace VulkanEngineTestCore
 
             renderCommandBuffers[0] = commandBuffers[imageIndex];
             var submitInfo = new SubmitInfo();
-            submitInfo.SType = StructureType.SubmitInfo;
 
             Semaphore[] waitSemaphores = new[] { imageAvailableSemaphores[currentFrame] };
             uint[] waitStages = new[] { (uint)PipelineStageFlagBits.ColorAttachmentOutputBit };
@@ -351,7 +350,6 @@ namespace VulkanEngineTestCore
             }
 
             var presentInfo = new PresentInfoKHR();
-            presentInfo.SType = StructureType.PresentInfoKhr;
 
             presentInfo.WaitSemaphoreCount = 1;
             presentInfo.PWaitSemaphores = signalSemaphores;
@@ -395,7 +393,6 @@ namespace VulkanEngineTestCore
         private void CreateInstance()
         {
             var appInfo = new ApplicationInfo();
-            appInfo.SType = StructureType.ApplicationInfo;
             appInfo.PApplicationName = "Hello Triangle";
             appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_VERSION(1, 0, 0);
             appInfo.PEngineName = "Adamantium Renderer";
@@ -403,13 +400,11 @@ namespace VulkanEngineTestCore
             appInfo.ApiVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
 
             DebugUtilsMessengerCreateInfoEXT debugInfo = new DebugUtilsMessengerCreateInfoEXT();
-            debugInfo.SType = StructureType.DebugUtilsMessengerCreateInfoExt;
             debugInfo.MessageSeverity = (uint)(DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt);
             debugInfo.MessageType = (uint)(DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt);
             debugInfo.PfnUserCallback = DebugCallback;
 
             var createInfo = new InstanceCreateInfo();
-            createInfo.SType = StructureType.InstanceCreateInfo;
             createInfo.PApplicationInfo = appInfo;
 
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
@@ -466,7 +461,6 @@ namespace VulkanEngineTestCore
             }
 
             DebugUtilsMessengerCreateInfoEXT debugInfo = new DebugUtilsMessengerCreateInfoEXT();
-            debugInfo.SType = StructureType.DebugUtilsMessengerCreateInfoExt;
             debugInfo.MessageSeverity = (uint)(DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt);
             debugInfo.MessageType = (uint)(DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt);
             debugInfo.PfnUserCallback = debugCallback;
@@ -503,7 +497,6 @@ namespace VulkanEngineTestCore
             foreach (var queueFamily in uniqueQueueFamilies)
             {
                 var queueCreateInfo = new DeviceQueueCreateInfo();
-                queueCreateInfo.SType = StructureType.DeviceQueueCreateInfo;
                 queueCreateInfo.QueueFamilyIndex = queueFamily;
                 queueCreateInfo.QueueCount = 1;
                 queueCreateInfo.PQueuePriorities = queuePriority;
@@ -514,7 +507,6 @@ namespace VulkanEngineTestCore
             deviceFeatures.SamplerAnisotropy = true;
 
             var createInfo = new DeviceCreateInfo();
-            createInfo.SType = StructureType.DeviceCreateInfo;
             createInfo.QueueCreateInfoCount = (uint)queueInfos.Count;
             createInfo.PQueueCreateInfos = queueInfos.ToArray();
             createInfo.PEnabledFeatures = deviceFeatures;
@@ -618,7 +610,6 @@ namespace VulkanEngineTestCore
             }
 
             SwapchainCreateInfoKHR createInfo = new SwapchainCreateInfoKHR();
-            createInfo.SType = StructureType.SwapchainCreateInfoKhr;
             createInfo.Surface = surface;
 
             createInfo.MinImageCount = imageCount;
@@ -664,7 +655,6 @@ namespace VulkanEngineTestCore
             for (int i = 0; i < swapchainImages.Length; i++)
             {
                 var createInfo = new ImageViewCreateInfo();
-                createInfo.SType = StructureType.ImageViewCreateInfo;
                 createInfo.Image = swapchainImages[i];
                 createInfo.ViewType = ImageViewType._2d;
                 createInfo.Format = swapChainImageFormat;
@@ -708,7 +698,6 @@ namespace VulkanEngineTestCore
             subpass.PColorAttachments = colorAttachmentRef;
 
             var renderPassInfo = new RenderPassCreateInfo();
-            renderPassInfo.SType = StructureType.RenderPassCreateInfo;
             renderPassInfo.AttachmentCount = 1;
             renderPassInfo.PAttachments = colorAttachment;
             renderPassInfo.SubpassCount = 1;
@@ -734,7 +723,6 @@ namespace VulkanEngineTestCore
             samplerLayoutBinding.StageFlags = (uint)ShaderStageFlagBits.FragmentBit;
 
             DescriptorSetLayoutCreateInfo layoutInfo = new DescriptorSetLayoutCreateInfo();
-            layoutInfo.SType = StructureType.DescriptorSetLayoutCreateInfo;
             layoutInfo.BindingCount = 1;
             layoutInfo.PBindings = samplerLayoutBinding;
 
@@ -753,13 +741,11 @@ namespace VulkanEngineTestCore
             var fragmentShaderModule = CreateShaderModule(fragmentContent);
 
             var vertShaderStageInfo = new PipelineShaderStageCreateInfo();
-            vertShaderStageInfo.SType = StructureType.PipelineShaderStageCreateInfo;
             vertShaderStageInfo.Stage = ShaderStageFlagBits.VertexBit;
             vertShaderStageInfo.Module = vertexShaderModule;
             vertShaderStageInfo.PName = "main";
 
             var fragShaderStageInfo = new PipelineShaderStageCreateInfo();
-            fragShaderStageInfo.SType = StructureType.PipelineShaderStageCreateInfo;
             fragShaderStageInfo.Stage = ShaderStageFlagBits.FragmentBit;
             fragShaderStageInfo.Module = fragmentShaderModule;
             fragShaderStageInfo.PName = "main";
@@ -770,14 +756,12 @@ namespace VulkanEngineTestCore
             var attributesDescriptions = GetVertexAttributeDescription<Vertex>();
 
             var vertexInputInfo = new PipelineVertexInputStateCreateInfo();
-            vertexInputInfo.SType = StructureType.PipelineVertexInputStateCreateInfo;
             vertexInputInfo.VertexBindingDescriptionCount = 1;
             vertexInputInfo.VertexAttributeDescriptionCount = (uint)attributesDescriptions.Length;
             vertexInputInfo.PVertexBindingDescriptions = new VertexInputBindingDescription[] { bindingDescr };
             vertexInputInfo.PVertexAttributeDescriptions = attributesDescriptions;
 
             var inputAssembly = new PipelineInputAssemblyStateCreateInfo();
-            inputAssembly.SType = StructureType.PipelineInputAssemblyStateCreateInfo;
             inputAssembly.Topology = PrimitiveTopology.TriangleList;
             inputAssembly.PrimitiveRestartEnable = false;
 
@@ -794,14 +778,12 @@ namespace VulkanEngineTestCore
             scissor.Extent = swapChainExtent;
 
             var viewportState = new PipelineViewportStateCreateInfo();
-            viewportState.SType = StructureType.PipelineViewportStateCreateInfo;
             viewportState.ViewportCount = 1;
             viewportState.PViewports = viewport;
             viewportState.ScissorCount = 1;
             viewportState.PScissors = scissor;
 
             var rasterizer = new PipelineRasterizationStateCreateInfo();
-            rasterizer.SType = StructureType.PipelineRasterizationStateCreateInfo;
             rasterizer.DepthClampEnable = false;
             rasterizer.RasterizerDiscardEnable = false;
             rasterizer.PolygonMode = PolygonMode.Fill;
@@ -811,7 +793,6 @@ namespace VulkanEngineTestCore
             rasterizer.DepthBiasEnable = false;
 
             var multisampling = new PipelineMultisampleStateCreateInfo();
-            multisampling.SType = StructureType.PipelineMultisampleStateCreateInfo;
             multisampling.SampleShadingEnable = false;
             multisampling.RasterizationSamples = SampleCountFlagBits._1Bit;
 
@@ -820,7 +801,6 @@ namespace VulkanEngineTestCore
             colorBlendAttachment.BlendEnable = false;
 
             var colorBlending = new PipelineColorBlendStateCreateInfo();
-            colorBlending.SType = StructureType.PipelineColorBlendStateCreateInfo;
             colorBlending.LogicOpEnable = false;
             colorBlending.LogicOp = LogicOp.Copy;
             colorBlending.AttachmentCount = 1;
@@ -832,14 +812,12 @@ namespace VulkanEngineTestCore
             colorBlending.BlendConstants[3] = 0.0f;
 
             var pipelineLayoutInfo = new PipelineLayoutCreateInfo();
-            pipelineLayoutInfo.SType = StructureType.PipelineLayoutCreateInfo;
             pipelineLayoutInfo.SetLayoutCount = 1;
             pipelineLayoutInfo.PSetLayouts = descriptorSetLayout;
 
             pipelineLayout = logicalDevice.CreatePipelineLayout(pipelineLayoutInfo);
 
             var pipelineInfo = new GraphicsPipelineCreateInfo();
-            pipelineInfo.SType = StructureType.GraphicsPipelineCreateInfo;
             pipelineInfo.StageCount = 2;
             pipelineInfo.PStages = shaderStages;
             pipelineInfo.PVertexInputState = vertexInputInfo;
@@ -867,7 +845,6 @@ namespace VulkanEngineTestCore
             for (int i = 0; i < swapchainImageViews.Length; i++)
             {
                 FramebufferCreateInfo framebufferInfo = new FramebufferCreateInfo();
-                framebufferInfo.SType = StructureType.FramebufferCreateInfo;
                 framebufferInfo.RenderPass = renderPass;
                 framebufferInfo.AttachmentCount = 1;
 
@@ -887,7 +864,6 @@ namespace VulkanEngineTestCore
             QueueFamilyIndices queueFamilyIndices = FindQueueFamilies(physicalDevice);
 
             var poolInfo = new CommandPoolCreateInfo();
-            poolInfo.SType = StructureType.CommandPoolCreateInfo;
             poolInfo.QueueFamilyIndex = queueFamilyIndices.graphicsFamily.Value;
 
             commandPool = logicalDevice.CreateCommandPool(poolInfo);
@@ -901,7 +877,6 @@ namespace VulkanEngineTestCore
         void CreateTextureSampler()
         {
             SamplerCreateInfo samplerInfo = new SamplerCreateInfo();
-            samplerInfo.SType = StructureType.SamplerCreateInfo;
             samplerInfo.MagFilter = Filter.Linear;
             samplerInfo.MinFilter = Filter.Linear;
             samplerInfo.AddressModeU = SamplerAddressMode.Repeat;
@@ -924,7 +899,6 @@ namespace VulkanEngineTestCore
         ImageView СreateImageView(Image image, Format format)
         {
             ImageViewCreateInfo viewInfo = new ImageViewCreateInfo();
-            viewInfo.SType = StructureType.ImageViewCreateInfo;
             viewInfo.Image = image;
             viewInfo.ViewType = ImageViewType._2d;
             viewInfo.Format = format;
@@ -975,7 +949,6 @@ namespace VulkanEngineTestCore
         void CreateImage(uint width, uint height, Format format, ImageTiling tiling, ImageUsageFlagBits usage, MemoryPropertyFlagBits properties, out Image image, out DeviceMemory imageMemory)
         {
             ImageCreateInfo imageInfo = new ImageCreateInfo();
-            imageInfo.SType = StructureType.ImageCreateInfo;
             imageInfo.ImageType = ImageType._2d;
             imageInfo.Extent = new Extent3D();
             imageInfo.Extent.Width = width;
@@ -999,7 +972,6 @@ namespace VulkanEngineTestCore
             logicalDevice.GetImageMemoryRequirements(image, out var memRequirements);
 
             MemoryAllocateInfo allocInfo = new MemoryAllocateInfo();
-            allocInfo.SType = StructureType.MemoryAllocateInfo;
             allocInfo.AllocationSize = memRequirements.Size;
             allocInfo.MemoryTypeIndex = FindMemoryType(memRequirements.MemoryTypeBits, properties);
 
@@ -1016,7 +988,6 @@ namespace VulkanEngineTestCore
             CommandBuffer commandBuffer = logicalDevice.BeginSingleTimeCommand(commandPool);
 
             ImageMemoryBarrier barrier = new ImageMemoryBarrier();
-            barrier.SType = StructureType.ImageMemoryBarrier;
             barrier.OldLayout = oldLayout;
             barrier.NewLayout = newLayout;
             barrier.SrcQueueFamilyIndex = (~0U);
@@ -1145,7 +1116,6 @@ namespace VulkanEngineTestCore
         private void CreateBuffer(ulong size, BufferUsageFlagBits usage, MemoryPropertyFlagBits memoryProperties, out Buffer buffer, out DeviceMemory bufferMemory)
         {
             BufferCreateInfo bufferInfo = new BufferCreateInfo();
-            bufferInfo.SType = StructureType.BufferCreateInfo;
             bufferInfo.Size = size;
             bufferInfo.Usage = (uint)usage;
             bufferInfo.SharingMode = SharingMode.Exclusive;
@@ -1155,7 +1125,6 @@ namespace VulkanEngineTestCore
             MemoryRequirements memoryRequirements = logicalDevice.GetBufferMemoryRequirements(buffer);
 
             MemoryAllocateInfo allocInfo = new MemoryAllocateInfo();
-            allocInfo.SType = StructureType.MemoryAllocateInfo;
             allocInfo.AllocationSize = memoryRequirements.Size;
 
             var memProperties = physicalDevice.GetPhysicalDeviceMemoryProperties();
@@ -1211,7 +1180,6 @@ namespace VulkanEngineTestCore
             pool.DescriptorCount = (uint)swapchainImages.Length;
 
             DescriptorPoolCreateInfo poolInfo = new DescriptorPoolCreateInfo();
-            poolInfo.SType = StructureType.DescriptorPoolCreateInfo;
             poolInfo.PoolSizeCount = 1;
             poolInfo.PPoolSizes = pool;
             poolInfo.MaxSets = (uint)swapchainImages.Length;
@@ -1231,7 +1199,6 @@ namespace VulkanEngineTestCore
             }
 
             DescriptorSetAllocateInfo allocInfo = new DescriptorSetAllocateInfo();
-            allocInfo.SType = StructureType.DescriptorSetAllocateInfo;
             allocInfo.DescriptorPool = descriptorPool;
             allocInfo.DescriptorSetCount = (uint)swapchainImages.Length;
             allocInfo.PSetLayouts = layouts.ToArray();
@@ -1250,7 +1217,6 @@ namespace VulkanEngineTestCore
                 imageInfo.Sampler = textureSampler;
 
                 WriteDescriptorSet descriptorWriter = new WriteDescriptorSet();
-                descriptorWriter.SType = StructureType.WriteDescriptorSet;
                 descriptorWriter.DstSet = descriptorSets[i];
                 descriptorWriter.DstBinding = 0;
                 descriptorWriter.DstArrayElement = 0;
@@ -1267,7 +1233,6 @@ namespace VulkanEngineTestCore
             commandBuffers = new CommandBuffer[swapchainFramebuffers.Length];
 
             var allocInfo = new CommandBufferAllocateInfo();
-            allocInfo.SType = StructureType.CommandBufferAllocateInfo;
             allocInfo.CommandPool = commandPool;
             allocInfo.Level = CommandBufferLevel.Primary;
             allocInfo.CommandBufferCount = (uint)swapchainFramebuffers.Length;
@@ -1278,7 +1243,6 @@ namespace VulkanEngineTestCore
             {
                 var commandBuffer = commandBuffers[i];
                 var beginInfo = new CommandBufferBeginInfo();
-                beginInfo.SType = StructureType.CommandBufferBeginInfo;
                 beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
 
                 var result = commandBuffer.BeginCommandBuffer(beginInfo);
@@ -1289,7 +1253,6 @@ namespace VulkanEngineTestCore
                 }
 
                 var renderPassInfo = new RenderPassBeginInfo();
-                renderPassInfo.SType = StructureType.RenderPassBeginInfo;
                 renderPassInfo.RenderPass = renderPass;
                 renderPassInfo.Framebuffer = swapchainFramebuffers[i];
                 renderPassInfo.RenderArea = new Rect2D();
@@ -1330,10 +1293,8 @@ namespace VulkanEngineTestCore
         private void CreateSyncObjects()
         {
             var semaphoreInfo = new SemaphoreCreateInfo();
-            semaphoreInfo.SType = StructureType.SemaphoreCreateInfo;
 
             var fenceInfo = new FenceCreateInfo();
-            fenceInfo.SType = StructureType.FenceCreateInfo;
             fenceInfo.Flags = (uint)FenceCreateFlagBits.SignaledBit;
 
             imageAvailableSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
@@ -1344,7 +1305,6 @@ namespace VulkanEngineTestCore
         ShaderModule CreateShaderModule(byte[] code)
         {
             ShaderModuleCreateInfo createInfo = new ShaderModuleCreateInfo();
-            createInfo.SType = StructureType.ShaderModuleCreateInfo;
             createInfo.CodeSize = (ulong)code.Length;
             createInfo.PCode = code;
 

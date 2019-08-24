@@ -48,20 +48,9 @@ namespace AdamantiumVulkan.Core
             Uint32 = tmpArr2;
         }
 
-        public float[] Float32
-        {
-            get; set;
-        }
-
-        public int[] Int32
-        {
-            get; set;
-        }
-
-        public uint[] Uint32
-        {
-            get; set;
-        }
+        public float[] Float32 { get; set; }
+        public int[] Int32 { get; set; }
+        public uint[] Uint32 { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkClearColorValue ToInternal()
         {
@@ -133,15 +122,8 @@ namespace AdamantiumVulkan.Core
             DepthStencil = new ClearDepthStencilValue(_internal.depthStencil);
         }
 
-        public ClearColorValue Color
-        {
-            get; set;
-        }
-
-        public ClearDepthStencilValue DepthStencil
-        {
-            get; set;
-        }
+        public ClearColorValue Color { get; set; }
+        public ClearDepthStencilValue DepthStencil { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkClearValue ToInternal()
         {

@@ -30,35 +30,11 @@ namespace AdamantiumVulkan.Shaders
             User_data = _internal.user_data;
         }
 
-        public string Source_name
-        {
-            get; set;
-        }
-
-        public ulong Source_name_length
-        {
-            get; set;
-        }
-
-        public string Content
-        {
-            get; set;
-        }
-
-        public ulong Content_length
-        {
-            get; set;
-        }
-
-        public System.IntPtr User_data
-        {
-            get; set;
-        }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            refcontent?.Dispose();
-        }
+        public string Source_name { get; set; }
+        public ulong Source_name_length { get; set; }
+        public string Content { get; set; }
+        public ulong Content_length { get; set; }
+        public System.IntPtr User_data { get; set; }
 
         public AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult ToInternal()
         {
@@ -80,6 +56,14 @@ namespace AdamantiumVulkan.Shaders
             _internal.user_data = User_data;
             return _internal;
         }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refsource_name?.Dispose();
+            refcontent?.Dispose();
+            Marshal.FreeHGlobal(User_data);
+        }
+
     }
 
 
