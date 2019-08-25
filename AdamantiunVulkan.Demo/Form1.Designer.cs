@@ -542,7 +542,7 @@ namespace VulkanEngineTestCore
             surfaceInfo.SType = StructureType.Win32SurfaceCreateInfoKhr;
             surfaceInfo.Hwnd = this.Handle;
             surfaceInfo.Hinstance = Process.GetCurrentProcess().Handle;
-            surface = instance.CreateWin32SurfaceKHR(surfaceInfo);
+            surface = instance.CreateWin32Surface(surfaceInfo);
         }
 
         QueueFamilyIndices FindQueueFamilies(PhysicalDevice device)
