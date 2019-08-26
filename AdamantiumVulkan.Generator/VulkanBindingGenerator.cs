@@ -997,6 +997,9 @@ namespace AdamantiumVulkan.Generator
             values = new PredefinedValues() { StructType = "VkPhysicalDeviceCooperativeMatrixPropertiesNV" };
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceCooperativeMatrixPropertiesNv", IsReadOnly = true };
             predefinedValues.Add(values);
+            values = new PredefinedValues() { StructType = "VkWin32SurfaceCreateInfoKHR" };
+            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.Win32SurfaceCreateInfoKhr", IsReadOnly = true };
+            predefinedValues.Add(values);
 
             return predefinedValues;
         }
