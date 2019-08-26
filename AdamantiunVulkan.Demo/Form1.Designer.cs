@@ -46,7 +46,7 @@ namespace VulkanEngineTestCore
         private void InitializeComponent()
         {
             this.ClientSize = new System.Drawing.Size(800, 600);
-            enableValidationLayers = false;
+            enableValidationLayers = true;
             _pauseEvent = new AutoResetEvent(false);
             debugCallback = DebugCallback;
             InitVulkan();
@@ -127,7 +127,7 @@ namespace VulkanEngineTestCore
 
         private string[] validationLayers = new[]
         { "VK_LAYER_LUNARG_standard_validation",
-          //"VK_LAYER_LUNARG_parameter_validation",
+          "VK_LAYER_LUNARG_parameter_validation",
           //"VK_LAYER_LUNARG_object_tracker",
           "VK_LAYER_LUNARG_monitor",
           //"VK_LAYER_LUNARG_assistant_layer",
@@ -297,6 +297,9 @@ namespace VulkanEngineTestCore
         double fps = 0;
         int frames = 0;
         CommandBuffer[] renderCommandBuffers = new CommandBuffer[1];
+        CommandBufferBeginInfo beginInfo;
+        RenderPassBeginInfo[] renderPassInfos;
+        UInt64[] offsets = new UInt64[0];
         private void Render()
         {
             if (WindowState == FormWindowState.Minimized)
@@ -306,7 +309,6 @@ namespace VulkanEngineTestCore
 
             renderFence[0] = inFlightFences[currentFrame];
             var result = logicalDevice.WaitForFences(1, renderFence, true, ulong.MaxValue);
-
             uint imageIndex = 0;
             result = logicalDevice.AcquireNextImageKHR(swapchain, ulong.MaxValue, imageAvailableSemaphores[currentFrame], null, ref imageIndex);
 
@@ -322,6 +324,39 @@ namespace VulkanEngineTestCore
             }
 
             renderCommandBuffers[0] = commandBuffers[imageIndex];
+
+            var commandBuffer = commandBuffers[imageIndex];
+            
+            var res = commandBuffer.ResetCommandBuffer(0);
+            res = commandBuffer.BeginCommandBuffer(beginInfo);
+            if (res != Result.Success)
+            {
+                MessageBox.Show("failed to begin recording command buffer!");
+                throw new Exception();
+            }
+
+            commandBuffer.CmdBeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
+
+            commandBuffer.CmdBindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
+
+            Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
+            commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffers, offsets);
+
+            commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+
+            commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+
+            commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+
+            commandBuffer.CmdEndRenderPass();
+
+            res = commandBuffer.EndCommandBuffer();
+            if (res != Result.Success)
+            {
+                MessageBox.Show("failed to record command buffer!");
+                throw new Exception();
+            }
+
             var submitInfo = new SubmitInfo();
 
             Semaphore[] waitSemaphores = new[] { imageAvailableSemaphores[currentFrame] };
@@ -395,14 +430,14 @@ namespace VulkanEngineTestCore
             var appInfo = new ApplicationInfo();
             appInfo.PApplicationName = "Hello Triangle";
             appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_VERSION(1, 0, 0);
-            appInfo.PEngineName = "Adamantium Renderer";
+            appInfo.PEngineName = "Adamantium Engine";
             appInfo.EngineVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
             appInfo.ApiVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
 
             DebugUtilsMessengerCreateInfoEXT debugInfo = new DebugUtilsMessengerCreateInfoEXT();
             debugInfo.MessageSeverity = (uint)(DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt);
             debugInfo.MessageType = (uint)(DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt);
-            debugInfo.PfnUserCallback = DebugCallback;
+            debugInfo.PfnUserCallback = debugCallback;
 
             var createInfo = new InstanceCreateInfo();
             createInfo.PApplicationInfo = appInfo;
@@ -525,21 +560,11 @@ namespace VulkanEngineTestCore
 
             graphicsQueue = logicalDevice.GetDeviceQueue(indices.graphicsFamily.Value, 0);
             presentQueue = logicalDevice.GetDeviceQueue(indices.presentFamily.Value, 0);
-
-            //DeviceQueueInfo2 queueInfo2 = new DeviceQueueInfo2();
-            //queueInfo2.SType = StructureType.DeviceQueueInfo2;
-            //queueInfo2.QueueFamilyIndex = indices.graphicsFamily.Value;
-            //queueInfo2.QueueIndex = 0;
-            //queueInfo2.Flags = (uint)DeviceQueueCreateFlagBits.ProtectedBit;
-            //graphicsQueue = logicalDevice.GetDeviceQueue2(queueInfo2);
-            //queueInfo2.QueueFamilyIndex = indices.presentFamily.Value;
-            //presentQueue = logicalDevice.GetDeviceQueue2(queueInfo2);
         }
 
         private void CreateSurface()
         {
             var surfaceInfo = new Win32SurfaceCreateInfoKHR();
-            surfaceInfo.SType = StructureType.Win32SurfaceCreateInfoKhr;
             surfaceInfo.Hwnd = this.Handle;
             surfaceInfo.Hinstance = Process.GetCurrentProcess().Handle;
             surface = instance.CreateWin32Surface(surfaceInfo);
@@ -618,6 +643,7 @@ namespace VulkanEngineTestCore
             createInfo.ImageExtent = extent;
             createInfo.ImageArrayLayers = 1;
             createInfo.ImageUsage = (uint)ImageUsageFlagBits.ColorAttachmentBit;
+            createInfo.Flags = (uint)SwapchainCreateFlagBitsKHR.SplitInstanceBindRegionsBitKhr;
 
             QueueFamilyIndices indices = FindQueueFamilies(physicalDevice);
             var queueFamilyIndices = new uint[] { indices.graphicsFamily.Value, indices.presentFamily.Value };
@@ -865,7 +891,7 @@ namespace VulkanEngineTestCore
 
             var poolInfo = new CommandPoolCreateInfo();
             poolInfo.QueueFamilyIndex = queueFamilyIndices.graphicsFamily.Value;
-
+            poolInfo.Flags = (uint)CommandPoolCreateFlagBits.ResetCommandBufferBit;
             commandPool = logicalDevice.CreateCommandPool(poolInfo);
         }
 
@@ -938,9 +964,9 @@ namespace VulkanEngineTestCore
             ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
             CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Optimal, usage, MemoryPropertyFlagBits.DeviceLocalBit, out textureImage, out textureImageMemory);
 
-            transitionImageLayout(textureImage, imageDescr.Format, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
+            TransitionImageLayout(textureImage, imageDescr.Format, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
             CopyBufferToImage(stagingBuffer, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
-            transitionImageLayout(textureImage, imageDescr.Format,  ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
+            TransitionImageLayout(textureImage, imageDescr.Format,  ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
 
             logicalDevice.DestroyBuffer(stagingBuffer);
             logicalDevice.FreeMemory(stagingBufferMemory);
@@ -983,7 +1009,7 @@ namespace VulkanEngineTestCore
             logicalDevice.BindImageMemory(image, imageMemory, 0);
         }
 
-        void transitionImageLayout(Image image, Format format, ImageLayout oldLayout, ImageLayout newLayout)
+        void TransitionImageLayout(Image image, Format format, ImageLayout oldLayout, ImageLayout newLayout)
         {
             CommandBuffer commandBuffer = logicalDevice.BeginSingleTimeCommand(commandPool);
 
@@ -1239,55 +1265,88 @@ namespace VulkanEngineTestCore
 
             commandBuffers = logicalDevice.AllocateCommandBuffers(allocInfo);
 
-            for (int i = 0; i < commandBuffers.Length; i++)
-            {
-                var commandBuffer = commandBuffers[i];
-                var beginInfo = new CommandBufferBeginInfo();
-                beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
+            beginInfo = new CommandBufferBeginInfo();
+            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
 
-                var result = commandBuffer.BeginCommandBuffer(beginInfo);
-                if (result != Result.Success)
-                {
-                    MessageBox.Show("failed to begin recording command buffer!");
-                    throw new Exception();
-                }
+            renderPassInfos = new RenderPassBeginInfo[2];
 
-                var renderPassInfo = new RenderPassBeginInfo();
-                renderPassInfo.RenderPass = renderPass;
-                renderPassInfo.Framebuffer = swapchainFramebuffers[i];
-                renderPassInfo.RenderArea = new Rect2D();
-                renderPassInfo.RenderArea.Offset = new Offset2D();
-                renderPassInfo.RenderArea.Extent = swapChainExtent;
+            var renderPassInfo = new RenderPassBeginInfo();
+            renderPassInfo.RenderPass = renderPass;
+            renderPassInfo.Framebuffer = swapchainFramebuffers[0];
+            renderPassInfo.RenderArea = new Rect2D();
+            renderPassInfo.RenderArea.Offset = new Offset2D();
+            renderPassInfo.RenderArea.Extent = swapChainExtent;
 
-                ClearValue clearValue = new ClearValue();
-                clearValue.Color = new ClearColorValue();
-                clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
+            ClearValue clearValue = new ClearValue();
+            clearValue.Color = new ClearColorValue();
+            clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
 
-                renderPassInfo.ClearValueCount = 1;
-                renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-                commandBuffer.CmdBeginRenderPass(renderPassInfo, SubpassContents.Inline);
+            renderPassInfo.ClearValueCount = 1;
+            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
 
-                commandBuffer.CmdBindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
+            renderPassInfos[0] = renderPassInfo;
 
-                UInt64[] offsets = new UInt64[0];
-                Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
-                commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffers, offsets);
+            renderPassInfo = new RenderPassBeginInfo();
+            renderPassInfo.RenderPass = renderPass;
+            renderPassInfo.Framebuffer = swapchainFramebuffers[1];
+            renderPassInfo.RenderArea = new Rect2D();
+            renderPassInfo.RenderArea.Offset = new Offset2D();
+            renderPassInfo.RenderArea.Extent = swapChainExtent;
 
-                commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+            renderPassInfo.ClearValueCount = 1;
+            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
 
-                commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[i], 0, 0);
+            renderPassInfos[1] = renderPassInfo;
 
-                commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+            //for (int i = 0; i < commandBuffers.Length; i++)
+            //{
+            //    var commandBuffer = commandBuffers[i];
+            //    var beginInfo = new CommandBufferBeginInfo();
+            //    beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
 
-                commandBuffer.CmdEndRenderPass();
+            //    var result = commandBuffer.BeginCommandBuffer(beginInfo);
+            //    if (result != Result.Success)
+            //    {
+            //        MessageBox.Show("failed to begin recording command buffer!");
+            //        throw new Exception();
+            //    }
 
-                result = commandBuffer.EndCommandBuffer();
-                if (result != Result.Success)
-                {
-                    MessageBox.Show("failed to record command buffer!");
-                    throw new Exception();
-                }
-            }
+            //    var renderPassInfo = new RenderPassBeginInfo();
+            //    renderPassInfo.RenderPass = renderPass;
+            //    renderPassInfo.Framebuffer = swapchainFramebuffers[i];
+            //    renderPassInfo.RenderArea = new Rect2D();
+            //    renderPassInfo.RenderArea.Offset = new Offset2D();
+            //    renderPassInfo.RenderArea.Extent = swapChainExtent;
+
+            //    ClearValue clearValue = new ClearValue();
+            //    clearValue.Color = new ClearColorValue();
+            //    clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
+
+            //    renderPassInfo.ClearValueCount = 1;
+            //    renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+            //    commandBuffer.CmdBeginRenderPass(renderPassInfo, SubpassContents.Inline);
+
+            //    commandBuffer.CmdBindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
+
+            //    UInt64[] offsets = new UInt64[0];
+            //    Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
+            //    commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffers, offsets);
+
+            //    commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+
+            //    commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[i], 0, 0);
+
+            //    commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+
+            //    commandBuffer.CmdEndRenderPass();
+
+            //    result = commandBuffer.EndCommandBuffer();
+            //    if (result != Result.Success)
+            //    {
+            //        MessageBox.Show("failed to record command buffer!");
+            //        throw new Exception();
+            //    }
+            //}
         }
 
         private void CreateSyncObjects()

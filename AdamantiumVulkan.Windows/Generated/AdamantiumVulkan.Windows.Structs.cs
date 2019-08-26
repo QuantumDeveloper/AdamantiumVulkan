@@ -10,8 +10,8 @@ namespace AdamantiumVulkan.Windows
 {
     using System.Runtime.InteropServices;
     using AdamantiumVulkan;
-    using AdamantiumVulkan.Core;
     using AdamantiumVulkan.Windows.Interop;
+    using AdamantiumVulkan.Core;
     using AdamantiumVulkan.Core.Interop;
 
     public partial class Win32SurfaceCreateInfoKHR : DisposableObject
@@ -22,14 +22,13 @@ namespace AdamantiumVulkan.Windows
 
         public Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Hinstance = _internal.hinstance;
             Hwnd = _internal.hwnd;
         }
 
-        public StructureType SType { get; set; }
+        public StructureType SType => StructureType.Win32SurfaceCreateInfoKhr;
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
         public System.IntPtr Hinstance { get; set; }
