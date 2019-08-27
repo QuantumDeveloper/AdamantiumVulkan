@@ -229,10 +229,10 @@ namespace VulkanEngineTestCore
 
             CreateSwapchain();
             CreateImageViews();
-            CreateRenderPass();
+            //CreateRenderPass();
             CreateGraphicsPipeline();
             CreateFramebuffers();
-            CreateCommandBuffers();
+            //CreateCommandBuffers();
         }
 
         private void Cleanup()
@@ -280,10 +280,10 @@ namespace VulkanEngineTestCore
                 logicalDevice.DestroyFramebuffer(buffer);
             }
 
-            logicalDevice.FreeCommandBuffers(commandPool, (uint)commandBuffers.Length, commandBuffers);
+            //logicalDevice.FreeCommandBuffers(commandPool, (uint)commandBuffers.Length, commandBuffers);
             logicalDevice.DestroyPipeline(graphicsPipeline);
             logicalDevice.DestroyPipelineLayout(pipelineLayout);
-            logicalDevice.DestroyRenderPass(renderPass);
+            //logicalDevice.DestroyRenderPass(renderPass);
 
             foreach (var view in swapchainImageViews)
             {
@@ -326,7 +326,10 @@ namespace VulkanEngineTestCore
             renderCommandBuffers[0] = commandBuffers[imageIndex];
 
             var commandBuffer = commandBuffers[imageIndex];
-            
+
+            beginInfo = new CommandBufferBeginInfo();
+            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
+
             var res = commandBuffer.ResetCommandBuffer(0);
             res = commandBuffer.BeginCommandBuffer(beginInfo);
             if (res != Result.Success)
@@ -334,6 +337,36 @@ namespace VulkanEngineTestCore
                 MessageBox.Show("failed to begin recording command buffer!");
                 throw new Exception();
             }
+
+            renderPassInfos = new RenderPassBeginInfo[2];
+
+            var renderPassInfo = new RenderPassBeginInfo();
+            renderPassInfo.RenderPass = renderPass;
+            renderPassInfo.Framebuffer = swapchainFramebuffers[0];
+            renderPassInfo.RenderArea = new Rect2D();
+            renderPassInfo.RenderArea.Offset = new Offset2D();
+            renderPassInfo.RenderArea.Extent = swapChainExtent;
+
+            ClearValue clearValue = new ClearValue();
+            clearValue.Color = new ClearColorValue();
+            clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
+
+            renderPassInfo.ClearValueCount = 1;
+            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+
+            renderPassInfos[0] = renderPassInfo;
+
+            renderPassInfo = new RenderPassBeginInfo();
+            renderPassInfo.RenderPass = renderPass;
+            renderPassInfo.Framebuffer = swapchainFramebuffers[1];
+            renderPassInfo.RenderArea = new Rect2D();
+            renderPassInfo.RenderArea.Offset = new Offset2D();
+            renderPassInfo.RenderArea.Extent = swapChainExtent;
+
+            renderPassInfo.ClearValueCount = 1;
+            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+
+            renderPassInfos[1] = renderPassInfo;
 
             commandBuffer.CmdBeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
 
@@ -1264,9 +1297,6 @@ namespace VulkanEngineTestCore
             allocInfo.CommandBufferCount = (uint)swapchainFramebuffers.Length;
 
             commandBuffers = logicalDevice.AllocateCommandBuffers(allocInfo);
-
-            beginInfo = new CommandBufferBeginInfo();
-            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
 
             renderPassInfos = new RenderPassBeginInfo[2];
 
