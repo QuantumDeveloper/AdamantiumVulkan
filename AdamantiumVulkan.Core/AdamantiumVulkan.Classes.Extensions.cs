@@ -139,6 +139,22 @@ namespace AdamantiumVulkan.Core
 
             return new PresentModeKHR[0];
         }
+
+        public uint FindCorrespondingMemoryType(uint typeFilter, MemoryPropertyFlagBits properties)
+        {
+            var memProperties = GetPhysicalDeviceMemoryProperties();
+
+            for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
+            {
+                var shift = 1 << (int)i;
+                if ((typeFilter & shift) > 0 && memProperties.MemoryTypes[i].PropertyFlags == (uint)properties)
+                {
+                    return i;
+                }
+            }
+
+            throw new Exception("failed to find suitable memory type!");
+        }
     }
 
     public partial class Device
@@ -344,6 +360,46 @@ namespace AdamantiumVulkan.Core
             queue.QueueWaitIdle();
 
             FreeCommandBuffers(commandPool, 1, commandBuffer);
+        }
+    }
+
+    public partial class Framebuffer
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroyFramebuffer(this);
+        }
+    }
+
+    public partial class Image
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroyImage(this);
+        }
+    }
+
+    public partial class ImageView
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroyImageView(this);
+        }
+    }
+
+    public partial class Pipeline
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroyPipeline(this);
+        }
+    }
+
+    public partial class SwapchainKHR
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroySwapchainKHR(this);
         }
     }
 }

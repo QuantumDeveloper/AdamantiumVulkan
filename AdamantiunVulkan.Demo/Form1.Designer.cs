@@ -608,13 +608,10 @@ namespace VulkanEngineTestCore
             QueueFamilyIndices indices = new QueueFamilyIndices();
 
             uint queueFamilyCount = 0;
-            physicalDevice.GetPhysicalDeviceQueueFamilyProperties(ref queueFamilyCount, null);
-            //physicalDevice.GetPhysicalDeviceQueueFamilyProperties2(ref queueFamilyCount, null);
+            device.GetPhysicalDeviceQueueFamilyProperties(ref queueFamilyCount, null);
 
             var queueFamilies = new QueueFamilyProperties[queueFamilyCount];
-            physicalDevice.GetPhysicalDeviceQueueFamilyProperties(ref queueFamilyCount, queueFamilies);
-            //var queueFamilies2 = new QueueFamilyProperties2[queueFamilyCount];
-            //physicalDevice.GetPhysicalDeviceQueueFamilyProperties2(ref queueFamilyCount, queueFamilies2);
+            device.GetPhysicalDeviceQueueFamilyProperties(ref queueFamilyCount, queueFamilies);
 
             uint i = 0;
             foreach (var queueFamily in queueFamilies)
