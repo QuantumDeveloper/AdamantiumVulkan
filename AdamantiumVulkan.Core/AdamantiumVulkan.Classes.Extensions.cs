@@ -402,4 +402,12 @@ namespace AdamantiumVulkan.Core
             device.DestroySwapchainKHR(this);
         }
     }
+
+    public partial class DeviceMemory
+    {
+        public void FreeMemory(Device device)
+        {
+            device.FreeMemory(this);
+        }
+    }
 }

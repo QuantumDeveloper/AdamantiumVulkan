@@ -28,7 +28,7 @@ namespace AdamantiumVulkan.Generator
             options.GenerateSequentialLayout = true;
             options.DebugMode = true;
             options.ConvertRules.PodTypesAsSimpleTypes = true;
-            options.PathToBindingsFile = "VulkanBindings.xml";
+            options.PathToBindingsFile = "VulkanBindingsMap.xml";
             vkMainModule = options.AddModule(library);
             vkMainModule.Name = "Core";
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
