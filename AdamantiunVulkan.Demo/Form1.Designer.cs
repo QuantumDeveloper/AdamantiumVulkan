@@ -99,6 +99,9 @@ namespace VulkanEngineTestCore
         Buffer vertexBuffer;
         DeviceMemory vertexBufferMemory;
 
+        Buffer vertexBuffer2;
+        DeviceMemory vertexBufferMemory2;
+
         Buffer indexBuffer;
         DeviceMemory indexBufferMemory;
 
@@ -209,6 +212,7 @@ namespace VulkanEngineTestCore
             СreateTextureImageView();
             CreateTextureSampler();
             CreateVertexBuffer();
+            CreateVertexBuffer2();
             CreateIndexBuffer();
             CreateDescriptorPool();
             CreateDescriptorSets();
@@ -239,6 +243,8 @@ namespace VulkanEngineTestCore
         {
             CleanupSwapChain();
 
+            logicalDevice.DestroyRenderPass(renderPass);
+
             logicalDevice.DestroySampler(textureSampler);
             logicalDevice.DestroyImageView(textureImageView);
             logicalDevice.DestroyImage(textureImage);
@@ -249,6 +255,9 @@ namespace VulkanEngineTestCore
 
             logicalDevice.DestroyBuffer(vertexBuffer);
             logicalDevice.FreeMemory(vertexBufferMemory);
+
+            logicalDevice.DestroyBuffer(vertexBuffer2);
+            logicalDevice.FreeMemory(vertexBufferMemory2);
 
             logicalDevice.DestroyBuffer(indexBuffer);
             logicalDevice.FreeMemory(indexBufferMemory);
@@ -372,14 +381,25 @@ namespace VulkanEngineTestCore
 
             commandBuffer.CmdBindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
 
-            Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
-            commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffers, offsets);
+            //Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
+            ulong offset = 0;
+            commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffer, ref offset);
 
             commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
 
             commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
 
             commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+
+            //Buffer[] vertexBuffers2 = new Buffer[] { vertexBuffer2 };
+            commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffer2, ref offset);
+
+            commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+
+            commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+
+            commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+
 
             commandBuffer.CmdEndRenderPass();
 
@@ -1141,6 +1161,33 @@ namespace VulkanEngineTestCore
             logicalDevice.FreeMemory(stagingBufferMemory);
         }
 
+        private void CreateVertexBuffer2()
+        {
+            vertices = GetVertexArray2();
+            var bufferSize = (ulong)(Marshal.SizeOf(vertices[0]) * vertices.Length);
+            Buffer stagingBuffer;
+            DeviceMemory stagingBufferMemory;
+            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostCachedBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
+
+            var data = logicalDevice.MapMemory(stagingBufferMemory, 0, bufferSize, 0);
+            unsafe
+            {
+                var sourcePtr = GCHandle.Alloc(vertices, GCHandleType.Pinned);
+                var handle = sourcePtr.AddrOfPinnedObject();
+                System.Buffer.MemoryCopy(handle.ToPointer(), data.ToPointer(), (long)bufferSize, (long)bufferSize);
+                sourcePtr.Free();
+            }
+
+            logicalDevice.UnmapMemory(stagingBufferMemory);
+
+            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferDstBit | BufferUsageFlagBits.VertexBufferBit, MemoryPropertyFlagBits.DeviceLocalBit, out vertexBuffer2, out vertexBufferMemory2);
+
+            CopyBuffer(stagingBuffer, vertexBuffer2, bufferSize);
+
+            logicalDevice.DestroyBuffer(stagingBuffer);
+            logicalDevice.FreeMemory(stagingBufferMemory);
+        }
+
         void CreateIndexBuffer()
         {
             indices = GetIndices();
@@ -1461,6 +1508,19 @@ namespace VulkanEngineTestCore
                 new Vertex(){Position = new Vector2F(0.5f, -0.5f), Color = new Vector3F(1.0f, 1.0f, 1.0f), TexCoord = new Vector2F(1.0f, 0.0f)},
                 new Vertex(){Position = new Vector2F(0.5f, 0.5f), Color = new Vector3F(0.0f, 1.0f, 0.0f), TexCoord = new Vector2F(1.0f, 1.0f)},
                 new Vertex(){Position = new Vector2F(-0.5f, 0.5f), Color = new Vector3F(1.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 1.0f)},
+            };
+
+            return v;
+        }
+
+        private Vertex[] GetVertexArray2()
+        {
+            Vertex[] v = new Vertex[]
+            {
+                new Vertex(){Position = new Vector2F(-1f, -0.25f), Color = new Vector3F(0.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 0.0f)},
+                new Vertex(){Position = new Vector2F(1f, -0.25f), Color = new Vector3F(1.0f, 1.0f, 1.0f), TexCoord = new Vector2F(1.0f, 0.0f)},
+                new Vertex(){Position = new Vector2F(1f, 0.25f), Color = new Vector3F(0.0f, 1.0f, 0.0f), TexCoord = new Vector2F(1.0f, 1.0f)},
+                new Vertex(){Position = new Vector2F(-1f, 0.25f), Color = new Vector3F(1.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 1.0f)},
             };
 
             return v;
