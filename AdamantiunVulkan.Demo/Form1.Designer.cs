@@ -1231,12 +1231,10 @@ namespace VulkanEngineTestCore
             allocInfo.AllocationSize = memoryRequirements.Size;
 
             var memProperties = physicalDevice.GetPhysicalDeviceMemoryProperties();
-
-            var properties = MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit;
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
             {
                 if (((memoryRequirements.MemoryTypeBits >> (int)i) & 1) == 1
-                    && memProperties.MemoryTypes[i].PropertyFlags == (uint)properties)
+                    && memProperties.MemoryTypes[i].PropertyFlags == (uint)memoryProperties)
                 {
                     allocInfo.MemoryTypeIndex = i;
                     break;
