@@ -410,4 +410,20 @@ namespace AdamantiumVulkan.Core
             device.FreeMemory(this);
         }
     }
+
+    public partial class Buffer
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroyBuffer(this);
+        }
+    }
+
+    public partial class BufferView
+    {
+        public void Destroy(Device device)
+        {
+            device.DestroyBufferView(this);
+        }
+    }
 }
