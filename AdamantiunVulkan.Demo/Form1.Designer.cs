@@ -784,6 +784,8 @@ namespace VulkanEngineTestCore
 
         private void CreateDescriptorSetLayout()
         {
+            var bindings = new List<DescriptorSetLayoutBinding>();
+
             //DescriptorSetLayoutBinding uboLayoutBinding = new DescriptorSetLayoutBinding();
             //uboLayoutBinding.Binding = 0;
             //uboLayoutBinding.DescriptorCount = 1;
@@ -798,14 +800,13 @@ namespace VulkanEngineTestCore
             samplerLayoutBinding.PImmutableSamplers = null;
             samplerLayoutBinding.StageFlags = (uint)ShaderStageFlagBits.FragmentBit;
 
+            bindings.Add(samplerLayoutBinding);
+
             DescriptorSetLayoutCreateInfo layoutInfo = new DescriptorSetLayoutCreateInfo();
             layoutInfo.BindingCount = 1;
-            layoutInfo.PBindings = samplerLayoutBinding;
+            layoutInfo.PBindings = bindings.ToArray();
 
-            if (logicalDevice.CreateDescriptorSetLayout(layoutInfo, null, out descriptorSetLayout) != Result.Success)
-            {
-                throw new Exception("Failed to create descriptor set layout!");
-            }
+            descriptorSetLayout = logicalDevice.CreateDescriptorSetLayout(layoutInfo, null);
         }
 
         private void CreateGraphicsPipeline()
@@ -889,7 +890,7 @@ namespace VulkanEngineTestCore
 
             var pipelineLayoutInfo = new PipelineLayoutCreateInfo();
             pipelineLayoutInfo.SetLayoutCount = 1;
-            pipelineLayoutInfo.PSetLayouts = descriptorSetLayout;
+            pipelineLayoutInfo.PSetLayouts = new DescriptorSetLayout[] { descriptorSetLayout };
 
             pipelineLayout = logicalDevice.CreatePipelineLayout(pipelineLayoutInfo);
 
@@ -1285,10 +1286,7 @@ namespace VulkanEngineTestCore
             poolInfo.PPoolSizes = pool;
             poolInfo.MaxSets = (uint)swapchainImages.Length;
 
-            if (logicalDevice.CreateDescriptorPool(poolInfo, null, out descriptorPool) != Result.Success)
-            {
-                throw new Exception("failed to create descriptor pool!");
-            }
+            descriptorPool = logicalDevice.CreateDescriptorPool(poolInfo);
         }
 
         private void CreateDescriptorSets()
