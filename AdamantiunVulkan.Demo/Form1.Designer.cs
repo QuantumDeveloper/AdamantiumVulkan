@@ -198,8 +198,8 @@ namespace VulkanEngineTestCore
         {
             CreateInstance();
             SetupDebugMessenger();
-            CreateSurface();
             PickPhysicalDevice();
+            CreateSurface();
             CreateLogicalDevice();
             CreateSwapchain();
             CreateImageViews();
@@ -1140,7 +1140,7 @@ namespace VulkanEngineTestCore
             var bufferSize = (ulong)(Marshal.SizeOf(vertices[0]) * vertices.Length);
             Buffer stagingBuffer;
             DeviceMemory stagingBufferMemory;
-            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostCachedBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
+            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
 
             var data = logicalDevice.MapMemory(stagingBufferMemory, 0, bufferSize, 0);
             unsafe
@@ -1167,7 +1167,7 @@ namespace VulkanEngineTestCore
             var bufferSize = (ulong)(Marshal.SizeOf(vertices[0]) * vertices.Length);
             Buffer stagingBuffer;
             DeviceMemory stagingBufferMemory;
-            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostCachedBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
+            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
 
             var data = logicalDevice.MapMemory(stagingBufferMemory, 0, bufferSize, 0);
             unsafe
@@ -1195,7 +1195,7 @@ namespace VulkanEngineTestCore
 
             Buffer stagingBuffer;
             DeviceMemory stagingBufferMemory;
-            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostCachedBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
+            CreateBuffer(bufferSize, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
 
             var result = logicalDevice.MapMemory(stagingBufferMemory, 0, bufferSize, 0, out var data);
             unsafe
