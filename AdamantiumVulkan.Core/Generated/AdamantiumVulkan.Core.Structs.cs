@@ -3871,7 +3871,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class PipelineLayoutCreateInfo : DisposableObject
     {
-        private StructReference refpSetLayouts;
+        private GCHandleReference refpSetLayouts;
 
         private StructReference refpPushConstantRanges;
 
@@ -3884,7 +3884,8 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             SetLayoutCount = _internal.setLayoutCount;
-            PSetLayouts = new DescriptorSetLayout(Marshal.PtrToStructure<DescriptorSetLayout>(_internal.pSetLayouts));
+            PSetLayouts = new DescriptorSetLayout[_internal.setLayoutCount];
+            MarshalUtils.IntPtrToManagedArray<DescriptorSetLayout>(_internal.pSetLayouts, PSetLayouts);
             Marshal.FreeHGlobal(_internal.pSetLayouts);
             PushConstantRangeCount = _internal.pushConstantRangeCount;
             PPushConstantRanges = new PushConstantRange(Marshal.PtrToStructure<VkPushConstantRange>(_internal.pPushConstantRanges));
@@ -3895,7 +3896,7 @@ namespace AdamantiumVulkan.Core
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
         public uint SetLayoutCount { get; set; }
-        public DescriptorSetLayout PSetLayouts { get; set; }
+        public DescriptorSetLayout[] PSetLayouts { get; set; }
         public uint PushConstantRangeCount { get; set; }
         public PushConstantRange PPushConstantRanges { get; set; }
 
@@ -3909,16 +3910,20 @@ namespace AdamantiumVulkan.Core
             refpSetLayouts?.Dispose();
             if (PSetLayouts != null)
             {
-                AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T struct0 = PSetLayouts;
-                refpSetLayouts = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[SetLayoutCount];
+                for (int i = 0; i < PSetLayouts.Length; ++i)
+                {
+                    tmpArray0[i] = PSetLayouts[i];
+                }
+                refpSetLayouts = new GCHandleReference(tmpArray0);
                 _internal.pSetLayouts = refpSetLayouts.Handle;
             }
             _internal.pushConstantRangeCount = PushConstantRangeCount;
             refpPushConstantRanges?.Dispose();
             if (PPushConstantRanges != null)
             {
-                var struct1 = PPushConstantRanges.ToInternal();
-                refpPushConstantRanges = new StructReference(struct1);
+                var struct0 = PPushConstantRanges.ToInternal();
+                refpPushConstantRanges = new StructReference(struct0);
                 _internal.pPushConstantRanges = refpPushConstantRanges.Handle;
             }
             return _internal;
@@ -4060,7 +4065,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class DescriptorSetLayoutCreateInfo : DisposableObject
     {
-        private StructReference refpBindings;
+        private GCHandleReference refpBindings;
 
         public DescriptorSetLayoutCreateInfo()
         {
@@ -4071,7 +4076,8 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             BindingCount = _internal.bindingCount;
-            PBindings = new DescriptorSetLayoutBinding(Marshal.PtrToStructure<VkDescriptorSetLayoutBinding>(_internal.pBindings));
+            PBindings = new DescriptorSetLayoutBinding[_internal.bindingCount];
+            MarshalUtils.IntPtrToManagedArray<DescriptorSetLayoutBinding>(_internal.pBindings, PBindings);
             Marshal.FreeHGlobal(_internal.pBindings);
         }
 
@@ -4079,7 +4085,7 @@ namespace AdamantiumVulkan.Core
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
         public uint BindingCount { get; set; }
-        public DescriptorSetLayoutBinding PBindings { get; set; }
+        public DescriptorSetLayoutBinding[] PBindings { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo ToInternal()
         {
@@ -4091,8 +4097,12 @@ namespace AdamantiumVulkan.Core
             refpBindings?.Dispose();
             if (PBindings != null)
             {
-                var struct0 = PBindings.ToInternal();
-                refpBindings = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[BindingCount];
+                for (int i = 0; i < PBindings.Length; ++i)
+                {
+                    tmpArray0[i] = PBindings[i].ToInternal();
+                }
+                refpBindings = new GCHandleReference(tmpArray0);
                 _internal.pBindings = refpBindings.Handle;
             }
             return _internal;

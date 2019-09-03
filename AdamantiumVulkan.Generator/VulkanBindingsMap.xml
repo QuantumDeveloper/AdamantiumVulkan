@@ -256,7 +256,31 @@
         </Field>
       </Fields>
     </Class>
-    
+
+    <Class Name="VkPipelineLayoutCreateInfo">
+      <Fields>
+        <Field Name="pSetLayouts">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="setLayoutCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkDescriptorSetLayout"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
+    <Class Name="VkDescriptorSetLayoutCreateInfo">
+      <Fields>
+        <Field Name="pBindings">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="bindingCount">
+              <ElementType xsi:type="CustomTypeMap" Name="VkDescriptorSetLayoutBinding"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
   </Classes>
 
   <Functions>

@@ -361,6 +361,20 @@ namespace AdamantiumVulkan.Core
 
             FreeCommandBuffers(commandPool, 1, commandBuffer);
         }
+
+        public DescriptorSetLayout CreateDescriptorSetLayout(DescriptorSetLayoutCreateInfo layoutInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateDescriptorSetLayout(layoutInfo, null, out var descriptorSetLayout);
+            ResultHelper.CheckResult(result, nameof(CreateDescriptorSetLayout));
+            return descriptorSetLayout;
+        }
+
+        public DescriptorPool CreateDescriptorPool(DescriptorPoolCreateInfo descriptorPoolInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateDescriptorPool(descriptorPoolInfo, null, out var descriptorPool);
+            ResultHelper.CheckResult(result, nameof(CreateDescriptorPool));
+            return descriptorPool;
+        }
     }
 
     public partial class Framebuffer
