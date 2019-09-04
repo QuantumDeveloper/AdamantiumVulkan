@@ -286,20 +286,17 @@ namespace VulkanEngineTestCore
         {
             foreach (var buffer in swapchainFramebuffers)
             {
-                logicalDevice.DestroyFramebuffer(buffer);
+                buffer.Destroy(logicalDevice);
             }
-
-            //logicalDevice.FreeCommandBuffers(commandPool, (uint)commandBuffers.Length, commandBuffers);
-            logicalDevice.DestroyPipeline(graphicsPipeline);
-            logicalDevice.DestroyPipelineLayout(pipelineLayout);
-            //logicalDevice.DestroyRenderPass(renderPass);
 
             foreach (var view in swapchainImageViews)
             {
                 logicalDevice.DestroyImageView(view);
             }
 
-            logicalDevice.DestroySwapchainKHR(swapchain);
+            swapchain.Destroy(logicalDevice);
+
+            logicalDevice.DestroyPipeline(graphicsPipeline);
         }
 
         Stopwatch timer;
