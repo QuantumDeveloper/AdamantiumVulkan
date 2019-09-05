@@ -113,7 +113,6 @@ namespace VulkanEngineTestCore
         Fence[] inFlightFences;
         int currentFrame = 0;
 
-        Fence[] renderFence = new Fence[1];
         SubmitInfo[] submitInfos = new SubmitInfo[1];
         Vertex[] vertices;
         UInt32[] indices;
@@ -233,10 +232,8 @@ namespace VulkanEngineTestCore
 
             CreateSwapchain();
             CreateImageViews();
-            //CreateRenderPass();
             CreateGraphicsPipeline();
             CreateFramebuffers();
-            //CreateCommandBuffers();
         }
 
         private void Cleanup()
@@ -313,7 +310,7 @@ namespace VulkanEngineTestCore
                 _pauseEvent.WaitOne();
             }
 
-            renderFence[0] = inFlightFences[currentFrame];
+            var renderFence = inFlightFences[currentFrame];
             var result = logicalDevice.WaitForFences(1, renderFence, true, ulong.MaxValue);
             uint imageIndex = 0;
             result = logicalDevice.AcquireNextImageKHR(swapchain, ulong.MaxValue, imageAvailableSemaphores[currentFrame], null, ref imageIndex);
@@ -419,7 +416,7 @@ namespace VulkanEngineTestCore
             submitInfo.PCommandBuffers = renderCommandBuffers;
 
             Semaphore[] signalSemaphores = new[] { renderFinishedSemaphores[currentFrame] };
-
+            
             submitInfo.SignalSemaphoreCount = 1;
             submitInfo.PSignalSemaphores = signalSemaphores;
 
