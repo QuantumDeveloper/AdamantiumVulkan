@@ -292,8 +292,7 @@ namespace VulkanEngineTestCore
             }
 
             swapchain.Destroy(logicalDevice);
-
-            logicalDevice.DestroyPipeline(graphicsPipeline);
+            graphicsPipeline.Destroy(logicalDevice);
         }
 
         Stopwatch timer;
