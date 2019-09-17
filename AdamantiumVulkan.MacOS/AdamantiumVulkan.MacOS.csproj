@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -23,6 +23,7 @@ namespace AdamantiumVulkan.Generator
             string mainPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan", "Generated"));
             string corePath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.Core", "Generated"));
             string windowsPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.Windows", "Generated"));
+            string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.MacOS", "Generated"));
             string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.Shaders", "Generated"));
 
             options.GenerateSequentialLayout = true;
@@ -32,6 +33,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule = options.AddModule(library);
             vkMainModule.Name = "Core";
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
+            vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
             vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Files.Add(@"C:\VulkanSDK\1.1.101.0\Include\vulkan\vulkan.h");
             vkMainModule.ForceCallingConvention = true;
@@ -44,6 +46,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.SuppressUnmanagedCodeSecurity = false;
             vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
             vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
+            vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
             vkMainModule.WrapInteropObjects = true;
             vkMainModule.GenerateOverloadsForArrayParams = true;
             vkMainModule.OutputPath = mainPath;
@@ -999,6 +1002,9 @@ namespace AdamantiumVulkan.Generator
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkWin32SurfaceCreateInfoKHR" };
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.Win32SurfaceCreateInfoKhr", IsReadOnly = true };
+            predefinedValues.Add(values);
+            values = new PredefinedValues() { StructType = "VkMacOSSurfaceCreateInfoMVK" };
+            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.MacosSurfaceCreateInfoMvk", IsReadOnly = true };
             predefinedValues.Add(values);
 
             return predefinedValues;
