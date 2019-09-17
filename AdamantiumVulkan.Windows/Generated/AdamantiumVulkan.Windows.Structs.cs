@@ -10,8 +10,8 @@ namespace AdamantiumVulkan.Windows
 {
     using System.Runtime.InteropServices;
     using AdamantiumVulkan;
-    using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core;
+    using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core.Interop;
 
     public partial class Win32SurfaceCreateInfoKHR : DisposableObject
