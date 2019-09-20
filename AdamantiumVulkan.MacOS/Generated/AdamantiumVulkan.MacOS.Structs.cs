@@ -40,13 +40,6 @@ namespace AdamantiumVulkan.MacOS
             _internal.pView = PView;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PView);
-        }
-
     }
 
 

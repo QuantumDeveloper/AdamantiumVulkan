@@ -61,7 +61,6 @@ namespace AdamantiumVulkan.Shaders
         {
             refsource_name?.Dispose();
             refcontent?.Dispose();
-            Marshal.FreeHGlobal(User_data);
         }
 
     }

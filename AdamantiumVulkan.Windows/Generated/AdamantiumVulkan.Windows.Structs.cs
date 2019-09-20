@@ -44,12 +44,6 @@ namespace AdamantiumVulkan.Windows
             _internal.hwnd = Hwnd;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportMemoryWin32HandleInfoKHR : DisposableObject
@@ -83,12 +77,6 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportMemoryWin32HandleInfoKHR : DisposableObject
@@ -133,7 +121,6 @@ namespace AdamantiumVulkan.Windows
         protected override void UnmanagedDisposeOverride()
         {
             refpAttributes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -163,12 +150,6 @@ namespace AdamantiumVulkan.Windows
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryGetWin32HandleInfoKHR : DisposableObject
@@ -199,12 +180,6 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class Win32KeyedMutexAcquireReleaseInfoKHR : DisposableObject
@@ -309,7 +284,6 @@ namespace AdamantiumVulkan.Windows
             refpAcquireTimeouts?.Dispose();
             refpReleaseSyncs?.Dispose();
             refpReleaseKeys?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -351,12 +325,6 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportSemaphoreWin32HandleInfoKHR : DisposableObject
@@ -401,7 +369,6 @@ namespace AdamantiumVulkan.Windows
         protected override void UnmanagedDisposeOverride()
         {
             refpAttributes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -467,7 +434,6 @@ namespace AdamantiumVulkan.Windows
         {
             refpWaitSemaphoreValues?.Dispose();
             refpSignalSemaphoreValues?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -500,12 +466,6 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportFenceWin32HandleInfoKHR : DisposableObject
@@ -545,12 +505,6 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportFenceWin32HandleInfoKHR : DisposableObject
@@ -595,7 +549,6 @@ namespace AdamantiumVulkan.Windows
         protected override void UnmanagedDisposeOverride()
         {
             refpAttributes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -628,12 +581,6 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportMemoryWin32HandleInfoNV : DisposableObject
@@ -664,12 +611,6 @@ namespace AdamantiumVulkan.Windows
             _internal.handle = Handle;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportMemoryWin32HandleInfoNV : DisposableObject
@@ -711,7 +652,6 @@ namespace AdamantiumVulkan.Windows
         protected override void UnmanagedDisposeOverride()
         {
             refpAttributes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -818,7 +758,6 @@ namespace AdamantiumVulkan.Windows
             refpAcquireTimeoutMilliseconds?.Dispose();
             refpReleaseSyncs?.Dispose();
             refpReleaseKeys?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
