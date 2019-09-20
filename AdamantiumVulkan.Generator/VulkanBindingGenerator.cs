@@ -83,7 +83,7 @@ namespace AdamantiumVulkan.Generator
         public override void OnSetupPostProcessing(ProcessingContext context)
         {
             context.AddPreGeneratorPass(new FunctionToInstanceMethodAction(), ExecutionPassKind.PerTranslationUnit);
-            context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.StdCall), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.Winapi), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsRenamePass(CasePattern.PascalCase, "VkFormat"), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsExcludePass(ExcludeCheck.StartsWithIgnoreCase, "BeginRange", "EndRange"), ExecutionPassKind.PerTranslationUnit);

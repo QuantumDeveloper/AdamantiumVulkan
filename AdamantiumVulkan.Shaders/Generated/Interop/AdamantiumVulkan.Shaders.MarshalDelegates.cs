@@ -15,13 +15,13 @@ namespace AdamantiumVulkan.Shaders.Interop
     ///<summary>
     /// An includer callback type for mapping an #include request to an include result. The user_data parameter specifies the client context. The requested_source parameter specifies the name of the source being requested. The type parameter specifies the kind of inclusion request being made. The requesting_source parameter specifies the name of the source containing the #include request. The includer owns the result object and its contents, and both must remain valid until the release callback is called on the result object.
     ///</summary>
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate ShadercIncludeResult ShadercIncludeResolveFn([In, Out] System.IntPtr user_data, [In] System.IntPtr requested_source, [In] int type, [In] System.IntPtr requesting_source, [In] ulong include_depth);
     // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 363 Column: 16
     ///<summary>
     /// An includer callback type for destroying an include result.
     ///</summary>
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void ShadercIncludeResultReleaseFn([In, Out] System.IntPtr user_data, [In] AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult include_result);
 
 }

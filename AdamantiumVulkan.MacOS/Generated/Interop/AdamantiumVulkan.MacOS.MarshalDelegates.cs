@@ -14,7 +14,7 @@ namespace AdamantiumVulkan.MacOS.Interop
     using AdamantiumVulkan.Core.Interop;
 
     // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_macos.h Line: 44 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateMacOSSurfaceMVK([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance,  AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 
 }

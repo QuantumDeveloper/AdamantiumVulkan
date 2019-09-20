@@ -67,7 +67,6 @@ namespace AdamantiumVulkan.Core
         {
             refpApplicationName?.Dispose();
             refpEngineName?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -138,7 +137,6 @@ namespace AdamantiumVulkan.Core
             refpApplicationInfo?.Dispose();
             refppEnabledLayerNames?.Dispose();
             refppEnabledExtensionNames?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -177,12 +175,6 @@ namespace AdamantiumVulkan.Core
             _internal.pfnInternalFree = PfnInternalFree;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PUserData);
-        }
-
     }
 
     public partial class PhysicalDeviceFeatures
@@ -1257,7 +1249,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueuePriorities?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -1349,7 +1340,6 @@ namespace AdamantiumVulkan.Core
             refppEnabledLayerNames?.Dispose();
             refppEnabledExtensionNames?.Dispose();
             refpEnabledFeatures?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -1582,7 +1572,6 @@ namespace AdamantiumVulkan.Core
             refpWaitDstStageMask?.Dispose();
             refpCommandBuffers?.Dispose();
             refpSignalSemaphores?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -1614,12 +1603,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeIndex = MemoryTypeIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MappedMemoryRange : DisposableObject
@@ -1652,12 +1635,6 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryRequirements
@@ -2115,7 +2092,6 @@ namespace AdamantiumVulkan.Core
             refpImageOpaqueBinds?.Dispose();
             refpImageBinds?.Dispose();
             refpSignalSemaphores?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -2144,12 +2120,6 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SemaphoreCreateInfo : DisposableObject
@@ -2176,12 +2146,6 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class EventCreateInfo : DisposableObject
@@ -2208,12 +2172,6 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class QueryPoolCreateInfo : DisposableObject
@@ -2249,12 +2207,6 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BufferCreateInfo : DisposableObject
@@ -2311,7 +2263,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueueFamilyIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -2352,12 +2303,6 @@ namespace AdamantiumVulkan.Core
             _internal.range = Range;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageCreateInfo : DisposableObject
@@ -2438,7 +2383,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueueFamilyIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -2584,12 +2528,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ShaderModuleCreateInfo : DisposableObject
@@ -2640,7 +2578,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpCode?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -2675,13 +2612,6 @@ namespace AdamantiumVulkan.Core
             _internal.pInitialData = PInitialData;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PInitialData);
-        }
-
     }
 
     public partial class SpecializationMapEntry
@@ -2752,7 +2682,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpMapEntries?.Dispose();
-            Marshal.FreeHGlobal(PData);
         }
 
     }
@@ -2814,7 +2743,6 @@ namespace AdamantiumVulkan.Core
         {
             refpName?.Dispose();
             refpSpecializationInfo?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -2945,7 +2873,6 @@ namespace AdamantiumVulkan.Core
         {
             refpVertexBindingDescriptions?.Dispose();
             refpVertexAttributeDescriptions?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -2980,12 +2907,6 @@ namespace AdamantiumVulkan.Core
             _internal.primitiveRestartEnable = PrimitiveRestartEnable;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineTessellationStateCreateInfo : DisposableObject
@@ -3015,12 +2936,6 @@ namespace AdamantiumVulkan.Core
             _internal.patchControlPoints = PatchControlPoints;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class Viewport
@@ -3196,7 +3111,6 @@ namespace AdamantiumVulkan.Core
         {
             refpViewports?.Dispose();
             refpScissors?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -3255,12 +3169,6 @@ namespace AdamantiumVulkan.Core
             _internal.lineWidth = LineWidth;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineMultisampleStateCreateInfo : DisposableObject
@@ -3320,7 +3228,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpSampleMask?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -3421,12 +3328,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxDepthBounds = MaxDepthBounds;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineColorBlendAttachmentState
@@ -3547,7 +3448,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpAttachments?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -3605,7 +3505,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDynamicStates?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -3790,7 +3689,6 @@ namespace AdamantiumVulkan.Core
             refpDepthStencilState?.Dispose();
             refpColorBlendState?.Dispose();
             refpDynamicState?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -3834,12 +3732,6 @@ namespace AdamantiumVulkan.Core
             _internal.basePipelineIndex = BasePipelineIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PushConstantRange
@@ -3933,7 +3825,6 @@ namespace AdamantiumVulkan.Core
         {
             refpSetLayouts?.Dispose();
             refpPushConstantRanges?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4007,12 +3898,6 @@ namespace AdamantiumVulkan.Core
             _internal.unnormalizedCoordinates = UnnormalizedCoordinates;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DescriptorSetLayoutBinding : DisposableObject
@@ -4111,7 +3996,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpBindings?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4186,7 +4070,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpPoolSizes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4239,7 +4122,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpSetLayouts?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4376,7 +4258,6 @@ namespace AdamantiumVulkan.Core
             refpImageInfo?.Dispose();
             refpBufferInfo?.Dispose();
             refpTexelBufferView?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4423,12 +4304,6 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorCount = DescriptorCount;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class FramebufferCreateInfo : DisposableObject
@@ -4486,7 +4361,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpAttachments?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4779,7 +4653,6 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
             refpSubpasses?.Dispose();
             refpDependencies?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -4811,12 +4684,6 @@ namespace AdamantiumVulkan.Core
             _internal.queueFamilyIndex = QueueFamilyIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CommandBufferAllocateInfo : DisposableObject
@@ -4849,12 +4716,6 @@ namespace AdamantiumVulkan.Core
             _internal.commandBufferCount = CommandBufferCount;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CommandBufferInheritanceInfo : DisposableObject
@@ -4896,12 +4757,6 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CommandBufferBeginInfo : DisposableObject
@@ -4944,7 +4799,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpInheritanceInfo?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -5322,12 +5176,6 @@ namespace AdamantiumVulkan.Core
             _internal.dstAccessMask = DstAccessMask;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BufferMemoryBarrier : DisposableObject
@@ -5372,12 +5220,6 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageMemoryBarrier : DisposableObject
@@ -5428,12 +5270,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RenderPassBeginInfo : DisposableObject
@@ -5493,7 +5329,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpClearValues?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -5699,12 +5534,6 @@ namespace AdamantiumVulkan.Core
             _internal.quadOperationsInAllStages = QuadOperationsInAllStages;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BindBufferMemoryInfo : DisposableObject
@@ -5737,12 +5566,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryOffset = MemoryOffset;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BindImageMemoryInfo : DisposableObject
@@ -5775,12 +5598,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryOffset = MemoryOffset;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDevice16BitStorageFeatures : DisposableObject
@@ -5816,12 +5633,6 @@ namespace AdamantiumVulkan.Core
             _internal.storageInputOutput16 = StorageInputOutput16;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryDedicatedRequirements : DisposableObject
@@ -5851,12 +5662,6 @@ namespace AdamantiumVulkan.Core
             _internal.requiresDedicatedAllocation = RequiresDedicatedAllocation;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryDedicatedAllocateInfo : DisposableObject
@@ -5886,12 +5691,6 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryAllocateFlagsInfo : DisposableObject
@@ -5921,12 +5720,6 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGroupRenderPassBeginInfo : DisposableObject
@@ -5972,7 +5765,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDeviceRenderAreas?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -6001,12 +5793,6 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGroupSubmitInfo : DisposableObject
@@ -6087,7 +5873,6 @@ namespace AdamantiumVulkan.Core
             refpWaitSemaphoreDeviceIndices?.Dispose();
             refpCommandBufferDeviceMasks?.Dispose();
             refpSignalSemaphoreDeviceIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -6119,12 +5904,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryDeviceIndex = MemoryDeviceIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BindBufferMemoryDeviceGroupInfo : DisposableObject
@@ -6169,7 +5948,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDeviceIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -6232,7 +6010,6 @@ namespace AdamantiumVulkan.Core
         {
             refpDeviceIndices?.Dispose();
             refpSplitInstanceBindRegions?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -6281,12 +6058,6 @@ namespace AdamantiumVulkan.Core
             _internal.subsetAllocation = SubsetAllocation;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGroupDeviceCreateInfo : DisposableObject
@@ -6329,7 +6100,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpPhysicalDevices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -6358,12 +6128,6 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageMemoryRequirementsInfo2 : DisposableObject
@@ -6390,12 +6154,6 @@ namespace AdamantiumVulkan.Core
             _internal.image = Image;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageSparseMemoryRequirementsInfo2 : DisposableObject
@@ -6422,12 +6180,6 @@ namespace AdamantiumVulkan.Core
             _internal.image = Image;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryRequirements2 : DisposableObject
@@ -6457,12 +6209,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SparseImageMemoryRequirements2 : DisposableObject
@@ -6492,12 +6238,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceFeatures2 : DisposableObject
@@ -6527,12 +6267,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceProperties2 : DisposableObject
@@ -6562,12 +6296,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class FormatProperties2 : DisposableObject
@@ -6597,12 +6325,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageFormatProperties2 : DisposableObject
@@ -6632,12 +6354,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceImageFormatInfo2 : DisposableObject
@@ -6676,12 +6392,6 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class QueueFamilyProperties2 : DisposableObject
@@ -6711,12 +6421,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMemoryProperties2 : DisposableObject
@@ -6746,12 +6450,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SparseImageFormatProperties2 : DisposableObject
@@ -6781,12 +6479,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceSparseImageFormatInfo2 : DisposableObject
@@ -6825,12 +6517,6 @@ namespace AdamantiumVulkan.Core
             _internal.tiling = Tiling;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDevicePointClippingProperties : DisposableObject
@@ -6857,12 +6543,6 @@ namespace AdamantiumVulkan.Core
             _internal.pointClippingBehavior = PointClippingBehavior;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class InputAttachmentAspectReference
@@ -6932,7 +6612,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpAspectReferences?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -6961,12 +6640,6 @@ namespace AdamantiumVulkan.Core
             _internal.usage = Usage;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineTessellationDomainOriginStateCreateInfo : DisposableObject
@@ -6993,12 +6666,6 @@ namespace AdamantiumVulkan.Core
             _internal.domainOrigin = DomainOrigin;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RenderPassMultiviewCreateInfo : DisposableObject
@@ -7079,7 +6746,6 @@ namespace AdamantiumVulkan.Core
             refpViewMasks?.Dispose();
             refpViewOffsets?.Dispose();
             refpCorrelationMasks?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -7114,12 +6780,6 @@ namespace AdamantiumVulkan.Core
             _internal.multiviewTessellationShader = MultiviewTessellationShader;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMultiviewProperties : DisposableObject
@@ -7149,12 +6809,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxMultiviewInstanceIndex = MaxMultiviewInstanceIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceVariablePointerFeatures : DisposableObject
@@ -7184,12 +6838,6 @@ namespace AdamantiumVulkan.Core
             _internal.variablePointers = VariablePointers;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceProtectedMemoryFeatures : DisposableObject
@@ -7216,12 +6864,6 @@ namespace AdamantiumVulkan.Core
             _internal.protectedMemory = ProtectedMemory;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceProtectedMemoryProperties : DisposableObject
@@ -7248,12 +6890,6 @@ namespace AdamantiumVulkan.Core
             _internal.protectedNoFault = ProtectedNoFault;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceQueueInfo2 : DisposableObject
@@ -7286,12 +6922,6 @@ namespace AdamantiumVulkan.Core
             _internal.queueIndex = QueueIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ProtectedSubmitInfo : DisposableObject
@@ -7318,12 +6948,6 @@ namespace AdamantiumVulkan.Core
             _internal.protectedSubmit = ProtectedSubmit;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SamplerYcbcrConversionCreateInfo : DisposableObject
@@ -7374,12 +6998,6 @@ namespace AdamantiumVulkan.Core
             _internal.forceExplicitReconstruction = ForceExplicitReconstruction;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SamplerYcbcrConversionInfo : DisposableObject
@@ -7406,12 +7024,6 @@ namespace AdamantiumVulkan.Core
             _internal.conversion = Conversion;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BindImagePlaneMemoryInfo : DisposableObject
@@ -7438,12 +7050,6 @@ namespace AdamantiumVulkan.Core
             _internal.planeAspect = PlaneAspect;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImagePlaneMemoryRequirementsInfo : DisposableObject
@@ -7470,12 +7076,6 @@ namespace AdamantiumVulkan.Core
             _internal.planeAspect = PlaneAspect;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : DisposableObject
@@ -7502,12 +7102,6 @@ namespace AdamantiumVulkan.Core
             _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SamplerYcbcrConversionImageFormatProperties : DisposableObject
@@ -7534,12 +7128,6 @@ namespace AdamantiumVulkan.Core
             _internal.combinedImageSamplerDescriptorCount = CombinedImageSamplerDescriptorCount;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DescriptorUpdateTemplateEntry
@@ -7636,7 +7224,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDescriptorUpdateEntries?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -7692,12 +7279,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalImageFormatProperties : DisposableObject
@@ -7727,12 +7308,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceExternalBufferInfo : DisposableObject
@@ -7765,12 +7340,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalBufferProperties : DisposableObject
@@ -7800,12 +7369,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceIDProperties : DisposableObject
@@ -7916,12 +7479,6 @@ namespace AdamantiumVulkan.Core
             _internal.deviceLUIDValid = DeviceLUIDValid;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalMemoryImageCreateInfo : DisposableObject
@@ -7948,12 +7505,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalMemoryBufferCreateInfo : DisposableObject
@@ -7980,12 +7531,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportMemoryAllocateInfo : DisposableObject
@@ -8012,12 +7557,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceExternalFenceInfo : DisposableObject
@@ -8044,12 +7583,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalFenceProperties : DisposableObject
@@ -8082,12 +7615,6 @@ namespace AdamantiumVulkan.Core
             _internal.externalFenceFeatures = ExternalFenceFeatures;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportFenceCreateInfo : DisposableObject
@@ -8114,12 +7641,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportSemaphoreCreateInfo : DisposableObject
@@ -8146,12 +7667,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceExternalSemaphoreInfo : DisposableObject
@@ -8178,12 +7693,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalSemaphoreProperties : DisposableObject
@@ -8216,12 +7725,6 @@ namespace AdamantiumVulkan.Core
             _internal.externalSemaphoreFeatures = ExternalSemaphoreFeatures;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMaintenance3Properties : DisposableObject
@@ -8251,12 +7754,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DescriptorSetLayoutSupport : DisposableObject
@@ -8283,12 +7780,6 @@ namespace AdamantiumVulkan.Core
             _internal.supported = Supported;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceShaderDrawParameterFeatures : DisposableObject
@@ -8315,12 +7806,6 @@ namespace AdamantiumVulkan.Core
             _internal.shaderDrawParameters = ShaderDrawParameters;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SurfaceCapabilitiesKHR
@@ -8494,7 +7979,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueueFamilyIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -8606,7 +8090,6 @@ namespace AdamantiumVulkan.Core
             refpSwapchains?.Dispose();
             refpImageIndices?.Dispose();
             refpResults?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -8635,12 +8118,6 @@ namespace AdamantiumVulkan.Core
             _internal.swapchain = Swapchain;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BindImageMemorySwapchainInfoKHR : DisposableObject
@@ -8670,12 +8147,6 @@ namespace AdamantiumVulkan.Core
             _internal.imageIndex = ImageIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class AcquireNextImageInfoKHR : DisposableObject
@@ -8714,12 +8185,6 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGroupPresentCapabilitiesKHR : DisposableObject
@@ -8773,12 +8238,6 @@ namespace AdamantiumVulkan.Core
             _internal.modes = Modes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGroupPresentInfoKHR : DisposableObject
@@ -8826,7 +8285,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDeviceMasks?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -8855,12 +8313,6 @@ namespace AdamantiumVulkan.Core
             _internal.modes = Modes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPropertiesKHR : DisposableObject
@@ -9005,12 +8457,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPlaneCapabilitiesKHR
@@ -9154,12 +8600,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPresentInfoKHR : DisposableObject
@@ -9198,12 +8638,6 @@ namespace AdamantiumVulkan.Core
             _internal.persistent = Persistent;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportMemoryFdInfoKHR : DisposableObject
@@ -9233,12 +8667,6 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryFdPropertiesKHR : DisposableObject
@@ -9265,12 +8693,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryGetFdInfoKHR : DisposableObject
@@ -9300,12 +8722,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportSemaphoreFdInfoKHR : DisposableObject
@@ -9341,12 +8757,6 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SemaphoreGetFdInfoKHR : DisposableObject
@@ -9376,12 +8786,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDevicePushDescriptorPropertiesKHR : DisposableObject
@@ -9409,12 +8813,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxPushDescriptors = MaxPushDescriptors;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceFloat16Int8FeaturesKHR : DisposableObject
@@ -9444,12 +8842,6 @@ namespace AdamantiumVulkan.Core
             _internal.shaderInt8 = ShaderInt8;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RectLayerKHR
@@ -9564,7 +8956,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpRegions?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -9617,12 +9008,6 @@ namespace AdamantiumVulkan.Core
             _internal.finalLayout = FinalLayout;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class AttachmentReference2KHR : DisposableObject
@@ -9655,12 +9040,6 @@ namespace AdamantiumVulkan.Core
             _internal.aspectMask = AspectMask;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SubpassDescription2KHR : DisposableObject
@@ -9772,7 +9151,6 @@ namespace AdamantiumVulkan.Core
             refpResolveAttachments?.Dispose();
             refpDepthStencilAttachment?.Dispose();
             refpPreserveAttachments?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -9822,12 +9200,6 @@ namespace AdamantiumVulkan.Core
             _internal.viewOffset = ViewOffset;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RenderPassCreateInfo2KHR : DisposableObject
@@ -9923,7 +9295,6 @@ namespace AdamantiumVulkan.Core
             refpSubpasses?.Dispose();
             refpDependencies?.Dispose();
             refpCorrelatedViewMasks?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -9952,12 +9323,6 @@ namespace AdamantiumVulkan.Core
             _internal.contents = Contents;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SubpassEndInfoKHR : DisposableObject
@@ -9981,12 +9346,6 @@ namespace AdamantiumVulkan.Core
             _internal.pNext = PNext;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SharedPresentSurfaceCapabilitiesKHR : DisposableObject
@@ -10013,12 +9372,6 @@ namespace AdamantiumVulkan.Core
             _internal.sharedPresentSupportedUsageFlags = SharedPresentSupportedUsageFlags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportFenceFdInfoKHR : DisposableObject
@@ -10054,12 +9407,6 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class FenceGetFdInfoKHR : DisposableObject
@@ -10089,12 +9436,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = HandleType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceSurfaceInfo2KHR : DisposableObject
@@ -10121,12 +9462,6 @@ namespace AdamantiumVulkan.Core
             _internal.surface = Surface;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SurfaceCapabilities2KHR : DisposableObject
@@ -10156,12 +9491,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SurfaceFormat2KHR : DisposableObject
@@ -10191,12 +9520,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayProperties2KHR : DisposableObject
@@ -10226,12 +9549,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPlaneProperties2KHR : DisposableObject
@@ -10261,12 +9578,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayModeProperties2KHR : DisposableObject
@@ -10296,12 +9607,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPlaneInfo2KHR : DisposableObject
@@ -10331,12 +9636,6 @@ namespace AdamantiumVulkan.Core
             _internal.planeIndex = PlaneIndex;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPlaneCapabilities2KHR : DisposableObject
@@ -10366,12 +9665,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageFormatListCreateInfoKHR : DisposableObject
@@ -10424,7 +9717,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpViewFormats?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -10459,12 +9751,6 @@ namespace AdamantiumVulkan.Core
             _internal.storagePushConstant8 = StoragePushConstant8;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : DisposableObject
@@ -10494,12 +9780,6 @@ namespace AdamantiumVulkan.Core
             _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ConformanceVersionKHR
@@ -10616,12 +9896,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceFloatControlsPropertiesKHR : DisposableObject
@@ -10696,12 +9970,6 @@ namespace AdamantiumVulkan.Core
             _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SubpassDescriptionDepthStencilResolveKHR : DisposableObject
@@ -10747,7 +10015,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDepthStencilResolveAttachment?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -10785,12 +10052,6 @@ namespace AdamantiumVulkan.Core
             _internal.independentResolve = IndependentResolve;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : DisposableObject
@@ -10823,12 +10084,6 @@ namespace AdamantiumVulkan.Core
             _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DebugReportCallbackCreateInfoEXT : DisposableObject
@@ -10861,13 +10116,6 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PUserData);
-        }
-
     }
 
     public partial class PipelineRasterizationStateRasterizationOrderAMD : DisposableObject
@@ -10894,12 +10142,6 @@ namespace AdamantiumVulkan.Core
             _internal.rasterizationOrder = RasterizationOrder;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DebugMarkerObjectNameInfoEXT : DisposableObject
@@ -10943,7 +10185,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpObjectName?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -10984,13 +10225,6 @@ namespace AdamantiumVulkan.Core
             _internal.pTag = PTag;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PTag);
-        }
-
     }
 
     public partial class DebugMarkerMarkerInfoEXT : DisposableObject
@@ -11055,7 +10289,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpMarkerName?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -11084,12 +10317,6 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocation = DedicatedAllocation;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DedicatedAllocationBufferCreateInfoNV : DisposableObject
@@ -11116,12 +10343,6 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocation = DedicatedAllocation;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DedicatedAllocationMemoryAllocateInfoNV : DisposableObject
@@ -11151,12 +10372,6 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : DisposableObject
@@ -11186,12 +10401,6 @@ namespace AdamantiumVulkan.Core
             _internal.geometryStreams = GeometryStreams;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : DisposableObject
@@ -11245,12 +10454,6 @@ namespace AdamantiumVulkan.Core
             _internal.transformFeedbackDraw = TransformFeedbackDraw;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineRasterizationStateStreamCreateInfoEXT : DisposableObject
@@ -11280,12 +10483,6 @@ namespace AdamantiumVulkan.Core
             _internal.rasterizationStream = RasterizationStream;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class TextureLODGatherFormatPropertiesAMD : DisposableObject
@@ -11312,12 +10509,6 @@ namespace AdamantiumVulkan.Core
             _internal.supportsTextureGatherLODBiasAMD = SupportsTextureGatherLODBiasAMD;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ShaderResourceUsageAMD
@@ -11443,12 +10634,6 @@ namespace AdamantiumVulkan.Core
             _internal.cornerSampledImage = CornerSampledImage;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExternalImageFormatPropertiesNV
@@ -11508,12 +10693,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ExportMemoryAllocateInfoNV : DisposableObject
@@ -11540,12 +10719,6 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ValidationFlagsEXT : DisposableObject
@@ -11598,7 +10771,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDisabledValidationChecks?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -11627,12 +10799,6 @@ namespace AdamantiumVulkan.Core
             _internal.decodeMode = DecodeMode;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceASTCDecodeFeaturesEXT : DisposableObject
@@ -11659,12 +10825,6 @@ namespace AdamantiumVulkan.Core
             _internal.decodeModeSharedExponent = DecodeModeSharedExponent;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ConditionalRenderingBeginInfoEXT : DisposableObject
@@ -11697,12 +10857,6 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : DisposableObject
@@ -11732,12 +10886,6 @@ namespace AdamantiumVulkan.Core
             _internal.inheritedConditionalRendering = InheritedConditionalRendering;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : DisposableObject
@@ -11764,12 +10912,6 @@ namespace AdamantiumVulkan.Core
             _internal.conditionalRenderingEnable = ConditionalRenderingEnable;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGeneratedCommandsFeaturesNVX : DisposableObject
@@ -11796,12 +10938,6 @@ namespace AdamantiumVulkan.Core
             _internal.computeBindingPointSupport = ComputeBindingPointSupport;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceGeneratedCommandsLimitsNVX : DisposableObject
@@ -11840,12 +10976,6 @@ namespace AdamantiumVulkan.Core
             _internal.minCommandsTokenBufferOffsetAlignment = MinCommandsTokenBufferOffsetAlignment;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class IndirectCommandsTokenNVX
@@ -11951,7 +11081,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpTokens?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12020,7 +11149,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpIndirectCommandsTokens?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12055,12 +11183,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxSequencesCount = MaxSequencesCount;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ObjectTableCreateInfoNVX : DisposableObject
@@ -12164,7 +11286,6 @@ namespace AdamantiumVulkan.Core
             refpObjectEntryTypes?.Dispose();
             refpObjectEntryCounts?.Dispose();
             refpObjectEntryUsageFlags?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12404,7 +11525,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpViewportWScalings?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12472,12 +11592,6 @@ namespace AdamantiumVulkan.Core
             _internal.supportedSurfaceCounters = SupportedSurfaceCounters;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayPowerInfoEXT : DisposableObject
@@ -12504,12 +11618,6 @@ namespace AdamantiumVulkan.Core
             _internal.powerState = PowerState;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceEventInfoEXT : DisposableObject
@@ -12536,12 +11644,6 @@ namespace AdamantiumVulkan.Core
             _internal.deviceEvent = DeviceEvent;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DisplayEventInfoEXT : DisposableObject
@@ -12569,12 +11671,6 @@ namespace AdamantiumVulkan.Core
             _internal.displayEvent = DisplayEvent;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SwapchainCounterCreateInfoEXT : DisposableObject
@@ -12601,12 +11697,6 @@ namespace AdamantiumVulkan.Core
             _internal.surfaceCounters = SurfaceCounters;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RefreshCycleDurationGOOGLE
@@ -12727,7 +11817,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpTimes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12756,12 +11845,6 @@ namespace AdamantiumVulkan.Core
             _internal.perViewPositionAllComponents = PerViewPositionAllComponents;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ViewportSwizzleNV
@@ -12837,7 +11920,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpViewportSwizzles?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12866,12 +11948,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxDiscardRectangles = MaxDiscardRectangles;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineDiscardRectangleStateCreateInfoEXT : DisposableObject
@@ -12920,7 +11996,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDiscardRectangles?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -12973,12 +12048,6 @@ namespace AdamantiumVulkan.Core
             _internal.conservativeRasterizationPostDepthCoverage = ConservativeRasterizationPostDepthCoverage;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineRasterizationConservativeStateCreateInfoEXT : DisposableObject
@@ -13011,12 +12080,6 @@ namespace AdamantiumVulkan.Core
             _internal.extraPrimitiveOverestimationSize = ExtraPrimitiveOverestimationSize;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : DisposableObject
@@ -13043,12 +12106,6 @@ namespace AdamantiumVulkan.Core
             _internal.depthClipEnable = DepthClipEnable;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : DisposableObject
@@ -13078,12 +12135,6 @@ namespace AdamantiumVulkan.Core
             _internal.depthClipEnable = DepthClipEnable;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class XYColorEXT
@@ -13167,12 +12218,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxFrameAverageLightLevel = MaxFrameAverageLightLevel;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DebugUtilsObjectNameInfoEXT : DisposableObject
@@ -13216,7 +12261,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpObjectName?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -13257,13 +12301,6 @@ namespace AdamantiumVulkan.Core
             _internal.pTag = PTag;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PTag);
-        }
-
     }
 
     public partial class DebugUtilsLabelEXT : DisposableObject
@@ -13328,7 +12365,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpLabelName?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -13433,7 +12469,6 @@ namespace AdamantiumVulkan.Core
             refpQueueLabels?.Dispose();
             refpCmdBufLabels?.Dispose();
             refpObjects?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -13474,13 +12509,6 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PUserData);
-        }
-
     }
 
     public partial class SamplerReductionModeCreateInfoEXT : DisposableObject
@@ -13507,12 +12535,6 @@ namespace AdamantiumVulkan.Core
             _internal.reductionMode = ReductionMode;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : DisposableObject
@@ -13542,12 +12564,6 @@ namespace AdamantiumVulkan.Core
             _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : DisposableObject
@@ -13577,12 +12593,6 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : DisposableObject
@@ -13621,12 +12631,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class WriteDescriptorSetInlineUniformBlockEXT : DisposableObject
@@ -13656,13 +12660,6 @@ namespace AdamantiumVulkan.Core
             _internal.pData = PData;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PData);
-        }
-
     }
 
     public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : DisposableObject
@@ -13689,12 +12686,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxInlineUniformBlockBindings = MaxInlineUniformBlockBindings;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class SampleLocationEXT
@@ -13770,7 +12761,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpSampleLocations?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -13885,7 +12875,6 @@ namespace AdamantiumVulkan.Core
         {
             refpAttachmentInitialSampleLocations?.Dispose();
             refpPostSubpassSampleLocations?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -13920,12 +12909,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceSampleLocationsPropertiesEXT : DisposableObject
@@ -13991,12 +12974,6 @@ namespace AdamantiumVulkan.Core
             _internal.variableSampleLocations = VariableSampleLocations;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MultisamplePropertiesEXT : DisposableObject
@@ -14026,12 +13003,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : DisposableObject
@@ -14058,12 +13029,6 @@ namespace AdamantiumVulkan.Core
             _internal.advancedBlendCoherentOperations = AdvancedBlendCoherentOperations;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : DisposableObject
@@ -14105,12 +13070,6 @@ namespace AdamantiumVulkan.Core
             _internal.advancedBlendAllOperations = AdvancedBlendAllOperations;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : DisposableObject
@@ -14143,12 +13102,6 @@ namespace AdamantiumVulkan.Core
             _internal.blendOverlap = BlendOverlap;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineCoverageToColorStateCreateInfoNV : DisposableObject
@@ -14181,12 +13134,6 @@ namespace AdamantiumVulkan.Core
             _internal.coverageToColorLocation = CoverageToColorLocation;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineCoverageModulationStateCreateInfoNV : DisposableObject
@@ -14240,7 +13187,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpCoverageModulationTable?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14312,7 +13258,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDrmFormatModifierProperties?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14365,7 +13310,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueueFamilyIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14412,7 +13356,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDrmFormatModifiers?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14460,7 +13403,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpPlaneLayouts?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14489,12 +13431,6 @@ namespace AdamantiumVulkan.Core
             _internal.drmFormatModifier = DrmFormatModifier;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ValidationCacheCreateInfoEXT : DisposableObject
@@ -14527,13 +13463,6 @@ namespace AdamantiumVulkan.Core
             _internal.pInitialData = PInitialData;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PInitialData);
-        }
-
     }
 
     public partial class ShaderModuleValidationCacheCreateInfoEXT : DisposableObject
@@ -14560,12 +13489,6 @@ namespace AdamantiumVulkan.Core
             _internal.validationCache = ValidationCache;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : DisposableObject
@@ -14610,7 +13533,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpBindingFlags?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14696,12 +13618,6 @@ namespace AdamantiumVulkan.Core
             _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : DisposableObject
@@ -14794,12 +13710,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : DisposableObject
@@ -14844,7 +13754,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDescriptorCounts?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -14873,12 +13782,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxVariableDescriptorCount = MaxVariableDescriptorCount;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ShadingRatePaletteNV : DisposableObject
@@ -14973,7 +13876,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpShadingRatePalettes?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -15005,12 +13907,6 @@ namespace AdamantiumVulkan.Core
             _internal.shadingRateCoarseSampleOrder = ShadingRateCoarseSampleOrder;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceShadingRateImagePropertiesNV : DisposableObject
@@ -15046,12 +13942,6 @@ namespace AdamantiumVulkan.Core
             _internal.shadingRateMaxCoarseSamples = ShadingRateMaxCoarseSamples;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CoarseSampleLocationNV
@@ -15169,7 +14059,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpCustomSampleOrders?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -15210,12 +14099,6 @@ namespace AdamantiumVulkan.Core
             _internal.intersectionShader = IntersectionShader;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RayTracingPipelineCreateInfoNV : DisposableObject
@@ -15289,7 +14172,6 @@ namespace AdamantiumVulkan.Core
         {
             refpStages?.Dispose();
             refpGroups?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -15348,12 +14230,6 @@ namespace AdamantiumVulkan.Core
             _internal.transformOffset = TransformOffset;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class GeometryAABBNV : DisposableObject
@@ -15389,12 +14265,6 @@ namespace AdamantiumVulkan.Core
             _internal.offset = Offset;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class GeometryDataNV
@@ -15460,12 +14330,6 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class AccelerationStructureInfoNV : DisposableObject
@@ -15517,7 +14381,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpGeometries?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -15552,12 +14415,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BindAccelerationStructureMemoryInfoNV : DisposableObject
@@ -15611,7 +14468,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDeviceIndices?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -15656,7 +14512,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpAccelerationStructures?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -15688,12 +14543,6 @@ namespace AdamantiumVulkan.Core
             _internal.accelerationStructure = AccelerationStructure;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceRayTracingPropertiesNV : DisposableObject
@@ -15741,12 +14590,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : DisposableObject
@@ -15773,12 +14616,6 @@ namespace AdamantiumVulkan.Core
             _internal.representativeFragmentTest = RepresentativeFragmentTest;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : DisposableObject
@@ -15805,12 +14642,6 @@ namespace AdamantiumVulkan.Core
             _internal.representativeFragmentTestEnable = RepresentativeFragmentTestEnable;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceImageViewImageFormatInfoEXT : DisposableObject
@@ -15837,12 +14668,6 @@ namespace AdamantiumVulkan.Core
             _internal.imageViewType = ImageViewType;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class FilterCubicImageViewImageFormatPropertiesEXT : DisposableObject
@@ -15872,12 +14697,6 @@ namespace AdamantiumVulkan.Core
             _internal.filterCubicMinmax = FilterCubicMinmax;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceQueueGlobalPriorityCreateInfoEXT : DisposableObject
@@ -15904,12 +14723,6 @@ namespace AdamantiumVulkan.Core
             _internal.globalPriority = GlobalPriority;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImportMemoryHostPointerInfoEXT : DisposableObject
@@ -15939,13 +14752,6 @@ namespace AdamantiumVulkan.Core
             _internal.pHostPointer = PHostPointer;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PHostPointer);
-        }
-
     }
 
     public partial class MemoryHostPointerPropertiesEXT : DisposableObject
@@ -15972,12 +14778,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : DisposableObject
@@ -16004,12 +14804,6 @@ namespace AdamantiumVulkan.Core
             _internal.minImportedHostPointerAlignment = MinImportedHostPointerAlignment;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CalibratedTimestampInfoEXT : DisposableObject
@@ -16036,12 +14830,6 @@ namespace AdamantiumVulkan.Core
             _internal.timeDomain = TimeDomain;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceShaderCorePropertiesAMD : DisposableObject
@@ -16107,12 +14895,6 @@ namespace AdamantiumVulkan.Core
             _internal.vgprAllocationGranularity = VgprAllocationGranularity;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DeviceMemoryOverallocationCreateInfoAMD : DisposableObject
@@ -16139,12 +14921,6 @@ namespace AdamantiumVulkan.Core
             _internal.overallocationBehavior = OverallocationBehavior;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : DisposableObject
@@ -16171,12 +14947,6 @@ namespace AdamantiumVulkan.Core
             _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class VertexInputBindingDivisorDescriptionEXT
@@ -16243,7 +15013,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpVertexBindingDivisors?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -16275,12 +15044,6 @@ namespace AdamantiumVulkan.Core
             _internal.vertexAttributeInstanceRateZeroDivisor = VertexAttributeInstanceRateZeroDivisor;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : DisposableObject
@@ -16310,12 +15073,6 @@ namespace AdamantiumVulkan.Core
             _internal.computeDerivativeGroupLinear = ComputeDerivativeGroupLinear;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMeshShaderFeaturesNV : DisposableObject
@@ -16345,12 +15102,6 @@ namespace AdamantiumVulkan.Core
             _internal.meshShader = MeshShader;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMeshShaderPropertiesNV : DisposableObject
@@ -16461,12 +15212,6 @@ namespace AdamantiumVulkan.Core
             _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class DrawMeshTasksIndirectCommandNV
@@ -16517,12 +15262,6 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentShaderBarycentric = FragmentShaderBarycentric;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : DisposableObject
@@ -16549,12 +15288,6 @@ namespace AdamantiumVulkan.Core
             _internal.imageFootprint = ImageFootprint;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : DisposableObject
@@ -16597,7 +15330,6 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpExclusiveScissors?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -16626,12 +15358,6 @@ namespace AdamantiumVulkan.Core
             _internal.exclusiveScissor = ExclusiveScissor;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class QueueFamilyCheckpointPropertiesNV : DisposableObject
@@ -16658,12 +15384,6 @@ namespace AdamantiumVulkan.Core
             _internal.checkpointExecutionStageMask = CheckpointExecutionStageMask;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class CheckpointDataNV : DisposableObject
@@ -16693,13 +15413,6 @@ namespace AdamantiumVulkan.Core
             _internal.pCheckpointMarker = PCheckpointMarker;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-            Marshal.FreeHGlobal(PCheckpointMarker);
-        }
-
     }
 
     public partial class PhysicalDevicePCIBusInfoPropertiesEXT : DisposableObject
@@ -16735,12 +15448,6 @@ namespace AdamantiumVulkan.Core
             _internal.pciFunction = PciFunction;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : DisposableObject
@@ -16773,12 +15480,6 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentDensityMapNonSubsampledImages = FragmentDensityMapNonSubsampledImages;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : DisposableObject
@@ -16817,12 +15518,6 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentDensityInvocations = FragmentDensityInvocations;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class RenderPassFragmentDensityMapCreateInfoEXT : DisposableObject
@@ -16852,12 +15547,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : DisposableObject
@@ -16884,12 +15573,6 @@ namespace AdamantiumVulkan.Core
             _internal.scalarBlockLayout = ScalarBlockLayout;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : DisposableObject
@@ -16967,12 +15650,6 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : DisposableObject
@@ -16999,12 +15676,6 @@ namespace AdamantiumVulkan.Core
             _internal.memoryPriority = MemoryPriority;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class MemoryPriorityAllocateInfoEXT : DisposableObject
@@ -17031,12 +15702,6 @@ namespace AdamantiumVulkan.Core
             _internal.priority = Priority;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : DisposableObject
@@ -17063,12 +15728,6 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocationImageAliasing = DedicatedAllocationImageAliasing;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceBufferAddressFeaturesEXT : DisposableObject
@@ -17101,12 +15760,6 @@ namespace AdamantiumVulkan.Core
             _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BufferDeviceAddressInfoEXT : DisposableObject
@@ -17133,12 +15786,6 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class BufferDeviceAddressCreateInfoEXT : DisposableObject
@@ -17165,12 +15812,6 @@ namespace AdamantiumVulkan.Core
             _internal.deviceAddress = DeviceAddress;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ImageStencilUsageCreateInfoEXT : DisposableObject
@@ -17197,12 +15838,6 @@ namespace AdamantiumVulkan.Core
             _internal.stencilUsage = StencilUsage;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class ValidationFeaturesEXT : DisposableObject
@@ -17281,7 +15916,6 @@ namespace AdamantiumVulkan.Core
         {
             refpEnabledValidationFeatures?.Dispose();
             refpDisabledValidationFeatures?.Dispose();
-            Marshal.FreeHGlobal(PNext);
         }
 
     }
@@ -17331,12 +15965,6 @@ namespace AdamantiumVulkan.Core
             _internal.scope = Scope;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : DisposableObject
@@ -17366,12 +15994,6 @@ namespace AdamantiumVulkan.Core
             _internal.cooperativeMatrixRobustBufferAccess = CooperativeMatrixRobustBufferAccess;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
     public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : DisposableObject
@@ -17398,12 +16020,6 @@ namespace AdamantiumVulkan.Core
             _internal.cooperativeMatrixSupportedStages = CooperativeMatrixSupportedStages;
             return _internal;
         }
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            Marshal.FreeHGlobal(PNext);
-        }
-
     }
 
 
