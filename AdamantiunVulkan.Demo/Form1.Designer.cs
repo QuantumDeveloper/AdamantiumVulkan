@@ -45,6 +45,7 @@ namespace VulkanEngineTestCore
         /// </summary>
         private void InitializeComponent()
         {
+            AdamantiumVulkan.VulkanDllMap.Register();
             this.ClientSize = new System.Drawing.Size(800, 600);
             enableValidationLayers = true;
             _pauseEvent = new AutoResetEvent(false);
