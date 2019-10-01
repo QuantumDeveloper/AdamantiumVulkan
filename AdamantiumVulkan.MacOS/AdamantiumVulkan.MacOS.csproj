@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
