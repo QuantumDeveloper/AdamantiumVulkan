@@ -4308,7 +4308,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class FramebufferCreateInfo : DisposableObject
     {
-        private StructReference refpAttachments;
+        private GCHandleReference refpAttachments;
 
         public FramebufferCreateInfo()
         {
@@ -4320,7 +4320,8 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             RenderPass = new RenderPass(_internal.renderPass);
             AttachmentCount = _internal.attachmentCount;
-            PAttachments = new ImageView(Marshal.PtrToStructure<ImageView>(_internal.pAttachments));
+            PAttachments = new ImageView[_internal.attachmentCount];
+            MarshalUtils.IntPtrToManagedArray<ImageView>(_internal.pAttachments, PAttachments);
             Marshal.FreeHGlobal(_internal.pAttachments);
             Width = _internal.width;
             Height = _internal.height;
@@ -4332,7 +4333,7 @@ namespace AdamantiumVulkan.Core
         public uint Flags { get; set; }
         public RenderPass RenderPass { get; set; }
         public uint AttachmentCount { get; set; }
-        public ImageView PAttachments { get; set; }
+        public ImageView[] PAttachments { get; set; }
         public uint Width { get; set; }
         public uint Height { get; set; }
         public uint Layers { get; set; }
@@ -4348,8 +4349,12 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
             if (PAttachments != null)
             {
-                AdamantiumVulkan.Core.Interop.VkImageView_T struct0 = PAttachments;
-                refpAttachments = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[AttachmentCount];
+                for (int i = 0; i < PAttachments.Length; ++i)
+                {
+                    tmpArray0[i] = PAttachments[i];
+                }
+                refpAttachments = new GCHandleReference(tmpArray0);
                 _internal.pAttachments = refpAttachments.Handle;
             }
             _internal.width = Width;
