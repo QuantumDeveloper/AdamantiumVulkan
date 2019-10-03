@@ -20,11 +20,11 @@ namespace AdamantiumVulkan.Generator
         {
             string library = "vulkan-1";
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
-            string mainPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan", "Generated"));
-            string corePath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.Core", "Generated"));
-            string windowsPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.Windows", "Generated"));
-            string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.MacOS", "Generated"));
-            string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..\\", "AdamantiumVulkan.Shaders", "Generated"));
+            string mainPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan", "Generated"));
+            string corePath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "Generated"));
+            string windowsPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Windows", "Generated"));
+            string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.MacOS", "Generated"));
+            string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Shaders", "Generated"));
 
             options.GenerateSequentialLayout = true;
             options.DebugMode = true;

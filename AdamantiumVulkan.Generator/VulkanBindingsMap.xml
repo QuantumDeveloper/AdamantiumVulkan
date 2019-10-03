@@ -281,6 +281,18 @@
       </Fields>
     </Class>
 
+    <Class Name="VkFramebufferCreateInfo">
+      <Fields>
+        <Field Name="pAttachments">
+          <Type xsi:type="PointerTypeMap" IsNullable="true">
+            <Pointee xsi:type="ArrayTypeMap" ArraySizeSource="attachmentCount">
+              <ElementType xsi:type="CustomTypeMap" Name="ImageView"/>
+            </Pointee>
+          </Type>
+        </Field>
+      </Fields>
+    </Class>
+
   </Classes>
 
   <Functions>
