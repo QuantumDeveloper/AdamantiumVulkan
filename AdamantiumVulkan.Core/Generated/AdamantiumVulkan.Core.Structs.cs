@@ -4441,15 +4441,15 @@ namespace AdamantiumVulkan.Core
 
     public partial class SubpassDescription : DisposableObject
     {
-        private StructReference refpInputAttachments;
+        private GCHandleReference refpInputAttachments;
 
-        private StructReference refpColorAttachments;
+        private GCHandleReference refpColorAttachments;
 
-        private StructReference refpResolveAttachments;
+        private GCHandleReference refpResolveAttachments;
 
         private StructReference refpDepthStencilAttachment;
 
-        private StructReference refpPreserveAttachments;
+        private GCHandleReference refpPreserveAttachments;
 
         public SubpassDescription()
         {
@@ -4460,33 +4460,34 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             PipelineBindPoint = _internal.pipelineBindPoint;
             InputAttachmentCount = _internal.inputAttachmentCount;
-            PInputAttachments = new AttachmentReference(Marshal.PtrToStructure<VkAttachmentReference>(_internal.pInputAttachments));
+            PInputAttachments = new AttachmentReference[_internal.inputAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentReference>(_internal.pInputAttachments, PInputAttachments);
             Marshal.FreeHGlobal(_internal.pInputAttachments);
             ColorAttachmentCount = _internal.colorAttachmentCount;
-            PColorAttachments = new AttachmentReference(Marshal.PtrToStructure<VkAttachmentReference>(_internal.pColorAttachments));
+            PColorAttachments = new AttachmentReference[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentReference>(_internal.pColorAttachments, PColorAttachments);
             Marshal.FreeHGlobal(_internal.pColorAttachments);
-            PResolveAttachments = new AttachmentReference(Marshal.PtrToStructure<VkAttachmentReference>(_internal.pResolveAttachments));
+            PResolveAttachments = new AttachmentReference[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentReference>(_internal.pResolveAttachments, PResolveAttachments);
             Marshal.FreeHGlobal(_internal.pResolveAttachments);
             PDepthStencilAttachment = new AttachmentReference(Marshal.PtrToStructure<VkAttachmentReference>(_internal.pDepthStencilAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilAttachment);
             PreserveAttachmentCount = _internal.preserveAttachmentCount;
-            if(_internal.pPreserveAttachments != System.IntPtr.Zero)
-            {
-                PPreserveAttachments = (uint?)_internal.pPreserveAttachments;
-                Marshal.FreeHGlobal(_internal.pPreserveAttachments);
-            }
+            PPreserveAttachments = new uint[_internal.preserveAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pPreserveAttachments, PPreserveAttachments);
+            Marshal.FreeHGlobal(_internal.pPreserveAttachments);
         }
 
         public uint Flags { get; set; }
         public PipelineBindPoint PipelineBindPoint { get; set; }
         public uint InputAttachmentCount { get; set; }
-        public AttachmentReference PInputAttachments { get; set; }
+        public AttachmentReference[] PInputAttachments { get; set; }
         public uint ColorAttachmentCount { get; set; }
-        public AttachmentReference PColorAttachments { get; set; }
-        public AttachmentReference PResolveAttachments { get; set; }
+        public AttachmentReference[] PColorAttachments { get; set; }
+        public AttachmentReference[] PResolveAttachments { get; set; }
         public AttachmentReference PDepthStencilAttachment { get; set; }
         public uint PreserveAttachmentCount { get; set; }
-        public uint? PPreserveAttachments { get; set; }
+        public uint[] PPreserveAttachments { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDescription ToInternal()
         {
@@ -4497,37 +4498,54 @@ namespace AdamantiumVulkan.Core
             refpInputAttachments?.Dispose();
             if (PInputAttachments != null)
             {
-                var struct0 = PInputAttachments.ToInternal();
-                refpInputAttachments = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[InputAttachmentCount];
+                for (int i = 0; i < PInputAttachments.Length; ++i)
+                {
+                    tmpArray0[i] = PInputAttachments[i].ToInternal();
+                }
+                refpInputAttachments = new GCHandleReference(tmpArray0);
                 _internal.pInputAttachments = refpInputAttachments.Handle;
             }
             _internal.colorAttachmentCount = ColorAttachmentCount;
             refpColorAttachments?.Dispose();
             if (PColorAttachments != null)
             {
-                var struct1 = PColorAttachments.ToInternal();
-                refpColorAttachments = new StructReference(struct1);
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[ColorAttachmentCount];
+                for (int i = 0; i < PColorAttachments.Length; ++i)
+                {
+                    tmpArray1[i] = PColorAttachments[i].ToInternal();
+                }
+                refpColorAttachments = new GCHandleReference(tmpArray1);
                 _internal.pColorAttachments = refpColorAttachments.Handle;
             }
             refpResolveAttachments?.Dispose();
             if (PResolveAttachments != null)
             {
-                var struct2 = PResolveAttachments.ToInternal();
-                refpResolveAttachments = new StructReference(struct2);
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[ColorAttachmentCount];
+                for (int i = 0; i < PResolveAttachments.Length; ++i)
+                {
+                    tmpArray2[i] = PResolveAttachments[i].ToInternal();
+                }
+                refpResolveAttachments = new GCHandleReference(tmpArray2);
                 _internal.pResolveAttachments = refpResolveAttachments.Handle;
             }
             refpDepthStencilAttachment?.Dispose();
             if (PDepthStencilAttachment != null)
             {
-                var struct3 = PDepthStencilAttachment.ToInternal();
-                refpDepthStencilAttachment = new StructReference(struct3);
+                var struct0 = PDepthStencilAttachment.ToInternal();
+                refpDepthStencilAttachment = new StructReference(struct0);
                 _internal.pDepthStencilAttachment = refpDepthStencilAttachment.Handle;
             }
             _internal.preserveAttachmentCount = PreserveAttachmentCount;
             refpPreserveAttachments?.Dispose();
             if (PPreserveAttachments != null)
             {
-                refpPreserveAttachments = new StructReference(PPreserveAttachments);
+                var tmpArray3 = new uint[PreserveAttachmentCount];
+                for (int i = 0; i < PPreserveAttachments.Length; ++i)
+                {
+                    tmpArray3[i] = PPreserveAttachments[i];
+                }
+                refpPreserveAttachments = new GCHandleReference(tmpArray3);
                 _internal.pPreserveAttachments = refpPreserveAttachments.Handle;
             }
             return _internal;
@@ -4585,11 +4603,11 @@ namespace AdamantiumVulkan.Core
 
     public partial class RenderPassCreateInfo : DisposableObject
     {
-        private StructReference refpAttachments;
+        private GCHandleReference refpAttachments;
 
-        private StructReference refpSubpasses;
+        private GCHandleReference refpSubpasses;
 
-        private StructReference refpDependencies;
+        private GCHandleReference refpDependencies;
 
         public RenderPassCreateInfo()
         {
@@ -4600,13 +4618,16 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             AttachmentCount = _internal.attachmentCount;
-            PAttachments = new AttachmentDescription(Marshal.PtrToStructure<VkAttachmentDescription>(_internal.pAttachments));
+            PAttachments = new AttachmentDescription[_internal.attachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentDescription>(_internal.pAttachments, PAttachments);
             Marshal.FreeHGlobal(_internal.pAttachments);
             SubpassCount = _internal.subpassCount;
-            PSubpasses = new SubpassDescription(Marshal.PtrToStructure<VkSubpassDescription>(_internal.pSubpasses));
+            PSubpasses = new SubpassDescription[_internal.subpassCount];
+            MarshalUtils.IntPtrToManagedArray<SubpassDescription>(_internal.pSubpasses, PSubpasses);
             Marshal.FreeHGlobal(_internal.pSubpasses);
             DependencyCount = _internal.dependencyCount;
-            PDependencies = new SubpassDependency(Marshal.PtrToStructure<VkSubpassDependency>(_internal.pDependencies));
+            PDependencies = new SubpassDependency[_internal.dependencyCount];
+            MarshalUtils.IntPtrToManagedArray<SubpassDependency>(_internal.pDependencies, PDependencies);
             Marshal.FreeHGlobal(_internal.pDependencies);
         }
 
@@ -4614,11 +4635,11 @@ namespace AdamantiumVulkan.Core
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
         public uint AttachmentCount { get; set; }
-        public AttachmentDescription PAttachments { get; set; }
+        public AttachmentDescription[] PAttachments { get; set; }
         public uint SubpassCount { get; set; }
-        public SubpassDescription PSubpasses { get; set; }
+        public SubpassDescription[] PSubpasses { get; set; }
         public uint DependencyCount { get; set; }
-        public SubpassDependency PDependencies { get; set; }
+        public SubpassDependency[] PDependencies { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo ToInternal()
         {
@@ -4630,24 +4651,36 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
             if (PAttachments != null)
             {
-                var struct0 = PAttachments.ToInternal();
-                refpAttachments = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[AttachmentCount];
+                for (int i = 0; i < PAttachments.Length; ++i)
+                {
+                    tmpArray0[i] = PAttachments[i].ToInternal();
+                }
+                refpAttachments = new GCHandleReference(tmpArray0);
                 _internal.pAttachments = refpAttachments.Handle;
             }
             _internal.subpassCount = SubpassCount;
             refpSubpasses?.Dispose();
             if (PSubpasses != null)
             {
-                var struct1 = PSubpasses.ToInternal();
-                refpSubpasses = new StructReference(struct1);
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[SubpassCount];
+                for (int i = 0; i < PSubpasses.Length; ++i)
+                {
+                    tmpArray1[i] = PSubpasses[i].ToInternal();
+                }
+                refpSubpasses = new GCHandleReference(tmpArray1);
                 _internal.pSubpasses = refpSubpasses.Handle;
             }
             _internal.dependencyCount = DependencyCount;
             refpDependencies?.Dispose();
             if (PDependencies != null)
             {
-                var struct2 = PDependencies.ToInternal();
-                refpDependencies = new StructReference(struct2);
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[DependencyCount];
+                for (int i = 0; i < PDependencies.Length; ++i)
+                {
+                    tmpArray2[i] = PDependencies[i].ToInternal();
+                }
+                refpDependencies = new GCHandleReference(tmpArray2);
                 _internal.pDependencies = refpDependencies.Handle;
             }
             return _internal;
@@ -9049,15 +9082,15 @@ namespace AdamantiumVulkan.Core
 
     public partial class SubpassDescription2KHR : DisposableObject
     {
-        private StructReference refpInputAttachments;
+        private GCHandleReference refpInputAttachments;
 
-        private StructReference refpColorAttachments;
+        private GCHandleReference refpColorAttachments;
 
-        private StructReference refpResolveAttachments;
+        private GCHandleReference refpResolveAttachments;
 
         private StructReference refpDepthStencilAttachment;
 
-        private StructReference refpPreserveAttachments;
+        private GCHandleReference refpPreserveAttachments;
 
         public SubpassDescription2KHR()
         {
@@ -9070,21 +9103,22 @@ namespace AdamantiumVulkan.Core
             PipelineBindPoint = _internal.pipelineBindPoint;
             ViewMask = _internal.viewMask;
             InputAttachmentCount = _internal.inputAttachmentCount;
-            PInputAttachments = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pInputAttachments));
+            PInputAttachments = new AttachmentReference2KHR[_internal.inputAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentReference2KHR>(_internal.pInputAttachments, PInputAttachments);
             Marshal.FreeHGlobal(_internal.pInputAttachments);
             ColorAttachmentCount = _internal.colorAttachmentCount;
-            PColorAttachments = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pColorAttachments));
+            PColorAttachments = new AttachmentReference2KHR[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentReference2KHR>(_internal.pColorAttachments, PColorAttachments);
             Marshal.FreeHGlobal(_internal.pColorAttachments);
-            PResolveAttachments = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pResolveAttachments));
+            PResolveAttachments = new AttachmentReference2KHR[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<AttachmentReference2KHR>(_internal.pResolveAttachments, PResolveAttachments);
             Marshal.FreeHGlobal(_internal.pResolveAttachments);
             PDepthStencilAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pDepthStencilAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilAttachment);
             PreserveAttachmentCount = _internal.preserveAttachmentCount;
-            if(_internal.pPreserveAttachments != System.IntPtr.Zero)
-            {
-                PPreserveAttachments = (uint?)_internal.pPreserveAttachments;
-                Marshal.FreeHGlobal(_internal.pPreserveAttachments);
-            }
+            PPreserveAttachments = new uint[_internal.preserveAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pPreserveAttachments, PPreserveAttachments);
+            Marshal.FreeHGlobal(_internal.pPreserveAttachments);
         }
 
         public StructureType SType => StructureType.SubpassDescription2Khr;
@@ -9093,13 +9127,13 @@ namespace AdamantiumVulkan.Core
         public PipelineBindPoint PipelineBindPoint { get; set; }
         public uint ViewMask { get; set; }
         public uint InputAttachmentCount { get; set; }
-        public AttachmentReference2KHR PInputAttachments { get; set; }
+        public AttachmentReference2KHR[] PInputAttachments { get; set; }
         public uint ColorAttachmentCount { get; set; }
-        public AttachmentReference2KHR PColorAttachments { get; set; }
-        public AttachmentReference2KHR PResolveAttachments { get; set; }
+        public AttachmentReference2KHR[] PColorAttachments { get; set; }
+        public AttachmentReference2KHR[] PResolveAttachments { get; set; }
         public AttachmentReference2KHR PDepthStencilAttachment { get; set; }
         public uint PreserveAttachmentCount { get; set; }
-        public uint? PPreserveAttachments { get; set; }
+        public uint[] PPreserveAttachments { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR ToInternal()
         {
@@ -9113,37 +9147,54 @@ namespace AdamantiumVulkan.Core
             refpInputAttachments?.Dispose();
             if (PInputAttachments != null)
             {
-                var struct0 = PInputAttachments.ToInternal();
-                refpInputAttachments = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[InputAttachmentCount];
+                for (int i = 0; i < PInputAttachments.Length; ++i)
+                {
+                    tmpArray0[i] = PInputAttachments[i].ToInternal();
+                }
+                refpInputAttachments = new GCHandleReference(tmpArray0);
                 _internal.pInputAttachments = refpInputAttachments.Handle;
             }
             _internal.colorAttachmentCount = ColorAttachmentCount;
             refpColorAttachments?.Dispose();
             if (PColorAttachments != null)
             {
-                var struct1 = PColorAttachments.ToInternal();
-                refpColorAttachments = new StructReference(struct1);
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[ColorAttachmentCount];
+                for (int i = 0; i < PColorAttachments.Length; ++i)
+                {
+                    tmpArray1[i] = PColorAttachments[i].ToInternal();
+                }
+                refpColorAttachments = new GCHandleReference(tmpArray1);
                 _internal.pColorAttachments = refpColorAttachments.Handle;
             }
             refpResolveAttachments?.Dispose();
             if (PResolveAttachments != null)
             {
-                var struct2 = PResolveAttachments.ToInternal();
-                refpResolveAttachments = new StructReference(struct2);
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[ColorAttachmentCount];
+                for (int i = 0; i < PResolveAttachments.Length; ++i)
+                {
+                    tmpArray2[i] = PResolveAttachments[i].ToInternal();
+                }
+                refpResolveAttachments = new GCHandleReference(tmpArray2);
                 _internal.pResolveAttachments = refpResolveAttachments.Handle;
             }
             refpDepthStencilAttachment?.Dispose();
             if (PDepthStencilAttachment != null)
             {
-                var struct3 = PDepthStencilAttachment.ToInternal();
-                refpDepthStencilAttachment = new StructReference(struct3);
+                var struct0 = PDepthStencilAttachment.ToInternal();
+                refpDepthStencilAttachment = new StructReference(struct0);
                 _internal.pDepthStencilAttachment = refpDepthStencilAttachment.Handle;
             }
             _internal.preserveAttachmentCount = PreserveAttachmentCount;
             refpPreserveAttachments?.Dispose();
             if (PPreserveAttachments != null)
             {
-                refpPreserveAttachments = new StructReference(PPreserveAttachments);
+                var tmpArray3 = new uint[PreserveAttachmentCount];
+                for (int i = 0; i < PPreserveAttachments.Length; ++i)
+                {
+                    tmpArray3[i] = PPreserveAttachments[i];
+                }
+                refpPreserveAttachments = new GCHandleReference(tmpArray3);
                 _internal.pPreserveAttachments = refpPreserveAttachments.Handle;
             }
             return _internal;
