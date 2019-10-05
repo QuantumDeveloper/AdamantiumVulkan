@@ -1273,7 +1273,12 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             QueueCreateInfoCount = _internal.queueCreateInfoCount;
             PQueueCreateInfos = new DeviceQueueCreateInfo[_internal.queueCreateInfoCount];
-            MarshalUtils.IntPtrToManagedArray<DeviceQueueCreateInfo>(_internal.pQueueCreateInfos, PQueueCreateInfos);
+            var nativeTmpArray0 = new VkDeviceQueueCreateInfo[_internal.queueCreateInfoCount];
+            MarshalUtils.IntPtrToManagedArray<VkDeviceQueueCreateInfo>(_internal.pQueueCreateInfos, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PQueueCreateInfos[i] = new DeviceQueueCreateInfo(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pQueueCreateInfos);
             EnabledLayerCount = _internal.enabledLayerCount;
             EnabledExtensionCount = _internal.enabledExtensionCount;
@@ -1302,7 +1307,7 @@ namespace AdamantiumVulkan.Core
             refpQueueCreateInfos?.Dispose();
             if (PQueueCreateInfos != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo[QueueCreateInfoCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo[PQueueCreateInfos.Length];
                 for (int i = 0; i < PQueueCreateInfos.Length; ++i)
                 {
                     tmpArray0[i] = PQueueCreateInfos[i].ToInternal();
@@ -1489,15 +1494,30 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             WaitSemaphoreCount = _internal.waitSemaphoreCount;
             PWaitSemaphores = new Semaphore[_internal.waitSemaphoreCount];
-            MarshalUtils.IntPtrToManagedArray<Semaphore>(_internal.pWaitSemaphores, PWaitSemaphores);
+            var nativeTmpArray0 = new VkSemaphore_T[_internal.waitSemaphoreCount];
+            MarshalUtils.IntPtrToManagedArray<VkSemaphore_T>(_internal.pWaitSemaphores, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PWaitSemaphores[i] = new Semaphore(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pWaitSemaphores);
             CommandBufferCount = _internal.commandBufferCount;
             PCommandBuffers = new CommandBuffer[_internal.commandBufferCount];
-            MarshalUtils.IntPtrToManagedArray<CommandBuffer>(_internal.pCommandBuffers, PCommandBuffers);
+            var nativeTmpArray2 = new VkCommandBuffer_T[_internal.commandBufferCount];
+            MarshalUtils.IntPtrToManagedArray<VkCommandBuffer_T>(_internal.pCommandBuffers, nativeTmpArray2);
+            for (int i = 0; i < nativeTmpArray2.Length; ++i)
+            {
+                PCommandBuffers[i] = new CommandBuffer(nativeTmpArray2[i]);
+            }
             Marshal.FreeHGlobal(_internal.pCommandBuffers);
             SignalSemaphoreCount = _internal.signalSemaphoreCount;
             PSignalSemaphores = new Semaphore[_internal.signalSemaphoreCount];
-            MarshalUtils.IntPtrToManagedArray<Semaphore>(_internal.pSignalSemaphores, PSignalSemaphores);
+            var nativeTmpArray3 = new VkSemaphore_T[_internal.signalSemaphoreCount];
+            MarshalUtils.IntPtrToManagedArray<VkSemaphore_T>(_internal.pSignalSemaphores, nativeTmpArray3);
+            for (int i = 0; i < nativeTmpArray3.Length; ++i)
+            {
+                PSignalSemaphores[i] = new Semaphore(nativeTmpArray3[i]);
+            }
             Marshal.FreeHGlobal(_internal.pSignalSemaphores);
         }
 
@@ -1520,7 +1540,7 @@ namespace AdamantiumVulkan.Core
             refpWaitSemaphores?.Dispose();
             if (PWaitSemaphores != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[WaitSemaphoreCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PWaitSemaphores.Length];
                 for (int i = 0; i < PWaitSemaphores.Length; ++i)
                 {
                     tmpArray0[i] = PWaitSemaphores[i];
@@ -1543,7 +1563,7 @@ namespace AdamantiumVulkan.Core
             refpCommandBuffers?.Dispose();
             if (PCommandBuffers != null)
             {
-                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[CommandBufferCount];
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[PCommandBuffers.Length];
                 for (int i = 0; i < PCommandBuffers.Length; ++i)
                 {
                     tmpArray2[i] = PCommandBuffers[i];
@@ -1555,7 +1575,7 @@ namespace AdamantiumVulkan.Core
             refpSignalSemaphores?.Dispose();
             if (PSignalSemaphores != null)
             {
-                var tmpArray3 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[SignalSemaphoreCount];
+                var tmpArray3 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PSignalSemaphores.Length];
                 for (int i = 0; i < PSignalSemaphores.Length; ++i)
                 {
                     tmpArray3[i] = PSignalSemaphores[i];
@@ -2564,7 +2584,7 @@ namespace AdamantiumVulkan.Core
             refpCode?.Dispose();
             if (PCode != null)
             {
-                var tmpArray0 = new byte[CodeSize];
+                var tmpArray0 = new byte[PCode.Length];
                 for (int i = 0; i < PCode.Length; ++i)
                 {
                     tmpArray0[i] = PCode[i];
@@ -2820,11 +2840,21 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             VertexBindingDescriptionCount = _internal.vertexBindingDescriptionCount;
             PVertexBindingDescriptions = new VertexInputBindingDescription[_internal.vertexBindingDescriptionCount];
-            MarshalUtils.IntPtrToManagedArray<VertexInputBindingDescription>(_internal.pVertexBindingDescriptions, PVertexBindingDescriptions);
+            var nativeTmpArray0 = new VkVertexInputBindingDescription[_internal.vertexBindingDescriptionCount];
+            MarshalUtils.IntPtrToManagedArray<VkVertexInputBindingDescription>(_internal.pVertexBindingDescriptions, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PVertexBindingDescriptions[i] = new VertexInputBindingDescription(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pVertexBindingDescriptions);
             VertexAttributeDescriptionCount = _internal.vertexAttributeDescriptionCount;
             PVertexAttributeDescriptions = new VertexInputAttributeDescription[_internal.vertexAttributeDescriptionCount];
-            MarshalUtils.IntPtrToManagedArray<VertexInputAttributeDescription>(_internal.pVertexAttributeDescriptions, PVertexAttributeDescriptions);
+            var nativeTmpArray1 = new VkVertexInputAttributeDescription[_internal.vertexAttributeDescriptionCount];
+            MarshalUtils.IntPtrToManagedArray<VkVertexInputAttributeDescription>(_internal.pVertexAttributeDescriptions, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PVertexAttributeDescriptions[i] = new VertexInputAttributeDescription(nativeTmpArray1[i]);
+            }
             Marshal.FreeHGlobal(_internal.pVertexAttributeDescriptions);
         }
 
@@ -2846,7 +2876,7 @@ namespace AdamantiumVulkan.Core
             refpVertexBindingDescriptions?.Dispose();
             if (PVertexBindingDescriptions != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription[VertexBindingDescriptionCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription[PVertexBindingDescriptions.Length];
                 for (int i = 0; i < PVertexBindingDescriptions.Length; ++i)
                 {
                     tmpArray0[i] = PVertexBindingDescriptions[i].ToInternal();
@@ -2858,7 +2888,7 @@ namespace AdamantiumVulkan.Core
             refpVertexAttributeDescriptions?.Dispose();
             if (PVertexAttributeDescriptions != null)
             {
-                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription[VertexAttributeDescriptionCount];
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription[PVertexAttributeDescriptions.Length];
                 for (int i = 0; i < PVertexAttributeDescriptions.Length; ++i)
                 {
                     tmpArray1[i] = PVertexAttributeDescriptions[i].ToInternal();
@@ -3491,7 +3521,7 @@ namespace AdamantiumVulkan.Core
             refpDynamicStates?.Dispose();
             if (PDynamicStates != null)
             {
-                var tmpArray0 = new DynamicState[DynamicStateCount];
+                var tmpArray0 = new DynamicState[PDynamicStates.Length];
                 for (int i = 0; i < PDynamicStates.Length; ++i)
                 {
                     tmpArray0[i] = PDynamicStates[i];
@@ -3541,7 +3571,12 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             StageCount = _internal.stageCount;
             PStages = new PipelineShaderStageCreateInfo[_internal.stageCount];
-            MarshalUtils.IntPtrToManagedArray<PipelineShaderStageCreateInfo>(_internal.pStages, PStages);
+            var nativeTmpArray0 = new VkPipelineShaderStageCreateInfo[_internal.stageCount];
+            MarshalUtils.IntPtrToManagedArray<VkPipelineShaderStageCreateInfo>(_internal.pStages, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PStages[i] = new PipelineShaderStageCreateInfo(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pStages);
             PVertexInputState = new PipelineVertexInputStateCreateInfo(Marshal.PtrToStructure<VkPipelineVertexInputStateCreateInfo>(_internal.pVertexInputState));
             Marshal.FreeHGlobal(_internal.pVertexInputState);
@@ -3598,7 +3633,7 @@ namespace AdamantiumVulkan.Core
             refpStages?.Dispose();
             if (PStages != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo[StageCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo[PStages.Length];
                 for (int i = 0; i < PStages.Length; ++i)
                 {
                     tmpArray0[i] = PStages[i].ToInternal();
@@ -3777,7 +3812,12 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             SetLayoutCount = _internal.setLayoutCount;
             PSetLayouts = new DescriptorSetLayout[_internal.setLayoutCount];
-            MarshalUtils.IntPtrToManagedArray<DescriptorSetLayout>(_internal.pSetLayouts, PSetLayouts);
+            var nativeTmpArray0 = new VkDescriptorSetLayout_T[_internal.setLayoutCount];
+            MarshalUtils.IntPtrToManagedArray<VkDescriptorSetLayout_T>(_internal.pSetLayouts, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PSetLayouts[i] = new DescriptorSetLayout(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pSetLayouts);
             PushConstantRangeCount = _internal.pushConstantRangeCount;
             PPushConstantRanges = new PushConstantRange(Marshal.PtrToStructure<VkPushConstantRange>(_internal.pPushConstantRanges));
@@ -3802,7 +3842,7 @@ namespace AdamantiumVulkan.Core
             refpSetLayouts?.Dispose();
             if (PSetLayouts != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[SetLayoutCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
                 for (int i = 0; i < PSetLayouts.Length; ++i)
                 {
                     tmpArray0[i] = PSetLayouts[i];
@@ -3962,7 +4002,12 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             BindingCount = _internal.bindingCount;
             PBindings = new DescriptorSetLayoutBinding[_internal.bindingCount];
-            MarshalUtils.IntPtrToManagedArray<DescriptorSetLayoutBinding>(_internal.pBindings, PBindings);
+            var nativeTmpArray0 = new VkDescriptorSetLayoutBinding[_internal.bindingCount];
+            MarshalUtils.IntPtrToManagedArray<VkDescriptorSetLayoutBinding>(_internal.pBindings, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PBindings[i] = new DescriptorSetLayoutBinding(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pBindings);
         }
 
@@ -3982,7 +4027,7 @@ namespace AdamantiumVulkan.Core
             refpBindings?.Dispose();
             if (PBindings != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[BindingCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[PBindings.Length];
                 for (int i = 0; i < PBindings.Length; ++i)
                 {
                     tmpArray0[i] = PBindings[i].ToInternal();
@@ -4088,7 +4133,12 @@ namespace AdamantiumVulkan.Core
             DescriptorPool = new DescriptorPool(_internal.descriptorPool);
             DescriptorSetCount = _internal.descriptorSetCount;
             PSetLayouts = new DescriptorSetLayout[_internal.descriptorSetCount];
-            MarshalUtils.IntPtrToManagedArray<DescriptorSetLayout>(_internal.pSetLayouts, PSetLayouts);
+            var nativeTmpArray0 = new VkDescriptorSetLayout_T[_internal.descriptorSetCount];
+            MarshalUtils.IntPtrToManagedArray<VkDescriptorSetLayout_T>(_internal.pSetLayouts, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PSetLayouts[i] = new DescriptorSetLayout(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pSetLayouts);
         }
 
@@ -4108,7 +4158,7 @@ namespace AdamantiumVulkan.Core
             refpSetLayouts?.Dispose();
             if (PSetLayouts != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[DescriptorSetCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
                 for (int i = 0; i < PSetLayouts.Length; ++i)
                 {
                     tmpArray0[i] = PSetLayouts[i];
@@ -4321,7 +4371,12 @@ namespace AdamantiumVulkan.Core
             RenderPass = new RenderPass(_internal.renderPass);
             AttachmentCount = _internal.attachmentCount;
             PAttachments = new ImageView[_internal.attachmentCount];
-            MarshalUtils.IntPtrToManagedArray<ImageView>(_internal.pAttachments, PAttachments);
+            var nativeTmpArray0 = new VkImageView_T[_internal.attachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkImageView_T>(_internal.pAttachments, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PAttachments[i] = new ImageView(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pAttachments);
             Width = _internal.width;
             Height = _internal.height;
@@ -4349,7 +4404,7 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
             if (PAttachments != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[AttachmentCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[PAttachments.Length];
                 for (int i = 0; i < PAttachments.Length; ++i)
                 {
                     tmpArray0[i] = PAttachments[i];
@@ -4461,14 +4516,29 @@ namespace AdamantiumVulkan.Core
             PipelineBindPoint = _internal.pipelineBindPoint;
             InputAttachmentCount = _internal.inputAttachmentCount;
             PInputAttachments = new AttachmentReference[_internal.inputAttachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentReference>(_internal.pInputAttachments, PInputAttachments);
+            var nativeTmpArray0 = new VkAttachmentReference[_internal.inputAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentReference>(_internal.pInputAttachments, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PInputAttachments[i] = new AttachmentReference(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pInputAttachments);
             ColorAttachmentCount = _internal.colorAttachmentCount;
             PColorAttachments = new AttachmentReference[_internal.colorAttachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentReference>(_internal.pColorAttachments, PColorAttachments);
+            var nativeTmpArray1 = new VkAttachmentReference[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentReference>(_internal.pColorAttachments, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PColorAttachments[i] = new AttachmentReference(nativeTmpArray1[i]);
+            }
             Marshal.FreeHGlobal(_internal.pColorAttachments);
             PResolveAttachments = new AttachmentReference[_internal.colorAttachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentReference>(_internal.pResolveAttachments, PResolveAttachments);
+            var nativeTmpArray2 = new VkAttachmentReference[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentReference>(_internal.pResolveAttachments, nativeTmpArray2);
+            for (int i = 0; i < nativeTmpArray2.Length; ++i)
+            {
+                PResolveAttachments[i] = new AttachmentReference(nativeTmpArray2[i]);
+            }
             Marshal.FreeHGlobal(_internal.pResolveAttachments);
             PDepthStencilAttachment = new AttachmentReference(Marshal.PtrToStructure<VkAttachmentReference>(_internal.pDepthStencilAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilAttachment);
@@ -4498,7 +4568,7 @@ namespace AdamantiumVulkan.Core
             refpInputAttachments?.Dispose();
             if (PInputAttachments != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[InputAttachmentCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[PInputAttachments.Length];
                 for (int i = 0; i < PInputAttachments.Length; ++i)
                 {
                     tmpArray0[i] = PInputAttachments[i].ToInternal();
@@ -4510,7 +4580,7 @@ namespace AdamantiumVulkan.Core
             refpColorAttachments?.Dispose();
             if (PColorAttachments != null)
             {
-                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[ColorAttachmentCount];
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[PColorAttachments.Length];
                 for (int i = 0; i < PColorAttachments.Length; ++i)
                 {
                     tmpArray1[i] = PColorAttachments[i].ToInternal();
@@ -4521,7 +4591,7 @@ namespace AdamantiumVulkan.Core
             refpResolveAttachments?.Dispose();
             if (PResolveAttachments != null)
             {
-                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[ColorAttachmentCount];
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[PResolveAttachments.Length];
                 for (int i = 0; i < PResolveAttachments.Length; ++i)
                 {
                     tmpArray2[i] = PResolveAttachments[i].ToInternal();
@@ -4540,7 +4610,7 @@ namespace AdamantiumVulkan.Core
             refpPreserveAttachments?.Dispose();
             if (PPreserveAttachments != null)
             {
-                var tmpArray3 = new uint[PreserveAttachmentCount];
+                var tmpArray3 = new uint[PPreserveAttachments.Length];
                 for (int i = 0; i < PPreserveAttachments.Length; ++i)
                 {
                     tmpArray3[i] = PPreserveAttachments[i];
@@ -4619,15 +4689,30 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             AttachmentCount = _internal.attachmentCount;
             PAttachments = new AttachmentDescription[_internal.attachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentDescription>(_internal.pAttachments, PAttachments);
+            var nativeTmpArray0 = new VkAttachmentDescription[_internal.attachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentDescription>(_internal.pAttachments, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PAttachments[i] = new AttachmentDescription(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pAttachments);
             SubpassCount = _internal.subpassCount;
             PSubpasses = new SubpassDescription[_internal.subpassCount];
-            MarshalUtils.IntPtrToManagedArray<SubpassDescription>(_internal.pSubpasses, PSubpasses);
+            var nativeTmpArray1 = new VkSubpassDescription[_internal.subpassCount];
+            MarshalUtils.IntPtrToManagedArray<VkSubpassDescription>(_internal.pSubpasses, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PSubpasses[i] = new SubpassDescription(nativeTmpArray1[i]);
+            }
             Marshal.FreeHGlobal(_internal.pSubpasses);
             DependencyCount = _internal.dependencyCount;
             PDependencies = new SubpassDependency[_internal.dependencyCount];
-            MarshalUtils.IntPtrToManagedArray<SubpassDependency>(_internal.pDependencies, PDependencies);
+            var nativeTmpArray2 = new VkSubpassDependency[_internal.dependencyCount];
+            MarshalUtils.IntPtrToManagedArray<VkSubpassDependency>(_internal.pDependencies, nativeTmpArray2);
+            for (int i = 0; i < nativeTmpArray2.Length; ++i)
+            {
+                PDependencies[i] = new SubpassDependency(nativeTmpArray2[i]);
+            }
             Marshal.FreeHGlobal(_internal.pDependencies);
         }
 
@@ -4651,7 +4736,7 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
             if (PAttachments != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[AttachmentCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[PAttachments.Length];
                 for (int i = 0; i < PAttachments.Length; ++i)
                 {
                     tmpArray0[i] = PAttachments[i].ToInternal();
@@ -4663,7 +4748,7 @@ namespace AdamantiumVulkan.Core
             refpSubpasses?.Dispose();
             if (PSubpasses != null)
             {
-                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[SubpassCount];
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[PSubpasses.Length];
                 for (int i = 0; i < PSubpasses.Length; ++i)
                 {
                     tmpArray1[i] = PSubpasses[i].ToInternal();
@@ -4675,7 +4760,7 @@ namespace AdamantiumVulkan.Core
             refpDependencies?.Dispose();
             if (PDependencies != null)
             {
-                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[DependencyCount];
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[PDependencies.Length];
                 for (int i = 0; i < PDependencies.Length; ++i)
                 {
                     tmpArray2[i] = PDependencies[i].ToInternal();
@@ -5326,7 +5411,12 @@ namespace AdamantiumVulkan.Core
             RenderArea = new Rect2D(_internal.renderArea);
             ClearValueCount = _internal.clearValueCount;
             PClearValues = new ClearValue[_internal.clearValueCount];
-            MarshalUtils.IntPtrToManagedArray<ClearValue>(_internal.pClearValues, PClearValues);
+            var nativeTmpArray0 = new VkClearValue[_internal.clearValueCount];
+            MarshalUtils.IntPtrToManagedArray<VkClearValue>(_internal.pClearValues, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PClearValues[i] = new ClearValue(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pClearValues);
         }
 
@@ -5353,7 +5443,7 @@ namespace AdamantiumVulkan.Core
             refpClearValues?.Dispose();
             if (PClearValues != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkClearValue[ClearValueCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkClearValue[PClearValues.Length];
                 for (int i = 0; i < PClearValues.Length; ++i)
                 {
                     tmpArray0[i] = PClearValues[i].ToInternal();
@@ -7998,7 +8088,7 @@ namespace AdamantiumVulkan.Core
             refpQueueFamilyIndices?.Dispose();
             if (PQueueFamilyIndices != null)
             {
-                var tmpArray0 = new uint[QueueFamilyIndexCount];
+                var tmpArray0 = new uint[PQueueFamilyIndices.Length];
                 for (int i = 0; i < PQueueFamilyIndices.Length; ++i)
                 {
                     tmpArray0[i] = PQueueFamilyIndices[i];
@@ -8040,11 +8130,21 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             WaitSemaphoreCount = _internal.waitSemaphoreCount;
             PWaitSemaphores = new Semaphore[_internal.waitSemaphoreCount];
-            MarshalUtils.IntPtrToManagedArray<Semaphore>(_internal.pWaitSemaphores, PWaitSemaphores);
+            var nativeTmpArray0 = new VkSemaphore_T[_internal.waitSemaphoreCount];
+            MarshalUtils.IntPtrToManagedArray<VkSemaphore_T>(_internal.pWaitSemaphores, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PWaitSemaphores[i] = new Semaphore(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pWaitSemaphores);
             SwapchainCount = _internal.swapchainCount;
             PSwapchains = new SwapchainKHR[_internal.swapchainCount];
-            MarshalUtils.IntPtrToManagedArray<SwapchainKHR>(_internal.pSwapchains, PSwapchains);
+            var nativeTmpArray1 = new VkSwapchainKHR_T[_internal.swapchainCount];
+            MarshalUtils.IntPtrToManagedArray<VkSwapchainKHR_T>(_internal.pSwapchains, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PSwapchains[i] = new SwapchainKHR(nativeTmpArray1[i]);
+            }
             Marshal.FreeHGlobal(_internal.pSwapchains);
             PImageIndices = new uint[_internal.swapchainCount];
             MarshalUtils.IntPtrToManagedArray<uint>(_internal.pImageIndices, PImageIndices);
@@ -8077,7 +8177,7 @@ namespace AdamantiumVulkan.Core
             refpWaitSemaphores?.Dispose();
             if (PWaitSemaphores != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[WaitSemaphoreCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PWaitSemaphores.Length];
                 for (int i = 0; i < PWaitSemaphores.Length; ++i)
                 {
                     tmpArray0[i] = PWaitSemaphores[i];
@@ -8089,7 +8189,7 @@ namespace AdamantiumVulkan.Core
             refpSwapchains?.Dispose();
             if (PSwapchains != null)
             {
-                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T[SwapchainCount];
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T[PSwapchains.Length];
                 for (int i = 0; i < PSwapchains.Length; ++i)
                 {
                     tmpArray1[i] = PSwapchains[i];
@@ -8100,7 +8200,7 @@ namespace AdamantiumVulkan.Core
             refpImageIndices?.Dispose();
             if (PImageIndices != null)
             {
-                var tmpArray2 = new uint[SwapchainCount];
+                var tmpArray2 = new uint[PImageIndices.Length];
                 for (int i = 0; i < PImageIndices.Length; ++i)
                 {
                     tmpArray2[i] = PImageIndices[i];
@@ -8111,7 +8211,7 @@ namespace AdamantiumVulkan.Core
             refpResults?.Dispose();
             if (PResults != null)
             {
-                var tmpArray3 = new Result[SwapchainCount];
+                var tmpArray3 = new Result[PResults.Length];
                 for (int i = 0; i < PResults.Length; ++i)
                 {
                     tmpArray3[i] = PResults[i];
@@ -9104,14 +9204,29 @@ namespace AdamantiumVulkan.Core
             ViewMask = _internal.viewMask;
             InputAttachmentCount = _internal.inputAttachmentCount;
             PInputAttachments = new AttachmentReference2KHR[_internal.inputAttachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentReference2KHR>(_internal.pInputAttachments, PInputAttachments);
+            var nativeTmpArray0 = new VkAttachmentReference2KHR[_internal.inputAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentReference2KHR>(_internal.pInputAttachments, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PInputAttachments[i] = new AttachmentReference2KHR(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pInputAttachments);
             ColorAttachmentCount = _internal.colorAttachmentCount;
             PColorAttachments = new AttachmentReference2KHR[_internal.colorAttachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentReference2KHR>(_internal.pColorAttachments, PColorAttachments);
+            var nativeTmpArray1 = new VkAttachmentReference2KHR[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentReference2KHR>(_internal.pColorAttachments, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PColorAttachments[i] = new AttachmentReference2KHR(nativeTmpArray1[i]);
+            }
             Marshal.FreeHGlobal(_internal.pColorAttachments);
             PResolveAttachments = new AttachmentReference2KHR[_internal.colorAttachmentCount];
-            MarshalUtils.IntPtrToManagedArray<AttachmentReference2KHR>(_internal.pResolveAttachments, PResolveAttachments);
+            var nativeTmpArray2 = new VkAttachmentReference2KHR[_internal.colorAttachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkAttachmentReference2KHR>(_internal.pResolveAttachments, nativeTmpArray2);
+            for (int i = 0; i < nativeTmpArray2.Length; ++i)
+            {
+                PResolveAttachments[i] = new AttachmentReference2KHR(nativeTmpArray2[i]);
+            }
             Marshal.FreeHGlobal(_internal.pResolveAttachments);
             PDepthStencilAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pDepthStencilAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilAttachment);
@@ -9147,7 +9262,7 @@ namespace AdamantiumVulkan.Core
             refpInputAttachments?.Dispose();
             if (PInputAttachments != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[InputAttachmentCount];
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[PInputAttachments.Length];
                 for (int i = 0; i < PInputAttachments.Length; ++i)
                 {
                     tmpArray0[i] = PInputAttachments[i].ToInternal();
@@ -9159,7 +9274,7 @@ namespace AdamantiumVulkan.Core
             refpColorAttachments?.Dispose();
             if (PColorAttachments != null)
             {
-                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[ColorAttachmentCount];
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[PColorAttachments.Length];
                 for (int i = 0; i < PColorAttachments.Length; ++i)
                 {
                     tmpArray1[i] = PColorAttachments[i].ToInternal();
@@ -9170,7 +9285,7 @@ namespace AdamantiumVulkan.Core
             refpResolveAttachments?.Dispose();
             if (PResolveAttachments != null)
             {
-                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[ColorAttachmentCount];
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR[PResolveAttachments.Length];
                 for (int i = 0; i < PResolveAttachments.Length; ++i)
                 {
                     tmpArray2[i] = PResolveAttachments[i].ToInternal();
@@ -9189,7 +9304,7 @@ namespace AdamantiumVulkan.Core
             refpPreserveAttachments?.Dispose();
             if (PPreserveAttachments != null)
             {
-                var tmpArray3 = new uint[PreserveAttachmentCount];
+                var tmpArray3 = new uint[PPreserveAttachments.Length];
                 for (int i = 0; i < PPreserveAttachments.Length; ++i)
                 {
                     tmpArray3[i] = PPreserveAttachments[i];
@@ -9759,7 +9874,7 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
             if (PViewFormats != null)
             {
-                var tmpArray0 = new Format[ViewFormatCount];
+                var tmpArray0 = new Format[PViewFormats.Length];
                 for (int i = 0; i < PViewFormats.Length; ++i)
                 {
                     tmpArray0[i] = PViewFormats[i];
@@ -10813,7 +10928,7 @@ namespace AdamantiumVulkan.Core
             refpDisabledValidationChecks?.Dispose();
             if (PDisabledValidationChecks != null)
             {
-                var tmpArray0 = new ValidationCheckEXT[DisabledValidationCheckCount];
+                var tmpArray0 = new ValidationCheckEXT[PDisabledValidationChecks.Length];
                 for (int i = 0; i < PDisabledValidationChecks.Length; ++i)
                 {
                     tmpArray0[i] = PDisabledValidationChecks[i];
@@ -11299,7 +11414,7 @@ namespace AdamantiumVulkan.Core
             refpObjectEntryTypes?.Dispose();
             if (PObjectEntryTypes != null)
             {
-                var tmpArray0 = new ObjectEntryTypeNVX[ObjectCount];
+                var tmpArray0 = new ObjectEntryTypeNVX[PObjectEntryTypes.Length];
                 for (int i = 0; i < PObjectEntryTypes.Length; ++i)
                 {
                     tmpArray0[i] = PObjectEntryTypes[i];
@@ -11310,7 +11425,7 @@ namespace AdamantiumVulkan.Core
             refpObjectEntryCounts?.Dispose();
             if (PObjectEntryCounts != null)
             {
-                var tmpArray1 = new uint[ObjectCount];
+                var tmpArray1 = new uint[PObjectEntryCounts.Length];
                 for (int i = 0; i < PObjectEntryCounts.Length; ++i)
                 {
                     tmpArray1[i] = PObjectEntryCounts[i];
@@ -11321,7 +11436,7 @@ namespace AdamantiumVulkan.Core
             refpObjectEntryUsageFlags?.Dispose();
             if (PObjectEntryUsageFlags != null)
             {
-                var tmpArray2 = new uint[ObjectCount];
+                var tmpArray2 = new uint[PObjectEntryUsageFlags.Length];
                 for (int i = 0; i < PObjectEntryUsageFlags.Length; ++i)
                 {
                     tmpArray2[i] = PObjectEntryUsageFlags[i];
@@ -13871,7 +13986,7 @@ namespace AdamantiumVulkan.Core
             refpShadingRatePaletteEntries?.Dispose();
             if (PShadingRatePaletteEntries != null)
             {
-                var tmpArray0 = new ShadingRatePaletteEntryNV[ShadingRatePaletteEntryCount];
+                var tmpArray0 = new ShadingRatePaletteEntryNV[PShadingRatePaletteEntries.Length];
                 for (int i = 0; i < PShadingRatePaletteEntries.Length; ++i)
                 {
                     tmpArray0[i] = PShadingRatePaletteEntries[i];
@@ -15945,7 +16060,7 @@ namespace AdamantiumVulkan.Core
             refpEnabledValidationFeatures?.Dispose();
             if (PEnabledValidationFeatures != null)
             {
-                var tmpArray0 = new ValidationFeatureEnableEXT[EnabledValidationFeatureCount];
+                var tmpArray0 = new ValidationFeatureEnableEXT[PEnabledValidationFeatures.Length];
                 for (int i = 0; i < PEnabledValidationFeatures.Length; ++i)
                 {
                     tmpArray0[i] = PEnabledValidationFeatures[i];
@@ -15957,7 +16072,7 @@ namespace AdamantiumVulkan.Core
             refpDisabledValidationFeatures?.Dispose();
             if (PDisabledValidationFeatures != null)
             {
-                var tmpArray1 = new ValidationFeatureDisableEXT[DisabledValidationFeatureCount];
+                var tmpArray1 = new ValidationFeatureDisableEXT[PDisabledValidationFeatures.Length];
                 for (int i = 0; i < PDisabledValidationFeatures.Length; ++i)
                 {
                     tmpArray1[i] = PDisabledValidationFeatures[i];
