@@ -381,7 +381,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroyFramebuffer(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -389,7 +392,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroyImage(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -397,7 +403,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroyImageView(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -405,7 +414,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroyPipeline(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -413,7 +425,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroySwapchainKHR(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -421,7 +436,10 @@ namespace AdamantiumVulkan.Core
     {
         public void FreeMemory(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.FreeMemory(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -429,7 +447,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroyBuffer(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 
@@ -437,7 +458,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
+            if (NativePointer == IntPtr.Zero) return;
+
             device.DestroyBufferView(this);
+            __Instance.pointer = IntPtr.Zero;
         }
     }
 }
