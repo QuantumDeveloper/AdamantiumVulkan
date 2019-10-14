@@ -17,7 +17,6 @@ namespace AdamantiumVulkan.MacOS.Interop
     {
         public const string LibraryPath = "vulkan-1";
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_macos.h Line: 47 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateMacOSSurfaceMVK", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateMacOSSurfaceMVK([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 

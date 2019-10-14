@@ -762,5 +762,86 @@ namespace AdamantiumVulkan.Windows
 
     }
 
+    public partial class SurfaceFullScreenExclusiveInfoEXT : DisposableObject
+    {
+        public SurfaceFullScreenExclusiveInfoEXT()
+        {
+        }
+
+        public SurfaceFullScreenExclusiveInfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT _internal)
+        {
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            FullScreenExclusive = _internal.fullScreenExclusive;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public FullScreenExclusiveEXT FullScreenExclusive { get; set; }
+
+        public AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.fullScreenExclusive = FullScreenExclusive;
+            return _internal;
+        }
+    }
+
+    public partial class SurfaceCapabilitiesFullScreenExclusiveEXT : DisposableObject
+    {
+        public SurfaceCapabilitiesFullScreenExclusiveEXT()
+        {
+        }
+
+        public SurfaceCapabilitiesFullScreenExclusiveEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT _internal)
+        {
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            FullScreenExclusiveSupported = _internal.fullScreenExclusiveSupported;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool FullScreenExclusiveSupported { get; set; }
+
+        public AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.fullScreenExclusiveSupported = FullScreenExclusiveSupported;
+            return _internal;
+        }
+    }
+
+    public partial class SurfaceFullScreenExclusiveWin32InfoEXT : DisposableObject
+    {
+        public SurfaceFullScreenExclusiveWin32InfoEXT()
+        {
+        }
+
+        public SurfaceFullScreenExclusiveWin32InfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT _internal)
+        {
+            SType = _internal.sType;
+            PNext = _internal.pNext;
+            Hmonitor = _internal.hmonitor;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public System.IntPtr Hmonitor { get; set; }
+
+        public AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.hmonitor = Hmonitor;
+            return _internal;
+        }
+    }
+
 
 }

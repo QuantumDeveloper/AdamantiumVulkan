@@ -188,8 +188,8 @@ namespace AdamantiumVulkan.Shaders.Interop
         ///<summary>
         /// Sets the target shader environment, affecting which warnings or errors will be issued. The version will be for distinguishing between different versions of the target environment. The version value should be either 0 or a value listed in shaderc_env_version. The 0 value maps to Vulkan 1.0 if |target| is Vulkan, and it maps to OpenGL 4.5 if |target| is OpenGL.
         ///</summary>
-        [DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_target_env", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void shaderc_compile_options_set_target_env([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] ShadercTargetEnv target, [In] uint version);
+        //[DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_target_env", CallingConvention = CallingConvention.Winapi)]
+        //internal static extern void shaderc_compile_options_set_target_env([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] ShadercTargetEnv target, [In] uint version);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 392 Column: 21
         ///<summary>
@@ -238,8 +238,8 @@ namespace AdamantiumVulkan.Shaders.Interop
         ///<summary>
         /// Returns the compilation status, indicating whether the compilation succeeded, or failed due to some reasons, like invalid shader stage or compilation errors.
         ///</summary>
-        [DllImport(LibraryPath, EntryPoint = "shaderc_result_get_compilation_status", CallingConvention = CallingConvention.Winapi)]
-        internal static extern ShadercCompilationStatus shaderc_result_get_compilation_status([In] AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult param0);
+        //[DllImport(LibraryPath, EntryPoint = "shaderc_result_get_compilation_status", CallingConvention = CallingConvention.Winapi)]
+        //internal static extern ShadercCompilationStatus shaderc_result_get_compilation_status([In] AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult param0);
 
         // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 546 Column: 28
         ///<summary>

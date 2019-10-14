@@ -10,7 +10,6 @@ namespace AdamantiumVulkan.Core
     using System;
     using System.Runtime.InteropServices;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 112 Column: 14
     [Flags]
     public enum PipelineCacheHeaderVersion : int
     {
@@ -22,7 +21,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 120 Column: 14
     public enum Result : int
     {
         Success = 0,
@@ -87,6 +85,8 @@ namespace AdamantiumVulkan.Core
 
         ErrorInvalidDeviceAddressExt = -1000244000,
 
+        ErrorFullScreenExclusiveModeLostExt = -1000255000,
+
         ErrorOutOfPoolMemoryKhr = -1000069000,
 
         ErrorInvalidExternalHandleKhr = -1000072003,
@@ -101,7 +101,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 160 Column: 14
     public enum StructureType : int
     {
         ApplicationInfo = 0,
@@ -274,7 +273,7 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceMultiviewProperties = 1000053002,
 
-        PhysicalDeviceVariablePointerFeatures = 1000120000,
+        PhysicalDeviceVariablePointersFeatures = 1000120000,
 
         ProtectedSubmitInfo = 1000145000,
 
@@ -330,7 +329,7 @@ namespace AdamantiumVulkan.Core
 
         DescriptorSetLayoutSupport = 1000168001,
 
-        PhysicalDeviceShaderDrawParameterFeatures = 1000063000,
+        PhysicalDeviceShaderDrawParametersFeatures = 1000063000,
 
         SwapchainCreateInfoKhr = 1000001000,
 
@@ -386,7 +385,11 @@ namespace AdamantiumVulkan.Core
 
         PipelineRasterizationStateStreamCreateInfoExt = 1000028002,
 
+        ImageViewHandleInfoNvx = 1000030000,
+
         TextureLodGatherFormatPropertiesAmd = 1000041000,
+
+        StreamDescriptorSurfaceCreateInfoGgp = 1000049000,
 
         PhysicalDeviceCornerSampledImageFeaturesNv = 1000050000,
 
@@ -403,6 +406,8 @@ namespace AdamantiumVulkan.Core
         ValidationFlagsExt = 1000061000,
 
         ViSurfaceCreateInfoNn = 1000062000,
+
+        PhysicalDeviceTextureCompressionAstcHdrFeaturesExt = 1000066000,
 
         ImageViewAstcDecodeModeExt = 1000067000,
 
@@ -444,7 +449,7 @@ namespace AdamantiumVulkan.Core
 
         ConditionalRenderingBeginInfoExt = 1000081002,
 
-        PhysicalDeviceFloat16Int8FeaturesKhr = 1000082000,
+        PhysicalDeviceShaderFloat16Int8FeaturesKhr = 1000082000,
 
         PresentRegionsKhr = 1000084000,
 
@@ -491,6 +496,14 @@ namespace AdamantiumVulkan.Core
         PipelineRasterizationDepthClipStateCreateInfoExt = 1000102001,
 
         HdrMetadataExt = 1000105000,
+
+        PhysicalDeviceImagelessFramebufferFeaturesKhr = 1000108000,
+
+        FramebufferAttachmentsCreateInfoKhr = 1000108001,
+
+        FramebufferAttachmentImageInfoKhr = 1000108002,
+
+        RenderPassAttachmentBeginInfoKhr = 1000108003,
 
         AttachmentDescription2Khr = 1000109000,
 
@@ -594,6 +607,10 @@ namespace AdamantiumVulkan.Core
 
         PipelineCoverageModulationStateCreateInfoNv = 1000152000,
 
+        PhysicalDeviceShaderSmBuiltinsFeaturesNv = 1000154000,
+
+        PhysicalDeviceShaderSmBuiltinsPropertiesNv = 1000154001,
+
         DrmFormatModifierPropertiesListExt = 1000158000,
 
         DrmFormatModifierPropertiesExt = 1000158001,
@@ -670,6 +687,8 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceShaderAtomicInt64FeaturesKhr = 1000180000,
 
+        PipelineCompilerControlCreateInfoAmd = 1000183000,
+
         CalibratedTimestampInfoExt = 1000184000,
 
         PhysicalDeviceShaderCorePropertiesAmd = 1000185000,
@@ -681,6 +700,10 @@ namespace AdamantiumVulkan.Core
         PipelineVertexInputDivisorStateCreateInfoExt = 1000190001,
 
         PhysicalDeviceVertexAttributeDivisorFeaturesExt = 1000190002,
+
+        PresentFrameTokenGgp = 1000191000,
+
+        PipelineCreationFeedbackCreateInfoExt = 1000192000,
 
         PhysicalDeviceDriverPropertiesKhr = 1000196000,
 
@@ -708,11 +731,31 @@ namespace AdamantiumVulkan.Core
 
         QueueFamilyCheckpointPropertiesNv = 1000206001,
 
+        PhysicalDeviceShaderIntegerFunctions2FeaturesIntel = 1000209000,
+
+        QueryPoolCreateInfoIntel = 1000210000,
+
+        InitializePerformanceApiInfoIntel = 1000210001,
+
+        PerformanceMarkerInfoIntel = 1000210002,
+
+        PerformanceStreamMarkerInfoIntel = 1000210003,
+
+        PerformanceOverrideInfoIntel = 1000210004,
+
+        PerformanceConfigurationAcquireInfoIntel = 1000210005,
+
         PhysicalDeviceVulkanMemoryModelFeaturesKhr = 1000211000,
 
         PhysicalDevicePciBusInfoPropertiesExt = 1000212000,
 
+        DisplayNativeHdrSurfaceCapabilitiesAmd = 1000213000,
+
+        SwapchainDisplayNativeHdrCreateInfoAmd = 1000213001,
+
         ImagepipeSurfaceCreateInfoFuchsia = 1000214000,
+
+        MetalSurfaceCreateInfoExt = 1000217000,
 
         PhysicalDeviceFragmentDensityMapFeaturesExt = 1000218000,
 
@@ -722,15 +765,27 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceScalarBlockLayoutFeaturesExt = 1000221000,
 
+        PhysicalDeviceSubgroupSizeControlPropertiesExt = 1000225000,
+
+        PipelineShaderStageRequiredSubgroupSizeCreateInfoExt = 1000225001,
+
+        PhysicalDeviceSubgroupSizeControlFeaturesExt = 1000225002,
+
+        PhysicalDeviceShaderCoreProperties2Amd = 1000227000,
+
+        PhysicalDeviceCoherentMemoryFeaturesAmd = 1000229000,
+
         PhysicalDeviceMemoryBudgetPropertiesExt = 1000237000,
 
         PhysicalDeviceMemoryPriorityFeaturesExt = 1000238000,
 
         MemoryPriorityAllocateInfoExt = 1000238001,
 
+        SurfaceProtectedCapabilitiesKhr = 1000239000,
+
         PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNv = 1000240000,
 
-        PhysicalDeviceBufferAddressFeaturesExt = 1000244000,
+        PhysicalDeviceBufferDeviceAddressFeaturesExt = 1000244000,
 
         BufferDeviceAddressInfoExt = 1000244001,
 
@@ -745,6 +800,58 @@ namespace AdamantiumVulkan.Core
         CooperativeMatrixPropertiesNv = 1000249001,
 
         PhysicalDeviceCooperativeMatrixPropertiesNv = 1000249002,
+
+        PhysicalDeviceCoverageReductionModeFeaturesNv = 1000250000,
+
+        PipelineCoverageReductionStateCreateInfoNv = 1000250001,
+
+        FramebufferMixedSamplesCombinationNv = 1000250002,
+
+        PhysicalDeviceFragmentShaderInterlockFeaturesExt = 1000251000,
+
+        PhysicalDeviceYcbcrImageArraysFeaturesExt = 1000252000,
+
+        PhysicalDeviceUniformBufferStandardLayoutFeaturesKhr = 1000253000,
+
+        SurfaceFullScreenExclusiveInfoExt = 1000255000,
+
+        SurfaceCapabilitiesFullScreenExclusiveExt = 1000255002,
+
+        SurfaceFullScreenExclusiveWin32InfoExt = 1000255001,
+
+        HeadlessSurfaceCreateInfoExt = 1000256000,
+
+        PhysicalDeviceLineRasterizationFeaturesExt = 1000259000,
+
+        PipelineRasterizationLineStateCreateInfoExt = 1000259001,
+
+        PhysicalDeviceLineRasterizationPropertiesExt = 1000259002,
+
+        PhysicalDeviceHostQueryResetFeaturesExt = 1000261000,
+
+        PhysicalDeviceIndexTypeUint8FeaturesExt = 1000265000,
+
+        PhysicalDevicePipelineExecutablePropertiesFeaturesKhr = 1000269000,
+
+        PipelineInfoKhr = 1000269001,
+
+        PipelineExecutablePropertiesKhr = 1000269002,
+
+        PipelineExecutableInfoKhr = 1000269003,
+
+        PipelineExecutableStatisticKhr = 1000269004,
+
+        PipelineExecutableInternalRepresentationKhr = 1000269005,
+
+        PhysicalDeviceShaderDemoteToHelperInvocationFeaturesExt = 1000276000,
+
+        PhysicalDeviceTexelBufferAlignmentFeaturesExt = 1000281000,
+
+        PhysicalDeviceTexelBufferAlignmentPropertiesExt = 1000281001,
+
+        PhysicalDeviceVariablePointerFeatures = 1000120000,
+
+        PhysicalDeviceShaderDrawParameterFeatures = 1000063000,
 
         DebugReportCreateInfoExt = 1000011000,
 
@@ -812,6 +919,8 @@ namespace AdamantiumVulkan.Core
 
         ExportSemaphoreCreateInfoKhr = 1000077000,
 
+        PhysicalDeviceFloat16Int8FeaturesKhr = 1000082000,
+
         PhysicalDevice16bitStorageFeaturesKhr = 1000083000,
 
         DescriptorUpdateTemplateCreateInfoKhr = 1000085000,
@@ -833,6 +942,8 @@ namespace AdamantiumVulkan.Core
         PipelineTessellationDomainOriginStateCreateInfoKhr = 1000117003,
 
         PhysicalDeviceVariablePointerFeaturesKhr = 1000120000,
+
+        PhysicalDeviceVariablePointersFeaturesKhr = 1000120000,
 
         MemoryDedicatedRequirementsKhr = 1000127000,
 
@@ -868,13 +979,14 @@ namespace AdamantiumVulkan.Core
 
         DescriptorSetLayoutSupportKhr = 1000168001,
 
+        PhysicalDeviceBufferAddressFeaturesExt = 1000244000,
+
         RangeSize = 49,
 
         MaxEnum = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 549 Column: 14
     public enum SystemAllocationScope : int
     {
         Command = 0,
@@ -893,7 +1005,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 561 Column: 14
     [Flags]
     public enum InternalAllocationType : int
     {
@@ -905,7 +1016,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 569 Column: 14
     public enum Format : int
     {
         UNDEFINED = 0,
@@ -1362,6 +1472,34 @@ namespace AdamantiumVulkan.Core
 
         PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
 
+        ASTC_4x4_SFLOAT_BLOCK_EXT = 1000066000,
+
+        ASTC_5x4_SFLOAT_BLOCK_EXT = 1000066001,
+
+        ASTC_5x5_SFLOAT_BLOCK_EXT = 1000066002,
+
+        ASTC_6x5_SFLOAT_BLOCK_EXT = 1000066003,
+
+        ASTC_6x6_SFLOAT_BLOCK_EXT = 1000066004,
+
+        ASTC_8x5_SFLOAT_BLOCK_EXT = 1000066005,
+
+        ASTC_8x6_SFLOAT_BLOCK_EXT = 1000066006,
+
+        ASTC_8x8_SFLOAT_BLOCK_EXT = 1000066007,
+
+        ASTC_10x5_SFLOAT_BLOCK_EXT = 1000066008,
+
+        ASTC_10x6_SFLOAT_BLOCK_EXT = 1000066009,
+
+        ASTC_10x8_SFLOAT_BLOCK_EXT = 1000066010,
+
+        ASTC_10x10_SFLOAT_BLOCK_EXT = 1000066011,
+
+        ASTC_12x10_SFLOAT_BLOCK_EXT = 1000066012,
+
+        ASTC_12x12_SFLOAT_BLOCK_EXT = 1000066013,
+
         G8B8G8R8_422_UNORM_KHR = 1000156000,
 
         B8G8R8G8_422_UNORM_KHR = 1000156001,
@@ -1440,7 +1578,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 837 Column: 14
     public enum ImageType : int
     {
         _1d = 0,
@@ -1455,7 +1592,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 847 Column: 14
     public enum ImageTiling : int
     {
         Optimal = 0,
@@ -1470,7 +1606,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 857 Column: 14
     public enum PhysicalDeviceType : int
     {
         Other = 0,
@@ -1489,7 +1624,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 869 Column: 14
     public enum QueryType : int
     {
         Occlusion = 0,
@@ -1502,13 +1636,14 @@ namespace AdamantiumVulkan.Core
 
         AccelerationStructureCompactedSizeNv = 1000165000,
 
+        PerformanceQueryIntel = 1000210000,
+
         RangeSize = 3,
 
         MaxEnum = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 881 Column: 14
     [Flags]
     public enum SharingMode : int
     {
@@ -1522,7 +1657,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 890 Column: 14
     public enum ImageLayout : int
     {
         Undefined = 0,
@@ -1565,7 +1699,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 914 Column: 14
     public enum ImageViewType : int
     {
         _1d = 0,
@@ -1588,7 +1721,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 928 Column: 14
     public enum ComponentSwizzle : int
     {
         Identity = 0,
@@ -1611,7 +1743,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 942 Column: 14
     [Flags]
     public enum VertexInputRate : int
     {
@@ -1625,7 +1756,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 951 Column: 14
     public enum PrimitiveTopology : int
     {
         PointList = 0,
@@ -1656,7 +1786,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 969 Column: 14
     public enum PolygonMode : int
     {
         Fill = 0,
@@ -1673,7 +1802,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 980 Column: 14
     [Flags]
     public enum FrontFace : int
     {
@@ -1687,7 +1815,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 989 Column: 14
     public enum CompareOp : int
     {
         Never = 0,
@@ -1712,7 +1839,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1004 Column: 14
     public enum StencilOp : int
     {
         Keep = 0,
@@ -1737,7 +1863,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1019 Column: 14
     public enum LogicOp : int
     {
         Clear = 0,
@@ -1778,7 +1903,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1042 Column: 14
     public enum BlendFactor : int
     {
         Zero = 0,
@@ -1825,7 +1949,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1068 Column: 14
     public enum BlendOp : int
     {
         Add = 0,
@@ -1936,7 +2059,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1126 Column: 14
     public enum DynamicState : int
     {
         Viewport = 0,
@@ -1969,13 +2091,14 @@ namespace AdamantiumVulkan.Core
 
         ExclusiveScissorNv = 1000205001,
 
+        LineStippleExt = 1000259000,
+
         RangeSize = 9,
 
         MaxEnum = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1148 Column: 14
     public enum Filter : int
     {
         Nearest = 0,
@@ -1992,7 +2115,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1159 Column: 14
     [Flags]
     public enum SamplerMipmapMode : int
     {
@@ -2006,7 +2128,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1168 Column: 14
     public enum SamplerAddressMode : int
     {
         Repeat = 0,
@@ -2019,13 +2140,14 @@ namespace AdamantiumVulkan.Core
 
         MirrorClampToEdge = 4,
 
+        MirrorClampToEdgeKhr = 4,
+
         RangeSize = 4,
 
         MaxEnum = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1180 Column: 14
     public enum BorderColor : int
     {
         FloatTransparentBlack = 0,
@@ -2046,7 +2168,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1193 Column: 14
     public enum DescriptorType : int
     {
         Sampler = 0,
@@ -2081,7 +2202,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1213 Column: 14
     public enum AttachmentLoadOp : int
     {
         Load = 0,
@@ -2096,7 +2216,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1223 Column: 14
     [Flags]
     public enum AttachmentStoreOp : int
     {
@@ -2110,7 +2229,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1232 Column: 14
     public enum PipelineBindPoint : int
     {
         Graphics = 0,
@@ -2125,7 +2243,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1242 Column: 14
     [Flags]
     public enum CommandBufferLevel : int
     {
@@ -2139,7 +2256,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1251 Column: 14
     public enum IndexType : int
     {
         Uint16 = 0,
@@ -2148,13 +2264,14 @@ namespace AdamantiumVulkan.Core
 
         NoneNv = 1000165000,
 
+        Uint8Ext = 1000265000,
+
         RangeSize = 2,
 
         MaxEnum = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1261 Column: 14
     [Flags]
     public enum SubpassContents : int
     {
@@ -2168,7 +2285,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1270 Column: 14
     public enum ObjectType : int
     {
         Unknown = 0,
@@ -2247,6 +2363,8 @@ namespace AdamantiumVulkan.Core
 
         AccelerationStructureNv = 1000165000,
 
+        PerformanceConfigurationIntel = 1000210000,
+
         DescriptorUpdateTemplateKhr = 1000085000,
 
         SamplerYcbcrConversionKhr = 1000156000,
@@ -2257,7 +2375,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1317 Column: 14
     public enum VendorId : int
     {
         Viv = 65537,
@@ -2272,7 +2389,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1329 Column: 14
     [Flags]
     public enum FormatFeatureFlagBits : int
     {
@@ -2350,7 +2466,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1369 Column: 14
     [Flags]
     public enum ImageUsageFlagBits : int
     {
@@ -2378,7 +2493,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1384 Column: 14
     [Flags]
     public enum ImageCreateFlagBits : int
     {
@@ -2428,7 +2542,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1410 Column: 14
     [Flags]
     public enum SampleCountFlagBits : int
     {
@@ -2450,7 +2563,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1422 Column: 14
     [Flags]
     public enum QueueFlagBits : int
     {
@@ -2468,7 +2580,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1432 Column: 14
     [Flags]
     public enum MemoryPropertyFlagBits : int
     {
@@ -2484,11 +2595,14 @@ namespace AdamantiumVulkan.Core
 
         ProtectedBit = 32,
 
+        DeviceCoherentBitAmd = 64,
+
+        DeviceUncachedBitAmd = 128,
+
         FlagBitsMaxEnum = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1443 Column: 14
     [Flags]
     public enum MemoryHeapFlagBits : int
     {
@@ -2502,7 +2616,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1452 Column: 14
     [Flags]
     public enum DeviceQueueCreateFlagBits : int
     {
@@ -2512,7 +2625,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1458 Column: 14
     [Flags]
     public enum PipelineStageFlagBits : int
     {
@@ -2572,7 +2684,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1490 Column: 14
     [Flags]
     public enum ImageAspectFlagBits : int
     {
@@ -2608,7 +2719,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1509 Column: 14
     [Flags]
     public enum SparseImageFormatFlagBits : int
     {
@@ -2622,7 +2732,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1517 Column: 14
     [Flags]
     public enum SparseMemoryBindFlagBits : int
     {
@@ -2632,7 +2741,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1523 Column: 14
     [Flags]
     public enum FenceCreateFlagBits : int
     {
@@ -2642,7 +2750,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1532 Column: 14
     [Flags]
     public enum QueryPipelineStatisticFlagBits : int
     {
@@ -2672,7 +2779,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1548 Column: 14
     [Flags]
     public enum QueryResultFlagBits : int
     {
@@ -2688,7 +2794,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1557 Column: 14
     [Flags]
     public enum BufferCreateFlagBits : int
     {
@@ -2706,7 +2811,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1567 Column: 14
     [Flags]
     public enum BufferUsageFlagBits : int
     {
@@ -2742,7 +2846,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1587 Column: 14
     [Flags]
     public enum ImageViewCreateFlagBits : int
     {
@@ -2752,7 +2855,13 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1595 Column: 14
+    [Flags]
+    public enum ShaderModuleCreateFlagBits : int
+    {
+        VkShaderModuleCreateFlagBitsMaxEnum = 2147483647,
+
+    }
+
     [Flags]
     public enum PipelineCreateFlagBits : int
     {
@@ -2768,6 +2877,10 @@ namespace AdamantiumVulkan.Core
 
         DeferCompileBitNv = 32,
 
+        CaptureStatisticsBitKhr = 64,
+
+        CaptureInternalRepresentationsBitKhr = 128,
+
         ViewIndexFromDeviceIndexBitKhr = 8,
 
         DispatchBaseKhr = 16,
@@ -2776,7 +2889,17 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1609 Column: 14
+    [Flags]
+    public enum PipelineShaderStageCreateFlagBits : int
+    {
+        AllowVaryingSubgroupSizeBitExt = 1,
+
+        RequireFullSubgroupsBitExt = 2,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
     public enum ShaderStageFlagBits : int
     {
         VertexBit = 1,
@@ -2815,7 +2938,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1634 Column: 14
     public enum CullModeFlagBits : int
     {
         None = 0,
@@ -2830,7 +2952,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1646 Column: 14
     [Flags]
     public enum ColorComponentFlagBits : int
     {
@@ -2846,7 +2967,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1658 Column: 14
     [Flags]
     public enum SamplerCreateFlagBits : int
     {
@@ -2858,7 +2978,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1665 Column: 14
     [Flags]
     public enum DescriptorSetLayoutCreateFlagBits : int
     {
@@ -2870,7 +2989,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1672 Column: 14
     [Flags]
     public enum DescriptorPoolCreateFlagBits : int
     {
@@ -2882,7 +3000,22 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1682 Column: 14
+    [Flags]
+    public enum FramebufferCreateFlagBits : int
+    {
+        ImagelessBitKhr = 1,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum RenderPassCreateFlagBits : int
+    {
+        VkRenderPassCreateFlagBitsMaxEnum = 2147483647,
+
+    }
+
     [Flags]
     public enum AttachmentDescriptionFlagBits : int
     {
@@ -2892,7 +3025,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1688 Column: 14
     [Flags]
     public enum SubpassDescriptionFlagBits : int
     {
@@ -2904,7 +3036,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1695 Column: 14
     [Flags]
     public enum AccessFlagBits : int
     {
@@ -2968,7 +3099,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1728 Column: 14
     [Flags]
     public enum DependencyFlagBits : int
     {
@@ -2986,7 +3116,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1738 Column: 14
     [Flags]
     public enum CommandPoolCreateFlagBits : int
     {
@@ -3000,7 +3129,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1746 Column: 14
     [Flags]
     public enum CommandPoolResetFlagBits : int
     {
@@ -3010,7 +3138,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1752 Column: 14
     [Flags]
     public enum CommandBufferUsageFlagBits : int
     {
@@ -3024,7 +3151,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1760 Column: 14
     [Flags]
     public enum QueryControlFlagBits : int
     {
@@ -3034,7 +3160,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1766 Column: 14
     [Flags]
     public enum CommandBufferResetFlagBits : int
     {
@@ -3044,12 +3169,13 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 1772 Column: 14
     public enum StencilFaceFlagBits : int
     {
         FaceFrontBit = 1,
 
         FaceBackBit = 2,
+
+        FaceFrontAndBack = 3,
 
         FrontAndBack = 3,
 
@@ -3057,7 +3183,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3846 Column: 14
     [Flags]
     public enum PointClippingBehavior : int
     {
@@ -3075,7 +3200,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3857 Column: 14
     [Flags]
     public enum TessellationDomainOrigin : int
     {
@@ -3093,7 +3217,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3868 Column: 14
     public enum SamplerYcbcrModelConversion : int
     {
         RgbIdentity = 0,
@@ -3122,7 +3245,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3885 Column: 14
     [Flags]
     public enum SamplerYcbcrRange : int
     {
@@ -3140,7 +3262,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3896 Column: 14
     [Flags]
     public enum ChromaLocation : int
     {
@@ -3158,7 +3279,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3907 Column: 14
     [Flags]
     public enum DescriptorUpdateTemplateType : int
     {
@@ -3174,7 +3294,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3918 Column: 14
     [Flags]
     public enum SubgroupFeatureFlagBits : int
     {
@@ -3200,7 +3319,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3932 Column: 14
     [Flags]
     public enum PeerMemoryFeatureFlagBits : int
     {
@@ -3224,7 +3342,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3945 Column: 14
     [Flags]
     public enum MemoryAllocateFlagBits : int
     {
@@ -3236,7 +3353,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3954 Column: 14
     [Flags]
     public enum ExternalMemoryHandleTypeFlagBits : int
     {
@@ -3280,7 +3396,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3977 Column: 14
     [Flags]
     public enum ExternalMemoryFeatureFlagBits : int
     {
@@ -3300,7 +3415,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3988 Column: 14
     [Flags]
     public enum ExternalFenceHandleTypeFlagBits : int
     {
@@ -3324,7 +3438,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4001 Column: 14
     [Flags]
     public enum ExternalFenceFeatureFlagBits : int
     {
@@ -3340,7 +3453,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4010 Column: 14
     [Flags]
     public enum FenceImportFlagBits : int
     {
@@ -3352,7 +3464,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4017 Column: 14
     [Flags]
     public enum SemaphoreImportFlagBits : int
     {
@@ -3364,7 +3475,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4024 Column: 14
     [Flags]
     public enum ExternalSemaphoreHandleTypeFlagBits : int
     {
@@ -3392,7 +3502,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4039 Column: 14
     [Flags]
     public enum ExternalSemaphoreFeatureFlagBits : int
     {
@@ -3408,7 +3517,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4718 Column: 14
     public enum ColorSpaceKHR : int
     {
         ColorSpaceSrgbNonlinearKhr = 0,
@@ -3417,7 +3525,7 @@ namespace AdamantiumVulkan.Core
 
         ColorSpaceExtendedSrgbLinearExt = 1000104002,
 
-        ColorSpaceDciP3LinearExt = 1000104003,
+        ColorSpaceDisplayP3LinearExt = 1000104003,
 
         ColorSpaceDciP3NonlinearExt = 1000104004,
 
@@ -3441,7 +3549,11 @@ namespace AdamantiumVulkan.Core
 
         ColorSpaceExtendedSrgbNonlinearExt = 1000104014,
 
+        ColorSpaceDisplayNativeAmd = 1000213000,
+
         ColorspaceSrgbNonlinearKhr = 0,
+
+        ColorSpaceDciP3LinearExt = 1000104003,
 
         ColorSpaceBeginRangeKhr = 0,
 
@@ -3453,7 +3565,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4741 Column: 14
     public enum PresentModeKHR : int
     {
         ImmediateKhr = 0,
@@ -3474,7 +3585,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4755 Column: 14
     [Flags]
     public enum SurfaceTransformFlagBitsKHR : int
     {
@@ -3500,7 +3610,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4769 Column: 14
     [Flags]
     public enum CompositeAlphaFlagBitsKHR : int
     {
@@ -3516,7 +3625,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4840 Column: 14
     [Flags]
     public enum SwapchainCreateFlagBitsKHR : int
     {
@@ -3530,7 +3638,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4848 Column: 14
     [Flags]
     public enum DeviceGroupPresentModeFlagBitsKHR : int
     {
@@ -3546,7 +3653,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5003 Column: 14
     [Flags]
     public enum DisplayPlaneAlphaFlagBitsKHR : int
     {
@@ -3562,7 +3668,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6154 Column: 14
     public enum DriverIdKHR : int
     {
         AmdProprietaryKhr = 1,
@@ -3583,15 +3688,32 @@ namespace AdamantiumVulkan.Core
 
         ArmProprietaryKhr = 9,
 
-        GooglePastelKhr = 10,
+        GoogleSwiftshaderKhr = 10,
 
-        RangeSizeKhr = 10,
+        GgpProprietaryKhr = 11,
+
+        BroadcomProprietaryKhr = 12,
+
+        RangeSizeKhr = 12,
 
         MaxEnumKhr = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6222 Column: 14
+    public enum ShaderFloatControlsIndependenceKHR : int
+    {
+        _32BitOnlyKhr = 0,
+
+        AllKhr = 1,
+
+        NoneKhr = 2,
+
+        RangeSizeKhr = 3,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
     [Flags]
     public enum ResolveModeFlagBitsKHR : int
     {
@@ -3609,7 +3731,22 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6277 Column: 14
+    public enum PipelineExecutableStatisticFormatKHR : int
+    {
+        Bool32Khr = 0,
+
+        Int64Khr = 1,
+
+        Uint64Khr = 2,
+
+        Float64Khr = 3,
+
+        RangeSizeKhr = 4,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
     public enum DebugReportObjectTypeEXT : int
     {
         UnknownExt = 0,
@@ -3700,7 +3837,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6326 Column: 14
     [Flags]
     public enum DebugReportFlagBitsEXT : int
     {
@@ -3718,7 +3854,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6402 Column: 14
     [Flags]
     public enum RasterizationOrderAMD : int
     {
@@ -3732,7 +3867,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6664 Column: 14
     public enum ShaderInfoTypeAMD : int
     {
         StatisticsAmd = 0,
@@ -3747,7 +3881,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6732 Column: 14
     [Flags]
     public enum ExternalMemoryHandleTypeFlagBitsNV : int
     {
@@ -3763,7 +3896,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6741 Column: 14
     [Flags]
     public enum ExternalMemoryFeatureFlagBitsNV : int
     {
@@ -3777,7 +3909,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6794 Column: 14
     [Flags]
     public enum ValidationCheckEXT : int
     {
@@ -3791,7 +3922,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6845 Column: 14
     [Flags]
     public enum ConditionalRenderingFlagBitsEXT : int
     {
@@ -3801,7 +3931,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6893 Column: 14
     public enum IndirectCommandsTokenTypeNVX : int
     {
         PipelineNvx = 0,
@@ -3826,7 +3955,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6908 Column: 14
     public enum ObjectEntryTypeNVX : int
     {
         DescriptorSetNvx = 0,
@@ -3845,7 +3973,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6921 Column: 14
     [Flags]
     public enum IndirectCommandsLayoutUsageFlagBitsNVX : int
     {
@@ -3861,7 +3988,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6930 Column: 14
     [Flags]
     public enum ObjectEntryUsageFlagBitsNVX : int
     {
@@ -3873,7 +3999,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7157 Column: 14
     [Flags]
     public enum SurfaceCounterFlagBitsEXT : int
     {
@@ -3883,7 +4008,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7194 Column: 14
     public enum DisplayPowerStateEXT : int
     {
         OffExt = 0,
@@ -3898,7 +4022,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7204 Column: 14
     [Flags]
     public enum DeviceEventTypeEXT : int
     {
@@ -3910,7 +4033,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7212 Column: 14
     [Flags]
     public enum DisplayEventTypeEXT : int
     {
@@ -3922,7 +4044,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7353 Column: 14
     public enum ViewportCoordinateSwizzleNV : int
     {
         PositiveXNv = 0,
@@ -3947,7 +4068,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7392 Column: 14
     [Flags]
     public enum DiscardRectangleModeEXT : int
     {
@@ -3961,7 +4081,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7434 Column: 14
     public enum ConservativeRasterizationModeEXT : int
     {
         DisabledExt = 0,
@@ -3976,7 +4095,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7549 Column: 14
     [Flags]
     public enum DebugUtilsMessageSeverityFlagBitsEXT : int
     {
@@ -3992,7 +4110,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7558 Column: 14
     [Flags]
     public enum DebugUtilsMessageTypeFlagBitsEXT : int
     {
@@ -4006,7 +4123,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7689 Column: 14
     public enum SamplerReductionModeEXT : int
     {
         WeightedAverageExt = 0,
@@ -4021,7 +4137,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7850 Column: 14
     public enum BlendOverlapEXT : int
     {
         UncorrelatedExt = 0,
@@ -4036,7 +4151,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7908 Column: 14
     public enum CoverageModulationModeNV : int
     {
         NoneNv = 0,
@@ -4053,7 +4167,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8007 Column: 14
     [Flags]
     public enum ValidationCacheHeaderVersionEXT : int
     {
@@ -4065,7 +4178,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8067 Column: 14
     [Flags]
     public enum DescriptorBindingFlagBitsEXT : int
     {
@@ -4081,7 +4193,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8161 Column: 14
     public enum ShadingRatePaletteEntryNV : int
     {
         NoInvocationsNv = 0,
@@ -4114,7 +4225,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8180 Column: 14
     public enum CoarseSampleOrderTypeNV : int
     {
         DefaultNv = 0,
@@ -4131,7 +4241,19 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8272 Column: 14
+    [Flags]
+    public enum AccelerationStructureTypeNV : int
+    {
+        TopLevelNv = 0,
+
+        BottomLevelNv = 1,
+
+        RangeSizeNv = 2,
+
+        MaxEnumNv = 2147483647,
+
+    }
+
     public enum RayTracingShaderGroupTypeNV : int
     {
         GeneralNv = 0,
@@ -4146,7 +4268,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8282 Column: 14
     [Flags]
     public enum GeometryTypeNV : int
     {
@@ -4160,21 +4281,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8291 Column: 14
-    [Flags]
-    public enum AccelerationStructureTypeNV : int
-    {
-        TopLevelNv = 0,
-
-        BottomLevelNv = 1,
-
-        RangeSizeNv = 2,
-
-        MaxEnumNv = 2147483647,
-
-    }
-
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8300 Column: 14
     [Flags]
     public enum CopyAccelerationStructureModeNV : int
     {
@@ -4188,7 +4294,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8309 Column: 14
     public enum AccelerationStructureMemoryRequirementsTypeNV : int
     {
         ObjectNv = 0,
@@ -4203,7 +4308,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8320 Column: 14
     [Flags]
     public enum GeometryFlagBitsNV : int
     {
@@ -4215,7 +4319,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8327 Column: 14
     [Flags]
     public enum GeometryInstanceFlagBitsNV : int
     {
@@ -4231,7 +4334,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8336 Column: 14
     [Flags]
     public enum BuildAccelerationStructureFlagBitsNV : int
     {
@@ -4249,7 +4351,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8610 Column: 14
     public enum QueueGlobalPriorityEXT : int
     {
         LowExt = 128,
@@ -4266,7 +4367,13 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8683 Column: 14
+    [Flags]
+    public enum PipelineCompilerControlFlagBitsAMD : int
+    {
+        VkPipelineCompilerControlFlagBitsMaxEnumAmd = 2147483647,
+
+    }
+
     public enum TimeDomainEXT : int
     {
         DeviceExt = 0,
@@ -4283,7 +4390,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8748 Column: 14
     public enum MemoryOverallocationBehaviorAMD : int
     {
         DefaultAmd = 0,
@@ -4298,21 +4404,106 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9121 Column: 14
     [Flags]
+    public enum PipelineCreationFeedbackFlagBitsEXT : int
+    {
+        ValidBitExt = 1,
+
+        ApplicationPipelineCacheHitBitExt = 2,
+
+        BasePipelineAccelerationBitExt = 4,
+
+        FlagBitsMaxEnumExt = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PerformanceConfigurationTypeINTEL : int
+    {
+        CommandQueueMetricsDiscoveryActivatedIntel = 0,
+
+        RangeSizeIntel = 1,
+
+        MaxEnumIntel = 2147483647,
+
+    }
+
+    [Flags]
+    public enum QueryPoolSamplingModeINTEL : int
+    {
+        ManualIntel = 0,
+
+        RangeSizeIntel = 1,
+
+        MaxEnumIntel = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PerformanceOverrideTypeINTEL : int
+    {
+        NullHardwareIntel = 0,
+
+        FlushGpuCachesIntel = 1,
+
+        RangeSizeIntel = 2,
+
+        MaxEnumIntel = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PerformanceParameterTypeINTEL : int
+    {
+        HwCountersSupportedIntel = 0,
+
+        StreamMarkerValidBitsIntel = 1,
+
+        RangeSizeIntel = 2,
+
+        MaxEnumIntel = 2147483647,
+
+    }
+
+    public enum PerformanceValueTypeINTEL : int
+    {
+        Uint32Intel = 0,
+
+        Uint64Intel = 1,
+
+        FloatIntel = 2,
+
+        BoolIntel = 3,
+
+        StringIntel = 4,
+
+        RangeSizeIntel = 5,
+
+        MaxEnumIntel = 2147483647,
+
+    }
+
+    [Flags]
+    public enum ShaderCorePropertiesFlagBitsAMD : int
+    {
+        VkShaderCorePropertiesFlagBitsMaxEnumAmd = 2147483647,
+
+    }
+
     public enum ValidationFeatureEnableEXT : int
     {
         GpuAssistedExt = 0,
 
         GpuAssistedReserveBindingSlotExt = 1,
 
-        RangeSizeExt = 2,
+        BestPracticesExt = 2,
+
+        RangeSizeExt = 3,
 
         MaxEnumExt = 2147483647,
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9130 Column: 14
     public enum ValidationFeatureDisableEXT : int
     {
         AllExt = 0,
@@ -4335,7 +4526,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9160 Column: 14
     public enum ComponentTypeNV : int
     {
         Float16Nv = 0,
@@ -4366,7 +4556,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9178 Column: 14
     public enum ScopeNV : int
     {
         DeviceNv = 1,
@@ -4380,6 +4569,35 @@ namespace AdamantiumVulkan.Core
         RangeSizeNv = 5,
 
         MaxEnumNv = 2147483647,
+
+    }
+
+    [Flags]
+    public enum CoverageReductionModeNV : int
+    {
+        MergeNv = 0,
+
+        TruncateNv = 1,
+
+        RangeSizeNv = 2,
+
+        MaxEnumNv = 2147483647,
+
+    }
+
+    public enum LineRasterizationModeEXT : int
+    {
+        DefaultExt = 0,
+
+        RectangularExt = 1,
+
+        BresenhamExt = 2,
+
+        RectangularSmoothExt = 3,
+
+        RangeSizeExt = 4,
+
+        MaxEnumExt = 2147483647,
 
     }
 

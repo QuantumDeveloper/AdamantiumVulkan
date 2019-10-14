@@ -16,1359 +16,1074 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public const string LibraryPath = "vulkan-1";
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4989 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkAcquireNextImage2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAcquireNextImage2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAcquireInfo, ref uint pImageIndex);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4962 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkAcquireNextImageKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAcquireNextImageKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, [In] ulong timeout, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence, ref uint pImageIndex);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3515 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkAcquirePerformanceConfigurationINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkAcquirePerformanceConfigurationINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAcquireInfo, [Out] out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T pConfiguration);
+
         [DllImport(LibraryPath, EntryPoint = "vkAllocateCommandBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAllocateCommandBuffers([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocateInfo, [In, Out] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[] pCommandBuffers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3515 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkAllocateCommandBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAllocateCommandBuffers([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocateInfo, ref System.IntPtr pCommandBuffers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3454 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkAllocateDescriptorSets", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAllocateDescriptorSets([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocateInfo, [In, Out] AdamantiumVulkan.Core.Interop.VkDescriptorSet_T[] pDescriptorSets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3454 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkAllocateDescriptorSets", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAllocateDescriptorSets([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocateInfo, ref System.IntPtr pDescriptorSets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3136 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkAllocateMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAllocateMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDeviceMemory_T pMemory);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3526 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBeginCommandBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBeginCommandBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pBeginInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8493 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindAccelerationStructureMemoryNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindAccelerationStructureMemoryNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3174 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindBufferMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindBufferMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, [In] ulong memoryOffset);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4568 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindBufferMemory2", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindBufferMemory2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6064 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindBufferMemory2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindBufferMemory2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3180 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindImageMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindImageMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, [In] ulong memoryOffset);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4573 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindImageMemory2", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindImageMemory2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6069 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkBindImageMemory2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindImageMemory2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6877 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginConditionalRenderingEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginConditionalRenderingEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pConditionalRenderingBegin);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7655 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginDebugUtilsLabelEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginDebugUtilsLabelEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pLabelInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3774 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginQuery", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginQuery([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint query, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6582 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginQueryIndexedEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginQueryIndexedEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint query, [In] uint flags, [In] uint index);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3815 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginRenderPass([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pRenderPassBegin, [In] SubpassContents contents);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5699 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pRenderPassBegin, System.IntPtr pSubpassBeginInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6568 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginTransformFeedbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginTransformFeedbackEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstCounterBuffer, [In] uint counterBufferCount, System.IntPtr pCounterBuffers, [In, Out] ulong[] pCounterBufferOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6568 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginTransformFeedbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginTransformFeedbackEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstCounterBuffer, [In] uint counterBufferCount, System.IntPtr pCounterBuffers, ref ulong pCounterBufferOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3588 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindDescriptorSets", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindDescriptorSets([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineBindPoint pipelineBindPoint, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, [In] uint firstSet, [In] uint descriptorSetCount, System.IntPtr pDescriptorSets, [In] uint dynamicOffsetCount, uint pDynamicOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3598 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindIndexBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindIndexBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] IndexType indexType);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3537 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindPipeline", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindPipeline([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineBindPoint pipelineBindPoint, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8246 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindShadingRateImageNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindShadingRateImageNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImageView_T imageView, [In] ImageLayout imageLayout);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6560 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindTransformFeedbackBuffersEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindTransformFeedbackBuffersEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount, System.IntPtr pBuffers, [In, Out] ulong[] pOffsets, [In, Out] ulong[] pSizes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6560 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindTransformFeedbackBuffersEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindTransformFeedbackBuffersEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount, System.IntPtr pBuffers, ref ulong pOffsets, ref ulong pSizes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3604 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindVertexBuffers([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T[] pBuffers, [In, Out] ulong[] pOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3604 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindVertexBuffers([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount, [In] System.IntPtr pBuffers, ref ulong pOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3667 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBlitImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions, [In] Filter filter);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8498 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdBuildAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBuildAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pInfo, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, [In] ulong instanceOffset, [In] bool update, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, [In] ulong scratchOffset);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3723 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdClearAttachments", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdClearAttachments([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint attachmentCount, System.IntPtr pAttachments, [In] uint rectCount, System.IntPtr pRects);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3707 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdClearColorImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdClearColorImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [In] ImageLayout imageLayout, System.IntPtr pColor, [In] uint rangeCount, System.IntPtr pRanges);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3715 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdClearDepthStencilImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdClearDepthStencilImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [In] ImageLayout imageLayout, System.IntPtr pDepthStencil, [In] uint rangeCount, System.IntPtr pRanges);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8509 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, [In] CopyAccelerationStructureModeNV mode);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3651 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, [In] AdamantiumVulkan.Core.Interop.VkBufferCopy[] pRegions);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3651 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, [In] System.IntPtr pRegions);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3677 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBufferToImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyBufferToImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3658 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3685 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImageToBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyImageToBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, System.IntPtr pRegions);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3797 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyQueryPoolResults", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyQueryPoolResults([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] ulong dstOffset, [In] ulong stride, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6474 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDebugMarkerBeginEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDebugMarkerBeginEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pMarkerInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6478 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDebugMarkerEndEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDebugMarkerEndEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6481 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDebugMarkerInsertEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDebugMarkerInsertEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pMarkerInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3640 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDispatch", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDispatch([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint groupCountX, [In] uint groupCountY, [In] uint groupCountZ);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4589 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDispatchBase", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDispatchBase([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint baseGroupX, [In] uint baseGroupY, [In] uint baseGroupZ, [In] uint groupCountX, [In] uint groupCountY, [In] uint groupCountZ);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5274 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDispatchBaseKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDispatchBaseKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint baseGroupX, [In] uint baseGroupY, [In] uint baseGroupZ, [In] uint groupCountX, [In] uint groupCountY, [In] uint groupCountZ);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3646 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDispatchIndirect", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDispatchIndirect([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3611 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDraw", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDraw([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint vertexCount, [In] uint instanceCount, [In] uint firstVertex, [In] uint firstInstance);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3618 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexed", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndexed([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint indexCount, [In] uint instanceCount, [In] uint firstIndex, [In] int vertexOffset, [In] uint firstInstance);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3633 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirect", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndexedIndirect([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] uint drawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6622 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCountAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndexedIndirectCountAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6110 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCountKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndexedIndirectCountKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3626 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirect", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndirect([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] uint drawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6595 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectByteCountEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndirectByteCountEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint instanceCount, [In] uint firstInstance, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T counterBuffer, [In] ulong counterBufferOffset, [In] uint counterOffset, [In] uint vertexStride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6613 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCountAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndirectCountAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6101 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCountKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndirectCountKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8867 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksIndirectCountNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawMeshTasksIndirectCountNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8860 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksIndirectNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawMeshTasksIndirectNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] uint drawCount, [In] uint stride);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8855 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawMeshTasksNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint taskCount, [In] uint firstTask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6881 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndConditionalRenderingEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndConditionalRenderingEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7659 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndDebugUtilsLabelEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndDebugUtilsLabelEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3780 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndQuery", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndQuery([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint query);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6589 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndQueryIndexedEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndQueryIndexedEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint query, [In] uint index);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3824 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndRenderPass([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5709 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSubpassEndInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6575 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndTransformFeedbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndTransformFeedbackEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstCounterBuffer, [In] uint counterBufferCount, System.IntPtr pCounterBuffers, [In, Out] ulong[] pCounterBufferOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6575 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndTransformFeedbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndTransformFeedbackEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstCounterBuffer, [In] uint counterBufferCount, System.IntPtr pCounterBuffers, ref ulong pCounterBufferOffsets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3827 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdExecuteCommands", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdExecuteCommands([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint commandBufferCount, System.IntPtr pCommandBuffers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3700 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdFillBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdFillBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] ulong dstOffset, [In] ulong size, [In] uint data);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7662 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdInsertDebugUtilsLabelEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdInsertDebugUtilsLabelEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pLabelInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3820 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdNextSubpass([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] SubpassContents contents);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5704 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdNextSubpass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSubpassBeginInfo, System.IntPtr pSubpassEndInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3762 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPipelineBarrier([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint dependencyFlags, [In] uint memoryBarrierCount, [In] AdamantiumVulkan.Core.Interop.VkMemoryBarrier[] pMemoryBarriers, [In] uint bufferMemoryBarrierCount, [In] AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier[] pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, [In] AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier[] pImageMemoryBarriers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3762 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPipelineBarrier([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint dependencyFlags, [In] uint memoryBarrierCount, [In] System.IntPtr pMemoryBarriers, [In] uint bufferMemoryBarrierCount, [In] System.IntPtr pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, [In] System.IntPtr pImageMemoryBarriers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7062 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdProcessCommandsNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdProcessCommandsNVX([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pProcessCommandsInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3807 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPushConstants", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPushConstants([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, [In] uint stageFlags, [In] uint offset, [In] uint size, System.IntPtr pValues);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5504 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPushDescriptorSetKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineBindPoint pipelineBindPoint, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, [In] uint set, [In] uint descriptorWriteCount, System.IntPtr pDescriptorWrites);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5512 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplateKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPushDescriptorSetWithTemplateKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, [In] uint set, System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7066 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdReserveSpaceForCommandsNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdReserveSpaceForCommandsNVX([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pReserveSpaceInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3744 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdResetEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdResetEvent([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event, [In] uint stageMask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3785 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdResetQueryPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdResetQueryPool([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3730 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdResolveImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdResolveImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3564 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetBlendConstants", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetBlendConstants([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] float[] blendConstants);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8951 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetCheckpointNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetCheckpointNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pCheckpointMarker);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8257 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoarseSampleOrderNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetCoarseSampleOrderNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] CoarseSampleOrderTypeNV sampleOrderType, [In] uint customSampleOrderCount, System.IntPtr pCustomSampleOrders);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3558 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBias", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDepthBias([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] float depthBiasConstantFactor, [In] float depthBiasClamp, [In] float depthBiasSlopeFactor);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3568 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBounds", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDepthBounds([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] float minDepthBounds, [In] float maxDepthBounds);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4585 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDeviceMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDeviceMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint deviceMask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5270 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDeviceMaskKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDeviceMaskKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint deviceMask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7422 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDiscardRectangleEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDiscardRectangleEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstDiscardRectangle, [In] uint discardRectangleCount, System.IntPtr pDiscardRectangles);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3739 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetEvent([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event, [In] uint stageMask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8922 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetExclusiveScissorNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetExclusiveScissorNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstExclusiveScissor, [In] uint exclusiveScissorCount, System.IntPtr pExclusiveScissors);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3554 Column: 28
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineStippleEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetLineStippleEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint lineStippleFactor, [In] ushort lineStipplePattern);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineWidth", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetLineWidth([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] float lineWidth);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7835 Column: 28
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceMarkerINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCmdSetPerformanceMarkerINTEL([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pMarkerInfo);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceOverrideINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCmdSetPerformanceOverrideINTEL([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pOverrideInfo);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceStreamMarkerINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCmdSetPerformanceStreamMarkerINTEL([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pMarkerInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetSampleLocationsEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetSampleLocationsEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSampleLocationsInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3548 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissor", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetScissor([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstScissor, [In] uint scissorCount, System.IntPtr pScissors);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3573 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilCompareMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilCompareMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint compareMask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3583 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilReference", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilReference([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint reference);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3578 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilWriteMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilWriteMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint writeMask);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3542 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewport", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetViewport([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, System.IntPtr pViewports);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8251 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportShadingRatePaletteNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetViewportShadingRatePaletteNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, System.IntPtr pShadingRatePalettes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7133 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWScalingNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetViewportWScalingNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, System.IntPtr pViewportWScalings);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8515 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdTraceRaysNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdTraceRaysNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T raygenShaderBindingTableBuffer, [In] ulong raygenShaderBindingOffset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T missShaderBindingTableBuffer, [In] ulong missShaderBindingOffset, [In] ulong missShaderBindingStride, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T hitShaderBindingTableBuffer, [In] ulong hitShaderBindingOffset, [In] ulong hitShaderBindingStride, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T callableShaderBindingTableBuffer, [In] ulong callableShaderBindingOffset, [In] ulong callableShaderBindingStride, [In] uint width, [In] uint height, [In] uint depth);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3693 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdUpdateBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdUpdateBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] ulong dstOffset, [In] ulong dataSize, System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3749 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdWaitEvents", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdWaitEvents([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint eventCount, System.IntPtr pEvents, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint memoryBarrierCount, System.IntPtr pMemoryBarriers, [In] uint bufferMemoryBarrierCount, System.IntPtr pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, System.IntPtr pImageMemoryBarriers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8554 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdWriteAccelerationStructuresPropertiesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdWriteAccelerationStructuresPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint accelerationStructureCount, System.IntPtr pAccelerationStructures, [In] QueryType queryType, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8670 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdWriteBufferMarkerAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdWriteBufferMarkerAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineStageFlagBits pipelineStage, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] ulong dstOffset, [In] uint marker);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3791 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkCmdWriteTimestamp", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdWriteTimestamp([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineStageFlagBits pipelineStage, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint query);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8562 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCompileDeferredNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCompileDeferredNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint shader);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8477 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructure);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3300 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateBuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3311 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateBufferView", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateBufferView([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkBufferView_T pView);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3499 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateCommandPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateCommandPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkCommandPool_T pCommandPool);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3392 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateComputePipelines", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateComputePipelines([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [In, Out] AdamantiumVulkan.Core.Interop.VkPipeline_T[] pPipelines);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6360 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDebugReportCallbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDebugReportCallbackEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7666 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDebugUtilsMessengerEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDebugUtilsMessengerEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T pMessenger);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3438 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDescriptorPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T pDescriptorPool);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3427 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorSetLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDescriptorSetLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T pSetLayout);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4673 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorUpdateTemplate", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDescriptorUpdateTemplate([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T pDescriptorUpdateTemplate);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5588 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorUpdateTemplateKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDescriptorUpdateTemplateKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T pDescriptorUpdateTemplate);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3088 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDevice", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDevice([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5103 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDisplayModeKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDisplayModeKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T pMode);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5116 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateDisplayPlaneSurfaceKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDisplayPlaneSurfaceKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3256 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateEvent([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkEvent_T pEvent);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3218 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateFence", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateFence([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3472 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateFramebuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateFramebuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkFramebuffer_T pFramebuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3384 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateGraphicsPipelines", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateGraphicsPipelines([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [In, Out] AdamantiumVulkan.Core.Interop.VkPipeline_T[] pPipelines);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3322 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkCreateHeadlessSurfaceEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCreateHeadlessSurfaceEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
+
         [DllImport(LibraryPath, EntryPoint = "vkCreateImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateImage([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkImage_T pImage);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3339 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateImageView", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateImageView([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkImageView_T pView);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7070 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateIndirectCommandsLayoutNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateIndirectCommandsLayoutNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T pIndirectCommandsLayout);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3035 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateInstance", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateInstance(System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7081 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateObjectTableNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateObjectTableNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T pObjectTable);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3361 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreatePipelineCache", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreatePipelineCache([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPipelineCache_T pPipelineCache);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3405 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreatePipelineLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreatePipelineLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pPipelineLayout);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3279 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateQueryPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateQueryPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkQueryPool_T pQueryPool);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8532 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateRayTracingPipelinesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateRayTracingPipelinesNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3483 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateRenderPass([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5693 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3416 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateSampler", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateSampler([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSampler_T pSampler);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4662 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateSamplerYcbcrConversion", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateSamplerYcbcrConversion([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T pYcbcrConversion);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6039 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateSamplerYcbcrConversionKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateSamplerYcbcrConversionKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T pYcbcrConversion);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3245 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateSemaphore", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateSemaphore([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSemaphore_T pSemaphore);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3350 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateShaderModule", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateShaderModule([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkShaderModule_T pShaderModule);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5139 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateSharedSwapchainsKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateSharedSwapchainsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint swapchainCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchains);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4945 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateSwapchainKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateSwapchainKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchain);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8038 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkCreateValidationCacheEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateValidationCacheEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T pValidationCache);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6470 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkDebugMarkerSetObjectNameEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkDebugMarkerSetObjectNameEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pNameInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6466 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkDebugMarkerSetObjectTagEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkDebugMarkerSetObjectTagEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pTagInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6371 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDebugReportMessageEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDebugReportMessageEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerPrefix, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pMessage);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8483 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3306 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyBuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3317 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyBufferView", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyBufferView([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkBufferView_T bufferView, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3505 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyCommandPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyCommandPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6366 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDebugReportCallbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDebugReportCallbackEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T callback, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7672 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDebugUtilsMessengerEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDebugUtilsMessengerEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T messenger, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3444 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDescriptorPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3433 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorSetLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDescriptorSetLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T descriptorSetLayout, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4679 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorUpdateTemplate", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDescriptorUpdateTemplate([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5594 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorUpdateTemplateKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDescriptorUpdateTemplateKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3094 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyDevice", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyDevice([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3262 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyEvent([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3224 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyFence", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyFence([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3478 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyFramebuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyFramebuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3328 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyImage([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3345 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyImageView", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyImageView([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImageView_T imageView, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7076 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyIndirectCommandsLayoutNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyIndirectCommandsLayoutNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T indirectCommandsLayout, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3040 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyInstance", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyInstance([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7087 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyObjectTableNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyObjectTableNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3400 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyPipeline", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyPipeline([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3367 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyPipelineCache", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyPipelineCache([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3411 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyPipelineLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyPipelineLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pipelineLayout, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3285 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyQueryPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyQueryPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3489 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyRenderPass([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3422 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroySampler", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroySampler([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSampler_T sampler, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4668 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroySamplerYcbcrConversion", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroySamplerYcbcrConversion([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T ycbcrConversion, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6045 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroySamplerYcbcrConversionKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroySamplerYcbcrConversionKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T ycbcrConversion, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3251 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroySemaphore", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroySemaphore([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3356 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyShaderModule", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyShaderModule([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4804 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroySurfaceKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroySurfaceKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4951 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroySwapchainKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroySwapchainKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8044 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkDestroyValidationCacheEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyValidationCacheEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3133 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkDeviceWaitIdle", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkDeviceWaitIdle([In] AdamantiumVulkan.Core.Interop.VkDevice_T device);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7251 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkDisplayPowerControlEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkDisplayPowerControlEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, System.IntPtr pDisplayPowerInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3530 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEndCommandBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEndCommandBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3103 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateDeviceExtensionProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateDeviceExtensionProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3113 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateDeviceLayerProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateDeviceLayerProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3098 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceExtensionProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateInstanceExtensionProperties([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkExtensionProperties[] pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3098 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceExtensionProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateInstanceExtensionProperties([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, ref System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3109 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceLayerProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkLayerProperties[] pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3109 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceLayerProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, ref System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4565 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceVersion", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumerateInstanceVersion(ref uint pApiVersion);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4598 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceGroups", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumeratePhysicalDeviceGroups([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, [In] System.IntPtr pPhysicalDeviceGroupProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5318 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceGroupsKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumeratePhysicalDeviceGroupsKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, [In] System.IntPtr pPhysicalDeviceGroupProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3044 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDevices", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumeratePhysicalDevices([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceCount, [In, Out] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T[] pPhysicalDevices);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3044 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDevices", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumeratePhysicalDevices([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceCount, ref System.IntPtr pPhysicalDevices);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3159 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkFlushMappedMemoryRanges", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkFlushMappedMemoryRanges([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint memoryRangeCount, System.IntPtr pMemoryRanges);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3520 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkFreeCommandBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkFreeCommandBuffers([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, [In] uint commandBufferCount, [In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[] pCommandBuffers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3520 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkFreeCommandBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkFreeCommandBuffers([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, [In] uint commandBufferCount, [In] System.IntPtr pCommandBuffers);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3459 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkFreeDescriptorSets", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkFreeDescriptorSets([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, [In] uint descriptorSetCount, System.IntPtr pDescriptorSets);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3142 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkFreeMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkFreeMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, System.IntPtr pAllocator);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8548 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureHandleNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetAccelerationStructureHandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, [In] ulong dataSize, [In, Out] System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8488 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureMemoryRequirementsNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetAccelerationStructureMemoryRequirementsNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9099 Column: 39
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddressEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern ulong vkGetBufferDeviceAddressEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3186 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetBufferMemoryRequirements([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [Out] out VkMemoryRequirements pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4608 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetBufferMemoryRequirements2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5983 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetBufferMemoryRequirements2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8710 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetCalibratedTimestampsEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetCalibratedTimestampsEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint timestampCount, System.IntPtr pTimestampInfos, ref ulong pTimestamps, ref ulong pMaxDeviation);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4705 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutSupport", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDescriptorSetLayoutSupport([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, [In] System.IntPtr pSupport);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6087 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutSupportKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDescriptorSetLayoutSupportKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, [In] System.IntPtr pSupport);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4578 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupPeerMemoryFeatures", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDeviceGroupPeerMemoryFeatures([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint heapIndex, [In] uint localDeviceIndex, [In] uint remoteDeviceIndex, ref uint pPeerMemoryFeatures);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5263 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupPeerMemoryFeaturesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDeviceGroupPeerMemoryFeaturesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint heapIndex, [In] uint localDeviceIndex, [In] uint remoteDeviceIndex, ref uint pPeerMemoryFeatures);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4974 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupPresentCapabilitiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDeviceGroupPresentCapabilitiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] System.IntPtr pDeviceGroupPresentCapabilities);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4978 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupSurfacePresentModesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDeviceGroupSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pModes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3169 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryCommitment", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDeviceMemoryCommitment([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ref ulong pCommittedMemoryInBytes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3084 Column: 42
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceProcAddr", CallingConvention = CallingConvention.Winapi)]
         internal static extern System.IntPtr vkGetDeviceProcAddr([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pName);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3118 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceQueue", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDeviceQueue([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint queueFamilyIndex, [In] uint queueIndex, [Out] out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4657 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceQueue2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDeviceQueue2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pQueueInfo, [Out] out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5928 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDisplayModeProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDisplayModeProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5097 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDisplayModePropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDisplayModePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5934 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneCapabilities2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDisplayPlaneCapabilities2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pDisplayPlaneInfo, [In] System.IntPtr pCapabilities);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5110 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneCapabilitiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDisplayPlaneCapabilitiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T mode, [In] uint planeIndex, [In] System.IntPtr pCapabilities);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5091 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneSupportedDisplaysKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetDisplayPlaneSupportedDisplaysKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint planeIndex, ref uint pDisplayCount, [Out] out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplays);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3267 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetEventStatus", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetEventStatus([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5802 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetFenceFdKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetFenceFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pGetFdInfo, ref int pFd);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3234 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetFenceStatus", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetFenceStatus([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7994 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetImageDrmFormatModifierPropertiesEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetImageDrmFormatModifierPropertiesEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3191 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageMemoryRequirements", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageMemoryRequirements([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [Out] out VkMemoryRequirements pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4603 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageMemoryRequirements2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageMemoryRequirements2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5978 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageMemoryRequirements2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageMemoryRequirements2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3196 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageSparseMemoryRequirements([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, ref uint pSparseMemoryRequirementCount, [In] System.IntPtr pSparseMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4613 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageSparseMemoryRequirements2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, ref uint pSparseMemoryRequirementCount, [In] System.IntPtr pSparseMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5988 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageSparseMemoryRequirements2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, ref uint pSparseMemoryRequirementCount, [In] System.IntPtr pSparseMemoryRequirements);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3333 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetImageSubresourceLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageSubresourceLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, System.IntPtr pSubresource, [In] System.IntPtr pLayout);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3080 Column: 42
+        [DllImport(LibraryPath, EntryPoint = "vkGetImageViewHandleNVX", CallingConvention = CallingConvention.Winapi)]
+        internal static extern uint vkGetImageViewHandleNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetInstanceProcAddr", CallingConvention = CallingConvention.Winapi)]
         internal static extern System.IntPtr vkGetInstanceProcAddr([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pName);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5402 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetMemoryFdKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetMemoryFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pGetFdInfo, ref int pFd);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5407 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetMemoryFdPropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetMemoryFdPropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ExternalMemoryHandleTypeFlagBits handleType, [In] int fd, [In] System.IntPtr pMemoryFdProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8656 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetMemoryHostPointerPropertiesEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetMemoryHostPointerPropertiesEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr pHostPointer, [In] System.IntPtr pMemoryHostPointerProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7314 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPastPresentationTimingGOOGLE", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPastPresentationTimingGOOGLE([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pPresentationTimingCount, [In] System.IntPtr pPresentationTimings);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8705 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetPerformanceParameterINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetPerformanceParameterINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] PerformanceParameterTypeINTEL parameter, [In] System.IntPtr pValue);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pTimeDomainCount, ref int pTimeDomains);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 9219 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5923 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceDisplayPlaneProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5086 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceDisplayPlanePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5918 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceDisplayProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5081 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceDisplayPropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4690 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalBufferProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceExternalBufferProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pExternalBufferInfo, [In] System.IntPtr pExternalBufferProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5354 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalBufferPropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceExternalBufferPropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pExternalBufferInfo, [In] System.IntPtr pExternalBufferProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4695 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalFenceProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceExternalFenceProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pExternalFenceInfo, [In] System.IntPtr pExternalFenceProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5754 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalFencePropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceExternalFencePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pExternalFenceInfo, [In] System.IntPtr pExternalFenceProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6760 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalImageFormatPropertiesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceExternalImageFormatPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] ImageType type, [In] ImageTiling tiling, [In] uint usage, [In] uint flags, [In] uint externalHandleType, [In] System.IntPtr pExternalImageFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4700 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalSemaphoreProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceExternalSemaphoreProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pExternalSemaphoreInfo, [In] System.IntPtr pExternalSemaphoreProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5435 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceExternalSemaphorePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pExternalSemaphoreInfo, [In] System.IntPtr pExternalSemaphoreProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3049 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFeatures([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [Out] out VkPhysicalDeviceFeatures pFeatures);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4619 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFeatures2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pFeatures);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5196 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFeatures2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pFeatures);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3053 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFormatProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] System.IntPtr pFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4627 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFormatProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] System.IntPtr pFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5204 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFormatProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] System.IntPtr pFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7106 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pFeatures, [In] System.IntPtr pLimits);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3058 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceImageFormatProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] ImageType type, [In] ImageTiling tiling, [In] uint usage, [In] uint flags, [In] System.IntPtr pImageFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4632 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceImageFormatProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pImageFormatInfo, [In] System.IntPtr pImageFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5209 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceImageFormatProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pImageFormatInfo, [In] System.IntPtr pImageFormatProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3076 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMemoryProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceMemoryProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [Out] out VkPhysicalDeviceMemoryProperties pMemoryProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4642 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMemoryProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceMemoryProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [Out] out VkPhysicalDeviceMemoryProperties2 pMemoryProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5219 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMemoryProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceMemoryProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [Out] out VkPhysicalDeviceMemoryProperties2 pMemoryProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7839 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMultisamplePropertiesEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceMultisamplePropertiesEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] SampleCountFlagBits samples, [In] System.IntPtr pMultisampleProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4983 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDevicePresentRectanglesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDevicePresentRectanglesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pRectCount, [In] System.IntPtr pRects);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3067 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [Out] out VkPhysicalDeviceProperties pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4623 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5200 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3071 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceQueueFamilyProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties[] pQueueFamilyProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3071 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceQueueFamilyProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, ref System.IntPtr pQueueFamilyProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4637 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2[] pQueueFamilyProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4637 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, ref System.IntPtr pQueueFamilyProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5214 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In] System.IntPtr pQueueFamilyProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3202 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] ImageType type, [In] SampleCountFlagBits samples, [In] uint usage, [In] ImageTiling tiling, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4646 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties2", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties2([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pFormatInfo, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5223 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pFormatInfo, ref uint pPropertyCount, [In] System.IntPtr pProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7183 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pCombinationCount, [In] System.IntPtr pCombinations);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilities2EXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceCapabilities2EXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, [In] System.IntPtr pSurfaceCapabilities);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5856 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilities2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceCapabilities2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pSurfaceInfo, [In] System.IntPtr pSurfaceCapabilities);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4815 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilitiesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceCapabilitiesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, [Out] out VkSurfaceCapabilitiesKHR pSurfaceCapabilities);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5861 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormats2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceFormats2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pSurfaceInfo, ref uint pSurfaceFormatCount, [In] System.IntPtr pSurfaceFormats);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4820 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormatsKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, [In, Out] AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR[] pSurfaceFormats);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4820 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormatsKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, ref System.IntPtr pSurfaceFormats);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4826 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, [In, Out] int[] pPresentModes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4826 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, ref int pPresentModes);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4809 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceSupportKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref bool pSupported);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3372 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetPipelineCacheData", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPipelineCacheData([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong pDataSize, [In, Out] System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3290 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableInternalRepresentationsKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetPipelineExecutableInternalRepresentationsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pExecutableInfo, ref uint pInternalRepresentationCount, [In] System.IntPtr pInternalRepresentations);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutablePropertiesKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetPipelineExecutablePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pPipelineInfo, ref uint pExecutableCount, [In] System.IntPtr pProperties);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableStatisticsKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetPipelineExecutableStatisticsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pExecutableInfo, ref uint pStatisticCount, [In] System.IntPtr pStatistics);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetQueryPoolResults", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetQueryPoolResults([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount, [In] ulong dataSize, [In, Out] System.IntPtr pData, [In] ulong stride, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8955 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointDataNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetQueueCheckpointDataNV([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint pCheckpointDataCount, [In] System.IntPtr pCheckpointData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8540 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetRayTracingShaderGroupHandlesNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint firstGroup, [In] uint groupCount, [In] ulong dataSize, [In, Out] System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7309 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetRefreshCycleDurationGOOGLE", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetRefreshCycleDurationGOOGLE([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, [In] System.IntPtr pDisplayTimingProperties);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3494 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkGetRenderAreaGranularity", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetRenderAreaGranularity([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, [In] System.IntPtr pGranularity);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5483 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreFdKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetSemaphoreFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pGetFdInfo, ref int pFd);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6696 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetShaderInfoAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetShaderInfoAMD([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] ShaderStageFlagBits shaderStage, [In] ShaderInfoTypeAMD infoType, ref ulong pInfoSize, [In, Out] System.IntPtr pInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7269 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainCounterEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetSwapchainCounterEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, [In] SurfaceCounterFlagBitsEXT counter, ref ulong pCounterValue);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4956 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainImagesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetSwapchainImagesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, [In, Out] AdamantiumVulkan.Core.Interop.VkImage_T[] pSwapchainImages);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4956 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainImagesKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetSwapchainImagesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, ref System.IntPtr pSwapchainImages);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5728 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainStatusKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetSwapchainStatusKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8055 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkGetValidationCacheDataEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetValidationCacheDataEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ref ulong pDataSize, [In, Out] System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5798 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkImportFenceFdKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkImportFenceFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pImportFenceFdInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5479 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkImportSemaphoreFdKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkImportSemaphoreFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pImportSemaphoreFdInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3164 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkInitializePerformanceApiINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkInitializePerformanceApiINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInitializeInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkInvalidateMappedMemoryRanges", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkInvalidateMappedMemoryRanges([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint memoryRangeCount, System.IntPtr pMemoryRanges);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3147 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkMapMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkMapMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, [In] ulong offset, [In] ulong size, [In] uint flags, [Out] out System.IntPtr ppData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3378 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkMergePipelineCaches", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkMergePipelineCaches([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T dstCache, [In] uint srcCacheCount, System.IntPtr pSrcCaches);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8049 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkMergeValidationCachesEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkMergeValidationCachesEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, [In] uint srcCacheCount, System.IntPtr pSrcCaches);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7644 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkQueueBeginDebugUtilsLabelEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkQueueBeginDebugUtilsLabelEXT([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, System.IntPtr pLabelInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3212 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkQueueBindSparse", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkQueueBindSparse([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, [In] uint bindInfoCount, System.IntPtr pBindInfo, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7648 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkQueueEndDebugUtilsLabelEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkQueueEndDebugUtilsLabelEXT([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7651 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkQueueInsertDebugUtilsLabelEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkQueueInsertDebugUtilsLabelEXT([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, System.IntPtr pLabelInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4970 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkQueuePresentKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkQueuePresentKHR([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, System.IntPtr pPresentInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3124 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkQueueSetPerformanceConfigurationINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkQueueSetPerformanceConfigurationINTEL([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, [In] AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T configuration);
+
         [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkQueueSubmit([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, [In] uint submitCount, [In] AdamantiumVulkan.Core.Interop.VkSubmitInfo[] pSubmits, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3124 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkQueueSubmit([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, [In] uint submitCount, [In] System.IntPtr pSubmits, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3130 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkQueueWaitIdle", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkQueueWaitIdle([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7256 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkRegisterDeviceEventEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkRegisterDeviceEventEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pDeviceEventInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7262 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkRegisterDisplayEventEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkRegisterDisplayEventEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, System.IntPtr pDisplayEventInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7092 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkRegisterObjectsNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkRegisterObjectsNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, [In] uint objectCount, System.IntPtr ppObjectTableEntries, uint pObjectIndices);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7147 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkReleaseDisplayEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkReleaseDisplayEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3533 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkReleasePerformanceConfigurationINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkReleasePerformanceConfigurationINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T configuration);
+
         [DllImport(LibraryPath, EntryPoint = "vkResetCommandBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetCommandBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3510 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkResetCommandPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetCommandPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3449 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkResetDescriptorPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetDescriptorPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3275 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkResetEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetEvent([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3229 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkResetFences", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetFences([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint fenceCount, [In] AdamantiumVulkan.Core.Interop.VkFence_T[] pFences);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3229 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkResetFences", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetFences([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint fenceCount, [In] System.IntPtr pFences);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7636 Column: 32
+        [DllImport(LibraryPath, EntryPoint = "vkResetQueryPoolEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkResetQueryPoolEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount);
+
         [DllImport(LibraryPath, EntryPoint = "vkSetDebugUtilsObjectNameEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkSetDebugUtilsObjectNameEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pNameInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7640 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkSetDebugUtilsObjectTagEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkSetDebugUtilsObjectTagEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pTagInfo);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3271 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkSetEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkSetEvent([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7522 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkSetHdrMetadataEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkSetHdrMetadataEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint swapchainCount, System.IntPtr pSwapchains, System.IntPtr pMetadata);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7677 Column: 28
+        [DllImport(LibraryPath, EntryPoint = "vkSetLocalDimmingAMD", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkSetLocalDimmingAMD([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, [In] bool localDimmingEnable);
+
         [DllImport(LibraryPath, EntryPoint = "vkSubmitDebugUtilsMessageEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkSubmitDebugUtilsMessageEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, [In] uint messageTypes, System.IntPtr pCallbackData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4652 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkTrimCommandPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkTrimCommandPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5299 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkTrimCommandPoolKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkTrimCommandPoolKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, [In] uint flags);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3155 Column: 28
+        [DllImport(LibraryPath, EntryPoint = "vkUninitializePerformanceApiINTEL", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkUninitializePerformanceApiINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device);
+
         [DllImport(LibraryPath, EntryPoint = "vkUnmapMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkUnmapMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7099 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkUnregisterObjectsNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkUnregisterObjectsNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, [In] uint objectCount, System.IntPtr pObjectEntryTypes, uint pObjectIndices);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3465 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSets", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkUpdateDescriptorSets([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint descriptorWriteCount, System.IntPtr pDescriptorWrites, [In] uint descriptorCopyCount, System.IntPtr pDescriptorCopies);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4684 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSetWithTemplate", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkUpdateDescriptorSetWithTemplate([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5599 Column: 28
         [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSetWithTemplateKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkUpdateDescriptorSetWithTemplateKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, System.IntPtr pData);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3238 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkWaitForFences", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkWaitForFences([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint fenceCount, [In] AdamantiumVulkan.Core.Interop.VkFence_T[] pFences, [In] bool waitAll, [In] ulong timeout);
 
-        // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3238 Column: 32
         [DllImport(LibraryPath, EntryPoint = "vkWaitForFences", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkWaitForFences([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint fenceCount, [In] System.IntPtr pFences, [In] bool waitAll, [In] ulong timeout);
 

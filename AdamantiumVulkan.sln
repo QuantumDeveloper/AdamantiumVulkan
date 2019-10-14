@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantumBinding.Clang", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.MacOS", "AdamantiumVulkan.MacOS\AdamantiumVulkan.MacOS.csproj", "{C526A5BF-554D-4227-8EAC-22D634C81BCC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.SPIRV.Cross", "AdamantiumVulkan.SPIRV.Cross\AdamantiumVulkan.SPIRV.Cross.csproj", "{1E17063E-388E-4C9B-8E26-84726A812A8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdamantiumVulkan.SPIRV", "AdamantiumVulkan.SPIRV\AdamantiumVulkan.SPIRV.csproj", "{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,22 @@ Global
 		{C526A5BF-554D-4227-8EAC-22D634C81BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C526A5BF-554D-4227-8EAC-22D634C81BCC}.Release|x64.ActiveCfg = Release|Any CPU
 		{C526A5BF-554D-4227-8EAC-22D634C81BCC}.Release|x64.Build.0 = Release|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Debug|x64.Build.0 = Debug|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Release|x64.ActiveCfg = Release|Any CPU
+		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Release|x64.Build.0 = Release|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|x64.Build.0 = Debug|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.ActiveCfg = Release|Any CPU
+		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
