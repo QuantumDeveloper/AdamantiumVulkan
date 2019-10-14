@@ -40,7 +40,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
             //vkMainModule.Defines.Add("_WIN32");
-            vkMainModule.Files.Add(@"C:\VulkanSDK\1.1.121.2\Include\vulkan\vulkan.h");
+            vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
             vkMainModule.ForceCallingConvention = true;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
             vkMainModule.AllowConvertStructToClass = true;
@@ -58,7 +58,7 @@ namespace AdamantiumVulkan.Generator
 
             shaderModule = options.AddModule(shadercLibrary);
             shaderModule.Name = "Shaders";
-            shaderModule.Files.Add(@"C:\VulkanSDK\1.1.121.2\Include\shaderc\shaderc.h");
+            shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
             shaderModule.Defines.Add("SHADERC_SHAREDLIB");
             vkMainModule.Defines.Add("_WIN32");
             shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");

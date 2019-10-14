@@ -129,12 +129,14 @@ namespace VulkanEngineTestCore
         private bool enableValidationLayers;
 
         private string[] validationLayers = new[]
-        { "VK_LAYER_LUNARG_standard_validation",
-          "VK_LAYER_LUNARG_parameter_validation",
+        {
+          //"VK_LAYER_LUNARG_parameter_validation",
+          "VK_LAYER_LUNARG_core_validation",
+          "VK_LAYER_LUNARG_standard_validation",
           //"VK_LAYER_LUNARG_object_tracker",
-          "VK_LAYER_LUNARG_monitor",
+          //"VK_LAYER_LUNARG_monitor",
           //"VK_LAYER_LUNARG_assistant_layer",
-          //"VK_LAYER_AMD_switchable_graphics" 
+          //"VK_LAYER_AMD_switchable_graphics"
         };
 
         private string[] deviceExtensions = new[] { Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME };
@@ -492,8 +494,11 @@ namespace VulkanEngineTestCore
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
             var extensions = Instance.EnumerateInstanceExtensionProperties();
 
-            createInfo.EnabledExtensionCount = (uint)extensions.Length;
-            createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
+            string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", "VK_EXT_debug_utils" };
+            //createInfo.EnabledExtensionCount = (uint)extensions.Length;
+            //createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
+            createInfo.EnabledExtensionCount = (uint)ext.Length;
+            createInfo.PpEnabledExtensionNames = ext;
 
             if (enableValidationLayers)
             {
