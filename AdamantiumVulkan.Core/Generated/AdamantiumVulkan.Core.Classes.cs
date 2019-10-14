@@ -11,7 +11,6 @@ namespace AdamantiumVulkan.Core
     using System.Runtime.InteropServices;
     using AdamantiumVulkan.Core.Interop;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 69 Column: 1
     public partial class Instance
     {
         internal VkInstance_T __Instance;
@@ -67,6 +66,21 @@ namespace AdamantiumVulkan.Core
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             VkSurfaceKHR_T arg3;
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDisplayPlaneSurfaceKHR(arg0, arg1, arg2, out arg3);
+            pCreateInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            pSurface = new SurfaceKHR(arg3);
+            return result;
+        }
+
+        public Result CreateHeadlessSurfaceEXT(in HeadlessSurfaceCreateInfoEXT pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.SurfaceKHR pSurface)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkSurfaceKHR_T arg3;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateHeadlessSurfaceEXT(arg0, arg1, arg2, out arg3);
             pCreateInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
             pAllocator?.Dispose();
@@ -194,7 +208,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 70 Column: 1
     public partial class PhysicalDevice
     {
         internal VkPhysicalDevice_T __Instance;
@@ -714,6 +727,16 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
+        public Result GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(ref uint pCombinationCount, FramebufferMixedSamplesCombinationNV pCombinations)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pCombinations, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCombinations.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(arg0, ref pCombinationCount, arg1);
+            pCombinations?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public Result GetPhysicalDeviceSurfaceCapabilities2EXT(AdamantiumVulkan.Core.SurfaceKHR surface, SurfaceCapabilities2EXT pSurfaceCapabilities)
         {
             var arg0 = this;
@@ -841,7 +864,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 71 Column: 1
     public partial class Device
     {
         internal VkDevice_T __Instance;
@@ -877,6 +899,18 @@ namespace AdamantiumVulkan.Core
             var arg2 = ReferenceEquals(semaphore, null) ? new VkSemaphore_T() : (VkSemaphore_T)semaphore;
             var arg3 = ReferenceEquals(fence, null) ? new VkFence_T() : (VkFence_T)fence;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkAcquireNextImageKHR(arg0, arg1, timeout, arg2, arg3, ref pImageIndex);
+        }
+
+        public Result AcquirePerformanceConfigurationINTEL(in PerformanceConfigurationAcquireInfoINTEL pAcquireInfo, out AdamantiumVulkan.Core.PerformanceConfigurationINTEL pConfiguration)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pAcquireInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAcquireInfo.ToInternal());
+            VkPerformanceConfigurationINTEL_T arg2;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkAcquirePerformanceConfigurationINTEL(arg0, arg1, out arg2);
+            pAcquireInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pConfiguration = new PerformanceConfigurationINTEL(arg2);
+            return result;
         }
 
         public Result AllocateCommandBuffers(in CommandBufferAllocateInfo pAllocateInfo, AdamantiumVulkan.Core.CommandBuffer[] pCommandBuffers)
@@ -1225,6 +1259,7 @@ namespace AdamantiumVulkan.Core
             var arg2 = ReferenceEquals(pCreateInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfos.ToInternal());
             var arg3 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             var arg4 = new AdamantiumVulkan.Core.Interop.VkPipeline_T[createInfoCount];
+            var t = pCreateInfos.ToInternal();
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateGraphicsPipelines(arg0, arg1, createInfoCount, arg2, arg3, arg4);
             pCreateInfos?.Dispose();
             Marshal.FreeHGlobal(arg2);
@@ -2149,6 +2184,16 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
+        public uint GetImageViewHandleNVX(in ImageViewHandleInfoNVX pInfo)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageViewHandleNVX(arg0, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public Result GetMemoryFdKHR(in MemoryGetFdInfoKHR pGetFdInfo, ref int pFd)
         {
             var arg0 = this;
@@ -2189,11 +2234,59 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result GetPerformanceParameterINTEL(PerformanceParameterTypeINTEL parameter, PerformanceValueINTEL pValue)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pValue, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pValue.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPerformanceParameterINTEL(arg0, parameter, arg1);
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public Result GetPipelineCacheData(AdamantiumVulkan.Core.PipelineCache pipelineCache, ref ulong pDataSize, ref System.IntPtr pData)
         {
             var arg0 = this;
             var arg1 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPipelineCacheData(arg0, arg1, ref pDataSize, pData);
+        }
+
+        public Result GetPipelineExecutableInternalRepresentationsKHR(in PipelineExecutableInfoKHR pExecutableInfo, ref uint pInternalRepresentationCount, PipelineExecutableInternalRepresentationKHR pInternalRepresentations)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pExecutableInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pExecutableInfo.ToInternal());
+            var arg2 = ReferenceEquals(pInternalRepresentations, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInternalRepresentations.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPipelineExecutableInternalRepresentationsKHR(arg0, arg1, ref pInternalRepresentationCount, arg2);
+            pExecutableInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pInternalRepresentations?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
+        }
+
+        public Result GetPipelineExecutablePropertiesKHR(in PipelineInfoKHR pPipelineInfo, ref uint pExecutableCount, PipelineExecutablePropertiesKHR pProperties)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pPipelineInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pPipelineInfo.ToInternal());
+            var arg2 = ReferenceEquals(pProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProperties.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPipelineExecutablePropertiesKHR(arg0, arg1, ref pExecutableCount, arg2);
+            pPipelineInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pProperties?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
+        }
+
+        public Result GetPipelineExecutableStatisticsKHR(in PipelineExecutableInfoKHR pExecutableInfo, ref uint pStatisticCount, PipelineExecutableStatisticKHR pStatistics)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pExecutableInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pExecutableInfo.ToInternal());
+            var arg2 = ReferenceEquals(pStatistics, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pStatistics.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPipelineExecutableStatisticsKHR(arg0, arg1, ref pStatisticCount, arg2);
+            pExecutableInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pStatistics?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
         }
 
         public Result GetQueryPoolResults(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount, ulong dataSize, ref System.IntPtr pData, ulong stride, uint flags)
@@ -2316,6 +2409,16 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result InitializePerformanceApiINTEL(in InitializePerformanceApiInfoINTEL pInitializeInfo)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pInitializeInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInitializeInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkInitializePerformanceApiINTEL(arg0, arg1);
+            pInitializeInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public Result InvalidateMappedMemoryRanges(uint memoryRangeCount, in MappedMemoryRange pMemoryRanges)
         {
             var arg0 = this;
@@ -2394,6 +2497,13 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result ReleasePerformanceConfigurationINTEL(AdamantiumVulkan.Core.PerformanceConfigurationINTEL configuration)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(configuration, null) ? new VkPerformanceConfigurationINTEL_T() : (VkPerformanceConfigurationINTEL_T)configuration;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkReleasePerformanceConfigurationINTEL(arg0, arg1);
+        }
+
         public Result ResetCommandPool(AdamantiumVulkan.Core.CommandPool commandPool, uint flags)
         {
             var arg0 = this;
@@ -2439,6 +2549,13 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public void ResetQueryPoolEXT(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkResetQueryPoolEXT(arg0, arg1, firstQuery, queryCount);
+        }
+
         public Result SetDebugUtilsObjectNameEXT(in DebugUtilsObjectNameInfoEXT pNameInfo)
         {
             var arg0 = this;
@@ -2477,6 +2594,13 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
+        public void SetLocalDimmingAMD(AdamantiumVulkan.Core.SwapchainKHR swapChain, bool localDimmingEnable)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(swapChain, null) ? new VkSwapchainKHR_T() : (VkSwapchainKHR_T)swapChain;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkSetLocalDimmingAMD(arg0, arg1, localDimmingEnable);
+        }
+
         public void TrimCommandPool(AdamantiumVulkan.Core.CommandPool commandPool, uint flags)
         {
             var arg0 = this;
@@ -2489,6 +2613,12 @@ namespace AdamantiumVulkan.Core
             var arg0 = this;
             var arg1 = ReferenceEquals(commandPool, null) ? new VkCommandPool_T() : (VkCommandPool_T)commandPool;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkTrimCommandPoolKHR(arg0, arg1, flags);
+        }
+
+        public void UninitializePerformanceApiINTEL()
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkUninitializePerformanceApiINTEL(arg0);
         }
 
         public void UnmapMemory(AdamantiumVulkan.Core.DeviceMemory memory)
@@ -2572,7 +2702,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 72 Column: 1
     public partial class Queue
     {
         internal VkQueue_T __Instance;
@@ -2645,6 +2774,13 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result QueueSetPerformanceConfigurationINTEL(AdamantiumVulkan.Core.PerformanceConfigurationINTEL configuration)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(configuration, null) ? new VkPerformanceConfigurationINTEL_T() : (VkPerformanceConfigurationINTEL_T)configuration;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkQueueSetPerformanceConfigurationINTEL(arg0, arg1);
+        }
+
         public Result QueueSubmit(uint submitCount, SubmitInfo[] pSubmits, AdamantiumVulkan.Core.Fence fence)
         {
             var arg0 = this;
@@ -2698,7 +2834,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 73 Column: 1
     public partial class Semaphore
     {
         internal VkSemaphore_T __Instance;
@@ -2729,7 +2864,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 74 Column: 1
     public partial class CommandBuffer
     {
         internal VkCommandBuffer_T __Instance;
@@ -3466,10 +3600,46 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void CmdSetLineStippleEXT(uint lineStippleFactor, ushort lineStipplePattern)
+        {
+            var arg0 = this;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetLineStippleEXT(arg0, lineStippleFactor, lineStipplePattern);
+        }
+
         public void CmdSetLineWidth(float lineWidth)
         {
             var arg0 = this;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetLineWidth(arg0, lineWidth);
+        }
+
+        public Result CmdSetPerformanceMarkerINTEL(in PerformanceMarkerInfoINTEL pMarkerInfo)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pMarkerInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pMarkerInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetPerformanceMarkerINTEL(arg0, arg1);
+            pMarkerInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result CmdSetPerformanceOverrideINTEL(in PerformanceOverrideInfoINTEL pOverrideInfo)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pOverrideInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pOverrideInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetPerformanceOverrideINTEL(arg0, arg1);
+            pOverrideInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result CmdSetPerformanceStreamMarkerINTEL(in PerformanceStreamMarkerInfoINTEL pMarkerInfo)
+        {
+            var arg0 = this;
+            var arg1 = ReferenceEquals(pMarkerInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pMarkerInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetPerformanceStreamMarkerINTEL(arg0, arg1);
+            pMarkerInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
         public void CmdSetSampleLocationsEXT(in SampleLocationsInfoEXT pSampleLocationsInfo)
@@ -3613,7 +3783,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 75 Column: 1
     public partial class Fence
     {
         internal VkFence_T __Instance;
@@ -3644,7 +3813,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 76 Column: 1
     public partial class DeviceMemory
     {
         internal VkDeviceMemory_T __Instance;
@@ -3675,7 +3843,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 77 Column: 1
     public partial class Buffer
     {
         internal VkBuffer_T __Instance;
@@ -3706,7 +3873,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 78 Column: 1
     public partial class Image
     {
         internal VkImage_T __Instance;
@@ -3737,7 +3903,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 79 Column: 1
     public partial class Event
     {
         internal VkEvent_T __Instance;
@@ -3768,7 +3933,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 80 Column: 1
     public partial class QueryPool
     {
         internal VkQueryPool_T __Instance;
@@ -3799,7 +3963,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 81 Column: 1
     public partial class BufferView
     {
         internal VkBufferView_T __Instance;
@@ -3830,7 +3993,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 82 Column: 1
     public partial class ImageView
     {
         internal VkImageView_T __Instance;
@@ -3861,7 +4023,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 83 Column: 1
     public partial class ShaderModule
     {
         internal VkShaderModule_T __Instance;
@@ -3892,7 +4053,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 84 Column: 1
     public partial class PipelineCache
     {
         internal VkPipelineCache_T __Instance;
@@ -3923,7 +4083,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 85 Column: 1
     public partial class PipelineLayout
     {
         internal VkPipelineLayout_T __Instance;
@@ -3954,7 +4113,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 86 Column: 1
     public partial class RenderPass
     {
         internal VkRenderPass_T __Instance;
@@ -3985,7 +4143,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 87 Column: 1
     public partial class Pipeline
     {
         internal VkPipeline_T __Instance;
@@ -4016,7 +4173,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 88 Column: 1
     public partial class DescriptorSetLayout
     {
         internal VkDescriptorSetLayout_T __Instance;
@@ -4047,7 +4203,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 89 Column: 1
     public partial class Sampler
     {
         internal VkSampler_T __Instance;
@@ -4078,7 +4233,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 90 Column: 1
     public partial class DescriptorPool
     {
         internal VkDescriptorPool_T __Instance;
@@ -4109,7 +4263,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 91 Column: 1
     public partial class DescriptorSet
     {
         internal VkDescriptorSet_T __Instance;
@@ -4140,7 +4293,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 92 Column: 1
     public partial class Framebuffer
     {
         internal VkFramebuffer_T __Instance;
@@ -4171,7 +4323,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 93 Column: 1
     public partial class CommandPool
     {
         internal VkCommandPool_T __Instance;
@@ -4202,7 +4353,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3838 Column: 1
     public partial class SamplerYcbcrConversion
     {
         internal VkSamplerYcbcrConversion_T __Instance;
@@ -4233,7 +4383,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 3839 Column: 1
     public partial class DescriptorUpdateTemplate
     {
         internal VkDescriptorUpdateTemplate_T __Instance;
@@ -4264,7 +4413,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4712 Column: 1
     public partial class SurfaceKHR
     {
         internal VkSurfaceKHR_T __Instance;
@@ -4295,7 +4443,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4834 Column: 1
     public partial class SwapchainKHR
     {
         internal VkSwapchainKHR_T __Instance;
@@ -4326,7 +4473,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4996 Column: 1
     public partial class DisplayKHR
     {
         internal VkDisplayKHR_T __Instance;
@@ -4357,7 +4503,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 4997 Column: 1
     public partial class DisplayModeKHR
     {
         internal VkDisplayModeKHR_T __Instance;
@@ -4388,7 +4533,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 5566 Column: 36
     public partial class DescriptorUpdateTemplateKHR
     {
         internal VkDescriptorUpdateTemplate_T __Instance;
@@ -4419,7 +4563,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6009 Column: 34
     public partial class SamplerYcbcrConversionKHR
     {
         internal VkSamplerYcbcrConversion_T __Instance;
@@ -4450,7 +4593,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6271 Column: 1
     public partial class DebugReportCallbackEXT
     {
         internal VkDebugReportCallbackEXT_T __Instance;
@@ -4481,7 +4623,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6886 Column: 1
     public partial class ObjectTableNVX
     {
         internal VkObjectTableNVX_T __Instance;
@@ -4512,7 +4653,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 6887 Column: 1
     public partial class IndirectCommandsLayoutNVX
     {
         internal VkIndirectCommandsLayoutNVX_T __Instance;
@@ -4543,7 +4683,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 7541 Column: 1
     public partial class DebugUtilsMessengerEXT
     {
         internal VkDebugUtilsMessengerEXT_T __Instance;
@@ -4574,7 +4713,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8001 Column: 1
     public partial class ValidationCacheEXT
     {
         internal VkValidationCacheEXT_T __Instance;
@@ -4605,7 +4743,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 8265 Column: 1
     public partial class AccelerationStructureNV
     {
         internal VkAccelerationStructureNV_T __Instance;
@@ -4632,6 +4769,31 @@ namespace AdamantiumVulkan.Core
         public static implicit operator AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T a)
         {
             return new AccelerationStructureNV(){__Instance = a};
+        }
+
+    }
+
+    public partial class PerformanceConfigurationINTEL
+    {
+        internal VkPerformanceConfigurationINTEL_T __Instance;
+
+        public PerformanceConfigurationINTEL()
+        {
+        }
+
+        public PerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T(PerformanceConfigurationINTEL p)
+        {
+            return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T();
+        }
+
+        public static implicit operator PerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T p)
+        {
+            return new PerformanceConfigurationINTEL(){__Instance = p};
         }
 
     }

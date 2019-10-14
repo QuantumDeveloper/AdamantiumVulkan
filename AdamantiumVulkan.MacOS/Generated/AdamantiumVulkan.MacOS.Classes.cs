@@ -13,7 +13,6 @@ namespace AdamantiumVulkan.MacOS
     using AdamantiumVulkan.MacOS.Interop;
     using AdamantiumVulkan.Core.Interop;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 69 Column: 1
     public static partial class InstanceExtension
     {
         public static Result CreateMacOSSurfaceMVK(this AdamantiumVulkan.Core.Instance instance, in MacOSSurfaceCreateInfoMVK pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.SurfaceKHR pSurface)

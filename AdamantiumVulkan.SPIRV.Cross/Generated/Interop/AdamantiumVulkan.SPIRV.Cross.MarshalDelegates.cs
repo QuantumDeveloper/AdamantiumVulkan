@@ -5,16 +5,17 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
-namespace AdamantiumVulkan.MacOS.Interop
+namespace AdamantiumVulkan.SPIRV.Cross.Interop
 {
     using System.Security;
     using System;
     using System.Runtime.InteropServices;
-    using AdamantiumVulkan.Core;
-    using AdamantiumVulkan.Core.Interop;
 
+    ///<summary>
+    /// Get notified in a callback when an error triggers. Useful for debugging.
+    ///</summary>
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkCreateMacOSSurfaceMVK([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance,  AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
+    public delegate void SpvcErrorCallback([In, Out] System.IntPtr userdata, [In] System.IntPtr error);
 
 }
 

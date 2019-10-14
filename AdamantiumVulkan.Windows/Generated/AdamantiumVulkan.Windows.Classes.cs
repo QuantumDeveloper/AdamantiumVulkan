@@ -13,7 +13,6 @@ namespace AdamantiumVulkan.Windows
     using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core.Interop;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 69 Column: 1
     public static partial class InstanceExtension
     {
         public static Result CreateWin32SurfaceKHR(this AdamantiumVulkan.Core.Instance instance, in Win32SurfaceCreateInfoKHR pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.SurfaceKHR pSurface)
@@ -33,7 +32,6 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 70 Column: 1
     public static partial class PhysicalDeviceExtension
     {
         public static bool GetPhysicalDeviceWin32PresentationSupportKHR(this AdamantiumVulkan.Core.PhysicalDevice physicalDevice, uint queueFamilyIndex)
@@ -42,9 +40,20 @@ namespace AdamantiumVulkan.Windows
             return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetPhysicalDeviceWin32PresentationSupportKHR(arg0, queueFamilyIndex);
         }
 
+        public static Result GetPhysicalDeviceSurfacePresentModes2EXT(this AdamantiumVulkan.Core.PhysicalDevice physicalDevice, in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref uint pPresentModeCount, ref PresentModeKHR pPresentModes)
+        {
+            var arg0 = physicalDevice;
+            var arg1 = ReferenceEquals(pSurfaceInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSurfaceInfo.ToInternal());
+            var arg2 = (int)pPresentModes;
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetPhysicalDeviceSurfacePresentModes2EXT(arg0, arg1, ref pPresentModeCount, ref arg2);
+            pSurfaceInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pPresentModes = (PresentModeKHR)arg2;
+            return result;
+        }
+
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_core.h Line: 71 Column: 1
     public static partial class DeviceExtension
     {
         public static Result GetMemoryWin32HandleKHR(this AdamantiumVulkan.Core.Device device, in MemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, ref System.IntPtr pHandle)
@@ -112,6 +121,30 @@ namespace AdamantiumVulkan.Windows
             var arg0 = device;
             var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
             return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetMemoryWin32HandleNV(arg0, arg1, handleType, pHandle);
+        }
+
+        public static Result AcquireFullScreenExclusiveModeEXT(this AdamantiumVulkan.Core.Device device, AdamantiumVulkan.Core.SwapchainKHR swapchain)
+        {
+            var arg0 = device;
+            var arg1 = ReferenceEquals(swapchain, null) ? new VkSwapchainKHR_T() : (VkSwapchainKHR_T)swapchain;
+            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkAcquireFullScreenExclusiveModeEXT(arg0, arg1);
+        }
+
+        public static Result ReleaseFullScreenExclusiveModeEXT(this AdamantiumVulkan.Core.Device device, AdamantiumVulkan.Core.SwapchainKHR swapchain)
+        {
+            var arg0 = device;
+            var arg1 = ReferenceEquals(swapchain, null) ? new VkSwapchainKHR_T() : (VkSwapchainKHR_T)swapchain;
+            return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkReleaseFullScreenExclusiveModeEXT(arg0, arg1);
+        }
+
+        public static Result GetDeviceGroupSurfacePresentModes2EXT(this AdamantiumVulkan.Core.Device device, in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref uint pModes)
+        {
+            var arg0 = device;
+            var arg1 = ReferenceEquals(pSurfaceInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSurfaceInfo.ToInternal());
+            var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetDeviceGroupSurfacePresentModes2EXT(arg0, arg1, ref pModes);
+            pSurfaceInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
     }

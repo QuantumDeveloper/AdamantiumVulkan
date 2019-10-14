@@ -10,78 +10,6 @@ namespace AdamantiumVulkan.Shaders
     using System;
     using System.Runtime.InteropServices;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc/env.h Line: 22 Column: 9
-    [Flags]
-    public enum ShadercTargetEnv : int
-    {
-        ///<summary>
-        /// create SPIR-V under Vulkan semantics
-        ///</summary>
-        Vulkan = 0,
-
-        ///<summary>
-        /// create SPIR-V under OpenGL semantics
-        ///</summary>
-        Opengl = 1,
-
-        ///<summary>
-        /// create SPIR-V under OpenGL semantics, including compatibility profile functions
-        ///</summary>
-        OpenglCompat = 2,
-
-        Default = 0,
-
-    }
-
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc/env.h Line: 33 Column: 9
-    public enum ShadercEnvVersion : int
-    {
-        ///<summary>
-        /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
-        ///</summary>
-        Vulkan10 = 4194304,
-
-        ///<summary>
-        /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
-        ///</summary>
-        Vulkan11 = 4198400,
-
-        ///<summary>
-        /// For OpenGL, use the number from #version in shaders. TODO(dneto): Currently no difference between OpenGL 4.5 and 4.6. See glslang/Standalone/Standalone.cpp TODO(dneto): Glslang doesn't accept a OpenGL client version of 460.
-        ///</summary>
-        Opengl45 = 450,
-
-    }
-
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc/status.h Line: 23 Column: 9
-    ///<summary>
-    /// Indicate the status of a compilation.
-    ///</summary>
-    public enum ShadercCompilationStatus : int
-    {
-        Success = 0,
-
-        ///<summary>
-        /// error stage deduction
-        ///</summary>
-        InvalidStage = 1,
-
-        CompilationError = 2,
-
-        ///<summary>
-        /// unexpected failure
-        ///</summary>
-        InternalError = 3,
-
-        NullResultObject = 4,
-
-        InvalidAssembly = 5,
-
-        ValidationError = 6,
-
-    }
-
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 31 Column: 9
     ///<summary>
     /// Source language kind.
     ///</summary>
@@ -94,7 +22,6 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 36 Column: 9
     public enum ShadercShaderKind : int
     {
         ///<summary>
@@ -199,7 +126,6 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 94 Column: 9
     public enum ShadercProfile : int
     {
         ///<summary>
@@ -215,7 +141,6 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 103 Column: 9
     ///<summary>
     /// Optimization level.
     ///</summary>
@@ -239,7 +164,6 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 110 Column: 9
     ///<summary>
     /// Resource limits.
     ///</summary>
@@ -413,7 +337,6 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 199 Column: 9
     ///<summary>
     /// Uniform resource kinds. In Vulkan, uniform resources are bound to the pipeline via descriptors with numbered bindings and sets.
     ///</summary>
@@ -451,7 +374,6 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 345 Column: 6
     ///<summary>
     /// The kinds of include requests.
     ///</summary>

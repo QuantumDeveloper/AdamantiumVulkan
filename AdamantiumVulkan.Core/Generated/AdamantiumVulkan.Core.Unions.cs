@@ -10,6 +10,7 @@ namespace AdamantiumVulkan.Core
 {
     using System.Runtime.InteropServices;
     using AdamantiumVulkan;
+    using AdamantiumVulkan.Core.Interop;
 
     public partial class ClearColorValue
     {
@@ -138,6 +139,82 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+    }
+
+    public partial class PipelineExecutableStatisticValueKHR
+    {
+        public PipelineExecutableStatisticValueKHR()
+        {
+        }
+
+        public PipelineExecutableStatisticValueKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR _internal)
+        {
+            B32 = _internal.b32;
+            I64 = _internal.i64;
+            U64 = _internal.u64;
+            F64 = _internal.f64;
+        }
+
+        public bool B32 { get; set; }
+        public long I64 { get; set; }
+        public ulong U64 { get; set; }
+        public double F64 { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR();
+            _internal.b32 = B32;
+            _internal.i64 = I64;
+            _internal.u64 = U64;
+            _internal.f64 = F64;
+            return _internal;
+        }
+    }
+
+    public partial class PerformanceValueDataINTEL : DisposableObject
+    {
+        private StringReference refvalueString;
+
+        public PerformanceValueDataINTEL()
+        {
+        }
+
+        public PerformanceValueDataINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL _internal)
+        {
+            Value32 = _internal.value32;
+            Value64 = _internal.value64;
+            ValueFloat = _internal.valueFloat;
+            ValueBool = _internal.valueBool;
+            ValueString = Marshal.PtrToStringAnsi(_internal.valueString);
+        }
+
+        public uint Value32 { get; set; }
+        public ulong Value64 { get; set; }
+        public float ValueFloat { get; set; }
+        public bool ValueBool { get; set; }
+        public string ValueString { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL();
+            _internal.value32 = Value32;
+            _internal.value64 = Value64;
+            _internal.valueFloat = ValueFloat;
+            _internal.valueBool = ValueBool;
+            refvalueString?.Dispose();
+            if (ValueString != null)
+            {
+                refvalueString = new StringReference(ValueString, false);
+                _internal.valueString = refvalueString.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refvalueString?.Dispose();
+        }
+
     }
 
 

@@ -11,7 +11,6 @@ namespace AdamantiumVulkan.MacOS.Interop
     using System.Runtime.InteropServices;
     using AdamantiumVulkan.Core;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 17
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMacOSSurfaceCreateFlagsMVK
     {
@@ -29,7 +28,6 @@ namespace AdamantiumVulkan.MacOS.Interop
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\vulkan/vulkan_macos.h Line: 36 Column: 16
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMacOSSurfaceCreateInfoMVK
     {

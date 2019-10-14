@@ -10,7 +10,6 @@ namespace AdamantiumVulkan.Shaders.Interop
     using System;
     using System.Runtime.InteropServices;
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 240 Column: 16
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ShadercCompiler
     {
@@ -18,7 +17,6 @@ namespace AdamantiumVulkan.Shaders.Interop
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 260 Column: 16
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ShadercCompileOptions
     {
@@ -26,7 +24,6 @@ namespace AdamantiumVulkan.Shaders.Interop
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 328 Column: 16
     ///<summary>
     /// An include result.
     ///</summary>
@@ -54,7 +51,6 @@ namespace AdamantiumVulkan.Shaders.Interop
 
     }
 
-    // File: C:\VulkanSDK\1.1.101.0\Include\shaderc\shaderc.h Line: 455 Column: 16
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ShadercCompilationResult
     {
