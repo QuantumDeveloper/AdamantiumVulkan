@@ -1259,7 +1259,6 @@ namespace AdamantiumVulkan.Core
             var arg2 = ReferenceEquals(pCreateInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfos.ToInternal());
             var arg3 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             var arg4 = new AdamantiumVulkan.Core.Interop.VkPipeline_T[createInfoCount];
-            var t = pCreateInfos.ToInternal();
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateGraphicsPipelines(arg0, arg1, createInfoCount, arg2, arg3, arg4);
             pCreateInfos?.Dispose();
             Marshal.FreeHGlobal(arg2);

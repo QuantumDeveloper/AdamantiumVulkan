@@ -8966,7 +8966,7 @@ namespace AdamantiumVulkan.Core
             ShaderInt8 = _internal.shaderInt8;
         }
 
-        public StructureType SType => StructureType.PhysicalDeviceFloat16Int8FeaturesKhr;
+        public StructureType SType => StructureType.PhysicalDeviceShaderFloat16Int8FeaturesKhr;
         public System.IntPtr PNext { get; set; }
         public bool ShaderFloat16 { get; set; }
         public bool ShaderInt8 { get; set; }
