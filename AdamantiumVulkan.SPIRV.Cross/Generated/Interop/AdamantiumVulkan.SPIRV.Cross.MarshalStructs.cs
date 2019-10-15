@@ -255,7 +255,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 
         public byte per_instance;
 
-        public SpvcMslVertexFormat format;
+        public MslVertexFormat format;
 
         public SpvBuiltIn builtin;
 
@@ -287,23 +287,23 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcMslConstexprSampler
     {
-        public SpvcMslSamplerCoord coord;
+        public MslSamplerCoord coord;
 
-        public SpvcMslSamplerFilter min_filter;
+        public MslSamplerFilter min_filter;
 
-        public SpvcMslSamplerFilter mag_filter;
+        public MslSamplerFilter mag_filter;
 
-        public SpvcMslSamplerMipFilter mip_filter;
+        public MslSamplerMipFilter mip_filter;
 
-        public SpvcMslSamplerAddress s_address;
+        public MslSamplerAddress s_address;
 
-        public SpvcMslSamplerAddress t_address;
+        public MslSamplerAddress t_address;
 
-        public SpvcMslSamplerAddress r_address;
+        public MslSamplerAddress r_address;
 
-        public SpvcMslSamplerCompareFunc compare_func;
+        public MslSamplerCompareFunc compare_func;
 
-        public SpvcMslSamplerBorderColor border_color;
+        public MslSamplerBorderColor border_color;
 
         public float lod_clamp_min;
 
@@ -327,20 +327,20 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public uint planes;
 
-        public SpvcMslFormatResolution resolution;
+        public MslFormatResolution resolution;
 
-        public SpvcMslSamplerFilter chroma_filter;
+        public MslSamplerFilter chroma_filter;
 
-        public SpvcMslChromaLocation x_chroma_offset;
+        public MslChromaLocation x_chroma_offset;
 
-        public SpvcMslChromaLocation y_chroma_offset;
+        public MslChromaLocation y_chroma_offset;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public SpvcMslComponentSwizzle[] swizzle;
+        public MslComponentSwizzle[] swizzle;
 
-        public SpvcMslSamplerYcbcrModelConversion ycbcr_model;
+        public MslSamplerYcbcrModelConversion ycbcr_model;
 
-        public SpvcMslSamplerYcbcrRange ycbcr_range;
+        public MslSamplerYcbcrRange ycbcr_range;
 
         public uint bpc;
 

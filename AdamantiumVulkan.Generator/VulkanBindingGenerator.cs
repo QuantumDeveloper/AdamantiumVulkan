@@ -39,7 +39,6 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.Name = "Core";
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            //vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
             vkMainModule.ForceCallingConvention = true;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
@@ -89,7 +88,7 @@ namespace AdamantiumVulkan.Generator
             spivCrossModule.OutputFileName = "AdamantiumVulkan.SPIRV.Cross";
             spivCrossModule.OutputNamespace = "AdamantiumVulkan.SPIRV.Cross";
             spivCrossModule.SuppressUnmanagedCodeSecurity = false;
-            spivCrossModule.AddNamespaceMapping("spirv", string.Empty, spirvPath);
+            spivCrossModule.AddNamespaceMapping("spirv", "AdamantiumVulkan.SPIRV", spirvPath, true);
             spivCrossModule.WrapInteropObjects = true;
             spivCrossModule.GenerateOverloadsForArrayParams = true;
             spivCrossModule.OutputPath = spirvCrossPath;
@@ -158,6 +157,7 @@ namespace AdamantiumVulkan.Generator
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
             context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Enum|RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
         }
 
         private List<PredefinedValues> CreatePredefinedValues()

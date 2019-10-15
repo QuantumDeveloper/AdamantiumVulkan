@@ -5,7 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
-namespace AdamantiumVulkan.SPIRV.Cross
+namespace AdamantiumVulkan.SPIRV
 {
     using System;
     using System.Runtime.InteropServices;
@@ -1260,7 +1260,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
     }
 
-    public enum SpvCapability : int
+    public enum apability : int
     {
         Spvcapabilitymatrix = 0,
 
