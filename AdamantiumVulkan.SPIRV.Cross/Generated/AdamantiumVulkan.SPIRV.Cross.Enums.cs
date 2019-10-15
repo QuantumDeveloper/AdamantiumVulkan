@@ -10,7 +10,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     using System;
     using System.Runtime.InteropServices;
 
-    public enum SpvcResult : int
+    public enum Result : int
     {
         ///<summary>
         /// Success.
@@ -45,7 +45,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     }
 
     [Flags]
-    public enum SpvcCaptureMode : int
+    public enum CaptureMode : int
     {
         ///<summary>
         /// The Parsed IR payload will be copied, and the handle can be reused to create other compiler instances.
@@ -64,7 +64,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
     }
 
-    public enum SpvcBackend : int
+    public enum Backend : int
     {
         ///<summary>
         /// This backend can only perform reflection, no compiler options are supported. Maps to spirv_cross::Compiler.
@@ -103,7 +103,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to C++ API.
     ///</summary>
-    public enum SpvcResourceType : int
+    public enum ResourceType : int
     {
         Unknown = 0,
 
@@ -138,7 +138,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to spirv_cross::SPIRType::BaseType.
     ///</summary>
-    public enum SpvcBasetype : int
+    public enum Basetype : int
     {
         Unknown = 0,
 
@@ -188,7 +188,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslPlatform : int
+    public enum MslPlatform : int
     {
         Ios = 0,
 
@@ -202,7 +202,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslVertexFormat : int
+    public enum MslVertexFormat : int
     {
         Other = 0,
 
@@ -216,7 +216,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslSamplerCoord : int
+    public enum MslSamplerCoord : int
     {
         CoordNormalized = 0,
 
@@ -230,7 +230,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslSamplerFilter : int
+    public enum MslSamplerFilter : int
     {
         Nearest = 0,
 
@@ -244,7 +244,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslSamplerMipFilter : int
+    public enum MslSamplerMipFilter : int
     {
         None = 0,
 
@@ -259,7 +259,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to C++ API.
     ///</summary>
-    public enum SpvcMslSamplerAddress : int
+    public enum MslSamplerAddress : int
     {
         ClampToZero = 0,
 
@@ -278,7 +278,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to C++ API.
     ///</summary>
-    public enum SpvcMslSamplerCompareFunc : int
+    public enum MslSamplerCompareFunc : int
     {
         Never = 0,
 
@@ -304,7 +304,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslSamplerBorderColor : int
+    public enum MslSamplerBorderColor : int
     {
         TransparentBlack = 0,
 
@@ -320,7 +320,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslFormatResolution : int
+    public enum MslFormatResolution : int
     {
         _444 = 0,
 
@@ -336,7 +336,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslChromaLocation : int
+    public enum MslChromaLocation : int
     {
         CositedEven = 0,
 
@@ -349,7 +349,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to C++ API.
     ///</summary>
-    public enum SpvcMslComponentSwizzle : int
+    public enum MslComponentSwizzle : int
     {
         Identity = 0,
 
@@ -372,7 +372,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to C++ API.
     ///</summary>
-    public enum SpvcMslSamplerYcbcrModelConversion : int
+    public enum MslSamplerYcbcrModelConversion : int
     {
         RgbIdentity = 0,
 
@@ -392,7 +392,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C+ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslSamplerYcbcrRange : int
+    public enum MslSamplerYcbcrRange : int
     {
         ItuFull = 0,
 
@@ -405,7 +405,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     ///<summary>
     /// Maps to the various spirv_cross::Compiler*::Option structures. See C++ API for defaults and details.
     ///</summary>
-    public enum SpvcCompilerOption : int
+    public enum CompilerOption : int
     {
         Unknown = 0,
 
