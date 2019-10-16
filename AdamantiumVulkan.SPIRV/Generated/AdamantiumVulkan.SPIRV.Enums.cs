@@ -1260,7 +1260,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum apability : int
+    public enum SpvCapability : int
     {
         Spvcapabilitymatrix = 0,
 
