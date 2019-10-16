@@ -22,6 +22,9 @@ namespace AdamantiumVulkan.Generator
         {
             string vkMainLibrary = "vulkan-1";
             string shadercLibrary = "shaderc_shared";
+            string spirvCrossLibrary = "spirv-cross-c-shared";
+            string mainNamespace = "AdamantiumVulkan";
+
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
             string mainPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan", "Generated"));
             string corePath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "Generated"));
@@ -32,49 +35,49 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.SPIRV.Cross", "Generated"));
 
             options.GenerateSequentialLayout = true;
-            //options.DebugMode = true;
             options.ConvertRules.PodTypesAsSimpleTypes = true;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
-            vkMainModule = options.AddModule(vkMainLibrary);
-            vkMainModule.Name = "Core";
-            vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
-            vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
-            vkMainModule.ForceCallingConvention = true;
-            vkMainModule.CallingConvention = CallingConvention.Winapi;
-            vkMainModule.AllowConvertStructToClass = true;
-            vkMainModule.MethodClassName = "VulkanNative";
-            vkMainModule.InteropClassName = "VulkanInterop";
-            vkMainModule.OutputFileName = "AdamantiumVulkan";
-            vkMainModule.OutputNamespace = "AdamantiumVulkan";
-            vkMainModule.SuppressUnmanagedCodeSecurity = false;
-            vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
-            vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
-            vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
-            vkMainModule.WrapInteropObjects = true;
-            vkMainModule.GenerateOverloadsForArrayParams = true;
-            vkMainModule.OutputPath = mainPath;
 
-            shaderModule = options.AddModule(shadercLibrary);
-            shaderModule.Name = "Shaders";
-            shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
-            shaderModule.Defines.Add("SHADERC_SHAREDLIB");
-            vkMainModule.Defines.Add("_WIN32");
-            shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
-            shaderModule.ForceCallingConvention = true;
-            shaderModule.CallingConvention = CallingConvention.Winapi;
-            shaderModule.AllowConvertStructToClass = true;
-            shaderModule.MethodClassName = "VulkanShadersNative";
-            shaderModule.InteropClassName = "VulkanShadersInterop";
-            shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
-            shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
-            shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
-            shaderModule.SuppressUnmanagedCodeSecurity = false;
-            shaderModule.WrapInteropObjects = true;
-            shaderModule.GenerateOverloadsForArrayParams = true;
-            shaderModule.OutputPath = shadersPath;
+            //vkMainModule = options.AddModule(vkMainLibrary);
+            //vkMainModule.Name = "Core";
+            //vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
+            //vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
+            //vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
+            //vkMainModule.ForceCallingConvention = true;
+            //vkMainModule.CallingConvention = CallingConvention.Winapi;
+            //vkMainModule.AllowConvertStructToClass = true;
+            //vkMainModule.MethodClassName = "VulkanNative";
+            //vkMainModule.InteropClassName = "VulkanInterop";
+            //vkMainModule.OutputFileName = "mainNamespace";
+            //vkMainModule.OutputNamespace = "mainNamespace";
+            //vkMainModule.SuppressUnmanagedCodeSecurity = false;
+            //vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
+            //vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
+            //vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
+            //vkMainModule.WrapInteropObjects = true;
+            //vkMainModule.GenerateOverloadsForArrayParams = true;
+            //vkMainModule.OutputPath = mainPath;
 
-            spivCrossModule = options.AddModule(vkMainLibrary);
+            //shaderModule = options.AddModule(shadercLibrary);
+            //shaderModule.Name = "Shaders";
+            //shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
+            //shaderModule.Defines.Add("SHADERC_SHAREDLIB");
+            //vkMainModule.Defines.Add("_WIN32");
+            //shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
+            //shaderModule.ForceCallingConvention = true;
+            //shaderModule.CallingConvention = CallingConvention.Winapi;
+            //shaderModule.AllowConvertStructToClass = true;
+            //shaderModule.MethodClassName = "VulkanShadersNative";
+            //shaderModule.InteropClassName = "VulkanShadersInterop";
+            //shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
+            //shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
+            //shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
+            //shaderModule.SuppressUnmanagedCodeSecurity = false;
+            //shaderModule.WrapInteropObjects = true;
+            //shaderModule.GenerateOverloadsForArrayParams = true;
+            //shaderModule.OutputPath = shadersPath;
+
+            spivCrossModule = options.AddModule(spirvCrossLibrary);
             spivCrossModule.Name = "Spirv-Cross";
             spivCrossModule.Files.Add(@"M:\GitHUB\ShadersVulkan\spirv-cross\include\spirv_cross_c.h");
             spivCrossModule.Defines.Add("SPVC_EXPORT_SYMBOLS");
@@ -94,8 +97,8 @@ namespace AdamantiumVulkan.Generator
             spivCrossModule.OutputPath = spirvCrossPath;
 
             Module.UtilsOutputName = "Utils";
-            Module.UtilsNamespace = vkMainModule.OutputNamespace;
-            Module.GenerateUtilsForModule = vkMainModule;
+            Module.UtilsNamespace = mainNamespace;
+            //Module.GenerateUtilsForModule = vkMainModule;
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -113,7 +116,7 @@ namespace AdamantiumVulkan.Generator
 
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct;
-            context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
+            //context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
 
             var predefinedValues = CreatePredefinedValues();
@@ -156,8 +159,8 @@ namespace AdamantiumVulkan.Generator
         {
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
-            context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Enum|RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            //context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
         }
 
         private List<PredefinedValues> CreatePredefinedValues()

@@ -16,6 +16,8 @@ using AdamantiumVulkan.Windows;
 using Constants = AdamantiumVulkan.Core.Constants;
 using System.IO;
 using Adamantium.Mathematics;
+using AdamantiumVulkan.SPIRV.Cross;
+using AdamantiumVulkan;
 
 namespace VulkanEngineTestCore
 {
@@ -50,6 +52,13 @@ namespace VulkanEngineTestCore
             enableValidationLayers = true;
             _pauseEvent = new AutoResetEvent(false);
             debugCallback = DebugCallback;
+
+            SpvcMslSamplerYcbcrConversion test = new SpvcMslSamplerYcbcrConversion();
+            test.Swizzle = new SpvcMslComponentSwizzle[4];
+            test.Swizzle[0] = SpvcMslComponentSwizzle.R;
+
+            var ptr = MarshalUtils.MarshalStructToPtr(test);
+
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
             thread = new Thread(RenderThread);

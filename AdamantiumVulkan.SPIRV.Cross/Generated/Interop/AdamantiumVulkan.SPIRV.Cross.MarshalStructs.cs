@@ -49,6 +49,8 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcTypeS
     {
+        public System.IntPtr pointer;
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -61,6 +63,8 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcSetS
     {
+        public System.IntPtr pointer;
+
     }
 
     ///<summary>
@@ -255,7 +259,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 
         public byte per_instance;
 
-        public MslVertexFormat format;
+        public int format;
 
         public SpvBuiltIn builtin;
 
@@ -287,23 +291,23 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcMslConstexprSampler
     {
-        public MslSamplerCoord coord;
+        public int coord;
 
-        public MslSamplerFilter min_filter;
+        public int min_filter;
 
-        public MslSamplerFilter mag_filter;
+        public int mag_filter;
 
-        public MslSamplerMipFilter mip_filter;
+        public int mip_filter;
 
-        public MslSamplerAddress s_address;
+        public int s_address;
 
-        public MslSamplerAddress t_address;
+        public int t_address;
 
-        public MslSamplerAddress r_address;
+        public int r_address;
 
-        public MslSamplerCompareFunc compare_func;
+        public int compare_func;
 
-        public MslSamplerBorderColor border_color;
+        public int border_color;
 
         public float lod_clamp_min;
 
@@ -327,20 +331,20 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public uint planes;
 
-        public MslFormatResolution resolution;
+        public int resolution;
 
-        public MslSamplerFilter chroma_filter;
+        public int chroma_filter;
 
-        public MslChromaLocation x_chroma_offset;
+        public int x_chroma_offset;
 
-        public MslChromaLocation y_chroma_offset;
+        public int y_chroma_offset;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public MslComponentSwizzle[] swizzle;
+        public int[] swizzle;
 
-        public MslSamplerYcbcrModelConversion ycbcr_model;
+        public int ycbcr_model;
 
-        public MslSamplerYcbcrRange ycbcr_range;
+        public int ycbcr_range;
 
         public uint bpc;
 

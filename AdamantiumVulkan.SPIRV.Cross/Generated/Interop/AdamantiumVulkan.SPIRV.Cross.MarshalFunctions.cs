@@ -15,395 +15,395 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 
     public static class SpirvCrossInterop
     {
-        public const string LibraryPath = "vulkan-1";
+        public const string LibraryPath = "spirv-cross-c-shared";
 
         ///<summary>
         /// Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_add_header_line", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_add_header_line([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string line);
+        internal static extern SpvcResult spvc_compiler_add_header_line([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string line);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_buffer_get_hlsl_counter_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_buffer_get_hlsl_counter_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, ref AdamantiumVulkan.SPIRV.Cross.Interop.uint counter_id);
+        internal static extern byte spvc_compiler_buffer_get_hlsl_counter_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, ref uint counter_id);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_buffer_is_hlsl_counter_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_buffer_is_hlsl_counter_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern byte spvc_compiler_buffer_is_hlsl_counter_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_build_combined_image_samplers", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_build_combined_image_samplers([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern SpvcResult spvc_compiler_build_combined_image_samplers([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         ///<summary>
         /// Workaround helper functions. Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_build_dummy_sampler_for_combined_images", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_build_dummy_sampler_for_combined_images([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, ref AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern SpvcResult spvc_compiler_build_dummy_sampler_for_combined_images([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, ref uint id);
 
         ///<summary>
         /// Compile IR into a string. *source is owned by the context, and caller must not free it themselves.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_compile", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_compile([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, string[] source);
+        internal static extern SpvcResult spvc_compiler_compile([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, string[] source);
 
         ///<summary>
         /// Create compiler options, which will initialize defaults.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_create_compiler_options", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_create_compiler_options([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.SpvcCompilerOptionsS options);
+        internal static extern SpvcResult spvc_compiler_create_compiler_options([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerOptionsS options);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_create_shader_resources", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_create_shader_resources([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.SpvcResourcesS resources);
+        internal static extern SpvcResult spvc_compiler_create_shader_resources([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcResourcesS resources);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_create_shader_resources_for_active_variables", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_create_shader_resources_for_active_variables([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.SpvcResourcesS resources, [In] AdamantiumVulkan.SPIRV.Cross.SpvcSet active);
+        internal static extern SpvcResult spvc_compiler_create_shader_resources_for_active_variables([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcResourcesS resources, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcSetS active);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_flatten_buffer_block", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_flatten_buffer_block([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern SpvcResult spvc_compiler_flatten_buffer_block([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         ///<summary>
         /// Buffer ranges Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_active_buffer_ranges", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_active_buffer_ranges([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, System.IntPtr ranges, ref ulong num_ranges);
+        internal static extern SpvcResult spvc_compiler_get_active_buffer_ranges([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, System.IntPtr ranges, ref ulong num_ranges);
 
         ///<summary>
         /// Reflect resources. Maps almost 1:1 to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_active_interface_variables", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_active_interface_variables([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.SpvcSet set);
+        internal static extern SpvcResult spvc_compiler_get_active_interface_variables([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcSetS set);
 
         ///<summary>
         /// Misc reflection Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_binary_offset_for_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_get_binary_offset_for_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] SpvDecoration decoration, ref uint word_offset);
+        internal static extern byte spvc_compiler_get_binary_offset_for_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration, ref uint word_offset);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_buffer_block_decorations", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_buffer_block_decorations([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, System.IntPtr decorations, ref ulong num_decorations);
+        internal static extern SpvcResult spvc_compiler_get_buffer_block_decorations([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, System.IntPtr decorations, ref ulong num_decorations);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_cleansed_entry_point_name", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_compiler_get_cleansed_entry_point_name([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string name, [In] SpvExecutionModel model);
+        internal static extern string spvc_compiler_get_cleansed_entry_point_name([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string name, [In] SpvExecutionModel model);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_combined_image_samplers", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_combined_image_samplers([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr samplers, ref ulong num_samplers);
+        internal static extern SpvcResult spvc_compiler_get_combined_image_samplers([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr samplers, ref ulong num_samplers);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_constant_handle", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvcConstantS spvc_compiler_get_constant_handle([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern SpvcConstantS spvc_compiler_get_constant_handle([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         ///<summary>
         /// Maps directly to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_current_id_bound", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_get_current_id_bound([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern uint spvc_compiler_get_current_id_bound([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_capabilities", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_declared_capabilities([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr capabilities, ref ulong num_capabilities);
+        internal static extern SpvcResult spvc_compiler_get_declared_capabilities([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr capabilities, ref ulong num_capabilities);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_extensions", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_declared_extensions([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr extensions, ref ulong num_extensions);
+        internal static extern SpvcResult spvc_compiler_get_declared_extensions([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr extensions, ref ulong num_extensions);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_struct_member_size", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_declared_struct_member_size([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint index, ref ulong size);
+        internal static extern SpvcResult spvc_compiler_get_declared_struct_member_size([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint index, ref ulong size);
 
         ///<summary>
         /// Buffer layout query. Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_struct_size", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_declared_struct_size([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcType struct_type, ref ulong size);
+        internal static extern SpvcResult spvc_compiler_get_declared_struct_size([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS struct_type, ref ulong size);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_struct_size_runtime_array", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_declared_struct_size_runtime_array([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcType struct_type, [In] ulong array_size, ref ulong size);
+        internal static extern SpvcResult spvc_compiler_get_declared_struct_size_runtime_array([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS struct_type, [In] ulong array_size, ref ulong size);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_get_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
+        internal static extern uint spvc_compiler_get_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_decoration_string", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_compiler_get_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
+        internal static extern string spvc_compiler_get_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
 
         ///<summary>
         /// Entry points. Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_entry_points", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_entry_points([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr entry_points, ref ulong num_entry_points);
+        internal static extern SpvcResult spvc_compiler_get_entry_points([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr entry_points, ref ulong num_entry_points);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_mode_argument", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_get_execution_mode_argument([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] SpvExecutionMode mode);
+        internal static extern uint spvc_compiler_get_execution_mode_argument([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] SpvExecutionMode mode);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_mode_argument_by_index", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_get_execution_mode_argument_by_index([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] SpvExecutionMode mode, [In] uint index);
+        internal static extern uint spvc_compiler_get_execution_mode_argument_by_index([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] SpvExecutionMode mode, [In] uint index);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_model", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvExecutionModel spvc_compiler_get_execution_model([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern SpvExecutionModel spvc_compiler_get_execution_model([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_modes", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_execution_modes([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr modes, ref ulong num_modes);
+        internal static extern SpvcResult spvc_compiler_get_execution_modes([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr modes, ref ulong num_modes);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_member_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_get_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] SpvDecoration decoration);
+        internal static extern uint spvc_compiler_get_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_member_decoration_string", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_compiler_get_member_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] SpvDecoration decoration);
+        internal static extern string spvc_compiler_get_member_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_member_name", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_compiler_get_member_name([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index);
+        internal static extern string spvc_compiler_get_member_name([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_name", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_compiler_get_name([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id);
+        internal static extern string spvc_compiler_get_name([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_remapped_declared_block_name", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_compiler_get_remapped_declared_block_name([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern string spvc_compiler_get_remapped_declared_block_name([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         ///<summary>
         /// Constants Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_specialization_constants", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_get_specialization_constants([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr constants, ref ulong num_constants);
+        internal static extern SpvcResult spvc_compiler_get_specialization_constants([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr constants, ref ulong num_constants);
 
         ///<summary>
         /// Type query interface. Maps to C++ API, except it's read-only.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_type_handle", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvcType spvc_compiler_get_type_handle([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern SpvcTypeS spvc_compiler_get_type_handle([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_work_group_size_specialization_constants", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_get_work_group_size_specialization_constants([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] System.IntPtr x, [In] System.IntPtr y, [In] System.IntPtr z);
+        internal static extern uint spvc_compiler_get_work_group_size_specialization_constants([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] System.IntPtr x, [In] System.IntPtr y, [In] System.IntPtr z);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_has_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
+        internal static extern byte spvc_compiler_has_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_member_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_has_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] SpvDecoration decoration);
+        internal static extern byte spvc_compiler_has_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_add_vertex_attribute_remap", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_hlsl_add_vertex_attribute_remap([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr remap, [In] ulong remaps);
+        internal static extern SpvcResult spvc_compiler_hlsl_add_vertex_attribute_remap([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr remap, [In] ulong remaps);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_remap_num_workgroups_builtin", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_hlsl_remap_num_workgroups_builtin([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern uint spvc_compiler_hlsl_remap_num_workgroups_builtin([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         ///<summary>
         /// HLSL specifics. Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_set_root_constants_layout", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_hlsl_set_root_constants_layout([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr constant_info, [In] ulong count);
+        internal static extern SpvcResult spvc_compiler_hlsl_set_root_constants_layout([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr constant_info, [In] ulong count);
 
         ///<summary>
         /// Set compiler options.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_install_compiler_options", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_install_compiler_options([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerOptionsS options);
+        internal static extern SpvcResult spvc_compiler_install_compiler_options([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerOptionsS options);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_discrete_descriptor_set", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_add_discrete_descriptor_set([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint desc_set);
+        internal static extern SpvcResult spvc_compiler_msl_add_discrete_descriptor_set([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint desc_set);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_dynamic_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_add_dynamic_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint desc_set, [In] uint binding, [In] uint index);
+        internal static extern SpvcResult spvc_compiler_msl_add_dynamic_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint desc_set, [In] uint binding, [In] uint index);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_resource_binding", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_add_resource_binding([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr binding);
+        internal static extern SpvcResult spvc_compiler_msl_add_resource_binding([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr binding);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_vertex_attribute", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_add_vertex_attribute([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, System.IntPtr attrs);
+        internal static extern SpvcResult spvc_compiler_msl_add_vertex_attribute([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, System.IntPtr attrs);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_automatic_resource_binding", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_msl_get_automatic_resource_binding([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern uint spvc_compiler_msl_get_automatic_resource_binding([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_automatic_resource_binding_secondary", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_compiler_msl_get_automatic_resource_binding_secondary([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id);
+        internal static extern uint spvc_compiler_msl_get_automatic_resource_binding_secondary([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
         ///<summary>
         /// MSL specifics. Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_rasterization_disabled", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_is_rasterization_disabled([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_is_rasterization_disabled([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_resource_used", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_is_resource_used([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] SpvExecutionModel model, [In] uint set, [In] uint binding);
+        internal static extern byte spvc_compiler_msl_is_resource_used([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] SpvExecutionModel model, [In] uint set, [In] uint binding);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_vertex_attribute_used", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_is_vertex_attribute_used([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint location);
+        internal static extern byte spvc_compiler_msl_is_vertex_attribute_used([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint location);
 
         ///<summary>
         /// Obsolete. Renamed to needs_swizzle_buffer.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_aux_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_needs_aux_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_needs_aux_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_buffer_size_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_needs_buffer_size_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_needs_buffer_size_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_input_threadgroup_mem", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_needs_input_threadgroup_mem([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_needs_input_threadgroup_mem([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_output_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_needs_output_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_needs_output_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_patch_output_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_needs_patch_output_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_needs_patch_output_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_swizzle_buffer", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_compiler_msl_needs_swizzle_buffer([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern byte spvc_compiler_msl_needs_swizzle_buffer([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_remap_constexpr_sampler([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, System.IntPtr sampler);
+        internal static extern SpvcResult spvc_compiler_msl_remap_constexpr_sampler([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, System.IntPtr sampler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler_by_binding", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_remap_constexpr_sampler_by_binding([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint desc_set, [In] uint binding, System.IntPtr sampler);
+        internal static extern SpvcResult spvc_compiler_msl_remap_constexpr_sampler_by_binding([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint desc_set, [In] uint binding, System.IntPtr sampler);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint desc_set, [In] uint binding, System.IntPtr sampler, System.IntPtr conv);
+        internal static extern SpvcResult spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint desc_set, [In] uint binding, System.IntPtr sampler, System.IntPtr conv);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler_ycbcr", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_remap_constexpr_sampler_ycbcr([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, System.IntPtr sampler, System.IntPtr conv);
+        internal static extern SpvcResult spvc_compiler_msl_remap_constexpr_sampler_ycbcr([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, System.IntPtr sampler, System.IntPtr conv);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_fragment_output_components", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_msl_set_fragment_output_components([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint location, [In] uint components);
+        internal static extern SpvcResult spvc_compiler_msl_set_fragment_output_components([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint location, [In] uint components);
 
         ///<summary>
         /// Override options. Will return error if e.g. MSL options are used for the HLSL backend, etc.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_options_set_bool", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_options_set_bool([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerOptionsS options, [In] CompilerOption option, [In] AdamantiumVulkan.SPIRV.Cross.Interop.byte value);
+        internal static extern SpvcResult spvc_compiler_options_set_bool([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerOptionsS options, [In] SpvcCompilerOption option, [In] byte value);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_options_set_uint", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_options_set_uint([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerOptionsS options, [In] CompilerOption option, [In] uint value);
+        internal static extern SpvcResult spvc_compiler_options_set_uint([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerOptionsS options, [In] SpvcCompilerOption option, [In] uint value);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_rename_entry_point", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_rename_entry_point([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string old_name, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string new_name, [In] SpvExecutionModel model);
+        internal static extern SpvcResult spvc_compiler_rename_entry_point([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string old_name, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string new_name, [In] SpvExecutionModel model);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_require_extension", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_require_extension([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string ext);
+        internal static extern SpvcResult spvc_compiler_require_extension([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string ext);
 
         ///<summary>
         /// Decorations. Maps to C++ API.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration, [In] uint argument);
+        internal static extern void spvc_compiler_set_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration, [In] uint argument);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_decoration_string", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
+        internal static extern void spvc_compiler_set_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_enabled_interface_variables", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_set_enabled_interface_variables([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcSet set);
+        internal static extern SpvcResult spvc_compiler_set_enabled_interface_variables([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcSetS set);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_entry_point", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_set_entry_point([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string name, [In] SpvExecutionModel model);
+        internal static extern SpvcResult spvc_compiler_set_entry_point([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string name, [In] SpvExecutionModel model);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_execution_mode", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_execution_mode([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] SpvExecutionMode mode);
+        internal static extern void spvc_compiler_set_execution_mode([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] SpvExecutionMode mode);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_execution_mode_with_arguments", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_execution_mode_with_arguments([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] SpvExecutionMode mode, [In] uint arg0, [In] uint arg1, [In] uint arg2);
+        internal static extern void spvc_compiler_set_execution_mode_with_arguments([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] SpvExecutionMode mode, [In] uint arg0, [In] uint arg1, [In] uint arg2);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_member_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] SpvDecoration decoration, [In] uint argument);
+        internal static extern void spvc_compiler_set_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration, [In] uint argument);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_member_decoration_string", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_member_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] SpvDecoration decoration, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
+        internal static extern void spvc_compiler_set_member_decoration_string([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_member_name", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_member_name([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
+        internal static extern void spvc_compiler_set_member_name([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_name", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_set_name([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
+        internal static extern void spvc_compiler_set_name([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string argument);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_type_struct_member_array_stride", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_type_struct_member_array_stride([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint index, ref uint stride);
+        internal static extern SpvcResult spvc_compiler_type_struct_member_array_stride([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint index, ref uint stride);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_type_struct_member_matrix_stride", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_type_struct_member_matrix_stride([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint index, ref uint stride);
+        internal static extern SpvcResult spvc_compiler_type_struct_member_matrix_stride([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint index, ref uint stride);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_type_struct_member_offset", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_compiler_type_struct_member_offset([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint index, ref uint offset);
+        internal static extern SpvcResult spvc_compiler_type_struct_member_offset([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint index, ref uint offset);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_unset_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
+        internal static extern void spvc_compiler_unset_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_execution_mode", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_unset_execution_mode([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] SpvExecutionMode mode);
+        internal static extern void spvc_compiler_unset_execution_mode([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] SpvExecutionMode mode);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_member_decoration", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_compiler_unset_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler, [In] AdamantiumVulkan.SPIRV.Cross.Interop.uint id, [In] uint member_index, [In] SpvDecoration decoration);
+        internal static extern void spvc_compiler_unset_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration);
 
         ///<summary>
         /// No stdint.h until C99, sigh :( For smaller types, the result is sign or zero-extended as appropriate. Maps to C++ API. TODO: The SPIRConstant query interface and modification interface is not quite complete.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_fp16", CallingConvention = CallingConvention.Winapi)]
-        internal static extern float spvc_constant_get_scalar_fp16([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern float spvc_constant_get_scalar_fp16([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_fp32", CallingConvention = CallingConvention.Winapi)]
-        internal static extern float spvc_constant_get_scalar_fp32([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern float spvc_constant_get_scalar_fp32([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_fp64", CallingConvention = CallingConvention.Winapi)]
-        internal static extern double spvc_constant_get_scalar_fp64([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern double spvc_constant_get_scalar_fp64([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_i16", CallingConvention = CallingConvention.Winapi)]
-        internal static extern int spvc_constant_get_scalar_i16([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern int spvc_constant_get_scalar_i16([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_i32", CallingConvention = CallingConvention.Winapi)]
-        internal static extern int spvc_constant_get_scalar_i32([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern int spvc_constant_get_scalar_i32([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_i8", CallingConvention = CallingConvention.Winapi)]
-        internal static extern int spvc_constant_get_scalar_i8([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern int spvc_constant_get_scalar_i8([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_u16", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_constant_get_scalar_u16([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern uint spvc_constant_get_scalar_u16([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_u32", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_constant_get_scalar_u32([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern uint spvc_constant_get_scalar_u32([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_u8", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_constant_get_scalar_u8([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, [In] uint column, [In] uint row);
+        internal static extern uint spvc_constant_get_scalar_u8([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, [In] uint column, [In] uint row);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_subconstants", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_constant_get_subconstants([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant, System.IntPtr constituents, ref ulong count);
+        internal static extern void spvc_constant_get_subconstants([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, System.IntPtr constituents, ref ulong count);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_type", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_constant_get_type([In] AdamantiumVulkan.SPIRV.Cross.SpvcConstantS constant);
+        internal static extern uint spvc_constant_get_type([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant);
 
         ///<summary>
         /// Context is the highest-level API construct. The context owns all memory allocations made by its child object hierarchy, including various non-opaque structs and strings. This means that the API user only has to care about one "destroy" call ever when using the C API. All pointers handed out by the APIs are only valid as long as the context is alive and spvc_context_release_allocations has not been called.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_context_create", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_context_create([Out] out AdamantiumVulkan.SPIRV.Cross.SpvcContextS context);
+        internal static extern SpvcResult spvc_context_create([Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context);
 
         ///<summary>
         /// Create a compiler backend. Capture mode controls if we construct by copy or move semantics. It is always recommended to use SPVC_CAPTURE_MODE_TAKE_OWNERSHIP if you only intend to cross-compile the IR once.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_context_create_compiler", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_context_create_compiler([In] AdamantiumVulkan.SPIRV.Cross.SpvcContextS context, [In] Backend backend, [In] AdamantiumVulkan.SPIRV.Cross.SpvcParsedIrS parsed_ir, [In] CaptureMode mode, [Out] out AdamantiumVulkan.SPIRV.Cross.SpvcCompilerS compiler);
+        internal static extern SpvcResult spvc_context_create_compiler([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context, [In] SpvcBackend backend, [In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcParsedIrS parsed_ir, [In] SpvcCaptureMode mode, [Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
 
         ///<summary>
         /// Frees all memory allocations and objects associated with the context and its child objects.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_context_destroy", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_context_destroy([In] AdamantiumVulkan.SPIRV.Cross.SpvcContextS context);
+        internal static extern void spvc_context_destroy([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context);
 
         ///<summary>
         /// Get the string for the last error which was logged.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_context_get_last_error_string", CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        internal static extern string spvc_context_get_last_error_string([In] AdamantiumVulkan.SPIRV.Cross.SpvcContextS context);
+        internal static extern string spvc_context_get_last_error_string([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context);
 
         ///<summary>
         /// SPIR-V parsing interface. Maps to Parser which then creates a ParsedIR, and that IR is extracted into the handle.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_context_parse_spirv", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_context_parse_spirv([In] AdamantiumVulkan.SPIRV.Cross.SpvcContextS context, System.IntPtr spirv, [In] ulong word_count, [Out] out AdamantiumVulkan.SPIRV.Cross.SpvcParsedIrS parsed_ir);
+        internal static extern SpvcResult spvc_context_parse_spirv([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context, System.IntPtr spirv, [In] ulong word_count, [Out] out AdamantiumVulkan.SPIRV.Cross.Interop.SpvcParsedIrS parsed_ir);
 
         ///<summary>
         /// Frees all memory allocations and objects associated with the context and its child objects, but keeps the context alive.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_context_release_allocations", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_context_release_allocations([In] AdamantiumVulkan.SPIRV.Cross.SpvcContextS context);
+        internal static extern void spvc_context_release_allocations([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_context_set_error_callback", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_context_set_error_callback([In] AdamantiumVulkan.SPIRV.Cross.SpvcContextS context, [In] SpvcErrorCallback cb, [In, Out] System.IntPtr userdata);
+        internal static extern void spvc_context_set_error_callback([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context, [In] SpvcErrorCallback cb, [In, Out] System.IntPtr userdata);
 
         ///<summary>
         /// Gets a human readable version string to identify which commit a particular binary was created from.
@@ -449,64 +449,64 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
         internal static extern void spvc_msl_vertex_attribute_init([In] System.IntPtr attr);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_resources_get_resource_list_for_type", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result spvc_resources_get_resource_list_for_type([In] AdamantiumVulkan.SPIRV.Cross.SpvcResourcesS resources, [In] ResourceType type, System.IntPtr resource_list, ref ulong resource_size);
+        internal static extern SpvcResult spvc_resources_get_resource_list_for_type([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcResourcesS resources, [In] SpvcResourceType type, System.IntPtr resource_list, ref ulong resource_size);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_array_dimension_is_literal", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_type_array_dimension_is_literal([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint dimension);
+        internal static extern byte spvc_type_array_dimension_is_literal([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint dimension);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_array_dimension", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_array_dimension([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint dimension);
+        internal static extern uint spvc_type_get_array_dimension([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint dimension);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_basetype", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Basetype spvc_type_get_basetype([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern SpvcBasetype spvc_type_get_basetype([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_bit_width", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_bit_width([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern uint spvc_type_get_bit_width([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_columns", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_columns([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern uint spvc_type_get_columns([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_access_qualifier", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvAccessQualifier spvc_type_get_image_access_qualifier([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern SpvAccessQualifier spvc_type_get_image_access_qualifier([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_arrayed", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_type_get_image_arrayed([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern byte spvc_type_get_image_arrayed([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_dimension", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvDim spvc_type_get_image_dimension([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern SpvDim spvc_type_get_image_dimension([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_is_depth", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_type_get_image_is_depth([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern byte spvc_type_get_image_is_depth([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_is_storage", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_type_get_image_is_storage([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern byte spvc_type_get_image_is_storage([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_multisampled", CallingConvention = CallingConvention.Winapi)]
-        internal static extern byte spvc_type_get_image_multisampled([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern byte spvc_type_get_image_multisampled([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         ///<summary>
         /// Image type query.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_sampled_type", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_image_sampled_type([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern uint spvc_type_get_image_sampled_type([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_storage_format", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvImageFormat spvc_type_get_image_storage_format([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern SpvImageFormat spvc_type_get_image_storage_format([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_member_type", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_member_type([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type, [In] uint index);
+        internal static extern uint spvc_type_get_member_type([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type, [In] uint index);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_num_array_dimensions", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_num_array_dimensions([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern uint spvc_type_get_num_array_dimensions([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_num_member_types", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_num_member_types([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern uint spvc_type_get_num_member_types([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_storage_class", CallingConvention = CallingConvention.Winapi)]
-        internal static extern SpvStorageClass spvc_type_get_storage_class([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern SpvStorageClass spvc_type_get_storage_class([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_type_get_vector_size", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_type_get_vector_size([In] AdamantiumVulkan.SPIRV.Cross.SpvcType type);
+        internal static extern uint spvc_type_get_vector_size([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcTypeS type);
 
     }
 
