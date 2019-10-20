@@ -975,7 +975,7 @@ namespace AdamantiumVulkan.Core
             DriverVersion = _internal.driverVersion;
             VendorID = _internal.vendorID;
             DeviceID = _internal.deviceID;
-            DeviceType = _internal.deviceType;
+            DeviceType = (PhysicalDeviceType)_internal.deviceType;
             var tmpArr0 = new byte[256];
             unsafe
             {
@@ -2204,7 +2204,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            QueryType = _internal.queryType;
+            QueryType = (QueryType)_internal.queryType;
             QueryCount = _internal.queryCount;
             PipelineStatistics = _internal.pipelineStatistics;
         }
@@ -2243,7 +2243,7 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             Size = _internal.size;
             Usage = _internal.usage;
-            SharingMode = _internal.sharingMode;
+            SharingMode = (SharingMode)_internal.sharingMode;
             QueueFamilyIndexCount = _internal.queueFamilyIndexCount;
             if(_internal.pQueueFamilyIndices != System.IntPtr.Zero)
             {
@@ -2298,7 +2298,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Buffer = new Buffer(_internal.buffer);
-            Format = _internal.format;
+            Format = (Format)_internal.format;
             Offset = _internal.offset;
             Range = _internal.range;
         }
@@ -2337,22 +2337,22 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            ImageType = _internal.imageType;
-            Format = _internal.format;
+            ImageType = (ImageType)_internal.imageType;
+            Format = (Format)_internal.format;
             Extent = new Extent3D(_internal.extent);
             MipLevels = _internal.mipLevels;
             ArrayLayers = _internal.arrayLayers;
-            Samples = _internal.samples;
-            Tiling = _internal.tiling;
+            Samples = (SampleCountFlagBits)_internal.samples;
+            Tiling = (ImageTiling)_internal.tiling;
             Usage = _internal.usage;
-            SharingMode = _internal.sharingMode;
+            SharingMode = (SharingMode)_internal.sharingMode;
             QueueFamilyIndexCount = _internal.queueFamilyIndexCount;
             if(_internal.pQueueFamilyIndices != System.IntPtr.Zero)
             {
                 PQueueFamilyIndices = (uint?)_internal.pQueueFamilyIndices;
                 Marshal.FreeHGlobal(_internal.pQueueFamilyIndices);
             }
-            InitialLayout = _internal.initialLayout;
+            InitialLayout = (ImageLayout)_internal.initialLayout;
         }
 
         public StructureType SType => StructureType.ImageCreateInfo;
@@ -2448,10 +2448,10 @@ namespace AdamantiumVulkan.Core
 
         public ComponentMapping(AdamantiumVulkan.Core.Interop.VkComponentMapping _internal)
         {
-            R = _internal.r;
-            G = _internal.g;
-            B = _internal.b;
-            A = _internal.a;
+            R = (ComponentSwizzle)_internal.r;
+            G = (ComponentSwizzle)_internal.g;
+            B = (ComponentSwizzle)_internal.b;
+            A = (ComponentSwizzle)_internal.a;
         }
 
         public ComponentSwizzle R { get; set; }
@@ -2514,8 +2514,8 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Image = new Image(_internal.image);
-            ViewType = _internal.viewType;
-            Format = _internal.format;
+            ViewType = (ImageViewType)_internal.viewType;
+            Format = (Format)_internal.format;
             Components = new ComponentMapping(_internal.components);
             SubresourceRange = new ImageSubresourceRange(_internal.subresourceRange);
         }
@@ -2720,7 +2720,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            Stage = _internal.stage;
+            Stage = (ShaderStageFlagBits)_internal.stage;
             Module = new ShaderModule(_internal.module);
             PName = Marshal.PtrToStringAnsi(_internal.pName);
             PSpecializationInfo = new SpecializationInfo(Marshal.PtrToStructure<VkSpecializationInfo>(_internal.pSpecializationInfo));
@@ -2777,7 +2777,7 @@ namespace AdamantiumVulkan.Core
         {
             Binding = _internal.binding;
             Stride = _internal.stride;
-            InputRate = _internal.inputRate;
+            InputRate = (VertexInputRate)_internal.inputRate;
         }
 
         public uint Binding { get; set; }
@@ -2804,7 +2804,7 @@ namespace AdamantiumVulkan.Core
         {
             Location = _internal.location;
             Binding = _internal.binding;
-            Format = _internal.format;
+            Format = (Format)_internal.format;
             Offset = _internal.offset;
         }
 
@@ -2917,7 +2917,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            Topology = _internal.topology;
+            Topology = (PrimitiveTopology)_internal.topology;
             PrimitiveRestartEnable = _internal.primitiveRestartEnable;
         }
 
@@ -3157,9 +3157,9 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             DepthClampEnable = _internal.depthClampEnable;
             RasterizerDiscardEnable = _internal.rasterizerDiscardEnable;
-            PolygonMode = _internal.polygonMode;
+            PolygonMode = (PolygonMode)_internal.polygonMode;
             CullMode = _internal.cullMode;
-            FrontFace = _internal.frontFace;
+            FrontFace = (FrontFace)_internal.frontFace;
             DepthBiasEnable = _internal.depthBiasEnable;
             DepthBiasConstantFactor = _internal.depthBiasConstantFactor;
             DepthBiasClamp = _internal.depthBiasClamp;
@@ -3213,7 +3213,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            RasterizationSamples = _internal.rasterizationSamples;
+            RasterizationSamples = (SampleCountFlagBits)_internal.rasterizationSamples;
             SampleShadingEnable = _internal.sampleShadingEnable;
             MinSampleShading = _internal.minSampleShading;
             if(_internal.pSampleMask != System.IntPtr.Zero)
@@ -3270,10 +3270,10 @@ namespace AdamantiumVulkan.Core
 
         public StencilOpState(AdamantiumVulkan.Core.Interop.VkStencilOpState _internal)
         {
-            FailOp = _internal.failOp;
-            PassOp = _internal.passOp;
-            DepthFailOp = _internal.depthFailOp;
-            CompareOp = _internal.compareOp;
+            FailOp = (StencilOp)_internal.failOp;
+            PassOp = (StencilOp)_internal.passOp;
+            DepthFailOp = (StencilOp)_internal.depthFailOp;
+            CompareOp = (CompareOp)_internal.compareOp;
             CompareMask = _internal.compareMask;
             WriteMask = _internal.writeMask;
             Reference = _internal.reference;
@@ -3313,7 +3313,7 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             DepthTestEnable = _internal.depthTestEnable;
             DepthWriteEnable = _internal.depthWriteEnable;
-            DepthCompareOp = _internal.depthCompareOp;
+            DepthCompareOp = (CompareOp)_internal.depthCompareOp;
             DepthBoundsTestEnable = _internal.depthBoundsTestEnable;
             StencilTestEnable = _internal.stencilTestEnable;
             Front = new StencilOpState(_internal.front);
@@ -3369,12 +3369,12 @@ namespace AdamantiumVulkan.Core
         public PipelineColorBlendAttachmentState(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState _internal)
         {
             BlendEnable = _internal.blendEnable;
-            SrcColorBlendFactor = _internal.srcColorBlendFactor;
-            DstColorBlendFactor = _internal.dstColorBlendFactor;
-            ColorBlendOp = _internal.colorBlendOp;
-            SrcAlphaBlendFactor = _internal.srcAlphaBlendFactor;
-            DstAlphaBlendFactor = _internal.dstAlphaBlendFactor;
-            AlphaBlendOp = _internal.alphaBlendOp;
+            SrcColorBlendFactor = (BlendFactor)_internal.srcColorBlendFactor;
+            DstColorBlendFactor = (BlendFactor)_internal.dstColorBlendFactor;
+            ColorBlendOp = (BlendOp)_internal.colorBlendOp;
+            SrcAlphaBlendFactor = (BlendFactor)_internal.srcAlphaBlendFactor;
+            DstAlphaBlendFactor = (BlendFactor)_internal.dstAlphaBlendFactor;
+            AlphaBlendOp = (BlendOp)_internal.alphaBlendOp;
             ColorWriteMask = _internal.colorWriteMask;
         }
 
@@ -3415,7 +3415,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             LogicOpEnable = _internal.logicOpEnable;
-            LogicOp = _internal.logicOp;
+            LogicOp = (LogicOp)_internal.logicOp;
             AttachmentCount = _internal.attachmentCount;
             PAttachments = new PipelineColorBlendAttachmentState(Marshal.PtrToStructure<VkPipelineColorBlendAttachmentState>(_internal.pAttachments));
             Marshal.FreeHGlobal(_internal.pAttachments);
@@ -3879,20 +3879,20 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            MagFilter = _internal.magFilter;
-            MinFilter = _internal.minFilter;
-            MipmapMode = _internal.mipmapMode;
-            AddressModeU = _internal.addressModeU;
-            AddressModeV = _internal.addressModeV;
-            AddressModeW = _internal.addressModeW;
+            MagFilter = (Filter)_internal.magFilter;
+            MinFilter = (Filter)_internal.minFilter;
+            MipmapMode = (SamplerMipmapMode)_internal.mipmapMode;
+            AddressModeU = (SamplerAddressMode)_internal.addressModeU;
+            AddressModeV = (SamplerAddressMode)_internal.addressModeV;
+            AddressModeW = (SamplerAddressMode)_internal.addressModeW;
             MipLodBias = _internal.mipLodBias;
             AnisotropyEnable = _internal.anisotropyEnable;
             MaxAnisotropy = _internal.maxAnisotropy;
             CompareEnable = _internal.compareEnable;
-            CompareOp = _internal.compareOp;
+            CompareOp = (CompareOp)_internal.compareOp;
             MinLod = _internal.minLod;
             MaxLod = _internal.maxLod;
-            BorderColor = _internal.borderColor;
+            BorderColor = (BorderColor)_internal.borderColor;
             UnnormalizedCoordinates = _internal.unnormalizedCoordinates;
         }
 
@@ -3951,7 +3951,7 @@ namespace AdamantiumVulkan.Core
         public DescriptorSetLayoutBinding(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding _internal)
         {
             Binding = _internal.binding;
-            DescriptorType = _internal.descriptorType;
+            DescriptorType = (DescriptorType)_internal.descriptorType;
             DescriptorCount = _internal.descriptorCount;
             StageFlags = _internal.stageFlags;
             PImmutableSamplers = new Sampler(Marshal.PtrToStructure<Sampler>(_internal.pImmutableSamplers));
@@ -4053,7 +4053,7 @@ namespace AdamantiumVulkan.Core
 
         public DescriptorPoolSize(AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize _internal)
         {
-            Type = _internal.type;
+            Type = (DescriptorType)_internal.type;
             DescriptorCount = _internal.descriptorCount;
         }
 
@@ -4186,7 +4186,7 @@ namespace AdamantiumVulkan.Core
         {
             Sampler = new Sampler(_internal.sampler);
             ImageView = new ImageView(_internal.imageView);
-            ImageLayout = _internal.imageLayout;
+            ImageLayout = (ImageLayout)_internal.imageLayout;
         }
 
         public Sampler Sampler { get; set; }
@@ -4249,7 +4249,7 @@ namespace AdamantiumVulkan.Core
             DstBinding = _internal.dstBinding;
             DstArrayElement = _internal.dstArrayElement;
             DescriptorCount = _internal.descriptorCount;
-            DescriptorType = _internal.descriptorType;
+            DescriptorType = (DescriptorType)_internal.descriptorType;
             PImageInfo = new DescriptorImageInfo(Marshal.PtrToStructure<VkDescriptorImageInfo>(_internal.pImageInfo));
             Marshal.FreeHGlobal(_internal.pImageInfo);
             PBufferInfo = new DescriptorBufferInfo(Marshal.PtrToStructure<VkDescriptorBufferInfo>(_internal.pBufferInfo));
@@ -4434,14 +4434,14 @@ namespace AdamantiumVulkan.Core
         public AttachmentDescription(AdamantiumVulkan.Core.Interop.VkAttachmentDescription _internal)
         {
             Flags = _internal.flags;
-            Format = _internal.format;
-            Samples = _internal.samples;
-            LoadOp = _internal.loadOp;
-            StoreOp = _internal.storeOp;
-            StencilLoadOp = _internal.stencilLoadOp;
-            StencilStoreOp = _internal.stencilStoreOp;
-            InitialLayout = _internal.initialLayout;
-            FinalLayout = _internal.finalLayout;
+            Format = (Format)_internal.format;
+            Samples = (SampleCountFlagBits)_internal.samples;
+            LoadOp = (AttachmentLoadOp)_internal.loadOp;
+            StoreOp = (AttachmentStoreOp)_internal.storeOp;
+            StencilLoadOp = (AttachmentLoadOp)_internal.stencilLoadOp;
+            StencilStoreOp = (AttachmentStoreOp)_internal.stencilStoreOp;
+            InitialLayout = (ImageLayout)_internal.initialLayout;
+            FinalLayout = (ImageLayout)_internal.finalLayout;
         }
 
         public uint Flags { get; set; }
@@ -4479,7 +4479,7 @@ namespace AdamantiumVulkan.Core
         public AttachmentReference(AdamantiumVulkan.Core.Interop.VkAttachmentReference _internal)
         {
             Attachment = _internal.attachment;
-            Layout = _internal.layout;
+            Layout = (ImageLayout)_internal.layout;
         }
 
         public uint Attachment { get; set; }
@@ -4513,7 +4513,7 @@ namespace AdamantiumVulkan.Core
         public SubpassDescription(AdamantiumVulkan.Core.Interop.VkSubpassDescription _internal)
         {
             Flags = _internal.flags;
-            PipelineBindPoint = _internal.pipelineBindPoint;
+            PipelineBindPoint = (PipelineBindPoint)_internal.pipelineBindPoint;
             InputAttachmentCount = _internal.inputAttachmentCount;
             PInputAttachments = new AttachmentReference[_internal.inputAttachmentCount];
             var nativeTmpArray0 = new VkAttachmentReference[_internal.inputAttachmentCount];
@@ -4819,7 +4819,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             CommandPool = new CommandPool(_internal.commandPool);
-            Level = _internal.level;
+            Level = (CommandBufferLevel)_internal.level;
             CommandBufferCount = _internal.commandBufferCount;
         }
 
@@ -5356,8 +5356,8 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             SrcAccessMask = _internal.srcAccessMask;
             DstAccessMask = _internal.dstAccessMask;
-            OldLayout = _internal.oldLayout;
-            NewLayout = _internal.newLayout;
+            OldLayout = (ImageLayout)_internal.oldLayout;
+            NewLayout = (ImageLayout)_internal.newLayout;
             SrcQueueFamilyIndex = _internal.srcQueueFamilyIndex;
             DstQueueFamilyIndex = _internal.dstQueueFamilyIndex;
             Image = new Image(_internal.image);
@@ -5561,7 +5561,7 @@ namespace AdamantiumVulkan.Core
 
         public BaseOutStructure(AdamantiumVulkan.Core.Interop.VkBaseOutStructure _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = new BaseOutStructure(Marshal.PtrToStructure<VkBaseOutStructure>(_internal.pNext));
             Marshal.FreeHGlobal(_internal.pNext);
         }
@@ -5600,7 +5600,7 @@ namespace AdamantiumVulkan.Core
 
         public BaseInStructure(AdamantiumVulkan.Core.Interop.VkBaseInStructure _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = new BaseInStructure(Marshal.PtrToStructure<VkBaseInStructure>(_internal.pNext));
             Marshal.FreeHGlobal(_internal.pNext);
         }
@@ -6493,9 +6493,9 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 _internal)
         {
             PNext = _internal.pNext;
-            Format = _internal.format;
-            Type = _internal.type;
-            Tiling = _internal.tiling;
+            Format = (Format)_internal.format;
+            Type = (ImageType)_internal.type;
+            Tiling = (ImageTiling)_internal.tiling;
             Usage = _internal.usage;
             Flags = _internal.flags;
         }
@@ -6618,11 +6618,11 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceSparseImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2 _internal)
         {
             PNext = _internal.pNext;
-            Format = _internal.format;
-            Type = _internal.type;
-            Samples = _internal.samples;
+            Format = (Format)_internal.format;
+            Type = (ImageType)_internal.type;
+            Samples = (SampleCountFlagBits)_internal.samples;
             Usage = _internal.usage;
-            Tiling = _internal.tiling;
+            Tiling = (ImageTiling)_internal.tiling;
         }
 
         public StructureType SType => StructureType.PhysicalDeviceSparseImageFormatInfo2;
@@ -6656,7 +6656,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDevicePointClippingProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties _internal)
         {
             PNext = _internal.pNext;
-            PointClippingBehavior = _internal.pointClippingBehavior;
+            PointClippingBehavior = (PointClippingBehavior)_internal.pointClippingBehavior;
         }
 
         public StructureType SType => StructureType.PhysicalDevicePointClippingProperties;
@@ -6779,7 +6779,7 @@ namespace AdamantiumVulkan.Core
         public PipelineTessellationDomainOriginStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo _internal)
         {
             PNext = _internal.pNext;
-            DomainOrigin = _internal.domainOrigin;
+            DomainOrigin = (TessellationDomainOrigin)_internal.domainOrigin;
         }
 
         public StructureType SType => StructureType.PipelineTessellationDomainOriginStateCreateInfo;
@@ -6952,7 +6952,7 @@ namespace AdamantiumVulkan.Core
             VariablePointers = _internal.variablePointers;
         }
 
-        public StructureType SType => StructureType.PhysicalDeviceVariablePointerFeatures;
+        public StructureType SType => StructureType.PhysicalDeviceVariablePointersFeatures;
         public System.IntPtr PNext { get; set; }
         public bool VariablePointersStorageBuffer { get; set; }
         public bool VariablePointers { get; set; }
@@ -7087,13 +7087,13 @@ namespace AdamantiumVulkan.Core
         public SamplerYcbcrConversionCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo _internal)
         {
             PNext = _internal.pNext;
-            Format = _internal.format;
-            YcbcrModel = _internal.ycbcrModel;
-            YcbcrRange = _internal.ycbcrRange;
+            Format = (Format)_internal.format;
+            YcbcrModel = (SamplerYcbcrModelConversion)_internal.ycbcrModel;
+            YcbcrRange = (SamplerYcbcrRange)_internal.ycbcrRange;
             Components = new ComponentMapping(_internal.components);
-            XChromaOffset = _internal.xChromaOffset;
-            YChromaOffset = _internal.yChromaOffset;
-            ChromaFilter = _internal.chromaFilter;
+            XChromaOffset = (ChromaLocation)_internal.xChromaOffset;
+            YChromaOffset = (ChromaLocation)_internal.yChromaOffset;
+            ChromaFilter = (Filter)_internal.chromaFilter;
             ForceExplicitReconstruction = _internal.forceExplicitReconstruction;
         }
 
@@ -7163,7 +7163,7 @@ namespace AdamantiumVulkan.Core
         public BindImagePlaneMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo _internal)
         {
             PNext = _internal.pNext;
-            PlaneAspect = _internal.planeAspect;
+            PlaneAspect = (ImageAspectFlagBits)_internal.planeAspect;
         }
 
         public StructureType SType => StructureType.BindImagePlaneMemoryInfo;
@@ -7189,7 +7189,7 @@ namespace AdamantiumVulkan.Core
         public ImagePlaneMemoryRequirementsInfo(AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo _internal)
         {
             PNext = _internal.pNext;
-            PlaneAspect = _internal.planeAspect;
+            PlaneAspect = (ImageAspectFlagBits)_internal.planeAspect;
         }
 
         public StructureType SType => StructureType.ImagePlaneMemoryRequirementsInfo;
@@ -7269,7 +7269,7 @@ namespace AdamantiumVulkan.Core
             DstBinding = _internal.dstBinding;
             DstArrayElement = _internal.dstArrayElement;
             DescriptorCount = _internal.descriptorCount;
-            DescriptorType = _internal.descriptorType;
+            DescriptorType = (DescriptorType)_internal.descriptorType;
             Offset = _internal.offset;
             Stride = _internal.stride;
         }
@@ -7309,9 +7309,9 @@ namespace AdamantiumVulkan.Core
             DescriptorUpdateEntryCount = _internal.descriptorUpdateEntryCount;
             PDescriptorUpdateEntries = new DescriptorUpdateTemplateEntry(Marshal.PtrToStructure<VkDescriptorUpdateTemplateEntry>(_internal.pDescriptorUpdateEntries));
             Marshal.FreeHGlobal(_internal.pDescriptorUpdateEntries);
-            TemplateType = _internal.templateType;
+            TemplateType = (DescriptorUpdateTemplateType)_internal.templateType;
             DescriptorSetLayout = new DescriptorSetLayout(_internal.descriptorSetLayout);
-            PipelineBindPoint = _internal.pipelineBindPoint;
+            PipelineBindPoint = (PipelineBindPoint)_internal.pipelineBindPoint;
             PipelineLayout = new PipelineLayout(_internal.pipelineLayout);
             Set = _internal.set;
         }
@@ -7392,7 +7392,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceExternalImageFormatInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo _internal)
         {
             PNext = _internal.pNext;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.PhysicalDeviceExternalImageFormatInfo;
@@ -7449,7 +7449,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Usage = _internal.usage;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.PhysicalDeviceExternalBufferInfo;
@@ -7696,7 +7696,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceExternalFenceInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo _internal)
         {
             PNext = _internal.pNext;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalFenceHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.PhysicalDeviceExternalFenceInfo;
@@ -7806,7 +7806,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceExternalSemaphoreInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo _internal)
         {
             PNext = _internal.pNext;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalSemaphoreHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.PhysicalDeviceExternalSemaphoreInfo;
@@ -7922,7 +7922,7 @@ namespace AdamantiumVulkan.Core
             ShaderDrawParameters = _internal.shaderDrawParameters;
         }
 
-        public StructureType SType => StructureType.PhysicalDeviceShaderDrawParameterFeatures;
+        public StructureType SType => StructureType.PhysicalDeviceShaderDrawParametersFeatures;
         public System.IntPtr PNext { get; set; }
         public bool ShaderDrawParameters { get; set; }
 
@@ -7951,7 +7951,7 @@ namespace AdamantiumVulkan.Core
             MaxImageExtent = new Extent2D(_internal.maxImageExtent);
             MaxImageArrayLayers = _internal.maxImageArrayLayers;
             SupportedTransforms = _internal.supportedTransforms;
-            CurrentTransform = _internal.currentTransform;
+            CurrentTransform = (SurfaceTransformFlagBitsKHR)_internal.currentTransform;
             SupportedCompositeAlpha = _internal.supportedCompositeAlpha;
             SupportedUsageFlags = _internal.supportedUsageFlags;
         }
@@ -8001,8 +8001,8 @@ namespace AdamantiumVulkan.Core
 
         public SurfaceFormatKHR(AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR _internal)
         {
-            Format = _internal.format;
-            ColorSpace = _internal.colorSpace;
+            Format = (Format)_internal.format;
+            ColorSpace = (ColorSpaceKHR)_internal.colorSpace;
         }
 
         public Format Format { get; set; }
@@ -8031,19 +8031,19 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             Surface = new SurfaceKHR(_internal.surface);
             MinImageCount = _internal.minImageCount;
-            ImageFormat = _internal.imageFormat;
-            ImageColorSpace = _internal.imageColorSpace;
+            ImageFormat = (Format)_internal.imageFormat;
+            ImageColorSpace = (ColorSpaceKHR)_internal.imageColorSpace;
             ImageExtent = new Extent2D(_internal.imageExtent);
             ImageArrayLayers = _internal.imageArrayLayers;
             ImageUsage = _internal.imageUsage;
-            ImageSharingMode = _internal.imageSharingMode;
+            ImageSharingMode = (SharingMode)_internal.imageSharingMode;
             QueueFamilyIndexCount = _internal.queueFamilyIndexCount;
             PQueueFamilyIndices = new uint[_internal.queueFamilyIndexCount];
             MarshalUtils.IntPtrToManagedArray<uint>(_internal.pQueueFamilyIndices, PQueueFamilyIndices);
             Marshal.FreeHGlobal(_internal.pQueueFamilyIndices);
-            PreTransform = _internal.preTransform;
-            CompositeAlpha = _internal.compositeAlpha;
-            PresentMode = _internal.presentMode;
+            PreTransform = (SurfaceTransformFlagBitsKHR)_internal.preTransform;
+            CompositeAlpha = (CompositeAlphaFlagBitsKHR)_internal.compositeAlpha;
+            PresentMode = (PresentModeKHR)_internal.presentMode;
             Clipped = _internal.clipped;
             OldSwapchain = new SwapchainKHR(_internal.oldSwapchain);
         }
@@ -8395,7 +8395,7 @@ namespace AdamantiumVulkan.Core
                 PDeviceMasks = (uint?)_internal.pDeviceMasks;
                 Marshal.FreeHGlobal(_internal.pDeviceMasks);
             }
-            Mode = _internal.mode;
+            Mode = (DeviceGroupPresentModeFlagBitsKHR)_internal.mode;
         }
 
         public StructureType SType => StructureType.DeviceGroupPresentInfoKhr;
@@ -8703,9 +8703,9 @@ namespace AdamantiumVulkan.Core
             DisplayMode = new DisplayModeKHR(_internal.displayMode);
             PlaneIndex = _internal.planeIndex;
             PlaneStackIndex = _internal.planeStackIndex;
-            Transform = _internal.transform;
+            Transform = (SurfaceTransformFlagBitsKHR)_internal.transform;
             GlobalAlpha = _internal.globalAlpha;
-            AlphaMode = _internal.alphaMode;
+            AlphaMode = (DisplayPlaneAlphaFlagBitsKHR)_internal.alphaMode;
             ImageExtent = new Extent2D(_internal.imageExtent);
         }
 
@@ -8787,7 +8787,7 @@ namespace AdamantiumVulkan.Core
         public ImportMemoryFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR _internal)
         {
             PNext = _internal.pNext;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
             Fd = _internal.fd;
         }
 
@@ -8843,7 +8843,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Memory = new DeviceMemory(_internal.memory);
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.MemoryGetFdInfoKhr;
@@ -8873,7 +8873,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Semaphore = new Semaphore(_internal.semaphore);
             Flags = _internal.flags;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalSemaphoreHandleTypeFlagBits)_internal.handleType;
             Fd = _internal.fd;
         }
 
@@ -8907,7 +8907,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Semaphore = new Semaphore(_internal.semaphore);
-            HandleType = _internal.handleType;
+            HandleType = (ExternalSemaphoreHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.SemaphoreGetFdInfoKhr;
@@ -8934,7 +8934,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDevicePushDescriptorPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             MaxPushDescriptors = _internal.maxPushDescriptors;
         }
@@ -9106,7 +9106,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceImagelessFramebufferFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeaturesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ImagelessFramebuffer = _internal.imagelessFramebuffer;
         }
@@ -9135,7 +9135,7 @@ namespace AdamantiumVulkan.Core
 
         public FramebufferAttachmentImageInfoKHR(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Usage = _internal.usage;
@@ -9193,7 +9193,7 @@ namespace AdamantiumVulkan.Core
 
         public FramebufferAttachmentsCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             AttachmentImageInfoCount = _internal.attachmentImageInfoCount;
             PAttachmentImageInfos = new FramebufferAttachmentImageInfoKHR(Marshal.PtrToStructure<VkFramebufferAttachmentImageInfoKHR>(_internal.pAttachmentImageInfos));
@@ -9238,7 +9238,7 @@ namespace AdamantiumVulkan.Core
 
         public RenderPassAttachmentBeginInfoKHR(AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             AttachmentCount = _internal.attachmentCount;
             PAttachments = new ImageView(Marshal.PtrToStructure<ImageView>(_internal.pAttachments));
@@ -9283,14 +9283,14 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            Format = _internal.format;
-            Samples = _internal.samples;
-            LoadOp = _internal.loadOp;
-            StoreOp = _internal.storeOp;
-            StencilLoadOp = _internal.stencilLoadOp;
-            StencilStoreOp = _internal.stencilStoreOp;
-            InitialLayout = _internal.initialLayout;
-            FinalLayout = _internal.finalLayout;
+            Format = (Format)_internal.format;
+            Samples = (SampleCountFlagBits)_internal.samples;
+            LoadOp = (AttachmentLoadOp)_internal.loadOp;
+            StoreOp = (AttachmentStoreOp)_internal.storeOp;
+            StencilLoadOp = (AttachmentLoadOp)_internal.stencilLoadOp;
+            StencilStoreOp = (AttachmentStoreOp)_internal.stencilStoreOp;
+            InitialLayout = (ImageLayout)_internal.initialLayout;
+            FinalLayout = (ImageLayout)_internal.finalLayout;
         }
 
         public StructureType SType => StructureType.AttachmentDescription2Khr;
@@ -9333,7 +9333,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Attachment = _internal.attachment;
-            Layout = _internal.layout;
+            Layout = (ImageLayout)_internal.layout;
             AspectMask = _internal.aspectMask;
         }
 
@@ -9375,7 +9375,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            PipelineBindPoint = _internal.pipelineBindPoint;
+            PipelineBindPoint = (PipelineBindPoint)_internal.pipelineBindPoint;
             ViewMask = _internal.viewMask;
             InputAttachmentCount = _internal.inputAttachmentCount;
             PInputAttachments = new AttachmentReference2KHR[_internal.inputAttachmentCount];
@@ -9654,7 +9654,7 @@ namespace AdamantiumVulkan.Core
         public SubpassBeginInfoKHR(AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR _internal)
         {
             PNext = _internal.pNext;
-            Contents = _internal.contents;
+            Contents = (SubpassContents)_internal.contents;
         }
 
         public StructureType SType => StructureType.SubpassBeginInfoKhr;
@@ -9731,7 +9731,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Fence = new Fence(_internal.fence);
             Flags = _internal.flags;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalFenceHandleTypeFlagBits)_internal.handleType;
             Fd = _internal.fd;
         }
 
@@ -9765,7 +9765,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Fence = new Fence(_internal.fence);
-            HandleType = _internal.handleType;
+            HandleType = (ExternalFenceHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType => StructureType.FenceGetFdInfoKhr;
@@ -10167,7 +10167,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceDriverPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverPropertiesKHR _internal)
         {
             PNext = _internal.pNext;
-            DriverID = _internal.driverID;
+            DriverID = (DriverIdKHR)_internal.driverID;
             var tmpArr0 = new byte[256];
             unsafe
             {
@@ -10253,8 +10253,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceFloatControlsPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsPropertiesKHR _internal)
         {
             PNext = _internal.pNext;
-            DenormBehaviorIndependence = _internal.denormBehaviorIndependence;
-            RoundingModeIndependence = _internal.roundingModeIndependence;
+            DenormBehaviorIndependence = (ShaderFloatControlsIndependenceKHR)_internal.denormBehaviorIndependence;
+            RoundingModeIndependence = (ShaderFloatControlsIndependenceKHR)_internal.roundingModeIndependence;
             ShaderSignedZeroInfNanPreserveFloat16 = _internal.shaderSignedZeroInfNanPreserveFloat16;
             ShaderSignedZeroInfNanPreserveFloat32 = _internal.shaderSignedZeroInfNanPreserveFloat32;
             ShaderSignedZeroInfNanPreserveFloat64 = _internal.shaderSignedZeroInfNanPreserveFloat64;
@@ -10329,8 +10329,8 @@ namespace AdamantiumVulkan.Core
         public SubpassDescriptionDepthStencilResolveKHR(AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolveKHR _internal)
         {
             PNext = _internal.pNext;
-            DepthResolveMode = _internal.depthResolveMode;
-            StencilResolveMode = _internal.stencilResolveMode;
+            DepthResolveMode = (ResolveModeFlagBitsKHR)_internal.depthResolveMode;
+            StencilResolveMode = (ResolveModeFlagBitsKHR)_internal.stencilResolveMode;
             PDepthStencilResolveAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pDepthStencilResolveAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilResolveAttachment);
         }
@@ -10440,7 +10440,7 @@ namespace AdamantiumVulkan.Core
 
         public SurfaceProtectedCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             SupportsProtected = _internal.supportsProtected;
         }
@@ -10467,7 +10467,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             UniformBufferStandardLayout = _internal.uniformBufferStandardLayout;
         }
@@ -10494,7 +10494,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDevicePipelineExecutablePropertiesFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PipelineExecutableInfo = _internal.pipelineExecutableInfo;
         }
@@ -10521,7 +10521,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Pipeline = new Pipeline(_internal.pipeline);
         }
@@ -10548,7 +10548,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Stages = _internal.stages;
             var tmpArr0 = new byte[256];
@@ -10632,7 +10632,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineExecutableInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Pipeline = new Pipeline(_internal.pipeline);
             ExecutableIndex = _internal.executableIndex;
@@ -10662,7 +10662,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineExecutableStatisticKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             var tmpArr0 = new byte[256];
             unsafe
@@ -10682,7 +10682,7 @@ namespace AdamantiumVulkan.Core
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
-            Format = _internal.format;
+            Format = (PipelineExecutableStatisticFormatKHR)_internal.format;
             Value = new PipelineExecutableStatisticValueKHR(_internal.value);
         }
 
@@ -10749,7 +10749,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineExecutableInternalRepresentationKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             var tmpArr0 = new byte[256];
             unsafe
@@ -10869,7 +10869,7 @@ namespace AdamantiumVulkan.Core
         public PipelineRasterizationStateRasterizationOrderAMD(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD _internal)
         {
             PNext = _internal.pNext;
-            RasterizationOrder = _internal.rasterizationOrder;
+            RasterizationOrder = (RasterizationOrderAMD)_internal.rasterizationOrder;
         }
 
         public StructureType SType => StructureType.PipelineRasterizationStateRasterizationOrderAmd;
@@ -10897,7 +10897,7 @@ namespace AdamantiumVulkan.Core
         public DebugMarkerObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ObjectType = _internal.objectType;
+            ObjectType = (DebugReportObjectTypeEXT)_internal.objectType;
             Object = _internal.@object;
             PObjectName = Marshal.PtrToStringAnsi(_internal.pObjectName);
         }
@@ -10940,7 +10940,7 @@ namespace AdamantiumVulkan.Core
         public DebugMarkerObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ObjectType = _internal.objectType;
+            ObjectType = (DebugReportObjectTypeEXT)_internal.objectType;
             Object = _internal.@object;
             TagName = _internal.tagName;
             TagSize = _internal.tagSize;
@@ -11235,10 +11235,10 @@ namespace AdamantiumVulkan.Core
 
         public ImageViewHandleInfoNVX(AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ImageView = new ImageView(_internal.imageView);
-            DescriptorType = _internal.descriptorType;
+            DescriptorType = (DescriptorType)_internal.descriptorType;
             Sampler = new Sampler(_internal.sampler);
         }
 
@@ -11558,7 +11558,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             TextureCompressionASTC_HDR = _internal.textureCompressionASTC_HDR;
         }
@@ -11586,7 +11586,7 @@ namespace AdamantiumVulkan.Core
         public ImageViewASTCDecodeModeEXT(AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT _internal)
         {
             PNext = _internal.pNext;
-            DecodeMode = _internal.decodeMode;
+            DecodeMode = (Format)_internal.decodeMode;
         }
 
         public StructureType SType => StructureType.ImageViewAstcDecodeModeExt;
@@ -11788,7 +11788,7 @@ namespace AdamantiumVulkan.Core
 
         public IndirectCommandsTokenNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsTokenNVX _internal)
         {
-            TokenType = _internal.tokenType;
+            TokenType = (IndirectCommandsTokenTypeNVX)_internal.tokenType;
             Buffer = new Buffer(_internal.buffer);
             Offset = _internal.offset;
         }
@@ -11815,7 +11815,7 @@ namespace AdamantiumVulkan.Core
 
         public IndirectCommandsLayoutTokenNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNVX _internal)
         {
-            TokenType = _internal.tokenType;
+            TokenType = (IndirectCommandsTokenTypeNVX)_internal.tokenType;
             BindingUnit = _internal.bindingUnit;
             DynamicCount = _internal.dynamicCount;
             Divisor = _internal.divisor;
@@ -11848,7 +11848,7 @@ namespace AdamantiumVulkan.Core
         public IndirectCommandsLayoutCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX _internal)
         {
             PNext = _internal.pNext;
-            PipelineBindPoint = _internal.pipelineBindPoint;
+            PipelineBindPoint = (PipelineBindPoint)_internal.pipelineBindPoint;
             Flags = _internal.flags;
             TokenCount = _internal.tokenCount;
             PTokens = new IndirectCommandsLayoutTokenNVX(Marshal.PtrToStructure<VkIndirectCommandsLayoutTokenNVX>(_internal.pTokens));
@@ -12100,7 +12100,7 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTableEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableEntryNVX _internal)
         {
-            Type = _internal.type;
+            Type = (ObjectEntryTypeNVX)_internal.type;
             Flags = _internal.flags;
         }
 
@@ -12124,7 +12124,7 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTablePipelineEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTablePipelineEntryNVX _internal)
         {
-            Type = _internal.type;
+            Type = (ObjectEntryTypeNVX)_internal.type;
             Flags = _internal.flags;
             Pipeline = new Pipeline(_internal.pipeline);
         }
@@ -12151,7 +12151,7 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTableDescriptorSetEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableDescriptorSetEntryNVX _internal)
         {
-            Type = _internal.type;
+            Type = (ObjectEntryTypeNVX)_internal.type;
             Flags = _internal.flags;
             PipelineLayout = new PipelineLayout(_internal.pipelineLayout);
             DescriptorSet = new DescriptorSet(_internal.descriptorSet);
@@ -12181,7 +12181,7 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTableVertexBufferEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableVertexBufferEntryNVX _internal)
         {
-            Type = _internal.type;
+            Type = (ObjectEntryTypeNVX)_internal.type;
             Flags = _internal.flags;
             Buffer = new Buffer(_internal.buffer);
         }
@@ -12208,10 +12208,10 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTableIndexBufferEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableIndexBufferEntryNVX _internal)
         {
-            Type = _internal.type;
+            Type = (ObjectEntryTypeNVX)_internal.type;
             Flags = _internal.flags;
             Buffer = new Buffer(_internal.buffer);
-            IndexType = _internal.indexType;
+            IndexType = (IndexType)_internal.indexType;
         }
 
         public ObjectEntryTypeNVX Type { get; set; }
@@ -12238,7 +12238,7 @@ namespace AdamantiumVulkan.Core
 
         public ObjectTablePushConstantEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTablePushConstantEntryNVX _internal)
         {
-            Type = _internal.type;
+            Type = (ObjectEntryTypeNVX)_internal.type;
             Flags = _internal.flags;
             PipelineLayout = new PipelineLayout(_internal.pipelineLayout);
             StageFlags = _internal.stageFlags;
@@ -12347,7 +12347,7 @@ namespace AdamantiumVulkan.Core
             MaxImageExtent = new Extent2D(_internal.maxImageExtent);
             MaxImageArrayLayers = _internal.maxImageArrayLayers;
             SupportedTransforms = _internal.supportedTransforms;
-            CurrentTransform = _internal.currentTransform;
+            CurrentTransform = (SurfaceTransformFlagBitsKHR)_internal.currentTransform;
             SupportedCompositeAlpha = _internal.supportedCompositeAlpha;
             SupportedUsageFlags = _internal.supportedUsageFlags;
             SupportedSurfaceCounters = _internal.supportedSurfaceCounters;
@@ -12405,7 +12405,7 @@ namespace AdamantiumVulkan.Core
         public DisplayPowerInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            PowerState = _internal.powerState;
+            PowerState = (DisplayPowerStateEXT)_internal.powerState;
         }
 
         public StructureType SType => StructureType.DisplayPowerInfoExt;
@@ -12431,7 +12431,7 @@ namespace AdamantiumVulkan.Core
         public DeviceEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            DeviceEvent = _internal.deviceEvent;
+            DeviceEvent = (DeviceEventTypeEXT)_internal.deviceEvent;
         }
 
         public StructureType SType => StructureType.DeviceEventInfoExt;
@@ -12456,9 +12456,9 @@ namespace AdamantiumVulkan.Core
 
         public DisplayEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            DisplayEvent = _internal.displayEvent;
+            DisplayEvent = (DisplayEventTypeEXT)_internal.displayEvent;
         }
 
         public StructureType SType { get; set; }
@@ -12657,10 +12657,10 @@ namespace AdamantiumVulkan.Core
 
         public ViewportSwizzleNV(AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV _internal)
         {
-            X = _internal.x;
-            Y = _internal.y;
-            Z = _internal.z;
-            W = _internal.w;
+            X = (ViewportCoordinateSwizzleNV)_internal.x;
+            Y = (ViewportCoordinateSwizzleNV)_internal.y;
+            Z = (ViewportCoordinateSwizzleNV)_internal.z;
+            W = (ViewportCoordinateSwizzleNV)_internal.w;
         }
 
         public ViewportCoordinateSwizzleNV X { get; set; }
@@ -12764,7 +12764,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            DiscardRectangleMode = _internal.discardRectangleMode;
+            DiscardRectangleMode = (DiscardRectangleModeEXT)_internal.discardRectangleMode;
             DiscardRectangleCount = _internal.discardRectangleCount;
             PDiscardRectangles = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pDiscardRectangles));
             Marshal.FreeHGlobal(_internal.pDiscardRectangles);
@@ -12862,7 +12862,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            ConservativeRasterizationMode = _internal.conservativeRasterizationMode;
+            ConservativeRasterizationMode = (ConservativeRasterizationModeEXT)_internal.conservativeRasterizationMode;
             ExtraPrimitiveOverestimationSize = _internal.extraPrimitiveOverestimationSize;
         }
 
@@ -13033,7 +13033,7 @@ namespace AdamantiumVulkan.Core
         public DebugUtilsObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ObjectType = _internal.objectType;
+            ObjectType = (ObjectType)_internal.objectType;
             ObjectHandle = _internal.objectHandle;
             PObjectName = Marshal.PtrToStringAnsi(_internal.pObjectName);
         }
@@ -13076,7 +13076,7 @@ namespace AdamantiumVulkan.Core
         public DebugUtilsObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ObjectType = _internal.objectType;
+            ObjectType = (ObjectType)_internal.objectType;
             ObjectHandle = _internal.objectHandle;
             TagName = _internal.tagName;
             TagSize = _internal.tagSize;
@@ -13322,7 +13322,7 @@ namespace AdamantiumVulkan.Core
         public SamplerReductionModeCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ReductionMode = _internal.reductionMode;
+            ReductionMode = (SamplerReductionModeEXT)_internal.reductionMode;
         }
 
         public StructureType SType => StructureType.SamplerReductionModeCreateInfoExt;
@@ -13525,7 +13525,7 @@ namespace AdamantiumVulkan.Core
         public SampleLocationsInfoEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            SampleLocationsPerPixel = _internal.sampleLocationsPerPixel;
+            SampleLocationsPerPixel = (SampleCountFlagBits)_internal.sampleLocationsPerPixel;
             SampleLocationGridSize = new Extent2D(_internal.sampleLocationGridSize);
             SampleLocationsCount = _internal.sampleLocationsCount;
             PSampleLocations = new SampleLocationEXT(Marshal.PtrToStructure<VkSampleLocationEXT>(_internal.pSampleLocations));
@@ -13885,7 +13885,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             SrcPremultiplied = _internal.srcPremultiplied;
             DstPremultiplied = _internal.dstPremultiplied;
-            BlendOverlap = _internal.blendOverlap;
+            BlendOverlap = (BlendOverlapEXT)_internal.blendOverlap;
         }
 
         public StructureType SType => StructureType.PipelineColorBlendAdvancedStateCreateInfoExt;
@@ -13950,7 +13950,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            CoverageModulationMode = _internal.coverageModulationMode;
+            CoverageModulationMode = (CoverageModulationModeNV)_internal.coverageModulationMode;
             CoverageModulationTableEnable = _internal.coverageModulationTableEnable;
             CoverageModulationTableCount = _internal.coverageModulationTableCount;
             if(_internal.pCoverageModulationTable != System.IntPtr.Zero)
@@ -14001,7 +14001,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderSMBuiltinsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ShaderSMCount = _internal.shaderSMCount;
             ShaderWarpsPerSM = _internal.shaderWarpsPerSM;
@@ -14031,7 +14031,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderSMBuiltinsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsFeaturesNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ShaderSMBuiltins = _internal.shaderSMBuiltins;
         }
@@ -14133,7 +14133,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             DrmFormatModifier = _internal.drmFormatModifier;
-            SharingMode = _internal.sharingMode;
+            SharingMode = (SharingMode)_internal.sharingMode;
             QueueFamilyIndexCount = _internal.queueFamilyIndexCount;
             if(_internal.pQueueFamilyIndices != System.IntPtr.Zero)
             {
@@ -14840,7 +14840,7 @@ namespace AdamantiumVulkan.Core
 
         public CoarseSampleOrderCustomNV(AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV _internal)
         {
-            ShadingRate = _internal.shadingRate;
+            ShadingRate = (ShadingRatePaletteEntryNV)_internal.shadingRate;
             SampleCount = _internal.sampleCount;
             SampleLocationCount = _internal.sampleLocationCount;
             PSampleLocations = new CoarseSampleLocationNV(Marshal.PtrToStructure<VkCoarseSampleLocationNV>(_internal.pSampleLocations));
@@ -14886,7 +14886,7 @@ namespace AdamantiumVulkan.Core
         public PipelineViewportCoarseSampleOrderStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            SampleOrderType = _internal.sampleOrderType;
+            SampleOrderType = (CoarseSampleOrderTypeNV)_internal.sampleOrderType;
             CustomSampleOrderCount = _internal.customSampleOrderCount;
             PCustomSampleOrders = new CoarseSampleOrderCustomNV(Marshal.PtrToStructure<VkCoarseSampleOrderCustomNV>(_internal.pCustomSampleOrders));
             Marshal.FreeHGlobal(_internal.pCustomSampleOrders);
@@ -14931,7 +14931,7 @@ namespace AdamantiumVulkan.Core
         public RayTracingShaderGroupCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            Type = _internal.type;
+            Type = (RayTracingShaderGroupTypeNV)_internal.type;
             GeneralShader = _internal.generalShader;
             ClosestHitShader = _internal.closestHitShader;
             AnyHitShader = _internal.anyHitShader;
@@ -15048,11 +15048,11 @@ namespace AdamantiumVulkan.Core
             VertexOffset = _internal.vertexOffset;
             VertexCount = _internal.vertexCount;
             VertexStride = _internal.vertexStride;
-            VertexFormat = _internal.vertexFormat;
+            VertexFormat = (Format)_internal.vertexFormat;
             IndexData = new Buffer(_internal.indexData);
             IndexOffset = _internal.indexOffset;
             IndexCount = _internal.indexCount;
-            IndexType = _internal.indexType;
+            IndexType = (IndexType)_internal.indexType;
             TransformData = new Buffer(_internal.transformData);
             TransformOffset = _internal.transformOffset;
         }
@@ -15165,7 +15165,7 @@ namespace AdamantiumVulkan.Core
         public GeometryNV(AdamantiumVulkan.Core.Interop.VkGeometryNV _internal)
         {
             PNext = _internal.pNext;
-            GeometryType = _internal.geometryType;
+            GeometryType = (GeometryTypeNV)_internal.geometryType;
             Geometry = new GeometryDataNV(_internal.geometry);
             Flags = _internal.flags;
         }
@@ -15202,7 +15202,7 @@ namespace AdamantiumVulkan.Core
         public AccelerationStructureInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV _internal)
         {
             PNext = _internal.pNext;
-            Type = _internal.type;
+            Type = (AccelerationStructureTypeNV)_internal.type;
             Flags = _internal.flags;
             InstanceCount = _internal.instanceCount;
             GeometryCount = _internal.geometryCount;
@@ -15384,7 +15384,7 @@ namespace AdamantiumVulkan.Core
         public AccelerationStructureMemoryRequirementsInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV _internal)
         {
             PNext = _internal.pNext;
-            Type = _internal.type;
+            Type = (AccelerationStructureMemoryRequirementsTypeNV)_internal.type;
             AccelerationStructure = new AccelerationStructureNV(_internal.accelerationStructure);
         }
 
@@ -15512,7 +15512,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceImageViewImageFormatInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ImageViewType = _internal.imageViewType;
+            ImageViewType = (ImageViewType)_internal.imageViewType;
         }
 
         public StructureType SType => StructureType.PhysicalDeviceImageViewImageFormatInfoExt;
@@ -15567,7 +15567,7 @@ namespace AdamantiumVulkan.Core
         public DeviceQueueGlobalPriorityCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            GlobalPriority = _internal.globalPriority;
+            GlobalPriority = (QueueGlobalPriorityEXT)_internal.globalPriority;
         }
 
         public StructureType SType => StructureType.DeviceQueueGlobalPriorityCreateInfoExt;
@@ -15593,7 +15593,7 @@ namespace AdamantiumVulkan.Core
         public ImportMemoryHostPointerInfoEXT(AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
             PHostPointer = _internal.pHostPointer;
         }
 
@@ -15673,7 +15673,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineCompilerControlCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             CompilerControlFlags = _internal.compilerControlFlags;
         }
@@ -15701,7 +15701,7 @@ namespace AdamantiumVulkan.Core
         public CalibratedTimestampInfoEXT(AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            TimeDomain = _internal.timeDomain;
+            TimeDomain = (TimeDomainEXT)_internal.timeDomain;
         }
 
         public StructureType SType => StructureType.CalibratedTimestampInfoExt;
@@ -15792,7 +15792,7 @@ namespace AdamantiumVulkan.Core
         public DeviceMemoryOverallocationCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD _internal)
         {
             PNext = _internal.pNext;
-            OverallocationBehavior = _internal.overallocationBehavior;
+            OverallocationBehavior = (MemoryOverallocationBehaviorAMD)_internal.overallocationBehavior;
         }
 
         public StructureType SType => StructureType.DeviceMemoryOverallocationCreateInfoAmd;
@@ -15968,7 +15968,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineCreationFeedbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PPipelineCreationFeedback = new PipelineCreationFeedbackEXT(Marshal.PtrToStructure<VkPipelineCreationFeedbackEXT>(_internal.pPipelineCreationFeedback));
             Marshal.FreeHGlobal(_internal.pPipelineCreationFeedback);
@@ -16363,7 +16363,7 @@ namespace AdamantiumVulkan.Core
         public CheckpointDataNV(AdamantiumVulkan.Core.Interop.VkCheckpointDataNV _internal)
         {
             PNext = _internal.pNext;
-            Stage = _internal.stage;
+            Stage = (PipelineStageFlagBits)_internal.stage;
             PCheckpointMarker = _internal.pCheckpointMarker;
         }
 
@@ -16391,7 +16391,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ShaderIntegerFunctions2 = _internal.shaderIntegerFunctions2;
         }
@@ -16418,7 +16418,7 @@ namespace AdamantiumVulkan.Core
 
         public PerformanceValueINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL _internal)
         {
-            Type = _internal.type;
+            Type = (PerformanceValueTypeINTEL)_internal.type;
             Data = new PerformanceValueDataINTEL(_internal.data);
         }
 
@@ -16445,7 +16445,7 @@ namespace AdamantiumVulkan.Core
 
         public InitializePerformanceApiInfoINTEL(AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PUserData = _internal.pUserData;
         }
@@ -16472,9 +16472,9 @@ namespace AdamantiumVulkan.Core
 
         public QueryPoolCreateInfoINTEL(AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfoINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            PerformanceCountersSampling = _internal.performanceCountersSampling;
+            PerformanceCountersSampling = (QueryPoolSamplingModeINTEL)_internal.performanceCountersSampling;
         }
 
         public StructureType SType { get; set; }
@@ -16499,7 +16499,7 @@ namespace AdamantiumVulkan.Core
 
         public PerformanceMarkerInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Marker = _internal.marker;
         }
@@ -16526,7 +16526,7 @@ namespace AdamantiumVulkan.Core
 
         public PerformanceStreamMarkerInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Marker = _internal.marker;
         }
@@ -16553,9 +16553,9 @@ namespace AdamantiumVulkan.Core
 
         public PerformanceOverrideInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            Type = _internal.type;
+            Type = (PerformanceOverrideTypeINTEL)_internal.type;
             Enable = _internal.enable;
             Parameter = _internal.parameter;
         }
@@ -16586,9 +16586,9 @@ namespace AdamantiumVulkan.Core
 
         public PerformanceConfigurationAcquireInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            Type = _internal.type;
+            Type = (PerformanceConfigurationTypeINTEL)_internal.type;
         }
 
         public StructureType SType { get; set; }
@@ -16648,7 +16648,7 @@ namespace AdamantiumVulkan.Core
 
         public DisplayNativeHdrSurfaceCapabilitiesAMD(AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             LocalDimmingSupport = _internal.localDimmingSupport;
         }
@@ -16675,7 +16675,7 @@ namespace AdamantiumVulkan.Core
 
         public SwapchainDisplayNativeHdrCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             LocalDimmingEnable = _internal.localDimmingEnable;
         }
@@ -16827,7 +16827,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSubgroupSizeControlFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             SubgroupSizeControl = _internal.subgroupSizeControl;
             ComputeFullSubgroups = _internal.computeFullSubgroups;
@@ -16857,7 +16857,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSubgroupSizeControlPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlPropertiesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             MinSubgroupSize = _internal.minSubgroupSize;
             MaxSubgroupSize = _internal.maxSubgroupSize;
@@ -16893,7 +16893,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             RequiredSubgroupSize = _internal.requiredSubgroupSize;
         }
@@ -16920,7 +16920,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderCoreProperties2AMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ShaderCoreFeatures = _internal.shaderCoreFeatures;
             ActiveComputeUnitCount = _internal.activeComputeUnitCount;
@@ -16950,7 +16950,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceCoherentMemoryFeaturesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             DeviceCoherentMemory = _internal.deviceCoherentMemory;
         }
@@ -17138,7 +17138,7 @@ namespace AdamantiumVulkan.Core
             BufferDeviceAddressMultiDevice = _internal.bufferDeviceAddressMultiDevice;
         }
 
-        public StructureType SType => StructureType.PhysicalDeviceBufferAddressFeaturesExt;
+        public StructureType SType => StructureType.PhysicalDeviceBufferDeviceAddressFeaturesExt;
         public System.IntPtr PNext { get; set; }
         public bool BufferDeviceAddress { get; set; }
         public bool BufferDeviceAddressCaptureReplay { get; set; }
@@ -17326,11 +17326,11 @@ namespace AdamantiumVulkan.Core
             MSize = _internal.MSize;
             NSize = _internal.NSize;
             KSize = _internal.KSize;
-            AType = _internal.AType;
-            BType = _internal.BType;
-            CType = _internal.CType;
-            DType = _internal.DType;
-            Scope = _internal.scope;
+            AType = (ComponentTypeNV)_internal.AType;
+            BType = (ComponentTypeNV)_internal.BType;
+            CType = (ComponentTypeNV)_internal.CType;
+            DType = (ComponentTypeNV)_internal.DType;
+            Scope = (ScopeNV)_internal.scope;
         }
 
         public StructureType SType => StructureType.CooperativeMatrixPropertiesNv;
@@ -17424,7 +17424,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceCoverageReductionModeFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             CoverageReductionMode = _internal.coverageReductionMode;
         }
@@ -17451,10 +17451,10 @@ namespace AdamantiumVulkan.Core
 
         public PipelineCoverageReductionStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            CoverageReductionMode = _internal.coverageReductionMode;
+            CoverageReductionMode = (CoverageReductionModeNV)_internal.coverageReductionMode;
         }
 
         public StructureType SType { get; set; }
@@ -17481,10 +17481,10 @@ namespace AdamantiumVulkan.Core
 
         public FramebufferMixedSamplesCombinationNV(AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            CoverageReductionMode = _internal.coverageReductionMode;
-            RasterizationSamples = _internal.rasterizationSamples;
+            CoverageReductionMode = (CoverageReductionModeNV)_internal.coverageReductionMode;
+            RasterizationSamples = (SampleCountFlagBits)_internal.rasterizationSamples;
             DepthStencilSamples = _internal.depthStencilSamples;
             ColorSamples = _internal.colorSamples;
         }
@@ -17517,7 +17517,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFragmentShaderInterlockFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             FragmentShaderSampleInterlock = _internal.fragmentShaderSampleInterlock;
             FragmentShaderPixelInterlock = _internal.fragmentShaderPixelInterlock;
@@ -17550,7 +17550,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceYcbcrImageArraysFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             YcbcrImageArrays = _internal.ycbcrImageArrays;
         }
@@ -17577,7 +17577,7 @@ namespace AdamantiumVulkan.Core
 
         public HeadlessSurfaceCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
         }
@@ -17604,7 +17604,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceLineRasterizationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             RectangularLines = _internal.rectangularLines;
             BresenhamLines = _internal.bresenhamLines;
@@ -17646,7 +17646,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceLineRasterizationPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationPropertiesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             LineSubPixelPrecisionBits = _internal.lineSubPixelPrecisionBits;
         }
@@ -17673,9 +17673,9 @@ namespace AdamantiumVulkan.Core
 
         public PipelineRasterizationLineStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            LineRasterizationMode = _internal.lineRasterizationMode;
+            LineRasterizationMode = (LineRasterizationModeEXT)_internal.lineRasterizationMode;
             StippledLineEnable = _internal.stippledLineEnable;
             LineStippleFactor = _internal.lineStippleFactor;
             LineStipplePattern = _internal.lineStipplePattern;
@@ -17709,7 +17709,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceHostQueryResetFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             HostQueryReset = _internal.hostQueryReset;
         }
@@ -17736,7 +17736,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceIndexTypeUint8FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             IndexTypeUint8 = _internal.indexTypeUint8;
         }
@@ -17763,7 +17763,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ShaderDemoteToHelperInvocation = _internal.shaderDemoteToHelperInvocation;
         }
@@ -17790,7 +17790,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceTexelBufferAlignmentFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             TexelBufferAlignment = _internal.texelBufferAlignment;
         }
@@ -17817,7 +17817,7 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceTexelBufferAlignmentPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             StorageTexelBufferOffsetAlignmentBytes = _internal.storageTexelBufferOffsetAlignmentBytes;
             StorageTexelBufferOffsetSingleTexelAlignment = _internal.storageTexelBufferOffsetSingleTexelAlignment;

@@ -55,36 +55,6 @@ namespace AdamantiumVulkan.Shaders
         TessEvaluationShader = 5,
 
         ///<summary>
-        /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
-        ///</summary>
-        GlslVertexShader = 0,
-
-        ///<summary>
-        /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
-        ///</summary>
-        GlslFragmentShader = 1,
-
-        ///<summary>
-        /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
-        ///</summary>
-        GlslComputeShader = 2,
-
-        ///<summary>
-        /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
-        ///</summary>
-        GlslGeometryShader = 3,
-
-        ///<summary>
-        /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
-        ///</summary>
-        GlslTessControlShader = 4,
-
-        ///<summary>
-        /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
-        ///</summary>
-        GlslTessEvaluationShader = 5,
-
-        ///<summary>
         /// Deduce the shader kind from #pragma annotation in the source code. Compiler will emit error if #pragma annotation is not found.
         ///</summary>
         GlslInferFromSource = 6,
@@ -169,171 +139,171 @@ namespace AdamantiumVulkan.Shaders
     ///</summary>
     public enum ShadercLimit : int
     {
-        MaxLights = 0,
+        AxLights = 0,
 
-        MaxClipPlanes = 1,
+        AxClipPlanes = 1,
 
-        MaxTextureUnits = 2,
+        AxTextureUnits = 2,
 
-        MaxTextureCoords = 3,
+        AxTextureCoords = 3,
 
-        MaxVertexAttribs = 4,
+        AxVertexAttribs = 4,
 
-        MaxVertexUniformComponents = 5,
+        AxVertexUniformComponents = 5,
 
-        MaxVaryingFloats = 6,
+        AxVaryingFloats = 6,
 
-        MaxVertexTextureImageUnits = 7,
+        AxVertexTextureImageUnits = 7,
 
-        MaxCombinedTextureImageUnits = 8,
+        AxCombinedTextureImageUnits = 8,
 
-        MaxTextureImageUnits = 9,
+        AxTextureImageUnits = 9,
 
-        MaxFragmentUniformComponents = 10,
+        AxFragmentUniformComponents = 10,
 
-        MaxDrawBuffers = 11,
+        AxDrawBuffers = 11,
 
-        MaxVertexUniformVectors = 12,
+        AxVertexUniformVectors = 12,
 
-        MaxVaryingVectors = 13,
+        AxVaryingVectors = 13,
 
-        MaxFragmentUniformVectors = 14,
+        AxFragmentUniformVectors = 14,
 
-        MaxVertexOutputVectors = 15,
+        AxVertexOutputVectors = 15,
 
-        MaxFragmentInputVectors = 16,
+        AxFragmentInputVectors = 16,
 
-        MinProgramTexelOffset = 17,
+        InProgramTexelOffset = 17,
 
-        MaxProgramTexelOffset = 18,
+        AxProgramTexelOffset = 18,
 
-        MaxClipDistances = 19,
+        AxClipDistances = 19,
 
-        MaxComputeWorkGroupCountX = 20,
+        AxComputeWorkGroupCountX = 20,
 
-        MaxComputeWorkGroupCountY = 21,
+        AxComputeWorkGroupCountY = 21,
 
-        MaxComputeWorkGroupCountZ = 22,
+        AxComputeWorkGroupCountZ = 22,
 
-        MaxComputeWorkGroupSizeX = 23,
+        AxComputeWorkGroupSizeX = 23,
 
-        MaxComputeWorkGroupSizeY = 24,
+        AxComputeWorkGroupSizeY = 24,
 
-        MaxComputeWorkGroupSizeZ = 25,
+        AxComputeWorkGroupSizeZ = 25,
 
-        MaxComputeUniformComponents = 26,
+        AxComputeUniformComponents = 26,
 
-        MaxComputeTextureImageUnits = 27,
+        AxComputeTextureImageUnits = 27,
 
-        MaxComputeImageUniforms = 28,
+        AxComputeImageUniforms = 28,
 
-        MaxComputeAtomicCounters = 29,
+        AxComputeAtomicCounters = 29,
 
-        MaxComputeAtomicCounterBuffers = 30,
+        AxComputeAtomicCounterBuffers = 30,
 
-        MaxVaryingComponents = 31,
+        AxVaryingComponents = 31,
 
-        MaxVertexOutputComponents = 32,
+        AxVertexOutputComponents = 32,
 
-        MaxGeometryInputComponents = 33,
+        AxGeometryInputComponents = 33,
 
-        MaxGeometryOutputComponents = 34,
+        AxGeometryOutputComponents = 34,
 
-        MaxFragmentInputComponents = 35,
+        AxFragmentInputComponents = 35,
 
-        MaxImageUnits = 36,
+        AxImageUnits = 36,
 
-        MaxCombinedImageUnitsAndFragmentOutputs = 37,
+        AxCombinedImageUnitsAndFragmentOutputs = 37,
 
-        MaxCombinedShaderOutputResources = 38,
+        AxCombinedShaderOutputResources = 38,
 
-        MaxImageSamples = 39,
+        AxImageSamples = 39,
 
-        MaxVertexImageUniforms = 40,
+        AxVertexImageUniforms = 40,
 
-        MaxTessControlImageUniforms = 41,
+        AxTessControlImageUniforms = 41,
 
-        MaxTessEvaluationImageUniforms = 42,
+        AxTessEvaluationImageUniforms = 42,
 
-        MaxGeometryImageUniforms = 43,
+        AxGeometryImageUniforms = 43,
 
-        MaxFragmentImageUniforms = 44,
+        AxFragmentImageUniforms = 44,
 
-        MaxCombinedImageUniforms = 45,
+        AxCombinedImageUniforms = 45,
 
-        MaxGeometryTextureImageUnits = 46,
+        AxGeometryTextureImageUnits = 46,
 
-        MaxGeometryOutputVertices = 47,
+        AxGeometryOutputVertices = 47,
 
-        MaxGeometryTotalOutputComponents = 48,
+        AxGeometryTotalOutputComponents = 48,
 
-        MaxGeometryUniformComponents = 49,
+        AxGeometryUniformComponents = 49,
 
-        MaxGeometryVaryingComponents = 50,
+        AxGeometryVaryingComponents = 50,
 
-        MaxTessControlInputComponents = 51,
+        AxTessControlInputComponents = 51,
 
-        MaxTessControlOutputComponents = 52,
+        AxTessControlOutputComponents = 52,
 
-        MaxTessControlTextureImageUnits = 53,
+        AxTessControlTextureImageUnits = 53,
 
-        MaxTessControlUniformComponents = 54,
+        AxTessControlUniformComponents = 54,
 
-        MaxTessControlTotalOutputComponents = 55,
+        AxTessControlTotalOutputComponents = 55,
 
-        MaxTessEvaluationInputComponents = 56,
+        AxTessEvaluationInputComponents = 56,
 
-        MaxTessEvaluationOutputComponents = 57,
+        AxTessEvaluationOutputComponents = 57,
 
-        MaxTessEvaluationTextureImageUnits = 58,
+        AxTessEvaluationTextureImageUnits = 58,
 
-        MaxTessEvaluationUniformComponents = 59,
+        AxTessEvaluationUniformComponents = 59,
 
-        MaxTessPatchComponents = 60,
+        AxTessPatchComponents = 60,
 
-        MaxPatchVertices = 61,
+        AxPatchVertices = 61,
 
-        MaxTessGenLevel = 62,
+        AxTessGenLevel = 62,
 
-        MaxViewports = 63,
+        AxViewports = 63,
 
-        MaxVertexAtomicCounters = 64,
+        AxVertexAtomicCounters = 64,
 
-        MaxTessControlAtomicCounters = 65,
+        AxTessControlAtomicCounters = 65,
 
-        MaxTessEvaluationAtomicCounters = 66,
+        AxTessEvaluationAtomicCounters = 66,
 
-        MaxGeometryAtomicCounters = 67,
+        AxGeometryAtomicCounters = 67,
 
-        MaxFragmentAtomicCounters = 68,
+        AxFragmentAtomicCounters = 68,
 
-        MaxCombinedAtomicCounters = 69,
+        AxCombinedAtomicCounters = 69,
 
-        MaxAtomicCounterBindings = 70,
+        AxAtomicCounterBindings = 70,
 
-        MaxVertexAtomicCounterBuffers = 71,
+        AxVertexAtomicCounterBuffers = 71,
 
-        MaxTessControlAtomicCounterBuffers = 72,
+        AxTessControlAtomicCounterBuffers = 72,
 
-        MaxTessEvaluationAtomicCounterBuffers = 73,
+        AxTessEvaluationAtomicCounterBuffers = 73,
 
-        MaxGeometryAtomicCounterBuffers = 74,
+        AxGeometryAtomicCounterBuffers = 74,
 
-        MaxFragmentAtomicCounterBuffers = 75,
+        AxFragmentAtomicCounterBuffers = 75,
 
-        MaxCombinedAtomicCounterBuffers = 76,
+        AxCombinedAtomicCounterBuffers = 76,
 
-        MaxAtomicCounterBufferSize = 77,
+        AxAtomicCounterBufferSize = 77,
 
-        MaxTransformFeedbackBuffers = 78,
+        AxTransformFeedbackBuffers = 78,
 
-        MaxTransformFeedbackInterleavedComponents = 79,
+        AxTransformFeedbackInterleavedComponents = 79,
 
-        MaxCullDistances = 80,
+        AxCullDistances = 80,
 
-        MaxCombinedClipAndCullDistances = 81,
+        AxCombinedClipAndCullDistances = 81,
 
-        MaxSamples = 82,
+        AxSamples = 82,
 
     }
 

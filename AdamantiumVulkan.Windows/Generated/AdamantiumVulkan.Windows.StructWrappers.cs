@@ -54,9 +54,9 @@ namespace AdamantiumVulkan.Windows
 
         public ImportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
             Handle = _internal.handle;
             Name = _internal.name;
         }
@@ -89,7 +89,7 @@ namespace AdamantiumVulkan.Windows
 
         public ExportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PAttributes = _internal.pAttributes;
             DwAccess = _internal.dwAccess;
@@ -133,7 +133,7 @@ namespace AdamantiumVulkan.Windows
 
         public MemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             MemoryTypeBits = _internal.memoryTypeBits;
         }
@@ -160,10 +160,10 @@ namespace AdamantiumVulkan.Windows
 
         public MemoryGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Memory = new DeviceMemory(_internal.memory);
-            HandleType = _internal.handleType;
+            HandleType = (ExternalMemoryHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType { get; set; }
@@ -200,7 +200,7 @@ namespace AdamantiumVulkan.Windows
 
         public Win32KeyedMutexAcquireReleaseInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             AcquireCount = _internal.acquireCount;
             PAcquireSyncs = new DeviceMemory(Marshal.PtrToStructure<DeviceMemory>(_internal.pAcquireSyncs));
@@ -296,11 +296,11 @@ namespace AdamantiumVulkan.Windows
 
         public ImportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Semaphore = new Semaphore(_internal.semaphore);
             Flags = _internal.flags;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalSemaphoreHandleTypeFlagBits)_internal.handleType;
             Handle = _internal.handle;
             Name = _internal.name;
         }
@@ -337,7 +337,7 @@ namespace AdamantiumVulkan.Windows
 
         public ExportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PAttributes = _internal.pAttributes;
             DwAccess = _internal.dwAccess;
@@ -385,7 +385,7 @@ namespace AdamantiumVulkan.Windows
 
         public D3D12FenceSubmitInfoKHR(AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             WaitSemaphoreValuesCount = _internal.waitSemaphoreValuesCount;
             if(_internal.pWaitSemaphoreValues != System.IntPtr.Zero)
@@ -446,10 +446,10 @@ namespace AdamantiumVulkan.Windows
 
         public SemaphoreGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Semaphore = new Semaphore(_internal.semaphore);
-            HandleType = _internal.handleType;
+            HandleType = (ExternalSemaphoreHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType { get; set; }
@@ -476,11 +476,11 @@ namespace AdamantiumVulkan.Windows
 
         public ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Fence = new Fence(_internal.fence);
             Flags = _internal.flags;
-            HandleType = _internal.handleType;
+            HandleType = (ExternalFenceHandleTypeFlagBits)_internal.handleType;
             Handle = _internal.handle;
             Name = _internal.name;
         }
@@ -517,7 +517,7 @@ namespace AdamantiumVulkan.Windows
 
         public ExportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PAttributes = _internal.pAttributes;
             DwAccess = _internal.dwAccess;
@@ -561,10 +561,10 @@ namespace AdamantiumVulkan.Windows
 
         public FenceGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Fence = new Fence(_internal.fence);
-            HandleType = _internal.handleType;
+            HandleType = (ExternalFenceHandleTypeFlagBits)_internal.handleType;
         }
 
         public StructureType SType { get; set; }
@@ -591,7 +591,7 @@ namespace AdamantiumVulkan.Windows
 
         public ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             HandleType = _internal.handleType;
             Handle = _internal.handle;
@@ -623,7 +623,7 @@ namespace AdamantiumVulkan.Windows
 
         public ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             PAttributes = _internal.pAttributes;
             DwAccess = _internal.dwAccess;
@@ -674,7 +674,7 @@ namespace AdamantiumVulkan.Windows
 
         public Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             AcquireCount = _internal.acquireCount;
             PAcquireSyncs = new DeviceMemory(Marshal.PtrToStructure<DeviceMemory>(_internal.pAcquireSyncs));
@@ -770,9 +770,9 @@ namespace AdamantiumVulkan.Windows
 
         public SurfaceFullScreenExclusiveInfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            FullScreenExclusive = _internal.fullScreenExclusive;
+            FullScreenExclusive = (FullScreenExclusiveEXT)_internal.fullScreenExclusive;
         }
 
         public StructureType SType { get; set; }
@@ -797,7 +797,7 @@ namespace AdamantiumVulkan.Windows
 
         public SurfaceCapabilitiesFullScreenExclusiveEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             FullScreenExclusiveSupported = _internal.fullScreenExclusiveSupported;
         }
@@ -824,7 +824,7 @@ namespace AdamantiumVulkan.Windows
 
         public SurfaceFullScreenExclusiveWin32InfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT _internal)
         {
-            SType = _internal.sType;
+            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Hmonitor = _internal.hmonitor;
         }

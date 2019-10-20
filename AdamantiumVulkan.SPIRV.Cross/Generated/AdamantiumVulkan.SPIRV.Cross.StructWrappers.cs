@@ -250,7 +250,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             Msl_offset = _internal.msl_offset;
             Msl_stride = _internal.msl_stride;
             Per_instance = _internal.per_instance;
-            Format = _internal.format;
+            Format = (SpvcMslVertexFormat)_internal.format;
             Builtin = _internal.builtin;
         }
 
@@ -320,15 +320,15 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
         public SpvcMslConstexprSampler(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslConstexprSampler _internal)
         {
-            Coord = _internal.coord;
-            Min_filter = _internal.min_filter;
-            Mag_filter = _internal.mag_filter;
-            Mip_filter = _internal.mip_filter;
-            S_address = _internal.s_address;
-            T_address = _internal.t_address;
-            R_address = _internal.r_address;
-            Compare_func = _internal.compare_func;
-            Border_color = _internal.border_color;
+            Coord = (SpvcMslSamplerCoord)_internal.coord;
+            Min_filter = (SpvcMslSamplerFilter)_internal.min_filter;
+            Mag_filter = (SpvcMslSamplerFilter)_internal.mag_filter;
+            Mip_filter = (SpvcMslSamplerMipFilter)_internal.mip_filter;
+            S_address = (SpvcMslSamplerAddress)_internal.s_address;
+            T_address = (SpvcMslSamplerAddress)_internal.t_address;
+            R_address = (SpvcMslSamplerAddress)_internal.r_address;
+            Compare_func = (SpvcMslSamplerCompareFunc)_internal.compare_func;
+            Border_color = (SpvcMslSamplerBorderColor)_internal.border_color;
             Lod_clamp_min = _internal.lod_clamp_min;
             Lod_clamp_max = _internal.lod_clamp_max;
             Max_anisotropy = _internal.max_anisotropy;
@@ -384,13 +384,13 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public SpvcMslSamplerYcbcrConversion(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslSamplerYcbcrConversion _internal)
         {
             Planes = _internal.planes;
-            Resolution = _internal.resolution;
-            Chroma_filter = _internal.chroma_filter;
-            X_chroma_offset = _internal.x_chroma_offset;
-            Y_chroma_offset = _internal.y_chroma_offset;
+            Resolution = (SpvcMslFormatResolution)_internal.resolution;
+            Chroma_filter = (SpvcMslSamplerFilter)_internal.chroma_filter;
+            X_chroma_offset = (SpvcMslChromaLocation)_internal.x_chroma_offset;
+            Y_chroma_offset = (SpvcMslChromaLocation)_internal.y_chroma_offset;
             Swizzle = _internal.swizzle;
-            Ycbcr_model = _internal.ycbcr_model;
-            Ycbcr_range = _internal.ycbcr_range;
+            Ycbcr_model = (SpvcMslSamplerYcbcrModelConversion)_internal.ycbcr_model;
+            Ycbcr_range = (SpvcMslSamplerYcbcrRange)_internal.ycbcr_range;
             Bpc = _internal.bpc;
         }
 

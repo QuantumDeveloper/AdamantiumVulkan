@@ -394,11 +394,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
     [Flags]
     public enum SpvcMslSamplerYcbcrRange : int
     {
-        ItuFull = 0,
+        TuFull = 0,
 
-        ItuNarrow = 1,
+        TuNarrow = 1,
 
-        IntMax = 2147483647,
+        NtMax = 2147483647,
 
     }
 
@@ -449,11 +449,6 @@ namespace AdamantiumVulkan.SPIRV.Cross
         /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
         ///</summary>
         MslAuxBufferIndex = 134217747,
-
-        ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
-        ///</summary>
-        MslSwizzleBufferIndex = 134217747,
 
         ///<summary>
         /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.

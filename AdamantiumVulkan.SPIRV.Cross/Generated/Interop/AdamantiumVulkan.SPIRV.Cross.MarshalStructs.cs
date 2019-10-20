@@ -259,7 +259,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 
         public byte per_instance;
 
-        public int format;
+        public SpvcMslVertexFormat format;
 
         public SpvBuiltIn builtin;
 
@@ -291,23 +291,23 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcMslConstexprSampler
     {
-        public int coord;
+        public SpvcMslSamplerCoord coord;
 
-        public int min_filter;
+        public SpvcMslSamplerFilter min_filter;
 
-        public int mag_filter;
+        public SpvcMslSamplerFilter mag_filter;
 
-        public int mip_filter;
+        public SpvcMslSamplerMipFilter mip_filter;
 
-        public int s_address;
+        public SpvcMslSamplerAddress s_address;
 
-        public int t_address;
+        public SpvcMslSamplerAddress t_address;
 
-        public int r_address;
+        public SpvcMslSamplerAddress r_address;
 
-        public int compare_func;
+        public SpvcMslSamplerCompareFunc compare_func;
 
-        public int border_color;
+        public SpvcMslSamplerBorderColor border_color;
 
         public float lod_clamp_min;
 
@@ -331,20 +331,20 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public uint planes;
 
-        public int resolution;
+        public SpvcMslFormatResolution resolution;
 
-        public int chroma_filter;
+        public SpvcMslSamplerFilter chroma_filter;
 
-        public int x_chroma_offset;
+        public SpvcMslChromaLocation x_chroma_offset;
 
-        public int y_chroma_offset;
+        public SpvcMslChromaLocation y_chroma_offset;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public int[] swizzle;
+        public SpvcMslComponentSwizzle[] swizzle;
 
-        public int ycbcr_model;
+        public SpvcMslSamplerYcbcrModelConversion ycbcr_model;
 
-        public int ycbcr_range;
+        public SpvcMslSamplerYcbcrRange ycbcr_range;
 
         public uint bpc;
 

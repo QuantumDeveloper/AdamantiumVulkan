@@ -15,8 +15,6 @@ namespace AdamantiumVulkan.Core
     {
         One = 1,
 
-        RangeSize = 1,
-
         MaxEnum = 2147483647,
 
     }
@@ -86,14 +84,6 @@ namespace AdamantiumVulkan.Core
         ErrorInvalidDeviceAddressExt = -1000244000,
 
         ErrorFullScreenExclusiveModeLostExt = -1000255000,
-
-        ErrorOutOfPoolMemoryKhr = -1000069000,
-
-        ErrorInvalidExternalHandleKhr = -1000072003,
-
-        ResultBeginRange = -12,
-
-        ResultEndRange = 5,
 
         ResultRangeSize = 18,
 
@@ -849,138 +839,6 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceTexelBufferAlignmentPropertiesExt = 1000281001,
 
-        PhysicalDeviceVariablePointerFeatures = 1000120000,
-
-        PhysicalDeviceShaderDrawParameterFeatures = 1000063000,
-
-        DebugReportCreateInfoExt = 1000011000,
-
-        RenderPassMultiviewCreateInfoKhr = 1000053000,
-
-        PhysicalDeviceMultiviewFeaturesKhr = 1000053001,
-
-        PhysicalDeviceMultiviewPropertiesKhr = 1000053002,
-
-        PhysicalDeviceFeatures2Khr = 1000059000,
-
-        PhysicalDeviceProperties2Khr = 1000059001,
-
-        FormatProperties2Khr = 1000059002,
-
-        ImageFormatProperties2Khr = 1000059003,
-
-        PhysicalDeviceImageFormatInfo2Khr = 1000059004,
-
-        QueueFamilyProperties2Khr = 1000059005,
-
-        PhysicalDeviceMemoryProperties2Khr = 1000059006,
-
-        SparseImageFormatProperties2Khr = 1000059007,
-
-        PhysicalDeviceSparseImageFormatInfo2Khr = 1000059008,
-
-        MemoryAllocateFlagsInfoKhr = 1000060000,
-
-        DeviceGroupRenderPassBeginInfoKhr = 1000060003,
-
-        DeviceGroupCommandBufferBeginInfoKhr = 1000060004,
-
-        DeviceGroupSubmitInfoKhr = 1000060005,
-
-        DeviceGroupBindSparseInfoKhr = 1000060006,
-
-        BindBufferMemoryDeviceGroupInfoKhr = 1000060013,
-
-        BindImageMemoryDeviceGroupInfoKhr = 1000060014,
-
-        PhysicalDeviceGroupPropertiesKhr = 1000070000,
-
-        DeviceGroupDeviceCreateInfoKhr = 1000070001,
-
-        PhysicalDeviceExternalImageFormatInfoKhr = 1000071000,
-
-        ExternalImageFormatPropertiesKhr = 1000071001,
-
-        PhysicalDeviceExternalBufferInfoKhr = 1000071002,
-
-        ExternalBufferPropertiesKhr = 1000071003,
-
-        PhysicalDeviceIdPropertiesKhr = 1000071004,
-
-        ExternalMemoryBufferCreateInfoKhr = 1000072000,
-
-        ExternalMemoryImageCreateInfoKhr = 1000072001,
-
-        ExportMemoryAllocateInfoKhr = 1000072002,
-
-        PhysicalDeviceExternalSemaphoreInfoKhr = 1000076000,
-
-        ExternalSemaphorePropertiesKhr = 1000076001,
-
-        ExportSemaphoreCreateInfoKhr = 1000077000,
-
-        PhysicalDeviceFloat16Int8FeaturesKhr = 1000082000,
-
-        PhysicalDevice16bitStorageFeaturesKhr = 1000083000,
-
-        DescriptorUpdateTemplateCreateInfoKhr = 1000085000,
-
-        SurfaceCapabilities2Ext1 = 1000090000,
-
-        PhysicalDeviceExternalFenceInfoKhr = 1000112000,
-
-        ExternalFencePropertiesKhr = 1000112001,
-
-        ExportFenceCreateInfoKhr = 1000113000,
-
-        PhysicalDevicePointClippingPropertiesKhr = 1000117000,
-
-        RenderPassInputAttachmentAspectCreateInfoKhr = 1000117001,
-
-        ImageViewUsageCreateInfoKhr = 1000117002,
-
-        PipelineTessellationDomainOriginStateCreateInfoKhr = 1000117003,
-
-        PhysicalDeviceVariablePointerFeaturesKhr = 1000120000,
-
-        PhysicalDeviceVariablePointersFeaturesKhr = 1000120000,
-
-        MemoryDedicatedRequirementsKhr = 1000127000,
-
-        MemoryDedicatedAllocateInfoKhr = 1000127001,
-
-        BufferMemoryRequirementsInfo2Khr = 1000146000,
-
-        ImageMemoryRequirementsInfo2Khr = 1000146001,
-
-        ImageSparseMemoryRequirementsInfo2Khr = 1000146002,
-
-        MemoryRequirements2Khr = 1000146003,
-
-        SparseImageMemoryRequirements2Khr = 1000146004,
-
-        SamplerYcbcrConversionCreateInfoKhr = 1000156000,
-
-        SamplerYcbcrConversionInfoKhr = 1000156001,
-
-        BindImagePlaneMemoryInfoKhr = 1000156002,
-
-        ImagePlaneMemoryRequirementsInfoKhr = 1000156003,
-
-        PhysicalDeviceSamplerYcbcrConversionFeaturesKhr = 1000156004,
-
-        SamplerYcbcrConversionImageFormatPropertiesKhr = 1000156005,
-
-        BindBufferMemoryInfoKhr = 1000157000,
-
-        BindImageMemoryInfoKhr = 1000157001,
-
-        PhysicalDeviceMaintenance3PropertiesKhr = 1000168000,
-
-        DescriptorSetLayoutSupportKhr = 1000168001,
-
-        PhysicalDeviceBufferAddressFeaturesExt = 1000244000,
-
         RangeSize = 49,
 
         MaxEnum = 2147483647,
@@ -1500,78 +1358,6 @@ namespace AdamantiumVulkan.Core
 
         ASTC_12x12_SFLOAT_BLOCK_EXT = 1000066013,
 
-        G8B8G8R8_422_UNORM_KHR = 1000156000,
-
-        B8G8R8G8_422_UNORM_KHR = 1000156001,
-
-        G8_B8_R8_3PLANE_420_UNORM_KHR = 1000156002,
-
-        G8_B8R8_2PLANE_420_UNORM_KHR = 1000156003,
-
-        G8_B8_R8_3PLANE_422_UNORM_KHR = 1000156004,
-
-        G8_B8R8_2PLANE_422_UNORM_KHR = 1000156005,
-
-        G8_B8_R8_3PLANE_444_UNORM_KHR = 1000156006,
-
-        R10X6_UNORM_PACK16_KHR = 1000156007,
-
-        R10X6G10X6_UNORM_2PACK16_KHR = 1000156008,
-
-        R10X6G10X6B10X6A10X6_UNORM_4PACK16_KHR = 1000156009,
-
-        G10X6B10X6G10X6R10X6_422_UNORM_4PACK16_KHR = 1000156010,
-
-        B10X6G10X6R10X6G10X6_422_UNORM_4PACK16_KHR = 1000156011,
-
-        G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR = 1000156012,
-
-        G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16_KHR = 1000156013,
-
-        G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16_KHR = 1000156014,
-
-        G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16_KHR = 1000156015,
-
-        G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16_KHR = 1000156016,
-
-        R12X4_UNORM_PACK16_KHR = 1000156017,
-
-        R12X4G12X4_UNORM_2PACK16_KHR = 1000156018,
-
-        R12X4G12X4B12X4A12X4_UNORM_4PACK16_KHR = 1000156019,
-
-        G12X4B12X4G12X4R12X4_422_UNORM_4PACK16_KHR = 1000156020,
-
-        B12X4G12X4R12X4G12X4_422_UNORM_4PACK16_KHR = 1000156021,
-
-        G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16_KHR = 1000156022,
-
-        G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16_KHR = 1000156023,
-
-        G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16_KHR = 1000156024,
-
-        G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16_KHR = 1000156025,
-
-        G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16_KHR = 1000156026,
-
-        G16B16G16R16_422_UNORM_KHR = 1000156027,
-
-        B16G16R16G16_422_UNORM_KHR = 1000156028,
-
-        G16_B16_R16_3PLANE_420_UNORM_KHR = 1000156029,
-
-        G16_B16R16_2PLANE_420_UNORM_KHR = 1000156030,
-
-        G16_B16_R16_3PLANE_422_UNORM_KHR = 1000156031,
-
-        G16_B16R16_2PLANE_422_UNORM_KHR = 1000156032,
-
-        G16_B16_R16_3PLANE_444_UNORM_KHR = 1000156033,
-
-        BEGIN_RANGE = 0,
-
-        END_RANGE = 184,
-
         RANGE_SIZE = 185,
 
         MAX_ENUM = 2147483647,
@@ -1688,10 +1474,6 @@ namespace AdamantiumVulkan.Core
         ShadingRateOptimalNv = 1000164003,
 
         FragmentDensityMapOptimalExt = 1000218000,
-
-        DepthReadOnlyStencilAttachmentOptimalKhr = 1000117000,
-
-        DepthAttachmentStencilReadOnlyOptimalKhr = 1000117001,
 
         RangeSize = 9,
 
@@ -2107,8 +1889,6 @@ namespace AdamantiumVulkan.Core
 
         CubicImg = 1000015000,
 
-        CubicExt = 1000015000,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -2139,10 +1919,6 @@ namespace AdamantiumVulkan.Core
         ClampToBorder = 3,
 
         MirrorClampToEdge = 4,
-
-        MirrorClampToEdgeKhr = 4,
-
-        RangeSize = 4,
 
         MaxEnum = 2147483647,
 
@@ -2365,10 +2141,6 @@ namespace AdamantiumVulkan.Core
 
         PerformanceConfigurationIntel = 1000210000,
 
-        DescriptorUpdateTemplateKhr = 1000085000,
-
-        SamplerYcbcrConversionKhr = 1000156000,
-
         RangeSize = 26,
 
         MaxEnum = 2147483647,
@@ -2442,26 +2214,6 @@ namespace AdamantiumVulkan.Core
 
         FragmentDensityMapBitExt = 16777216,
 
-        TransferSrcBitKhr = 16384,
-
-        TransferDstBitKhr = 32768,
-
-        MidpointChromaSamplesBitKhr = 131072,
-
-        SampledImageYcbcrConversionLinearFilterBitKhr = 262144,
-
-        SampledImageYcbcrConversionSeparateReconstructionFilterBitKhr = 524288,
-
-        SampledImageYcbcrConversionChromaReconstructionExplicitBitKhr = 1048576,
-
-        SampledImageYcbcrConversionChromaReconstructionExplicitForceableBitKhr = 2097152,
-
-        DisjointBitKhr = 4194304,
-
-        CositedChromaSamplesBitKhr = 8388608,
-
-        SampledImageFilterCubicBitExt = 8192,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -2525,18 +2277,6 @@ namespace AdamantiumVulkan.Core
         SampleLocationsCompatibleDepthBitExt = 4096,
 
         SubsampledBitExt = 16384,
-
-        SplitInstanceBindRegionsBitKhr = 64,
-
-        _2dArrayCompatibleBitKhr = 32,
-
-        BlockTexelViewCompatibleBitKhr = 128,
-
-        ExtendedUsageBitKhr = 256,
-
-        DisjointBitKhr = 512,
-
-        AliasBitKhr = 1024,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2609,8 +2349,6 @@ namespace AdamantiumVulkan.Core
         DeviceLocalBit = 1,
 
         MultiInstanceBit = 2,
-
-        MultiInstanceBitKhr = 2,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2708,12 +2446,6 @@ namespace AdamantiumVulkan.Core
         MemoryPlane2BitExt = 512,
 
         MemoryPlane3BitExt = 1024,
-
-        Plane0BitKhr = 16,
-
-        Plane1BitKhr = 32,
-
-        Plane2BitKhr = 64,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2849,9 +2581,9 @@ namespace AdamantiumVulkan.Core
     [Flags]
     public enum ImageViewCreateFlagBits : int
     {
-        FragmentDensityMapDynamicBitExt = 1,
+        RagmentDensityMapDynamicBitExt = 1,
 
-        FlagBitsMaxEnum = 2147483647,
+        LagBitsMaxEnum = 2147483647,
 
     }
 
@@ -2880,10 +2612,6 @@ namespace AdamantiumVulkan.Core
         CaptureStatisticsBitKhr = 64,
 
         CaptureInternalRepresentationsBitKhr = 128,
-
-        ViewIndexFromDeviceIndexBitKhr = 8,
-
-        DispatchBaseKhr = 16,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2933,8 +2661,6 @@ namespace AdamantiumVulkan.Core
         TaskBitNv = 64,
 
         MeshBitNv = 128,
-
-        FlagBitsMaxEnum = 2147483647,
 
     }
 
@@ -3108,10 +2834,6 @@ namespace AdamantiumVulkan.Core
 
         ViewLocalBit = 2,
 
-        ViewLocalBitKhr = 2,
-
-        DeviceGroupBitKhr = 4,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3171,15 +2893,13 @@ namespace AdamantiumVulkan.Core
 
     public enum StencilFaceFlagBits : int
     {
-        FaceFrontBit = 1,
+        FrontBit = 1,
 
-        FaceBackBit = 2,
-
-        FaceFrontAndBack = 3,
+        BackBit = 2,
 
         FrontAndBack = 3,
 
-        FaceFlagBitsMaxEnum = 2147483647,
+        FlagBitsMaxEnum = 2147483647,
 
     }
 
@@ -3189,10 +2909,6 @@ namespace AdamantiumVulkan.Core
         AllClipPlanes = 0,
 
         UserClipPlanesOnly = 1,
-
-        AllClipPlanesKhr = 0,
-
-        UserClipPlanesOnlyKhr = 1,
 
         RangeSize = 2,
 
@@ -3206,10 +2922,6 @@ namespace AdamantiumVulkan.Core
         UpperLeft = 0,
 
         LowerLeft = 1,
-
-        UpperLeftKhr = 0,
-
-        LowerLeftKhr = 1,
 
         RangeSize = 2,
 
@@ -3229,16 +2941,6 @@ namespace AdamantiumVulkan.Core
 
         Ycbcr2020 = 4,
 
-        RgbIdentityKhr = 0,
-
-        YcbcrIdentityKhr = 1,
-
-        Ycbcr709Khr = 2,
-
-        Ycbcr601Khr = 3,
-
-        Ycbcr2020Khr = 4,
-
         RangeSize = 5,
 
         MaxEnum = 2147483647,
@@ -3251,10 +2953,6 @@ namespace AdamantiumVulkan.Core
         ItuFull = 0,
 
         ItuNarrow = 1,
-
-        ItuFullKhr = 0,
-
-        ItuNarrowKhr = 1,
 
         RangeSize = 2,
 
@@ -3269,10 +2967,6 @@ namespace AdamantiumVulkan.Core
 
         Midpoint = 1,
 
-        CositedEvenKhr = 0,
-
-        MidpointKhr = 1,
-
         RangeSize = 2,
 
         MaxEnum = 2147483647,
@@ -3285,10 +2979,6 @@ namespace AdamantiumVulkan.Core
         DescriptorSet = 0,
 
         PushDescriptorsKhr = 1,
-
-        DescriptorSetKhr = 0,
-
-        RangeSize = 1,
 
         MaxEnum = 2147483647,
 
@@ -3330,14 +3020,6 @@ namespace AdamantiumVulkan.Core
 
         GenericDstBit = 8,
 
-        CopySrcBitKhr = 1,
-
-        CopyDstBitKhr = 2,
-
-        GenericSrcBitKhr = 4,
-
-        GenericDstBitKhr = 8,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3346,8 +3028,6 @@ namespace AdamantiumVulkan.Core
     public enum MemoryAllocateFlagBits : int
     {
         DeviceMaskBit = 1,
-
-        DeviceMaskBitKhr = 1,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3378,20 +3058,6 @@ namespace AdamantiumVulkan.Core
 
         HostMappedForeignMemoryBitExt = 256,
 
-        OpaqueFdBitKhr = 1,
-
-        OpaqueWin32BitKhr = 2,
-
-        OpaqueWin32KmtBitKhr = 4,
-
-        D3d11TextureBitKhr = 8,
-
-        D3d11TextureKmtBitKhr = 16,
-
-        D3d12HeapBitKhr = 32,
-
-        D3d12ResourceBitKhr = 64,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3404,12 +3070,6 @@ namespace AdamantiumVulkan.Core
         ExportableBit = 2,
 
         ImportableBit = 4,
-
-        DedicatedOnlyBitKhr = 1,
-
-        ExportableBitKhr = 2,
-
-        ImportableBitKhr = 4,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3426,14 +3086,6 @@ namespace AdamantiumVulkan.Core
 
         SyncFdBit = 8,
 
-        OpaqueFdBitKhr = 1,
-
-        OpaqueWin32BitKhr = 2,
-
-        OpaqueWin32KmtBitKhr = 4,
-
-        SyncFdBitKhr = 8,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3445,10 +3097,6 @@ namespace AdamantiumVulkan.Core
 
         ImportableBit = 2,
 
-        ExportableBitKhr = 1,
-
-        ImportableBitKhr = 2,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3458,8 +3106,6 @@ namespace AdamantiumVulkan.Core
     {
         TemporaryBit = 1,
 
-        TemporaryBitKhr = 1,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3468,8 +3114,6 @@ namespace AdamantiumVulkan.Core
     public enum SemaphoreImportFlagBits : int
     {
         TemporaryBit = 1,
-
-        TemporaryBitKhr = 1,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3488,16 +3132,6 @@ namespace AdamantiumVulkan.Core
 
         SyncFdBit = 16,
 
-        OpaqueFdBitKhr = 1,
-
-        OpaqueWin32BitKhr = 2,
-
-        OpaqueWin32KmtBitKhr = 4,
-
-        D3d12FenceBitKhr = 8,
-
-        SyncFdBitKhr = 16,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3509,59 +3143,47 @@ namespace AdamantiumVulkan.Core
 
         ImportableBit = 2,
 
-        ExportableBitKhr = 1,
-
-        ImportableBitKhr = 2,
-
         FlagBitsMaxEnum = 2147483647,
 
     }
 
     public enum ColorSpaceKHR : int
     {
-        ColorSpaceSrgbNonlinearKhr = 0,
+        SrgbNonlinearKhr = 0,
 
-        ColorSpaceDisplayP3NonlinearExt = 1000104001,
+        DisplayP3NonlinearExt = 1000104001,
 
-        ColorSpaceExtendedSrgbLinearExt = 1000104002,
+        ExtendedSrgbLinearExt = 1000104002,
 
-        ColorSpaceDisplayP3LinearExt = 1000104003,
+        DisplayP3LinearExt = 1000104003,
 
-        ColorSpaceDciP3NonlinearExt = 1000104004,
+        DciP3NonlinearExt = 1000104004,
 
-        ColorSpaceBt709LinearExt = 1000104005,
+        Bt709LinearExt = 1000104005,
 
-        ColorSpaceBt709NonlinearExt = 1000104006,
+        Bt709NonlinearExt = 1000104006,
 
-        ColorSpaceBt2020LinearExt = 1000104007,
+        Bt2020LinearExt = 1000104007,
 
-        ColorSpaceHdr10St2084Ext = 1000104008,
+        Hdr10St2084Ext = 1000104008,
 
-        ColorSpaceDolbyvisionExt = 1000104009,
+        DolbyvisionExt = 1000104009,
 
-        ColorSpaceHdr10HlgExt = 1000104010,
+        Hdr10HlgExt = 1000104010,
 
-        ColorSpaceAdobergbLinearExt = 1000104011,
+        AdobergbLinearExt = 1000104011,
 
-        ColorSpaceAdobergbNonlinearExt = 1000104012,
+        AdobergbNonlinearExt = 1000104012,
 
-        ColorSpacePassThroughExt = 1000104013,
+        PassThroughExt = 1000104013,
 
-        ColorSpaceExtendedSrgbNonlinearExt = 1000104014,
+        ExtendedSrgbNonlinearExt = 1000104014,
 
-        ColorSpaceDisplayNativeAmd = 1000213000,
+        DisplayNativeAmd = 1000213000,
 
-        ColorspaceSrgbNonlinearKhr = 0,
+        RangeSizeKhr = 1,
 
-        ColorSpaceDciP3LinearExt = 1000104003,
-
-        ColorSpaceBeginRangeKhr = 0,
-
-        ColorSpaceEndRangeKhr = 0,
-
-        ColorSpaceRangeSizeKhr = 1,
-
-        ColorSpaceMaxEnumKhr = 2147483647,
+        MaxEnumKhr = 2147483647,
 
     }
 
@@ -3694,8 +3316,6 @@ namespace AdamantiumVulkan.Core
 
         BroadcomProprietaryKhr = 12,
 
-        RangeSizeKhr = 12,
-
         MaxEnumKhr = 2147483647,
 
     }
@@ -3822,14 +3442,6 @@ namespace AdamantiumVulkan.Core
         DescriptorUpdateTemplateExt = 1000085000,
 
         AccelerationStructureNvExt = 1000165000,
-
-        DebugReportExt = 28,
-
-        ValidationCacheExt = 33,
-
-        DescriptorUpdateTemplateKhrExt = 1000085000,
-
-        SamplerYcbcrConversionKhrExt = 1000156000,
 
         RangeSizeExt = 34,
 
@@ -4171,8 +3783,6 @@ namespace AdamantiumVulkan.Core
     public enum ValidationCacheHeaderVersionEXT : int
     {
         OneExt = 1,
-
-        RangeSizeExt = 1,
 
         MaxEnumExt = 2147483647,
 
@@ -4565,8 +4175,6 @@ namespace AdamantiumVulkan.Core
         SubgroupNv = 3,
 
         QueueFamilyNv = 5,
-
-        RangeSizeNv = 5,
 
         MaxEnumNv = 2147483647,
 
