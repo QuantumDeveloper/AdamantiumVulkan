@@ -56,8 +56,8 @@ namespace VulkanEngineTestCore
             SpvcMslSamplerYcbcrConversion test = new SpvcMslSamplerYcbcrConversion();
             test.Swizzle = new SpvcMslComponentSwizzle[4];
             test.Swizzle[0] = SpvcMslComponentSwizzle.R;
-
-            var ptr = MarshalUtils.MarshalStructToPtr(test);
+            var intern = test.ToInternal();
+            var ptr = MarshalUtils.MarshalStructToPtr(intern);
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
@@ -145,7 +145,7 @@ namespace VulkanEngineTestCore
           //"VK_LAYER_LUNARG_object_tracker",
           //"VK_LAYER_LUNARG_monitor",
           //"VK_LAYER_LUNARG_assistant_layer",
-          //"VK_LAYER_AMD_switchable_graphics"
+          "VK_LAYER_AMD_switchable_graphics"
         };
 
         private string[] deviceExtensions = new[] { Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME };
@@ -1513,12 +1513,12 @@ namespace VulkanEngineTestCore
         {
             if (availableFormats.Length == 1 && availableFormats[0].Format == Format.UNDEFINED)
             {
-                return new SurfaceFormatKHR() { Format = Format.B8G8R8A8_UNORM, ColorSpace = ColorSpaceKHR.ColorspaceSrgbNonlinearKhr };
+                return new SurfaceFormatKHR() { Format = Format.B8G8R8A8_UNORM, ColorSpace = ColorSpaceKHR.SrgbNonlinearKhr };
             }
 
             foreach (var availableFormat in availableFormats)
             {
-                if (availableFormat.Format == Format.B8G8R8A8_UNORM && availableFormat.ColorSpace == ColorSpaceKHR.ColorspaceSrgbNonlinearKhr)
+                if (availableFormat.Format == Format.B8G8R8A8_UNORM && availableFormat.ColorSpace == ColorSpaceKHR.SrgbNonlinearKhr)
                 {
                     return availableFormat;
                 }

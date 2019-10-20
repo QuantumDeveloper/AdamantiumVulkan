@@ -12,2593 +12,2563 @@ namespace AdamantiumVulkan.SPIRV
 
     public enum SpvSourceLanguage : int
     {
-        Spvsourcelanguageunknown = 0,
+        Unknown = 0,
 
-        Spvsourcelanguageessl = 1,
+        Essl = 1,
 
-        Spvsourcelanguageglsl = 2,
+        Glsl = 2,
 
-        SpvsourcelanguageopenclC = 3,
+        OpenclC = 3,
 
-        SpvsourcelanguageopenclCpp = 4,
+        OpenclCpp = 4,
 
-        Spvsourcelanguagehlsl = 5,
+        Hlsl = 5,
 
-        Spvsourcelanguagemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvExecutionModel : int
     {
-        Spvexecutionmodelvertex = 0,
+        Vertex = 0,
 
-        Spvexecutionmodeltessellationcontrol = 1,
+        Tessellationcontrol = 1,
 
-        Spvexecutionmodeltessellationevaluation = 2,
+        Tessellationevaluation = 2,
 
-        Spvexecutionmodelgeometry = 3,
+        Geometry = 3,
 
-        Spvexecutionmodelfragment = 4,
+        Fragment = 4,
 
-        Spvexecutionmodelglcompute = 5,
+        Glcompute = 5,
 
-        Spvexecutionmodelkernel = 6,
+        Kernel = 6,
 
-        Spvexecutionmodeltasknv = 5267,
+        Tasknv = 5267,
 
-        Spvexecutionmodelmeshnv = 5268,
+        Meshnv = 5268,
 
-        Spvexecutionmodelraygenerationnv = 5313,
+        Raygenerationnv = 5313,
 
-        Spvexecutionmodelintersectionnv = 5314,
+        Intersectionnv = 5314,
 
-        Spvexecutionmodelanyhitnv = 5315,
+        Anyhitnv = 5315,
 
-        Spvexecutionmodelclosesthitnv = 5316,
+        Closesthitnv = 5316,
 
-        Spvexecutionmodelmissnv = 5317,
+        Missnv = 5317,
 
-        Spvexecutionmodelcallablenv = 5318,
+        Callablenv = 5318,
 
-        Spvexecutionmodelmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvAddressingModel : int
     {
-        Spvaddressingmodellogical = 0,
+        Logical = 0,
 
-        Spvaddressingmodelphysical32 = 1,
+        Physical32 = 1,
 
-        Spvaddressingmodelphysical64 = 2,
+        Physical64 = 2,
 
-        Spvaddressingmodelphysicalstoragebuffer64ext = 5348,
+        Physicalstoragebuffer64ext = 5348,
 
-        Spvaddressingmodelmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvMemoryModel : int
     {
-        Spvmemorymodelsimple = 0,
+        Simple = 0,
 
-        Spvmemorymodelglsl450 = 1,
+        Glsl450 = 1,
 
-        Spvmemorymodelopencl = 2,
+        Opencl = 2,
 
-        Spvmemorymodelvulkankhr = 3,
+        Vulkankhr = 3,
 
-        Spvmemorymodelmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvExecutionMode : int
     {
-        Spvexecutionmodeinvocations = 0,
+        Invocations = 0,
 
-        Spvexecutionmodespacingequal = 1,
+        Spacingequal = 1,
 
-        Spvexecutionmodespacingfractionaleven = 2,
+        Spacingfractionaleven = 2,
 
-        Spvexecutionmodespacingfractionalodd = 3,
+        Spacingfractionalodd = 3,
 
-        Spvexecutionmodevertexordercw = 4,
+        Vertexordercw = 4,
 
-        Spvexecutionmodevertexorderccw = 5,
+        Vertexorderccw = 5,
 
-        Spvexecutionmodepixelcenterinteger = 6,
+        Pixelcenterinteger = 6,
 
-        Spvexecutionmodeoriginupperleft = 7,
+        Originupperleft = 7,
 
-        Spvexecutionmodeoriginlowerleft = 8,
+        Originlowerleft = 8,
 
-        Spvexecutionmodeearlyfragmenttests = 9,
+        Earlyfragmenttests = 9,
 
-        Spvexecutionmodepointmode = 10,
+        Pointmode = 10,
 
-        Spvexecutionmodexfb = 11,
+        Xfb = 11,
 
-        Spvexecutionmodedepthreplacing = 12,
+        Depthreplacing = 12,
 
-        Spvexecutionmodedepthgreater = 14,
+        Depthgreater = 14,
 
-        Spvexecutionmodedepthless = 15,
+        Depthless = 15,
 
-        Spvexecutionmodedepthunchanged = 16,
+        Depthunchanged = 16,
 
-        Spvexecutionmodelocalsize = 17,
+        Localsize = 17,
 
-        Spvexecutionmodelocalsizehint = 18,
+        Localsizehint = 18,
 
-        Spvexecutionmodeinputpoints = 19,
+        Inputpoints = 19,
 
-        Spvexecutionmodeinputlines = 20,
+        Inputlines = 20,
 
-        Spvexecutionmodeinputlinesadjacency = 21,
+        Inputlinesadjacency = 21,
 
-        Spvexecutionmodetriangles = 22,
+        Triangles = 22,
 
-        Spvexecutionmodeinputtrianglesadjacency = 23,
+        Inputtrianglesadjacency = 23,
 
-        Spvexecutionmodequads = 24,
+        Quads = 24,
 
-        Spvexecutionmodeisolines = 25,
+        Isolines = 25,
 
-        Spvexecutionmodeoutputvertices = 26,
+        Outputvertices = 26,
 
-        Spvexecutionmodeoutputpoints = 27,
+        Outputpoints = 27,
 
-        Spvexecutionmodeoutputlinestrip = 28,
+        Outputlinestrip = 28,
 
-        Spvexecutionmodeoutputtrianglestrip = 29,
+        Outputtrianglestrip = 29,
 
-        Spvexecutionmodevectypehint = 30,
+        Vectypehint = 30,
 
-        Spvexecutionmodecontractionoff = 31,
+        Contractionoff = 31,
 
-        Spvexecutionmodeinitializer = 33,
+        Initializer = 33,
 
-        Spvexecutionmodefinalizer = 34,
+        Finalizer = 34,
 
-        Spvexecutionmodesubgroupsize = 35,
+        Subgroupsize = 35,
 
-        Spvexecutionmodesubgroupsperworkgroup = 36,
+        Subgroupsperworkgroup = 36,
 
-        Spvexecutionmodesubgroupsperworkgroupid = 37,
+        Subgroupsperworkgroupid = 37,
 
-        Spvexecutionmodelocalsizeid = 38,
+        Localsizeid = 38,
 
-        Spvexecutionmodelocalsizehintid = 39,
+        Localsizehintid = 39,
 
-        Spvexecutionmodepostdepthcoverage = 4446,
+        Postdepthcoverage = 4446,
 
-        Spvexecutionmodedenormpreserve = 4459,
+        Denormpreserve = 4459,
 
-        Spvexecutionmodedenormflushtozero = 4460,
+        Denormflushtozero = 4460,
 
-        Spvexecutionmodesignedzeroinfnanpreserve = 4461,
+        Signedzeroinfnanpreserve = 4461,
 
-        Spvexecutionmoderoundingmoderte = 4462,
+        Roundingmoderte = 4462,
 
-        Spvexecutionmoderoundingmodertz = 4463,
+        Roundingmodertz = 4463,
 
-        Spvexecutionmodestencilrefreplacingext = 5027,
+        Stencilrefreplacingext = 5027,
 
-        Spvexecutionmodeoutputlinesnv = 5269,
+        Outputlinesnv = 5269,
 
-        Spvexecutionmodeoutputprimitivesnv = 5270,
+        Outputprimitivesnv = 5270,
 
-        Spvexecutionmodederivativegroupquadsnv = 5289,
+        Derivativegroupquadsnv = 5289,
 
-        Spvexecutionmodederivativegrouplinearnv = 5290,
+        Derivativegrouplinearnv = 5290,
 
-        Spvexecutionmodeoutputtrianglesnv = 5298,
+        Outputtrianglesnv = 5298,
 
-        Spvexecutionmodepixelinterlockorderedext = 5366,
+        Pixelinterlockorderedext = 5366,
 
-        Spvexecutionmodepixelinterlockunorderedext = 5367,
+        Pixelinterlockunorderedext = 5367,
 
-        Spvexecutionmodesampleinterlockorderedext = 5368,
+        Sampleinterlockorderedext = 5368,
 
-        Spvexecutionmodesampleinterlockunorderedext = 5369,
+        Sampleinterlockunorderedext = 5369,
 
-        Spvexecutionmodeshadingrateinterlockorderedext = 5370,
+        Shadingrateinterlockorderedext = 5370,
 
-        Spvexecutionmodeshadingrateinterlockunorderedext = 5371,
+        Shadingrateinterlockunorderedext = 5371,
 
-        Spvexecutionmodemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvStorageClass : int
     {
-        Spvstorageclassuniformconstant = 0,
+        Uniformconstant = 0,
 
-        Spvstorageclassinput = 1,
+        Input = 1,
 
-        Spvstorageclassuniform = 2,
+        Uniform = 2,
 
-        Spvstorageclassoutput = 3,
+        Output = 3,
 
-        Spvstorageclassworkgroup = 4,
+        Workgroup = 4,
 
-        Spvstorageclasscrossworkgroup = 5,
+        Crossworkgroup = 5,
 
-        Spvstorageclassprivate = 6,
+        Private = 6,
 
-        Spvstorageclassfunction = 7,
+        Function = 7,
 
-        Spvstorageclassgeneric = 8,
+        Generic = 8,
 
-        Spvstorageclasspushconstant = 9,
+        Pushconstant = 9,
 
-        Spvstorageclassatomiccounter = 10,
+        Atomiccounter = 10,
 
-        Spvstorageclassimage = 11,
+        Image = 11,
 
-        Spvstorageclassstoragebuffer = 12,
+        Storagebuffer = 12,
 
-        Spvstorageclasscallabledatanv = 5328,
+        Callabledatanv = 5328,
 
-        Spvstorageclassincomingcallabledatanv = 5329,
+        Incomingcallabledatanv = 5329,
 
-        Spvstorageclassraypayloadnv = 5338,
+        Raypayloadnv = 5338,
 
-        Spvstorageclasshitattributenv = 5339,
+        Hitattributenv = 5339,
 
-        Spvstorageclassincomingraypayloadnv = 5342,
+        Incomingraypayloadnv = 5342,
 
-        Spvstorageclassshaderrecordbuffernv = 5343,
+        Shaderrecordbuffernv = 5343,
 
-        Spvstorageclassphysicalstoragebufferext = 5349,
+        Physicalstoragebufferext = 5349,
 
-        Spvstorageclassmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvDim : int
     {
-        Spvdim1d = 0,
+        _1d = 0,
 
-        Spvdim2d = 1,
+        _2d = 1,
 
-        Spvdim3d = 2,
+        _3d = 2,
 
-        Spvdimcube = 3,
+        Cube = 3,
 
-        Spvdimrect = 4,
+        Rect = 4,
 
-        Spvdimbuffer = 5,
+        Buffer = 5,
 
-        Spvdimsubpassdata = 6,
+        Subpassdata = 6,
 
-        Spvdimmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvSamplerAddressingMode : int
     {
-        Spvsampleraddressingmodenone = 0,
+        None = 0,
 
-        Spvsampleraddressingmodeclamptoedge = 1,
+        Clamptoedge = 1,
 
-        Spvsampleraddressingmodeclamp = 2,
+        Clamp = 2,
 
-        Spvsampleraddressingmoderepeat = 3,
+        Repeat = 3,
 
-        Spvsampleraddressingmoderepeatmirrored = 4,
+        Repeatmirrored = 4,
 
-        Spvsampleraddressingmodemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvSamplerFilterMode : int
     {
-        Spvsamplerfiltermodenearest = 0,
+        Nearest = 0,
 
-        Spvsamplerfiltermodelinear = 1,
+        Linear = 1,
 
-        Spvsamplerfiltermodemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvImageFormat : int
     {
-        Spvimageformatunknown = 0,
+        Unknown = 0,
 
-        Spvimageformatrgba32f = 1,
+        Rgba32f = 1,
 
-        Spvimageformatrgba16f = 2,
+        Rgba16f = 2,
 
-        Spvimageformatr32f = 3,
+        R32f = 3,
 
-        Spvimageformatrgba8 = 4,
+        Rgba8 = 4,
 
-        Spvimageformatrgba8snorm = 5,
+        Rgba8snorm = 5,
 
-        Spvimageformatrg32f = 6,
+        Rg32f = 6,
 
-        Spvimageformatrg16f = 7,
+        Rg16f = 7,
 
-        Spvimageformatr11fg11fb10f = 8,
+        R11fg11fb10f = 8,
 
-        Spvimageformatr16f = 9,
+        R16f = 9,
 
-        Spvimageformatrgba16 = 10,
+        Rgba16 = 10,
 
-        Spvimageformatrgb10a2 = 11,
+        Rgb10a2 = 11,
 
-        Spvimageformatrg16 = 12,
+        Rg16 = 12,
 
-        Spvimageformatrg8 = 13,
+        Rg8 = 13,
 
-        Spvimageformatr16 = 14,
+        R16 = 14,
 
-        Spvimageformatr8 = 15,
+        R8 = 15,
 
-        Spvimageformatrgba16snorm = 16,
+        Rgba16snorm = 16,
 
-        Spvimageformatrg16snorm = 17,
+        Rg16snorm = 17,
 
-        Spvimageformatrg8snorm = 18,
+        Rg8snorm = 18,
 
-        Spvimageformatr16snorm = 19,
+        R16snorm = 19,
 
-        Spvimageformatr8snorm = 20,
+        R8snorm = 20,
 
-        Spvimageformatrgba32i = 21,
+        Rgba32i = 21,
 
-        Spvimageformatrgba16i = 22,
+        Rgba16i = 22,
 
-        Spvimageformatrgba8i = 23,
+        Rgba8i = 23,
 
-        Spvimageformatr32i = 24,
+        R32i = 24,
 
-        Spvimageformatrg32i = 25,
+        Rg32i = 25,
 
-        Spvimageformatrg16i = 26,
+        Rg16i = 26,
 
-        Spvimageformatrg8i = 27,
+        Rg8i = 27,
 
-        Spvimageformatr16i = 28,
+        R16i = 28,
 
-        Spvimageformatr8i = 29,
+        R8i = 29,
 
-        Spvimageformatrgba32ui = 30,
+        Rgba32ui = 30,
 
-        Spvimageformatrgba16ui = 31,
+        Rgba16ui = 31,
 
-        Spvimageformatrgba8ui = 32,
+        Rgba8ui = 32,
 
-        Spvimageformatr32ui = 33,
+        R32ui = 33,
 
-        Spvimageformatrgb10a2ui = 34,
+        Rgb10a2ui = 34,
 
-        Spvimageformatrg32ui = 35,
+        Rg32ui = 35,
 
-        Spvimageformatrg16ui = 36,
+        Rg16ui = 36,
 
-        Spvimageformatrg8ui = 37,
+        Rg8ui = 37,
 
-        Spvimageformatr16ui = 38,
+        R16ui = 38,
 
-        Spvimageformatr8ui = 39,
+        R8ui = 39,
 
-        Spvimageformatmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvImageChannelOrder : int
     {
-        Spvimagechannelorderr = 0,
+        R = 0,
 
-        Spvimagechannelordera = 1,
+        A = 1,
 
-        Spvimagechannelorderrg = 2,
+        Rg = 2,
 
-        Spvimagechannelorderra = 3,
+        Ra = 3,
 
-        Spvimagechannelorderrgb = 4,
+        Rgb = 4,
 
-        Spvimagechannelorderrgba = 5,
+        Rgba = 5,
 
-        Spvimagechannelorderbgra = 6,
+        Bgra = 6,
 
-        Spvimagechannelorderargb = 7,
+        Argb = 7,
 
-        Spvimagechannelorderintensity = 8,
+        Intensity = 8,
 
-        Spvimagechannelorderluminance = 9,
+        Luminance = 9,
 
-        Spvimagechannelorderrx = 10,
+        Rx = 10,
 
-        Spvimagechannelorderrgx = 11,
+        Rgx = 11,
 
-        Spvimagechannelorderrgbx = 12,
+        Rgbx = 12,
 
-        Spvimagechannelorderdepth = 13,
+        Depth = 13,
 
-        Spvimagechannelorderdepthstencil = 14,
+        Depthstencil = 14,
 
-        Spvimagechannelordersrgb = 15,
+        Srgb = 15,
 
-        Spvimagechannelordersrgbx = 16,
+        Srgbx = 16,
 
-        Spvimagechannelordersrgba = 17,
+        Srgba = 17,
 
-        Spvimagechannelordersbgra = 18,
+        Sbgra = 18,
 
-        Spvimagechannelorderabgr = 19,
+        Abgr = 19,
 
-        Spvimagechannelordermax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvImageChannelDataType : int
     {
-        Spvimagechanneldatatypesnormint8 = 0,
+        Snormint8 = 0,
 
-        Spvimagechanneldatatypesnormint16 = 1,
+        Snormint16 = 1,
 
-        Spvimagechanneldatatypeunormint8 = 2,
+        Unormint8 = 2,
 
-        Spvimagechanneldatatypeunormint16 = 3,
+        Unormint16 = 3,
 
-        Spvimagechanneldatatypeunormshort565 = 4,
+        Unormshort565 = 4,
 
-        Spvimagechanneldatatypeunormshort555 = 5,
+        Unormshort555 = 5,
 
-        Spvimagechanneldatatypeunormint101010 = 6,
+        Unormint101010 = 6,
 
-        Spvimagechanneldatatypesignedint8 = 7,
+        Signedint8 = 7,
 
-        Spvimagechanneldatatypesignedint16 = 8,
+        Signedint16 = 8,
 
-        Spvimagechanneldatatypesignedint32 = 9,
+        Signedint32 = 9,
 
-        Spvimagechanneldatatypeunsignedint8 = 10,
+        Unsignedint8 = 10,
 
-        Spvimagechanneldatatypeunsignedint16 = 11,
+        Unsignedint16 = 11,
 
-        Spvimagechanneldatatypeunsignedint32 = 12,
+        Unsignedint32 = 12,
 
-        Spvimagechanneldatatypehalffloat = 13,
+        Halffloat = 13,
 
-        Spvimagechanneldatatypefloat = 14,
+        Float = 14,
 
-        Spvimagechanneldatatypeunormint24 = 15,
+        Unormint24 = 15,
 
-        Spvimagechanneldatatypeunormint1010102 = 16,
+        Unormint1010102 = 16,
 
-        Spvimagechanneldatatypemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvImageOperandsShift : int
     {
-        Spvimageoperandsbiasshift = 0,
+        Biasshift = 0,
 
-        Spvimageoperandslodshift = 1,
+        Lodshift = 1,
 
-        Spvimageoperandsgradshift = 2,
+        Gradshift = 2,
 
-        Spvimageoperandsconstoffsetshift = 3,
+        Constoffsetshift = 3,
 
-        Spvimageoperandsoffsetshift = 4,
+        Offsetshift = 4,
 
-        Spvimageoperandsconstoffsetsshift = 5,
+        Constoffsetsshift = 5,
 
-        Spvimageoperandssampleshift = 6,
+        Sampleshift = 6,
 
-        Spvimageoperandsminlodshift = 7,
+        Minlodshift = 7,
 
-        Spvimageoperandsmaketexelavailablekhrshift = 8,
+        Maketexelavailablekhrshift = 8,
 
-        Spvimageoperandsmaketexelvisiblekhrshift = 9,
+        Maketexelvisiblekhrshift = 9,
 
-        Spvimageoperandsnonprivatetexelkhrshift = 10,
+        Nonprivatetexelkhrshift = 10,
 
-        Spvimageoperandsvolatiletexelkhrshift = 11,
+        Volatiletexelkhrshift = 11,
 
-        Spvimageoperandssignextendshift = 12,
+        Signextendshift = 12,
 
-        Spvimageoperandszeroextendshift = 13,
+        Zeroextendshift = 13,
 
-        Spvimageoperandsmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvImageOperandsMask : int
     {
-        Spvimageoperandsmasknone = 0,
+        Masknone = 0,
 
-        Spvimageoperandsbiasmask = 1,
+        Biasmask = 1,
 
-        Spvimageoperandslodmask = 2,
+        Lodmask = 2,
 
-        Spvimageoperandsgradmask = 4,
+        Gradmask = 4,
 
-        Spvimageoperandsconstoffsetmask = 8,
+        Constoffsetmask = 8,
 
-        Spvimageoperandsoffsetmask = 16,
+        Offsetmask = 16,
 
-        Spvimageoperandsconstoffsetsmask = 32,
+        Constoffsetsmask = 32,
 
-        Spvimageoperandssamplemask = 64,
+        Samplemask = 64,
 
-        Spvimageoperandsminlodmask = 128,
+        Minlodmask = 128,
 
-        Spvimageoperandsmaketexelavailablekhrmask = 256,
+        Maketexelavailablekhrmask = 256,
 
-        Spvimageoperandsmaketexelvisiblekhrmask = 512,
+        Maketexelvisiblekhrmask = 512,
 
-        Spvimageoperandsnonprivatetexelkhrmask = 1024,
+        Nonprivatetexelkhrmask = 1024,
 
-        Spvimageoperandsvolatiletexelkhrmask = 2048,
+        Volatiletexelkhrmask = 2048,
 
-        Spvimageoperandssignextendmask = 4096,
+        Signextendmask = 4096,
 
-        Spvimageoperandszeroextendmask = 8192,
+        Zeroextendmask = 8192,
 
     }
 
     public enum SpvFPFastMathModeShift : int
     {
-        Spvfpfastmathmodenotnanshift = 0,
+        Notnanshift = 0,
 
-        Spvfpfastmathmodenotinfshift = 1,
+        Notinfshift = 1,
 
-        Spvfpfastmathmodenszshift = 2,
+        Nszshift = 2,
 
-        Spvfpfastmathmodeallowrecipshift = 3,
+        Allowrecipshift = 3,
 
-        Spvfpfastmathmodefastshift = 4,
+        Fastshift = 4,
 
-        Spvfpfastmathmodemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvFPFastMathModeMask : int
     {
-        Spvfpfastmathmodemasknone = 0,
+        Masknone = 0,
 
-        Spvfpfastmathmodenotnanmask = 1,
+        Notnanmask = 1,
 
-        Spvfpfastmathmodenotinfmask = 2,
+        Notinfmask = 2,
 
-        Spvfpfastmathmodenszmask = 4,
+        Nszmask = 4,
 
-        Spvfpfastmathmodeallowrecipmask = 8,
+        Allowrecipmask = 8,
 
-        Spvfpfastmathmodefastmask = 16,
+        Fastmask = 16,
 
     }
 
     public enum SpvFPRoundingMode : int
     {
-        Spvfproundingmoderte = 0,
+        Rte = 0,
 
-        Spvfproundingmodertz = 1,
+        Rtz = 1,
 
-        Spvfproundingmodertp = 2,
+        Rtp = 2,
 
-        Spvfproundingmodertn = 3,
+        Rtn = 3,
 
-        Spvfproundingmodemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvLinkageType : int
     {
-        Spvlinkagetypeexport = 0,
+        Export = 0,
 
-        Spvlinkagetypeimport = 1,
+        Import = 1,
 
-        Spvlinkagetypemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvAccessQualifier : int
     {
-        Spvaccessqualifierreadonly = 0,
+        Readonly = 0,
 
-        Spvaccessqualifierwriteonly = 1,
+        Writeonly = 1,
 
-        Spvaccessqualifierreadwrite = 2,
+        Readwrite = 2,
 
-        Spvaccessqualifiermax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvFunctionParameterAttribute : int
     {
-        Spvfunctionparameterattributezext = 0,
+        Zext = 0,
 
-        Spvfunctionparameterattributesext = 1,
+        Sext = 1,
 
-        Spvfunctionparameterattributebyval = 2,
+        Byval = 2,
 
-        Spvfunctionparameterattributesret = 3,
+        Sret = 3,
 
-        Spvfunctionparameterattributenoalias = 4,
+        Noalias = 4,
 
-        Spvfunctionparameterattributenocapture = 5,
+        Nocapture = 5,
 
-        Spvfunctionparameterattributenowrite = 6,
+        Nowrite = 6,
 
-        Spvfunctionparameterattributenoreadwrite = 7,
+        Noreadwrite = 7,
 
-        Spvfunctionparameterattributemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvDecoration : int
     {
-        Spvdecorationrelaxedprecision = 0,
+        Relaxedprecision = 0,
 
-        Spvdecorationspecid = 1,
+        Specid = 1,
 
-        Spvdecorationblock = 2,
+        Block = 2,
 
-        Spvdecorationbufferblock = 3,
+        Bufferblock = 3,
 
-        Spvdecorationrowmajor = 4,
+        Rowmajor = 4,
 
-        Spvdecorationcolmajor = 5,
+        Colmajor = 5,
 
-        Spvdecorationarraystride = 6,
+        Arraystride = 6,
 
-        Spvdecorationmatrixstride = 7,
+        Matrixstride = 7,
 
-        Spvdecorationglslshared = 8,
+        Glslshared = 8,
 
-        Spvdecorationglslpacked = 9,
+        Glslpacked = 9,
 
-        Spvdecorationcpacked = 10,
+        Cpacked = 10,
 
-        Spvdecorationbuiltin = 11,
+        Builtin = 11,
 
-        Spvdecorationnoperspective = 13,
+        Noperspective = 13,
 
-        Spvdecorationflat = 14,
+        Flat = 14,
 
-        Spvdecorationpatch = 15,
+        Patch = 15,
 
-        Spvdecorationcentroid = 16,
+        Centroid = 16,
 
-        Spvdecorationsample = 17,
+        Sample = 17,
 
-        Spvdecorationinvariant = 18,
+        Invariant = 18,
 
-        Spvdecorationrestrict = 19,
+        Restrict = 19,
 
-        Spvdecorationaliased = 20,
+        Aliased = 20,
 
-        Spvdecorationvolatile = 21,
+        Volatile = 21,
 
-        Spvdecorationconstant = 22,
+        Constant = 22,
 
-        Spvdecorationcoherent = 23,
+        Coherent = 23,
 
-        Spvdecorationnonwritable = 24,
+        Nonwritable = 24,
 
-        Spvdecorationnonreadable = 25,
+        Nonreadable = 25,
 
-        Spvdecorationuniform = 26,
+        Uniform = 26,
 
-        Spvdecorationuniformid = 27,
+        Uniformid = 27,
 
-        Spvdecorationsaturatedconversion = 28,
+        Saturatedconversion = 28,
 
-        Spvdecorationstream = 29,
+        Stream = 29,
 
-        Spvdecorationlocation = 30,
+        Location = 30,
 
-        Spvdecorationcomponent = 31,
+        Component = 31,
 
-        Spvdecorationindex = 32,
+        Index = 32,
 
-        Spvdecorationbinding = 33,
+        Binding = 33,
 
-        Spvdecorationdescriptorset = 34,
+        Descriptorset = 34,
 
-        Spvdecorationoffset = 35,
+        Offset = 35,
 
-        Spvdecorationxfbbuffer = 36,
+        Xfbbuffer = 36,
 
-        Spvdecorationxfbstride = 37,
+        Xfbstride = 37,
 
-        Spvdecorationfuncparamattr = 38,
+        Funcparamattr = 38,
 
-        Spvdecorationfproundingmode = 39,
+        Fproundingmode = 39,
 
-        Spvdecorationfpfastmathmode = 40,
+        Fpfastmathmode = 40,
 
-        Spvdecorationlinkageattributes = 41,
+        Linkageattributes = 41,
 
-        Spvdecorationnocontraction = 42,
+        Nocontraction = 42,
 
-        Spvdecorationinputattachmentindex = 43,
+        Inputattachmentindex = 43,
 
-        Spvdecorationalignment = 44,
+        Alignment = 44,
 
-        Spvdecorationmaxbyteoffset = 45,
+        Maxbyteoffset = 45,
 
-        Spvdecorationalignmentid = 46,
+        Alignmentid = 46,
 
-        Spvdecorationmaxbyteoffsetid = 47,
+        Maxbyteoffsetid = 47,
 
-        Spvdecorationnosignedwrap = 4469,
+        Nosignedwrap = 4469,
 
-        Spvdecorationnounsignedwrap = 4470,
+        Nounsignedwrap = 4470,
 
-        Spvdecorationexplicitinterpamd = 4999,
+        Explicitinterpamd = 4999,
 
-        Spvdecorationoverridecoveragenv = 5248,
+        Overridecoveragenv = 5248,
 
-        Spvdecorationpassthroughnv = 5250,
+        Passthroughnv = 5250,
 
-        Spvdecorationviewportrelativenv = 5252,
+        Viewportrelativenv = 5252,
 
-        Spvdecorationsecondaryviewportrelativenv = 5256,
+        Secondaryviewportrelativenv = 5256,
 
-        Spvdecorationperprimitivenv = 5271,
+        Perprimitivenv = 5271,
 
-        Spvdecorationperviewnv = 5272,
+        Perviewnv = 5272,
 
-        Spvdecorationpertasknv = 5273,
+        Pertasknv = 5273,
 
-        Spvdecorationpervertexnv = 5285,
+        Pervertexnv = 5285,
 
-        Spvdecorationnonuniformext = 5300,
+        Nonuniformext = 5300,
 
-        Spvdecorationrestrictpointerext = 5355,
+        Restrictpointerext = 5355,
 
-        Spvdecorationaliasedpointerext = 5356,
+        Aliasedpointerext = 5356,
 
-        Spvdecorationcounterbuffer = 5634,
+        Counterbuffer = 5634,
 
-        Spvdecorationhlslcounterbuffergoogle = 5634,
+        Hlslsemanticgoogle = 5635,
 
-        Spvdecorationhlslsemanticgoogle = 5635,
+        Usertypegoogle = 5636,
 
-        Spvdecorationusersemantic = 5635,
-
-        Spvdecorationusertypegoogle = 5636,
-
-        Spvdecorationmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvBuiltIn : int
     {
-        Spvbuiltinposition = 0,
+        Position = 0,
 
-        Spvbuiltinpointsize = 1,
+        Pointsize = 1,
 
-        Spvbuiltinclipdistance = 3,
+        Clipdistance = 3,
 
-        Spvbuiltinculldistance = 4,
+        Culldistance = 4,
 
-        Spvbuiltinvertexid = 5,
+        Vertexid = 5,
 
-        Spvbuiltininstanceid = 6,
+        Instanceid = 6,
 
-        Spvbuiltinprimitiveid = 7,
+        Primitiveid = 7,
 
-        Spvbuiltininvocationid = 8,
+        Invocationid = 8,
 
-        Spvbuiltinlayer = 9,
+        Layer = 9,
 
-        Spvbuiltinviewportindex = 10,
+        Viewportindex = 10,
 
-        Spvbuiltintesslevelouter = 11,
+        Tesslevelouter = 11,
 
-        Spvbuiltintesslevelinner = 12,
+        Tesslevelinner = 12,
 
-        Spvbuiltintesscoord = 13,
+        Tesscoord = 13,
 
-        Spvbuiltinpatchvertices = 14,
+        Patchvertices = 14,
 
-        Spvbuiltinfragcoord = 15,
+        Fragcoord = 15,
 
-        Spvbuiltinpointcoord = 16,
+        Pointcoord = 16,
 
-        Spvbuiltinfrontfacing = 17,
+        Frontfacing = 17,
 
-        Spvbuiltinsampleid = 18,
+        Sampleid = 18,
 
-        Spvbuiltinsampleposition = 19,
+        Sampleposition = 19,
 
-        Spvbuiltinsamplemask = 20,
+        Samplemask = 20,
 
-        Spvbuiltinfragdepth = 22,
+        Fragdepth = 22,
 
-        Spvbuiltinhelperinvocation = 23,
+        Helperinvocation = 23,
 
-        Spvbuiltinnumworkgroups = 24,
+        Numworkgroups = 24,
 
-        Spvbuiltinworkgroupsize = 25,
+        Workgroupsize = 25,
 
-        Spvbuiltinworkgroupid = 26,
+        Workgroupid = 26,
 
-        Spvbuiltinlocalinvocationid = 27,
+        Localinvocationid = 27,
 
-        Spvbuiltinglobalinvocationid = 28,
+        Globalinvocationid = 28,
 
-        Spvbuiltinlocalinvocationindex = 29,
+        Localinvocationindex = 29,
 
-        Spvbuiltinworkdim = 30,
+        Workdim = 30,
 
-        Spvbuiltinglobalsize = 31,
+        Globalsize = 31,
 
-        Spvbuiltinenqueuedworkgroupsize = 32,
+        Enqueuedworkgroupsize = 32,
 
-        Spvbuiltinglobaloffset = 33,
+        Globaloffset = 33,
 
-        Spvbuiltingloballinearid = 34,
+        Globallinearid = 34,
 
-        Spvbuiltinsubgroupsize = 36,
+        Subgroupsize = 36,
 
-        Spvbuiltinsubgroupmaxsize = 37,
+        Subgroupmaxsize = 37,
 
-        Spvbuiltinnumsubgroups = 38,
+        Numsubgroups = 38,
 
-        Spvbuiltinnumenqueuedsubgroups = 39,
+        Numenqueuedsubgroups = 39,
 
-        Spvbuiltinsubgroupid = 40,
+        Subgroupid = 40,
 
-        Spvbuiltinsubgrouplocalinvocationid = 41,
+        Subgrouplocalinvocationid = 41,
 
-        Spvbuiltinvertexindex = 42,
+        Vertexindex = 42,
 
-        Spvbuiltininstanceindex = 43,
+        Instanceindex = 43,
 
-        Spvbuiltinsubgroupeqmask = 4416,
+        Subgroupeqmask = 4416,
 
-        Spvbuiltinsubgroupeqmaskkhr = 4416,
+        Subgroupgemask = 4417,
 
-        Spvbuiltinsubgroupgemask = 4417,
+        Subgroupgtmask = 4418,
 
-        Spvbuiltinsubgroupgemaskkhr = 4417,
+        Subgrouplemask = 4419,
 
-        Spvbuiltinsubgroupgtmask = 4418,
+        Subgroupltmask = 4420,
 
-        Spvbuiltinsubgroupgtmaskkhr = 4418,
+        Basevertex = 4424,
 
-        Spvbuiltinsubgrouplemask = 4419,
+        Baseinstance = 4425,
 
-        Spvbuiltinsubgrouplemaskkhr = 4419,
+        Drawindex = 4426,
 
-        Spvbuiltinsubgroupltmask = 4420,
+        Deviceindex = 4438,
 
-        Spvbuiltinsubgroupltmaskkhr = 4420,
+        Viewindex = 4440,
 
-        Spvbuiltinbasevertex = 4424,
+        Barycoordnoperspamd = 4992,
 
-        Spvbuiltinbaseinstance = 4425,
+        Barycoordnoperspcentroidamd = 4993,
 
-        Spvbuiltindrawindex = 4426,
+        Barycoordnoperspsampleamd = 4994,
 
-        Spvbuiltindeviceindex = 4438,
+        Barycoordsmoothamd = 4995,
 
-        Spvbuiltinviewindex = 4440,
+        Barycoordsmoothcentroidamd = 4996,
 
-        Spvbuiltinbarycoordnoperspamd = 4992,
+        Barycoordsmoothsampleamd = 4997,
 
-        Spvbuiltinbarycoordnoperspcentroidamd = 4993,
+        Barycoordpullmodelamd = 4998,
 
-        Spvbuiltinbarycoordnoperspsampleamd = 4994,
+        Fragstencilrefext = 5014,
 
-        Spvbuiltinbarycoordsmoothamd = 4995,
+        Viewportmasknv = 5253,
 
-        Spvbuiltinbarycoordsmoothcentroidamd = 4996,
+        Secondarypositionnv = 5257,
 
-        Spvbuiltinbarycoordsmoothsampleamd = 4997,
+        Secondaryviewportmasknv = 5258,
 
-        Spvbuiltinbarycoordpullmodelamd = 4998,
+        Positionperviewnv = 5261,
 
-        Spvbuiltinfragstencilrefext = 5014,
+        Viewportmaskperviewnv = 5262,
 
-        Spvbuiltinviewportmasknv = 5253,
+        Fullycoveredext = 5264,
 
-        Spvbuiltinsecondarypositionnv = 5257,
+        Taskcountnv = 5274,
 
-        Spvbuiltinsecondaryviewportmasknv = 5258,
+        Primitivecountnv = 5275,
 
-        Spvbuiltinpositionperviewnv = 5261,
+        Primitiveindicesnv = 5276,
 
-        Spvbuiltinviewportmaskperviewnv = 5262,
+        Clipdistanceperviewnv = 5277,
 
-        Spvbuiltinfullycoveredext = 5264,
+        Culldistanceperviewnv = 5278,
 
-        Spvbuiltintaskcountnv = 5274,
+        Layerperviewnv = 5279,
 
-        Spvbuiltinprimitivecountnv = 5275,
+        Meshviewcountnv = 5280,
 
-        Spvbuiltinprimitiveindicesnv = 5276,
+        Meshviewindicesnv = 5281,
 
-        Spvbuiltinclipdistanceperviewnv = 5277,
+        Barycoordnv = 5286,
 
-        Spvbuiltinculldistanceperviewnv = 5278,
+        Barycoordnoperspnv = 5287,
 
-        Spvbuiltinlayerperviewnv = 5279,
+        Fragsizeext = 5292,
 
-        Spvbuiltinmeshviewcountnv = 5280,
+        Fraginvocationcountext = 5293,
 
-        Spvbuiltinmeshviewindicesnv = 5281,
+        Launchidnv = 5319,
 
-        Spvbuiltinbarycoordnv = 5286,
+        Launchsizenv = 5320,
 
-        Spvbuiltinbarycoordnoperspnv = 5287,
+        Worldrayoriginnv = 5321,
 
-        Spvbuiltinfragsizeext = 5292,
+        Worldraydirectionnv = 5322,
 
-        Spvbuiltinfragmentsizenv = 5292,
+        Objectrayoriginnv = 5323,
 
-        Spvbuiltinfraginvocationcountext = 5293,
+        Objectraydirectionnv = 5324,
 
-        Spvbuiltininvocationsperpixelnv = 5293,
+        Raytminnv = 5325,
 
-        Spvbuiltinlaunchidnv = 5319,
+        Raytmaxnv = 5326,
 
-        Spvbuiltinlaunchsizenv = 5320,
+        Instancecustomindexnv = 5327,
 
-        Spvbuiltinworldrayoriginnv = 5321,
+        Objecttoworldnv = 5330,
 
-        Spvbuiltinworldraydirectionnv = 5322,
+        Worldtoobjectnv = 5331,
 
-        Spvbuiltinobjectrayoriginnv = 5323,
+        Hittnv = 5332,
 
-        Spvbuiltinobjectraydirectionnv = 5324,
+        Hitkindnv = 5333,
 
-        Spvbuiltinraytminnv = 5325,
+        Incomingrayflagsnv = 5351,
 
-        Spvbuiltinraytmaxnv = 5326,
+        Warpspersmnv = 5374,
 
-        Spvbuiltininstancecustomindexnv = 5327,
+        Smcountnv = 5375,
 
-        Spvbuiltinobjecttoworldnv = 5330,
+        Warpidnv = 5376,
 
-        Spvbuiltinworldtoobjectnv = 5331,
+        Smidnv = 5377,
 
-        Spvbuiltinhittnv = 5332,
-
-        Spvbuiltinhitkindnv = 5333,
-
-        Spvbuiltinincomingrayflagsnv = 5351,
-
-        Spvbuiltinwarpspersmnv = 5374,
-
-        Spvbuiltinsmcountnv = 5375,
-
-        Spvbuiltinwarpidnv = 5376,
-
-        Spvbuiltinsmidnv = 5377,
-
-        Spvbuiltinmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvSelectionControlShift : int
     {
-        Spvselectioncontrolflattenshift = 0,
+        Flattenshift = 0,
 
-        Spvselectioncontroldontflattenshift = 1,
+        Dontflattenshift = 1,
 
-        Spvselectioncontrolmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvSelectionControlMask : int
     {
-        Spvselectioncontrolmasknone = 0,
+        Masknone = 0,
 
-        Spvselectioncontrolflattenmask = 1,
+        Flattenmask = 1,
 
-        Spvselectioncontroldontflattenmask = 2,
+        Dontflattenmask = 2,
 
     }
 
     public enum SpvLoopControlShift : int
     {
-        Spvloopcontrolunrollshift = 0,
+        Unrollshift = 0,
 
-        Spvloopcontroldontunrollshift = 1,
+        Dontunrollshift = 1,
 
-        Spvloopcontroldependencyinfiniteshift = 2,
+        Dependencyinfiniteshift = 2,
 
-        Spvloopcontroldependencylengthshift = 3,
+        Dependencylengthshift = 3,
 
-        Spvloopcontrolminiterationsshift = 4,
+        Miniterationsshift = 4,
 
-        Spvloopcontrolmaxiterationsshift = 5,
+        Maxiterationsshift = 5,
 
-        Spvloopcontroliterationmultipleshift = 6,
+        Iterationmultipleshift = 6,
 
-        Spvloopcontrolpeelcountshift = 7,
+        Peelcountshift = 7,
 
-        Spvloopcontrolpartialcountshift = 8,
+        Partialcountshift = 8,
 
-        Spvloopcontrolmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvLoopControlMask : int
     {
-        Spvloopcontrolmasknone = 0,
+        Masknone = 0,
 
-        Spvloopcontrolunrollmask = 1,
+        Unrollmask = 1,
 
-        Spvloopcontroldontunrollmask = 2,
+        Dontunrollmask = 2,
 
-        Spvloopcontroldependencyinfinitemask = 4,
+        Dependencyinfinitemask = 4,
 
-        Spvloopcontroldependencylengthmask = 8,
+        Dependencylengthmask = 8,
 
-        Spvloopcontrolminiterationsmask = 16,
+        Miniterationsmask = 16,
 
-        Spvloopcontrolmaxiterationsmask = 32,
+        Maxiterationsmask = 32,
 
-        Spvloopcontroliterationmultiplemask = 64,
+        Iterationmultiplemask = 64,
 
-        Spvloopcontrolpeelcountmask = 128,
+        Peelcountmask = 128,
 
-        Spvloopcontrolpartialcountmask = 256,
+        Partialcountmask = 256,
 
     }
 
     public enum SpvFunctionControlShift : int
     {
-        Spvfunctioncontrolinlineshift = 0,
+        Inlineshift = 0,
 
-        Spvfunctioncontroldontinlineshift = 1,
+        Dontinlineshift = 1,
 
-        Spvfunctioncontrolpureshift = 2,
+        Pureshift = 2,
 
-        Spvfunctioncontrolconstshift = 3,
+        Constshift = 3,
 
-        Spvfunctioncontrolmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvFunctionControlMask : int
     {
-        Spvfunctioncontrolmasknone = 0,
+        Masknone = 0,
 
-        Spvfunctioncontrolinlinemask = 1,
+        Inlinemask = 1,
 
-        Spvfunctioncontroldontinlinemask = 2,
+        Dontinlinemask = 2,
 
-        Spvfunctioncontrolpuremask = 4,
+        Puremask = 4,
 
-        Spvfunctioncontrolconstmask = 8,
+        Constmask = 8,
 
     }
 
     public enum SpvMemorySemanticsShift : int
     {
-        Spvmemorysemanticsacquireshift = 1,
+        Acquireshift = 1,
 
-        Spvmemorysemanticsreleaseshift = 2,
+        Releaseshift = 2,
 
-        Spvmemorysemanticsacquirereleaseshift = 3,
+        Acquirereleaseshift = 3,
 
-        Spvmemorysemanticssequentiallyconsistentshift = 4,
+        Sequentiallyconsistentshift = 4,
 
-        Spvmemorysemanticsuniformmemoryshift = 6,
+        Uniformmemoryshift = 6,
 
-        Spvmemorysemanticssubgroupmemoryshift = 7,
+        Subgroupmemoryshift = 7,
 
-        Spvmemorysemanticsworkgroupmemoryshift = 8,
+        Workgroupmemoryshift = 8,
 
-        Spvmemorysemanticscrossworkgroupmemoryshift = 9,
+        Crossworkgroupmemoryshift = 9,
 
-        Spvmemorysemanticsatomiccountermemoryshift = 10,
+        Atomiccountermemoryshift = 10,
 
-        Spvmemorysemanticsimagememoryshift = 11,
+        Imagememoryshift = 11,
 
-        Spvmemorysemanticsoutputmemorykhrshift = 12,
+        Outputmemorykhrshift = 12,
 
-        Spvmemorysemanticsmakeavailablekhrshift = 13,
+        Makeavailablekhrshift = 13,
 
-        Spvmemorysemanticsmakevisiblekhrshift = 14,
+        Makevisiblekhrshift = 14,
 
-        Spvmemorysemanticsvolatileshift = 15,
+        Volatileshift = 15,
 
-        Spvmemorysemanticsmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvMemorySemanticsMask : int
     {
-        Spvmemorysemanticsmasknone = 0,
+        Masknone = 0,
 
-        Spvmemorysemanticsacquiremask = 2,
+        Acquiremask = 2,
 
-        Spvmemorysemanticsreleasemask = 4,
+        Releasemask = 4,
 
-        Spvmemorysemanticsacquirereleasemask = 8,
+        Acquirereleasemask = 8,
 
-        Spvmemorysemanticssequentiallyconsistentmask = 16,
+        Sequentiallyconsistentmask = 16,
 
-        Spvmemorysemanticsuniformmemorymask = 64,
+        Uniformmemorymask = 64,
 
-        Spvmemorysemanticssubgroupmemorymask = 128,
+        Subgroupmemorymask = 128,
 
-        Spvmemorysemanticsworkgroupmemorymask = 256,
+        Workgroupmemorymask = 256,
 
-        Spvmemorysemanticscrossworkgroupmemorymask = 512,
+        Crossworkgroupmemorymask = 512,
 
-        Spvmemorysemanticsatomiccountermemorymask = 1024,
+        Atomiccountermemorymask = 1024,
 
-        Spvmemorysemanticsimagememorymask = 2048,
+        Imagememorymask = 2048,
 
-        Spvmemorysemanticsoutputmemorykhrmask = 4096,
+        Outputmemorykhrmask = 4096,
 
-        Spvmemorysemanticsmakeavailablekhrmask = 8192,
+        Makeavailablekhrmask = 8192,
 
-        Spvmemorysemanticsmakevisiblekhrmask = 16384,
+        Makevisiblekhrmask = 16384,
 
-        Spvmemorysemanticsvolatilemask = 32768,
+        Volatilemask = 32768,
 
     }
 
     public enum SpvMemoryAccessShift : int
     {
-        Spvmemoryaccessvolatileshift = 0,
+        Volatileshift = 0,
 
-        Spvmemoryaccessalignedshift = 1,
+        Alignedshift = 1,
 
-        Spvmemoryaccessnontemporalshift = 2,
+        Nontemporalshift = 2,
 
-        Spvmemoryaccessmakepointeravailablekhrshift = 3,
+        Makepointeravailablekhrshift = 3,
 
-        Spvmemoryaccessmakepointervisiblekhrshift = 4,
+        Makepointervisiblekhrshift = 4,
 
-        Spvmemoryaccessnonprivatepointerkhrshift = 5,
+        Nonprivatepointerkhrshift = 5,
 
-        Spvmemoryaccessmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvMemoryAccessMask : int
     {
-        Spvmemoryaccessmasknone = 0,
+        Masknone = 0,
 
-        Spvmemoryaccessvolatilemask = 1,
+        Volatilemask = 1,
 
-        Spvmemoryaccessalignedmask = 2,
+        Alignedmask = 2,
 
-        Spvmemoryaccessnontemporalmask = 4,
+        Nontemporalmask = 4,
 
-        Spvmemoryaccessmakepointeravailablekhrmask = 8,
+        Makepointeravailablekhrmask = 8,
 
-        Spvmemoryaccessmakepointervisiblekhrmask = 16,
+        Makepointervisiblekhrmask = 16,
 
-        Spvmemoryaccessnonprivatepointerkhrmask = 32,
+        Nonprivatepointerkhrmask = 32,
 
     }
 
     public enum SpvScope : int
     {
-        Spvscopecrossdevice = 0,
+        Crossdevice = 0,
 
-        Spvscopedevice = 1,
+        Device = 1,
 
-        Spvscopeworkgroup = 2,
+        Workgroup = 2,
 
-        Spvscopesubgroup = 3,
+        Subgroup = 3,
 
-        Spvscopeinvocation = 4,
+        Invocation = 4,
 
-        Spvscopequeuefamilykhr = 5,
+        Queuefamilykhr = 5,
 
-        Spvscopemax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvGroupOperation : int
     {
-        Spvgroupoperationreduce = 0,
+        Reduce = 0,
 
-        Spvgroupoperationinclusivescan = 1,
+        Inclusivescan = 1,
 
-        Spvgroupoperationexclusivescan = 2,
+        Exclusivescan = 2,
 
-        Spvgroupoperationclusteredreduce = 3,
+        Clusteredreduce = 3,
 
-        Spvgroupoperationpartitionedreducenv = 6,
+        Partitionedreducenv = 6,
 
-        Spvgroupoperationpartitionedinclusivescannv = 7,
+        Partitionedinclusivescannv = 7,
 
-        Spvgroupoperationpartitionedexclusivescannv = 8,
+        Partitionedexclusivescannv = 8,
 
-        Spvgroupoperationmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvKernelEnqueueFlags : int
     {
-        Spvkernelenqueueflagsnowait = 0,
+        Nowait = 0,
 
-        Spvkernelenqueueflagswaitkernel = 1,
+        Waitkernel = 1,
 
-        Spvkernelenqueueflagswaitworkgroup = 2,
+        Waitworkgroup = 2,
 
-        Spvkernelenqueueflagsmax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvKernelProfilingInfoShift : int
     {
-        Spvkernelprofilinginfocmdexectimeshift = 0,
+        Cmdexectimeshift = 0,
 
-        Spvkernelprofilinginfomax = 2147483647,
+        Max = 2147483647,
 
     }
 
     [Flags]
     public enum SpvKernelProfilingInfoMask : int
     {
-        Spvkernelprofilinginfomasknone = 0,
+        Masknone = 0,
 
-        Spvkernelprofilinginfocmdexectimemask = 1,
+        Cmdexectimemask = 1,
 
     }
 
     public enum SpvCapability : int
     {
-        Spvcapabilitymatrix = 0,
+        Matrix = 0,
 
-        Spvcapabilityshader = 1,
+        Shader = 1,
 
-        Spvcapabilitygeometry = 2,
+        Geometry = 2,
 
-        Spvcapabilitytessellation = 3,
+        Tessellation = 3,
 
-        Spvcapabilityaddresses = 4,
+        Addresses = 4,
 
-        Spvcapabilitylinkage = 5,
+        Linkage = 5,
 
-        Spvcapabilitykernel = 6,
+        Kernel = 6,
 
-        Spvcapabilityvector16 = 7,
+        Vector16 = 7,
 
-        Spvcapabilityfloat16buffer = 8,
+        Float16buffer = 8,
 
-        Spvcapabilityfloat16 = 9,
+        Float16 = 9,
 
-        Spvcapabilityfloat64 = 10,
+        Float64 = 10,
 
-        Spvcapabilityint64 = 11,
+        Int64 = 11,
 
-        Spvcapabilityint64atomics = 12,
+        Int64atomics = 12,
 
-        Spvcapabilityimagebasic = 13,
+        Imagebasic = 13,
 
-        Spvcapabilityimagereadwrite = 14,
+        Imagereadwrite = 14,
 
-        Spvcapabilityimagemipmap = 15,
+        Imagemipmap = 15,
 
-        Spvcapabilitypipes = 17,
+        Pipes = 17,
 
-        Spvcapabilitygroups = 18,
+        Groups = 18,
 
-        Spvcapabilitydeviceenqueue = 19,
+        Deviceenqueue = 19,
 
-        Spvcapabilityliteralsampler = 20,
+        Literalsampler = 20,
 
-        Spvcapabilityatomicstorage = 21,
+        Atomicstorage = 21,
 
-        Spvcapabilityint16 = 22,
+        Int16 = 22,
 
-        Spvcapabilitytessellationpointsize = 23,
+        Tessellationpointsize = 23,
 
-        Spvcapabilitygeometrypointsize = 24,
+        Geometrypointsize = 24,
 
-        Spvcapabilityimagegatherextended = 25,
+        Imagegatherextended = 25,
 
-        Spvcapabilitystorageimagemultisample = 27,
+        Storageimagemultisample = 27,
 
-        Spvcapabilityuniformbufferarraydynamicindexing = 28,
+        Uniformbufferarraydynamicindexing = 28,
 
-        Spvcapabilitysampledimagearraydynamicindexing = 29,
+        Sampledimagearraydynamicindexing = 29,
 
-        Spvcapabilitystoragebufferarraydynamicindexing = 30,
+        Storagebufferarraydynamicindexing = 30,
 
-        Spvcapabilitystorageimagearraydynamicindexing = 31,
+        Storageimagearraydynamicindexing = 31,
 
-        Spvcapabilityclipdistance = 32,
+        Clipdistance = 32,
 
-        Spvcapabilityculldistance = 33,
+        Culldistance = 33,
 
-        Spvcapabilityimagecubearray = 34,
+        Imagecubearray = 34,
 
-        Spvcapabilitysamplerateshading = 35,
+        Samplerateshading = 35,
 
-        Spvcapabilityimagerect = 36,
+        Imagerect = 36,
 
-        Spvcapabilitysampledrect = 37,
+        Sampledrect = 37,
 
-        Spvcapabilitygenericpointer = 38,
+        Genericpointer = 38,
 
-        Spvcapabilityint8 = 39,
+        Int8 = 39,
 
-        Spvcapabilityinputattachment = 40,
+        Inputattachment = 40,
 
-        Spvcapabilitysparseresidency = 41,
+        Sparseresidency = 41,
 
-        Spvcapabilityminlod = 42,
+        Minlod = 42,
 
-        Spvcapabilitysampled1d = 43,
+        Sampled1d = 43,
 
-        Spvcapabilityimage1d = 44,
+        Image1d = 44,
 
-        Spvcapabilitysampledcubearray = 45,
+        Sampledcubearray = 45,
 
-        Spvcapabilitysampledbuffer = 46,
+        Sampledbuffer = 46,
 
-        Spvcapabilityimagebuffer = 47,
+        Imagebuffer = 47,
 
-        Spvcapabilityimagemsarray = 48,
+        Imagemsarray = 48,
 
-        Spvcapabilitystorageimageextendedformats = 49,
+        Storageimageextendedformats = 49,
 
-        Spvcapabilityimagequery = 50,
+        Imagequery = 50,
 
-        Spvcapabilityderivativecontrol = 51,
+        Derivativecontrol = 51,
 
-        Spvcapabilityinterpolationfunction = 52,
+        Interpolationfunction = 52,
 
-        Spvcapabilitytransformfeedback = 53,
+        Transformfeedback = 53,
 
-        Spvcapabilitygeometrystreams = 54,
+        Geometrystreams = 54,
 
-        Spvcapabilitystorageimagereadwithoutformat = 55,
+        Storageimagereadwithoutformat = 55,
 
-        Spvcapabilitystorageimagewritewithoutformat = 56,
+        Storageimagewritewithoutformat = 56,
 
-        Spvcapabilitymultiviewport = 57,
+        Multiviewport = 57,
 
-        Spvcapabilitysubgroupdispatch = 58,
+        Subgroupdispatch = 58,
 
-        Spvcapabilitynamedbarrier = 59,
+        Namedbarrier = 59,
 
-        Spvcapabilitypipestorage = 60,
+        Pipestorage = 60,
 
-        Spvcapabilitygroupnonuniform = 61,
+        Groupnonuniform = 61,
 
-        Spvcapabilitygroupnonuniformvote = 62,
+        Groupnonuniformvote = 62,
 
-        Spvcapabilitygroupnonuniformarithmetic = 63,
+        Groupnonuniformarithmetic = 63,
 
-        Spvcapabilitygroupnonuniformballot = 64,
+        Groupnonuniformballot = 64,
 
-        Spvcapabilitygroupnonuniformshuffle = 65,
+        Groupnonuniformshuffle = 65,
 
-        Spvcapabilitygroupnonuniformshufflerelative = 66,
+        Groupnonuniformshufflerelative = 66,
 
-        Spvcapabilitygroupnonuniformclustered = 67,
+        Groupnonuniformclustered = 67,
 
-        Spvcapabilitygroupnonuniformquad = 68,
+        Groupnonuniformquad = 68,
 
-        Spvcapabilitysubgroupballotkhr = 4423,
+        Subgroupballotkhr = 4423,
 
-        Spvcapabilitydrawparameters = 4427,
+        Drawparameters = 4427,
 
-        Spvcapabilitysubgroupvotekhr = 4431,
+        Subgroupvotekhr = 4431,
 
-        Spvcapabilitystoragebuffer16bitaccess = 4433,
+        Storagebuffer16bitaccess = 4433,
 
-        Spvcapabilitystorageuniformbufferblock16 = 4433,
+        Storageuniform16 = 4434,
 
-        Spvcapabilitystorageuniform16 = 4434,
+        Storagepushconstant16 = 4435,
 
-        Spvcapabilityuniformandstoragebuffer16bitaccess = 4434,
+        Storageinputoutput16 = 4436,
 
-        Spvcapabilitystoragepushconstant16 = 4435,
+        Devicegroup = 4437,
 
-        Spvcapabilitystorageinputoutput16 = 4436,
+        Multiview = 4439,
 
-        Spvcapabilitydevicegroup = 4437,
+        Variablepointersstoragebuffer = 4441,
 
-        Spvcapabilitymultiview = 4439,
+        Variablepointers = 4442,
 
-        Spvcapabilityvariablepointersstoragebuffer = 4441,
+        Atomicstorageops = 4445,
 
-        Spvcapabilityvariablepointers = 4442,
+        Samplemaskpostdepthcoverage = 4447,
 
-        Spvcapabilityatomicstorageops = 4445,
+        Storagebuffer8bitaccess = 4448,
 
-        Spvcapabilitysamplemaskpostdepthcoverage = 4447,
+        Uniformandstoragebuffer8bitaccess = 4449,
 
-        Spvcapabilitystoragebuffer8bitaccess = 4448,
+        Storagepushconstant8 = 4450,
 
-        Spvcapabilityuniformandstoragebuffer8bitaccess = 4449,
+        Denormpreserve = 4464,
 
-        Spvcapabilitystoragepushconstant8 = 4450,
+        Denormflushtozero = 4465,
 
-        Spvcapabilitydenormpreserve = 4464,
+        Signedzeroinfnanpreserve = 4466,
 
-        Spvcapabilitydenormflushtozero = 4465,
+        Roundingmoderte = 4467,
 
-        Spvcapabilitysignedzeroinfnanpreserve = 4466,
+        Roundingmodertz = 4468,
 
-        Spvcapabilityroundingmoderte = 4467,
+        Float16imageamd = 5008,
 
-        Spvcapabilityroundingmodertz = 4468,
+        Imagegatherbiaslodamd = 5009,
 
-        Spvcapabilityfloat16imageamd = 5008,
+        Fragmentmaskamd = 5010,
 
-        Spvcapabilityimagegatherbiaslodamd = 5009,
+        Stencilexportext = 5013,
 
-        Spvcapabilityfragmentmaskamd = 5010,
+        Imagereadwritelodamd = 5015,
 
-        Spvcapabilitystencilexportext = 5013,
+        Samplemaskoverridecoveragenv = 5249,
 
-        Spvcapabilityimagereadwritelodamd = 5015,
+        Geometryshaderpassthroughnv = 5251,
 
-        Spvcapabilitysamplemaskoverridecoveragenv = 5249,
+        Shaderviewportindexlayerext = 5254,
 
-        Spvcapabilitygeometryshaderpassthroughnv = 5251,
+        Shaderviewportmasknv = 5255,
 
-        Spvcapabilityshaderviewportindexlayerext = 5254,
+        Shaderstereoviewnv = 5259,
 
-        Spvcapabilityshaderviewportindexlayernv = 5254,
+        Perviewattributesnv = 5260,
 
-        Spvcapabilityshaderviewportmasknv = 5255,
+        Fragmentfullycoveredext = 5265,
 
-        Spvcapabilityshaderstereoviewnv = 5259,
+        Meshshadingnv = 5266,
 
-        Spvcapabilityperviewattributesnv = 5260,
+        Imagefootprintnv = 5282,
 
-        Spvcapabilityfragmentfullycoveredext = 5265,
+        Fragmentbarycentricnv = 5284,
 
-        Spvcapabilitymeshshadingnv = 5266,
+        Computederivativegroupquadsnv = 5288,
 
-        Spvcapabilityimagefootprintnv = 5282,
+        Fragmentdensityext = 5291,
 
-        Spvcapabilityfragmentbarycentricnv = 5284,
+        Groupnonuniformpartitionednv = 5297,
 
-        Spvcapabilitycomputederivativegroupquadsnv = 5288,
+        Shadernonuniformext = 5301,
 
-        Spvcapabilityfragmentdensityext = 5291,
+        Runtimedescriptorarrayext = 5302,
 
-        Spvcapabilityshadingratenv = 5291,
+        Inputattachmentarraydynamicindexingext = 5303,
 
-        Spvcapabilitygroupnonuniformpartitionednv = 5297,
+        Uniformtexelbufferarraydynamicindexingext = 5304,
 
-        Spvcapabilityshadernonuniformext = 5301,
+        Storagetexelbufferarraydynamicindexingext = 5305,
 
-        Spvcapabilityruntimedescriptorarrayext = 5302,
+        Uniformbufferarraynonuniformindexingext = 5306,
 
-        Spvcapabilityinputattachmentarraydynamicindexingext = 5303,
+        Sampledimagearraynonuniformindexingext = 5307,
 
-        Spvcapabilityuniformtexelbufferarraydynamicindexingext = 5304,
+        Storagebufferarraynonuniformindexingext = 5308,
 
-        Spvcapabilitystoragetexelbufferarraydynamicindexingext = 5305,
+        Storageimagearraynonuniformindexingext = 5309,
 
-        Spvcapabilityuniformbufferarraynonuniformindexingext = 5306,
+        Inputattachmentarraynonuniformindexingext = 5310,
 
-        Spvcapabilitysampledimagearraynonuniformindexingext = 5307,
+        Uniformtexelbufferarraynonuniformindexingext = 5311,
 
-        Spvcapabilitystoragebufferarraynonuniformindexingext = 5308,
+        Storagetexelbufferarraynonuniformindexingext = 5312,
 
-        Spvcapabilitystorageimagearraynonuniformindexingext = 5309,
+        Raytracingnv = 5340,
 
-        Spvcapabilityinputattachmentarraynonuniformindexingext = 5310,
+        Vulkanmemorymodelkhr = 5345,
 
-        Spvcapabilityuniformtexelbufferarraynonuniformindexingext = 5311,
+        Vulkanmemorymodeldevicescopekhr = 5346,
 
-        Spvcapabilitystoragetexelbufferarraynonuniformindexingext = 5312,
+        Physicalstoragebufferaddressesext = 5347,
 
-        Spvcapabilityraytracingnv = 5340,
+        Computederivativegrouplinearnv = 5350,
 
-        Spvcapabilityvulkanmemorymodelkhr = 5345,
+        Cooperativematrixnv = 5357,
 
-        Spvcapabilityvulkanmemorymodeldevicescopekhr = 5346,
+        Fragmentshadersampleinterlockext = 5363,
 
-        Spvcapabilityphysicalstoragebufferaddressesext = 5347,
+        Fragmentshadershadingrateinterlockext = 5372,
 
-        Spvcapabilitycomputederivativegrouplinearnv = 5350,
+        Shadersmbuiltinsnv = 5373,
 
-        Spvcapabilitycooperativematrixnv = 5357,
+        Fragmentshaderpixelinterlockext = 5378,
 
-        Spvcapabilityfragmentshadersampleinterlockext = 5363,
+        Demotetohelperinvocationext = 5379,
 
-        Spvcapabilityfragmentshadershadingrateinterlockext = 5372,
+        Subgroupshuffleintel = 5568,
 
-        Spvcapabilityshadersmbuiltinsnv = 5373,
+        Subgroupbufferblockiointel = 5569,
 
-        Spvcapabilityfragmentshaderpixelinterlockext = 5378,
+        Subgroupimageblockiointel = 5570,
 
-        Spvcapabilitydemotetohelperinvocationext = 5379,
+        Subgroupimagemediablockiointel = 5579,
 
-        Spvcapabilitysubgroupshuffleintel = 5568,
+        Integerfunctions2intel = 5584,
 
-        Spvcapabilitysubgroupbufferblockiointel = 5569,
+        Subgroupavcmotionestimationintel = 5696,
 
-        Spvcapabilitysubgroupimageblockiointel = 5570,
+        Subgroupavcmotionestimationintraintel = 5697,
 
-        Spvcapabilitysubgroupimagemediablockiointel = 5579,
+        Subgroupavcmotionestimationchromaintel = 5698,
 
-        Spvcapabilityintegerfunctions2intel = 5584,
-
-        Spvcapabilitysubgroupavcmotionestimationintel = 5696,
-
-        Spvcapabilitysubgroupavcmotionestimationintraintel = 5697,
-
-        Spvcapabilitysubgroupavcmotionestimationchromaintel = 5698,
-
-        Spvcapabilitymax = 2147483647,
+        Max = 2147483647,
 
     }
 
     public enum SpvOp : int
     {
-        Spvopnop = 0,
+        Nop = 0,
 
-        Spvopundef = 1,
+        Undef = 1,
 
-        Spvopsourcecontinued = 2,
+        Sourcecontinued = 2,
 
-        Spvopsource = 3,
+        Source = 3,
 
-        Spvopsourceextension = 4,
+        Sourceextension = 4,
 
-        Spvopname = 5,
+        Name = 5,
 
-        Spvopmembername = 6,
+        Membername = 6,
 
-        Spvopstring = 7,
+        String = 7,
 
-        Spvopline = 8,
+        Line = 8,
 
-        Spvopextension = 10,
+        Extension = 10,
 
-        Spvopextinstimport = 11,
+        Extinstimport = 11,
 
-        Spvopextinst = 12,
+        Extinst = 12,
 
-        Spvopmemorymodel = 14,
+        Memorymodel = 14,
 
-        Spvopentrypoint = 15,
+        Entrypoint = 15,
 
-        Spvopexecutionmode = 16,
+        Executionmode = 16,
 
-        Spvopcapability = 17,
+        Capability = 17,
 
-        Spvoptypevoid = 19,
+        Typevoid = 19,
 
-        Spvoptypebool = 20,
+        Typebool = 20,
 
-        Spvoptypeint = 21,
+        Typeint = 21,
 
-        Spvoptypefloat = 22,
+        Typefloat = 22,
 
-        Spvoptypevector = 23,
+        Typevector = 23,
 
-        Spvoptypematrix = 24,
+        Typematrix = 24,
 
-        Spvoptypeimage = 25,
+        Typeimage = 25,
 
-        Spvoptypesampler = 26,
+        Typesampler = 26,
 
-        Spvoptypesampledimage = 27,
+        Typesampledimage = 27,
 
-        Spvoptypearray = 28,
+        Typearray = 28,
 
-        Spvoptyperuntimearray = 29,
+        Typeruntimearray = 29,
 
-        Spvoptypestruct = 30,
+        Typestruct = 30,
 
-        Spvoptypeopaque = 31,
+        Typeopaque = 31,
 
-        Spvoptypepointer = 32,
+        Typepointer = 32,
 
-        Spvoptypefunction = 33,
+        Typefunction = 33,
 
-        Spvoptypeevent = 34,
+        Typeevent = 34,
 
-        Spvoptypedeviceevent = 35,
+        Typedeviceevent = 35,
 
-        Spvoptypereserveid = 36,
+        Typereserveid = 36,
 
-        Spvoptypequeue = 37,
+        Typequeue = 37,
 
-        Spvoptypepipe = 38,
+        Typepipe = 38,
 
-        Spvoptypeforwardpointer = 39,
+        Typeforwardpointer = 39,
 
-        Spvopconstanttrue = 41,
+        Constanttrue = 41,
 
-        Spvopconstantfalse = 42,
+        Constantfalse = 42,
 
-        Spvopconstant = 43,
+        Constant = 43,
 
-        Spvopconstantcomposite = 44,
+        Constantcomposite = 44,
 
-        Spvopconstantsampler = 45,
+        Constantsampler = 45,
 
-        Spvopconstantnull = 46,
+        Constantnull = 46,
 
-        Spvopspecconstanttrue = 48,
+        Specconstanttrue = 48,
 
-        Spvopspecconstantfalse = 49,
+        Specconstantfalse = 49,
 
-        Spvopspecconstant = 50,
+        Specconstant = 50,
 
-        Spvopspecconstantcomposite = 51,
+        Specconstantcomposite = 51,
 
-        Spvopspecconstantop = 52,
+        Specconstantop = 52,
 
-        Spvopfunction = 54,
+        Function = 54,
 
-        Spvopfunctionparameter = 55,
+        Functionparameter = 55,
 
-        Spvopfunctionend = 56,
+        Functionend = 56,
 
-        Spvopfunctioncall = 57,
+        Functioncall = 57,
 
-        Spvopvariable = 59,
+        Variable = 59,
 
-        Spvopimagetexelpointer = 60,
+        Imagetexelpointer = 60,
 
-        Spvopload = 61,
+        Load = 61,
 
-        Spvopstore = 62,
+        Store = 62,
 
-        Spvopcopymemory = 63,
+        Copymemory = 63,
 
-        Spvopcopymemorysized = 64,
+        Copymemorysized = 64,
 
-        Spvopaccesschain = 65,
+        Accesschain = 65,
 
-        Spvopinboundsaccesschain = 66,
+        Inboundsaccesschain = 66,
 
-        Spvopptraccesschain = 67,
+        Ptraccesschain = 67,
 
-        Spvoparraylength = 68,
+        Arraylength = 68,
 
-        Spvopgenericptrmemsemantics = 69,
+        Genericptrmemsemantics = 69,
 
-        Spvopinboundsptraccesschain = 70,
+        Inboundsptraccesschain = 70,
 
-        Spvopdecorate = 71,
+        Decorate = 71,
 
-        Spvopmemberdecorate = 72,
+        Memberdecorate = 72,
 
-        Spvopdecorationgroup = 73,
+        Decorationgroup = 73,
 
-        Spvopgroupdecorate = 74,
+        Groupdecorate = 74,
 
-        Spvopgroupmemberdecorate = 75,
+        Groupmemberdecorate = 75,
 
-        Spvopvectorextractdynamic = 77,
+        Vectorextractdynamic = 77,
 
-        Spvopvectorinsertdynamic = 78,
+        Vectorinsertdynamic = 78,
 
-        Spvopvectorshuffle = 79,
+        Vectorshuffle = 79,
 
-        Spvopcompositeconstruct = 80,
+        Compositeconstruct = 80,
 
-        Spvopcompositeextract = 81,
+        Compositeextract = 81,
 
-        Spvopcompositeinsert = 82,
+        Compositeinsert = 82,
 
-        Spvopcopyobject = 83,
+        Copyobject = 83,
 
-        Spvoptranspose = 84,
+        Transpose = 84,
 
-        Spvopsampledimage = 86,
+        Sampledimage = 86,
 
-        Spvopimagesampleimplicitlod = 87,
+        Imagesampleimplicitlod = 87,
 
-        Spvopimagesampleexplicitlod = 88,
+        Imagesampleexplicitlod = 88,
 
-        Spvopimagesampledrefimplicitlod = 89,
+        Imagesampledrefimplicitlod = 89,
 
-        Spvopimagesampledrefexplicitlod = 90,
+        Imagesampledrefexplicitlod = 90,
 
-        Spvopimagesampleprojimplicitlod = 91,
+        Imagesampleprojimplicitlod = 91,
 
-        Spvopimagesampleprojexplicitlod = 92,
+        Imagesampleprojexplicitlod = 92,
 
-        Spvopimagesampleprojdrefimplicitlod = 93,
+        Imagesampleprojdrefimplicitlod = 93,
 
-        Spvopimagesampleprojdrefexplicitlod = 94,
+        Imagesampleprojdrefexplicitlod = 94,
 
-        Spvopimagefetch = 95,
+        Imagefetch = 95,
 
-        Spvopimagegather = 96,
+        Imagegather = 96,
 
-        Spvopimagedrefgather = 97,
+        Imagedrefgather = 97,
 
-        Spvopimageread = 98,
+        Imageread = 98,
 
-        Spvopimagewrite = 99,
+        Imagewrite = 99,
 
-        Spvopimage = 100,
+        Image = 100,
 
-        Spvopimagequeryformat = 101,
+        Imagequeryformat = 101,
 
-        Spvopimagequeryorder = 102,
+        Imagequeryorder = 102,
 
-        Spvopimagequerysizelod = 103,
+        Imagequerysizelod = 103,
 
-        Spvopimagequerysize = 104,
+        Imagequerysize = 104,
 
-        Spvopimagequerylod = 105,
+        Imagequerylod = 105,
 
-        Spvopimagequerylevels = 106,
+        Imagequerylevels = 106,
 
-        Spvopimagequerysamples = 107,
+        Imagequerysamples = 107,
 
-        Spvopconvertftou = 109,
+        Convertftou = 109,
 
-        Spvopconvertftos = 110,
+        Convertftos = 110,
 
-        Spvopconvertstof = 111,
+        Convertstof = 111,
 
-        Spvopconvertutof = 112,
+        Convertutof = 112,
 
-        Spvopuconvert = 113,
+        Uconvert = 113,
 
-        Spvopsconvert = 114,
+        Sconvert = 114,
 
-        Spvopfconvert = 115,
+        Fconvert = 115,
 
-        Spvopquantizetof16 = 116,
+        Quantizetof16 = 116,
 
-        Spvopconvertptrtou = 117,
+        Convertptrtou = 117,
 
-        Spvopsatconvertstou = 118,
+        Satconvertstou = 118,
 
-        Spvopsatconvertutos = 119,
+        Satconvertutos = 119,
 
-        Spvopconvertutoptr = 120,
+        Convertutoptr = 120,
 
-        Spvopptrcasttogeneric = 121,
+        Ptrcasttogeneric = 121,
 
-        Spvopgenericcasttoptr = 122,
+        Genericcasttoptr = 122,
 
-        Spvopgenericcasttoptrexplicit = 123,
+        Genericcasttoptrexplicit = 123,
 
-        Spvopbitcast = 124,
+        Bitcast = 124,
 
-        Spvopsnegate = 126,
+        Snegate = 126,
 
-        Spvopfnegate = 127,
+        Fnegate = 127,
 
-        Spvopiadd = 128,
+        Iadd = 128,
 
-        Spvopfadd = 129,
+        Fadd = 129,
 
-        Spvopisub = 130,
+        Isub = 130,
 
-        Spvopfsub = 131,
+        Fsub = 131,
 
-        Spvopimul = 132,
+        Imul = 132,
 
-        Spvopfmul = 133,
+        Fmul = 133,
 
-        Spvopudiv = 134,
+        Udiv = 134,
 
-        Spvopsdiv = 135,
+        Sdiv = 135,
 
-        Spvopfdiv = 136,
+        Fdiv = 136,
 
-        Spvopumod = 137,
+        Umod = 137,
 
-        Spvopsrem = 138,
+        Srem = 138,
 
-        Spvopsmod = 139,
+        Smod = 139,
 
-        Spvopfrem = 140,
+        Frem = 140,
 
-        Spvopfmod = 141,
+        Fmod = 141,
 
-        Spvopvectortimesscalar = 142,
+        Vectortimesscalar = 142,
 
-        Spvopmatrixtimesscalar = 143,
+        Matrixtimesscalar = 143,
 
-        Spvopvectortimesmatrix = 144,
+        Vectortimesmatrix = 144,
 
-        Spvopmatrixtimesvector = 145,
+        Matrixtimesvector = 145,
 
-        Spvopmatrixtimesmatrix = 146,
+        Matrixtimesmatrix = 146,
 
-        Spvopouterproduct = 147,
+        Outerproduct = 147,
 
-        Spvopdot = 148,
+        Dot = 148,
 
-        Spvopiaddcarry = 149,
+        Iaddcarry = 149,
 
-        Spvopisubborrow = 150,
+        Isubborrow = 150,
 
-        Spvopumulextended = 151,
+        Umulextended = 151,
 
-        Spvopsmulextended = 152,
+        Smulextended = 152,
 
-        Spvopany = 154,
+        Any = 154,
 
-        Spvopall = 155,
+        All = 155,
 
-        Spvopisnan = 156,
+        Isnan = 156,
 
-        Spvopisinf = 157,
+        Isinf = 157,
 
-        Spvopisfinite = 158,
+        Isfinite = 158,
 
-        Spvopisnormal = 159,
+        Isnormal = 159,
 
-        Spvopsignbitset = 160,
+        Signbitset = 160,
 
-        Spvoplessorgreater = 161,
+        Lessorgreater = 161,
 
-        Spvopordered = 162,
+        Ordered = 162,
 
-        Spvopunordered = 163,
+        Unordered = 163,
 
-        Spvoplogicalequal = 164,
+        Logicalequal = 164,
 
-        Spvoplogicalnotequal = 165,
+        Logicalnotequal = 165,
 
-        Spvoplogicalor = 166,
+        Logicalor = 166,
 
-        Spvoplogicaland = 167,
+        Logicaland = 167,
 
-        Spvoplogicalnot = 168,
+        Logicalnot = 168,
 
-        Spvopselect = 169,
+        Select = 169,
 
-        Spvopiequal = 170,
+        Iequal = 170,
 
-        Spvopinotequal = 171,
+        Inotequal = 171,
 
-        Spvopugreaterthan = 172,
+        Ugreaterthan = 172,
 
-        Spvopsgreaterthan = 173,
+        Sgreaterthan = 173,
 
-        Spvopugreaterthanequal = 174,
+        Ugreaterthanequal = 174,
 
-        Spvopsgreaterthanequal = 175,
+        Sgreaterthanequal = 175,
 
-        Spvopulessthan = 176,
+        Ulessthan = 176,
 
-        Spvopslessthan = 177,
+        Slessthan = 177,
 
-        Spvopulessthanequal = 178,
+        Ulessthanequal = 178,
 
-        Spvopslessthanequal = 179,
+        Slessthanequal = 179,
 
-        Spvopfordequal = 180,
+        Fordequal = 180,
 
-        Spvopfunordequal = 181,
+        Funordequal = 181,
 
-        Spvopfordnotequal = 182,
+        Fordnotequal = 182,
 
-        Spvopfunordnotequal = 183,
+        Funordnotequal = 183,
 
-        Spvopfordlessthan = 184,
+        Fordlessthan = 184,
 
-        Spvopfunordlessthan = 185,
+        Funordlessthan = 185,
 
-        Spvopfordgreaterthan = 186,
+        Fordgreaterthan = 186,
 
-        Spvopfunordgreaterthan = 187,
+        Funordgreaterthan = 187,
 
-        Spvopfordlessthanequal = 188,
+        Fordlessthanequal = 188,
 
-        Spvopfunordlessthanequal = 189,
+        Funordlessthanequal = 189,
 
-        Spvopfordgreaterthanequal = 190,
+        Fordgreaterthanequal = 190,
 
-        Spvopfunordgreaterthanequal = 191,
+        Funordgreaterthanequal = 191,
 
-        Spvopshiftrightlogical = 194,
+        Shiftrightlogical = 194,
 
-        Spvopshiftrightarithmetic = 195,
+        Shiftrightarithmetic = 195,
 
-        Spvopshiftleftlogical = 196,
+        Shiftleftlogical = 196,
 
-        Spvopbitwiseor = 197,
+        Bitwiseor = 197,
 
-        Spvopbitwisexor = 198,
+        Bitwisexor = 198,
 
-        Spvopbitwiseand = 199,
+        Bitwiseand = 199,
 
-        Spvopnot = 200,
+        Not = 200,
 
-        Spvopbitfieldinsert = 201,
+        Bitfieldinsert = 201,
 
-        Spvopbitfieldsextract = 202,
+        Bitfieldsextract = 202,
 
-        Spvopbitfielduextract = 203,
+        Bitfielduextract = 203,
 
-        Spvopbitreverse = 204,
+        Bitreverse = 204,
 
-        Spvopbitcount = 205,
+        Bitcount = 205,
 
-        Spvopdpdx = 207,
+        Dpdx = 207,
 
-        Spvopdpdy = 208,
+        Dpdy = 208,
 
-        Spvopfwidth = 209,
+        Fwidth = 209,
 
-        Spvopdpdxfine = 210,
+        Dpdxfine = 210,
 
-        Spvopdpdyfine = 211,
+        Dpdyfine = 211,
 
-        Spvopfwidthfine = 212,
+        Fwidthfine = 212,
 
-        Spvopdpdxcoarse = 213,
+        Dpdxcoarse = 213,
 
-        Spvopdpdycoarse = 214,
+        Dpdycoarse = 214,
 
-        Spvopfwidthcoarse = 215,
+        Fwidthcoarse = 215,
 
-        Spvopemitvertex = 218,
+        Emitvertex = 218,
 
-        Spvopendprimitive = 219,
+        Endprimitive = 219,
 
-        Spvopemitstreamvertex = 220,
+        Emitstreamvertex = 220,
 
-        Spvopendstreamprimitive = 221,
+        Endstreamprimitive = 221,
 
-        Spvopcontrolbarrier = 224,
+        Controlbarrier = 224,
 
-        Spvopmemorybarrier = 225,
+        Memorybarrier = 225,
 
-        Spvopatomicload = 227,
+        Atomicload = 227,
 
-        Spvopatomicstore = 228,
+        Atomicstore = 228,
 
-        Spvopatomicexchange = 229,
+        Atomicexchange = 229,
 
-        Spvopatomiccompareexchange = 230,
+        Atomiccompareexchange = 230,
 
-        Spvopatomiccompareexchangeweak = 231,
+        Atomiccompareexchangeweak = 231,
 
-        Spvopatomiciincrement = 232,
+        Atomiciincrement = 232,
 
-        Spvopatomicidecrement = 233,
+        Atomicidecrement = 233,
 
-        Spvopatomiciadd = 234,
+        Atomiciadd = 234,
 
-        Spvopatomicisub = 235,
+        Atomicisub = 235,
 
-        Spvopatomicsmin = 236,
+        Atomicsmin = 236,
 
-        Spvopatomicumin = 237,
+        Atomicumin = 237,
 
-        Spvopatomicsmax = 238,
+        Atomicsmax = 238,
 
-        Spvopatomicumax = 239,
+        Atomicumax = 239,
 
-        Spvopatomicand = 240,
+        Atomicand = 240,
 
-        Spvopatomicor = 241,
+        Atomicor = 241,
 
-        Spvopatomicxor = 242,
+        Atomicxor = 242,
 
-        Spvopphi = 245,
+        Phi = 245,
 
-        Spvoploopmerge = 246,
+        Loopmerge = 246,
 
-        Spvopselectionmerge = 247,
+        Selectionmerge = 247,
 
-        Spvoplabel = 248,
+        Label = 248,
 
-        Spvopbranch = 249,
+        Branch = 249,
 
-        Spvopbranchconditional = 250,
+        Branchconditional = 250,
 
-        Spvopswitch = 251,
+        Switch = 251,
 
-        Spvopkill = 252,
+        Kill = 252,
 
-        Spvopreturn = 253,
+        Return = 253,
 
-        Spvopreturnvalue = 254,
+        Returnvalue = 254,
 
-        Spvopunreachable = 255,
+        Unreachable = 255,
 
-        Spvoplifetimestart = 256,
+        Lifetimestart = 256,
 
-        Spvoplifetimestop = 257,
+        Lifetimestop = 257,
 
-        Spvopgroupasynccopy = 259,
+        Groupasynccopy = 259,
 
-        Spvopgroupwaitevents = 260,
+        Groupwaitevents = 260,
 
-        Spvopgroupall = 261,
+        Groupall = 261,
 
-        Spvopgroupany = 262,
+        Groupany = 262,
 
-        Spvopgroupbroadcast = 263,
+        Groupbroadcast = 263,
 
-        Spvopgroupiadd = 264,
+        Groupiadd = 264,
 
-        Spvopgroupfadd = 265,
+        Groupfadd = 265,
 
-        Spvopgroupfmin = 266,
+        Groupfmin = 266,
 
-        Spvopgroupumin = 267,
+        Groupumin = 267,
 
-        Spvopgroupsmin = 268,
+        Groupsmin = 268,
 
-        Spvopgroupfmax = 269,
+        Groupfmax = 269,
 
-        Spvopgroupumax = 270,
+        Groupumax = 270,
 
-        Spvopgroupsmax = 271,
+        Groupsmax = 271,
 
-        Spvopreadpipe = 274,
+        Readpipe = 274,
 
-        Spvopwritepipe = 275,
+        Writepipe = 275,
 
-        Spvopreservedreadpipe = 276,
+        Reservedreadpipe = 276,
 
-        Spvopreservedwritepipe = 277,
+        Reservedwritepipe = 277,
 
-        Spvopreservereadpipepackets = 278,
+        Reservereadpipepackets = 278,
 
-        Spvopreservewritepipepackets = 279,
+        Reservewritepipepackets = 279,
 
-        Spvopcommitreadpipe = 280,
+        Commitreadpipe = 280,
 
-        Spvopcommitwritepipe = 281,
+        Commitwritepipe = 281,
 
-        Spvopisvalidreserveid = 282,
+        Isvalidreserveid = 282,
 
-        Spvopgetnumpipepackets = 283,
+        Getnumpipepackets = 283,
 
-        Spvopgetmaxpipepackets = 284,
+        Getmaxpipepackets = 284,
 
-        Spvopgroupreservereadpipepackets = 285,
+        Groupreservereadpipepackets = 285,
 
-        Spvopgroupreservewritepipepackets = 286,
+        Groupreservewritepipepackets = 286,
 
-        Spvopgroupcommitreadpipe = 287,
+        Groupcommitreadpipe = 287,
 
-        Spvopgroupcommitwritepipe = 288,
+        Groupcommitwritepipe = 288,
 
-        Spvopenqueuemarker = 291,
+        Enqueuemarker = 291,
 
-        Spvopenqueuekernel = 292,
+        Enqueuekernel = 292,
 
-        Spvopgetkernelndrangesubgroupcount = 293,
+        Getkernelndrangesubgroupcount = 293,
 
-        Spvopgetkernelndrangemaxsubgroupsize = 294,
+        Getkernelndrangemaxsubgroupsize = 294,
 
-        Spvopgetkernelworkgroupsize = 295,
+        Getkernelworkgroupsize = 295,
 
-        Spvopgetkernelpreferredworkgroupsizemultiple = 296,
+        Getkernelpreferredworkgroupsizemultiple = 296,
 
-        Spvopretainevent = 297,
+        Retainevent = 297,
 
-        Spvopreleaseevent = 298,
+        Releaseevent = 298,
 
-        Spvopcreateuserevent = 299,
+        Createuserevent = 299,
 
-        Spvopisvalidevent = 300,
+        Isvalidevent = 300,
 
-        Spvopsetusereventstatus = 301,
+        Setusereventstatus = 301,
 
-        Spvopcaptureeventprofilinginfo = 302,
+        Captureeventprofilinginfo = 302,
 
-        Spvopgetdefaultqueue = 303,
+        Getdefaultqueue = 303,
 
-        Spvopbuildndrange = 304,
+        Buildndrange = 304,
 
-        Spvopimagesparsesampleimplicitlod = 305,
+        Imagesparsesampleimplicitlod = 305,
 
-        Spvopimagesparsesampleexplicitlod = 306,
+        Imagesparsesampleexplicitlod = 306,
 
-        Spvopimagesparsesampledrefimplicitlod = 307,
+        Imagesparsesampledrefimplicitlod = 307,
 
-        Spvopimagesparsesampledrefexplicitlod = 308,
+        Imagesparsesampledrefexplicitlod = 308,
 
-        Spvopimagesparsesampleprojimplicitlod = 309,
+        Imagesparsesampleprojimplicitlod = 309,
 
-        Spvopimagesparsesampleprojexplicitlod = 310,
+        Imagesparsesampleprojexplicitlod = 310,
 
-        Spvopimagesparsesampleprojdrefimplicitlod = 311,
+        Imagesparsesampleprojdrefimplicitlod = 311,
 
-        Spvopimagesparsesampleprojdrefexplicitlod = 312,
+        Imagesparsesampleprojdrefexplicitlod = 312,
 
-        Spvopimagesparsefetch = 313,
+        Imagesparsefetch = 313,
 
-        Spvopimagesparsegather = 314,
+        Imagesparsegather = 314,
 
-        Spvopimagesparsedrefgather = 315,
+        Imagesparsedrefgather = 315,
 
-        Spvopimagesparsetexelsresident = 316,
+        Imagesparsetexelsresident = 316,
 
-        Spvopnoline = 317,
+        Noline = 317,
 
-        Spvopatomicflagtestandset = 318,
+        Atomicflagtestandset = 318,
 
-        Spvopatomicflagclear = 319,
+        Atomicflagclear = 319,
 
-        Spvopimagesparseread = 320,
+        Imagesparseread = 320,
 
-        Spvopsizeof = 321,
+        Sizeof = 321,
 
-        Spvoptypepipestorage = 322,
+        Typepipestorage = 322,
 
-        Spvopconstantpipestorage = 323,
+        Constantpipestorage = 323,
 
-        Spvopcreatepipefrompipestorage = 324,
+        Createpipefrompipestorage = 324,
 
-        Spvopgetkernellocalsizeforsubgroupcount = 325,
+        Getkernellocalsizeforsubgroupcount = 325,
 
-        Spvopgetkernelmaxnumsubgroups = 326,
+        Getkernelmaxnumsubgroups = 326,
 
-        Spvoptypenamedbarrier = 327,
+        Typenamedbarrier = 327,
 
-        Spvopnamedbarrierinitialize = 328,
+        Namedbarrierinitialize = 328,
 
-        Spvopmemorynamedbarrier = 329,
+        Memorynamedbarrier = 329,
 
-        Spvopmoduleprocessed = 330,
+        Moduleprocessed = 330,
 
-        Spvopexecutionmodeid = 331,
+        Executionmodeid = 331,
 
-        Spvopdecorateid = 332,
+        Decorateid = 332,
 
-        Spvopgroupnonuniformelect = 333,
+        Groupnonuniformelect = 333,
 
-        Spvopgroupnonuniformall = 334,
+        Groupnonuniformall = 334,
 
-        Spvopgroupnonuniformany = 335,
+        Groupnonuniformany = 335,
 
-        Spvopgroupnonuniformallequal = 336,
+        Groupnonuniformallequal = 336,
 
-        Spvopgroupnonuniformbroadcast = 337,
+        Groupnonuniformbroadcast = 337,
 
-        Spvopgroupnonuniformbroadcastfirst = 338,
+        Groupnonuniformbroadcastfirst = 338,
 
-        Spvopgroupnonuniformballot = 339,
+        Groupnonuniformballot = 339,
 
-        Spvopgroupnonuniforminverseballot = 340,
+        Groupnonuniforminverseballot = 340,
 
-        Spvopgroupnonuniformballotbitextract = 341,
+        Groupnonuniformballotbitextract = 341,
 
-        Spvopgroupnonuniformballotbitcount = 342,
+        Groupnonuniformballotbitcount = 342,
 
-        Spvopgroupnonuniformballotfindlsb = 343,
+        Groupnonuniformballotfindlsb = 343,
 
-        Spvopgroupnonuniformballotfindmsb = 344,
+        Groupnonuniformballotfindmsb = 344,
 
-        Spvopgroupnonuniformshuffle = 345,
+        Groupnonuniformshuffle = 345,
 
-        Spvopgroupnonuniformshufflexor = 346,
+        Groupnonuniformshufflexor = 346,
 
-        Spvopgroupnonuniformshuffleup = 347,
+        Groupnonuniformshuffleup = 347,
 
-        Spvopgroupnonuniformshuffledown = 348,
+        Groupnonuniformshuffledown = 348,
 
-        Spvopgroupnonuniformiadd = 349,
+        Groupnonuniformiadd = 349,
 
-        Spvopgroupnonuniformfadd = 350,
+        Groupnonuniformfadd = 350,
 
-        Spvopgroupnonuniformimul = 351,
+        Groupnonuniformimul = 351,
 
-        Spvopgroupnonuniformfmul = 352,
+        Groupnonuniformfmul = 352,
 
-        Spvopgroupnonuniformsmin = 353,
+        Groupnonuniformsmin = 353,
 
-        Spvopgroupnonuniformumin = 354,
+        Groupnonuniformumin = 354,
 
-        Spvopgroupnonuniformfmin = 355,
+        Groupnonuniformfmin = 355,
 
-        Spvopgroupnonuniformsmax = 356,
+        Groupnonuniformsmax = 356,
 
-        Spvopgroupnonuniformumax = 357,
+        Groupnonuniformumax = 357,
 
-        Spvopgroupnonuniformfmax = 358,
+        Groupnonuniformfmax = 358,
 
-        Spvopgroupnonuniformbitwiseand = 359,
+        Groupnonuniformbitwiseand = 359,
 
-        Spvopgroupnonuniformbitwiseor = 360,
+        Groupnonuniformbitwiseor = 360,
 
-        Spvopgroupnonuniformbitwisexor = 361,
+        Groupnonuniformbitwisexor = 361,
 
-        Spvopgroupnonuniformlogicaland = 362,
+        Groupnonuniformlogicaland = 362,
 
-        Spvopgroupnonuniformlogicalor = 363,
+        Groupnonuniformlogicalor = 363,
 
-        Spvopgroupnonuniformlogicalxor = 364,
+        Groupnonuniformlogicalxor = 364,
 
-        Spvopgroupnonuniformquadbroadcast = 365,
+        Groupnonuniformquadbroadcast = 365,
 
-        Spvopgroupnonuniformquadswap = 366,
+        Groupnonuniformquadswap = 366,
 
-        Spvopcopylogical = 400,
+        Copylogical = 400,
 
-        Spvopptrequal = 401,
+        Ptrequal = 401,
 
-        Spvopptrnotequal = 402,
+        Ptrnotequal = 402,
 
-        Spvopptrdiff = 403,
+        Ptrdiff = 403,
 
-        Spvopsubgroupballotkhr = 4421,
+        Subgroupballotkhr = 4421,
 
-        Spvopsubgroupfirstinvocationkhr = 4422,
+        Subgroupfirstinvocationkhr = 4422,
 
-        Spvopsubgroupallkhr = 4428,
+        Subgroupallkhr = 4428,
 
-        Spvopsubgroupanykhr = 4429,
+        Subgroupanykhr = 4429,
 
-        Spvopsubgroupallequalkhr = 4430,
+        Subgroupallequalkhr = 4430,
 
-        Spvopsubgroupreadinvocationkhr = 4432,
+        Subgroupreadinvocationkhr = 4432,
 
-        Spvopgroupiaddnonuniformamd = 5000,
+        Groupiaddnonuniformamd = 5000,
 
-        Spvopgroupfaddnonuniformamd = 5001,
+        Groupfaddnonuniformamd = 5001,
 
-        Spvopgroupfminnonuniformamd = 5002,
+        Groupfminnonuniformamd = 5002,
 
-        Spvopgroupuminnonuniformamd = 5003,
+        Groupuminnonuniformamd = 5003,
 
-        Spvopgroupsminnonuniformamd = 5004,
+        Groupsminnonuniformamd = 5004,
 
-        Spvopgroupfmaxnonuniformamd = 5005,
+        Groupfmaxnonuniformamd = 5005,
 
-        Spvopgroupumaxnonuniformamd = 5006,
+        Groupumaxnonuniformamd = 5006,
 
-        Spvopgroupsmaxnonuniformamd = 5007,
+        Groupsmaxnonuniformamd = 5007,
 
-        Spvopfragmentmaskfetchamd = 5011,
+        Fragmentmaskfetchamd = 5011,
 
-        Spvopfragmentfetchamd = 5012,
+        Fragmentfetchamd = 5012,
 
-        Spvopimagesamplefootprintnv = 5283,
+        Imagesamplefootprintnv = 5283,
 
-        Spvopgroupnonuniformpartitionnv = 5296,
+        Groupnonuniformpartitionnv = 5296,
 
-        Spvopwritepackedprimitiveindices4x8nv = 5299,
+        Writepackedprimitiveindices4x8nv = 5299,
 
-        Spvopreportintersectionnv = 5334,
+        Reportintersectionnv = 5334,
 
-        Spvopignoreintersectionnv = 5335,
+        Ignoreintersectionnv = 5335,
 
-        Spvopterminateraynv = 5336,
+        Terminateraynv = 5336,
 
-        Spvoptracenv = 5337,
+        Tracenv = 5337,
 
-        Spvoptypeaccelerationstructurenv = 5341,
+        Typeaccelerationstructurenv = 5341,
 
-        Spvopexecutecallablenv = 5344,
+        Executecallablenv = 5344,
 
-        Spvoptypecooperativematrixnv = 5358,
+        Typecooperativematrixnv = 5358,
 
-        Spvopcooperativematrixloadnv = 5359,
+        Cooperativematrixloadnv = 5359,
 
-        Spvopcooperativematrixstorenv = 5360,
+        Cooperativematrixstorenv = 5360,
 
-        Spvopcooperativematrixmuladdnv = 5361,
+        Cooperativematrixmuladdnv = 5361,
 
-        Spvopcooperativematrixlengthnv = 5362,
+        Cooperativematrixlengthnv = 5362,
 
-        Spvopbegininvocationinterlockext = 5364,
+        Begininvocationinterlockext = 5364,
 
-        Spvopendinvocationinterlockext = 5365,
+        Endinvocationinterlockext = 5365,
 
-        Spvopdemotetohelperinvocationext = 5380,
+        Demotetohelperinvocationext = 5380,
 
-        Spvopishelperinvocationext = 5381,
+        Ishelperinvocationext = 5381,
 
-        Spvopsubgroupshuffleintel = 5571,
+        Subgroupshuffleintel = 5571,
 
-        Spvopsubgroupshuffledownintel = 5572,
+        Subgroupshuffledownintel = 5572,
 
-        Spvopsubgroupshuffleupintel = 5573,
+        Subgroupshuffleupintel = 5573,
 
-        Spvopsubgroupshufflexorintel = 5574,
+        Subgroupshufflexorintel = 5574,
 
-        Spvopsubgroupblockreadintel = 5575,
+        Subgroupblockreadintel = 5575,
 
-        Spvopsubgroupblockwriteintel = 5576,
+        Subgroupblockwriteintel = 5576,
 
-        Spvopsubgroupimageblockreadintel = 5577,
+        Subgroupimageblockreadintel = 5577,
 
-        Spvopsubgroupimageblockwriteintel = 5578,
+        Subgroupimageblockwriteintel = 5578,
 
-        Spvopsubgroupimagemediablockreadintel = 5580,
+        Subgroupimagemediablockreadintel = 5580,
 
-        Spvopsubgroupimagemediablockwriteintel = 5581,
+        Subgroupimagemediablockwriteintel = 5581,
 
-        Spvopucountleadingzerosintel = 5585,
+        Ucountleadingzerosintel = 5585,
 
-        Spvopucounttrailingzerosintel = 5586,
+        Ucounttrailingzerosintel = 5586,
 
-        Spvopabsisubintel = 5587,
+        Absisubintel = 5587,
 
-        Spvopabsusubintel = 5588,
+        Absusubintel = 5588,
 
-        Spvopiaddsatintel = 5589,
+        Iaddsatintel = 5589,
 
-        Spvopuaddsatintel = 5590,
+        Uaddsatintel = 5590,
 
-        Spvopiaverageintel = 5591,
+        Iaverageintel = 5591,
 
-        Spvopuaverageintel = 5592,
+        Uaverageintel = 5592,
 
-        Spvopiaverageroundedintel = 5593,
+        Iaverageroundedintel = 5593,
 
-        Spvopuaverageroundedintel = 5594,
+        Uaverageroundedintel = 5594,
 
-        Spvopisubsatintel = 5595,
+        Isubsatintel = 5595,
 
-        Spvopusubsatintel = 5596,
+        Usubsatintel = 5596,
 
-        Spvopimul32x16intel = 5597,
+        Imul32x16intel = 5597,
 
-        Spvopumul32x16intel = 5598,
+        Umul32x16intel = 5598,
 
-        Spvopdecoratestring = 5632,
+        Decoratestring = 5632,
 
-        Spvopdecoratestringgoogle = 5632,
+        Memberdecoratestring = 5633,
 
-        Spvopmemberdecoratestring = 5633,
+        Vmeimageintel = 5699,
 
-        Spvopmemberdecoratestringgoogle = 5633,
+        Typevmeimageintel = 5700,
 
-        Spvopvmeimageintel = 5699,
+        Typeavcimepayloadintel = 5701,
 
-        Spvoptypevmeimageintel = 5700,
+        Typeavcrefpayloadintel = 5702,
 
-        Spvoptypeavcimepayloadintel = 5701,
+        Typeavcsicpayloadintel = 5703,
 
-        Spvoptypeavcrefpayloadintel = 5702,
+        Typeavcmcepayloadintel = 5704,
 
-        Spvoptypeavcsicpayloadintel = 5703,
+        Typeavcmceresultintel = 5705,
 
-        Spvoptypeavcmcepayloadintel = 5704,
+        Typeavcimeresultintel = 5706,
 
-        Spvoptypeavcmceresultintel = 5705,
+        Typeavcimeresultsinglereferencestreamoutintel = 5707,
 
-        Spvoptypeavcimeresultintel = 5706,
+        Typeavcimeresultdualreferencestreamoutintel = 5708,
 
-        Spvoptypeavcimeresultsinglereferencestreamoutintel = 5707,
+        Typeavcimesinglereferencestreaminintel = 5709,
 
-        Spvoptypeavcimeresultdualreferencestreamoutintel = 5708,
+        Typeavcimedualreferencestreaminintel = 5710,
 
-        Spvoptypeavcimesinglereferencestreaminintel = 5709,
+        Typeavcrefresultintel = 5711,
 
-        Spvoptypeavcimedualreferencestreaminintel = 5710,
+        Typeavcsicresultintel = 5712,
 
-        Spvoptypeavcrefresultintel = 5711,
+        Subgroupavcmcegetdefaultinterbasemultireferencepenaltyintel = 5713,
 
-        Spvoptypeavcsicresultintel = 5712,
+        Subgroupavcmcesetinterbasemultireferencepenaltyintel = 5714,
 
-        Spvopsubgroupavcmcegetdefaultinterbasemultireferencepenaltyintel = 5713,
+        Subgroupavcmcegetdefaultintershapepenaltyintel = 5715,
 
-        Spvopsubgroupavcmcesetinterbasemultireferencepenaltyintel = 5714,
+        Subgroupavcmcesetintershapepenaltyintel = 5716,
 
-        Spvopsubgroupavcmcegetdefaultintershapepenaltyintel = 5715,
+        Subgroupavcmcegetdefaultinterdirectionpenaltyintel = 5717,
 
-        Spvopsubgroupavcmcesetintershapepenaltyintel = 5716,
+        Subgroupavcmcesetinterdirectionpenaltyintel = 5718,
 
-        Spvopsubgroupavcmcegetdefaultinterdirectionpenaltyintel = 5717,
+        Subgroupavcmcegetdefaultintralumashapepenaltyintel = 5719,
 
-        Spvopsubgroupavcmcesetinterdirectionpenaltyintel = 5718,
+        Subgroupavcmcegetdefaultintermotionvectorcosttableintel = 5720,
 
-        Spvopsubgroupavcmcegetdefaultintralumashapepenaltyintel = 5719,
+        Subgroupavcmcegetdefaulthighpenaltycosttableintel = 5721,
 
-        Spvopsubgroupavcmcegetdefaultintermotionvectorcosttableintel = 5720,
+        Subgroupavcmcegetdefaultmediumpenaltycosttableintel = 5722,
 
-        Spvopsubgroupavcmcegetdefaulthighpenaltycosttableintel = 5721,
+        Subgroupavcmcegetdefaultlowpenaltycosttableintel = 5723,
 
-        Spvopsubgroupavcmcegetdefaultmediumpenaltycosttableintel = 5722,
+        Subgroupavcmcesetmotionvectorcostfunctionintel = 5724,
 
-        Spvopsubgroupavcmcegetdefaultlowpenaltycosttableintel = 5723,
+        Subgroupavcmcegetdefaultintralumamodepenaltyintel = 5725,
 
-        Spvopsubgroupavcmcesetmotionvectorcostfunctionintel = 5724,
+        Subgroupavcmcegetdefaultnondclumaintrapenaltyintel = 5726,
 
-        Spvopsubgroupavcmcegetdefaultintralumamodepenaltyintel = 5725,
+        Subgroupavcmcegetdefaultintrachromamodebasepenaltyintel = 5727,
 
-        Spvopsubgroupavcmcegetdefaultnondclumaintrapenaltyintel = 5726,
+        Subgroupavcmcesetaconlyhaarintel = 5728,
 
-        Spvopsubgroupavcmcegetdefaultintrachromamodebasepenaltyintel = 5727,
+        Subgroupavcmcesetsourceinterlacedfieldpolarityintel = 5729,
 
-        Spvopsubgroupavcmcesetaconlyhaarintel = 5728,
+        Subgroupavcmcesetsinglereferenceinterlacedfieldpolarityintel = 5730,
 
-        Spvopsubgroupavcmcesetsourceinterlacedfieldpolarityintel = 5729,
+        Subgroupavcmcesetdualreferenceinterlacedfieldpolaritiesintel = 5731,
 
-        Spvopsubgroupavcmcesetsinglereferenceinterlacedfieldpolarityintel = 5730,
+        Subgroupavcmceconverttoimepayloadintel = 5732,
 
-        Spvopsubgroupavcmcesetdualreferenceinterlacedfieldpolaritiesintel = 5731,
+        Subgroupavcmceconverttoimeresultintel = 5733,
 
-        Spvopsubgroupavcmceconverttoimepayloadintel = 5732,
+        Subgroupavcmceconverttorefpayloadintel = 5734,
 
-        Spvopsubgroupavcmceconverttoimeresultintel = 5733,
+        Subgroupavcmceconverttorefresultintel = 5735,
 
-        Spvopsubgroupavcmceconverttorefpayloadintel = 5734,
+        Subgroupavcmceconverttosicpayloadintel = 5736,
 
-        Spvopsubgroupavcmceconverttorefresultintel = 5735,
+        Subgroupavcmceconverttosicresultintel = 5737,
 
-        Spvopsubgroupavcmceconverttosicpayloadintel = 5736,
+        Subgroupavcmcegetmotionvectorsintel = 5738,
 
-        Spvopsubgroupavcmceconverttosicresultintel = 5737,
+        Subgroupavcmcegetinterdistortionsintel = 5739,
 
-        Spvopsubgroupavcmcegetmotionvectorsintel = 5738,
+        Subgroupavcmcegetbestinterdistortionsintel = 5740,
 
-        Spvopsubgroupavcmcegetinterdistortionsintel = 5739,
+        Subgroupavcmcegetintermajorshapeintel = 5741,
 
-        Spvopsubgroupavcmcegetbestinterdistortionsintel = 5740,
+        Subgroupavcmcegetinterminorshapeintel = 5742,
 
-        Spvopsubgroupavcmcegetintermajorshapeintel = 5741,
+        Subgroupavcmcegetinterdirectionsintel = 5743,
 
-        Spvopsubgroupavcmcegetinterminorshapeintel = 5742,
+        Subgroupavcmcegetintermotionvectorcountintel = 5744,
 
-        Spvopsubgroupavcmcegetinterdirectionsintel = 5743,
+        Subgroupavcmcegetinterreferenceidsintel = 5745,
 
-        Spvopsubgroupavcmcegetintermotionvectorcountintel = 5744,
+        Subgroupavcmcegetinterreferenceinterlacedfieldpolaritiesintel = 5746,
 
-        Spvopsubgroupavcmcegetinterreferenceidsintel = 5745,
+        Subgroupavcimeinitializeintel = 5747,
 
-        Spvopsubgroupavcmcegetinterreferenceinterlacedfieldpolaritiesintel = 5746,
+        Subgroupavcimesetsinglereferenceintel = 5748,
 
-        Spvopsubgroupavcimeinitializeintel = 5747,
+        Subgroupavcimesetdualreferenceintel = 5749,
 
-        Spvopsubgroupavcimesetsinglereferenceintel = 5748,
+        Subgroupavcimerefwindowsizeintel = 5750,
 
-        Spvopsubgroupavcimesetdualreferenceintel = 5749,
+        Subgroupavcimeadjustrefoffsetintel = 5751,
 
-        Spvopsubgroupavcimerefwindowsizeintel = 5750,
+        Subgroupavcimeconverttomcepayloadintel = 5752,
 
-        Spvopsubgroupavcimeadjustrefoffsetintel = 5751,
+        Subgroupavcimesetmaxmotionvectorcountintel = 5753,
 
-        Spvopsubgroupavcimeconverttomcepayloadintel = 5752,
+        Subgroupavcimesetunidirectionalmixdisableintel = 5754,
 
-        Spvopsubgroupavcimesetmaxmotionvectorcountintel = 5753,
+        Subgroupavcimesetearlysearchterminationthresholdintel = 5755,
 
-        Spvopsubgroupavcimesetunidirectionalmixdisableintel = 5754,
+        Subgroupavcimesetweightedsadintel = 5756,
 
-        Spvopsubgroupavcimesetearlysearchterminationthresholdintel = 5755,
+        Subgroupavcimeevaluatewithsinglereferenceintel = 5757,
 
-        Spvopsubgroupavcimesetweightedsadintel = 5756,
+        Subgroupavcimeevaluatewithdualreferenceintel = 5758,
 
-        Spvopsubgroupavcimeevaluatewithsinglereferenceintel = 5757,
+        Subgroupavcimeevaluatewithsinglereferencestreaminintel = 5759,
 
-        Spvopsubgroupavcimeevaluatewithdualreferenceintel = 5758,
+        Subgroupavcimeevaluatewithdualreferencestreaminintel = 5760,
 
-        Spvopsubgroupavcimeevaluatewithsinglereferencestreaminintel = 5759,
+        Subgroupavcimeevaluatewithsinglereferencestreamoutintel = 5761,
 
-        Spvopsubgroupavcimeevaluatewithdualreferencestreaminintel = 5760,
+        Subgroupavcimeevaluatewithdualreferencestreamoutintel = 5762,
 
-        Spvopsubgroupavcimeevaluatewithsinglereferencestreamoutintel = 5761,
+        Subgroupavcimeevaluatewithsinglereferencestreaminoutintel = 5763,
 
-        Spvopsubgroupavcimeevaluatewithdualreferencestreamoutintel = 5762,
+        Subgroupavcimeevaluatewithdualreferencestreaminoutintel = 5764,
 
-        Spvopsubgroupavcimeevaluatewithsinglereferencestreaminoutintel = 5763,
+        Subgroupavcimeconverttomceresultintel = 5765,
 
-        Spvopsubgroupavcimeevaluatewithdualreferencestreaminoutintel = 5764,
+        Subgroupavcimegetsinglereferencestreaminintel = 5766,
 
-        Spvopsubgroupavcimeconverttomceresultintel = 5765,
+        Subgroupavcimegetdualreferencestreaminintel = 5767,
 
-        Spvopsubgroupavcimegetsinglereferencestreaminintel = 5766,
+        Subgroupavcimestripsinglereferencestreamoutintel = 5768,
 
-        Spvopsubgroupavcimegetdualreferencestreaminintel = 5767,
+        Subgroupavcimestripdualreferencestreamoutintel = 5769,
 
-        Spvopsubgroupavcimestripsinglereferencestreamoutintel = 5768,
+        Subgroupavcimegetstreamoutsinglereferencemajorshapemotionvectorsintel = 5770,
 
-        Spvopsubgroupavcimestripdualreferencestreamoutintel = 5769,
+        Subgroupavcimegetstreamoutsinglereferencemajorshapedistortionsintel = 5771,
 
-        Spvopsubgroupavcimegetstreamoutsinglereferencemajorshapemotionvectorsintel = 5770,
+        Subgroupavcimegetstreamoutsinglereferencemajorshapereferenceidsintel = 5772,
 
-        Spvopsubgroupavcimegetstreamoutsinglereferencemajorshapedistortionsintel = 5771,
+        Subgroupavcimegetstreamoutdualreferencemajorshapemotionvectorsintel = 5773,
 
-        Spvopsubgroupavcimegetstreamoutsinglereferencemajorshapereferenceidsintel = 5772,
+        Subgroupavcimegetstreamoutdualreferencemajorshapedistortionsintel = 5774,
 
-        Spvopsubgroupavcimegetstreamoutdualreferencemajorshapemotionvectorsintel = 5773,
+        Subgroupavcimegetstreamoutdualreferencemajorshapereferenceidsintel = 5775,
 
-        Spvopsubgroupavcimegetstreamoutdualreferencemajorshapedistortionsintel = 5774,
+        Subgroupavcimegetborderreachedintel = 5776,
 
-        Spvopsubgroupavcimegetstreamoutdualreferencemajorshapereferenceidsintel = 5775,
+        Subgroupavcimegettruncatedsearchindicationintel = 5777,
 
-        Spvopsubgroupavcimegetborderreachedintel = 5776,
+        Subgroupavcimegetunidirectionalearlysearchterminationintel = 5778,
 
-        Spvopsubgroupavcimegettruncatedsearchindicationintel = 5777,
+        Subgroupavcimegetweightingpatternminimummotionvectorintel = 5779,
 
-        Spvopsubgroupavcimegetunidirectionalearlysearchterminationintel = 5778,
+        Subgroupavcimegetweightingpatternminimumdistortionintel = 5780,
 
-        Spvopsubgroupavcimegetweightingpatternminimummotionvectorintel = 5779,
+        Subgroupavcfmeinitializeintel = 5781,
 
-        Spvopsubgroupavcimegetweightingpatternminimumdistortionintel = 5780,
+        Subgroupavcbmeinitializeintel = 5782,
 
-        Spvopsubgroupavcfmeinitializeintel = 5781,
+        Subgroupavcrefconverttomcepayloadintel = 5783,
 
-        Spvopsubgroupavcbmeinitializeintel = 5782,
+        Subgroupavcrefsetbidirectionalmixdisableintel = 5784,
 
-        Spvopsubgroupavcrefconverttomcepayloadintel = 5783,
+        Subgroupavcrefsetbilinearfilterenableintel = 5785,
 
-        Spvopsubgroupavcrefsetbidirectionalmixdisableintel = 5784,
+        Subgroupavcrefevaluatewithsinglereferenceintel = 5786,
 
-        Spvopsubgroupavcrefsetbilinearfilterenableintel = 5785,
+        Subgroupavcrefevaluatewithdualreferenceintel = 5787,
 
-        Spvopsubgroupavcrefevaluatewithsinglereferenceintel = 5786,
+        Subgroupavcrefevaluatewithmultireferenceintel = 5788,
 
-        Spvopsubgroupavcrefevaluatewithdualreferenceintel = 5787,
+        Subgroupavcrefevaluatewithmultireferenceinterlacedintel = 5789,
 
-        Spvopsubgroupavcrefevaluatewithmultireferenceintel = 5788,
+        Subgroupavcrefconverttomceresultintel = 5790,
 
-        Spvopsubgroupavcrefevaluatewithmultireferenceinterlacedintel = 5789,
+        Subgroupavcsicinitializeintel = 5791,
 
-        Spvopsubgroupavcrefconverttomceresultintel = 5790,
+        Subgroupavcsicconfigureskcintel = 5792,
 
-        Spvopsubgroupavcsicinitializeintel = 5791,
+        Subgroupavcsicconfigureipelumaintel = 5793,
 
-        Spvopsubgroupavcsicconfigureskcintel = 5792,
+        Subgroupavcsicconfigureipelumachromaintel = 5794,
 
-        Spvopsubgroupavcsicconfigureipelumaintel = 5793,
+        Subgroupavcsicgetmotionvectormaskintel = 5795,
 
-        Spvopsubgroupavcsicconfigureipelumachromaintel = 5794,
+        Subgroupavcsicconverttomcepayloadintel = 5796,
 
-        Spvopsubgroupavcsicgetmotionvectormaskintel = 5795,
+        Subgroupavcsicsetintralumashapepenaltyintel = 5797,
 
-        Spvopsubgroupavcsicconverttomcepayloadintel = 5796,
+        Subgroupavcsicsetintralumamodecostfunctionintel = 5798,
 
-        Spvopsubgroupavcsicsetintralumashapepenaltyintel = 5797,
+        Subgroupavcsicsetintrachromamodecostfunctionintel = 5799,
 
-        Spvopsubgroupavcsicsetintralumamodecostfunctionintel = 5798,
+        Subgroupavcsicsetbilinearfilterenableintel = 5800,
 
-        Spvopsubgroupavcsicsetintrachromamodecostfunctionintel = 5799,
+        Subgroupavcsicsetskcforwardtransformenableintel = 5801,
 
-        Spvopsubgroupavcsicsetbilinearfilterenableintel = 5800,
+        Subgroupavcsicsetblockbasedrawskipsadintel = 5802,
 
-        Spvopsubgroupavcsicsetskcforwardtransformenableintel = 5801,
+        Subgroupavcsicevaluateipeintel = 5803,
 
-        Spvopsubgroupavcsicsetblockbasedrawskipsadintel = 5802,
+        Subgroupavcsicevaluatewithsinglereferenceintel = 5804,
 
-        Spvopsubgroupavcsicevaluateipeintel = 5803,
+        Subgroupavcsicevaluatewithdualreferenceintel = 5805,
 
-        Spvopsubgroupavcsicevaluatewithsinglereferenceintel = 5804,
+        Subgroupavcsicevaluatewithmultireferenceintel = 5806,
 
-        Spvopsubgroupavcsicevaluatewithdualreferenceintel = 5805,
+        Subgroupavcsicevaluatewithmultireferenceinterlacedintel = 5807,
 
-        Spvopsubgroupavcsicevaluatewithmultireferenceintel = 5806,
+        Subgroupavcsicconverttomceresultintel = 5808,
 
-        Spvopsubgroupavcsicevaluatewithmultireferenceinterlacedintel = 5807,
+        Subgroupavcsicgetipelumashapeintel = 5809,
 
-        Spvopsubgroupavcsicconverttomceresultintel = 5808,
+        Subgroupavcsicgetbestipelumadistortionintel = 5810,
 
-        Spvopsubgroupavcsicgetipelumashapeintel = 5809,
+        Subgroupavcsicgetbestipechromadistortionintel = 5811,
 
-        Spvopsubgroupavcsicgetbestipelumadistortionintel = 5810,
+        Subgroupavcsicgetpackedipelumamodesintel = 5812,
 
-        Spvopsubgroupavcsicgetbestipechromadistortionintel = 5811,
+        Subgroupavcsicgetipechromamodeintel = 5813,
 
-        Spvopsubgroupavcsicgetpackedipelumamodesintel = 5812,
+        Subgroupavcsicgetpackedskclumacountthresholdintel = 5814,
 
-        Spvopsubgroupavcsicgetipechromamodeintel = 5813,
+        Subgroupavcsicgetpackedskclumasumthresholdintel = 5815,
 
-        Spvopsubgroupavcsicgetpackedskclumacountthresholdintel = 5814,
+        Subgroupavcsicgetinterrawsadsintel = 5816,
 
-        Spvopsubgroupavcsicgetpackedskclumasumthresholdintel = 5815,
-
-        Spvopsubgroupavcsicgetinterrawsadsintel = 5816,
-
-        Spvopmax = 2147483647,
+        Max = 2147483647,
 
     }
 

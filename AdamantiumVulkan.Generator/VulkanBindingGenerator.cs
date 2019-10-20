@@ -38,44 +38,44 @@ namespace AdamantiumVulkan.Generator
             options.ConvertRules.PodTypesAsSimpleTypes = true;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
 
-            //vkMainModule = options.AddModule(vkMainLibrary);
-            //vkMainModule.Name = "Core";
-            //vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
-            //vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            //vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
-            //vkMainModule.ForceCallingConvention = true;
-            //vkMainModule.CallingConvention = CallingConvention.Winapi;
-            //vkMainModule.AllowConvertStructToClass = true;
-            //vkMainModule.MethodClassName = "VulkanNative";
-            //vkMainModule.InteropClassName = "VulkanInterop";
-            //vkMainModule.OutputFileName = "mainNamespace";
-            //vkMainModule.OutputNamespace = "mainNamespace";
-            //vkMainModule.SuppressUnmanagedCodeSecurity = false;
-            //vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
-            //vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
-            //vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
-            //vkMainModule.WrapInteropObjects = true;
-            //vkMainModule.GenerateOverloadsForArrayParams = true;
-            //vkMainModule.OutputPath = mainPath;
+            vkMainModule = options.AddModule(vkMainLibrary);
+            vkMainModule.Name = "Core";
+            vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
+            vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
+            vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
+            vkMainModule.ForceCallingConvention = true;
+            vkMainModule.CallingConvention = CallingConvention.Winapi;
+            vkMainModule.AllowConvertStructToClass = true;
+            vkMainModule.MethodClassName = "VulkanNative";
+            vkMainModule.InteropClassName = "VulkanInterop";
+            vkMainModule.OutputFileName = mainNamespace;
+            vkMainModule.OutputNamespace = mainNamespace;
+            vkMainModule.SuppressUnmanagedCodeSecurity = false;
+            vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
+            vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
+            vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
+            vkMainModule.WrapInteropObjects = true;
+            vkMainModule.GenerateOverloadsForArrayParams = true;
+            vkMainModule.OutputPath = mainPath;
 
-            //shaderModule = options.AddModule(shadercLibrary);
-            //shaderModule.Name = "Shaders";
-            //shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
-            //shaderModule.Defines.Add("SHADERC_SHAREDLIB");
-            //vkMainModule.Defines.Add("_WIN32");
-            //shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
-            //shaderModule.ForceCallingConvention = true;
-            //shaderModule.CallingConvention = CallingConvention.Winapi;
-            //shaderModule.AllowConvertStructToClass = true;
-            //shaderModule.MethodClassName = "VulkanShadersNative";
-            //shaderModule.InteropClassName = "VulkanShadersInterop";
-            //shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
-            //shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
-            //shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
-            //shaderModule.SuppressUnmanagedCodeSecurity = false;
-            //shaderModule.WrapInteropObjects = true;
-            //shaderModule.GenerateOverloadsForArrayParams = true;
-            //shaderModule.OutputPath = shadersPath;
+            shaderModule = options.AddModule(shadercLibrary);
+            shaderModule.Name = "Shaders";
+            shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
+            shaderModule.Defines.Add("SHADERC_SHAREDLIB");
+            vkMainModule.Defines.Add("_WIN32");
+            shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
+            shaderModule.ForceCallingConvention = true;
+            shaderModule.CallingConvention = CallingConvention.Winapi;
+            shaderModule.AllowConvertStructToClass = true;
+            shaderModule.MethodClassName = "VulkanShadersNative";
+            shaderModule.InteropClassName = "VulkanShadersInterop";
+            shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
+            shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
+            shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
+            shaderModule.SuppressUnmanagedCodeSecurity = false;
+            shaderModule.WrapInteropObjects = true;
+            shaderModule.GenerateOverloadsForArrayParams = true;
+            shaderModule.OutputPath = shadersPath;
 
             spivCrossModule = options.AddModule(spirvCrossLibrary);
             spivCrossModule.Name = "Spirv-Cross";
@@ -98,7 +98,7 @@ namespace AdamantiumVulkan.Generator
 
             Module.UtilsOutputName = "Utils";
             Module.UtilsNamespace = mainNamespace;
-            //Module.GenerateUtilsForModule = vkMainModule;
+            Module.GenerateUtilsForModule = vkMainModule;
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -111,12 +111,13 @@ namespace AdamantiumVulkan.Generator
             context.AddPreGeneratorPass(new FunctionToInstanceMethodAction(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.Winapi), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new EnumItemsCleanupPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsRenamePass(CasePattern.PascalCase, "VkFormat"), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsExcludePass(ExcludeCheck.StartsWithIgnoreCase, "BeginRange", "EndRange"), ExecutionPassKind.PerTranslationUnit);
 
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct;
-            //context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
+            context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
 
             var predefinedValues = CreatePredefinedValues();
@@ -159,7 +160,7 @@ namespace AdamantiumVulkan.Generator
         {
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
-            //context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
             context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
         }
 
@@ -417,7 +418,7 @@ namespace AdamantiumVulkan.Generator
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceMultiviewProperties", IsReadOnly = true };
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkPhysicalDeviceVariablePointersFeatures" };
-            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceVariablePointerFeatures", IsReadOnly = true };
+            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceVariablePointersFeatures", IsReadOnly = true };
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkPhysicalDeviceProtectedMemoryFeatures" };
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceProtectedMemoryFeatures", IsReadOnly = true };
@@ -501,7 +502,7 @@ namespace AdamantiumVulkan.Generator
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.DescriptorSetLayoutSupport", IsReadOnly = true };
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkPhysicalDeviceShaderDrawParametersFeatures" };
-            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceShaderDrawParameterFeatures", IsReadOnly = true };
+            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceShaderDrawParametersFeatures", IsReadOnly = true };
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkSwapchainCreateInfoKHR" };
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.SwapchainCreateInfoKhr", IsReadOnly = true };
@@ -1005,7 +1006,7 @@ namespace AdamantiumVulkan.Generator
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNv", IsReadOnly = true };
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkPhysicalDeviceBufferDeviceAddressFeaturesEXT" };
-            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceBufferAddressFeaturesExt", IsReadOnly = true };
+            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.PhysicalDeviceBufferDeviceAddressFeaturesExt", IsReadOnly = true };
             predefinedValues.Add(values);
             values = new PredefinedValues() { StructType = "VkBufferDeviceAddressInfoEXT" };
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.BufferDeviceAddressInfoExt", IsReadOnly = true };
