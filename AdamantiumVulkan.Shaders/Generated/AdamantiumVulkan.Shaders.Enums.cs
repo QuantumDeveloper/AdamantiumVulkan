@@ -10,6 +10,117 @@ namespace AdamantiumVulkan.Shaders
     using System;
     using System.Runtime.InteropServices;
 
+    public enum ShadercTargetEnv : int
+    {
+        ///<summary>
+        /// SPIR-V under Vulkan semantics
+        ///</summary>
+        Vulkan = 0,
+
+        ///<summary>
+        /// SPIR-V under OpenGL semantics
+        ///</summary>
+        Opengl = 1,
+
+        ///<summary>
+        /// SPIR-V under OpenGL semantics, including compatibility profile functions
+        ///</summary>
+        OpenglCompat = 2,
+
+        ///<summary>
+        /// SPIR-V under WebGPU semantics
+        ///</summary>
+        Webgpu = 3,
+
+    }
+
+    public enum ShadercEnvVersion : int
+    {
+        ///<summary>
+        /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
+        ///</summary>
+        Vulkan10 = 4194304,
+
+        ///<summary>
+        /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
+        ///</summary>
+        Vulkan11 = 4198400,
+
+        ///<summary>
+        /// For OpenGL, use the number from #version in shaders. TODO(dneto): Currently no difference between OpenGL 4.5 and 4.6. See glslang/Standalone/Standalone.cpp TODO(dneto): Glslang doesn't accept a OpenGL client version of 460.
+        ///</summary>
+        Opengl45 = 450,
+
+        ///<summary>
+        /// Currently WebGPU doesn't have versioning, since it isn't finalized. This will have to be updated once the spec is finished.
+        ///</summary>
+        Webgpu = 451,
+
+    }
+
+    ///<summary>
+    /// The known versions of SPIR-V.
+    ///</summary>
+    public enum ShadercSpirvVersion : int
+    {
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _0 = 65536,
+
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _1 = 65792,
+
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _2 = 66048,
+
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _3 = 66304,
+
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _4 = 66560,
+
+    }
+
+    ///<summary>
+    /// Indicate the status of a compilation.
+    ///</summary>
+    public enum ShadercCompilationStatus : int
+    {
+        Success = 0,
+
+        ///<summary>
+        /// error stage deduction
+        ///</summary>
+        InvalidStage = 1,
+
+        CompilationError = 2,
+
+        ///<summary>
+        /// unexpected failure
+        ///</summary>
+        InternalError = 3,
+
+        NullResultObject = 4,
+
+        InvalidAssembly = 5,
+
+        ValidationError = 6,
+
+        TransformationError = 7,
+
+        ConfigurationError = 8,
+
+    }
+
     ///<summary>
     /// Source language kind.
     ///</summary>

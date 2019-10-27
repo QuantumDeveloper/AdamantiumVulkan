@@ -84,12 +84,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkInstance_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevice_T
     {
         public System.IntPtr pointer;
+
+        public VkPhysicalDevice_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -98,12 +108,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkDevice_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueue_T
     {
         public System.IntPtr pointer;
+
+        public VkQueue_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -112,12 +132,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkSemaphore_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandBuffer_T
     {
         public System.IntPtr pointer;
+
+        public VkCommandBuffer_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -126,12 +156,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkFence_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceMemory_T
     {
         public System.IntPtr pointer;
+
+        public VkDeviceMemory_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -140,12 +180,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkBuffer_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImage_T
     {
         public System.IntPtr pointer;
+
+        public VkImage_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -154,12 +204,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkEvent_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueryPool_T
     {
         public System.IntPtr pointer;
+
+        public VkQueryPool_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -168,12 +228,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkBufferView_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageView_T
     {
         public System.IntPtr pointer;
+
+        public VkImageView_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -182,12 +252,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkShaderModule_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCache_T
     {
         public System.IntPtr pointer;
+
+        public VkPipelineCache_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -196,12 +276,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkPipelineLayout_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPass_T
     {
         public System.IntPtr pointer;
+
+        public VkRenderPass_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -210,12 +300,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkPipeline_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetLayout_T
     {
         public System.IntPtr pointer;
+
+        public VkDescriptorSetLayout_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -224,12 +324,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkSampler_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorPool_T
     {
         public System.IntPtr pointer;
+
+        public VkDescriptorPool_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -238,6 +348,11 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkDescriptorSet_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -245,12 +360,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkFramebuffer_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandPool_T
     {
         public System.IntPtr pointer;
+
+        public VkCommandPool_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -3290,12 +3415,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkSamplerYcbcrConversion_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorUpdateTemplate_T
     {
         public System.IntPtr pointer;
+
+        public VkDescriptorUpdateTemplate_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -4426,6 +4561,11 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkSurfaceKHR_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -4500,6 +4640,11 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkSwapchainKHR_T
     {
         public System.IntPtr pointer;
+
+        public VkSwapchainKHR_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -4686,12 +4831,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkDisplayKHR_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayModeKHR_T
     {
         public System.IntPtr pointer;
+
+        public VkDisplayModeKHR_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -5825,6 +5980,11 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkDebugReportCallbackEXT_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6271,12 +6431,22 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkObjectTableNVX_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkIndirectCommandsLayoutNVX_T
     {
         public System.IntPtr pointer;
+
+        public VkIndirectCommandsLayoutNVX_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -6926,6 +7096,11 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkDebugUtilsMessengerEXT_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7499,6 +7674,11 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pointer;
 
+        public VkValidationCacheEXT_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7797,6 +7977,11 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkAccelerationStructureNV_T
     {
         public System.IntPtr pointer;
+
+        public VkAccelerationStructureNV_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -8492,6 +8677,11 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPerformanceConfigurationINTEL_T
     {
         public System.IntPtr pointer;
+
+        public VkPerformanceConfigurationINTEL_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 

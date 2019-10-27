@@ -15,12 +15,22 @@ namespace AdamantiumVulkan.Shaders.Interop
     {
         public System.IntPtr pointer;
 
+        public ShadercCompiler(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ShadercCompileOptions
     {
         public System.IntPtr pointer;
+
+        public ShadercCompileOptions(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -55,6 +65,11 @@ namespace AdamantiumVulkan.Shaders.Interop
     public partial struct ShadercCompilationResult
     {
         public System.IntPtr pointer;
+
+        public ShadercCompilationResult(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
