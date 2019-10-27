@@ -377,7 +377,7 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern Result vkCreateCommandPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkCommandPool_T pCommandPool);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateComputePipelines", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkCreateComputePipelines([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [In, Out] AdamantiumVulkan.Core.Interop.VkPipeline_T[] pPipelines);
+        internal static extern Result vkCreateComputePipelines([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [In, Out] ref System.IntPtr pPipelines);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateDebugReportCallbackEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateDebugReportCallbackEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback);
@@ -416,7 +416,7 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern Result vkCreateFramebuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkFramebuffer_T pFramebuffer);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateGraphicsPipelines", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkCreateGraphicsPipelines([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [In, Out] AdamantiumVulkan.Core.Interop.VkPipeline_T[] pPipelines);
+        internal static extern Result vkCreateGraphicsPipelines([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount, System.IntPtr pCreateInfos, System.IntPtr pAllocator, [In, Out] ref System.IntPtr pPipelines);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateHeadlessSurfaceEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateHeadlessSurfaceEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);

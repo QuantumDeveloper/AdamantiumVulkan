@@ -2,7 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="libspirv-cross-c-shared.dylib" />
+    <None Remove="spirv-cross-c-shared.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="libspirv-cross-c-shared.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="spirv-cross-c-shared.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AdamantiumVulkan.SPIRV\AdamantiumVulkan.SPIRV.csproj" />

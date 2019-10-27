@@ -150,7 +150,7 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumeratePhysicalDevices(this, ref pPhysicalDeviceCount, arg1);
             if (!ReferenceEquals(pPhysicalDevices, null))
             {
-                for (int i = 0; i < pPhysicalDevices.Length; ++i)
+                for (var i = 0U; i < pPhysicalDevices.Length; ++i)
                 {
                     pPhysicalDevices[i] = new PhysicalDevice(arg1[i]);
                 }
@@ -587,7 +587,7 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyProperties(this, ref pQueueFamilyPropertyCount, arg1);
             if (!ReferenceEquals(pQueueFamilyProperties, null))
             {
-                for (int i = 0; i < pQueueFamilyProperties.Length; ++i)
+                for (var i = 0U; i < pQueueFamilyProperties.Length; ++i)
                 {
                     pQueueFamilyProperties[i] = new QueueFamilyProperties(arg1[i]);
                 }
@@ -610,7 +610,7 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyProperties2(this, ref pQueueFamilyPropertyCount, arg1);
             if (!ReferenceEquals(pQueueFamilyProperties, null))
             {
-                for (int i = 0; i < pQueueFamilyProperties.Length; ++i)
+                for (var i = 0U; i < pQueueFamilyProperties.Length; ++i)
                 {
                     pQueueFamilyProperties[i] = new QueueFamilyProperties2(arg1[i]);
                 }
@@ -724,7 +724,7 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceFormatsKHR(this, arg1, ref pSurfaceFormatCount, arg2);
             if (!ReferenceEquals(pSurfaceFormats, null))
             {
-                for (int i = 0; i < pSurfaceFormats.Length; ++i)
+                for (var i = 0U; i < pSurfaceFormats.Length; ++i)
                 {
                     pSurfaceFormats[i] = new SurfaceFormatKHR(arg2[i]);
                 }
@@ -749,7 +749,7 @@ namespace AdamantiumVulkan.Core
             var arg2 = ReferenceEquals(pPresentModes, null) ? null : new int[pPresentModes.Length];
             if (!ReferenceEquals(pPresentModes, null))
             {
-                for (int i = 0; i < pPresentModes.Length; ++i)
+                for (var i = 0; i < pPresentModes.Length; ++i)
                 {
                     arg2[i] = (int)pPresentModes[i];
                 }
@@ -846,7 +846,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
             if (!ReferenceEquals(pCommandBuffers, null))
             {
-                for (int i = 0; i < pCommandBuffers.Length; ++i)
+                for (var i = 0U; i < pCommandBuffers.Length; ++i)
                 {
                     pCommandBuffers[i] = new CommandBuffer(arg2[i]);
                 }
@@ -877,7 +877,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
             if (!ReferenceEquals(pDescriptorSets, null))
             {
-                for (int i = 0; i < pDescriptorSets.Length; ++i)
+                for (var i = 0U; i < pDescriptorSets.Length; ++i)
                 {
                     pDescriptorSets[i] = new DescriptorSet(arg2[i]);
                 }
@@ -1038,16 +1038,18 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
             var arg2 = ReferenceEquals(pCreateInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfos.ToInternal());
             var arg3 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            var arg4 = new AdamantiumVulkan.Core.Interop.VkPipeline_T[createInfoCount];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateComputePipelines(this, arg1, createInfoCount, arg2, arg3, arg4);
+            var arg4 = System.IntPtr.Zero;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateComputePipelines(this, arg1, createInfoCount, arg2, arg3, ref arg4);
             pCreateInfos?.Dispose();
             Marshal.FreeHGlobal(arg2);
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg3);
+            var _pPipelines = new AdamantiumVulkan.Core.Interop.VkPipeline_T[createInfoCount];
+            MarshalUtils.IntPtrToManagedArray2<AdamantiumVulkan.Core.Interop.VkPipeline_T>(arg4, _pPipelines);
             pPipelines = new Pipeline[createInfoCount];
-            for (int i = 0; i < createInfoCount; ++i)
+            for (var i = 0U; i< createInfoCount; ++i)
             {
-                pPipelines[i] = new Pipeline(arg4[i]);
+                pPipelines[i] = new Pipeline(_pPipelines[i]);
             }
             return result;
         }
@@ -1155,16 +1157,18 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
             var arg2 = ReferenceEquals(pCreateInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfos.ToInternal());
             var arg3 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            var arg4 = new AdamantiumVulkan.Core.Interop.VkPipeline_T[createInfoCount];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateGraphicsPipelines(this, arg1, createInfoCount, arg2, arg3, arg4);
+            var arg4 = System.IntPtr.Zero;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateGraphicsPipelines(this, arg1, createInfoCount, arg2, arg3, ref arg4);
             pCreateInfos?.Dispose();
             Marshal.FreeHGlobal(arg2);
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg3);
+            var _pPipelines = new AdamantiumVulkan.Core.Interop.VkPipeline_T[createInfoCount];
+            MarshalUtils.IntPtrToManagedArray2<AdamantiumVulkan.Core.Interop.VkPipeline_T>(arg4, _pPipelines);
             pPipelines = new Pipeline[createInfoCount];
-            for (int i = 0; i < createInfoCount; ++i)
+            for (var i = 0U; i< createInfoCount; ++i)
             {
-                pPipelines[i] = new Pipeline(arg4[i]);
+                pPipelines[i] = new Pipeline(_pPipelines[i]);
             }
             return result;
         }
@@ -1722,7 +1726,7 @@ namespace AdamantiumVulkan.Core
             arg2 = ReferenceEquals(pCommandBuffers, null) ? null : new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[pCommandBuffers.Length];
             if (!ReferenceEquals(pCommandBuffers, null))
             {
-                for (int i = 0; i < pCommandBuffers.Length; ++i)
+                for (var i = 0U; i < pCommandBuffers.Length; ++i)
                 {
                     arg2[i] = pCommandBuffers[i];
                 }
@@ -2150,7 +2154,7 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetSwapchainImagesKHR(this, arg1, ref pSwapchainImageCount, arg2);
             if (!ReferenceEquals(pSwapchainImages, null))
             {
-                for (int i = 0; i < pSwapchainImages.Length; ++i)
+                for (var i = 0U; i < pSwapchainImages.Length; ++i)
                 {
                     pSwapchainImages[i] = new Image(arg2[i]);
                 }
@@ -2309,7 +2313,7 @@ namespace AdamantiumVulkan.Core
             arg1 = ReferenceEquals(pFences, null) ? null : new AdamantiumVulkan.Core.Interop.VkFence_T[pFences.Length];
             if (!ReferenceEquals(pFences, null))
             {
-                for (int i = 0; i < pFences.Length; ++i)
+                for (var i = 0U; i < pFences.Length; ++i)
                 {
                     arg1[i] = pFences[i];
                 }
@@ -2434,7 +2438,7 @@ namespace AdamantiumVulkan.Core
             arg1 = ReferenceEquals(pFences, null) ? null : new AdamantiumVulkan.Core.Interop.VkFence_T[pFences.Length];
             if (!ReferenceEquals(pFences, null))
             {
-                for (int i = 0; i < pFences.Length; ++i)
+                for (var i = 0U; i < pFences.Length; ++i)
                 {
                     arg1[i] = pFences[i];
                 }
@@ -2540,7 +2544,7 @@ namespace AdamantiumVulkan.Core
             arg1 = ReferenceEquals(pSubmits, null) ? null : new AdamantiumVulkan.Core.Interop.VkSubmitInfo[pSubmits.Length];
             if (!ReferenceEquals(pSubmits, null))
             {
-                for (int i = 0; i < pSubmits.Length; ++i)
+                for (var i = 0U; i < pSubmits.Length; ++i)
                 {
                     arg1[i] = pSubmits[i].ToInternal();
                 }
@@ -2549,7 +2553,7 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkQueueSubmit(this, submitCount, arg1, arg2);
             if (!ReferenceEquals(pSubmits, null))
             {
-                for (int i = 0; i < pSubmits.Length; ++i)
+                for (var i = 0U; i < pSubmits.Length; ++i)
                 {
                     pSubmits[i]?.Dispose();
                 }
@@ -2748,7 +2752,7 @@ namespace AdamantiumVulkan.Core
             arg1 = ReferenceEquals(pBuffers, null) ? null : new AdamantiumVulkan.Core.Interop.VkBuffer_T[pBuffers.Length];
             if (!ReferenceEquals(pBuffers, null))
             {
-                for (int i = 0; i < pBuffers.Length; ++i)
+                for (var i = 0U; i < pBuffers.Length; ++i)
                 {
                     arg1[i] = pBuffers[i];
                 }
@@ -2828,7 +2832,7 @@ namespace AdamantiumVulkan.Core
             arg3 = ReferenceEquals(pRegions, null) ? null : new AdamantiumVulkan.Core.Interop.VkBufferCopy[pRegions.Length];
             if (!ReferenceEquals(pRegions, null))
             {
-                for (int i = 0; i < pRegions.Length; ++i)
+                for (var i = 0U; i < pRegions.Length; ++i)
                 {
                     arg3[i] = pRegions[i].ToInternal();
                 }
@@ -3087,7 +3091,7 @@ namespace AdamantiumVulkan.Core
             arg4 = ReferenceEquals(pMemoryBarriers, null) ? null : new AdamantiumVulkan.Core.Interop.VkMemoryBarrier[pMemoryBarriers.Length];
             if (!ReferenceEquals(pMemoryBarriers, null))
             {
-                for (int i = 0; i < pMemoryBarriers.Length; ++i)
+                for (var i = 0U; i < pMemoryBarriers.Length; ++i)
                 {
                     arg4[i] = pMemoryBarriers[i].ToInternal();
                 }
@@ -3096,7 +3100,7 @@ namespace AdamantiumVulkan.Core
             arg5 = ReferenceEquals(pBufferMemoryBarriers, null) ? null : new AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier[pBufferMemoryBarriers.Length];
             if (!ReferenceEquals(pBufferMemoryBarriers, null))
             {
-                for (int i = 0; i < pBufferMemoryBarriers.Length; ++i)
+                for (var i = 0U; i < pBufferMemoryBarriers.Length; ++i)
                 {
                     arg5[i] = pBufferMemoryBarriers[i].ToInternal();
                 }
@@ -3105,7 +3109,7 @@ namespace AdamantiumVulkan.Core
             arg6 = ReferenceEquals(pImageMemoryBarriers, null) ? null : new AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier[pImageMemoryBarriers.Length];
             if (!ReferenceEquals(pImageMemoryBarriers, null))
             {
-                for (int i = 0; i < pImageMemoryBarriers.Length; ++i)
+                for (var i = 0U; i < pImageMemoryBarriers.Length; ++i)
                 {
                     arg6[i] = pImageMemoryBarriers[i].ToInternal();
                 }
@@ -3113,21 +3117,21 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPipelineBarrier(this, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, arg4, bufferMemoryBarrierCount, arg5, imageMemoryBarrierCount, arg6);
             if (!ReferenceEquals(pMemoryBarriers, null))
             {
-                for (int i = 0; i < pMemoryBarriers.Length; ++i)
+                for (var i = 0U; i < pMemoryBarriers.Length; ++i)
                 {
                     pMemoryBarriers[i]?.Dispose();
                 }
             }
             if (!ReferenceEquals(pBufferMemoryBarriers, null))
             {
-                for (int i = 0; i < pBufferMemoryBarriers.Length; ++i)
+                for (var i = 0U; i < pBufferMemoryBarriers.Length; ++i)
                 {
                     pBufferMemoryBarriers[i]?.Dispose();
                 }
             }
             if (!ReferenceEquals(pImageMemoryBarriers, null))
             {
-                for (int i = 0; i < pImageMemoryBarriers.Length; ++i)
+                for (var i = 0U; i < pImageMemoryBarriers.Length; ++i)
                 {
                     pImageMemoryBarriers[i]?.Dispose();
                 }
@@ -4469,7 +4473,7 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(pLayerName, ref pPropertyCount, arg0);
             if (!ReferenceEquals(pProperties, null))
             {
-                for (int i = 0; i < pProperties.Length; ++i)
+                for (var i = 0U; i < pProperties.Length; ++i)
                 {
                     pProperties[i] = new ExtensionProperties(arg0[i]);
                 }
@@ -4484,7 +4488,7 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceLayerProperties(ref pPropertyCount, arg0);
             if (!ReferenceEquals(pProperties, null))
             {
-                for (int i = 0; i < pProperties.Length; ++i)
+                for (var i = 0U; i < pProperties.Length; ++i)
                 {
                     pProperties[i] = new LayerProperties(arg0[i]);
                 }

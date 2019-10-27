@@ -15,6 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="shaderc_shared.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="shaderc_shared.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
   </ItemGroup>
 

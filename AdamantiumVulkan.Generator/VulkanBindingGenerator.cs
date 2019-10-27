@@ -35,11 +35,12 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.SPIRV.Cross", "Generated"));
 
             options.GenerateSequentialLayout = true;
-            options.ConvertRules.PodTypesAsSimpleTypes = true;
+            options.PodTypesAsSimpleTypes = true;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
 
             vkMainModule = options.AddModule(vkMainLibrary);
             vkMainModule.Name = "Core";
+            vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
             vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
@@ -62,7 +63,7 @@ namespace AdamantiumVulkan.Generator
             shaderModule.Name = "Shaders";
             shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
             shaderModule.Defines.Add("SHADERC_SHAREDLIB");
-            vkMainModule.Defines.Add("_WIN32");
+            shaderModule.Defines.Add("_WIN32");
             shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
             shaderModule.ForceCallingConvention = true;
             shaderModule.CallingConvention = CallingConvention.Winapi;
@@ -77,6 +78,8 @@ namespace AdamantiumVulkan.Generator
             shaderModule.GenerateOverloadsForArrayParams = true;
             shaderModule.OutputPath = shadersPath;
 
+            var spirvCrossSpecs = GeneratorSpecializations.All;
+            spirvCrossSpecs &= ~GeneratorSpecializations.Constants;
             spivCrossModule = options.AddModule(spirvCrossLibrary);
             spivCrossModule.Name = "Spirv-Cross";
             spivCrossModule.Files.Add(@"M:\GitHUB\ShadersVulkan\spirv-cross\include\spirv_cross_c.h");
@@ -87,13 +90,13 @@ namespace AdamantiumVulkan.Generator
             spivCrossModule.AllowConvertStructToClass = true;
             spivCrossModule.MethodClassName = "SpirvCrossNative";
             spivCrossModule.InteropClassName = "SpirvCrossInterop";
-            spivCrossModule.GeneratorSpecializations = GeneratorSpecializations.All;
+            spivCrossModule.GeneratorSpecializations = spirvCrossSpecs;
             spivCrossModule.OutputFileName = "AdamantiumVulkan.SPIRV.Cross";
             spivCrossModule.OutputNamespace = "AdamantiumVulkan.SPIRV.Cross";
             spivCrossModule.SuppressUnmanagedCodeSecurity = false;
             spivCrossModule.AddNamespaceMapping("spirv", "AdamantiumVulkan.SPIRV", spirvPath, true);
             spivCrossModule.WrapInteropObjects = true;
-            spivCrossModule.GenerateOverloadsForArrayParams = true;
+            spivCrossModule.CharAsBoolForMethods = true;
             spivCrossModule.OutputPath = spirvCrossPath;
 
             Module.UtilsOutputName = "Utils";
@@ -117,6 +120,18 @@ namespace AdamantiumVulkan.Generator
 
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct;
+            context.AddPreGeneratorPass(new RegexRenamePass("^shaderc_compile_options", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, shaderModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^shaderc_result", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, shaderModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^shaderc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, shaderModule);
+
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_resources", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_compiler_options", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_compiler", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_constant", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_context", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_type", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+            
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
 
@@ -161,7 +176,6 @@ namespace AdamantiumVulkan.Generator
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
             context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
         }
 
         private List<PredefinedValues> CreatePredefinedValues()
@@ -1076,6 +1090,14 @@ namespace AdamantiumVulkan.Generator
         private void AddFunctionsToFix(ProcessingContext ctx)
         {
             PostProcessingApi api = new PostProcessingApi();
+
+            api.Function("shaderc_result_get_bytes").
+                WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
+
+            api.Function("spvc_context_parse_spirv").WithParameterName("spirv").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte));
+
+            api.Function("spvc_resources_get_resource_list_for_type").WithParameterName("resource_list").TreatAsPointerToArray(new CustomType("SpvcReflectedResource"), true, "resource_size").SetParameterKind(ParameterKind.Out);
+
             //api.Function("vkEnumerateInstanceExtensionProperties").
             //    WithParameterName("pProperties").
             //    TreatAsPointerToArray(new CustomType("VkExtensionProperties")).

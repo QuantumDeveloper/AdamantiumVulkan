@@ -25,11 +25,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="shaders\25_shader_textures.frag" />
+    <None Remove="shaders\25_shader_textures.vert" />
     <None Remove="shaders\frag.spv" />
     <None Remove="shaders\vert.spv" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="shaders\25_shader_textures.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\25_shader_textures.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="shaders\frag.spv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -16,12 +16,22 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public System.IntPtr pointer;
 
+        public SpvcContextS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcParsedIrS
     {
         public System.IntPtr pointer;
+
+        public SpvcParsedIrS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -30,12 +40,22 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public System.IntPtr pointer;
 
+        public SpvcCompilerS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcCompilerOptionsS
     {
         public System.IntPtr pointer;
+
+        public SpvcCompilerOptionsS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -44,12 +64,22 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public System.IntPtr pointer;
 
+        public SpvcResourcesS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcTypeS
     {
         public System.IntPtr pointer;
+
+        public SpvcTypeS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -58,12 +88,22 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public System.IntPtr pointer;
 
+        public SpvcConstantS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcSetS
     {
         public System.IntPtr pointer;
+
+        public SpvcSetS(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 

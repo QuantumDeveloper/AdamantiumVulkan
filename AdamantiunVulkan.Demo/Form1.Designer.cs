@@ -18,6 +18,7 @@ using System.IO;
 using Adamantium.Mathematics;
 using AdamantiumVulkan.SPIRV.Cross;
 using AdamantiumVulkan;
+using AdamantiumVulkan.Shaders;
 
 namespace VulkanEngineTestCore
 {
@@ -58,6 +59,26 @@ namespace VulkanEngineTestCore
             test.Swizzle[0] = SpvcMslComponentSwizzle.R;
             var intern = test.ToInternal();
             var ptr = MarshalUtils.MarshalStructToPtr(intern);
+
+            var vertexText = File.ReadAllText("shaders\\25_shader_textures.vert");
+            var compiler = VulkanShadersCompiler.New();
+            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.VertexShader, "25_shader_textures.vert", "main", null);
+            var bytes = result.Bytes;
+            var opts = CompileOptions.New();
+            opts.SetAutoBindUniforms = true;
+            //opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
+            var spvcResult = SpvcContext.Create(out var spvcContext);
+            spvcResult = spvcContext.ParseSpirv(bytes, (ulong)bytes.Length/4, out var parsedIr);
+            spvcResult = spvcContext.CreateCompiler(SpvcBackend.Glsl, parsedIr, SpvcCaptureMode.TakeOwnership, out var spvcCompiler);
+            spvcResult = spvcCompiler.CreateShaderResources(out var resources);
+            ulong size = 0;
+            spvcResult = resources.GetResourceListForType(SpvcResourceType.UniformBuffer, out var list, ref size);
+
+            for (ulong i = 0; i < size; i++)
+            {
+                var res = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+                var res2 = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+            }
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
@@ -140,8 +161,8 @@ namespace VulkanEngineTestCore
         private string[] validationLayers = new[]
         {
           //"VK_LAYER_LUNARG_parameter_validation",
-          "VK_LAYER_LUNARG_core_validation",
-          "VK_LAYER_LUNARG_standard_validation",
+          //"VK_LAYER_LUNARG_core_validation",
+          //"VK_LAYER_LUNARG_standard_validation",
           //"VK_LAYER_LUNARG_object_tracker",
           //"VK_LAYER_LUNARG_monitor",
           //"VK_LAYER_LUNARG_assistant_layer",
@@ -1548,11 +1569,11 @@ namespace VulkanEngineTestCore
 
         Extent2D ChooseSwapExtent(SurfaceCapabilitiesKHR capabilities)
         {
-            if (capabilities.CurrentExtent.Width != uint.MaxValue)
-            {
-                return capabilities.CurrentExtent;
-            }
-            else
+            //if (capabilities.CurrentExtent.Width != uint.MaxValue)
+            //{
+            //    return capabilities.CurrentExtent;
+            //}
+            //else
             {
                 Extent2D actualExtent = new Extent2D() { Width = (uint)ClientSize.Width, Height = (uint)ClientSize.Height };
 
