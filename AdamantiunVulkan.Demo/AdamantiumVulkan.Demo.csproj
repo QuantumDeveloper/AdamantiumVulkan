@@ -28,6 +28,7 @@
     <None Remove="shaders\25_shader_textures.frag" />
     <None Remove="shaders\25_shader_textures.vert" />
     <None Remove="shaders\frag.spv" />
+    <None Remove="shaders\UIEffect.fx" />
     <None Remove="shaders\vert.spv" />
   </ItemGroup>
 
@@ -39,6 +40,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\frag.spv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\UIEffect.fx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\vert.spv">
