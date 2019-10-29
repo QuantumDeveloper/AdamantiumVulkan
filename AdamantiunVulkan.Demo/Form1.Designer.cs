@@ -66,7 +66,6 @@ namespace VulkanEngineTestCore
             opts.EnableHlslFunctionality = true;
             opts.UseHlslIoMapping = true;
             opts.UseHlslOffsets = true;
-            opts.SetGenerateDebugInfo();
             opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
             var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.FragmentShader, "UIEffect.fx", "TexturedPixelShader", opts);
             var bytes = result.Bytes;
