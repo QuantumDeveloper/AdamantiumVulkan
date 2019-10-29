@@ -60,24 +60,43 @@ namespace VulkanEngineTestCore
             var intern = test.ToInternal();
             var ptr = MarshalUtils.MarshalStructToPtr(intern);
 
-            var vertexText = File.ReadAllText("shaders\\25_shader_textures.vert");
+            var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
             var compiler = VulkanShadersCompiler.New();
-            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.VertexShader, "25_shader_textures.vert", "main", null);
-            var bytes = result.Bytes;
             var opts = CompileOptions.New();
+            opts.EnableHlslFunctionality = true;
+            opts.UseHlslIoMapping = true;
+            opts.UseHlslOffsets = true;
+            opts.SetGenerateDebugInfo();
+            opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
+            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.FragmentShader, "UIEffect.fx", "TexturedPixelShader", opts);
+            var bytes = result.Bytes;
             opts.SetAutoBindUniforms = true;
-            //opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
             var spvcResult = SpvcContext.Create(out var spvcContext);
             spvcResult = spvcContext.ParseSpirv(bytes, (ulong)bytes.Length/4, out var parsedIr);
-            spvcResult = spvcContext.CreateCompiler(SpvcBackend.Glsl, parsedIr, SpvcCaptureMode.TakeOwnership, out var spvcCompiler);
-            spvcResult = spvcCompiler.CreateShaderResources(out var resources);
+            spvcResult = spvcContext.CreateCompiler(SpvcBackend.Hlsl, parsedIr, SpvcCaptureMode.TakeOwnership, out var spvcCompiler);
+            spvcCompiler.GetActiveInterfaceVariables(out var spvcSet);
+            spvcResult = spvcCompiler.CreateShaderResourcesForActiveVariables(out var resources, spvcSet);
             ulong size = 0;
             spvcResult = resources.GetResourceListForType(SpvcResourceType.UniformBuffer, out var list, ref size);
 
             for (ulong i = 0; i < size; i++)
             {
-                var res = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
-                var res2 = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+                var res = spvcCompiler.GetDecorationString(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+                var res2 = spvcCompiler.GetDecorationString(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+
+                var spvcType =  spvcCompiler.GetTypeHandle(list[i].Base_type_id);
+                var number = spvcType.GetNumMemberTypes();
+                for (uint k = 0; k< number; ++k)
+                {
+                    var memberType = spvcType.GetMemberType(k);
+                    ulong typeSize = 0;
+                    var rez = spvcCompiler.GetDeclaredStructMemberSize(spvcType, k, ref typeSize);
+                    uint offset = 0;
+                    rez = spvcCompiler.TypeStructMemberOffset(spvcType, k, ref offset);
+                    var name = spvcCompiler.GetMemberName(list[i].Base_type_id, k);
+
+                    Debug.WriteLine($"MemberType = {memberType}, Size = {typeSize}, Offset = {offset}, Name = {name}");
+                }
             }
 
             InitVulkan();
