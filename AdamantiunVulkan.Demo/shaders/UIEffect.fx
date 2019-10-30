@@ -1,12 +1,16 @@
 matrix wvp;
 
 float4 fillColor;
-sampler sampleType;
-Texture2D shaderTexture;
+sampler sampleType: register(s2);
+Texture2D shaderTexture: register(t4);
+sampler sampleType2: register(s5);
+Texture2D shaderTexture2: register(t5);
 
 float zNear;
 float zFar;
 float transparency = 1;
+float transparency2 = 1;
+
 
 struct VertexInputType
 {
@@ -92,6 +96,7 @@ float4 TexturedPixelShader(TexturedPixelInputType input) : SV_TARGET
    float4 result = fillColor;
    result.a *= transparency;
    float4 color = shaderTexture.Sample(sampleType, input.texcoord)* result;
+   color = shaderTexture2.Sample(sampleType2, input.texcoord) * color;
    return color;
 }
 

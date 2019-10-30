@@ -67,7 +67,7 @@ namespace VulkanEngineTestCore
             opts.UseHlslIoMapping = true;
             opts.UseHlslOffsets = true;
             opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
-            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.FragmentShader, "UIEffect.fx", "TexturedPixelShader", opts);
+            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.VertexShader, "UIEffect.fx", "LightVertexShader", opts);
             var bytes = result.Bytes;
             opts.SetAutoBindUniforms = true;
             var spvcResult = SpvcContext.Create(out var spvcContext);
@@ -80,8 +80,8 @@ namespace VulkanEngineTestCore
 
             for (ulong i = 0; i < size; i++)
             {
-                var res = spvcCompiler.GetDecorationString(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
-                var res2 = spvcCompiler.GetDecorationString(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+                var res = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+                var res2 = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
 
                 var spvcType =  spvcCompiler.GetTypeHandle(list[i].Base_type_id);
                 var number = spvcType.GetNumMemberTypes();
@@ -97,6 +97,15 @@ namespace VulkanEngineTestCore
                     Debug.WriteLine($"MemberType = {memberType}, Size = {typeSize}, Offset = {offset}, Name = {name}");
                 }
             }
+
+            resources.GetResourceListForType(SpvcResourceType.SeparateImage, out var images, ref size);
+            resources.GetResourceListForType(SpvcResourceType.SeparateSamplers, out var samplers, ref size);
+
+            var descriptorSets = spvcCompiler.GetDecoration(images[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+            var binding = spvcCompiler.GetDecoration(images[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+
+            descriptorSets = spvcCompiler.GetDecoration(samplers[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+            binding = spvcCompiler.GetDecoration(samplers[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
@@ -850,7 +859,7 @@ namespace VulkanEngineTestCore
             bindings.Add(samplerLayoutBinding);
 
             DescriptorSetLayoutCreateInfo layoutInfo = new DescriptorSetLayoutCreateInfo();
-            layoutInfo.BindingCount = 1;
+            layoutInfo.BindingCount = (uint)bindings.Count;
             layoutInfo.PBindings = bindings.ToArray();
 
             descriptorSetLayout = logicalDevice.CreateDescriptorSetLayout(layoutInfo, null);
