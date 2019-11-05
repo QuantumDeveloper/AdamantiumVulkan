@@ -1,52 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.Linq;
 
 namespace AdamantiumVulkan.SPIRV.Cross
 {
     public class SpirvDisassemblerResult
     {
-        private List<ShaderResource> uniformBuffers; // cBuffer (constant buffer)
-        private List<ShaderResource> samplers; // Sampler
-        private List<ShaderResource> sampledImages; // Texture
-        private List<ShaderResource> storageImages; // RWTexture
-        private List<ShaderResource> uniformTexelBuffers; // Buffer
-        private List<ShaderResource> storageTexelBuffers; // RWBuffer
-        private List<ShaderResource> storageBuffers; // StructuredBuffer
+        private List<ShaderReflectionResource> resources; 
 
         public SpirvDisassemblerResult()
         {
-            uniformBuffers = new List<ShaderResource>();
-            samplers = new List<ShaderResource>();
-            sampledImages = new List<ShaderResource>();
-            storageImages = new List<ShaderResource>();
-            uniformTexelBuffers = new List<ShaderResource>();
-            storageTexelBuffers = new List<ShaderResource>();
-            storageBuffers = new List<ShaderResource>();
+            resources = new List<ShaderReflectionResource>();
         }
 
-        public ReadOnlyCollection<ShaderResource> UniformBuffers => uniformBuffers.AsReadOnly();
-        public ReadOnlyCollection<ShaderResource> Samplers => samplers.AsReadOnly();
-        public ReadOnlyCollection<ShaderResource> SampledImages => sampledImages.AsReadOnly();
-        public ReadOnlyCollection<ShaderResource> StorageImages => storageImages.AsReadOnly();
-        public ReadOnlyCollection<ShaderResource> UniformTexelBuffers => uniformTexelBuffers.AsReadOnly();
-        public ReadOnlyCollection<ShaderResource> StorageTexelBuffers => storageTexelBuffers.AsReadOnly();
-        public ReadOnlyCollection<ShaderResource> StorageBuffers => storageBuffers.AsReadOnly();
+        public ReadOnlyCollection<ShaderReflectionResource> UniformBuffers => resources.Where(x=>x.ResourceType == SpvcResourceType.UniformBuffer).ToList().AsReadOnly(); // cBuffer (constant buffers)
+        public ReadOnlyCollection<ShaderReflectionResource> Samplers => resources.Where(x => x.ResourceType == SpvcResourceType.SeparateSamplers).ToList().AsReadOnly(); // Samplers
+        public ReadOnlyCollection<ShaderReflectionResource> Images => resources.Where(x => x.ResourceType == SpvcResourceType.SeparateImage || x.ResourceType == SpvcResourceType.SampledImage).ToList().AsReadOnly(); // Textures
+        public ReadOnlyCollection<ShaderReflectionResource> StorageImages => resources.Where(x => x.ResourceType == SpvcResourceType.StorageImage).ToList().AsReadOnly(); // RWTextures
+        public ReadOnlyCollection<ShaderReflectionResource> AccelerationStructurs => resources.Where(x => x.ResourceType == SpvcResourceType.AccelerationStructure).ToList().AsReadOnly(); // RWBuffers
+        public ReadOnlyCollection<ShaderReflectionResource> StorageBuffers => resources.Where(x => x.ResourceType == SpvcResourceType.StorageBuffer).ToList().AsReadOnly(); // StructuredBuffers
 
-        internal void AddShaderResource(ShaderResource resource)
+        internal void AddShaderResource(ShaderReflectionResource resource)
         {
-            switch (resource.ResourceType)
+            if (!resources.Contains(resource))
             {
-                case SpvcResourceType.UniformBuffer:
-                    uniformBuffers.Add(resource);
-                    break;
-                case SpvcResourceType.SeparateSamplers:
-                    samplers.Add(resource);
-                    break;
-                case SpvcResourceType.SampledImage:
-                    sampledImages.Add(resource);
-                    break;
+                resources.Add(resource);
             }
         }
     }

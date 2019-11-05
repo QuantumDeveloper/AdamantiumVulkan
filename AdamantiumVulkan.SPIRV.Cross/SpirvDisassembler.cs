@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace AdamantiumVulkan.SPIRV.Cross
 {
@@ -24,6 +22,19 @@ namespace AdamantiumVulkan.SPIRV.Cross
         private SpvcSet set;
         private SpvcResult lastResult;
 
+        private static List<SpvcResourceType> resourcesToDisassemble;
+
+        static SpirvDisassembler()
+        {
+            resourcesToDisassemble = new List<SpvcResourceType>();
+            resourcesToDisassemble.Add(SpvcResourceType.UniformBuffer);
+            resourcesToDisassemble.Add(SpvcResourceType.SeparateSamplers);
+            resourcesToDisassemble.Add(SpvcResourceType.SeparateImage);
+            resourcesToDisassemble.Add(SpvcResourceType.SampledImage);
+            resourcesToDisassemble.Add(SpvcResourceType.StorageImage);
+            resourcesToDisassemble.Add(SpvcResourceType.StorageBuffer);
+        }
+
         public SpirvDisassembler(byte[] byteCode)
         {
             lastResult = SpvcContext.Create(out context);
@@ -42,45 +53,52 @@ namespace AdamantiumVulkan.SPIRV.Cross
             ulong size = 0;
 
             var disassembleResult = new SpirvDisassemblerResult();
-            lastResult = resources.GetResourceListForType(SpvcResourceType.UniformBuffer, out var cbuffers, ref size);
 
-            for (ulong i = 0; i < (ulong)cbuffers.Length; ++i)
+            foreach (var resourceType in resourcesToDisassemble)
             {
-                var shaderResource = new ShaderResource(SpvcResourceType.UniformBuffer);
-                shaderResource.Name = cbuffers[i].Name;
-                shaderResource.TypeId = cbuffers[i].Id;
-                var spvcType = compiler.GetTypeHandle(cbuffers[i].Base_type_id);
+                lastResult = resources.GetResourceListForType(resourceType, out var shaderResources, ref size);
 
-                shaderResource.SlotId = compiler.GetDecoration(cbuffers[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
-                ulong tmpSize = 0;
-                lastResult = compiler.GetDeclaredStructSize(spvcType, ref tmpSize);
-                shaderResource.Size = tmpSize;
-
-                var membersCount = spvcType.GetNumMemberTypes();
-                for (uint k = 0; k < membersCount; ++k)
+                for (ulong i = 0; i < (ulong)shaderResources.Length; ++i)
                 {
-                    var member = new ShaderResourceMember();
-                    var memberType = spvcType.GetMemberType(k);
-                    member.TypeId = memberType;
-                    ulong typeSize = 0;
-                    lastResult = compiler.GetDeclaredStructMemberSize(spvcType, k, ref typeSize);
-                    member.Size = typeSize;
-                    uint offset = 0;
-                    lastResult = compiler.TypeStructMemberOffset(spvcType, k, ref offset);
-                    member.Offset = offset;
-                    member.Name = compiler.GetMemberName(cbuffers[i].Base_type_id, k);
-                    uint stride = 0;
-                    lastResult = compiler.TypeStructMemberArrayStride(spvcType, k, ref stride);
-                    member.ArrayStride = stride;
-                    lastResult = compiler.TypeStructMemberMatrixStride(spvcType, k, ref stride);
-                    member.MatrixStride = stride;
+                    var shaderResource = new ShaderReflectionResource(resourceType);
+                    shaderResource.Name = shaderResources[i].Name;
+                    shaderResource.TypeId = shaderResources[i].Id;
+                    var spvcType = compiler.GetTypeHandle(shaderResources[i].Base_type_id);
+                    shaderResource.Type = spvcType.GetBasetype();
 
-                    shaderResource.AddMember(member);
+                    shaderResource.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+                    shaderResource.SlotId = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
 
-                    //Console.WriteLine($"MemberType = {memberType}, Size = {typeSize}, Offset = {offset}, Name = {name}");
+                    ulong tmpSize = 0;
+                    lastResult = compiler.GetDeclaredStructSize(spvcType, ref tmpSize);
+                    shaderResource.Size = tmpSize;
+
+                    var membersCount = spvcType.GetNumMemberTypes();
+                    for (uint k = 0; k < membersCount; ++k)
+                    {
+                        var member = new ShaderReflectionResourceMember();
+                        var memberType = spvcType.GetMemberType(k);
+                        member.TypeId = memberType;
+                        var memberTypeHandle = compiler.GetTypeHandle(memberType);
+                        member.Type = memberTypeHandle.GetBasetype();
+                        ulong typeSize = 0;
+                        lastResult = compiler.GetDeclaredStructMemberSize(spvcType, k, ref typeSize);
+                        member.Size = typeSize;
+                        uint offset = 0;
+                        lastResult = compiler.TypeStructMemberOffset(spvcType, k, ref offset);
+                        member.Offset = offset;
+                        member.Name = compiler.GetMemberName(shaderResources[i].Base_type_id, k);
+                        uint stride = 0;
+                        lastResult = compiler.TypeStructMemberArrayStride(spvcType, k, ref stride);
+                        member.ArrayStride = stride;
+                        lastResult = compiler.TypeStructMemberMatrixStride(spvcType, k, ref stride);
+                        member.MatrixStride = stride;
+
+                        shaderResource.AddMember(member);
+                    }
+
+                    disassembleResult.AddShaderResource(shaderResource);
                 }
-
-                disassembleResult.AddShaderResource(shaderResource);
             }
 
             return disassembleResult;
