@@ -33,7 +33,8 @@ namespace AdamantiumVulkan.Shaders
 
         protected override void UnmanagedDisposeOverride()
         {
-            compilationResult.Release();
+            compilationResult?.Release();
+            compilationResult = null;
         }
     }
 }

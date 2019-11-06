@@ -22,6 +22,20 @@ namespace AdamantiumVulkan.Shaders
             this.compileOptions = compileOptions;
         }
 
+        private CompileOptions(CompileOptions other)
+        {
+            setAutoBindUniforms = other.setAutoBindUniforms;
+            setAutoMapLocations = other.setAutoMapLocations;
+            enableHlslFunctionality = other.enableHlslFunctionality;
+            useHlslIoMapping = other.useHlslIoMapping;
+            useHlslOffsets = other.useHlslOffsets;
+            invertY = other.invertY;
+            nanClamp = other.nanClamp;
+            optimizationLevel = other.optimizationLevel;
+            sourceLanguage = other.SourceLanguage;
+            targetSpirv = other.targetSpirv;
+        }
+
         public static CompileOptions New()
         {
             return new CompileOptions(ShadercCompileOptionsT.Initialize());
@@ -40,8 +54,9 @@ namespace AdamantiumVulkan.Shaders
         ///</summary>
         public CompileOptions Clone()
         {
-            var options = compileOptions.Clone();
-            return new CompileOptions(options);
+            var opts = new CompileOptions(this);
+            opts.compileOptions = compileOptions.Clone();
+            return opts;
         }
 
         ///<summary>
@@ -49,7 +64,8 @@ namespace AdamantiumVulkan.Shaders
         ///</summary>
         protected override void UnmanagedDisposeOverride()
         {
-            compileOptions.Release();
+            compileOptions?.Release();
+            compileOptions = null;
         }
 
         ///<summary>

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AdamantiumVulkan.Shaders
 {
-    public class VulkanShadersCompiler
+    public class VulkanShadersCompiler : DisposableObject
     {
         private ShadercCompilerT compiler;
 
@@ -52,6 +52,12 @@ namespace AdamantiumVulkan.Shaders
         {
             var compiler = ShadercCompilerT.CompilerInitialize();
             return new VulkanShadersCompiler(compiler);
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            compiler?.CompilerRelease();
+            compiler = null;
         }
     }
 }
