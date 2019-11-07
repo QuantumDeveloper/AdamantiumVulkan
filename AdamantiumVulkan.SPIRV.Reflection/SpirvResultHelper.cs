@@ -1,4 +1,6 @@
-namespace AdamantiumVulkan.SPIRV.Cross
+using AdamantiumVulkan.SPIRV.Cross;
+
+namespace AdamantiumVulkan.SPIRV.Reflection
 {
     public static class SpirvResultHelper
     {

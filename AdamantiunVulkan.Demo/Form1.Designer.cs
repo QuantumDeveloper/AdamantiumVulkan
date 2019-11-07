@@ -61,14 +61,14 @@ namespace VulkanEngineTestCore
             var ptr = MarshalUtils.MarshalStructToPtr(intern);
 
             var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
-            var compiler = VulkanShadersCompiler.New();
+            var compiler = ShaderCompiler.New();
             var opts = CompileOptions.New();
             opts.EnableHlslFunctionality = true;
             opts.UseHlslIoMapping = true;
             opts.UseHlslOffsets = true;
             opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
             var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.VertexShader, "UIEffect.fx", "LightVertexShader", opts);
-            var bytes = result.Bytes;
+            var bytes = result.Bytecode;
             opts.SetAutoBindUniforms = true;
             var spvcResult = SpvcContext.Create(out var spvcContext);
             spvcResult = spvcContext.ParseSpirv(bytes, (ulong)bytes.Length/4, out var parsedIr);
@@ -80,7 +80,7 @@ namespace VulkanEngineTestCore
 
             for (ulong i = 0; i < size; i++)
             {
-                var res = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+                var res = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.DescriptorSet);
                 var res2 = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
 
                 var spvcType =  spvcCompiler.GetTypeHandle(list[i].Base_type_id);
@@ -100,12 +100,6 @@ namespace VulkanEngineTestCore
 
             resources.GetResourceListForType(SpvcResourceType.SeparateImage, out var images, ref size);
             resources.GetResourceListForType(SpvcResourceType.SeparateSamplers, out var samplers, ref size);
-
-            var descriptorSets = spvcCompiler.GetDecoration(images[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
-            var binding = spvcCompiler.GetDecoration(images[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
-
-            descriptorSets = spvcCompiler.GetDecoration(samplers[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
-            binding = spvcCompiler.GetDecoration(samplers[0].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;

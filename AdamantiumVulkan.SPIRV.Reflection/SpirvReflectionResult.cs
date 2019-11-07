@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AdamantiumVulkan.SPIRV.Cross;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace AdamantiumVulkan.SPIRV.Cross
+namespace AdamantiumVulkan.SPIRV.Reflection
 {
     public class SpirvReflectionResult
     {
