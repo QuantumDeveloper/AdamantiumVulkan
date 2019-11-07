@@ -32,33 +32,33 @@ namespace AdamantiumVulkan.SPIRV
     {
         Vertex = 0,
 
-        Tessellationcontrol = 1,
+        TessellationControl = 1,
 
-        Tessellationevaluation = 2,
+        TessellationEvaluation = 2,
 
         Geometry = 3,
 
         Fragment = 4,
 
-        Glcompute = 5,
+        GLCompute = 5,
 
         Kernel = 6,
 
-        Tasknv = 5267,
+        TaskNV = 5267,
 
-        Meshnv = 5268,
+        MeshNV = 5268,
 
-        Raygenerationnv = 5313,
+        RayGenerationNV = 5313,
 
-        Intersectionnv = 5314,
+        IntersectionNV = 5314,
 
-        Anyhitnv = 5315,
+        AnyHitNV = 5315,
 
-        Closesthitnv = 5316,
+        ClosestHitNV = 5316,
 
-        Missnv = 5317,
+        MissNV = 5317,
 
-        Callablenv = 5318,
+        CallableNV = 5318,
 
         Max = 2147483647,
 
@@ -72,7 +72,7 @@ namespace AdamantiumVulkan.SPIRV
 
         Physical64 = 2,
 
-        Physicalstoragebuffer64ext = 5348,
+        PhysicalStorageBuffer64EXT = 5348,
 
         Max = 2147483647,
 
@@ -84,9 +84,9 @@ namespace AdamantiumVulkan.SPIRV
 
         Glsl450 = 1,
 
-        Opencl = 2,
+        OpenCL = 2,
 
-        Vulkankhr = 3,
+        VulkanKHR = 3,
 
         Max = 2147483647,
 
@@ -96,115 +96,115 @@ namespace AdamantiumVulkan.SPIRV
     {
         Invocations = 0,
 
-        Spacingequal = 1,
+        SpacingEqual = 1,
 
-        Spacingfractionaleven = 2,
+        SpacingFractionalEven = 2,
 
-        Spacingfractionalodd = 3,
+        SpacingFractionalOdd = 3,
 
-        Vertexordercw = 4,
+        VertexOrderCw = 4,
 
-        Vertexorderccw = 5,
+        VertexOrderCcw = 5,
 
-        Pixelcenterinteger = 6,
+        PixelCenterInteger = 6,
 
-        Originupperleft = 7,
+        OriginUpperLeft = 7,
 
-        Originlowerleft = 8,
+        OriginLowerLeft = 8,
 
-        Earlyfragmenttests = 9,
+        EarlyFragmentTests = 9,
 
-        Pointmode = 10,
+        PointMode = 10,
 
         Xfb = 11,
 
-        Depthreplacing = 12,
+        DepthReplacing = 12,
 
-        Depthgreater = 14,
+        DepthGreater = 14,
 
-        Depthless = 15,
+        DepthLess = 15,
 
-        Depthunchanged = 16,
+        DepthUnchanged = 16,
 
-        Localsize = 17,
+        LocalSize = 17,
 
-        Localsizehint = 18,
+        LocalSizeHint = 18,
 
-        Inputpoints = 19,
+        InputPoints = 19,
 
-        Inputlines = 20,
+        InputLines = 20,
 
-        Inputlinesadjacency = 21,
+        InputLinesAdjacency = 21,
 
         Triangles = 22,
 
-        Inputtrianglesadjacency = 23,
+        InputTrianglesAdjacency = 23,
 
         Quads = 24,
 
         Isolines = 25,
 
-        Outputvertices = 26,
+        OutputVertices = 26,
 
-        Outputpoints = 27,
+        OutputPoints = 27,
 
-        Outputlinestrip = 28,
+        OutputLineStrip = 28,
 
-        Outputtrianglestrip = 29,
+        OutputTriangleStrip = 29,
 
-        Vectypehint = 30,
+        VecTypeHint = 30,
 
-        Contractionoff = 31,
+        ContractionOff = 31,
 
         Initializer = 33,
 
         Finalizer = 34,
 
-        Subgroupsize = 35,
+        SubgroupSize = 35,
 
-        Subgroupsperworkgroup = 36,
+        SubgroupsPerWorkgroup = 36,
 
-        Subgroupsperworkgroupid = 37,
+        SubgroupsPerWorkgroupId = 37,
 
-        Localsizeid = 38,
+        LocalSizeId = 38,
 
-        Localsizehintid = 39,
+        LocalSizeHintId = 39,
 
-        Postdepthcoverage = 4446,
+        PostDepthCoverage = 4446,
 
-        Denormpreserve = 4459,
+        DenormPreserve = 4459,
 
-        Denormflushtozero = 4460,
+        DenormFlushToZero = 4460,
 
-        Signedzeroinfnanpreserve = 4461,
+        SignedZeroInfNanPreserve = 4461,
 
-        Roundingmoderte = 4462,
+        RoundingModeRTE = 4462,
 
-        Roundingmodertz = 4463,
+        RoundingModeRTZ = 4463,
 
-        Stencilrefreplacingext = 5027,
+        StencilRefReplacingEXT = 5027,
 
-        Outputlinesnv = 5269,
+        OutputLinesNV = 5269,
 
-        Outputprimitivesnv = 5270,
+        OutputPrimitivesNV = 5270,
 
-        Derivativegroupquadsnv = 5289,
+        DerivativeGroupQuadsNV = 5289,
 
-        Derivativegrouplinearnv = 5290,
+        DerivativeGroupLinearNV = 5290,
 
-        Outputtrianglesnv = 5298,
+        OutputTrianglesNV = 5298,
 
-        Pixelinterlockorderedext = 5366,
+        PixelInterlockOrderedEXT = 5366,
 
-        Pixelinterlockunorderedext = 5367,
+        PixelInterlockUnorderedEXT = 5367,
 
-        Sampleinterlockorderedext = 5368,
+        SampleInterlockOrderedEXT = 5368,
 
-        Sampleinterlockunorderedext = 5369,
+        SampleInterlockUnorderedEXT = 5369,
 
-        Shadingrateinterlockorderedext = 5370,
+        ShadingRateInterlockOrderedEXT = 5370,
 
-        Shadingrateinterlockunorderedext = 5371,
+        ShadingRateInterlockUnorderedEXT = 5371,
 
         Max = 2147483647,
 
@@ -212,7 +212,7 @@ namespace AdamantiumVulkan.SPIRV
 
     public enum SpvStorageClass : int
     {
-        Uniformconstant = 0,
+        UniformConstant = 0,
 
         Input = 1,
 
@@ -222,7 +222,7 @@ namespace AdamantiumVulkan.SPIRV
 
         Workgroup = 4,
 
-        Crossworkgroup = 5,
+        CrossWorkgroup = 5,
 
         Private = 6,
 
@@ -230,27 +230,27 @@ namespace AdamantiumVulkan.SPIRV
 
         Generic = 8,
 
-        Pushconstant = 9,
+        PushConstant = 9,
 
-        Atomiccounter = 10,
+        AtomicCounter = 10,
 
         Image = 11,
 
-        Storagebuffer = 12,
+        StorageBuffer = 12,
 
-        Callabledatanv = 5328,
+        CallableDataNV = 5328,
 
-        Incomingcallabledatanv = 5329,
+        IncomingCallableDataNV = 5329,
 
-        Raypayloadnv = 5338,
+        RayPayloadNV = 5338,
 
-        Hitattributenv = 5339,
+        HitAttributeNV = 5339,
 
-        Incomingraypayloadnv = 5342,
+        IncomingRayPayloadNV = 5342,
 
-        Shaderrecordbuffernv = 5343,
+        ShaderRecordBufferNV = 5343,
 
-        Physicalstoragebufferext = 5349,
+        PhysicalStorageBufferEXT = 5349,
 
         Max = 2147483647,
 
@@ -270,7 +270,7 @@ namespace AdamantiumVulkan.SPIRV
 
         Buffer = 5,
 
-        Subpassdata = 6,
+        SubpassData = 6,
 
         Max = 2147483647,
 
@@ -280,13 +280,13 @@ namespace AdamantiumVulkan.SPIRV
     {
         None = 0,
 
-        Clamptoedge = 1,
+        ClampToEdge = 1,
 
         Clamp = 2,
 
         Repeat = 3,
 
-        Repeatmirrored = 4,
+        RepeatMirrored = 4,
 
         Max = 2147483647,
 
@@ -315,19 +315,19 @@ namespace AdamantiumVulkan.SPIRV
 
         Rgba8 = 4,
 
-        Rgba8snorm = 5,
+        Rgba8Snorm = 5,
 
         Rg32f = 6,
 
         Rg16f = 7,
 
-        R11fg11fb10f = 8,
+        R11fG11fB10f = 8,
 
         R16f = 9,
 
         Rgba16 = 10,
 
-        Rgb10a2 = 11,
+        Rgb10A2 = 11,
 
         Rg16 = 12,
 
@@ -337,15 +337,15 @@ namespace AdamantiumVulkan.SPIRV
 
         R8 = 15,
 
-        Rgba16snorm = 16,
+        Rgba16Snorm = 16,
 
-        Rg16snorm = 17,
+        Rg16Snorm = 17,
 
-        Rg8snorm = 18,
+        Rg8Snorm = 18,
 
-        R16snorm = 19,
+        R16Snorm = 19,
 
-        R8snorm = 20,
+        R8Snorm = 20,
 
         Rgba32i = 21,
 
@@ -413,21 +413,21 @@ namespace AdamantiumVulkan.SPIRV
 
         Rx = 10,
 
-        Rgx = 11,
+        RGx = 11,
 
-        Rgbx = 12,
+        RGBx = 12,
 
         Depth = 13,
 
-        Depthstencil = 14,
+        DepthStencil = 14,
 
-        Srgb = 15,
+        sRGB = 15,
 
-        Srgbx = 16,
+        sRGBx = 16,
 
-        Srgba = 17,
+        sRGBA = 17,
 
-        Sbgra = 18,
+        sBGRA = 18,
 
         Abgr = 19,
 
@@ -437,37 +437,37 @@ namespace AdamantiumVulkan.SPIRV
 
     public enum SpvImageChannelDataType : int
     {
-        Snormint8 = 0,
+        SnormInt8 = 0,
 
-        Snormint16 = 1,
+        SnormInt16 = 1,
 
-        Unormint8 = 2,
+        UnormInt8 = 2,
 
-        Unormint16 = 3,
+        UnormInt16 = 3,
 
-        Unormshort565 = 4,
+        UnormShort565 = 4,
 
-        Unormshort555 = 5,
+        UnormShort555 = 5,
 
-        Unormint101010 = 6,
+        UnormInt101010 = 6,
 
-        Signedint8 = 7,
+        SignedInt8 = 7,
 
-        Signedint16 = 8,
+        SignedInt16 = 8,
 
-        Signedint32 = 9,
+        SignedInt32 = 9,
 
-        Unsignedint8 = 10,
+        UnsignedInt8 = 10,
 
-        Unsignedint16 = 11,
+        UnsignedInt16 = 11,
 
-        Unsignedint32 = 12,
+        UnsignedInt32 = 12,
 
-        Halffloat = 13,
+        HalfFloat = 13,
 
         Float = 14,
 
-        Unormint24 = 15,
+        UnormInt24 = 15,
 
         Unormint1010102 = 16,
 
@@ -477,33 +477,33 @@ namespace AdamantiumVulkan.SPIRV
 
     public enum SpvImageOperandsShift : int
     {
-        Biasshift = 0,
+        BiasShift = 0,
 
-        Lodshift = 1,
+        LodShift = 1,
 
-        Gradshift = 2,
+        GradShift = 2,
 
-        Constoffsetshift = 3,
+        ConstOffsetShift = 3,
 
-        Offsetshift = 4,
+        OffsetShift = 4,
 
-        Constoffsetsshift = 5,
+        ConstOffsetsShift = 5,
 
-        Sampleshift = 6,
+        SampleShift = 6,
 
-        Minlodshift = 7,
+        MinLodShift = 7,
 
-        Maketexelavailablekhrshift = 8,
+        MakeTexelAvailableKHRShift = 8,
 
-        Maketexelvisiblekhrshift = 9,
+        MakeTexelVisibleKHRShift = 9,
 
-        Nonprivatetexelkhrshift = 10,
+        NonPrivateTexelKHRShift = 10,
 
-        Volatiletexelkhrshift = 11,
+        VolatileTexelKHRShift = 11,
 
-        Signextendshift = 12,
+        SignExtendShift = 12,
 
-        Zeroextendshift = 13,
+        ZeroExtendShift = 13,
 
         Max = 2147483647,
 
@@ -512,49 +512,49 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvImageOperandsMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Biasmask = 1,
+        BiasMask = 1,
 
-        Lodmask = 2,
+        LodMask = 2,
 
-        Gradmask = 4,
+        GradMask = 4,
 
-        Constoffsetmask = 8,
+        ConstOffsetMask = 8,
 
-        Offsetmask = 16,
+        OffsetMask = 16,
 
-        Constoffsetsmask = 32,
+        ConstOffsetsMask = 32,
 
-        Samplemask = 64,
+        SampleMask = 64,
 
-        Minlodmask = 128,
+        MinLodMask = 128,
 
-        Maketexelavailablekhrmask = 256,
+        MakeTexelAvailableKHRMask = 256,
 
-        Maketexelvisiblekhrmask = 512,
+        MakeTexelVisibleKHRMask = 512,
 
-        Nonprivatetexelkhrmask = 1024,
+        NonPrivateTexelKHRMask = 1024,
 
-        Volatiletexelkhrmask = 2048,
+        VolatileTexelKHRMask = 2048,
 
-        Signextendmask = 4096,
+        SignExtendMask = 4096,
 
-        Zeroextendmask = 8192,
+        ZeroExtendMask = 8192,
 
     }
 
     public enum SpvFPFastMathModeShift : int
     {
-        Notnanshift = 0,
+        NotNaNShift = 0,
 
-        Notinfshift = 1,
+        NotInfShift = 1,
 
-        Nszshift = 2,
+        NSZShift = 2,
 
-        Allowrecipshift = 3,
+        AllowRecipShift = 3,
 
-        Fastshift = 4,
+        FastShift = 4,
 
         Max = 2147483647,
 
@@ -563,17 +563,17 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvFPFastMathModeMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Notnanmask = 1,
+        NotNaNMask = 1,
 
-        Notinfmask = 2,
+        NotInfMask = 2,
 
-        Nszmask = 4,
+        NSZMask = 4,
 
-        Allowrecipmask = 8,
+        AllowRecipMask = 8,
 
-        Fastmask = 16,
+        FastMask = 16,
 
     }
 
@@ -605,11 +605,11 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvAccessQualifier : int
     {
-        Readonly = 0,
+        ReadOnly = 0,
 
-        Writeonly = 1,
+        WriteOnly = 1,
 
-        Readwrite = 2,
+        ReadWrite = 2,
 
         Max = 2147483647,
 
@@ -621,17 +621,17 @@ namespace AdamantiumVulkan.SPIRV
 
         Sext = 1,
 
-        Byval = 2,
+        ByVal = 2,
 
         Sret = 3,
 
-        Noalias = 4,
+        NoAlias = 4,
 
-        Nocapture = 5,
+        NoCapture = 5,
 
-        Nowrite = 6,
+        NoWrite = 6,
 
-        Noreadwrite = 7,
+        NoReadWrite = 7,
 
         Max = 2147483647,
 
@@ -639,31 +639,31 @@ namespace AdamantiumVulkan.SPIRV
 
     public enum SpvDecoration : int
     {
-        Relaxedprecision = 0,
+        RelaxedPrecision = 0,
 
-        Specid = 1,
+        SpecId = 1,
 
         Block = 2,
 
-        Bufferblock = 3,
+        BufferBlock = 3,
 
-        Rowmajor = 4,
+        RowMajor = 4,
 
-        Colmajor = 5,
+        ColMajor = 5,
 
-        Arraystride = 6,
+        ArrayStride = 6,
 
-        Matrixstride = 7,
+        MatrixStride = 7,
 
-        Glslshared = 8,
+        GLSLShared = 8,
 
-        Glslpacked = 9,
+        GLSLPacked = 9,
 
-        Cpacked = 10,
+        CPacked = 10,
 
-        Builtin = 11,
+        BuiltIn = 11,
 
-        Noperspective = 13,
+        NoPerspective = 13,
 
         Flat = 14,
 
@@ -685,15 +685,15 @@ namespace AdamantiumVulkan.SPIRV
 
         Coherent = 23,
 
-        Nonwritable = 24,
+        NonWritable = 24,
 
-        Nonreadable = 25,
+        NonReadable = 25,
 
         Uniform = 26,
 
-        Uniformid = 27,
+        UniformId = 27,
 
-        Saturatedconversion = 28,
+        SaturatedConversion = 28,
 
         Stream = 29,
 
@@ -705,67 +705,67 @@ namespace AdamantiumVulkan.SPIRV
 
         Binding = 33,
 
-        Descriptorset = 34,
+        DescriptorSet = 34,
 
         Offset = 35,
 
-        Xfbbuffer = 36,
+        XfbBuffer = 36,
 
-        Xfbstride = 37,
+        XfbStride = 37,
 
-        Funcparamattr = 38,
+        FuncParamAttr = 38,
 
-        Fproundingmode = 39,
+        FPRoundingMode = 39,
 
-        Fpfastmathmode = 40,
+        FPFastMathMode = 40,
 
-        Linkageattributes = 41,
+        LinkageAttributes = 41,
 
-        Nocontraction = 42,
+        NoContraction = 42,
 
-        Inputattachmentindex = 43,
+        InputAttachmentIndex = 43,
 
         Alignment = 44,
 
-        Maxbyteoffset = 45,
+        MaxByteOffset = 45,
 
-        Alignmentid = 46,
+        AlignmentId = 46,
 
-        Maxbyteoffsetid = 47,
+        MaxByteOffsetId = 47,
 
-        Nosignedwrap = 4469,
+        NoSignedWrap = 4469,
 
-        Nounsignedwrap = 4470,
+        NoUnsignedWrap = 4470,
 
-        Explicitinterpamd = 4999,
+        ExplicitInterpAMD = 4999,
 
-        Overridecoveragenv = 5248,
+        OverrideCoverageNV = 5248,
 
-        Passthroughnv = 5250,
+        PassthroughNV = 5250,
 
-        Viewportrelativenv = 5252,
+        ViewportRelativeNV = 5252,
 
-        Secondaryviewportrelativenv = 5256,
+        SecondaryViewportRelativeNV = 5256,
 
-        Perprimitivenv = 5271,
+        PerPrimitiveNV = 5271,
 
-        Perviewnv = 5272,
+        PerViewNV = 5272,
 
-        Pertasknv = 5273,
+        PerTaskNV = 5273,
 
-        Pervertexnv = 5285,
+        PerVertexNV = 5285,
 
-        Nonuniformext = 5300,
+        NonUniformEXT = 5300,
 
-        Restrictpointerext = 5355,
+        RestrictPointerEXT = 5355,
 
-        Aliasedpointerext = 5356,
+        AliasedPointerEXT = 5356,
 
-        Counterbuffer = 5634,
+        CounterBuffer = 5634,
 
-        Hlslsemanticgoogle = 5635,
+        HlslSemanticGOOGLE = 5635,
 
-        Usertypegoogle = 5636,
+        UserTypeGOOGLE = 5636,
 
         Max = 2147483647,
 
@@ -775,191 +775,191 @@ namespace AdamantiumVulkan.SPIRV
     {
         Position = 0,
 
-        Pointsize = 1,
+        PointSize = 1,
 
-        Clipdistance = 3,
+        ClipDistance = 3,
 
-        Culldistance = 4,
+        CullDistance = 4,
 
-        Vertexid = 5,
+        VertexId = 5,
 
-        Instanceid = 6,
+        InstanceId = 6,
 
-        Primitiveid = 7,
+        PrimitiveId = 7,
 
-        Invocationid = 8,
+        InvocationId = 8,
 
         Layer = 9,
 
-        Viewportindex = 10,
+        ViewportIndex = 10,
 
-        Tesslevelouter = 11,
+        TessLevelOuter = 11,
 
-        Tesslevelinner = 12,
+        TessLevelInner = 12,
 
-        Tesscoord = 13,
+        TessCoord = 13,
 
-        Patchvertices = 14,
+        PatchVertices = 14,
 
-        Fragcoord = 15,
+        FragCoord = 15,
 
-        Pointcoord = 16,
+        PointCoord = 16,
 
-        Frontfacing = 17,
+        FrontFacing = 17,
 
-        Sampleid = 18,
+        SampleId = 18,
 
-        Sampleposition = 19,
+        SamplePosition = 19,
 
-        Samplemask = 20,
+        SampleMask = 20,
 
-        Fragdepth = 22,
+        FragDepth = 22,
 
-        Helperinvocation = 23,
+        HelperInvocation = 23,
 
-        Numworkgroups = 24,
+        NumWorkgroups = 24,
 
-        Workgroupsize = 25,
+        WorkgroupSize = 25,
 
-        Workgroupid = 26,
+        WorkgroupId = 26,
 
-        Localinvocationid = 27,
+        LocalInvocationId = 27,
 
-        Globalinvocationid = 28,
+        GlobalInvocationId = 28,
 
-        Localinvocationindex = 29,
+        LocalInvocationIndex = 29,
 
-        Workdim = 30,
+        WorkDim = 30,
 
-        Globalsize = 31,
+        GlobalSize = 31,
 
-        Enqueuedworkgroupsize = 32,
+        EnqueuedWorkgroupSize = 32,
 
-        Globaloffset = 33,
+        GlobalOffset = 33,
 
-        Globallinearid = 34,
+        GlobalLinearId = 34,
 
-        Subgroupsize = 36,
+        SubgroupSize = 36,
 
-        Subgroupmaxsize = 37,
+        SubgroupMaxSize = 37,
 
-        Numsubgroups = 38,
+        NumSubgroups = 38,
 
-        Numenqueuedsubgroups = 39,
+        NumEnqueuedSubgroups = 39,
 
-        Subgroupid = 40,
+        SubgroupId = 40,
 
-        Subgrouplocalinvocationid = 41,
+        SubgroupLocalInvocationId = 41,
 
-        Vertexindex = 42,
+        VertexIndex = 42,
 
-        Instanceindex = 43,
+        InstanceIndex = 43,
 
-        Subgroupeqmask = 4416,
+        SubgroupEqMask = 4416,
 
-        Subgroupgemask = 4417,
+        SubgroupGeMask = 4417,
 
-        Subgroupgtmask = 4418,
+        SubgroupGtMask = 4418,
 
-        Subgrouplemask = 4419,
+        SubgroupLeMask = 4419,
 
-        Subgroupltmask = 4420,
+        SubgroupLtMask = 4420,
 
-        Basevertex = 4424,
+        BaseVertex = 4424,
 
-        Baseinstance = 4425,
+        BaseInstance = 4425,
 
-        Drawindex = 4426,
+        DrawIndex = 4426,
 
-        Deviceindex = 4438,
+        DeviceIndex = 4438,
 
-        Viewindex = 4440,
+        ViewIndex = 4440,
 
-        Barycoordnoperspamd = 4992,
+        BaryCoordNoPerspAMD = 4992,
 
-        Barycoordnoperspcentroidamd = 4993,
+        BaryCoordNoPerspCentroidAMD = 4993,
 
-        Barycoordnoperspsampleamd = 4994,
+        BaryCoordNoPerspSampleAMD = 4994,
 
-        Barycoordsmoothamd = 4995,
+        BaryCoordSmoothAMD = 4995,
 
-        Barycoordsmoothcentroidamd = 4996,
+        BaryCoordSmoothCentroidAMD = 4996,
 
-        Barycoordsmoothsampleamd = 4997,
+        BaryCoordSmoothSampleAMD = 4997,
 
-        Barycoordpullmodelamd = 4998,
+        BaryCoordPullModelAMD = 4998,
 
-        Fragstencilrefext = 5014,
+        FragStencilRefEXT = 5014,
 
-        Viewportmasknv = 5253,
+        ViewportMaskNV = 5253,
 
-        Secondarypositionnv = 5257,
+        SecondaryPositionNV = 5257,
 
-        Secondaryviewportmasknv = 5258,
+        SecondaryViewportMaskNV = 5258,
 
-        Positionperviewnv = 5261,
+        PositionPerViewNV = 5261,
 
-        Viewportmaskperviewnv = 5262,
+        ViewportMaskPerViewNV = 5262,
 
-        Fullycoveredext = 5264,
+        FullyCoveredEXT = 5264,
 
-        Taskcountnv = 5274,
+        TaskCountNV = 5274,
 
-        Primitivecountnv = 5275,
+        PrimitiveCountNV = 5275,
 
-        Primitiveindicesnv = 5276,
+        PrimitiveIndicesNV = 5276,
 
-        Clipdistanceperviewnv = 5277,
+        ClipDistancePerViewNV = 5277,
 
-        Culldistanceperviewnv = 5278,
+        CullDistancePerViewNV = 5278,
 
-        Layerperviewnv = 5279,
+        LayerPerViewNV = 5279,
 
-        Meshviewcountnv = 5280,
+        MeshViewCountNV = 5280,
 
-        Meshviewindicesnv = 5281,
+        MeshViewIndicesNV = 5281,
 
-        Barycoordnv = 5286,
+        BaryCoordNV = 5286,
 
-        Barycoordnoperspnv = 5287,
+        BaryCoordNoPerspNV = 5287,
 
-        Fragsizeext = 5292,
+        FragSizeEXT = 5292,
 
-        Fraginvocationcountext = 5293,
+        FragInvocationCountEXT = 5293,
 
-        Launchidnv = 5319,
+        LaunchIdNV = 5319,
 
-        Launchsizenv = 5320,
+        LaunchSizeNV = 5320,
 
-        Worldrayoriginnv = 5321,
+        WorldRayOriginNV = 5321,
 
-        Worldraydirectionnv = 5322,
+        WorldRayDirectionNV = 5322,
 
-        Objectrayoriginnv = 5323,
+        ObjectRayOriginNV = 5323,
 
-        Objectraydirectionnv = 5324,
+        ObjectRayDirectionNV = 5324,
 
-        Raytminnv = 5325,
+        RayTminNV = 5325,
 
-        Raytmaxnv = 5326,
+        RayTmaxNV = 5326,
 
-        Instancecustomindexnv = 5327,
+        InstanceCustomIndexNV = 5327,
 
-        Objecttoworldnv = 5330,
+        ObjectToWorldNV = 5330,
 
-        Worldtoobjectnv = 5331,
+        WorldToObjectNV = 5331,
 
-        Hittnv = 5332,
+        HitTNV = 5332,
 
-        Hitkindnv = 5333,
+        HitKindNV = 5333,
 
-        Incomingrayflagsnv = 5351,
+        IncomingRayFlagsNV = 5351,
 
-        Warpspersmnv = 5374,
+        WarpsPerSMNV = 5374,
 
-        Smcountnv = 5375,
+        SMCountNV = 5375,
 
-        Warpidnv = 5376,
+        WarpIDNV = 5376,
 
         Smidnv = 5377,
 
@@ -970,9 +970,9 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvSelectionControlShift : int
     {
-        Flattenshift = 0,
+        FlattenShift = 0,
 
-        Dontflattenshift = 1,
+        DontFlattenShift = 1,
 
         Max = 2147483647,
 
@@ -981,33 +981,33 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvSelectionControlMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Flattenmask = 1,
+        FlattenMask = 1,
 
-        Dontflattenmask = 2,
+        DontFlattenMask = 2,
 
     }
 
     public enum SpvLoopControlShift : int
     {
-        Unrollshift = 0,
+        UnrollShift = 0,
 
-        Dontunrollshift = 1,
+        DontUnrollShift = 1,
 
-        Dependencyinfiniteshift = 2,
+        DependencyInfiniteShift = 2,
 
-        Dependencylengthshift = 3,
+        DependencyLengthShift = 3,
 
-        Miniterationsshift = 4,
+        MinIterationsShift = 4,
 
-        Maxiterationsshift = 5,
+        MaxIterationsShift = 5,
 
-        Iterationmultipleshift = 6,
+        IterationMultipleShift = 6,
 
-        Peelcountshift = 7,
+        PeelCountShift = 7,
 
-        Partialcountshift = 8,
+        PartialCountShift = 8,
 
         Max = 2147483647,
 
@@ -1016,37 +1016,37 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvLoopControlMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Unrollmask = 1,
+        UnrollMask = 1,
 
-        Dontunrollmask = 2,
+        DontUnrollMask = 2,
 
-        Dependencyinfinitemask = 4,
+        DependencyInfiniteMask = 4,
 
-        Dependencylengthmask = 8,
+        DependencyLengthMask = 8,
 
-        Miniterationsmask = 16,
+        MinIterationsMask = 16,
 
-        Maxiterationsmask = 32,
+        MaxIterationsMask = 32,
 
-        Iterationmultiplemask = 64,
+        IterationMultipleMask = 64,
 
-        Peelcountmask = 128,
+        PeelCountMask = 128,
 
-        Partialcountmask = 256,
+        PartialCountMask = 256,
 
     }
 
     public enum SpvFunctionControlShift : int
     {
-        Inlineshift = 0,
+        InlineShift = 0,
 
-        Dontinlineshift = 1,
+        DontInlineShift = 1,
 
-        Pureshift = 2,
+        PureShift = 2,
 
-        Constshift = 3,
+        ConstShift = 3,
 
         Max = 2147483647,
 
@@ -1055,47 +1055,47 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvFunctionControlMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Inlinemask = 1,
+        InlineMask = 1,
 
-        Dontinlinemask = 2,
+        DontInlineMask = 2,
 
-        Puremask = 4,
+        PureMask = 4,
 
-        Constmask = 8,
+        ConstMask = 8,
 
     }
 
     public enum SpvMemorySemanticsShift : int
     {
-        Acquireshift = 1,
+        AcquireShift = 1,
 
-        Releaseshift = 2,
+        ReleaseShift = 2,
 
-        Acquirereleaseshift = 3,
+        AcquireReleaseShift = 3,
 
-        Sequentiallyconsistentshift = 4,
+        SequentiallyConsistentShift = 4,
 
-        Uniformmemoryshift = 6,
+        UniformMemoryShift = 6,
 
-        Subgroupmemoryshift = 7,
+        SubgroupMemoryShift = 7,
 
-        Workgroupmemoryshift = 8,
+        WorkgroupMemoryShift = 8,
 
-        Crossworkgroupmemoryshift = 9,
+        CrossWorkgroupMemoryShift = 9,
 
-        Atomiccountermemoryshift = 10,
+        AtomicCounterMemoryShift = 10,
 
-        Imagememoryshift = 11,
+        ImageMemoryShift = 11,
 
-        Outputmemorykhrshift = 12,
+        OutputMemoryKHRShift = 12,
 
-        Makeavailablekhrshift = 13,
+        MakeAvailableKHRShift = 13,
 
-        Makevisiblekhrshift = 14,
+        MakeVisibleKHRShift = 14,
 
-        Volatileshift = 15,
+        VolatileShift = 15,
 
         Max = 2147483647,
 
@@ -1104,51 +1104,51 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvMemorySemanticsMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Acquiremask = 2,
+        AcquireMask = 2,
 
-        Releasemask = 4,
+        ReleaseMask = 4,
 
-        Acquirereleasemask = 8,
+        AcquireReleaseMask = 8,
 
-        Sequentiallyconsistentmask = 16,
+        SequentiallyConsistentMask = 16,
 
-        Uniformmemorymask = 64,
+        UniformMemoryMask = 64,
 
-        Subgroupmemorymask = 128,
+        SubgroupMemoryMask = 128,
 
-        Workgroupmemorymask = 256,
+        WorkgroupMemoryMask = 256,
 
-        Crossworkgroupmemorymask = 512,
+        CrossWorkgroupMemoryMask = 512,
 
-        Atomiccountermemorymask = 1024,
+        AtomicCounterMemoryMask = 1024,
 
-        Imagememorymask = 2048,
+        ImageMemoryMask = 2048,
 
-        Outputmemorykhrmask = 4096,
+        OutputMemoryKHRMask = 4096,
 
-        Makeavailablekhrmask = 8192,
+        MakeAvailableKHRMask = 8192,
 
-        Makevisiblekhrmask = 16384,
+        MakeVisibleKHRMask = 16384,
 
-        Volatilemask = 32768,
+        VolatileMask = 32768,
 
     }
 
     public enum SpvMemoryAccessShift : int
     {
-        Volatileshift = 0,
+        VolatileShift = 0,
 
-        Alignedshift = 1,
+        AlignedShift = 1,
 
-        Nontemporalshift = 2,
+        NontemporalShift = 2,
 
-        Makepointeravailablekhrshift = 3,
+        MakePointerAvailableKHRShift = 3,
 
-        Makepointervisiblekhrshift = 4,
+        MakePointerVisibleKHRShift = 4,
 
-        Nonprivatepointerkhrshift = 5,
+        NonPrivatePointerKHRShift = 5,
 
         Max = 2147483647,
 
@@ -1157,25 +1157,25 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvMemoryAccessMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Volatilemask = 1,
+        VolatileMask = 1,
 
-        Alignedmask = 2,
+        AlignedMask = 2,
 
-        Nontemporalmask = 4,
+        NontemporalMask = 4,
 
-        Makepointeravailablekhrmask = 8,
+        MakePointerAvailableKHRMask = 8,
 
-        Makepointervisiblekhrmask = 16,
+        MakePointerVisibleKHRMask = 16,
 
-        Nonprivatepointerkhrmask = 32,
+        NonPrivatePointerKHRMask = 32,
 
     }
 
     public enum SpvScope : int
     {
-        Crossdevice = 0,
+        CrossDevice = 0,
 
         Device = 1,
 
@@ -1185,7 +1185,7 @@ namespace AdamantiumVulkan.SPIRV
 
         Invocation = 4,
 
-        Queuefamilykhr = 5,
+        QueueFamilyKHR = 5,
 
         Max = 2147483647,
 
@@ -1195,17 +1195,17 @@ namespace AdamantiumVulkan.SPIRV
     {
         Reduce = 0,
 
-        Inclusivescan = 1,
+        InclusiveScan = 1,
 
-        Exclusivescan = 2,
+        ExclusiveScan = 2,
 
-        Clusteredreduce = 3,
+        ClusteredReduce = 3,
 
-        Partitionedreducenv = 6,
+        PartitionedReduceNV = 6,
 
-        Partitionedinclusivescannv = 7,
+        PartitionedInclusiveScanNV = 7,
 
-        Partitionedexclusivescannv = 8,
+        PartitionedExclusiveScanNV = 8,
 
         Max = 2147483647,
 
@@ -1214,11 +1214,11 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvKernelEnqueueFlags : int
     {
-        Nowait = 0,
+        NoWait = 0,
 
-        Waitkernel = 1,
+        WaitKernel = 1,
 
-        Waitworkgroup = 2,
+        WaitWorkGroup = 2,
 
         Max = 2147483647,
 
@@ -1227,7 +1227,7 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvKernelProfilingInfoShift : int
     {
-        Cmdexectimeshift = 0,
+        CmdExecTimeShift = 0,
 
         Max = 2147483647,
 
@@ -1236,9 +1236,9 @@ namespace AdamantiumVulkan.SPIRV
     [Flags]
     public enum SpvKernelProfilingInfoMask : int
     {
-        Masknone = 0,
+        MaskNone = 0,
 
-        Cmdexectimemask = 1,
+        CmdExecTimeMask = 1,
 
     }
 
@@ -1260,7 +1260,7 @@ namespace AdamantiumVulkan.SPIRV
 
         Vector16 = 7,
 
-        Float16buffer = 8,
+        Float16Buffer = 8,
 
         Float16 = 9,
 
@@ -1268,255 +1268,255 @@ namespace AdamantiumVulkan.SPIRV
 
         Int64 = 11,
 
-        Int64atomics = 12,
+        Int64Atomics = 12,
 
-        Imagebasic = 13,
+        ImageBasic = 13,
 
-        Imagereadwrite = 14,
+        ImageReadWrite = 14,
 
-        Imagemipmap = 15,
+        ImageMipmap = 15,
 
         Pipes = 17,
 
         Groups = 18,
 
-        Deviceenqueue = 19,
+        DeviceEnqueue = 19,
 
-        Literalsampler = 20,
+        LiteralSampler = 20,
 
-        Atomicstorage = 21,
+        AtomicStorage = 21,
 
         Int16 = 22,
 
-        Tessellationpointsize = 23,
+        TessellationPointSize = 23,
 
-        Geometrypointsize = 24,
+        GeometryPointSize = 24,
 
-        Imagegatherextended = 25,
+        ImageGatherExtended = 25,
 
-        Storageimagemultisample = 27,
+        StorageImageMultisample = 27,
 
-        Uniformbufferarraydynamicindexing = 28,
+        UniformBufferArrayDynamicIndexing = 28,
 
-        Sampledimagearraydynamicindexing = 29,
+        SampledImageArrayDynamicIndexing = 29,
 
-        Storagebufferarraydynamicindexing = 30,
+        StorageBufferArrayDynamicIndexing = 30,
 
-        Storageimagearraydynamicindexing = 31,
+        StorageImageArrayDynamicIndexing = 31,
 
-        Clipdistance = 32,
+        ClipDistance = 32,
 
-        Culldistance = 33,
+        CullDistance = 33,
 
-        Imagecubearray = 34,
+        ImageCubeArray = 34,
 
-        Samplerateshading = 35,
+        SampleRateShading = 35,
 
-        Imagerect = 36,
+        ImageRect = 36,
 
-        Sampledrect = 37,
+        SampledRect = 37,
 
-        Genericpointer = 38,
+        GenericPointer = 38,
 
         Int8 = 39,
 
-        Inputattachment = 40,
+        InputAttachment = 40,
 
-        Sparseresidency = 41,
+        SparseResidency = 41,
 
-        Minlod = 42,
+        MinLod = 42,
 
-        Sampled1d = 43,
+        Sampled1D = 43,
 
-        Image1d = 44,
+        Image1D = 44,
 
-        Sampledcubearray = 45,
+        SampledCubeArray = 45,
 
-        Sampledbuffer = 46,
+        SampledBuffer = 46,
 
-        Imagebuffer = 47,
+        ImageBuffer = 47,
 
-        Imagemsarray = 48,
+        ImageMSArray = 48,
 
-        Storageimageextendedformats = 49,
+        StorageImageExtendedFormats = 49,
 
-        Imagequery = 50,
+        ImageQuery = 50,
 
-        Derivativecontrol = 51,
+        DerivativeControl = 51,
 
-        Interpolationfunction = 52,
+        InterpolationFunction = 52,
 
-        Transformfeedback = 53,
+        TransformFeedback = 53,
 
-        Geometrystreams = 54,
+        GeometryStreams = 54,
 
-        Storageimagereadwithoutformat = 55,
+        StorageImageReadWithoutFormat = 55,
 
-        Storageimagewritewithoutformat = 56,
+        StorageImageWriteWithoutFormat = 56,
 
-        Multiviewport = 57,
+        MultiViewport = 57,
 
-        Subgroupdispatch = 58,
+        SubgroupDispatch = 58,
 
-        Namedbarrier = 59,
+        NamedBarrier = 59,
 
-        Pipestorage = 60,
+        PipeStorage = 60,
 
-        Groupnonuniform = 61,
+        GroupNonUniform = 61,
 
-        Groupnonuniformvote = 62,
+        GroupNonUniformVote = 62,
 
-        Groupnonuniformarithmetic = 63,
+        GroupNonUniformArithmetic = 63,
 
-        Groupnonuniformballot = 64,
+        GroupNonUniformBallot = 64,
 
-        Groupnonuniformshuffle = 65,
+        GroupNonUniformShuffle = 65,
 
-        Groupnonuniformshufflerelative = 66,
+        GroupNonUniformShuffleRelative = 66,
 
-        Groupnonuniformclustered = 67,
+        GroupNonUniformClustered = 67,
 
-        Groupnonuniformquad = 68,
+        GroupNonUniformQuad = 68,
 
-        Subgroupballotkhr = 4423,
+        SubgroupBallotKHR = 4423,
 
-        Drawparameters = 4427,
+        DrawParameters = 4427,
 
-        Subgroupvotekhr = 4431,
+        SubgroupVoteKHR = 4431,
 
-        Storagebuffer16bitaccess = 4433,
+        StorageBuffer16BitAccess = 4433,
 
-        Storageuniform16 = 4434,
+        StorageUniform16 = 4434,
 
-        Storagepushconstant16 = 4435,
+        StoragePushConstant16 = 4435,
 
-        Storageinputoutput16 = 4436,
+        StorageInputOutput16 = 4436,
 
-        Devicegroup = 4437,
+        DeviceGroup = 4437,
 
-        Multiview = 4439,
+        MultiView = 4439,
 
-        Variablepointersstoragebuffer = 4441,
+        VariablePointersStorageBuffer = 4441,
 
-        Variablepointers = 4442,
+        VariablePointers = 4442,
 
-        Atomicstorageops = 4445,
+        AtomicStorageOps = 4445,
 
-        Samplemaskpostdepthcoverage = 4447,
+        SampleMaskPostDepthCoverage = 4447,
 
-        Storagebuffer8bitaccess = 4448,
+        StorageBuffer8BitAccess = 4448,
 
-        Uniformandstoragebuffer8bitaccess = 4449,
+        UniformAndStorageBuffer8BitAccess = 4449,
 
-        Storagepushconstant8 = 4450,
+        StoragePushConstant8 = 4450,
 
-        Denormpreserve = 4464,
+        DenormPreserve = 4464,
 
-        Denormflushtozero = 4465,
+        DenormFlushToZero = 4465,
 
-        Signedzeroinfnanpreserve = 4466,
+        SignedZeroInfNanPreserve = 4466,
 
-        Roundingmoderte = 4467,
+        RoundingModeRTE = 4467,
 
-        Roundingmodertz = 4468,
+        RoundingModeRTZ = 4468,
 
-        Float16imageamd = 5008,
+        Float16ImageAMD = 5008,
 
-        Imagegatherbiaslodamd = 5009,
+        ImageGatherBiasLodAMD = 5009,
 
-        Fragmentmaskamd = 5010,
+        FragmentMaskAMD = 5010,
 
-        Stencilexportext = 5013,
+        StencilExportEXT = 5013,
 
-        Imagereadwritelodamd = 5015,
+        ImageReadWriteLodAMD = 5015,
 
-        Samplemaskoverridecoveragenv = 5249,
+        SampleMaskOverrideCoverageNV = 5249,
 
-        Geometryshaderpassthroughnv = 5251,
+        GeometryShaderPassthroughNV = 5251,
 
-        Shaderviewportindexlayerext = 5254,
+        ShaderViewportIndexLayerEXT = 5254,
 
-        Shaderviewportmasknv = 5255,
+        ShaderViewportMaskNV = 5255,
 
-        Shaderstereoviewnv = 5259,
+        ShaderStereoViewNV = 5259,
 
-        Perviewattributesnv = 5260,
+        PerViewAttributesNV = 5260,
 
-        Fragmentfullycoveredext = 5265,
+        FragmentFullyCoveredEXT = 5265,
 
-        Meshshadingnv = 5266,
+        MeshShadingNV = 5266,
 
-        Imagefootprintnv = 5282,
+        ImageFootprintNV = 5282,
 
-        Fragmentbarycentricnv = 5284,
+        FragmentBarycentricNV = 5284,
 
-        Computederivativegroupquadsnv = 5288,
+        ComputeDerivativeGroupQuadsNV = 5288,
 
-        Fragmentdensityext = 5291,
+        FragmentDensityEXT = 5291,
 
-        Groupnonuniformpartitionednv = 5297,
+        GroupNonUniformPartitionedNV = 5297,
 
-        Shadernonuniformext = 5301,
+        ShaderNonUniformEXT = 5301,
 
-        Runtimedescriptorarrayext = 5302,
+        RuntimeDescriptorArrayEXT = 5302,
 
-        Inputattachmentarraydynamicindexingext = 5303,
+        InputAttachmentArrayDynamicIndexingEXT = 5303,
 
-        Uniformtexelbufferarraydynamicindexingext = 5304,
+        UniformTexelBufferArrayDynamicIndexingEXT = 5304,
 
-        Storagetexelbufferarraydynamicindexingext = 5305,
+        StorageTexelBufferArrayDynamicIndexingEXT = 5305,
 
-        Uniformbufferarraynonuniformindexingext = 5306,
+        UniformBufferArrayNonUniformIndexingEXT = 5306,
 
-        Sampledimagearraynonuniformindexingext = 5307,
+        SampledImageArrayNonUniformIndexingEXT = 5307,
 
-        Storagebufferarraynonuniformindexingext = 5308,
+        StorageBufferArrayNonUniformIndexingEXT = 5308,
 
-        Storageimagearraynonuniformindexingext = 5309,
+        StorageImageArrayNonUniformIndexingEXT = 5309,
 
-        Inputattachmentarraynonuniformindexingext = 5310,
+        InputAttachmentArrayNonUniformIndexingEXT = 5310,
 
-        Uniformtexelbufferarraynonuniformindexingext = 5311,
+        UniformTexelBufferArrayNonUniformIndexingEXT = 5311,
 
-        Storagetexelbufferarraynonuniformindexingext = 5312,
+        StorageTexelBufferArrayNonUniformIndexingEXT = 5312,
 
-        Raytracingnv = 5340,
+        RayTracingNV = 5340,
 
-        Vulkanmemorymodelkhr = 5345,
+        VulkanMemoryModelKHR = 5345,
 
-        Vulkanmemorymodeldevicescopekhr = 5346,
+        VulkanMemoryModelDeviceScopeKHR = 5346,
 
-        Physicalstoragebufferaddressesext = 5347,
+        PhysicalStorageBufferAddressesEXT = 5347,
 
-        Computederivativegrouplinearnv = 5350,
+        ComputeDerivativeGroupLinearNV = 5350,
 
-        Cooperativematrixnv = 5357,
+        CooperativeMatrixNV = 5357,
 
-        Fragmentshadersampleinterlockext = 5363,
+        FragmentShaderSampleInterlockEXT = 5363,
 
-        Fragmentshadershadingrateinterlockext = 5372,
+        FragmentShaderShadingRateInterlockEXT = 5372,
 
-        Shadersmbuiltinsnv = 5373,
+        ShaderSMBuiltinsNV = 5373,
 
-        Fragmentshaderpixelinterlockext = 5378,
+        FragmentShaderPixelInterlockEXT = 5378,
 
-        Demotetohelperinvocationext = 5379,
+        DemoteToHelperInvocationEXT = 5379,
 
-        Subgroupshuffleintel = 5568,
+        SubgroupShuffleINTEL = 5568,
 
-        Subgroupbufferblockiointel = 5569,
+        SubgroupBufferBlockIOINTEL = 5569,
 
-        Subgroupimageblockiointel = 5570,
+        SubgroupImageBlockIOINTEL = 5570,
 
-        Subgroupimagemediablockiointel = 5579,
+        SubgroupImageMediaBlockIOINTEL = 5579,
 
-        Integerfunctions2intel = 5584,
+        IntegerFunctions2INTEL = 5584,
 
-        Subgroupavcmotionestimationintel = 5696,
+        SubgroupAvcMotionEstimationINTEL = 5696,
 
-        Subgroupavcmotionestimationintraintel = 5697,
+        SubgroupAvcMotionEstimationIntraINTEL = 5697,
 
-        Subgroupavcmotionestimationchromaintel = 5698,
+        SubgroupAvcMotionEstimationChromaINTEL = 5698,
 
         Max = 2147483647,
 
@@ -1528,15 +1528,15 @@ namespace AdamantiumVulkan.SPIRV
 
         Undef = 1,
 
-        Sourcecontinued = 2,
+        SourceContinued = 2,
 
         Source = 3,
 
-        Sourceextension = 4,
+        SourceExtension = 4,
 
         Name = 5,
 
-        Membername = 6,
+        MemberName = 6,
 
         String = 7,
 
@@ -1544,443 +1544,443 @@ namespace AdamantiumVulkan.SPIRV
 
         Extension = 10,
 
-        Extinstimport = 11,
+        ExtInstImport = 11,
 
-        Extinst = 12,
+        ExtInst = 12,
 
-        Memorymodel = 14,
+        MemoryModel = 14,
 
-        Entrypoint = 15,
+        EntryPoint = 15,
 
-        Executionmode = 16,
+        ExecutionMode = 16,
 
         Capability = 17,
 
-        Typevoid = 19,
+        TypeVoid = 19,
 
-        Typebool = 20,
+        TypeBool = 20,
 
-        Typeint = 21,
+        TypeInt = 21,
 
-        Typefloat = 22,
+        TypeFloat = 22,
 
-        Typevector = 23,
+        TypeVector = 23,
 
-        Typematrix = 24,
+        TypeMatrix = 24,
 
-        Typeimage = 25,
+        TypeImage = 25,
 
-        Typesampler = 26,
+        TypeSampler = 26,
 
-        Typesampledimage = 27,
+        TypeSampledImage = 27,
 
-        Typearray = 28,
+        TypeArray = 28,
 
-        Typeruntimearray = 29,
+        TypeRuntimeArray = 29,
 
-        Typestruct = 30,
+        TypeStruct = 30,
 
-        Typeopaque = 31,
+        TypeOpaque = 31,
 
-        Typepointer = 32,
+        TypePointer = 32,
 
-        Typefunction = 33,
+        TypeFunction = 33,
 
-        Typeevent = 34,
+        TypeEvent = 34,
 
-        Typedeviceevent = 35,
+        TypeDeviceEvent = 35,
 
-        Typereserveid = 36,
+        TypeReserveId = 36,
 
-        Typequeue = 37,
+        TypeQueue = 37,
 
-        Typepipe = 38,
+        TypePipe = 38,
 
-        Typeforwardpointer = 39,
+        TypeForwardPointer = 39,
 
-        Constanttrue = 41,
+        ConstantTrue = 41,
 
-        Constantfalse = 42,
+        ConstantFalse = 42,
 
         Constant = 43,
 
-        Constantcomposite = 44,
+        ConstantComposite = 44,
 
-        Constantsampler = 45,
+        ConstantSampler = 45,
 
-        Constantnull = 46,
+        ConstantNull = 46,
 
-        Specconstanttrue = 48,
+        SpecConstantTrue = 48,
 
-        Specconstantfalse = 49,
+        SpecConstantFalse = 49,
 
-        Specconstant = 50,
+        SpecConstant = 50,
 
-        Specconstantcomposite = 51,
+        SpecConstantComposite = 51,
 
-        Specconstantop = 52,
+        SpecConstantOp = 52,
 
         Function = 54,
 
-        Functionparameter = 55,
+        FunctionParameter = 55,
 
-        Functionend = 56,
+        FunctionEnd = 56,
 
-        Functioncall = 57,
+        FunctionCall = 57,
 
         Variable = 59,
 
-        Imagetexelpointer = 60,
+        ImageTexelPointer = 60,
 
         Load = 61,
 
         Store = 62,
 
-        Copymemory = 63,
+        CopyMemory = 63,
 
-        Copymemorysized = 64,
+        CopyMemorySized = 64,
 
-        Accesschain = 65,
+        AccessChain = 65,
 
-        Inboundsaccesschain = 66,
+        InBoundsAccessChain = 66,
 
-        Ptraccesschain = 67,
+        PtrAccessChain = 67,
 
-        Arraylength = 68,
+        ArrayLength = 68,
 
-        Genericptrmemsemantics = 69,
+        GenericPtrMemSemantics = 69,
 
-        Inboundsptraccesschain = 70,
+        InBoundsPtrAccessChain = 70,
 
         Decorate = 71,
 
-        Memberdecorate = 72,
+        MemberDecorate = 72,
 
-        Decorationgroup = 73,
+        DecorationGroup = 73,
 
-        Groupdecorate = 74,
+        GroupDecorate = 74,
 
-        Groupmemberdecorate = 75,
+        GroupMemberDecorate = 75,
 
-        Vectorextractdynamic = 77,
+        VectorExtractDynamic = 77,
 
-        Vectorinsertdynamic = 78,
+        VectorInsertDynamic = 78,
 
-        Vectorshuffle = 79,
+        VectorShuffle = 79,
 
-        Compositeconstruct = 80,
+        CompositeConstruct = 80,
 
-        Compositeextract = 81,
+        CompositeExtract = 81,
 
-        Compositeinsert = 82,
+        CompositeInsert = 82,
 
-        Copyobject = 83,
+        CopyObject = 83,
 
         Transpose = 84,
 
-        Sampledimage = 86,
+        SampledImage = 86,
 
-        Imagesampleimplicitlod = 87,
+        ImageSampleImplicitLod = 87,
 
-        Imagesampleexplicitlod = 88,
+        ImageSampleExplicitLod = 88,
 
-        Imagesampledrefimplicitlod = 89,
+        ImageSampleDrefImplicitLod = 89,
 
-        Imagesampledrefexplicitlod = 90,
+        ImageSampleDrefExplicitLod = 90,
 
-        Imagesampleprojimplicitlod = 91,
+        ImageSampleProjImplicitLod = 91,
 
-        Imagesampleprojexplicitlod = 92,
+        ImageSampleProjExplicitLod = 92,
 
-        Imagesampleprojdrefimplicitlod = 93,
+        ImageSampleProjDrefImplicitLod = 93,
 
-        Imagesampleprojdrefexplicitlod = 94,
+        ImageSampleProjDrefExplicitLod = 94,
 
-        Imagefetch = 95,
+        ImageFetch = 95,
 
-        Imagegather = 96,
+        ImageGather = 96,
 
-        Imagedrefgather = 97,
+        ImageDrefGather = 97,
 
-        Imageread = 98,
+        ImageRead = 98,
 
-        Imagewrite = 99,
+        ImageWrite = 99,
 
         Image = 100,
 
-        Imagequeryformat = 101,
+        ImageQueryFormat = 101,
 
-        Imagequeryorder = 102,
+        ImageQueryOrder = 102,
 
-        Imagequerysizelod = 103,
+        ImageQuerySizeLod = 103,
 
-        Imagequerysize = 104,
+        ImageQuerySize = 104,
 
-        Imagequerylod = 105,
+        ImageQueryLod = 105,
 
-        Imagequerylevels = 106,
+        ImageQueryLevels = 106,
 
-        Imagequerysamples = 107,
+        ImageQuerySamples = 107,
 
-        Convertftou = 109,
+        ConvertFToU = 109,
 
-        Convertftos = 110,
+        ConvertFToS = 110,
 
-        Convertstof = 111,
+        ConvertSToF = 111,
 
-        Convertutof = 112,
+        ConvertUToF = 112,
 
-        Uconvert = 113,
+        UConvert = 113,
 
-        Sconvert = 114,
+        SConvert = 114,
 
-        Fconvert = 115,
+        FConvert = 115,
 
-        Quantizetof16 = 116,
+        QuantizeToF16 = 116,
 
-        Convertptrtou = 117,
+        ConvertPtrToU = 117,
 
-        Satconvertstou = 118,
+        SatConvertSToU = 118,
 
-        Satconvertutos = 119,
+        SatConvertUToS = 119,
 
-        Convertutoptr = 120,
+        ConvertUToPtr = 120,
 
-        Ptrcasttogeneric = 121,
+        PtrCastToGeneric = 121,
 
-        Genericcasttoptr = 122,
+        GenericCastToPtr = 122,
 
-        Genericcasttoptrexplicit = 123,
+        GenericCastToPtrExplicit = 123,
 
         Bitcast = 124,
 
-        Snegate = 126,
+        SNegate = 126,
 
-        Fnegate = 127,
+        FNegate = 127,
 
-        Iadd = 128,
+        IAdd = 128,
 
-        Fadd = 129,
+        FAdd = 129,
 
-        Isub = 130,
+        ISub = 130,
 
-        Fsub = 131,
+        FSub = 131,
 
-        Imul = 132,
+        IMul = 132,
 
-        Fmul = 133,
+        FMul = 133,
 
-        Udiv = 134,
+        UDiv = 134,
 
-        Sdiv = 135,
+        SDiv = 135,
 
-        Fdiv = 136,
+        FDiv = 136,
 
-        Umod = 137,
+        UMod = 137,
 
-        Srem = 138,
+        SRem = 138,
 
-        Smod = 139,
+        SMod = 139,
 
-        Frem = 140,
+        FRem = 140,
 
-        Fmod = 141,
+        FMod = 141,
 
-        Vectortimesscalar = 142,
+        VectorTimesScalar = 142,
 
-        Matrixtimesscalar = 143,
+        MatrixTimesScalar = 143,
 
-        Vectortimesmatrix = 144,
+        VectorTimesMatrix = 144,
 
-        Matrixtimesvector = 145,
+        MatrixTimesVector = 145,
 
-        Matrixtimesmatrix = 146,
+        MatrixTimesMatrix = 146,
 
-        Outerproduct = 147,
+        OuterProduct = 147,
 
         Dot = 148,
 
-        Iaddcarry = 149,
+        IAddCarry = 149,
 
-        Isubborrow = 150,
+        ISubBorrow = 150,
 
-        Umulextended = 151,
+        UMulExtended = 151,
 
-        Smulextended = 152,
+        SMulExtended = 152,
 
         Any = 154,
 
         All = 155,
 
-        Isnan = 156,
+        IsNan = 156,
 
-        Isinf = 157,
+        IsInf = 157,
 
-        Isfinite = 158,
+        IsFinite = 158,
 
-        Isnormal = 159,
+        IsNormal = 159,
 
-        Signbitset = 160,
+        SignBitSet = 160,
 
-        Lessorgreater = 161,
+        LessOrGreater = 161,
 
         Ordered = 162,
 
         Unordered = 163,
 
-        Logicalequal = 164,
+        LogicalEqual = 164,
 
-        Logicalnotequal = 165,
+        LogicalNotEqual = 165,
 
-        Logicalor = 166,
+        LogicalOr = 166,
 
-        Logicaland = 167,
+        LogicalAnd = 167,
 
-        Logicalnot = 168,
+        LogicalNot = 168,
 
         Select = 169,
 
-        Iequal = 170,
+        IEqual = 170,
 
-        Inotequal = 171,
+        INotEqual = 171,
 
-        Ugreaterthan = 172,
+        UGreaterThan = 172,
 
-        Sgreaterthan = 173,
+        SGreaterThan = 173,
 
-        Ugreaterthanequal = 174,
+        UGreaterThanEqual = 174,
 
-        Sgreaterthanequal = 175,
+        SGreaterThanEqual = 175,
 
-        Ulessthan = 176,
+        ULessThan = 176,
 
-        Slessthan = 177,
+        SLessThan = 177,
 
-        Ulessthanequal = 178,
+        ULessThanEqual = 178,
 
-        Slessthanequal = 179,
+        SLessThanEqual = 179,
 
-        Fordequal = 180,
+        FOrdEqual = 180,
 
-        Funordequal = 181,
+        FUnordEqual = 181,
 
-        Fordnotequal = 182,
+        FOrdNotEqual = 182,
 
-        Funordnotequal = 183,
+        FUnordNotEqual = 183,
 
-        Fordlessthan = 184,
+        FOrdLessThan = 184,
 
-        Funordlessthan = 185,
+        FUnordLessThan = 185,
 
-        Fordgreaterthan = 186,
+        FOrdGreaterThan = 186,
 
-        Funordgreaterthan = 187,
+        FUnordGreaterThan = 187,
 
-        Fordlessthanequal = 188,
+        FOrdLessThanEqual = 188,
 
-        Funordlessthanequal = 189,
+        FUnordLessThanEqual = 189,
 
-        Fordgreaterthanequal = 190,
+        FOrdGreaterThanEqual = 190,
 
-        Funordgreaterthanequal = 191,
+        FUnordGreaterThanEqual = 191,
 
-        Shiftrightlogical = 194,
+        ShiftRightLogical = 194,
 
-        Shiftrightarithmetic = 195,
+        ShiftRightArithmetic = 195,
 
-        Shiftleftlogical = 196,
+        ShiftLeftLogical = 196,
 
-        Bitwiseor = 197,
+        BitwiseOr = 197,
 
-        Bitwisexor = 198,
+        BitwiseXor = 198,
 
-        Bitwiseand = 199,
+        BitwiseAnd = 199,
 
         Not = 200,
 
-        Bitfieldinsert = 201,
+        BitFieldInsert = 201,
 
-        Bitfieldsextract = 202,
+        BitFieldSExtract = 202,
 
-        Bitfielduextract = 203,
+        BitFieldUExtract = 203,
 
-        Bitreverse = 204,
+        BitReverse = 204,
 
-        Bitcount = 205,
+        BitCount = 205,
 
-        Dpdx = 207,
+        DPdx = 207,
 
-        Dpdy = 208,
+        DPdy = 208,
 
         Fwidth = 209,
 
-        Dpdxfine = 210,
+        DPdxFine = 210,
 
-        Dpdyfine = 211,
+        DPdyFine = 211,
 
-        Fwidthfine = 212,
+        FwidthFine = 212,
 
-        Dpdxcoarse = 213,
+        DPdxCoarse = 213,
 
-        Dpdycoarse = 214,
+        DPdyCoarse = 214,
 
-        Fwidthcoarse = 215,
+        FwidthCoarse = 215,
 
-        Emitvertex = 218,
+        EmitVertex = 218,
 
-        Endprimitive = 219,
+        EndPrimitive = 219,
 
-        Emitstreamvertex = 220,
+        EmitStreamVertex = 220,
 
-        Endstreamprimitive = 221,
+        EndStreamPrimitive = 221,
 
-        Controlbarrier = 224,
+        ControlBarrier = 224,
 
-        Memorybarrier = 225,
+        MemoryBarrier = 225,
 
-        Atomicload = 227,
+        AtomicLoad = 227,
 
-        Atomicstore = 228,
+        AtomicStore = 228,
 
-        Atomicexchange = 229,
+        AtomicExchange = 229,
 
-        Atomiccompareexchange = 230,
+        AtomicCompareExchange = 230,
 
-        Atomiccompareexchangeweak = 231,
+        AtomicCompareExchangeWeak = 231,
 
-        Atomiciincrement = 232,
+        AtomicIIncrement = 232,
 
-        Atomicidecrement = 233,
+        AtomicIDecrement = 233,
 
-        Atomiciadd = 234,
+        AtomicIAdd = 234,
 
-        Atomicisub = 235,
+        AtomicISub = 235,
 
-        Atomicsmin = 236,
+        AtomicSMin = 236,
 
-        Atomicumin = 237,
+        AtomicUMin = 237,
 
-        Atomicsmax = 238,
+        AtomicSMax = 238,
 
-        Atomicumax = 239,
+        AtomicUMax = 239,
 
-        Atomicand = 240,
+        AtomicAnd = 240,
 
-        Atomicor = 241,
+        AtomicOr = 241,
 
-        Atomicxor = 242,
+        AtomicXor = 242,
 
         Phi = 245,
 
-        Loopmerge = 246,
+        LoopMerge = 246,
 
-        Selectionmerge = 247,
+        SelectionMerge = 247,
 
         Label = 248,
 
         Branch = 249,
 
-        Branchconditional = 250,
+        BranchConditional = 250,
 
         Switch = 251,
 
@@ -1988,585 +1988,585 @@ namespace AdamantiumVulkan.SPIRV
 
         Return = 253,
 
-        Returnvalue = 254,
+        ReturnValue = 254,
 
         Unreachable = 255,
 
-        Lifetimestart = 256,
+        LifetimeStart = 256,
 
-        Lifetimestop = 257,
+        LifetimeStop = 257,
 
-        Groupasynccopy = 259,
+        GroupAsyncCopy = 259,
 
-        Groupwaitevents = 260,
+        GroupWaitEvents = 260,
 
-        Groupall = 261,
+        GroupAll = 261,
 
-        Groupany = 262,
+        GroupAny = 262,
 
-        Groupbroadcast = 263,
+        GroupBroadcast = 263,
 
-        Groupiadd = 264,
+        GroupIAdd = 264,
 
-        Groupfadd = 265,
+        GroupFAdd = 265,
 
-        Groupfmin = 266,
+        GroupFMin = 266,
 
-        Groupumin = 267,
+        GroupUMin = 267,
 
-        Groupsmin = 268,
+        GroupSMin = 268,
 
-        Groupfmax = 269,
+        GroupFMax = 269,
 
-        Groupumax = 270,
+        GroupUMax = 270,
 
-        Groupsmax = 271,
+        GroupSMax = 271,
 
-        Readpipe = 274,
+        ReadPipe = 274,
 
-        Writepipe = 275,
+        WritePipe = 275,
 
-        Reservedreadpipe = 276,
+        ReservedReadPipe = 276,
 
-        Reservedwritepipe = 277,
+        ReservedWritePipe = 277,
 
-        Reservereadpipepackets = 278,
+        ReserveReadPipePackets = 278,
 
-        Reservewritepipepackets = 279,
+        ReserveWritePipePackets = 279,
 
-        Commitreadpipe = 280,
+        CommitReadPipe = 280,
 
-        Commitwritepipe = 281,
+        CommitWritePipe = 281,
 
-        Isvalidreserveid = 282,
+        IsValidReserveId = 282,
 
-        Getnumpipepackets = 283,
+        GetNumPipePackets = 283,
 
-        Getmaxpipepackets = 284,
+        GetMaxPipePackets = 284,
 
-        Groupreservereadpipepackets = 285,
+        GroupReserveReadPipePackets = 285,
 
-        Groupreservewritepipepackets = 286,
+        GroupReserveWritePipePackets = 286,
 
-        Groupcommitreadpipe = 287,
+        GroupCommitReadPipe = 287,
 
-        Groupcommitwritepipe = 288,
+        GroupCommitWritePipe = 288,
 
-        Enqueuemarker = 291,
+        EnqueueMarker = 291,
 
-        Enqueuekernel = 292,
+        EnqueueKernel = 292,
 
-        Getkernelndrangesubgroupcount = 293,
+        GetKernelNDrangeSubGroupCount = 293,
 
-        Getkernelndrangemaxsubgroupsize = 294,
+        GetKernelNDrangeMaxSubGroupSize = 294,
 
-        Getkernelworkgroupsize = 295,
+        GetKernelWorkGroupSize = 295,
 
-        Getkernelpreferredworkgroupsizemultiple = 296,
+        GetKernelPreferredWorkGroupSizeMultiple = 296,
 
-        Retainevent = 297,
+        RetainEvent = 297,
 
-        Releaseevent = 298,
+        ReleaseEvent = 298,
 
-        Createuserevent = 299,
+        CreateUserEvent = 299,
 
-        Isvalidevent = 300,
+        IsValidEvent = 300,
 
-        Setusereventstatus = 301,
+        SetUserEventStatus = 301,
 
-        Captureeventprofilinginfo = 302,
+        CaptureEventProfilingInfo = 302,
 
-        Getdefaultqueue = 303,
+        GetDefaultQueue = 303,
 
-        Buildndrange = 304,
+        BuildNDRange = 304,
 
-        Imagesparsesampleimplicitlod = 305,
+        ImageSparseSampleImplicitLod = 305,
 
-        Imagesparsesampleexplicitlod = 306,
+        ImageSparseSampleExplicitLod = 306,
 
-        Imagesparsesampledrefimplicitlod = 307,
+        ImageSparseSampleDrefImplicitLod = 307,
 
-        Imagesparsesampledrefexplicitlod = 308,
+        ImageSparseSampleDrefExplicitLod = 308,
 
-        Imagesparsesampleprojimplicitlod = 309,
+        ImageSparseSampleProjImplicitLod = 309,
 
-        Imagesparsesampleprojexplicitlod = 310,
+        ImageSparseSampleProjExplicitLod = 310,
 
-        Imagesparsesampleprojdrefimplicitlod = 311,
+        ImageSparseSampleProjDrefImplicitLod = 311,
 
-        Imagesparsesampleprojdrefexplicitlod = 312,
+        ImageSparseSampleProjDrefExplicitLod = 312,
 
-        Imagesparsefetch = 313,
+        ImageSparseFetch = 313,
 
-        Imagesparsegather = 314,
+        ImageSparseGather = 314,
 
-        Imagesparsedrefgather = 315,
+        ImageSparseDrefGather = 315,
 
-        Imagesparsetexelsresident = 316,
+        ImageSparseTexelsResident = 316,
 
-        Noline = 317,
+        NoLine = 317,
 
-        Atomicflagtestandset = 318,
+        AtomicFlagTestAndSet = 318,
 
-        Atomicflagclear = 319,
+        AtomicFlagClear = 319,
 
-        Imagesparseread = 320,
+        ImageSparseRead = 320,
 
-        Sizeof = 321,
+        SizeOf = 321,
 
-        Typepipestorage = 322,
+        TypePipeStorage = 322,
 
-        Constantpipestorage = 323,
+        ConstantPipeStorage = 323,
 
-        Createpipefrompipestorage = 324,
+        CreatePipeFromPipeStorage = 324,
 
-        Getkernellocalsizeforsubgroupcount = 325,
+        GetKernelLocalSizeForSubgroupCount = 325,
 
-        Getkernelmaxnumsubgroups = 326,
+        GetKernelMaxNumSubgroups = 326,
 
-        Typenamedbarrier = 327,
+        TypeNamedBarrier = 327,
 
-        Namedbarrierinitialize = 328,
+        NamedBarrierInitialize = 328,
 
-        Memorynamedbarrier = 329,
+        MemoryNamedBarrier = 329,
 
-        Moduleprocessed = 330,
+        ModuleProcessed = 330,
 
-        Executionmodeid = 331,
+        ExecutionModeId = 331,
 
-        Decorateid = 332,
+        DecorateId = 332,
 
-        Groupnonuniformelect = 333,
+        GroupNonUniformElect = 333,
 
-        Groupnonuniformall = 334,
+        GroupNonUniformAll = 334,
 
-        Groupnonuniformany = 335,
+        GroupNonUniformAny = 335,
 
-        Groupnonuniformallequal = 336,
+        GroupNonUniformAllEqual = 336,
 
-        Groupnonuniformbroadcast = 337,
+        GroupNonUniformBroadcast = 337,
 
-        Groupnonuniformbroadcastfirst = 338,
+        GroupNonUniformBroadcastFirst = 338,
 
-        Groupnonuniformballot = 339,
+        GroupNonUniformBallot = 339,
 
-        Groupnonuniforminverseballot = 340,
+        GroupNonUniformInverseBallot = 340,
 
-        Groupnonuniformballotbitextract = 341,
+        GroupNonUniformBallotBitExtract = 341,
 
-        Groupnonuniformballotbitcount = 342,
+        GroupNonUniformBallotBitCount = 342,
 
-        Groupnonuniformballotfindlsb = 343,
+        GroupNonUniformBallotFindLSB = 343,
 
-        Groupnonuniformballotfindmsb = 344,
+        GroupNonUniformBallotFindMSB = 344,
 
-        Groupnonuniformshuffle = 345,
+        GroupNonUniformShuffle = 345,
 
-        Groupnonuniformshufflexor = 346,
+        GroupNonUniformShuffleXor = 346,
 
-        Groupnonuniformshuffleup = 347,
+        GroupNonUniformShuffleUp = 347,
 
-        Groupnonuniformshuffledown = 348,
+        GroupNonUniformShuffleDown = 348,
 
-        Groupnonuniformiadd = 349,
+        GroupNonUniformIAdd = 349,
 
-        Groupnonuniformfadd = 350,
+        GroupNonUniformFAdd = 350,
 
-        Groupnonuniformimul = 351,
+        GroupNonUniformIMul = 351,
 
-        Groupnonuniformfmul = 352,
+        GroupNonUniformFMul = 352,
 
-        Groupnonuniformsmin = 353,
+        GroupNonUniformSMin = 353,
 
-        Groupnonuniformumin = 354,
+        GroupNonUniformUMin = 354,
 
-        Groupnonuniformfmin = 355,
+        GroupNonUniformFMin = 355,
 
-        Groupnonuniformsmax = 356,
+        GroupNonUniformSMax = 356,
 
-        Groupnonuniformumax = 357,
+        GroupNonUniformUMax = 357,
 
-        Groupnonuniformfmax = 358,
+        GroupNonUniformFMax = 358,
 
-        Groupnonuniformbitwiseand = 359,
+        GroupNonUniformBitwiseAnd = 359,
 
-        Groupnonuniformbitwiseor = 360,
+        GroupNonUniformBitwiseOr = 360,
 
-        Groupnonuniformbitwisexor = 361,
+        GroupNonUniformBitwiseXor = 361,
 
-        Groupnonuniformlogicaland = 362,
+        GroupNonUniformLogicalAnd = 362,
 
-        Groupnonuniformlogicalor = 363,
+        GroupNonUniformLogicalOr = 363,
 
-        Groupnonuniformlogicalxor = 364,
+        GroupNonUniformLogicalXor = 364,
 
-        Groupnonuniformquadbroadcast = 365,
+        GroupNonUniformQuadBroadcast = 365,
 
-        Groupnonuniformquadswap = 366,
+        GroupNonUniformQuadSwap = 366,
 
-        Copylogical = 400,
+        CopyLogical = 400,
 
-        Ptrequal = 401,
+        PtrEqual = 401,
 
-        Ptrnotequal = 402,
+        PtrNotEqual = 402,
 
-        Ptrdiff = 403,
+        PtrDiff = 403,
 
-        Subgroupballotkhr = 4421,
+        SubgroupBallotKHR = 4421,
 
-        Subgroupfirstinvocationkhr = 4422,
+        SubgroupFirstInvocationKHR = 4422,
 
-        Subgroupallkhr = 4428,
+        SubgroupAllKHR = 4428,
 
-        Subgroupanykhr = 4429,
+        SubgroupAnyKHR = 4429,
 
-        Subgroupallequalkhr = 4430,
+        SubgroupAllEqualKHR = 4430,
 
-        Subgroupreadinvocationkhr = 4432,
+        SubgroupReadInvocationKHR = 4432,
 
-        Groupiaddnonuniformamd = 5000,
+        GroupIAddNonUniformAMD = 5000,
 
-        Groupfaddnonuniformamd = 5001,
+        GroupFAddNonUniformAMD = 5001,
 
-        Groupfminnonuniformamd = 5002,
+        GroupFMinNonUniformAMD = 5002,
 
-        Groupuminnonuniformamd = 5003,
+        GroupUMinNonUniformAMD = 5003,
 
-        Groupsminnonuniformamd = 5004,
+        GroupSMinNonUniformAMD = 5004,
 
-        Groupfmaxnonuniformamd = 5005,
+        GroupFMaxNonUniformAMD = 5005,
 
-        Groupumaxnonuniformamd = 5006,
+        GroupUMaxNonUniformAMD = 5006,
 
-        Groupsmaxnonuniformamd = 5007,
+        GroupSMaxNonUniformAMD = 5007,
 
-        Fragmentmaskfetchamd = 5011,
+        FragmentMaskFetchAMD = 5011,
 
-        Fragmentfetchamd = 5012,
+        FragmentFetchAMD = 5012,
 
-        Imagesamplefootprintnv = 5283,
+        ImageSampleFootprintNV = 5283,
 
-        Groupnonuniformpartitionnv = 5296,
+        GroupNonUniformPartitionNV = 5296,
 
-        Writepackedprimitiveindices4x8nv = 5299,
+        WritePackedPrimitiveIndices4x8NV = 5299,
 
-        Reportintersectionnv = 5334,
+        ReportIntersectionNV = 5334,
 
-        Ignoreintersectionnv = 5335,
+        IgnoreIntersectionNV = 5335,
 
-        Terminateraynv = 5336,
+        TerminateRayNV = 5336,
 
-        Tracenv = 5337,
+        TraceNV = 5337,
 
-        Typeaccelerationstructurenv = 5341,
+        TypeAccelerationStructureNV = 5341,
 
-        Executecallablenv = 5344,
+        ExecuteCallableNV = 5344,
 
-        Typecooperativematrixnv = 5358,
+        TypeCooperativeMatrixNV = 5358,
 
-        Cooperativematrixloadnv = 5359,
+        CooperativeMatrixLoadNV = 5359,
 
-        Cooperativematrixstorenv = 5360,
+        CooperativeMatrixStoreNV = 5360,
 
-        Cooperativematrixmuladdnv = 5361,
+        CooperativeMatrixMulAddNV = 5361,
 
-        Cooperativematrixlengthnv = 5362,
+        CooperativeMatrixLengthNV = 5362,
 
-        Begininvocationinterlockext = 5364,
+        BeginInvocationInterlockEXT = 5364,
 
-        Endinvocationinterlockext = 5365,
+        EndInvocationInterlockEXT = 5365,
 
-        Demotetohelperinvocationext = 5380,
+        DemoteToHelperInvocationEXT = 5380,
 
-        Ishelperinvocationext = 5381,
+        IsHelperInvocationEXT = 5381,
 
-        Subgroupshuffleintel = 5571,
+        SubgroupShuffleINTEL = 5571,
 
-        Subgroupshuffledownintel = 5572,
+        SubgroupShuffleDownINTEL = 5572,
 
-        Subgroupshuffleupintel = 5573,
+        SubgroupShuffleUpINTEL = 5573,
 
-        Subgroupshufflexorintel = 5574,
+        SubgroupShuffleXorINTEL = 5574,
 
-        Subgroupblockreadintel = 5575,
+        SubgroupBlockReadINTEL = 5575,
 
-        Subgroupblockwriteintel = 5576,
+        SubgroupBlockWriteINTEL = 5576,
 
-        Subgroupimageblockreadintel = 5577,
+        SubgroupImageBlockReadINTEL = 5577,
 
-        Subgroupimageblockwriteintel = 5578,
+        SubgroupImageBlockWriteINTEL = 5578,
 
-        Subgroupimagemediablockreadintel = 5580,
+        SubgroupImageMediaBlockReadINTEL = 5580,
 
-        Subgroupimagemediablockwriteintel = 5581,
+        SubgroupImageMediaBlockWriteINTEL = 5581,
 
-        Ucountleadingzerosintel = 5585,
+        UCountLeadingZerosINTEL = 5585,
 
-        Ucounttrailingzerosintel = 5586,
+        UCountTrailingZerosINTEL = 5586,
 
-        Absisubintel = 5587,
+        AbsISubINTEL = 5587,
 
-        Absusubintel = 5588,
+        AbsUSubINTEL = 5588,
 
-        Iaddsatintel = 5589,
+        IAddSatINTEL = 5589,
 
-        Uaddsatintel = 5590,
+        UAddSatINTEL = 5590,
 
-        Iaverageintel = 5591,
+        IAverageINTEL = 5591,
 
-        Uaverageintel = 5592,
+        UAverageINTEL = 5592,
 
-        Iaverageroundedintel = 5593,
+        IAverageRoundedINTEL = 5593,
 
-        Uaverageroundedintel = 5594,
+        UAverageRoundedINTEL = 5594,
 
-        Isubsatintel = 5595,
+        ISubSatINTEL = 5595,
 
-        Usubsatintel = 5596,
+        USubSatINTEL = 5596,
 
-        Imul32x16intel = 5597,
+        IMul32x16INTEL = 5597,
 
-        Umul32x16intel = 5598,
+        UMul32x16INTEL = 5598,
 
-        Decoratestring = 5632,
+        DecorateString = 5632,
 
-        Memberdecoratestring = 5633,
+        MemberDecorateString = 5633,
 
-        Vmeimageintel = 5699,
+        VmeImageINTEL = 5699,
 
-        Typevmeimageintel = 5700,
+        TypeVmeImageINTEL = 5700,
 
-        Typeavcimepayloadintel = 5701,
+        TypeAvcImePayloadINTEL = 5701,
 
-        Typeavcrefpayloadintel = 5702,
+        TypeAvcRefPayloadINTEL = 5702,
 
-        Typeavcsicpayloadintel = 5703,
+        TypeAvcSicPayloadINTEL = 5703,
 
-        Typeavcmcepayloadintel = 5704,
+        TypeAvcMcePayloadINTEL = 5704,
 
-        Typeavcmceresultintel = 5705,
+        TypeAvcMceResultINTEL = 5705,
 
-        Typeavcimeresultintel = 5706,
+        TypeAvcImeResultINTEL = 5706,
 
-        Typeavcimeresultsinglereferencestreamoutintel = 5707,
+        TypeAvcImeResultSingleReferenceStreamoutINTEL = 5707,
 
-        Typeavcimeresultdualreferencestreamoutintel = 5708,
+        TypeAvcImeResultDualReferenceStreamoutINTEL = 5708,
 
-        Typeavcimesinglereferencestreaminintel = 5709,
+        TypeAvcImeSingleReferenceStreaminINTEL = 5709,
 
-        Typeavcimedualreferencestreaminintel = 5710,
+        TypeAvcImeDualReferenceStreaminINTEL = 5710,
 
-        Typeavcrefresultintel = 5711,
+        TypeAvcRefResultINTEL = 5711,
 
-        Typeavcsicresultintel = 5712,
+        TypeAvcSicResultINTEL = 5712,
 
-        Subgroupavcmcegetdefaultinterbasemultireferencepenaltyintel = 5713,
+        SubgroupAvcMceGetDefaultInterBaseMultiReferencePenaltyINTEL = 5713,
 
-        Subgroupavcmcesetinterbasemultireferencepenaltyintel = 5714,
+        SubgroupAvcMceSetInterBaseMultiReferencePenaltyINTEL = 5714,
 
-        Subgroupavcmcegetdefaultintershapepenaltyintel = 5715,
+        SubgroupAvcMceGetDefaultInterShapePenaltyINTEL = 5715,
 
-        Subgroupavcmcesetintershapepenaltyintel = 5716,
+        SubgroupAvcMceSetInterShapePenaltyINTEL = 5716,
 
-        Subgroupavcmcegetdefaultinterdirectionpenaltyintel = 5717,
+        SubgroupAvcMceGetDefaultInterDirectionPenaltyINTEL = 5717,
 
-        Subgroupavcmcesetinterdirectionpenaltyintel = 5718,
+        SubgroupAvcMceSetInterDirectionPenaltyINTEL = 5718,
 
-        Subgroupavcmcegetdefaultintralumashapepenaltyintel = 5719,
+        SubgroupAvcMceGetDefaultIntraLumaShapePenaltyINTEL = 5719,
 
-        Subgroupavcmcegetdefaultintermotionvectorcosttableintel = 5720,
+        SubgroupAvcMceGetDefaultInterMotionVectorCostTableINTEL = 5720,
 
-        Subgroupavcmcegetdefaulthighpenaltycosttableintel = 5721,
+        SubgroupAvcMceGetDefaultHighPenaltyCostTableINTEL = 5721,
 
-        Subgroupavcmcegetdefaultmediumpenaltycosttableintel = 5722,
+        SubgroupAvcMceGetDefaultMediumPenaltyCostTableINTEL = 5722,
 
-        Subgroupavcmcegetdefaultlowpenaltycosttableintel = 5723,
+        SubgroupAvcMceGetDefaultLowPenaltyCostTableINTEL = 5723,
 
-        Subgroupavcmcesetmotionvectorcostfunctionintel = 5724,
+        SubgroupAvcMceSetMotionVectorCostFunctionINTEL = 5724,
 
-        Subgroupavcmcegetdefaultintralumamodepenaltyintel = 5725,
+        SubgroupAvcMceGetDefaultIntraLumaModePenaltyINTEL = 5725,
 
-        Subgroupavcmcegetdefaultnondclumaintrapenaltyintel = 5726,
+        SubgroupAvcMceGetDefaultNonDcLumaIntraPenaltyINTEL = 5726,
 
-        Subgroupavcmcegetdefaultintrachromamodebasepenaltyintel = 5727,
+        SubgroupAvcMceGetDefaultIntraChromaModeBasePenaltyINTEL = 5727,
 
-        Subgroupavcmcesetaconlyhaarintel = 5728,
+        SubgroupAvcMceSetAcOnlyHaarINTEL = 5728,
 
-        Subgroupavcmcesetsourceinterlacedfieldpolarityintel = 5729,
+        SubgroupAvcMceSetSourceInterlacedFieldPolarityINTEL = 5729,
 
-        Subgroupavcmcesetsinglereferenceinterlacedfieldpolarityintel = 5730,
+        SubgroupAvcMceSetSingleReferenceInterlacedFieldPolarityINTEL = 5730,
 
-        Subgroupavcmcesetdualreferenceinterlacedfieldpolaritiesintel = 5731,
+        SubgroupAvcMceSetDualReferenceInterlacedFieldPolaritiesINTEL = 5731,
 
-        Subgroupavcmceconverttoimepayloadintel = 5732,
+        SubgroupAvcMceConvertToImePayloadINTEL = 5732,
 
-        Subgroupavcmceconverttoimeresultintel = 5733,
+        SubgroupAvcMceConvertToImeResultINTEL = 5733,
 
-        Subgroupavcmceconverttorefpayloadintel = 5734,
+        SubgroupAvcMceConvertToRefPayloadINTEL = 5734,
 
-        Subgroupavcmceconverttorefresultintel = 5735,
+        SubgroupAvcMceConvertToRefResultINTEL = 5735,
 
-        Subgroupavcmceconverttosicpayloadintel = 5736,
+        SubgroupAvcMceConvertToSicPayloadINTEL = 5736,
 
-        Subgroupavcmceconverttosicresultintel = 5737,
+        SubgroupAvcMceConvertToSicResultINTEL = 5737,
 
-        Subgroupavcmcegetmotionvectorsintel = 5738,
+        SubgroupAvcMceGetMotionVectorsINTEL = 5738,
 
-        Subgroupavcmcegetinterdistortionsintel = 5739,
+        SubgroupAvcMceGetInterDistortionsINTEL = 5739,
 
-        Subgroupavcmcegetbestinterdistortionsintel = 5740,
+        SubgroupAvcMceGetBestInterDistortionsINTEL = 5740,
 
-        Subgroupavcmcegetintermajorshapeintel = 5741,
+        SubgroupAvcMceGetInterMajorShapeINTEL = 5741,
 
-        Subgroupavcmcegetinterminorshapeintel = 5742,
+        SubgroupAvcMceGetInterMinorShapeINTEL = 5742,
 
-        Subgroupavcmcegetinterdirectionsintel = 5743,
+        SubgroupAvcMceGetInterDirectionsINTEL = 5743,
 
-        Subgroupavcmcegetintermotionvectorcountintel = 5744,
+        SubgroupAvcMceGetInterMotionVectorCountINTEL = 5744,
 
-        Subgroupavcmcegetinterreferenceidsintel = 5745,
+        SubgroupAvcMceGetInterReferenceIdsINTEL = 5745,
 
-        Subgroupavcmcegetinterreferenceinterlacedfieldpolaritiesintel = 5746,
+        SubgroupAvcMceGetInterReferenceInterlacedFieldPolaritiesINTEL = 5746,
 
-        Subgroupavcimeinitializeintel = 5747,
+        SubgroupAvcImeInitializeINTEL = 5747,
 
-        Subgroupavcimesetsinglereferenceintel = 5748,
+        SubgroupAvcImeSetSingleReferenceINTEL = 5748,
 
-        Subgroupavcimesetdualreferenceintel = 5749,
+        SubgroupAvcImeSetDualReferenceINTEL = 5749,
 
-        Subgroupavcimerefwindowsizeintel = 5750,
+        SubgroupAvcImeRefWindowSizeINTEL = 5750,
 
-        Subgroupavcimeadjustrefoffsetintel = 5751,
+        SubgroupAvcImeAdjustRefOffsetINTEL = 5751,
 
-        Subgroupavcimeconverttomcepayloadintel = 5752,
+        SubgroupAvcImeConvertToMcePayloadINTEL = 5752,
 
-        Subgroupavcimesetmaxmotionvectorcountintel = 5753,
+        SubgroupAvcImeSetMaxMotionVectorCountINTEL = 5753,
 
-        Subgroupavcimesetunidirectionalmixdisableintel = 5754,
+        SubgroupAvcImeSetUnidirectionalMixDisableINTEL = 5754,
 
-        Subgroupavcimesetearlysearchterminationthresholdintel = 5755,
+        SubgroupAvcImeSetEarlySearchTerminationThresholdINTEL = 5755,
 
-        Subgroupavcimesetweightedsadintel = 5756,
+        SubgroupAvcImeSetWeightedSadINTEL = 5756,
 
-        Subgroupavcimeevaluatewithsinglereferenceintel = 5757,
+        SubgroupAvcImeEvaluateWithSingleReferenceINTEL = 5757,
 
-        Subgroupavcimeevaluatewithdualreferenceintel = 5758,
+        SubgroupAvcImeEvaluateWithDualReferenceINTEL = 5758,
 
-        Subgroupavcimeevaluatewithsinglereferencestreaminintel = 5759,
+        SubgroupAvcImeEvaluateWithSingleReferenceStreaminINTEL = 5759,
 
-        Subgroupavcimeevaluatewithdualreferencestreaminintel = 5760,
+        SubgroupAvcImeEvaluateWithDualReferenceStreaminINTEL = 5760,
 
-        Subgroupavcimeevaluatewithsinglereferencestreamoutintel = 5761,
+        SubgroupAvcImeEvaluateWithSingleReferenceStreamoutINTEL = 5761,
 
-        Subgroupavcimeevaluatewithdualreferencestreamoutintel = 5762,
+        SubgroupAvcImeEvaluateWithDualReferenceStreamoutINTEL = 5762,
 
-        Subgroupavcimeevaluatewithsinglereferencestreaminoutintel = 5763,
+        SubgroupAvcImeEvaluateWithSingleReferenceStreaminoutINTEL = 5763,
 
-        Subgroupavcimeevaluatewithdualreferencestreaminoutintel = 5764,
+        SubgroupAvcImeEvaluateWithDualReferenceStreaminoutINTEL = 5764,
 
-        Subgroupavcimeconverttomceresultintel = 5765,
+        SubgroupAvcImeConvertToMceResultINTEL = 5765,
 
-        Subgroupavcimegetsinglereferencestreaminintel = 5766,
+        SubgroupAvcImeGetSingleReferenceStreaminINTEL = 5766,
 
-        Subgroupavcimegetdualreferencestreaminintel = 5767,
+        SubgroupAvcImeGetDualReferenceStreaminINTEL = 5767,
 
-        Subgroupavcimestripsinglereferencestreamoutintel = 5768,
+        SubgroupAvcImeStripSingleReferenceStreamoutINTEL = 5768,
 
-        Subgroupavcimestripdualreferencestreamoutintel = 5769,
+        SubgroupAvcImeStripDualReferenceStreamoutINTEL = 5769,
 
-        Subgroupavcimegetstreamoutsinglereferencemajorshapemotionvectorsintel = 5770,
+        SubgroupAvcImeGetStreamoutSingleReferenceMajorShapeMotionVectorsINTEL = 5770,
 
-        Subgroupavcimegetstreamoutsinglereferencemajorshapedistortionsintel = 5771,
+        SubgroupAvcImeGetStreamoutSingleReferenceMajorShapeDistortionsINTEL = 5771,
 
-        Subgroupavcimegetstreamoutsinglereferencemajorshapereferenceidsintel = 5772,
+        SubgroupAvcImeGetStreamoutSingleReferenceMajorShapeReferenceIdsINTEL = 5772,
 
-        Subgroupavcimegetstreamoutdualreferencemajorshapemotionvectorsintel = 5773,
+        SubgroupAvcImeGetStreamoutDualReferenceMajorShapeMotionVectorsINTEL = 5773,
 
-        Subgroupavcimegetstreamoutdualreferencemajorshapedistortionsintel = 5774,
+        SubgroupAvcImeGetStreamoutDualReferenceMajorShapeDistortionsINTEL = 5774,
 
-        Subgroupavcimegetstreamoutdualreferencemajorshapereferenceidsintel = 5775,
+        SubgroupAvcImeGetStreamoutDualReferenceMajorShapeReferenceIdsINTEL = 5775,
 
-        Subgroupavcimegetborderreachedintel = 5776,
+        SubgroupAvcImeGetBorderReachedINTEL = 5776,
 
-        Subgroupavcimegettruncatedsearchindicationintel = 5777,
+        SubgroupAvcImeGetTruncatedSearchIndicationINTEL = 5777,
 
-        Subgroupavcimegetunidirectionalearlysearchterminationintel = 5778,
+        SubgroupAvcImeGetUnidirectionalEarlySearchTerminationINTEL = 5778,
 
-        Subgroupavcimegetweightingpatternminimummotionvectorintel = 5779,
+        SubgroupAvcImeGetWeightingPatternMinimumMotionVectorINTEL = 5779,
 
-        Subgroupavcimegetweightingpatternminimumdistortionintel = 5780,
+        SubgroupAvcImeGetWeightingPatternMinimumDistortionINTEL = 5780,
 
-        Subgroupavcfmeinitializeintel = 5781,
+        SubgroupAvcFmeInitializeINTEL = 5781,
 
-        Subgroupavcbmeinitializeintel = 5782,
+        SubgroupAvcBmeInitializeINTEL = 5782,
 
-        Subgroupavcrefconverttomcepayloadintel = 5783,
+        SubgroupAvcRefConvertToMcePayloadINTEL = 5783,
 
-        Subgroupavcrefsetbidirectionalmixdisableintel = 5784,
+        SubgroupAvcRefSetBidirectionalMixDisableINTEL = 5784,
 
-        Subgroupavcrefsetbilinearfilterenableintel = 5785,
+        SubgroupAvcRefSetBilinearFilterEnableINTEL = 5785,
 
-        Subgroupavcrefevaluatewithsinglereferenceintel = 5786,
+        SubgroupAvcRefEvaluateWithSingleReferenceINTEL = 5786,
 
-        Subgroupavcrefevaluatewithdualreferenceintel = 5787,
+        SubgroupAvcRefEvaluateWithDualReferenceINTEL = 5787,
 
-        Subgroupavcrefevaluatewithmultireferenceintel = 5788,
+        SubgroupAvcRefEvaluateWithMultiReferenceINTEL = 5788,
 
-        Subgroupavcrefevaluatewithmultireferenceinterlacedintel = 5789,
+        SubgroupAvcRefEvaluateWithMultiReferenceInterlacedINTEL = 5789,
 
-        Subgroupavcrefconverttomceresultintel = 5790,
+        SubgroupAvcRefConvertToMceResultINTEL = 5790,
 
-        Subgroupavcsicinitializeintel = 5791,
+        SubgroupAvcSicInitializeINTEL = 5791,
 
-        Subgroupavcsicconfigureskcintel = 5792,
+        SubgroupAvcSicConfigureSkcINTEL = 5792,
 
-        Subgroupavcsicconfigureipelumaintel = 5793,
+        SubgroupAvcSicConfigureIpeLumaINTEL = 5793,
 
-        Subgroupavcsicconfigureipelumachromaintel = 5794,
+        SubgroupAvcSicConfigureIpeLumaChromaINTEL = 5794,
 
-        Subgroupavcsicgetmotionvectormaskintel = 5795,
+        SubgroupAvcSicGetMotionVectorMaskINTEL = 5795,
 
-        Subgroupavcsicconverttomcepayloadintel = 5796,
+        SubgroupAvcSicConvertToMcePayloadINTEL = 5796,
 
-        Subgroupavcsicsetintralumashapepenaltyintel = 5797,
+        SubgroupAvcSicSetIntraLumaShapePenaltyINTEL = 5797,
 
-        Subgroupavcsicsetintralumamodecostfunctionintel = 5798,
+        SubgroupAvcSicSetIntraLumaModeCostFunctionINTEL = 5798,
 
-        Subgroupavcsicsetintrachromamodecostfunctionintel = 5799,
+        SubgroupAvcSicSetIntraChromaModeCostFunctionINTEL = 5799,
 
-        Subgroupavcsicsetbilinearfilterenableintel = 5800,
+        SubgroupAvcSicSetBilinearFilterEnableINTEL = 5800,
 
-        Subgroupavcsicsetskcforwardtransformenableintel = 5801,
+        SubgroupAvcSicSetSkcForwardTransformEnableINTEL = 5801,
 
-        Subgroupavcsicsetblockbasedrawskipsadintel = 5802,
+        SubgroupAvcSicSetBlockBasedRawSkipSadINTEL = 5802,
 
-        Subgroupavcsicevaluateipeintel = 5803,
+        SubgroupAvcSicEvaluateIpeINTEL = 5803,
 
-        Subgroupavcsicevaluatewithsinglereferenceintel = 5804,
+        SubgroupAvcSicEvaluateWithSingleReferenceINTEL = 5804,
 
-        Subgroupavcsicevaluatewithdualreferenceintel = 5805,
+        SubgroupAvcSicEvaluateWithDualReferenceINTEL = 5805,
 
-        Subgroupavcsicevaluatewithmultireferenceintel = 5806,
+        SubgroupAvcSicEvaluateWithMultiReferenceINTEL = 5806,
 
-        Subgroupavcsicevaluatewithmultireferenceinterlacedintel = 5807,
+        SubgroupAvcSicEvaluateWithMultiReferenceInterlacedINTEL = 5807,
 
-        Subgroupavcsicconverttomceresultintel = 5808,
+        SubgroupAvcSicConvertToMceResultINTEL = 5808,
 
-        Subgroupavcsicgetipelumashapeintel = 5809,
+        SubgroupAvcSicGetIpeLumaShapeINTEL = 5809,
 
-        Subgroupavcsicgetbestipelumadistortionintel = 5810,
+        SubgroupAvcSicGetBestIpeLumaDistortionINTEL = 5810,
 
-        Subgroupavcsicgetbestipechromadistortionintel = 5811,
+        SubgroupAvcSicGetBestIpeChromaDistortionINTEL = 5811,
 
-        Subgroupavcsicgetpackedipelumamodesintel = 5812,
+        SubgroupAvcSicGetPackedIpeLumaModesINTEL = 5812,
 
-        Subgroupavcsicgetipechromamodeintel = 5813,
+        SubgroupAvcSicGetIpeChromaModeINTEL = 5813,
 
-        Subgroupavcsicgetpackedskclumacountthresholdintel = 5814,
+        SubgroupAvcSicGetPackedSkcLumaCountThresholdINTEL = 5814,
 
-        Subgroupavcsicgetpackedskclumasumthresholdintel = 5815,
+        SubgroupAvcSicGetPackedSkcLumaSumThresholdINTEL = 5815,
 
-        Subgroupavcsicgetinterrawsadsintel = 5816,
+        SubgroupAvcSicGetInterRawSadsINTEL = 5816,
 
         Max = 2147483647,
 

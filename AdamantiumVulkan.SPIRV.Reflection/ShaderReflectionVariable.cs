@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AdamantiumVulkan.SPIRV.Cross;
+using System.Collections.Generic;
 
-namespace AdamantiumVulkan.SPIRV.Cross
+namespace AdamantiumVulkan.SPIRV.Reflection
 {
     public class ShaderReflectionVariable
     {
@@ -39,7 +40,9 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public uint ColumnsCount { get; internal set; }
 
         public uint TypeId { get; internal set; }
-        
+
+        public ShaderResourceDimension ResourceDimension { get; set; }
+
         public IReadOnlyCollection<ShaderReflectionVariable> Members => members.AsReadOnly();
         
         public uint GetArraySizeForDimension(uint dim)

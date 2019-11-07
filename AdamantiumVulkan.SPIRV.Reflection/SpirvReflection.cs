@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using AdamantiumVulkan.SPIRV.Cross;
+using System.Collections.Generic;
 
-namespace AdamantiumVulkan.SPIRV.Cross
+namespace AdamantiumVulkan.SPIRV.Reflection
 {
     public class SpirvReflection
     {
@@ -35,6 +36,8 @@ namespace AdamantiumVulkan.SPIRV.Cross
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
         }
 
+        public CompilationResult
+
         public SpirvReflectionResult Disassemble(SpvcBackend backend)
         {
             lastResult = context.CreateCompiler(backend, parsedIr, SpvcCaptureMode.TakeOwnership, out compiler);
@@ -58,7 +61,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
                     var spvcType = compiler.GetTypeHandle(shaderResources[i].Base_type_id);
                     shaderResource.Type = spvcType.GetBasetype();
 
-                    shaderResource.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Descriptorset);
+                    shaderResource.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.DescriptorSet);
                     shaderResource.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
 
                     ulong tmpSize = 0;
@@ -71,6 +74,8 @@ namespace AdamantiumVulkan.SPIRV.Cross
                     {
                         shaderResource.AddArraySizeForDimension(x, spvcType.GetArrayDimension(x));
                     }
+
+                    shaderResource.ResourceDimension = (ShaderResourceDimension)spvcType.GetImageDimension();
 
                     var membersCount = spvcType.GetNumMemberTypes();
                     for (uint k = 0; k < membersCount; ++k)

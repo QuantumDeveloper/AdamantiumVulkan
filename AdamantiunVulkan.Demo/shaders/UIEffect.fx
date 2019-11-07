@@ -12,6 +12,22 @@ float transparency = 1;
 float transparency2 = 1;
 
 
+const int permutationTableSize = 1024;
+const int gradientSetSize = 26;
+
+cbuffer PerlinParams : register(b0)
+{
+	//pseudorandom hash modifiers
+	int mX;
+	int mY;
+	int mZ;
+
+	//permutation table
+	int permutationTable[permutationTableSize];
+	//gradients' set
+	float3 gradientSet[gradientSetSize];
+};
+
 struct VertexInputType
 {
    float4 position : SV_POSITION;

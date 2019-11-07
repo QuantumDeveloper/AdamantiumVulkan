@@ -11,7 +11,12 @@ namespace AdamantiumVulkan.Shaders
             this.compilationResult = compilationResult;
         }
 
-        public byte[] Bytes
+        internal CompilationResult(byte[] bytecode, ShadercCompilationStatus status, string[] messages, uint errorsNumber, uint warningNumbers)
+        {
+
+        }
+
+        public byte[] Bytecode
         {
             get
             {
@@ -25,7 +30,7 @@ namespace AdamantiumVulkan.Shaders
 
         public ShadercCompilationStatus Status => compilationResult.GetCompilationStatus();
 
-        public string ErrorMessage => compilationResult.GetErrorMessage();
+        public string Messages => compilationResult.GetErrorMessage();
 
         public UInt64 ErrorsNumber => compilationResult.GetNumErrors();
 
