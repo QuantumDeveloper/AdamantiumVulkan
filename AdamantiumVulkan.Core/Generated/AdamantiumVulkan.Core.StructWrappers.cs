@@ -158,11 +158,11 @@ namespace AdamantiumVulkan.Core
         }
 
         public System.IntPtr PUserData { get; set; }
-        public PFN_vkAllocationFunction PfnAllocation { get; set; }
-        public PFN_vkReallocationFunction PfnReallocation { get; set; }
-        public PFN_vkFreeFunction PfnFree { get; set; }
-        public PFN_vkInternalAllocationNotification PfnInternalAllocation { get; set; }
-        public PFN_vkInternalFreeNotification PfnInternalFree { get; set; }
+        public System.IntPtr PfnAllocation { get; set; }
+        public System.IntPtr PfnReallocation { get; set; }
+        public System.IntPtr PfnFree { get; set; }
+        public System.IntPtr PfnInternalAllocation { get; set; }
+        public System.IntPtr PfnInternalFree { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAllocationCallbacks ToInternal()
         {
@@ -10845,7 +10845,7 @@ namespace AdamantiumVulkan.Core
         public StructureType SType => StructureType.DebugReportCallbackCreateInfoExt;
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
-        public PFN_vkDebugReportCallbackEXT PfnCallback { get; set; }
+        public System.IntPtr PfnCallback { get; set; }
         public System.IntPtr PUserData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT ToInternal()
@@ -13296,7 +13296,7 @@ namespace AdamantiumVulkan.Core
         public uint Flags { get; set; }
         public uint MessageSeverity { get; set; }
         public uint MessageType { get; set; }
-        public PFN_vkDebugUtilsMessengerCallbackEXT PfnUserCallback { get; set; }
+        public System.IntPtr PfnUserCallback { get; set; }
         public System.IntPtr PUserData { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT ToInternal()

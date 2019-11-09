@@ -36,7 +36,7 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
         }
 
-        public CompilationResult
+        //public CompilationResult
 
         public SpirvReflectionResult Disassemble(SpvcBackend backend)
         {
