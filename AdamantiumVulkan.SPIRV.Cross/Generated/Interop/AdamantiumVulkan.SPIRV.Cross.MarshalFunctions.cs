@@ -403,7 +403,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
         internal static extern void spvc_context_release_allocations([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_context_set_error_callback", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void spvc_context_set_error_callback([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context, [In] SpvcErrorCallback cb, [In, Out] System.IntPtr userdata);
+        internal static extern void spvc_context_set_error_callback([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcContextS context, [In] System.IntPtr cb, [In, Out] System.IntPtr userdata);
 
         ///<summary>
         /// Gets a human readable version string to identify which commit a particular binary was created from.

@@ -28,6 +28,12 @@
     <None Remove="shaders\25_shader_textures.frag" />
     <None Remove="shaders\25_shader_textures.vert" />
     <None Remove="shaders\frag.spv" />
+    <None Remove="shaders\NoiseGeneration\OpenSimplexNoise.hlsl" />
+    <None Remove="shaders\NoiseGeneration\PerlinNoise.hlsl" />
+    <None Remove="shaders\TerrainGenShaders\Density.hlsl" />
+    <None Remove="shaders\TerrainGenShaders\MarchingCubes.fx" />
+    <None Remove="shaders\TerrainGenShaders\MarchingCubesTest2.fx" />
+    <None Remove="shaders\TerrainGenShaders\Prototype.fx" />
     <None Remove="shaders\UIEffect.fx" />
     <None Remove="shaders\vert.spv" />
   </ItemGroup>
@@ -40,6 +46,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\frag.spv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\NoiseGeneration\OpenSimplexNoise.hlsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\NoiseGeneration\PerlinNoise.hlsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\TerrainGenShaders\Density.hlsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\TerrainGenShaders\MarchingCubes.fx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\TerrainGenShaders\MarchingCubesTest2.fx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\TerrainGenShaders\Prototype.fx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\UIEffect.fx">

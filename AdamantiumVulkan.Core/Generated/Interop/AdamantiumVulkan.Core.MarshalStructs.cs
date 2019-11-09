@@ -1410,15 +1410,15 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public System.IntPtr pUserData;
 
-        public PFN_vkAllocationFunction pfnAllocation;
+        public System.IntPtr pfnAllocation;
 
-        public PFN_vkReallocationFunction pfnReallocation;
+        public System.IntPtr pfnReallocation;
 
-        public PFN_vkFreeFunction pfnFree;
+        public System.IntPtr pfnFree;
 
-        public PFN_vkInternalAllocationNotification pfnInternalAllocation;
+        public System.IntPtr pfnInternalAllocation;
 
-        public PFN_vkInternalFreeNotification pfnInternalFree;
+        public System.IntPtr pfnInternalFree;
 
     }
 
@@ -6013,7 +6013,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public PFN_vkDebugReportCallbackEXT pfnCallback;
+        public System.IntPtr pfnCallback;
 
         public System.IntPtr pUserData;
 
@@ -7260,7 +7260,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint messageType;
 
-        public PFN_vkDebugUtilsMessengerCallbackEXT pfnUserCallback;
+        public System.IntPtr pfnUserCallback;
 
         public System.IntPtr pUserData;
 
