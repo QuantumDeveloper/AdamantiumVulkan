@@ -1,45 +1,47 @@
 ﻿using System;
+using System.Text;
 
 namespace AdamantiumVulkan.Shaders
 {
-    public class CompilationResult : DisposableObject
+    public class CompilationResult
     {
-        private ShadercCompilationResultT compilationResult;
-
-        internal CompilationResult(ShadercCompilationResultT compilationResult)
+        internal CompilationResult(
+            byte[] bytecode, 
+            ShadercShaderKind shaderStage, 
+            ShadercCompilationStatus status, 
+            string[] messages, 
+            ulong errorsNumber, 
+            ulong warningNumbers,
+            bool containsTextOutput)
         {
-            this.compilationResult = compilationResult;
+            ShaderStage = shaderStage;
+            Bytecode = bytecode;
+            Status = status;
+            Messages = messages;
+            ErrorsNumber = errorsNumber;
+            WarningsNumber = warningNumbers;
+            ContainsTextOutput = containsTextOutput;
         }
 
-        internal CompilationResult(byte[] bytecode, ShadercCompilationStatus status, string[] messages, uint errorsNumber, uint warningNumbers)
+        public byte[] Bytecode { get; }
+
+        public UInt64 Length => (uint)Bytecode.Length;
+
+        public ShadercCompilationStatus Status { get; }
+
+        public string[] Messages { get; }
+
+        public UInt64 ErrorsNumber { get; }
+
+        public UInt64 WarningsNumber { get; }
+        
+        public ShadercShaderKind ShaderStage { get; }
+        
+        public bool ContainsTextOutput { get; }
+
+        public string GetOutputAsString()
         {
-
-        }
-
-        public byte[] Bytecode
-        {
-            get
-            {
-                var bytes = new byte[Length];
-                MarshalUtils.IntPtrToManagedArray(compilationResult.GetBytes(), bytes);
-                return bytes;
-            }
-        }
-
-        public UInt64 Length => compilationResult.GetLength();
-
-        public ShadercCompilationStatus Status => compilationResult.GetCompilationStatus();
-
-        public string Messages => compilationResult.GetErrorMessage();
-
-        public UInt64 ErrorsNumber => compilationResult.GetNumErrors();
-
-        public UInt64 WarningsNumber => compilationResult.GetNumWarnings();
-
-        protected override void UnmanagedDisposeOverride()
-        {
-            compilationResult?.Release();
-            compilationResult = null;
+            return Encoding.ASCII.GetString(Bytecode);
         }
     }
 }

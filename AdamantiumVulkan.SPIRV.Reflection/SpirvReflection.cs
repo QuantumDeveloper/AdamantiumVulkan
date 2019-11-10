@@ -1,9 +1,10 @@
 ﻿using AdamantiumVulkan.SPIRV.Cross;
 using System.Collections.Generic;
+using AdamantiumVulkan.Shaders;
 
 namespace AdamantiumVulkan.SPIRV.Reflection
 {
-    public class SpirvReflection
+    public class SpirvReflection : DisposableObject
     {
         private SpvcContext context;
         private SpvcCompiler compiler;
@@ -28,18 +29,45 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             };
         }
 
-        public SpirvReflection(byte[] byteCode)
+        public SpirvReflection()
         {
             lastResult = SpvcContext.Create(out context);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::Create");
-            lastResult = context.ParseSpirv(byteCode, (ulong)byteCode.Length / 4, out parsedIr);
-            SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
+        }
+        
+        public static CompilationResult CompileToSpirvBinary(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPointName, CompileOptions options = null)
+        {
+            var compiler = ShaderCompiler.New();
+            var result = compiler.CompileIntoSpirv(sourceText, shaderKind, inputFileName, entryPointName, options);
+            compiler.Dispose();
+            return result;
+        }
+        
+        public static CompilationResult CompileToSpirvAssembly(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPointName, CompileOptions options = null)
+        {
+            var compiler = ShaderCompiler.New();
+            var result = compiler.CompileIntoSpirvAssembly(sourceText, shaderKind, inputFileName, entryPointName, options);
+            compiler.Dispose();
+            return result;
+        }
+        
+        public static CompilationResult CompileIntoPreprocessedText(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPointName, CompileOptions options = null)
+        {
+            var compiler = ShaderCompiler.New();
+            var result = compiler.CompileIntoPreprocessedText(sourceText, shaderKind, inputFileName, entryPointName, options);
+            compiler.Dispose();
+            return result;
         }
 
-        public CompilationResult
-
-        public SpirvReflectionResult Disassemble(SpvcBackend backend)
+        public SpirvReflectionResult Disassemble(byte[] bytecode, SpvcBackend backend)
         {
+            if (bytecode == null || bytecode.Length == 0)
+            {
+                return new SpirvReflectionResult() {};
+            }
+            
+            lastResult = context.ParseSpirv(bytecode, (ulong)bytecode.Length / 4, out parsedIr);
+            SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
             lastResult = context.CreateCompiler(backend, parsedIr, SpvcCaptureMode.TakeOwnership, out compiler);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::CreateCompiler");
             lastResult = compiler.GetActiveInterfaceVariables(out set);
@@ -61,8 +89,8 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                     var spvcType = compiler.GetTypeHandle(shaderResources[i].Base_type_id);
                     shaderResource.Type = spvcType.GetBasetype();
 
-                    shaderResource.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.DescriptorSet);
-                    shaderResource.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+                    shaderResource.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.DescriptorSet);
+                    shaderResource.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.Binding);
 
                     ulong tmpSize = 0;
                     lastResult = compiler.GetDeclaredStructSize(spvcType, ref tmpSize);
@@ -106,6 +134,12 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             }
 
             return disassembleResult;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            context.ReleaseAllocations();
+            context.Destroy();
         }
     }
 }
