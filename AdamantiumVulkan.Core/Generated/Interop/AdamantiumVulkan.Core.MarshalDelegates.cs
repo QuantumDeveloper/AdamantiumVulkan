@@ -43,17 +43,17 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkGetPhysicalDeviceMemoryProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties pMemoryProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkGetInstanceProcAddr([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] System.IntPtr pName);
+    public delegate void PFN_vkGetInstanceProcAddr([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pName);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkGetDeviceProcAddr([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] System.IntPtr pName);
+    public delegate void PFN_vkGetDeviceProcAddr([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pName);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateDevice([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice,  AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkDestroyDevice([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  System.IntPtr pAllocator);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkEnumerateInstanceExtensionProperties([In] System.IntPtr pLayerName, ref uint pPropertyCount, [In] AdamantiumVulkan.Core.Interop.VkExtensionProperties pProperties);
+    public delegate Result PFN_vkEnumerateInstanceExtensionProperties([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, [In] AdamantiumVulkan.Core.Interop.VkExtensionProperties pProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkEnumerateDeviceExtensionProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pLayerName, ref uint pPropertyCount, [In] AdamantiumVulkan.Core.Interop.VkExtensionProperties pProperties);
+    public delegate Result PFN_vkEnumerateDeviceExtensionProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerName, ref uint pPropertyCount, [In] AdamantiumVulkan.Core.Interop.VkExtensionProperties pProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, [In] AdamantiumVulkan.Core.Interop.VkLayerProperties pProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -499,13 +499,13 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPipelineExecutableInternalRepresentationsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR pExecutableInfo, ref uint pInternalRepresentationCount, [In] AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR pInternalRepresentations);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate uint PFN_vkDebugReportCallbackEXT([In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] System.IntPtr pLayerPrefix, [In] System.IntPtr pMessage, [In, Out] System.IntPtr pUserData);
+    public delegate uint PFN_vkDebugReportCallbackEXT([In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerPrefix, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pMessage, [In, Out] System.IntPtr pUserData);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateDebugReportCallbackEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance,  AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkDestroyDebugReportCallbackEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T callback,  System.IntPtr pAllocator);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkDebugReportMessageEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] System.IntPtr pLayerPrefix, [In] System.IntPtr pMessage);
+    public delegate void PFN_vkDebugReportMessageEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerPrefix, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pMessage);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkDebugMarkerSetObjectTagEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT pTagInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]

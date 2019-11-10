@@ -1098,6 +1098,8 @@ namespace AdamantiumVulkan.Generator
 
             api.Function("spvc_resources_get_resource_list_for_type").WithParameterName("resource_list").TreatAsPointerToArray(new CustomType("SpvcReflectedResource"), true, "resource_size").SetParameterKind(ParameterKind.Out);
 
+            api.Delegate("spvc_error_callback").WithParameterName("error").TreatAsIs().SetParameterKind(ParameterKind.Out);
+
             //api.Function("vkEnumerateInstanceExtensionProperties").
             //    WithParameterName("pProperties").
             //    TreatAsPointerToArray(new CustomType("VkExtensionProperties")).

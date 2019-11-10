@@ -86,7 +86,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_context_release_allocations(this);
         }
 
-        public void SetErrorCallback(SpvcErrorCallback cb, ref System.IntPtr userdata)
+        public void SetErrorCallback(System.IntPtr cb, ref System.IntPtr userdata)
         {
             AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_context_set_error_callback(this, cb, userdata);
         }

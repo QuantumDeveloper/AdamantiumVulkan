@@ -42,6 +42,26 @@ namespace VulkanEngineTestCore
             base.Dispose(disposing);
         }
 
+        private IntPtr ResolveInclude (System.IntPtr user_data, string requested_source, int type, string requesting_source, ulong include_depth)
+        {
+            var content = File.ReadAllText(Path.Combine("shaders\\TerrainGenShaders\\", requested_source));
+            ShadercIncludeResult result = new ShadercIncludeResult();
+            result.Content = content;
+            result.Content_length = (uint)result.Content.Length;
+            result.User_data = user_data;
+            //result.Source_name = Marshal.PtrToStringAnsi(requesting_source);
+            result.Source_name = requesting_source;
+            result.Source_name_length = (uint)result.Source_name.Length;
+
+            var resPtr = MarshalUtils.MarshalStructToPtr(result.ToInternal());
+            return resPtr;
+        }
+
+        void ReleaseInclude(System.IntPtr user_data, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult include_result)
+        {
+            ShadercIncludeResult result = new ShadercIncludeResult(include_result);
+        }
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -60,14 +80,21 @@ namespace VulkanEngineTestCore
             var intern = test.ToInternal();
             var ptr = MarshalUtils.MarshalStructToPtr(intern);
 
-            var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
+            var vertexText = File.ReadAllText("shaders\\TerrainGenShaders\\MarchingCubes.fx");
             var compiler = ShaderCompiler.New();
             var opts = CompileOptions.New();
             opts.EnableHlslFunctionality = true;
             opts.UseHlslIoMapping = true;
             opts.UseHlslOffsets = true;
             opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
-            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.VertexShader, "UIEffect.fx", "LightVertexShader", opts);
+            AdamantiumVulkan.Shaders.Interop.ShadercIncludeResolveFn resolverDelegate = ResolveInclude;
+            AdamantiumVulkan.Shaders.Interop.ShadercIncludeResultReleaseFn releaserDelegate = ReleaseInclude;
+            var resolver = Marshal.GetFunctionPointerForDelegate(resolverDelegate);
+            var releaser = Marshal.GetFunctionPointerForDelegate(releaserDelegate);
+            IntPtr userData = IntPtr.Zero;
+            opts.SetIncludeCallbacks(resolver, releaser, ref userData);
+
+            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.GeometryShader, "MarchingCubes.fx", "MarchingCubes_GS", opts);
             var bytes = result.Bytecode;
             opts.SetAutoBindUniforms = true;
             var spvcResult = SpvcContext.Create(out var spvcContext);
@@ -534,11 +561,6 @@ namespace VulkanEngineTestCore
             appInfo.EngineVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
             appInfo.ApiVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
 
-            DebugUtilsMessengerCreateInfoEXT debugInfo = new DebugUtilsMessengerCreateInfoEXT();
-            debugInfo.MessageSeverity = (uint)(DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt);
-            debugInfo.MessageType = (uint)(DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt);
-            debugInfo.PfnUserCallback = debugCallback;
-
             var createInfo = new InstanceCreateInfo();
             createInfo.PApplicationInfo = appInfo;
 
@@ -601,7 +623,7 @@ namespace VulkanEngineTestCore
             DebugUtilsMessengerCreateInfoEXT debugInfo = new DebugUtilsMessengerCreateInfoEXT();
             debugInfo.MessageSeverity = (uint)(DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt);
             debugInfo.MessageType = (uint)(DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt);
-            debugInfo.PfnUserCallback = debugCallback;
+            debugInfo.PfnUserCallback = Marshal.GetFunctionPointerForDelegate(debugCallback);
 
             var result = CreateDebugUtilsMessengerEXT(instance, debugInfo, null, out debugMessenger);
 
