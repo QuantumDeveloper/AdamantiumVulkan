@@ -134,7 +134,7 @@ namespace AdamantiumVulkan.Shaders.Interop
         /// Sets includer callback functions.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_include_callbacks", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void shaderc_compile_options_set_include_callbacks([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] ShadercIncludeResolveFn resolver, [In] ShadercIncludeResultReleaseFn result_releaser, [In, Out] System.IntPtr user_data);
+        internal static extern void shaderc_compile_options_set_include_callbacks([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] System.IntPtr resolver, [In] System.IntPtr result_releaser, [In, Out] System.IntPtr user_data);
 
         ///<summary>
         /// Sets whether the compiler should invert position.Y output in vertex shader.

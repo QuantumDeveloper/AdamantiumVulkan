@@ -275,7 +275,7 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern void vkCmdResolveImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetBlendConstants", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkCmdSetBlendConstants([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)] float[] blendConstants);
+        internal static extern void vkCmdSetBlendConstants([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float[] blendConstants);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetCheckpointNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetCheckpointNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pCheckpointMarker);
