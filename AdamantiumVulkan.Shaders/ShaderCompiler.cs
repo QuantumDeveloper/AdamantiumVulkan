@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Shaders
             this.compiler = compiler;
         }
 
-        private CompilationResult GetCompilationResult(ShadercCompilationResultT result, ShadercShaderKind shaderKind, bool isTextOutput)
+        private CompilationResult GetCompilationResult(ShadercCompilationResultT result, string name, ShadercShaderKind shaderKind, bool isTextOutput)
         {
             var status = result.GetCompilationStatus();
             var bytecode = new byte[result.GetLength()];
             MarshalUtils.IntPtrToManagedArray(result.GetBytes(), bytecode);
-            var messages = result.GetErrorMessage().Split("\r\n");
-            return new CompilationResult(bytecode, shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
+            var messages = result.GetErrorMessage();
+            return new CompilationResult(name, bytecode, shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
         }
 
         ///<summary>
@@ -28,16 +28,16 @@ namespace AdamantiumVulkan.Shaders
         public CompilationResult AssembleIntoSpirv(string sourceAssembly, CompileOptions options = null)
         {
             var result = compiler.AssembleIntoSpv(sourceAssembly, (ulong)sourceAssembly.Length, options);
-            return GetCompilationResult(result, ShadercShaderKind.SpirvAssembly, false);
+            return GetCompilationResult(result, string.Empty, ShadercShaderKind.SpirvAssembly, false);
         }
 
         ///<summary>
         /// Like shaderc_compile_into_spv, but the result contains preprocessed source code instead of a SPIR-V binary module
         ///</summary>
-        public CompilationResult CompileIntoPreprocessedText(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPointName, CompileOptions options = null)
+        public CompilationResult CompileIntoPreprocessedText(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPoint, CompileOptions options = null)
         {
-            var result = compiler.CompileIntoPreprocessedText(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPointName, options);
-            return GetCompilationResult(result, shaderKind, true);
+            var result = compiler.CompileIntoPreprocessedText(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPoint, options);
+            return GetCompilationResult(result, entryPoint, shaderKind, true);
         }
 
         ///<summary>
@@ -46,16 +46,16 @@ namespace AdamantiumVulkan.Shaders
         public CompilationResult CompileIntoSpirv(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPoint, CompileOptions options = null)
         {
             var result = compiler.CompileIntoSpv(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPoint, options);
-            return GetCompilationResult(result, shaderKind, false);
+            return GetCompilationResult(result, entryPoint, shaderKind, false);
         }
 
         ///<summary>
         /// Like CompileIntoSpirv, but the result contains SPIR-V assembly text instead of a SPIR-V binary module. The SPIR-V assembly syntax is as defined by the SPIRV-Tools open source project.
         ///</summary>
-        public CompilationResult CompileIntoSpirvAssembly(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPointName, CompileOptions options = null)
+        public CompilationResult CompileIntoSpirvAssembly(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPoint, CompileOptions options = null)
         {
-            var result = compiler.CompileIntoSpvAssembly(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPointName, options);
-            return GetCompilationResult(result, shaderKind, true);
+            var result = compiler.CompileIntoSpvAssembly(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPoint, options);
+            return GetCompilationResult(result, entryPoint, shaderKind, true);
         }
 
         public static ShaderCompiler New()
