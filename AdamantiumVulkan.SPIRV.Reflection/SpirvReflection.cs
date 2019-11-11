@@ -1,4 +1,5 @@
-﻿using AdamantiumVulkan.SPIRV.Cross;
+﻿using System;
+using AdamantiumVulkan.SPIRV.Cross;
 using System.Collections.Generic;
 using AdamantiumVulkan.Shaders;
 
@@ -15,6 +16,9 @@ namespace AdamantiumVulkan.SPIRV.Reflection
 
         private static readonly List<SpvcResourceType> resourcesToReflect;
 
+        private byte[] bytecode;
+        private SpvcBackend reflectionBackend;
+
         static SpirvReflection()
         {
             resourcesToReflect = new List<SpvcResourceType>
@@ -29,10 +33,18 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             };
         }
 
-        public SpirvReflection()
+        public SpirvReflection(byte[] bytecode, SpvcBackend reflectionBackend = SpvcBackend.Hlsl)
         {
+            if (bytecode == null || bytecode.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(bytecode), "bytecode array should not be null or empty");
+            }
+            
             lastResult = SpvcContext.Create(out context);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::Create");
+
+            this.bytecode = bytecode;
+            this.reflectionBackend = reflectionBackend;
         }
         
         public static CompilationResult CompileToSpirvBinary(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPointName, CompileOptions options = null)
@@ -59,16 +71,11 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             return result;
         }
 
-        public SpirvReflectionResult Disassemble(byte[] bytecode, SpvcBackend backend)
+        public SpirvReflectionResult Disassemble()
         {
-            if (bytecode == null || bytecode.Length == 0)
-            {
-                return new SpirvReflectionResult() {};
-            }
-            
             lastResult = context.ParseSpirv(bytecode, (ulong)bytecode.Length / 4, out parsedIr);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
-            lastResult = context.CreateCompiler(backend, parsedIr, SpvcCaptureMode.TakeOwnership, out compiler);
+            lastResult = context.CreateCompiler(reflectionBackend, parsedIr, SpvcCaptureMode.TakeOwnership, out compiler);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::CreateCompiler");
             lastResult = compiler.GetActiveInterfaceVariables(out set);
             SpirvResultHelper.CheckResult(lastResult, "SpvcCompiler::GetActiveInterfaceVariables");
@@ -83,27 +90,30 @@ namespace AdamantiumVulkan.SPIRV.Reflection
 
                 for (ulong i = 0; i < (ulong)shaderResources.Length; ++i)
                 {
-                    var shaderResource = new ShaderReflectionVariable(resourceType);
-                    shaderResource.Name = shaderResources[i].Name;
-                    shaderResource.TypeId = shaderResources[i].Id;
+                    var shaderResource = new ShaderReflectionResource();
+                    var resourceDescription = new ShaderReflectionVariable(resourceType);
+                    shaderResource.Description = resourceDescription;
+                    
+                    resourceDescription.Name = shaderResources[i].Name;
+                    resourceDescription.TypeId = shaderResources[i].Id;
                     var spvcType = compiler.GetTypeHandle(shaderResources[i].Base_type_id);
-                    shaderResource.Type = spvcType.GetBasetype();
+                    resourceDescription.Type = spvcType.GetBasetype();
 
-                    shaderResource.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.DescriptorSet);
-                    shaderResource.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.Binding);
+                    resourceDescription.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.DescriptorSet);
+                    resourceDescription.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.Binding);
 
                     ulong tmpSize = 0;
                     lastResult = compiler.GetDeclaredStructSize(spvcType, ref tmpSize);
-                    shaderResource.Size = tmpSize;
+                    resourceDescription.Size = tmpSize;
 
-                    shaderResource.ColumnsCount = spvcType.GetColumns();
-                    shaderResource.ArrayDimensionsCount = spvcType.GetNumArrayDimensions();
-                    for (var x = 0u; x < shaderResource.ArrayDimensionsCount; ++x)
+                    resourceDescription.RowCount = spvcType.GetColumns();
+                    resourceDescription.ArrayDimensionsCount = spvcType.GetNumArrayDimensions();
+                    for (var x = 0u; x < resourceDescription.ArrayDimensionsCount; ++x)
                     {
-                        shaderResource.AddArraySizeForDimension(x, spvcType.GetArrayDimension(x));
+                        resourceDescription.AddArraySizeForDimension(x, spvcType.GetArrayDimension(x));
                     }
 
-                    shaderResource.ResourceDimension = (ShaderResourceDimension)spvcType.GetImageDimension();
+                    resourceDescription.Dimension = (ShaderResourceDimension)spvcType.GetImageDimension();
 
                     var membersCount = spvcType.GetNumMemberTypes();
                     for (uint k = 0; k < membersCount; ++k)
@@ -126,7 +136,14 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                         lastResult = compiler.TypeStructMemberMatrixStride(spvcType, k, ref stride);
                         member.MatrixStride = stride;
 
-                        shaderResource.AddMember(member);
+                        member.RowCount = spvcType.GetColumns();
+                        member.ArrayDimensionsCount = spvcType.GetNumArrayDimensions();
+                        for (var x = 0u; x < member.ArrayDimensionsCount; ++x)
+                        {
+                            member.AddArraySizeForDimension(x, spvcType.GetArrayDimension(x));
+                        }
+
+                        shaderResource.AddVariable(member);
                     }
 
                     disassembleResult.AddShaderResource(shaderResource);
