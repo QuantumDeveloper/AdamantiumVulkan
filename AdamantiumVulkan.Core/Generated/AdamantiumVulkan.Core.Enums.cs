@@ -667,6 +667,8 @@ namespace AdamantiumVulkan.Core
 
         DeviceQueueGlobalPriorityCreateInfoExt = 1000174000,
 
+        PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKhr = 1000175000,
+
         PhysicalDevice8bitStorageFeaturesKhr = 1000177000,
 
         ImportMemoryHostPointerInfoExt = 1000178000,
@@ -676,6 +678,8 @@ namespace AdamantiumVulkan.Core
         PhysicalDeviceExternalMemoryHostPropertiesExt = 1000178002,
 
         PhysicalDeviceShaderAtomicInt64FeaturesKhr = 1000180000,
+
+        PhysicalDeviceShaderClockFeaturesKhr = 1000181000,
 
         PipelineCompilerControlCreateInfoAmd = 1000183000,
 
@@ -720,6 +724,18 @@ namespace AdamantiumVulkan.Core
         CheckpointDataNv = 1000206000,
 
         QueueFamilyCheckpointPropertiesNv = 1000206001,
+
+        PhysicalDeviceTimelineSemaphoreFeaturesKhr = 1000207000,
+
+        PhysicalDeviceTimelineSemaphorePropertiesKhr = 1000207001,
+
+        SemaphoreTypeCreateInfoKhr = 1000207002,
+
+        TimelineSemaphoreSubmitInfoKhr = 1000207003,
+
+        SemaphoreWaitInfoKhr = 1000207004,
+
+        SemaphoreSignalInfoKhr = 1000207005,
 
         PhysicalDeviceShaderIntegerFunctions2FeaturesIntel = 1000209000,
 
@@ -3346,6 +3362,28 @@ namespace AdamantiumVulkan.Core
         MinBitKhr = 4,
 
         MaxBitKhr = 8,
+
+        FlagBitsMaxEnumKhr = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SemaphoreTypeKHR : int
+    {
+        BinaryKhr = 0,
+
+        TimelineKhr = 1,
+
+        RangeSizeKhr = 2,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SemaphoreWaitFlagBitsKHR : int
+    {
+        AnyBitKhr = 1,
 
         FlagBitsMaxEnumKhr = 2147483647,
 

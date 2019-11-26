@@ -1,3 +1,4 @@
+int permutationTable2[10];
 matrix wvp;
 
 float4 fillColor;
@@ -10,18 +11,20 @@ float zNear;
 float zFar;
 float transparency = 1;
 float transparency2 = 1;
+double isThisOneByte;
 
 
 const int permutationTableSize = 1024;
 const int gradientSetSize = 26;
 
-cbuffer PerlinParams : register(b0)
+
+cbuffer PerlinParams
 {
 	//pseudorandom hash modifiers
 	int mX;
 	int mY;
 	int mZ;
-
+	//Texture2D someTexture;
 	//permutation table
 	int permutationTable[permutationTableSize];
 	//gradients' set

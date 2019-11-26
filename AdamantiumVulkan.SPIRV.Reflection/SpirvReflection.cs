@@ -150,6 +150,8 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                 }
             }
 
+            disassembleResult.Bytecode = bytecode;
+
             return disassembleResult;
         }
 

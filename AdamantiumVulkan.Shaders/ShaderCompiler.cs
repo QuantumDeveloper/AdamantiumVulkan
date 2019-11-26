@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Shaders
             this.compiler = compiler;
         }
 
-        private CompilationResult GetCompilationResult(ShadercCompilationResultT result, string name, ShadercShaderKind shaderKind, bool isTextOutput)
+        private CompilationResult GetCompilationResult(ShadercCompilationResultT result, string name, string entryPoint, ShadercShaderKind shaderKind, bool isTextOutput)
         {
             var status = result.GetCompilationStatus();
             var bytecode = new byte[result.GetLength()];
             MarshalUtils.IntPtrToManagedArray(result.GetBytes(), bytecode);
             var messages = result.GetErrorMessage();
-            return new CompilationResult(name, bytecode, shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
+            return new CompilationResult(name, entryPoint, bytecode, shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
         }
 
         ///<summary>
@@ -28,7 +28,7 @@ namespace AdamantiumVulkan.Shaders
         public CompilationResult AssembleIntoSpirv(string sourceAssembly, CompileOptions options = null)
         {
             var result = compiler.AssembleIntoSpv(sourceAssembly, (ulong)sourceAssembly.Length, options);
-            return GetCompilationResult(result, string.Empty, ShadercShaderKind.SpirvAssembly, false);
+            return GetCompilationResult(result, string.Empty, string.Empty, ShadercShaderKind.SpirvAssembly, false);
         }
 
         ///<summary>
@@ -37,7 +37,7 @@ namespace AdamantiumVulkan.Shaders
         public CompilationResult CompileIntoPreprocessedText(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPoint, CompileOptions options = null)
         {
             var result = compiler.CompileIntoPreprocessedText(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPoint, options);
-            return GetCompilationResult(result, entryPoint, shaderKind, true);
+            return GetCompilationResult(result, inputFileName, entryPoint, shaderKind, true);
         }
 
         ///<summary>
@@ -46,7 +46,7 @@ namespace AdamantiumVulkan.Shaders
         public CompilationResult CompileIntoSpirv(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPoint, CompileOptions options = null)
         {
             var result = compiler.CompileIntoSpv(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPoint, options);
-            return GetCompilationResult(result, entryPoint, shaderKind, false);
+            return GetCompilationResult(result, inputFileName, entryPoint, shaderKind, false);
         }
 
         ///<summary>
@@ -55,7 +55,7 @@ namespace AdamantiumVulkan.Shaders
         public CompilationResult CompileIntoSpirvAssembly(string sourceText, ShadercShaderKind shaderKind, string inputFileName, string entryPoint, CompileOptions options = null)
         {
             var result = compiler.CompileIntoSpvAssembly(sourceText, (ulong)sourceText.Length, shaderKind, inputFileName, entryPoint, options);
-            return GetCompilationResult(result, entryPoint, shaderKind, true);
+            return GetCompilationResult(result, inputFileName, entryPoint, shaderKind, true);
         }
 
         public static ShaderCompiler New()

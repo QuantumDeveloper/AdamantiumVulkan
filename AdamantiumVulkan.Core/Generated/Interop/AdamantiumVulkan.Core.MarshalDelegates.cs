@@ -493,6 +493,12 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdDrawIndexedIndirectCountKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkGetSemaphoreCounterValueKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong pValue);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkWaitSemaphoresKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR pWaitInfo, [In] ulong timeout);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkSignalSemaphoreKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR pSignalInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPipelineExecutablePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR pPipelineInfo, ref uint pExecutableCount, [In] AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR pProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPipelineExecutableStatisticsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR pExecutableInfo, ref uint pStatisticCount, [In] AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR pStatistics);

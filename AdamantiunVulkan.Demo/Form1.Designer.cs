@@ -19,6 +19,8 @@ using Adamantium.Mathematics;
 using AdamantiumVulkan.SPIRV.Cross;
 using AdamantiumVulkan;
 using AdamantiumVulkan.Shaders;
+using AdamantiumVulkan.SPIRV.Reflection;
+using AdamantiumVulkan.Core.Interop;
 
 namespace VulkanEngineTestCore
 {
@@ -80,7 +82,7 @@ namespace VulkanEngineTestCore
             var intern = test.ToInternal();
             var ptr = MarshalUtils.MarshalStructToPtr(intern);
 
-            var vertexText = File.ReadAllText("shaders\\TerrainGenShaders\\MarchingCubes.fx");
+            var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
             var compiler = ShaderCompiler.New();
             var opts = CompileOptions.New();
             opts.EnableHlslFunctionality = true;
@@ -93,40 +95,16 @@ namespace VulkanEngineTestCore
             var releaser = Marshal.GetFunctionPointerForDelegate(releaserDelegate);
             IntPtr userData = IntPtr.Zero;
             opts.SetIncludeCallbacks(resolver, releaser, ref userData);
-
-            var result = compiler.CompileIntoSpirv(vertexText, ShadercShaderKind.GeometryShader, "MarchingCubes.fx", "MarchingCubes_GS", opts);
-            var bytes = result.Bytecode;
             opts.SetAutoBindUniforms = true;
-            var spvcResult = SpvcContext.Create(out var spvcContext);
-            spvcResult = spvcContext.ParseSpirv(bytes, (ulong)bytes.Length/4, out var parsedIr);
-            spvcResult = spvcContext.CreateCompiler(SpvcBackend.Hlsl, parsedIr, SpvcCaptureMode.TakeOwnership, out var spvcCompiler);
-            spvcCompiler.GetActiveInterfaceVariables(out var spvcSet);
-            spvcResult = spvcCompiler.CreateShaderResourcesForActiveVariables(out var resources, spvcSet);
-            ulong size = 0;
-            spvcResult = resources.GetResourceListForType(SpvcResourceType.UniformBuffer, out var list, ref size);
+            opts.SetAutoMapLocations = true;
 
-            for (ulong i = 0; i < size; i++)
-            {
-                var res = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.DescriptorSet);
-                var res2 = spvcCompiler.GetDecoration(list[i].Id, AdamantiumVulkan.SPIRV.SpvDecoration.Binding);
+            var result = SpirvReflection.CompileToSpirvBinary(vertexText, ShadercShaderKind.FragmentShader, "UIEffect.fx", "SolidColorPixelShader", opts);
 
-                var spvcType =  spvcCompiler.GetTypeHandle(list[i].Base_type_id);
-                var number = spvcType.GetNumMemberTypes();
-                for (uint k = 0; k< number; ++k)
-                {
-                    var memberType = spvcType.GetMemberType(k);
-                    ulong typeSize = 0;
-                    var rez = spvcCompiler.GetDeclaredStructMemberSize(spvcType, k, ref typeSize);
-                    uint offset = 0;
-                    rez = spvcCompiler.TypeStructMemberOffset(spvcType, k, ref offset);
-                    var name = spvcCompiler.GetMemberName(list[i].Base_type_id, k);
-
-                    Debug.WriteLine($"MemberType = {memberType}, Size = {typeSize}, Offset = {offset}, Name = {name}");
-                }
-            }
-
-            resources.GetResourceListForType(SpvcResourceType.SeparateImage, out var images, ref size);
-            resources.GetResourceListForType(SpvcResourceType.SeparateSamplers, out var samplers, ref size);
+            SpirvReflection reflection = new SpirvReflection(result.Bytecode, SpvcBackend.Hlsl);
+            var reflectionResult = reflection.Disassemble();
+            var buffer = reflectionResult.UniformBuffers[0];
+            var member = buffer.GetVariable(0);
+            var arraySize = member.GetArraySizeForDimension(0);
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
@@ -567,11 +545,12 @@ namespace VulkanEngineTestCore
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
             var extensions = Instance.EnumerateInstanceExtensionProperties();
 
-            string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", "VK_EXT_debug_utils" };
-            //createInfo.EnabledExtensionCount = (uint)extensions.Length;
-            //createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
-            createInfo.EnabledExtensionCount = (uint)ext.Length;
-            createInfo.PpEnabledExtensionNames = ext;
+            //string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", /*"VK_EXT_headless_surface",*/ "VK_EXT_debug_utils" };
+            //createInfo.EnabledExtensionCount = (uint)ext.Length;
+            //createInfo.PpEnabledExtensionNames = ext;
+            createInfo.EnabledExtensionCount = (uint)extensions.Length;
+            createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
+            
 
             if (enableValidationLayers)
             {
@@ -645,6 +624,10 @@ namespace VulkanEngineTestCore
             var devices = instance.EnumeratePhysicalDevices();
             physicalDevice = devices[0];
             var deviceProperties = physicalDevice.GetPhysicalDeviceProperties();
+            uint count = 0;
+            var result = physicalDevice.EnumerateDeviceExtensionProperties("", ref count, null);
+            var props = new ExtensionProperties[count];
+            result = physicalDevice.EnumerateDeviceExtensionProperties("", ref count, props);
         }
 
         private void CreateLogicalDevice()
@@ -693,6 +676,19 @@ namespace VulkanEngineTestCore
             surfaceInfo.Hwnd = this.Handle;
             surfaceInfo.Hinstance = Process.GetCurrentProcess().Handle;
             surface = instance.CreateWin32Surface(surfaceInfo);
+            //var headlessSurfaceInfo = new HeadlessSurfaceCreateInfoEXT();
+            //var addr = instance.GetInstanceProcAddr("PFN_vkCreateHeadlessSurfaceEXT");
+            //var sufaceFunc = Marshal.GetDelegateForFunctionPointer<PFN_vkCreateHeadlessSurfaceEXT>(addr);
+            //surface = instance.CreateHeadlesSurface(headlessSurfaceInfo);
+            //var displaySurfaceInfo = new DisplaySurfaceCreateInfoKHR();
+            //displaySurfaceInfo.ImageExtent = new Extent2D();
+            //displaySurfaceInfo.ImageExtent.Width = 800;
+            //displaySurfaceInfo.ImageExtent.Height = 600;
+            //uint displayCount = 0;
+            //physicalDevice.GetPhysicalDeviceFeatures(out var features);
+            //physicalDevice.GetPhysicalDeviceDisplayPlanePropertiesKHR(ref displayCount, out var props);
+            //physicalDevice.GetDisplayPlaneSupportedDisplaysKHR(0, ref displayCount, out var displays);
+            //physicalDevice.GetDisplayPlaneCapabilities2KHR()
         }
 
         QueueFamilyIndices FindQueueFamilies(PhysicalDevice device)
@@ -879,6 +875,7 @@ namespace VulkanEngineTestCore
             layoutInfo.PBindings = bindings.ToArray();
 
             descriptorSetLayout = logicalDevice.CreateDescriptorSetLayout(layoutInfo, null);
+            //logicalDevice.UpdateDescriptorSets()
         }
 
         private void CreateGraphicsPipeline()
@@ -1454,7 +1451,7 @@ namespace VulkanEngineTestCore
                 descriptorWriter.DescriptorCount = 1;
                 descriptorWriter.PImageInfo = imageInfo;
 
-                logicalDevice.UpdateDescriptorSets(1, descriptorWriter, 0, null);
+                logicalDevice.UpdateDescriptorSets(1, descriptorWriter, 0, out var copies);
             }
         }
 

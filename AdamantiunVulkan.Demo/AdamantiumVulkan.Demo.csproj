@@ -28,6 +28,7 @@
     <None Remove="shaders\25_shader_textures.frag" />
     <None Remove="shaders\25_shader_textures.vert" />
     <None Remove="shaders\frag.spv" />
+    <None Remove="shaders\GLSLEffect.fx" />
     <None Remove="shaders\NoiseGeneration\OpenSimplexNoise.hlsl" />
     <None Remove="shaders\NoiseGeneration\PerlinNoise.hlsl" />
     <None Remove="shaders\TerrainGenShaders\Density.hlsl" />
@@ -46,6 +47,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\frag.spv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shaders\GLSLEffect.fx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="shaders\NoiseGeneration\OpenSimplexNoise.hlsl">
@@ -78,6 +82,7 @@
     <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Shaders\AdamantiumVulkan.Shaders.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.SPIRV.Cross\AdamantiumVulkan.SPIRV.Cross.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan.SPIRV.Reflection\AdamantiumVulkan.SPIRV.Reflection.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Windows\AdamantiumVulkan.Windows.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
   </ItemGroup>
