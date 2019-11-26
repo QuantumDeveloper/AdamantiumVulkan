@@ -43,7 +43,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\vulkan\vulkan.h");
+            vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.126.0\Include\vulkan\vulkan.h");
             vkMainModule.ForceCallingConvention = true;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
             vkMainModule.AllowConvertStructToClass = true;
@@ -1049,6 +1049,9 @@ namespace AdamantiumVulkan.Generator
             values = new PredefinedValues() { StructType = "VkMacOSSurfaceCreateInfoMVK" };
             values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.MacosSurfaceCreateInfoMvk", IsReadOnly = true };
             predefinedValues.Add(values);
+            values = new PredefinedValues() { StructType = "VkHeadlessSurfaceCreateInfoEXT" };
+            values.FieldValues["sType"] = new PredefinedItem() { Value = "StructureType.HeadlessSurfaceCreateInfoExt", IsReadOnly = true };
+            predefinedValues.Add(values);
 
             return predefinedValues;
         }
@@ -1090,6 +1093,33 @@ namespace AdamantiumVulkan.Generator
         private void AddFunctionsToFix(ProcessingContext ctx)
         {
             PostProcessingApi api = new PostProcessingApi();
+
+            api.Function("vkUpdateDescriptorSets")
+                .WithParameterName("pDescriptorWrites")
+                .TreatAsPointerToArray(new CustomType("VkWriteDescriptorSet"), true, "descriptorWriteCount")
+                .WithParameterName("pDescriptorCopies")
+                .TreatAsPointerToArray(new CustomType("VkCopyDescriptorSet"), true, "descriptorCopyCount")
+                .SetParameterKind(ParameterKind.Out);
+
+            api.Function("vkGetDisplayPlaneSupportedDisplaysKHR")
+                .WithParameterName("pDisplays")
+                .TreatAsPointerToArray(new CustomType("VkDisplayKHR_T"), true, "pDisplayCount")
+                .SetParameterKind(ParameterKind.Out);
+
+            api.Function("vkGetPhysicalDeviceDisplayPlanePropertiesKHR")
+                .WithParameterName("pProperties")
+                .TreatAsPointerToArray(new CustomType("VkDisplayPlanePropertiesKHR"), true, "pPropertyCount")
+                .SetParameterKind(ParameterKind.Out);
+
+            api.Function("vkEnumerateDeviceExtensionProperties")
+                .WithParameterName("pProperties")
+                .TreatAsPointerToArray(new CustomType("VkExtensionProperties"), true, "pPropertyCount")
+                .SetParameterKind(ParameterKind.InOut);
+
+            api.Function("vkEnumerateDeviceLayerProperties")
+                .WithParameterName("pProperties")
+                .TreatAsPointerToArray(new CustomType("VkLayerProperties"), true, "pPropertyCount")
+                .SetParameterKind(ParameterKind.InOut);
 
             api.Function("shaderc_result_get_bytes").
                 WithReturnType(new BuiltinType(PrimitiveType.IntPtr));

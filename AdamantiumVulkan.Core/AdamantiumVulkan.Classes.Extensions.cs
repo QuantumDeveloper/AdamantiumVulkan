@@ -46,7 +46,8 @@ namespace AdamantiumVulkan.Core
 
         public static Instance Create(in InstanceCreateInfo createInfo, in AllocationCallbacks allocator = null)
         {
-            VulkanNative.CreateInstance(createInfo, allocator, out var instance);
+            var result = VulkanNative.CreateInstance(createInfo, allocator, out var instance);
+            ResultHelper.CheckResult(result, nameof(Create));
             return instance;
         }
 
@@ -69,6 +70,16 @@ namespace AdamantiumVulkan.Core
             ResultHelper.CheckResult(result, nameof(EnumeratePhysicalDevices));
 
             return pPhysicalDevices;
+        }
+    }
+
+    public static partial class InstanceExtension
+    {
+        public static SurfaceKHR CreateHeadlesSurface(this Instance instance, HeadlessSurfaceCreateInfoEXT surfaceInfo, AllocationCallbacks allocator = null)
+        {
+            var result = instance.CreateHeadlessSurfaceEXT(surfaceInfo, null, out var surface);
+            ResultHelper.CheckResult(result, nameof(CreateHeadlesSurface));
+            return surface;
         }
     }
 

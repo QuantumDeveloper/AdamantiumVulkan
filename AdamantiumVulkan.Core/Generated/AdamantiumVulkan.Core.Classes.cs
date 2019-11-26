@@ -240,18 +240,52 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result EnumerateDeviceExtensionProperties(string pLayerName, ref uint pPropertyCount, ExtensionProperties pProperties)
+        public Result EnumerateDeviceExtensionProperties(string pLayerName, ref uint pPropertyCount, ExtensionProperties[] pProperties)
+        {
+            AdamantiumVulkan.Core.Interop.VkExtensionProperties[] arg1 = null;
+            arg1 = ReferenceEquals(pProperties, null) ? null : new AdamantiumVulkan.Core.Interop.VkExtensionProperties[pPropertyCount];
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceExtensionProperties(this, pLayerName, ref pPropertyCount, arg1);
+            if (!ReferenceEquals(pProperties, null))
+            {
+                for (var i = 0U; i < pPropertyCount; ++i)
+                {
+                    pProperties[i] = new ExtensionProperties(arg1[i]);
+                }
+            }
+            return result;
+        }
+
+        public Result EnumerateDeviceExtensionProperties(string pLayerName, ref uint pPropertyCount, ref ExtensionProperties pProperties)
         {
             var arg1 = ReferenceEquals(pProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProperties.ToInternal());
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceExtensionProperties(this, pLayerName, ref pPropertyCount, arg1);
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceExtensionProperties(this, pLayerName, ref pPropertyCount, ref arg1);
+            var temparg1 =  Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkExtensionProperties>(arg1);
+            pProperties = new AdamantiumVulkan.Core.ExtensionProperties(temparg1);
             Marshal.FreeHGlobal(arg1);
             return result;
         }
 
-        public Result EnumerateDeviceLayerProperties(ref uint pPropertyCount, LayerProperties pProperties)
+        public Result EnumerateDeviceLayerProperties(ref uint pPropertyCount, LayerProperties[] pProperties)
+        {
+            AdamantiumVulkan.Core.Interop.VkLayerProperties[] arg1 = null;
+            arg1 = ReferenceEquals(pProperties, null) ? null : new AdamantiumVulkan.Core.Interop.VkLayerProperties[pPropertyCount];
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg1);
+            if (!ReferenceEquals(pProperties, null))
+            {
+                for (var i = 0U; i < pPropertyCount; ++i)
+                {
+                    pProperties[i] = new LayerProperties(arg1[i]);
+                }
+            }
+            return result;
+        }
+
+        public Result EnumerateDeviceLayerProperties(ref uint pPropertyCount, ref LayerProperties pProperties)
         {
             var arg1 = ReferenceEquals(pProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProperties.ToInternal());
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg1);
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, ref arg1);
+            var temparg1 =  Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkLayerProperties>(arg1);
+            pProperties = new AdamantiumVulkan.Core.LayerProperties(temparg1);
             Marshal.FreeHGlobal(arg1);
             return result;
         }
@@ -296,11 +330,17 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result GetDisplayPlaneSupportedDisplaysKHR(uint planeIndex, ref uint pDisplayCount, out AdamantiumVulkan.Core.DisplayKHR pDisplays)
+        public Result GetDisplayPlaneSupportedDisplaysKHR(uint planeIndex, ref uint pDisplayCount, out AdamantiumVulkan.Core.DisplayKHR[] pDisplays)
         {
-            VkDisplayKHR_T arg1;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayPlaneSupportedDisplaysKHR(this, planeIndex, ref pDisplayCount, out arg1);
-            pDisplays = new DisplayKHR(arg1);
+            var arg1 = System.IntPtr.Zero;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayPlaneSupportedDisplaysKHR(this, planeIndex, ref pDisplayCount, ref arg1);
+            var _pDisplays = new AdamantiumVulkan.Core.Interop.VkDisplayKHR_T[pDisplayCount];
+            MarshalUtils.IntPtrToManagedArray2<AdamantiumVulkan.Core.Interop.VkDisplayKHR_T>(arg1, _pDisplays);
+            pDisplays = new DisplayKHR[pDisplayCount];
+            for (var i = 0U; i< pDisplayCount; ++i)
+            {
+                pDisplays[i] = new DisplayKHR(_pDisplays[i]);
+            }
             return result;
         }
 
@@ -330,11 +370,17 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result GetPhysicalDeviceDisplayPlanePropertiesKHR(ref uint pPropertyCount, DisplayPlanePropertiesKHR pProperties)
+        public Result GetPhysicalDeviceDisplayPlanePropertiesKHR(ref uint pPropertyCount, out DisplayPlanePropertiesKHR[] pProperties)
         {
-            var arg1 = ReferenceEquals(pProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProperties.ToInternal());
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceDisplayPlanePropertiesKHR(this, ref pPropertyCount, arg1);
-            Marshal.FreeHGlobal(arg1);
+            var arg1 = System.IntPtr.Zero;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceDisplayPlanePropertiesKHR(this, ref pPropertyCount, ref arg1);
+            var _pProperties = new AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR[pPropertyCount];
+            MarshalUtils.IntPtrToManagedArray<AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR>(arg1, _pProperties);
+            pProperties = new DisplayPlanePropertiesKHR[pPropertyCount];
+            for (var i = 0U; i< pPropertyCount; ++i)
+            {
+                pProperties[i] = new DisplayPlanePropertiesKHR(_pProperties[i]);
+            }
             return result;
         }
 
@@ -2125,6 +2171,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
+        public Result GetSemaphoreCounterValueKHR(AdamantiumVulkan.Core.Semaphore semaphore, ref ulong pValue)
+        {
+            var arg1 = ReferenceEquals(semaphore, null) ? new VkSemaphore_T() : (VkSemaphore_T)semaphore;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetSemaphoreCounterValueKHR(this, arg1, ref pValue);
+        }
+
         public Result GetSemaphoreFdKHR(in SemaphoreGetFdInfoKHR pGetFdInfo, ref int pFd)
         {
             var arg1 = ReferenceEquals(pGetFdInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGetFdInfo.ToInternal());
@@ -2375,6 +2427,15 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkSetLocalDimmingAMD(this, arg1, localDimmingEnable);
         }
 
+        public Result SignalSemaphoreKHR(in SemaphoreSignalInfoKHR pSignalInfo)
+        {
+            var arg1 = ReferenceEquals(pSignalInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSignalInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkSignalSemaphoreKHR(this, arg1);
+            pSignalInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public void TrimCommandPool(AdamantiumVulkan.Core.CommandPool commandPool, uint flags)
         {
             var arg1 = ReferenceEquals(commandPool, null) ? new VkCommandPool_T() : (VkCommandPool_T)commandPool;
@@ -2407,15 +2468,49 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public void UpdateDescriptorSets(uint descriptorWriteCount, in WriteDescriptorSet pDescriptorWrites, uint descriptorCopyCount, in CopyDescriptorSet pDescriptorCopies)
+        public void UpdateDescriptorSets(uint descriptorWriteCount, in WriteDescriptorSet[] pDescriptorWrites, uint descriptorCopyCount, out CopyDescriptorSet[] pDescriptorCopies)
+        {
+            AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet[] arg1 = null;
+            arg1 = ReferenceEquals(pDescriptorWrites, null) ? null : new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet[descriptorWriteCount];
+            if (!ReferenceEquals(pDescriptorWrites, null))
+            {
+                for (var i = 0U; i < descriptorWriteCount; ++i)
+                {
+                    arg1[i] = pDescriptorWrites[i].ToInternal();
+                }
+            }
+            var arg2 = System.IntPtr.Zero;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkUpdateDescriptorSets(this, descriptorWriteCount, arg1, descriptorCopyCount, ref arg2);
+            if (!ReferenceEquals(pDescriptorWrites, null))
+            {
+                for (var i = 0U; i < descriptorWriteCount; ++i)
+                {
+                    pDescriptorWrites[i]?.Dispose();
+                }
+            }
+            var _pDescriptorCopies = new AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet[descriptorCopyCount];
+            MarshalUtils.IntPtrToManagedArray<AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet>(arg2, _pDescriptorCopies);
+            pDescriptorCopies = new CopyDescriptorSet[descriptorCopyCount];
+            for (var i = 0U; i< descriptorCopyCount; ++i)
+            {
+                pDescriptorCopies[i] = new CopyDescriptorSet(_pDescriptorCopies[i]);
+            }
+        }
+
+        public void UpdateDescriptorSets(uint descriptorWriteCount, in WriteDescriptorSet pDescriptorWrites, uint descriptorCopyCount, out CopyDescriptorSet[] pDescriptorCopies)
         {
             var arg1 = ReferenceEquals(pDescriptorWrites, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pDescriptorWrites.ToInternal());
-            var arg2 = ReferenceEquals(pDescriptorCopies, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pDescriptorCopies.ToInternal());
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkUpdateDescriptorSets(this, descriptorWriteCount, arg1, descriptorCopyCount, arg2);
+            var arg2 = System.IntPtr.Zero;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkUpdateDescriptorSets(this, descriptorWriteCount, arg1, descriptorCopyCount, ref arg2);
             pDescriptorWrites?.Dispose();
             Marshal.FreeHGlobal(arg1);
-            pDescriptorCopies?.Dispose();
-            Marshal.FreeHGlobal(arg2);
+            var _pDescriptorCopies = new AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet[descriptorCopyCount];
+            MarshalUtils.IntPtrToManagedArray<AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet>(arg2, _pDescriptorCopies);
+            pDescriptorCopies = new CopyDescriptorSet[descriptorCopyCount];
+            for (var i = 0U; i< descriptorCopyCount; ++i)
+            {
+                pDescriptorCopies[i] = new CopyDescriptorSet(_pDescriptorCopies[i]);
+            }
         }
 
         public void UpdateDescriptorSetWithTemplate(AdamantiumVulkan.Core.DescriptorSet descriptorSet, AdamantiumVulkan.Core.DescriptorUpdateTemplate descriptorUpdateTemplate, in System.IntPtr pData)
@@ -2450,6 +2545,15 @@ namespace AdamantiumVulkan.Core
         {
             var arg1 = ReferenceEquals(pFences, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkFence_T)pFences);
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWaitForFences(this, fenceCount, arg1, waitAll, timeout);
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result WaitSemaphoresKHR(in SemaphoreWaitInfoKHR pWaitInfo, ulong timeout)
+        {
+            var arg1 = ReferenceEquals(pWaitInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pWaitInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWaitSemaphoresKHR(this, arg1, timeout);
+            pWaitInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
             return result;
         }

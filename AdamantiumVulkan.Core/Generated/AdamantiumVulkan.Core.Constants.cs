@@ -37,7 +37,7 @@ namespace AdamantiumVulkan.Core
             return (uint)(patch>>22);
         }
 
-        public static int VK_HEADER_VERSION => 121;
+        public static int VK_HEADER_VERSION => 126;
 
         public static float VK_LOD_CLAMP_NONE => 1000.0f;
 
@@ -331,6 +331,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_KHR_draw_indirect_count";
 
+        public static int VK_KHR_shader_subgroup_extended_types => 1;
+
+        public static int VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_EXTENSION_NAME => "VK_KHR_shader_subgroup_extended_types";
+
         public static int VK_KHR_8bit_storage => 1;
 
         public static int VK_KHR_8BIT_STORAGE_SPEC_VERSION => 1;
@@ -342,6 +348,12 @@ namespace AdamantiumVulkan.Core
         public static int VK_KHR_SHADER_ATOMIC_INT64_SPEC_VERSION => 1;
 
         public static string VK_KHR_SHADER_ATOMIC_INT64_EXTENSION_NAME => "VK_KHR_shader_atomic_int64";
+
+        public static int VK_KHR_shader_clock => 1;
+
+        public static int VK_KHR_SHADER_CLOCK_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SHADER_CLOCK_EXTENSION_NAME => "VK_KHR_shader_clock";
 
         public static int VK_KHR_driver_properties => 1;
 
@@ -371,11 +383,23 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_EXTENSION_NAME => "VK_KHR_swapchain_mutable_format";
 
+        public static int VK_KHR_timeline_semaphore => 1;
+
+        public static int VK_KHR_TIMELINE_SEMAPHORE_SPEC_VERSION => 2;
+
+        public static string VK_KHR_TIMELINE_SEMAPHORE_EXTENSION_NAME => "VK_KHR_timeline_semaphore";
+
         public static int VK_KHR_vulkan_memory_model => 1;
 
         public static int VK_KHR_VULKAN_MEMORY_MODEL_SPEC_VERSION => 3;
 
         public static string VK_KHR_VULKAN_MEMORY_MODEL_EXTENSION_NAME => "VK_KHR_vulkan_memory_model";
+
+        public static int VK_KHR_spirv_1_4 => 1;
+
+        public static int VK_KHR_SPIRV_1_4_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SPIRV_1_4_EXTENSION_NAME => "VK_KHR_spirv_1_4";
 
         public static int VK_KHR_surface_protected_capabilities => 1;
 
@@ -535,7 +559,7 @@ namespace AdamantiumVulkan.Core
 
         public static int VK_EXT_validation_flags => 1;
 
-        public static int VK_EXT_VALIDATION_FLAGS_SPEC_VERSION => 1;
+        public static int VK_EXT_VALIDATION_FLAGS_SPEC_VERSION => 2;
 
         public static string VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME => "VK_EXT_validation_flags";
 
@@ -1037,7 +1061,7 @@ namespace AdamantiumVulkan.Core
 
         public static int VK_EXT_headless_surface => 1;
 
-        public static int VK_EXT_HEADLESS_SURFACE_SPEC_VERSION => 0;
+        public static int VK_EXT_HEADLESS_SURFACE_SPEC_VERSION => 1;
 
         public static string VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME => "VK_EXT_headless_surface";
 
@@ -1070,6 +1094,12 @@ namespace AdamantiumVulkan.Core
         public static int VK_EXT_TEXEL_BUFFER_ALIGNMENT_SPEC_VERSION => 1;
 
         public static string VK_EXT_TEXEL_BUFFER_ALIGNMENT_EXTENSION_NAME => "VK_EXT_texel_buffer_alignment";
+
+        public static int VK_GOOGLE_user_type => 1;
+
+        public static int VK_GOOGLE_USER_TYPE_SPEC_VERSION => 1;
+
+        public static string VK_GOOGLE_USER_TYPE_EXTENSION_NAME => "VK_GOOGLE_user_type";
 
     }
 

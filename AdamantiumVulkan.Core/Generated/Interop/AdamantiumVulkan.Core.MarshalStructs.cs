@@ -5701,6 +5701,17 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public bool shaderSubgroupExtendedTypes;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevice8BitStorageFeaturesKHR
     {
         public StructureType sType;
@@ -5725,6 +5736,19 @@ namespace AdamantiumVulkan.Core.Interop
         public bool shaderBufferInt64Atomics;
 
         public bool shaderSharedInt64Atomics;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderClockFeaturesKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public bool shaderSubgroupClock;
+
+        public bool shaderDeviceClock;
 
     }
 
@@ -5847,6 +5871,105 @@ namespace AdamantiumVulkan.Core.Interop
         public bool independentResolveNone;
 
         public bool independentResolve;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreWaitFlagsKHR
+    {
+        public uint value;
+
+        public static implicit operator uint(VkSemaphoreWaitFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkSemaphoreWaitFlagsKHR(uint v)
+        {
+            return new VkSemaphoreWaitFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceTimelineSemaphoreFeaturesKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public bool timelineSemaphore;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceTimelineSemaphorePropertiesKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public ulong maxTimelineSemaphoreValueDifference;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreTypeCreateInfoKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public SemaphoreTypeKHR semaphoreType;
+
+        public ulong initialValue;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkTimelineSemaphoreSubmitInfoKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public uint waitSemaphoreValueCount;
+
+        public System.IntPtr pWaitSemaphoreValues;
+
+        public uint signalSemaphoreValueCount;
+
+        public System.IntPtr pSignalSemaphoreValues;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreWaitInfoKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint semaphoreCount;
+
+        public System.IntPtr pSemaphores;
+
+        public System.IntPtr pValues;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreSignalInfoKHR
+    {
+        public StructureType sType;
+
+        public System.IntPtr pNext;
+
+        public VkSemaphore_T semaphore;
+
+        public ulong value;
 
     }
 

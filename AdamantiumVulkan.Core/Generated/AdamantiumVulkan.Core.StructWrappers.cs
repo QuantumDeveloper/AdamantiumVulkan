@@ -10067,6 +10067,33 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR : DisposableObject
+    {
+        public PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ShaderSubgroupExtendedTypes = _internal.shaderSubgroupExtendedTypes;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderSubgroupExtendedTypes { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.shaderSubgroupExtendedTypes = ShaderSubgroupExtendedTypes;
+            return _internal;
+        }
+    }
+
     public partial class PhysicalDevice8BitStorageFeaturesKHR : DisposableObject
     {
         public PhysicalDevice8BitStorageFeaturesKHR()
@@ -10124,6 +10151,36 @@ namespace AdamantiumVulkan.Core
             _internal.pNext = PNext;
             _internal.shaderBufferInt64Atomics = ShaderBufferInt64Atomics;
             _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
+            return _internal;
+        }
+    }
+
+    public partial class PhysicalDeviceShaderClockFeaturesKHR : DisposableObject
+    {
+        public PhysicalDeviceShaderClockFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceShaderClockFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ShaderSubgroupClock = _internal.shaderSubgroupClock;
+            ShaderDeviceClock = _internal.shaderDeviceClock;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderSubgroupClock { get; set; }
+        public bool ShaderDeviceClock { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.shaderSubgroupClock = ShaderSubgroupClock;
+            _internal.shaderDeviceClock = ShaderDeviceClock;
             return _internal;
         }
     }
@@ -10396,6 +10453,248 @@ namespace AdamantiumVulkan.Core
             _internal.supportedStencilResolveModes = SupportedStencilResolveModes;
             _internal.independentResolveNone = IndependentResolveNone;
             _internal.independentResolve = IndependentResolve;
+            return _internal;
+        }
+    }
+
+    public partial class PhysicalDeviceTimelineSemaphoreFeaturesKHR : DisposableObject
+    {
+        public PhysicalDeviceTimelineSemaphoreFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceTimelineSemaphoreFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            TimelineSemaphore = _internal.timelineSemaphore;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool TimelineSemaphore { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeaturesKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.timelineSemaphore = TimelineSemaphore;
+            return _internal;
+        }
+    }
+
+    public partial class PhysicalDeviceTimelineSemaphorePropertiesKHR : DisposableObject
+    {
+        public PhysicalDeviceTimelineSemaphorePropertiesKHR()
+        {
+        }
+
+        public PhysicalDeviceTimelineSemaphorePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphorePropertiesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            MaxTimelineSemaphoreValueDifference = _internal.maxTimelineSemaphoreValueDifference;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ulong MaxTimelineSemaphoreValueDifference { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphorePropertiesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphorePropertiesKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
+            return _internal;
+        }
+    }
+
+    public partial class SemaphoreTypeCreateInfoKHR : DisposableObject
+    {
+        public SemaphoreTypeCreateInfoKHR()
+        {
+        }
+
+        public SemaphoreTypeCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SemaphoreType = (SemaphoreTypeKHR)_internal.semaphoreType;
+            InitialValue = _internal.initialValue;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public SemaphoreTypeKHR SemaphoreType { get; set; }
+        public ulong InitialValue { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.semaphoreType = SemaphoreType;
+            _internal.initialValue = InitialValue;
+            return _internal;
+        }
+    }
+
+    public partial class TimelineSemaphoreSubmitInfoKHR : DisposableObject
+    {
+        private StructReference refpWaitSemaphoreValues;
+
+        private StructReference refpSignalSemaphoreValues;
+
+        public TimelineSemaphoreSubmitInfoKHR()
+        {
+        }
+
+        public TimelineSemaphoreSubmitInfoKHR(AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            WaitSemaphoreValueCount = _internal.waitSemaphoreValueCount;
+            if(_internal.pWaitSemaphoreValues != System.IntPtr.Zero)
+            {
+                PWaitSemaphoreValues = (ulong?)_internal.pWaitSemaphoreValues;
+                Marshal.FreeHGlobal(_internal.pWaitSemaphoreValues);
+            }
+            SignalSemaphoreValueCount = _internal.signalSemaphoreValueCount;
+            if(_internal.pSignalSemaphoreValues != System.IntPtr.Zero)
+            {
+                PSignalSemaphoreValues = (ulong?)_internal.pSignalSemaphoreValues;
+                Marshal.FreeHGlobal(_internal.pSignalSemaphoreValues);
+            }
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint WaitSemaphoreValueCount { get; set; }
+        public ulong? PWaitSemaphoreValues { get; set; }
+        public uint SignalSemaphoreValueCount { get; set; }
+        public ulong? PSignalSemaphoreValues { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.waitSemaphoreValueCount = WaitSemaphoreValueCount;
+            refpWaitSemaphoreValues?.Dispose();
+            if (PWaitSemaphoreValues != null)
+            {
+                refpWaitSemaphoreValues = new StructReference(PWaitSemaphoreValues);
+                _internal.pWaitSemaphoreValues = refpWaitSemaphoreValues.Handle;
+            }
+            _internal.signalSemaphoreValueCount = SignalSemaphoreValueCount;
+            refpSignalSemaphoreValues?.Dispose();
+            if (PSignalSemaphoreValues != null)
+            {
+                refpSignalSemaphoreValues = new StructReference(PSignalSemaphoreValues);
+                _internal.pSignalSemaphoreValues = refpSignalSemaphoreValues.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpWaitSemaphoreValues?.Dispose();
+            refpSignalSemaphoreValues?.Dispose();
+        }
+
+    }
+
+    public partial class SemaphoreWaitInfoKHR : DisposableObject
+    {
+        private StructReference refpSemaphores;
+
+        private StructReference refpValues;
+
+        public SemaphoreWaitInfoKHR()
+        {
+        }
+
+        public SemaphoreWaitInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Flags = _internal.flags;
+            SemaphoreCount = _internal.semaphoreCount;
+            PSemaphores = new Semaphore(Marshal.PtrToStructure<Semaphore>(_internal.pSemaphores));
+            Marshal.FreeHGlobal(_internal.pSemaphores);
+            if(_internal.pValues != System.IntPtr.Zero)
+            {
+                PValues = (ulong?)_internal.pValues;
+                Marshal.FreeHGlobal(_internal.pValues);
+            }
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint SemaphoreCount { get; set; }
+        public Semaphore PSemaphores { get; set; }
+        public ulong? PValues { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.flags = Flags;
+            _internal.semaphoreCount = SemaphoreCount;
+            refpSemaphores?.Dispose();
+            if (PSemaphores != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = PSemaphores;
+                refpSemaphores = new StructReference(struct0);
+                _internal.pSemaphores = refpSemaphores.Handle;
+            }
+            refpValues?.Dispose();
+            if (PValues != null)
+            {
+                refpValues = new StructReference(PValues);
+                _internal.pValues = refpValues.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpSemaphores?.Dispose();
+            refpValues?.Dispose();
+        }
+
+    }
+
+    public partial class SemaphoreSignalInfoKHR : DisposableObject
+    {
+        public SemaphoreSignalInfoKHR()
+        {
+        }
+
+        public SemaphoreSignalInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Semaphore = new Semaphore(_internal.semaphore);
+            Value = _internal.value;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Semaphore Semaphore { get; set; }
+        public ulong Value { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR();
+            _internal.sType = SType;
+            _internal.pNext = PNext;
+            _internal.semaphore = Semaphore;
+            _internal.value = Value;
             return _internal;
         }
     }
@@ -17577,12 +17876,11 @@ namespace AdamantiumVulkan.Core
 
         public HeadlessSurfaceCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT _internal)
         {
-            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Flags = _internal.flags;
         }
 
-        public StructureType SType { get; set; }
+        public StructureType SType => StructureType.HeadlessSurfaceCreateInfoExt;
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
 

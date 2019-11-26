@@ -8,6 +8,7 @@ namespace AdamantiumVulkan.SPIRV.Reflection
         public ShaderReflectionVariable(SpvcResourceType resourceType)
         {
             Class = resourceType;
+            dimensionToArraySize = new Dictionary<uint, uint>();
         }
 
         public string Name { get; internal set; }
@@ -64,11 +65,6 @@ namespace AdamantiumVulkan.SPIRV.Reflection
 
         public void AddArraySizeForDimension(uint dimension, uint arraySize)
         {
-            if (dimensionToArraySize == null)
-            {
-                dimensionToArraySize = new Dictionary<uint, uint>();
-            }
-            
             dimensionToArraySize[dimension] = arraySize;
         }
         
