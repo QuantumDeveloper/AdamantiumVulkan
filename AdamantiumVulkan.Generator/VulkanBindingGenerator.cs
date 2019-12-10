@@ -1121,6 +1121,9 @@ namespace AdamantiumVulkan.Generator
                 .TreatAsPointerToArray(new CustomType("VkLayerProperties"), true, "pPropertyCount")
                 .SetParameterKind(ParameterKind.InOut);
 
+            api.Class("VkFramebufferAttachmentImageInfoKHR").WithField("pViewFormats")
+                .TreatAsPointerToArray(new CustomType("vkFormat"), true, "viewFormatCount");
+
             api.Function("shaderc_result_get_bytes").
                 WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
 
@@ -1129,6 +1132,8 @@ namespace AdamantiumVulkan.Generator
             api.Function("spvc_resources_get_resource_list_for_type").WithParameterName("resource_list").TreatAsPointerToArray(new CustomType("SpvcReflectedResource"), true, "resource_size").SetParameterKind(ParameterKind.Out);
 
             api.Delegate("spvc_error_callback").WithParameterName("error").TreatAsIs().SetParameterKind(ParameterKind.Out);
+
+            api.Function("spvc_constant_get_type").RenameTo("spvc_constant_get_constant_type");
 
             //api.Function("vkEnumerateInstanceExtensionProperties").
             //    WithParameterName("pProperties").
@@ -1511,7 +1516,7 @@ namespace AdamantiumVulkan.Generator
             //    WithField("pSetLayouts").
             //    TreatAsPointerToArray(new CustomType("VkDescriptorSetLayout"), true, "descriptorSetCount");
 
-            var fixingFunctionParameters = new FixIncorrectParametersPass(api);
+            var fixingFunctionParameters = new PostProcessingApiPass(api);
             ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);
         }
     }
