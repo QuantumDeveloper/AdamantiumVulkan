@@ -43,11 +43,6 @@ namespace AdamantiumVulkan.Generator
 
             if (predefinedValues == null) return false;
 
-            if (@class.Name == "VkApplicationInfo")
-            {
-
-            }
-
             if (!predefinedValues.TryGetValue(@class.Name, out var values))
             {
                 return true;

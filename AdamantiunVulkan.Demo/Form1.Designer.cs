@@ -429,31 +429,31 @@ namespace VulkanEngineTestCore
 
             renderPassInfos[1] = renderPassInfo;
 
-            commandBuffer.CmdBeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
+            commandBuffer.BeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
 
-            commandBuffer.CmdBindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
+            commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
 
             //Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
             ulong offset = 0;
-            commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffer, ref offset);
+            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, ref offset);
 
-            commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+            commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
 
-            commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+            commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
 
-            commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+            commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
 
             //Buffer[] vertexBuffers2 = new Buffer[] { vertexBuffer2 };
-            commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffer2, ref offset);
+            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, ref offset);
 
-            commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+            commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
 
-            commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+            commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
 
-            commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+            commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
 
 
-            commandBuffer.CmdEndRenderPass();
+            commandBuffer.EndRenderPass();
 
             res = commandBuffer.EndCommandBuffer();
             if (res != Result.Success)
@@ -874,8 +874,7 @@ namespace VulkanEngineTestCore
             layoutInfo.BindingCount = (uint)bindings.Count;
             layoutInfo.PBindings = bindings.ToArray();
 
-            descriptorSetLayout = logicalDevice.CreateDescriptorSetLayout(layoutInfo, null);
-            //logicalDevice.UpdateDescriptorSets()
+            descriptorSetLayout = logicalDevice.CreateDescriptorSetLayout(layoutInfo);
         }
 
         private void CreateGraphicsPipeline()
@@ -927,7 +926,7 @@ namespace VulkanEngineTestCore
             viewportState.ViewportCount = 1;
             viewportState.PViewports = viewport;
             viewportState.ScissorCount = 1;
-            viewportState.PScissors = scissor;
+            viewportState.PScissors = new Rect2D[] { scissor };
 
             var rasterizer = new PipelineRasterizationStateCreateInfo();
             rasterizer.DepthClampEnable = false;
@@ -1208,7 +1207,7 @@ namespace VulkanEngineTestCore
                 throw new Exception("unsupported layout transition!");
             }
 
-            commandBuffer.CmdPipelineBarrier(
+            commandBuffer.PipelineBarrier(
                 (uint)sourceStage, 
                 (uint)destinationStage, 
                 0, 
@@ -1238,7 +1237,7 @@ namespace VulkanEngineTestCore
             region.ImageOffset = new Offset3D() { X = 0, Y = 0, Z = 0};
             region.ImageExtent = new Extent3D() {Width = width, Height = height, Depth = 1}; 
             
-            commandBuffer.CmdCopyBufferToImage(buffer, image, ImageLayout.TransferDstOptimal, 1, region);
+            commandBuffer.CopyBufferToImage(buffer, image, ImageLayout.TransferDstOptimal, 1, region);
             logicalDevice.EndSingleTimeCommands(graphicsQueue, commandPool, commandBuffer);
 
             
@@ -1259,7 +1258,7 @@ namespace VulkanEngineTestCore
             region.DstSubresource.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
             region.Extent = new Extent3D() { Width = width, Height = height, Depth = 1 };
 
-            commandBuffer.CmdCopyImage(source, ImageLayout.TransferSrcOptimal, destination, ImageLayout.TransferDstOptimal, 1, region);
+            commandBuffer.CopyImage(source, ImageLayout.TransferSrcOptimal, destination, ImageLayout.TransferDstOptimal, 1, region);
             logicalDevice.EndSingleTimeCommands(graphicsQueue, commandPool, commandBuffer);
         }
 
@@ -1382,7 +1381,7 @@ namespace VulkanEngineTestCore
             BufferCopy copyRegin = new BufferCopy();
             copyRegin.Size = size;
             var regions = new BufferCopy[1] { copyRegin };
-            commandBuffer.CmdCopyBuffer(srcBuffer, dstBuffer, 1, regions);
+            commandBuffer.CopyBuffer(srcBuffer, dstBuffer, 1, regions);
 
             logicalDevice.EndSingleTimeCommands(graphicsQueue, commandPool, commandBuffer);
         }

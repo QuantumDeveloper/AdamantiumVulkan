@@ -3086,7 +3086,7 @@ namespace AdamantiumVulkan.Core
     {
         private StructReference refpViewports;
 
-        private StructReference refpScissors;
+        private GCHandleReference refpScissors;
 
         public PipelineViewportStateCreateInfo()
         {
@@ -3100,7 +3100,13 @@ namespace AdamantiumVulkan.Core
             PViewports = new Viewport(Marshal.PtrToStructure<VkViewport>(_internal.pViewports));
             Marshal.FreeHGlobal(_internal.pViewports);
             ScissorCount = _internal.scissorCount;
-            PScissors = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pScissors));
+            PScissors = new Rect2D[_internal.scissorCount];
+            var nativeTmpArray0 = new VkRect2D[_internal.scissorCount];
+            MarshalUtils.IntPtrToManagedArray<VkRect2D>(_internal.pScissors, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PScissors[i] = new Rect2D(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pScissors);
         }
 
@@ -3110,7 +3116,7 @@ namespace AdamantiumVulkan.Core
         public uint ViewportCount { get; set; }
         public Viewport PViewports { get; set; }
         public uint ScissorCount { get; set; }
-        public Rect2D PScissors { get; set; }
+        public Rect2D[] PScissors { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo ToInternal()
         {
@@ -3130,8 +3136,12 @@ namespace AdamantiumVulkan.Core
             refpScissors?.Dispose();
             if (PScissors != null)
             {
-                var struct1 = PScissors.ToInternal();
-                refpScissors = new StructReference(struct1);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkRect2D[PScissors.Length];
+                for (int i = 0; i < PScissors.Length; ++i)
+                {
+                    tmpArray0[i] = PScissors[i].ToInternal();
+                }
+                refpScissors = new GCHandleReference(tmpArray0);
                 _internal.pScissors = refpScissors.Handle;
             }
             return _internal;
@@ -9143,7 +9153,14 @@ namespace AdamantiumVulkan.Core
             Height = _internal.height;
             LayerCount = _internal.layerCount;
             ViewFormatCount = _internal.viewFormatCount;
-            PViewFormats = (AdamantiumVulkan.Core.Format)Marshal.PtrToStructure<int>(_internal.pViewFormats);
+            var tmppViewFormats = new int[_internal.viewFormatCount];
+            MarshalUtils.IntPtrToManagedArray<int>(_internal.pViewFormats, tmppViewFormats);
+            Marshal.FreeHGlobal(_internal.pViewFormats);
+            PViewFormats = new AdamantiumVulkan.Core.Format[_internal.viewFormatCount];
+            for (int i = 0; i < tmppViewFormats.Length; ++i)
+            {
+                PViewFormats[i] = (AdamantiumVulkan.Core.Format)tmppViewFormats[i];
+            }
         }
 
         public StructureType SType { get; set; }
@@ -9154,7 +9171,7 @@ namespace AdamantiumVulkan.Core
         public uint Height { get; set; }
         public uint LayerCount { get; set; }
         public uint ViewFormatCount { get; set; }
-        public Format PViewFormats { get; set; }
+        public Format[] PViewFormats { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfoKHR ToInternal()
         {
@@ -9170,7 +9187,12 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
             if (PViewFormats != null)
             {
-                refpViewFormats = new GCHandleReference(PViewFormats);
+                var tmpArray0 = new Format[PViewFormats.Length];
+                for (int i = 0; i < PViewFormats.Length; ++i)
+                {
+                    tmpArray0[i] = PViewFormats[i];
+                }
+                refpViewFormats = new GCHandleReference(tmpArray0);
                 _internal.pViewFormats = refpViewFormats.Handle;
             }
             return _internal;
@@ -12186,15 +12208,15 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CmdProcessCommandsInfoNVX : DisposableObject
+    public partial class ProcessCommandsInfoNVX : DisposableObject
     {
         private StructReference refpIndirectCommandsTokens;
 
-        public CmdProcessCommandsInfoNVX()
+        public ProcessCommandsInfoNVX()
         {
         }
 
-        public CmdProcessCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX _internal)
+        public ProcessCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX _internal)
         {
             PNext = _internal.pNext;
             ObjectTable = new ObjectTableNVX(_internal.objectTable);
@@ -12254,13 +12276,13 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CmdReserveSpaceForCommandsInfoNVX : DisposableObject
+    public partial class ReserveSpaceForCommandsInfoNVX : DisposableObject
     {
-        public CmdReserveSpaceForCommandsInfoNVX()
+        public ReserveSpaceForCommandsInfoNVX()
         {
         }
 
-        public CmdReserveSpaceForCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX _internal)
+        public ReserveSpaceForCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX _internal)
         {
             PNext = _internal.pNext;
             ObjectTable = new ObjectTableNVX(_internal.objectTable);

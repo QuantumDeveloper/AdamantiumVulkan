@@ -329,6 +329,9 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_member_decoration", CallingConvention = CallingConvention.Winapi)]
         internal static extern void spvc_compiler_unset_member_decoration([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration);
 
+        [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_type", CallingConvention = CallingConvention.Winapi)]
+        internal static extern uint spvc_constant_get_constant_type([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant);
+
         ///<summary>
         /// No stdint.h until C99, sigh :( For smaller types, the result is sign or zero-extended as appropriate. Maps to C++ API. TODO: The SPIRConstant query interface and modification interface is not quite complete.
         ///</summary>
@@ -361,9 +364,6 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 
         [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_subconstants", CallingConvention = CallingConvention.Winapi)]
         internal static extern void spvc_constant_get_subconstants([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant, System.IntPtr constituents, ref ulong count);
-
-        [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_type", CallingConvention = CallingConvention.Winapi)]
-        internal static extern uint spvc_constant_get_type([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS constant);
 
         ///<summary>
         /// Context is the highest-level API construct. The context owns all memory allocations made by its child object hierarchy, including various non-opaque structs and strings. This means that the API user only has to care about one "destroy" call ever when using the C API. All pointers handed out by the APIs are only valid as long as the context is alive and spvc_context_release_allocations has not been called.
