@@ -323,6 +323,9 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern void vkCmdSetSampleLocationsEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSampleLocationsInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissor", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetScissor([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstScissor, [In] uint scissorCount, VkRect2D[] pScissors);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissor", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetScissor([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstScissor, [In] uint scissorCount, System.IntPtr pScissors);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilCompareMask", CallingConvention = CallingConvention.Winapi)]
@@ -333,6 +336,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilWriteMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilWriteMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint writeMask);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewport", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetViewport([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, VkViewport[] pViewports);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewport", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetViewport([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, System.IntPtr pViewports);

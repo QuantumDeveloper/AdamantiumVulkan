@@ -892,6 +892,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
             this.__Instance = __Instance;
         }
 
+        public uint GetConstantType()
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_constant_get_constant_type(this);
+        }
+
         ///<summary>
         /// No stdint.h until C99, sigh :( For smaller types, the result is sign or zero-extended as appropriate. Maps to C++ API. TODO: The SPIRConstant query interface and modification interface is not quite complete.
         ///</summary>
@@ -945,11 +950,6 @@ namespace AdamantiumVulkan.SPIRV.Cross
             var arg1 = ReferenceEquals(constituents, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(constituents.Value);
             AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_constant_get_subconstants(this, arg1, ref count);
             Marshal.FreeHGlobal(arg1);
-        }
-
-        public uint GetType()
-        {
-            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_constant_get_type(this);
         }
 
         public static implicit operator AdamantiumVulkan.SPIRV.Cross.Interop.SpvcConstantS(SpvcConstant s)

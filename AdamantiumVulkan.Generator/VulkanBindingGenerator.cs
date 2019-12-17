@@ -120,18 +120,28 @@ namespace AdamantiumVulkan.Generator
 
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct;
-            context.AddPreGeneratorPass(new RegexRenamePass("^shaderc_compile_options", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, shaderModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^shaderc_result", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, shaderModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^shaderc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, shaderModule);
 
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_resources", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_compiler_options", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_compiler", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_constant", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_context", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc_type", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            context.AddPreGeneratorPass(new RegexRenamePass("^spvc", "", RenameTargets.Method, true), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-            
+            var shadercRenameItems = new List<RegexRenameRunItem>()
+            {
+                new RegexRenameRunItem("^shaderc_compile_options", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^shaderc_result", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^shaderc", string.Empty, RenameTargets.Method, true),
+            };
+            context.AddPreGeneratorPass(new SequentialRegexRenamePass(shadercRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, shaderModule);
+
+            var spvcRenameItems = new List<RegexRenameRunItem>()
+            {
+                new RegexRenameRunItem("^spvc_resources", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^spvc_compiler_options", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^spvc_compiler", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^spvc_constant", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^spvc_context", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^spvc_type", string.Empty, RenameTargets.Method, true),
+                new RegexRenameRunItem("^spvc", string.Empty, RenameTargets.Method, true),
+            };
+
+            context.AddPreGeneratorPass(new SequentialRegexRenamePass(spvcRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
 
@@ -175,7 +185,12 @@ namespace AdamantiumVulkan.Generator
         {
             var renameTargets = RenameTargets.Any;
             renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
-            context.AddPreGeneratorPass(new RegexRenamePass("^vk", "", renameTargets, true), ExecutionPassKind.PerTranslationUnit, vkMainModule);
+            var vkRenameItems = new List<RegexRenameRunItem>()
+            {
+                new RegexRenameRunItem("^vkCmd", string.Empty, renameTargets, true),
+                new RegexRenameRunItem("^vk", string.Empty, renameTargets, true),
+            };
+            context.AddPreGeneratorPass(new SequentialRegexRenamePass(vkRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, vkMainModule);
         }
 
         private List<PredefinedValues> CreatePredefinedValues()
@@ -1121,8 +1136,20 @@ namespace AdamantiumVulkan.Generator
                 .TreatAsPointerToArray(new CustomType("VkLayerProperties"), true, "pPropertyCount")
                 .SetParameterKind(ParameterKind.InOut);
 
+            api.Function("vkCmdSetScissor")
+                .WithParameterName("pScissors")
+                .TreatAsPointerToArray(new CustomType("VkRect2D"), true, "scissorCount");
+
+            api.Function("vkCmdSetViewport")
+                .WithParameterName("pViewports")
+                .TreatAsPointerToArray(new CustomType("VkViewport"), true, "viewportCount");
+
             api.Class("VkFramebufferAttachmentImageInfoKHR").WithField("pViewFormats")
                 .TreatAsPointerToArray(new CustomType("vkFormat"), true, "viewFormatCount");
+
+            api.Class("VkPipelineViewportStateCreateInfo")
+                .WithField("pScissors")
+                .TreatAsPointerToArray(new CustomType("VkRect2D"), true, "scissorCount");
 
             api.Function("shaderc_result_get_bytes").
                 WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
