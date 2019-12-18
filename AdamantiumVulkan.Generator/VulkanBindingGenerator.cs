@@ -1148,6 +1148,8 @@ namespace AdamantiumVulkan.Generator
                 .TreatAsPointerToArray(new CustomType("vkFormat"), true, "viewFormatCount");
 
             api.Class("VkPipelineViewportStateCreateInfo")
+                .WithField("pViewports")
+                .TreatAsPointerToArray(new CustomType("VkViewport"), true, "viewportCount")
                 .WithField("pScissors")
                 .TreatAsPointerToArray(new CustomType("VkRect2D"), true, "scissorCount");
 
