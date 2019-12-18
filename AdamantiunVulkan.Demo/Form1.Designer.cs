@@ -924,7 +924,7 @@ namespace VulkanEngineTestCore
 
             var viewportState = new PipelineViewportStateCreateInfo();
             viewportState.ViewportCount = 1;
-            viewportState.PViewports = viewport;
+            viewportState.PViewports = new Viewport[] { viewport };
             viewportState.ScissorCount = 1;
             viewportState.PScissors = new Rect2D[] { scissor };
 

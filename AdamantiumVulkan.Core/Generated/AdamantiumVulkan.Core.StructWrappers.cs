@@ -3084,7 +3084,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class PipelineViewportStateCreateInfo : DisposableObject
     {
-        private StructReference refpViewports;
+        private GCHandleReference refpViewports;
 
         private GCHandleReference refpScissors;
 
@@ -3097,15 +3097,21 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             ViewportCount = _internal.viewportCount;
-            PViewports = new Viewport(Marshal.PtrToStructure<VkViewport>(_internal.pViewports));
+            PViewports = new Viewport[_internal.viewportCount];
+            var nativeTmpArray0 = new VkViewport[_internal.viewportCount];
+            MarshalUtils.IntPtrToManagedArray<VkViewport>(_internal.pViewports, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PViewports[i] = new Viewport(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pViewports);
             ScissorCount = _internal.scissorCount;
             PScissors = new Rect2D[_internal.scissorCount];
-            var nativeTmpArray0 = new VkRect2D[_internal.scissorCount];
-            MarshalUtils.IntPtrToManagedArray<VkRect2D>(_internal.pScissors, nativeTmpArray0);
-            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            var nativeTmpArray1 = new VkRect2D[_internal.scissorCount];
+            MarshalUtils.IntPtrToManagedArray<VkRect2D>(_internal.pScissors, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
             {
-                PScissors[i] = new Rect2D(nativeTmpArray0[i]);
+                PScissors[i] = new Rect2D(nativeTmpArray1[i]);
             }
             Marshal.FreeHGlobal(_internal.pScissors);
         }
@@ -3114,7 +3120,7 @@ namespace AdamantiumVulkan.Core
         public System.IntPtr PNext { get; set; }
         public uint Flags { get; set; }
         public uint ViewportCount { get; set; }
-        public Viewport PViewports { get; set; }
+        public Viewport[] PViewports { get; set; }
         public uint ScissorCount { get; set; }
         public Rect2D[] PScissors { get; set; }
 
@@ -3128,20 +3134,24 @@ namespace AdamantiumVulkan.Core
             refpViewports?.Dispose();
             if (PViewports != null)
             {
-                var struct0 = PViewports.ToInternal();
-                refpViewports = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewport[PViewports.Length];
+                for (int i = 0; i < PViewports.Length; ++i)
+                {
+                    tmpArray0[i] = PViewports[i].ToInternal();
+                }
+                refpViewports = new GCHandleReference(tmpArray0);
                 _internal.pViewports = refpViewports.Handle;
             }
             _internal.scissorCount = ScissorCount;
             refpScissors?.Dispose();
             if (PScissors != null)
             {
-                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkRect2D[PScissors.Length];
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkRect2D[PScissors.Length];
                 for (int i = 0; i < PScissors.Length; ++i)
                 {
-                    tmpArray0[i] = PScissors[i].ToInternal();
+                    tmpArray1[i] = PScissors[i].ToInternal();
                 }
-                refpScissors = new GCHandleReference(tmpArray0);
+                refpScissors = new GCHandleReference(tmpArray1);
                 _internal.pScissors = refpScissors.Handle;
             }
             return _internal;
