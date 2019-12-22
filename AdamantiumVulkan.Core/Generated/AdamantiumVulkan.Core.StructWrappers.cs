@@ -12,7 +12,7 @@ namespace AdamantiumVulkan.Core
     using AdamantiumVulkan;
     using AdamantiumVulkan.Core.Interop;
 
-    public partial class ApplicationInfo : DisposableObject
+    public partial class ApplicationInfo : VulkanDisposableObject
     {
         private StringReference refpApplicationName;
 
@@ -43,7 +43,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkApplicationInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkApplicationInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpApplicationName?.Dispose();
             if (PApplicationName != null)
@@ -71,7 +71,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class InstanceCreateInfo : DisposableObject
+    public partial class InstanceCreateInfo : VulkanDisposableObject
     {
         private StructReference refpApplicationInfo;
 
@@ -105,7 +105,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             refpApplicationInfo?.Dispose();
@@ -141,7 +141,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AllocationCallbacks : DisposableObject
+    public partial class AllocationCallbacks : VulkanDisposableObject
     {
         public AllocationCallbacks()
         {
@@ -185,61 +185,61 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures _internal)
         {
-            RobustBufferAccess = _internal.robustBufferAccess;
-            FullDrawIndexUint32 = _internal.fullDrawIndexUint32;
-            ImageCubeArray = _internal.imageCubeArray;
-            IndependentBlend = _internal.independentBlend;
-            GeometryShader = _internal.geometryShader;
-            TessellationShader = _internal.tessellationShader;
-            SampleRateShading = _internal.sampleRateShading;
-            DualSrcBlend = _internal.dualSrcBlend;
-            LogicOp = _internal.logicOp;
-            MultiDrawIndirect = _internal.multiDrawIndirect;
-            DrawIndirectFirstInstance = _internal.drawIndirectFirstInstance;
-            DepthClamp = _internal.depthClamp;
-            DepthBiasClamp = _internal.depthBiasClamp;
-            FillModeNonSolid = _internal.fillModeNonSolid;
-            DepthBounds = _internal.depthBounds;
-            WideLines = _internal.wideLines;
-            LargePoints = _internal.largePoints;
-            AlphaToOne = _internal.alphaToOne;
-            MultiViewport = _internal.multiViewport;
-            SamplerAnisotropy = _internal.samplerAnisotropy;
-            TextureCompressionETC2 = _internal.textureCompressionETC2;
-            TextureCompressionASTC_LDR = _internal.textureCompressionASTC_LDR;
-            TextureCompressionBC = _internal.textureCompressionBC;
-            OcclusionQueryPrecise = _internal.occlusionQueryPrecise;
-            PipelineStatisticsQuery = _internal.pipelineStatisticsQuery;
-            VertexPipelineStoresAndAtomics = _internal.vertexPipelineStoresAndAtomics;
-            FragmentStoresAndAtomics = _internal.fragmentStoresAndAtomics;
-            ShaderTessellationAndGeometryPointSize = _internal.shaderTessellationAndGeometryPointSize;
-            ShaderImageGatherExtended = _internal.shaderImageGatherExtended;
-            ShaderStorageImageExtendedFormats = _internal.shaderStorageImageExtendedFormats;
-            ShaderStorageImageMultisample = _internal.shaderStorageImageMultisample;
-            ShaderStorageImageReadWithoutFormat = _internal.shaderStorageImageReadWithoutFormat;
-            ShaderStorageImageWriteWithoutFormat = _internal.shaderStorageImageWriteWithoutFormat;
-            ShaderUniformBufferArrayDynamicIndexing = _internal.shaderUniformBufferArrayDynamicIndexing;
-            ShaderSampledImageArrayDynamicIndexing = _internal.shaderSampledImageArrayDynamicIndexing;
-            ShaderStorageBufferArrayDynamicIndexing = _internal.shaderStorageBufferArrayDynamicIndexing;
-            ShaderStorageImageArrayDynamicIndexing = _internal.shaderStorageImageArrayDynamicIndexing;
-            ShaderClipDistance = _internal.shaderClipDistance;
-            ShaderCullDistance = _internal.shaderCullDistance;
-            ShaderFloat64 = _internal.shaderFloat64;
-            ShaderInt64 = _internal.shaderInt64;
-            ShaderInt16 = _internal.shaderInt16;
-            ShaderResourceResidency = _internal.shaderResourceResidency;
-            ShaderResourceMinLod = _internal.shaderResourceMinLod;
-            SparseBinding = _internal.sparseBinding;
-            SparseResidencyBuffer = _internal.sparseResidencyBuffer;
-            SparseResidencyImage2D = _internal.sparseResidencyImage2D;
-            SparseResidencyImage3D = _internal.sparseResidencyImage3D;
-            SparseResidency2Samples = _internal.sparseResidency2Samples;
-            SparseResidency4Samples = _internal.sparseResidency4Samples;
-            SparseResidency8Samples = _internal.sparseResidency8Samples;
-            SparseResidency16Samples = _internal.sparseResidency16Samples;
-            SparseResidencyAliased = _internal.sparseResidencyAliased;
-            VariableMultisampleRate = _internal.variableMultisampleRate;
-            InheritedQueries = _internal.inheritedQueries;
+            RobustBufferAccess = System.Convert.ToBoolean(_internal.robustBufferAccess);
+            FullDrawIndexUint32 = System.Convert.ToBoolean(_internal.fullDrawIndexUint32);
+            ImageCubeArray = System.Convert.ToBoolean(_internal.imageCubeArray);
+            IndependentBlend = System.Convert.ToBoolean(_internal.independentBlend);
+            GeometryShader = System.Convert.ToBoolean(_internal.geometryShader);
+            TessellationShader = System.Convert.ToBoolean(_internal.tessellationShader);
+            SampleRateShading = System.Convert.ToBoolean(_internal.sampleRateShading);
+            DualSrcBlend = System.Convert.ToBoolean(_internal.dualSrcBlend);
+            LogicOp = System.Convert.ToBoolean(_internal.logicOp);
+            MultiDrawIndirect = System.Convert.ToBoolean(_internal.multiDrawIndirect);
+            DrawIndirectFirstInstance = System.Convert.ToBoolean(_internal.drawIndirectFirstInstance);
+            DepthClamp = System.Convert.ToBoolean(_internal.depthClamp);
+            DepthBiasClamp = System.Convert.ToBoolean(_internal.depthBiasClamp);
+            FillModeNonSolid = System.Convert.ToBoolean(_internal.fillModeNonSolid);
+            DepthBounds = System.Convert.ToBoolean(_internal.depthBounds);
+            WideLines = System.Convert.ToBoolean(_internal.wideLines);
+            LargePoints = System.Convert.ToBoolean(_internal.largePoints);
+            AlphaToOne = System.Convert.ToBoolean(_internal.alphaToOne);
+            MultiViewport = System.Convert.ToBoolean(_internal.multiViewport);
+            SamplerAnisotropy = System.Convert.ToBoolean(_internal.samplerAnisotropy);
+            TextureCompressionETC2 = System.Convert.ToBoolean(_internal.textureCompressionETC2);
+            TextureCompressionASTC_LDR = System.Convert.ToBoolean(_internal.textureCompressionASTC_LDR);
+            TextureCompressionBC = System.Convert.ToBoolean(_internal.textureCompressionBC);
+            OcclusionQueryPrecise = System.Convert.ToBoolean(_internal.occlusionQueryPrecise);
+            PipelineStatisticsQuery = System.Convert.ToBoolean(_internal.pipelineStatisticsQuery);
+            VertexPipelineStoresAndAtomics = System.Convert.ToBoolean(_internal.vertexPipelineStoresAndAtomics);
+            FragmentStoresAndAtomics = System.Convert.ToBoolean(_internal.fragmentStoresAndAtomics);
+            ShaderTessellationAndGeometryPointSize = System.Convert.ToBoolean(_internal.shaderTessellationAndGeometryPointSize);
+            ShaderImageGatherExtended = System.Convert.ToBoolean(_internal.shaderImageGatherExtended);
+            ShaderStorageImageExtendedFormats = System.Convert.ToBoolean(_internal.shaderStorageImageExtendedFormats);
+            ShaderStorageImageMultisample = System.Convert.ToBoolean(_internal.shaderStorageImageMultisample);
+            ShaderStorageImageReadWithoutFormat = System.Convert.ToBoolean(_internal.shaderStorageImageReadWithoutFormat);
+            ShaderStorageImageWriteWithoutFormat = System.Convert.ToBoolean(_internal.shaderStorageImageWriteWithoutFormat);
+            ShaderUniformBufferArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderUniformBufferArrayDynamicIndexing);
+            ShaderSampledImageArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderSampledImageArrayDynamicIndexing);
+            ShaderStorageBufferArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderStorageBufferArrayDynamicIndexing);
+            ShaderStorageImageArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderStorageImageArrayDynamicIndexing);
+            ShaderClipDistance = System.Convert.ToBoolean(_internal.shaderClipDistance);
+            ShaderCullDistance = System.Convert.ToBoolean(_internal.shaderCullDistance);
+            ShaderFloat64 = System.Convert.ToBoolean(_internal.shaderFloat64);
+            ShaderInt64 = System.Convert.ToBoolean(_internal.shaderInt64);
+            ShaderInt16 = System.Convert.ToBoolean(_internal.shaderInt16);
+            ShaderResourceResidency = System.Convert.ToBoolean(_internal.shaderResourceResidency);
+            ShaderResourceMinLod = System.Convert.ToBoolean(_internal.shaderResourceMinLod);
+            SparseBinding = System.Convert.ToBoolean(_internal.sparseBinding);
+            SparseResidencyBuffer = System.Convert.ToBoolean(_internal.sparseResidencyBuffer);
+            SparseResidencyImage2D = System.Convert.ToBoolean(_internal.sparseResidencyImage2D);
+            SparseResidencyImage3D = System.Convert.ToBoolean(_internal.sparseResidencyImage3D);
+            SparseResidency2Samples = System.Convert.ToBoolean(_internal.sparseResidency2Samples);
+            SparseResidency4Samples = System.Convert.ToBoolean(_internal.sparseResidency4Samples);
+            SparseResidency8Samples = System.Convert.ToBoolean(_internal.sparseResidency8Samples);
+            SparseResidency16Samples = System.Convert.ToBoolean(_internal.sparseResidency16Samples);
+            SparseResidencyAliased = System.Convert.ToBoolean(_internal.sparseResidencyAliased);
+            VariableMultisampleRate = System.Convert.ToBoolean(_internal.variableMultisampleRate);
+            InheritedQueries = System.Convert.ToBoolean(_internal.inheritedQueries);
         }
 
         public bool RobustBufferAccess { get; set; }
@@ -301,61 +301,61 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures();
-            _internal.robustBufferAccess = RobustBufferAccess;
-            _internal.fullDrawIndexUint32 = FullDrawIndexUint32;
-            _internal.imageCubeArray = ImageCubeArray;
-            _internal.independentBlend = IndependentBlend;
-            _internal.geometryShader = GeometryShader;
-            _internal.tessellationShader = TessellationShader;
-            _internal.sampleRateShading = SampleRateShading;
-            _internal.dualSrcBlend = DualSrcBlend;
-            _internal.logicOp = LogicOp;
-            _internal.multiDrawIndirect = MultiDrawIndirect;
-            _internal.drawIndirectFirstInstance = DrawIndirectFirstInstance;
-            _internal.depthClamp = DepthClamp;
-            _internal.depthBiasClamp = DepthBiasClamp;
-            _internal.fillModeNonSolid = FillModeNonSolid;
-            _internal.depthBounds = DepthBounds;
-            _internal.wideLines = WideLines;
-            _internal.largePoints = LargePoints;
-            _internal.alphaToOne = AlphaToOne;
-            _internal.multiViewport = MultiViewport;
-            _internal.samplerAnisotropy = SamplerAnisotropy;
-            _internal.textureCompressionETC2 = TextureCompressionETC2;
-            _internal.textureCompressionASTC_LDR = TextureCompressionASTC_LDR;
-            _internal.textureCompressionBC = TextureCompressionBC;
-            _internal.occlusionQueryPrecise = OcclusionQueryPrecise;
-            _internal.pipelineStatisticsQuery = PipelineStatisticsQuery;
-            _internal.vertexPipelineStoresAndAtomics = VertexPipelineStoresAndAtomics;
-            _internal.fragmentStoresAndAtomics = FragmentStoresAndAtomics;
-            _internal.shaderTessellationAndGeometryPointSize = ShaderTessellationAndGeometryPointSize;
-            _internal.shaderImageGatherExtended = ShaderImageGatherExtended;
-            _internal.shaderStorageImageExtendedFormats = ShaderStorageImageExtendedFormats;
-            _internal.shaderStorageImageMultisample = ShaderStorageImageMultisample;
-            _internal.shaderStorageImageReadWithoutFormat = ShaderStorageImageReadWithoutFormat;
-            _internal.shaderStorageImageWriteWithoutFormat = ShaderStorageImageWriteWithoutFormat;
-            _internal.shaderUniformBufferArrayDynamicIndexing = ShaderUniformBufferArrayDynamicIndexing;
-            _internal.shaderSampledImageArrayDynamicIndexing = ShaderSampledImageArrayDynamicIndexing;
-            _internal.shaderStorageBufferArrayDynamicIndexing = ShaderStorageBufferArrayDynamicIndexing;
-            _internal.shaderStorageImageArrayDynamicIndexing = ShaderStorageImageArrayDynamicIndexing;
-            _internal.shaderClipDistance = ShaderClipDistance;
-            _internal.shaderCullDistance = ShaderCullDistance;
-            _internal.shaderFloat64 = ShaderFloat64;
-            _internal.shaderInt64 = ShaderInt64;
-            _internal.shaderInt16 = ShaderInt16;
-            _internal.shaderResourceResidency = ShaderResourceResidency;
-            _internal.shaderResourceMinLod = ShaderResourceMinLod;
-            _internal.sparseBinding = SparseBinding;
-            _internal.sparseResidencyBuffer = SparseResidencyBuffer;
-            _internal.sparseResidencyImage2D = SparseResidencyImage2D;
-            _internal.sparseResidencyImage3D = SparseResidencyImage3D;
-            _internal.sparseResidency2Samples = SparseResidency2Samples;
-            _internal.sparseResidency4Samples = SparseResidency4Samples;
-            _internal.sparseResidency8Samples = SparseResidency8Samples;
-            _internal.sparseResidency16Samples = SparseResidency16Samples;
-            _internal.sparseResidencyAliased = SparseResidencyAliased;
-            _internal.variableMultisampleRate = VariableMultisampleRate;
-            _internal.inheritedQueries = InheritedQueries;
+            _internal.robustBufferAccess = System.Convert.ToUInt32(RobustBufferAccess);
+            _internal.fullDrawIndexUint32 = System.Convert.ToUInt32(FullDrawIndexUint32);
+            _internal.imageCubeArray = System.Convert.ToUInt32(ImageCubeArray);
+            _internal.independentBlend = System.Convert.ToUInt32(IndependentBlend);
+            _internal.geometryShader = System.Convert.ToUInt32(GeometryShader);
+            _internal.tessellationShader = System.Convert.ToUInt32(TessellationShader);
+            _internal.sampleRateShading = System.Convert.ToUInt32(SampleRateShading);
+            _internal.dualSrcBlend = System.Convert.ToUInt32(DualSrcBlend);
+            _internal.logicOp = System.Convert.ToUInt32(LogicOp);
+            _internal.multiDrawIndirect = System.Convert.ToUInt32(MultiDrawIndirect);
+            _internal.drawIndirectFirstInstance = System.Convert.ToUInt32(DrawIndirectFirstInstance);
+            _internal.depthClamp = System.Convert.ToUInt32(DepthClamp);
+            _internal.depthBiasClamp = System.Convert.ToUInt32(DepthBiasClamp);
+            _internal.fillModeNonSolid = System.Convert.ToUInt32(FillModeNonSolid);
+            _internal.depthBounds = System.Convert.ToUInt32(DepthBounds);
+            _internal.wideLines = System.Convert.ToUInt32(WideLines);
+            _internal.largePoints = System.Convert.ToUInt32(LargePoints);
+            _internal.alphaToOne = System.Convert.ToUInt32(AlphaToOne);
+            _internal.multiViewport = System.Convert.ToUInt32(MultiViewport);
+            _internal.samplerAnisotropy = System.Convert.ToUInt32(SamplerAnisotropy);
+            _internal.textureCompressionETC2 = System.Convert.ToUInt32(TextureCompressionETC2);
+            _internal.textureCompressionASTC_LDR = System.Convert.ToUInt32(TextureCompressionASTC_LDR);
+            _internal.textureCompressionBC = System.Convert.ToUInt32(TextureCompressionBC);
+            _internal.occlusionQueryPrecise = System.Convert.ToUInt32(OcclusionQueryPrecise);
+            _internal.pipelineStatisticsQuery = System.Convert.ToUInt32(PipelineStatisticsQuery);
+            _internal.vertexPipelineStoresAndAtomics = System.Convert.ToUInt32(VertexPipelineStoresAndAtomics);
+            _internal.fragmentStoresAndAtomics = System.Convert.ToUInt32(FragmentStoresAndAtomics);
+            _internal.shaderTessellationAndGeometryPointSize = System.Convert.ToUInt32(ShaderTessellationAndGeometryPointSize);
+            _internal.shaderImageGatherExtended = System.Convert.ToUInt32(ShaderImageGatherExtended);
+            _internal.shaderStorageImageExtendedFormats = System.Convert.ToUInt32(ShaderStorageImageExtendedFormats);
+            _internal.shaderStorageImageMultisample = System.Convert.ToUInt32(ShaderStorageImageMultisample);
+            _internal.shaderStorageImageReadWithoutFormat = System.Convert.ToUInt32(ShaderStorageImageReadWithoutFormat);
+            _internal.shaderStorageImageWriteWithoutFormat = System.Convert.ToUInt32(ShaderStorageImageWriteWithoutFormat);
+            _internal.shaderUniformBufferArrayDynamicIndexing = System.Convert.ToUInt32(ShaderUniformBufferArrayDynamicIndexing);
+            _internal.shaderSampledImageArrayDynamicIndexing = System.Convert.ToUInt32(ShaderSampledImageArrayDynamicIndexing);
+            _internal.shaderStorageBufferArrayDynamicIndexing = System.Convert.ToUInt32(ShaderStorageBufferArrayDynamicIndexing);
+            _internal.shaderStorageImageArrayDynamicIndexing = System.Convert.ToUInt32(ShaderStorageImageArrayDynamicIndexing);
+            _internal.shaderClipDistance = System.Convert.ToUInt32(ShaderClipDistance);
+            _internal.shaderCullDistance = System.Convert.ToUInt32(ShaderCullDistance);
+            _internal.shaderFloat64 = System.Convert.ToUInt32(ShaderFloat64);
+            _internal.shaderInt64 = System.Convert.ToUInt32(ShaderInt64);
+            _internal.shaderInt16 = System.Convert.ToUInt32(ShaderInt16);
+            _internal.shaderResourceResidency = System.Convert.ToUInt32(ShaderResourceResidency);
+            _internal.shaderResourceMinLod = System.Convert.ToUInt32(ShaderResourceMinLod);
+            _internal.sparseBinding = System.Convert.ToUInt32(SparseBinding);
+            _internal.sparseResidencyBuffer = System.Convert.ToUInt32(SparseResidencyBuffer);
+            _internal.sparseResidencyImage2D = System.Convert.ToUInt32(SparseResidencyImage2D);
+            _internal.sparseResidencyImage3D = System.Convert.ToUInt32(SparseResidencyImage3D);
+            _internal.sparseResidency2Samples = System.Convert.ToUInt32(SparseResidency2Samples);
+            _internal.sparseResidency4Samples = System.Convert.ToUInt32(SparseResidency4Samples);
+            _internal.sparseResidency8Samples = System.Convert.ToUInt32(SparseResidency8Samples);
+            _internal.sparseResidency16Samples = System.Convert.ToUInt32(SparseResidency16Samples);
+            _internal.sparseResidencyAliased = System.Convert.ToUInt32(SparseResidencyAliased);
+            _internal.variableMultisampleRate = System.Convert.ToUInt32(VariableMultisampleRate);
+            _internal.inheritedQueries = System.Convert.ToUInt32(InheritedQueries);
             return _internal;
         }
     }
@@ -581,7 +581,7 @@ namespace AdamantiumVulkan.Core
             SampledImageStencilSampleCounts = _internal.sampledImageStencilSampleCounts;
             StorageImageSampleCounts = _internal.storageImageSampleCounts;
             MaxSampleMaskWords = _internal.maxSampleMaskWords;
-            TimestampComputeAndGraphics = _internal.timestampComputeAndGraphics;
+            TimestampComputeAndGraphics = System.Convert.ToBoolean(_internal.timestampComputeAndGraphics);
             TimestampPeriod = _internal.timestampPeriod;
             MaxClipDistances = _internal.maxClipDistances;
             MaxCullDistances = _internal.maxCullDistances;
@@ -607,8 +607,8 @@ namespace AdamantiumVulkan.Core
             LineWidthRange = tmpArr5;
             PointSizeGranularity = _internal.pointSizeGranularity;
             LineWidthGranularity = _internal.lineWidthGranularity;
-            StrictLines = _internal.strictLines;
-            StandardSampleLocations = _internal.standardSampleLocations;
+            StrictLines = System.Convert.ToBoolean(_internal.strictLines);
+            StandardSampleLocations = System.Convert.ToBoolean(_internal.standardSampleLocations);
             OptimalBufferCopyOffsetAlignment = _internal.optimalBufferCopyOffsetAlignment;
             OptimalBufferCopyRowPitchAlignment = _internal.optimalBufferCopyRowPitchAlignment;
             NonCoherentAtomSize = _internal.nonCoherentAtomSize;
@@ -879,7 +879,7 @@ namespace AdamantiumVulkan.Core
             _internal.sampledImageStencilSampleCounts = SampledImageStencilSampleCounts;
             _internal.storageImageSampleCounts = StorageImageSampleCounts;
             _internal.maxSampleMaskWords = MaxSampleMaskWords;
-            _internal.timestampComputeAndGraphics = TimestampComputeAndGraphics;
+            _internal.timestampComputeAndGraphics = System.Convert.ToUInt32(TimestampComputeAndGraphics);
             _internal.timestampPeriod = TimestampPeriod;
             _internal.maxClipDistances = MaxClipDistances;
             _internal.maxCullDistances = MaxCullDistances;
@@ -921,8 +921,8 @@ namespace AdamantiumVulkan.Core
             }
             _internal.pointSizeGranularity = PointSizeGranularity;
             _internal.lineWidthGranularity = LineWidthGranularity;
-            _internal.strictLines = StrictLines;
-            _internal.standardSampleLocations = StandardSampleLocations;
+            _internal.strictLines = System.Convert.ToUInt32(StrictLines);
+            _internal.standardSampleLocations = System.Convert.ToUInt32(StandardSampleLocations);
             _internal.optimalBufferCopyOffsetAlignment = OptimalBufferCopyOffsetAlignment;
             _internal.optimalBufferCopyRowPitchAlignment = OptimalBufferCopyRowPitchAlignment;
             _internal.nonCoherentAtomSize = NonCoherentAtomSize;
@@ -938,11 +938,11 @@ namespace AdamantiumVulkan.Core
 
         public PhysicalDeviceSparseProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties _internal)
         {
-            ResidencyStandard2DBlockShape = _internal.residencyStandard2DBlockShape;
-            ResidencyStandard2DMultisampleBlockShape = _internal.residencyStandard2DMultisampleBlockShape;
-            ResidencyStandard3DBlockShape = _internal.residencyStandard3DBlockShape;
-            ResidencyAlignedMipSize = _internal.residencyAlignedMipSize;
-            ResidencyNonResidentStrict = _internal.residencyNonResidentStrict;
+            ResidencyStandard2DBlockShape = System.Convert.ToBoolean(_internal.residencyStandard2DBlockShape);
+            ResidencyStandard2DMultisampleBlockShape = System.Convert.ToBoolean(_internal.residencyStandard2DMultisampleBlockShape);
+            ResidencyStandard3DBlockShape = System.Convert.ToBoolean(_internal.residencyStandard3DBlockShape);
+            ResidencyAlignedMipSize = System.Convert.ToBoolean(_internal.residencyAlignedMipSize);
+            ResidencyNonResidentStrict = System.Convert.ToBoolean(_internal.residencyNonResidentStrict);
         }
 
         public bool ResidencyStandard2DBlockShape { get; set; }
@@ -954,11 +954,11 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties();
-            _internal.residencyStandard2DBlockShape = ResidencyStandard2DBlockShape;
-            _internal.residencyStandard2DMultisampleBlockShape = ResidencyStandard2DMultisampleBlockShape;
-            _internal.residencyStandard3DBlockShape = ResidencyStandard3DBlockShape;
-            _internal.residencyAlignedMipSize = ResidencyAlignedMipSize;
-            _internal.residencyNonResidentStrict = ResidencyNonResidentStrict;
+            _internal.residencyStandard2DBlockShape = System.Convert.ToUInt32(ResidencyStandard2DBlockShape);
+            _internal.residencyStandard2DMultisampleBlockShape = System.Convert.ToUInt32(ResidencyStandard2DMultisampleBlockShape);
+            _internal.residencyStandard3DBlockShape = System.Convert.ToUInt32(ResidencyStandard3DBlockShape);
+            _internal.residencyAlignedMipSize = System.Convert.ToUInt32(ResidencyAlignedMipSize);
+            _internal.residencyNonResidentStrict = System.Convert.ToUInt32(ResidencyNonResidentStrict);
             return _internal;
         }
     }
@@ -1015,7 +1015,7 @@ namespace AdamantiumVulkan.Core
             _internal.driverVersion = DriverVersion;
             _internal.vendorID = VendorID;
             _internal.deviceID = DeviceID;
-            _internal.deviceType = DeviceType;
+            _internal.deviceType = (uint)DeviceType;
             if(DeviceName != null)
             {
                 if (DeviceName.Length > 256)
@@ -1201,7 +1201,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceQueueCreateInfo : DisposableObject
+    public partial class DeviceQueueCreateInfo : VulkanDisposableObject
     {
         private StructReference refpQueuePriorities;
 
@@ -1232,7 +1232,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.queueFamilyIndex = QueueFamilyIndex;
@@ -1253,7 +1253,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceCreateInfo : DisposableObject
+    public partial class DeviceCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpQueueCreateInfos;
 
@@ -1300,7 +1300,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.queueCreateInfoCount = QueueCreateInfoCount;
@@ -1475,7 +1475,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SubmitInfo : DisposableObject
+    public partial class SubmitInfo : VulkanDisposableObject
     {
         private GCHandleReference refpWaitSemaphores;
 
@@ -1534,7 +1534,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSubmitInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubmitInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreCount = WaitSemaphoreCount;
             refpWaitSemaphores?.Dispose();
@@ -1596,7 +1596,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class MemoryAllocateInfo : DisposableObject
+    public partial class MemoryAllocateInfo : VulkanDisposableObject
     {
         public MemoryAllocateInfo()
         {
@@ -1617,7 +1617,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.allocationSize = AllocationSize;
             _internal.memoryTypeIndex = MemoryTypeIndex;
@@ -1625,7 +1625,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MappedMemoryRange : DisposableObject
+    public partial class MappedMemoryRange : VulkanDisposableObject
     {
         public MappedMemoryRange()
         {
@@ -1648,7 +1648,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMappedMemoryRange ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMappedMemoryRange();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.memory = Memory;
             _internal.offset = Offset;
@@ -1783,7 +1783,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseBufferMemoryBindInfo : DisposableObject
+    public partial class SparseBufferMemoryBindInfo : VulkanDisposableObject
     {
         private StructReference refpBinds;
 
@@ -1825,7 +1825,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SparseImageOpaqueMemoryBindInfo : DisposableObject
+    public partial class SparseImageOpaqueMemoryBindInfo : VulkanDisposableObject
     {
         private StructReference refpBinds;
 
@@ -1966,7 +1966,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseImageMemoryBindInfo : DisposableObject
+    public partial class SparseImageMemoryBindInfo : VulkanDisposableObject
     {
         private StructReference refpBinds;
 
@@ -2008,7 +2008,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BindSparseInfo : DisposableObject
+    public partial class BindSparseInfo : VulkanDisposableObject
     {
         private StructReference refpWaitSemaphores;
 
@@ -2060,7 +2060,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindSparseInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindSparseInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreCount = WaitSemaphoreCount;
             refpWaitSemaphores?.Dispose();
@@ -2116,7 +2116,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class FenceCreateInfo : DisposableObject
+    public partial class FenceCreateInfo : VulkanDisposableObject
     {
         public FenceCreateInfo()
         {
@@ -2135,14 +2135,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFenceCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFenceCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             return _internal;
         }
     }
 
-    public partial class SemaphoreCreateInfo : DisposableObject
+    public partial class SemaphoreCreateInfo : VulkanDisposableObject
     {
         public SemaphoreCreateInfo()
         {
@@ -2161,14 +2161,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             return _internal;
         }
     }
 
-    public partial class EventCreateInfo : DisposableObject
+    public partial class EventCreateInfo : VulkanDisposableObject
     {
         public EventCreateInfo()
         {
@@ -2187,14 +2187,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkEventCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkEventCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             return _internal;
         }
     }
 
-    public partial class QueryPoolCreateInfo : DisposableObject
+    public partial class QueryPoolCreateInfo : VulkanDisposableObject
     {
         public QueryPoolCreateInfo()
         {
@@ -2219,17 +2219,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.queryType = QueryType;
+            _internal.queryType = (uint)QueryType;
             _internal.queryCount = QueryCount;
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
     }
 
-    public partial class BufferCreateInfo : DisposableObject
+    public partial class BufferCreateInfo : VulkanDisposableObject
     {
         private StructReference refpQueueFamilyIndices;
 
@@ -2264,12 +2264,12 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBufferCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBufferCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.size = Size;
             _internal.usage = Usage;
-            _internal.sharingMode = SharingMode;
+            _internal.sharingMode = (uint)SharingMode;
             _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
             refpQueueFamilyIndices?.Dispose();
             if (PQueueFamilyIndices != null)
@@ -2287,7 +2287,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BufferViewCreateInfo : DisposableObject
+    public partial class BufferViewCreateInfo : VulkanDisposableObject
     {
         public BufferViewCreateInfo()
         {
@@ -2314,18 +2314,18 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.buffer = Buffer;
-            _internal.format = Format;
+            _internal.format = (uint)Format;
             _internal.offset = Offset;
             _internal.range = Range;
             return _internal;
         }
     }
 
-    public partial class ImageCreateInfo : DisposableObject
+    public partial class ImageCreateInfo : VulkanDisposableObject
     {
         private StructReference refpQueueFamilyIndices;
 
@@ -2374,21 +2374,21 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.imageType = ImageType;
-            _internal.format = Format;
+            _internal.imageType = (uint)ImageType;
+            _internal.format = (uint)Format;
             if (Extent != null)
             {
                 _internal.extent = Extent.ToInternal();
             }
             _internal.mipLevels = MipLevels;
             _internal.arrayLayers = ArrayLayers;
-            _internal.samples = Samples;
-            _internal.tiling = Tiling;
+            _internal.samples = (uint)Samples;
+            _internal.tiling = (uint)Tiling;
             _internal.usage = Usage;
-            _internal.sharingMode = SharingMode;
+            _internal.sharingMode = (uint)SharingMode;
             _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
             refpQueueFamilyIndices?.Dispose();
             if (PQueueFamilyIndices != null)
@@ -2396,7 +2396,7 @@ namespace AdamantiumVulkan.Core
                 refpQueueFamilyIndices = new StructReference(PQueueFamilyIndices);
                 _internal.pQueueFamilyIndices = refpQueueFamilyIndices.Handle;
             }
-            _internal.initialLayout = InitialLayout;
+            _internal.initialLayout = (uint)InitialLayout;
             return _internal;
         }
 
@@ -2462,10 +2462,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkComponentMapping ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkComponentMapping();
-            _internal.r = R;
-            _internal.g = G;
-            _internal.b = B;
-            _internal.a = A;
+            _internal.r = (uint)R;
+            _internal.g = (uint)G;
+            _internal.b = (uint)B;
+            _internal.a = (uint)A;
             return _internal;
         }
     }
@@ -2503,7 +2503,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageViewCreateInfo : DisposableObject
+    public partial class ImageViewCreateInfo : VulkanDisposableObject
     {
         public ImageViewCreateInfo()
         {
@@ -2532,12 +2532,12 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.image = Image;
-            _internal.viewType = ViewType;
-            _internal.format = Format;
+            _internal.viewType = (uint)ViewType;
+            _internal.format = (uint)Format;
             if (Components != null)
             {
                 _internal.components = Components.ToInternal();
@@ -2550,7 +2550,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ShaderModuleCreateInfo : DisposableObject
+    public partial class ShaderModuleCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpCode;
 
@@ -2577,7 +2577,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.codeSize = CodeSize;
@@ -2602,7 +2602,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineCacheCreateInfo : DisposableObject
+    public partial class PipelineCacheCreateInfo : VulkanDisposableObject
     {
         public PipelineCacheCreateInfo()
         {
@@ -2625,7 +2625,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.initialDataSize = InitialDataSize;
@@ -2661,7 +2661,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SpecializationInfo : DisposableObject
+    public partial class SpecializationInfo : VulkanDisposableObject
     {
         private StructReference refpMapEntries;
 
@@ -2706,7 +2706,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineShaderStageCreateInfo : DisposableObject
+    public partial class PipelineShaderStageCreateInfo : VulkanDisposableObject
     {
         private StringReference refpName;
 
@@ -2738,10 +2738,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.stage = Stage;
+            _internal.stage = (uint)Stage;
             _internal.module = Module;
             refpName?.Dispose();
             if (PName != null)
@@ -2789,7 +2789,7 @@ namespace AdamantiumVulkan.Core
             var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription();
             _internal.binding = Binding;
             _internal.stride = Stride;
-            _internal.inputRate = InputRate;
+            _internal.inputRate = (uint)InputRate;
             return _internal;
         }
     }
@@ -2818,13 +2818,13 @@ namespace AdamantiumVulkan.Core
             var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription();
             _internal.location = Location;
             _internal.binding = Binding;
-            _internal.format = Format;
+            _internal.format = (uint)Format;
             _internal.offset = Offset;
             return _internal;
         }
     }
 
-    public partial class PipelineVertexInputStateCreateInfo : DisposableObject
+    public partial class PipelineVertexInputStateCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpVertexBindingDescriptions;
 
@@ -2869,7 +2869,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.vertexBindingDescriptionCount = VertexBindingDescriptionCount;
@@ -2907,7 +2907,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineInputAssemblyStateCreateInfo : DisposableObject
+    public partial class PipelineInputAssemblyStateCreateInfo : VulkanDisposableObject
     {
         public PipelineInputAssemblyStateCreateInfo()
         {
@@ -2918,7 +2918,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             Topology = (PrimitiveTopology)_internal.topology;
-            PrimitiveRestartEnable = _internal.primitiveRestartEnable;
+            PrimitiveRestartEnable = System.Convert.ToBoolean(_internal.primitiveRestartEnable);
         }
 
         public StructureType SType => StructureType.PipelineInputAssemblyStateCreateInfo;
@@ -2930,16 +2930,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.topology = Topology;
-            _internal.primitiveRestartEnable = PrimitiveRestartEnable;
+            _internal.topology = (uint)Topology;
+            _internal.primitiveRestartEnable = System.Convert.ToUInt32(PrimitiveRestartEnable);
             return _internal;
         }
     }
 
-    public partial class PipelineTessellationStateCreateInfo : DisposableObject
+    public partial class PipelineTessellationStateCreateInfo : VulkanDisposableObject
     {
         public PipelineTessellationStateCreateInfo()
         {
@@ -2960,7 +2960,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.patchControlPoints = PatchControlPoints;
@@ -3082,7 +3082,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineViewportStateCreateInfo : DisposableObject
+    public partial class PipelineViewportStateCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpViewports;
 
@@ -3127,7 +3127,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.viewportCount = ViewportCount;
@@ -3165,7 +3165,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineRasterizationStateCreateInfo : DisposableObject
+    public partial class PipelineRasterizationStateCreateInfo : VulkanDisposableObject
     {
         public PipelineRasterizationStateCreateInfo()
         {
@@ -3175,12 +3175,12 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            DepthClampEnable = _internal.depthClampEnable;
-            RasterizerDiscardEnable = _internal.rasterizerDiscardEnable;
+            DepthClampEnable = System.Convert.ToBoolean(_internal.depthClampEnable);
+            RasterizerDiscardEnable = System.Convert.ToBoolean(_internal.rasterizerDiscardEnable);
             PolygonMode = (PolygonMode)_internal.polygonMode;
             CullMode = _internal.cullMode;
             FrontFace = (FrontFace)_internal.frontFace;
-            DepthBiasEnable = _internal.depthBiasEnable;
+            DepthBiasEnable = System.Convert.ToBoolean(_internal.depthBiasEnable);
             DepthBiasConstantFactor = _internal.depthBiasConstantFactor;
             DepthBiasClamp = _internal.depthBiasClamp;
             DepthBiasSlopeFactor = _internal.depthBiasSlopeFactor;
@@ -3204,15 +3204,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.depthClampEnable = DepthClampEnable;
-            _internal.rasterizerDiscardEnable = RasterizerDiscardEnable;
-            _internal.polygonMode = PolygonMode;
+            _internal.depthClampEnable = System.Convert.ToUInt32(DepthClampEnable);
+            _internal.rasterizerDiscardEnable = System.Convert.ToUInt32(RasterizerDiscardEnable);
+            _internal.polygonMode = (uint)PolygonMode;
             _internal.cullMode = CullMode;
-            _internal.frontFace = FrontFace;
-            _internal.depthBiasEnable = DepthBiasEnable;
+            _internal.frontFace = (uint)FrontFace;
+            _internal.depthBiasEnable = System.Convert.ToUInt32(DepthBiasEnable);
             _internal.depthBiasConstantFactor = DepthBiasConstantFactor;
             _internal.depthBiasClamp = DepthBiasClamp;
             _internal.depthBiasSlopeFactor = DepthBiasSlopeFactor;
@@ -3221,7 +3221,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineMultisampleStateCreateInfo : DisposableObject
+    public partial class PipelineMultisampleStateCreateInfo : VulkanDisposableObject
     {
         private StructReference refpSampleMask;
 
@@ -3234,15 +3234,15 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             RasterizationSamples = (SampleCountFlagBits)_internal.rasterizationSamples;
-            SampleShadingEnable = _internal.sampleShadingEnable;
+            SampleShadingEnable = System.Convert.ToBoolean(_internal.sampleShadingEnable);
             MinSampleShading = _internal.minSampleShading;
             if(_internal.pSampleMask != System.IntPtr.Zero)
             {
                 PSampleMask = (uint?)_internal.pSampleMask;
                 Marshal.FreeHGlobal(_internal.pSampleMask);
             }
-            AlphaToCoverageEnable = _internal.alphaToCoverageEnable;
-            AlphaToOneEnable = _internal.alphaToOneEnable;
+            AlphaToCoverageEnable = System.Convert.ToBoolean(_internal.alphaToCoverageEnable);
+            AlphaToOneEnable = System.Convert.ToBoolean(_internal.alphaToOneEnable);
         }
 
         public StructureType SType => StructureType.PipelineMultisampleStateCreateInfo;
@@ -3258,11 +3258,11 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.rasterizationSamples = RasterizationSamples;
-            _internal.sampleShadingEnable = SampleShadingEnable;
+            _internal.rasterizationSamples = (uint)RasterizationSamples;
+            _internal.sampleShadingEnable = System.Convert.ToUInt32(SampleShadingEnable);
             _internal.minSampleShading = MinSampleShading;
             refpSampleMask?.Dispose();
             if (PSampleMask != null)
@@ -3270,8 +3270,8 @@ namespace AdamantiumVulkan.Core
                 refpSampleMask = new StructReference(PSampleMask);
                 _internal.pSampleMask = refpSampleMask.Handle;
             }
-            _internal.alphaToCoverageEnable = AlphaToCoverageEnable;
-            _internal.alphaToOneEnable = AlphaToOneEnable;
+            _internal.alphaToCoverageEnable = System.Convert.ToUInt32(AlphaToCoverageEnable);
+            _internal.alphaToOneEnable = System.Convert.ToUInt32(AlphaToOneEnable);
             return _internal;
         }
 
@@ -3310,10 +3310,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkStencilOpState ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkStencilOpState();
-            _internal.failOp = FailOp;
-            _internal.passOp = PassOp;
-            _internal.depthFailOp = DepthFailOp;
-            _internal.compareOp = CompareOp;
+            _internal.failOp = (uint)FailOp;
+            _internal.passOp = (uint)PassOp;
+            _internal.depthFailOp = (uint)DepthFailOp;
+            _internal.compareOp = (uint)CompareOp;
             _internal.compareMask = CompareMask;
             _internal.writeMask = WriteMask;
             _internal.reference = Reference;
@@ -3321,7 +3321,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineDepthStencilStateCreateInfo : DisposableObject
+    public partial class PipelineDepthStencilStateCreateInfo : VulkanDisposableObject
     {
         public PipelineDepthStencilStateCreateInfo()
         {
@@ -3331,11 +3331,11 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            DepthTestEnable = _internal.depthTestEnable;
-            DepthWriteEnable = _internal.depthWriteEnable;
+            DepthTestEnable = System.Convert.ToBoolean(_internal.depthTestEnable);
+            DepthWriteEnable = System.Convert.ToBoolean(_internal.depthWriteEnable);
             DepthCompareOp = (CompareOp)_internal.depthCompareOp;
-            DepthBoundsTestEnable = _internal.depthBoundsTestEnable;
-            StencilTestEnable = _internal.stencilTestEnable;
+            DepthBoundsTestEnable = System.Convert.ToBoolean(_internal.depthBoundsTestEnable);
+            StencilTestEnable = System.Convert.ToBoolean(_internal.stencilTestEnable);
             Front = new StencilOpState(_internal.front);
             Back = new StencilOpState(_internal.back);
             MinDepthBounds = _internal.minDepthBounds;
@@ -3358,14 +3358,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.depthTestEnable = DepthTestEnable;
-            _internal.depthWriteEnable = DepthWriteEnable;
-            _internal.depthCompareOp = DepthCompareOp;
-            _internal.depthBoundsTestEnable = DepthBoundsTestEnable;
-            _internal.stencilTestEnable = StencilTestEnable;
+            _internal.depthTestEnable = System.Convert.ToUInt32(DepthTestEnable);
+            _internal.depthWriteEnable = System.Convert.ToUInt32(DepthWriteEnable);
+            _internal.depthCompareOp = (uint)DepthCompareOp;
+            _internal.depthBoundsTestEnable = System.Convert.ToUInt32(DepthBoundsTestEnable);
+            _internal.stencilTestEnable = System.Convert.ToUInt32(StencilTestEnable);
             if (Front != null)
             {
                 _internal.front = Front.ToInternal();
@@ -3388,7 +3388,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineColorBlendAttachmentState(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState _internal)
         {
-            BlendEnable = _internal.blendEnable;
+            BlendEnable = System.Convert.ToBoolean(_internal.blendEnable);
             SrcColorBlendFactor = (BlendFactor)_internal.srcColorBlendFactor;
             DstColorBlendFactor = (BlendFactor)_internal.dstColorBlendFactor;
             ColorBlendOp = (BlendOp)_internal.colorBlendOp;
@@ -3410,21 +3410,21 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState();
-            _internal.blendEnable = BlendEnable;
-            _internal.srcColorBlendFactor = SrcColorBlendFactor;
-            _internal.dstColorBlendFactor = DstColorBlendFactor;
-            _internal.colorBlendOp = ColorBlendOp;
-            _internal.srcAlphaBlendFactor = SrcAlphaBlendFactor;
-            _internal.dstAlphaBlendFactor = DstAlphaBlendFactor;
-            _internal.alphaBlendOp = AlphaBlendOp;
+            _internal.blendEnable = System.Convert.ToUInt32(BlendEnable);
+            _internal.srcColorBlendFactor = (uint)SrcColorBlendFactor;
+            _internal.dstColorBlendFactor = (uint)DstColorBlendFactor;
+            _internal.colorBlendOp = (uint)ColorBlendOp;
+            _internal.srcAlphaBlendFactor = (uint)SrcAlphaBlendFactor;
+            _internal.dstAlphaBlendFactor = (uint)DstAlphaBlendFactor;
+            _internal.alphaBlendOp = (uint)AlphaBlendOp;
             _internal.colorWriteMask = ColorWriteMask;
             return _internal;
         }
     }
 
-    public partial class PipelineColorBlendStateCreateInfo : DisposableObject
+    public partial class PipelineColorBlendStateCreateInfo : VulkanDisposableObject
     {
-        private StructReference refpAttachments;
+        private GCHandleReference refpAttachments;
 
         public PipelineColorBlendStateCreateInfo()
         {
@@ -3434,20 +3434,26 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            LogicOpEnable = _internal.logicOpEnable;
+            LogicOpEnable = System.Convert.ToBoolean(_internal.logicOpEnable);
             LogicOp = (LogicOp)_internal.logicOp;
             AttachmentCount = _internal.attachmentCount;
-            PAttachments = new PipelineColorBlendAttachmentState(Marshal.PtrToStructure<VkPipelineColorBlendAttachmentState>(_internal.pAttachments));
+            PAttachments = new PipelineColorBlendAttachmentState[_internal.attachmentCount];
+            var nativeTmpArray0 = new VkPipelineColorBlendAttachmentState[_internal.attachmentCount];
+            MarshalUtils.IntPtrToManagedArray<VkPipelineColorBlendAttachmentState>(_internal.pAttachments, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PAttachments[i] = new PipelineColorBlendAttachmentState(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pAttachments);
-            var tmpArr0 = new float[4];
+            var tmpArr1 = new float[4];
             unsafe
             {
                 for (int i = 0; i < 4; ++i)
                 {
-                    tmpArr0[i] = _internal.blendConstants[i];
+                    tmpArr1[i] = _internal.blendConstants[i];
                 }
             }
-            BlendConstants = tmpArr0;
+            BlendConstants = tmpArr1;
         }
 
         public StructureType SType => StructureType.PipelineColorBlendStateCreateInfo;
@@ -3456,23 +3462,27 @@ namespace AdamantiumVulkan.Core
         public bool LogicOpEnable { get; set; }
         public LogicOp LogicOp { get; set; }
         public uint AttachmentCount { get; set; }
-        public PipelineColorBlendAttachmentState PAttachments { get; set; }
+        public PipelineColorBlendAttachmentState[] PAttachments { get; set; }
         public float[] BlendConstants { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.logicOpEnable = LogicOpEnable;
-            _internal.logicOp = LogicOp;
+            _internal.logicOpEnable = System.Convert.ToUInt32(LogicOpEnable);
+            _internal.logicOp = (uint)LogicOp;
             _internal.attachmentCount = AttachmentCount;
             refpAttachments?.Dispose();
             if (PAttachments != null)
             {
-                var struct0 = PAttachments.ToInternal();
-                refpAttachments = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState[PAttachments.Length];
+                for (int i = 0; i < PAttachments.Length; ++i)
+                {
+                    tmpArray0[i] = PAttachments[i].ToInternal();
+                }
+                refpAttachments = new GCHandleReference(tmpArray0);
                 _internal.pAttachments = refpAttachments.Handle;
             }
             if(BlendConstants != null)
@@ -3502,7 +3512,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineDynamicStateCreateInfo : DisposableObject
+    public partial class PipelineDynamicStateCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpDynamicStates;
 
@@ -3515,8 +3525,8 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DynamicStateCount = _internal.dynamicStateCount;
-            var tmppDynamicStates = new int[_internal.dynamicStateCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pDynamicStates, tmppDynamicStates);
+            var tmppDynamicStates = new uint[_internal.dynamicStateCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pDynamicStates, tmppDynamicStates);
             Marshal.FreeHGlobal(_internal.pDynamicStates);
             PDynamicStates = new AdamantiumVulkan.Core.DynamicState[_internal.dynamicStateCount];
             for (int i = 0; i < tmppDynamicStates.Length; ++i)
@@ -3534,7 +3544,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.dynamicStateCount = DynamicStateCount;
@@ -3559,7 +3569,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class GraphicsPipelineCreateInfo : DisposableObject
+    public partial class GraphicsPipelineCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpStages;
 
@@ -3646,7 +3656,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.stageCount = StageCount;
@@ -3748,7 +3758,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ComputePipelineCreateInfo : DisposableObject
+    public partial class ComputePipelineCreateInfo : VulkanDisposableObject
     {
         public ComputePipelineCreateInfo()
         {
@@ -3775,7 +3785,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             if (Stage != null)
@@ -3816,7 +3826,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineLayoutCreateInfo : DisposableObject
+    public partial class PipelineLayoutCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpSetLayouts;
 
@@ -3855,7 +3865,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.setLayoutCount = SetLayoutCount;
@@ -3889,7 +3899,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SamplerCreateInfo : DisposableObject
+    public partial class SamplerCreateInfo : VulkanDisposableObject
     {
         public SamplerCreateInfo()
         {
@@ -3906,14 +3916,14 @@ namespace AdamantiumVulkan.Core
             AddressModeV = (SamplerAddressMode)_internal.addressModeV;
             AddressModeW = (SamplerAddressMode)_internal.addressModeW;
             MipLodBias = _internal.mipLodBias;
-            AnisotropyEnable = _internal.anisotropyEnable;
+            AnisotropyEnable = System.Convert.ToBoolean(_internal.anisotropyEnable);
             MaxAnisotropy = _internal.maxAnisotropy;
-            CompareEnable = _internal.compareEnable;
+            CompareEnable = System.Convert.ToBoolean(_internal.compareEnable);
             CompareOp = (CompareOp)_internal.compareOp;
             MinLod = _internal.minLod;
             MaxLod = _internal.maxLod;
             BorderColor = (BorderColor)_internal.borderColor;
-            UnnormalizedCoordinates = _internal.unnormalizedCoordinates;
+            UnnormalizedCoordinates = System.Convert.ToBoolean(_internal.unnormalizedCoordinates);
         }
 
         public StructureType SType => StructureType.SamplerCreateInfo;
@@ -3938,29 +3948,29 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.magFilter = MagFilter;
-            _internal.minFilter = MinFilter;
-            _internal.mipmapMode = MipmapMode;
-            _internal.addressModeU = AddressModeU;
-            _internal.addressModeV = AddressModeV;
-            _internal.addressModeW = AddressModeW;
+            _internal.magFilter = (uint)MagFilter;
+            _internal.minFilter = (uint)MinFilter;
+            _internal.mipmapMode = (uint)MipmapMode;
+            _internal.addressModeU = (uint)AddressModeU;
+            _internal.addressModeV = (uint)AddressModeV;
+            _internal.addressModeW = (uint)AddressModeW;
             _internal.mipLodBias = MipLodBias;
-            _internal.anisotropyEnable = AnisotropyEnable;
+            _internal.anisotropyEnable = System.Convert.ToUInt32(AnisotropyEnable);
             _internal.maxAnisotropy = MaxAnisotropy;
-            _internal.compareEnable = CompareEnable;
-            _internal.compareOp = CompareOp;
+            _internal.compareEnable = System.Convert.ToUInt32(CompareEnable);
+            _internal.compareOp = (uint)CompareOp;
             _internal.minLod = MinLod;
             _internal.maxLod = MaxLod;
-            _internal.borderColor = BorderColor;
-            _internal.unnormalizedCoordinates = UnnormalizedCoordinates;
+            _internal.borderColor = (uint)BorderColor;
+            _internal.unnormalizedCoordinates = System.Convert.ToUInt32(UnnormalizedCoordinates);
             return _internal;
         }
     }
 
-    public partial class DescriptorSetLayoutBinding : DisposableObject
+    public partial class DescriptorSetLayoutBinding : VulkanDisposableObject
     {
         private StructReference refpImmutableSamplers;
 
@@ -3988,7 +3998,7 @@ namespace AdamantiumVulkan.Core
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding();
             _internal.binding = Binding;
-            _internal.descriptorType = DescriptorType;
+            _internal.descriptorType = (uint)DescriptorType;
             _internal.descriptorCount = DescriptorCount;
             _internal.stageFlags = StageFlags;
             refpImmutableSamplers?.Dispose();
@@ -4008,7 +4018,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorSetLayoutCreateInfo : DisposableObject
+    public partial class DescriptorSetLayoutCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpBindings;
 
@@ -4040,7 +4050,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.bindingCount = BindingCount;
@@ -4083,13 +4093,13 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.descriptorCount = DescriptorCount;
             return _internal;
         }
     }
 
-    public partial class DescriptorPoolCreateInfo : DisposableObject
+    public partial class DescriptorPoolCreateInfo : VulkanDisposableObject
     {
         private StructReference refpPoolSizes;
 
@@ -4117,7 +4127,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.maxSets = MaxSets;
@@ -4139,7 +4149,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorSetAllocateInfo : DisposableObject
+    public partial class DescriptorSetAllocateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpSetLayouts;
 
@@ -4171,7 +4181,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.descriptorPool = DescriptorPool;
             _internal.descriptorSetCount = DescriptorSetCount;
@@ -4218,7 +4228,7 @@ namespace AdamantiumVulkan.Core
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo();
             _internal.sampler = Sampler;
             _internal.imageView = ImageView;
-            _internal.imageLayout = ImageLayout;
+            _internal.imageLayout = (uint)ImageLayout;
             return _internal;
         }
     }
@@ -4250,7 +4260,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class WriteDescriptorSet : DisposableObject
+    public partial class WriteDescriptorSet : VulkanDisposableObject
     {
         private StructReference refpImageInfo;
 
@@ -4292,13 +4302,13 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.dstSet = DstSet;
             _internal.dstBinding = DstBinding;
             _internal.dstArrayElement = DstArrayElement;
             _internal.descriptorCount = DescriptorCount;
-            _internal.descriptorType = DescriptorType;
+            _internal.descriptorType = (uint)DescriptorType;
             refpImageInfo?.Dispose();
             if (PImageInfo != null)
             {
@@ -4332,7 +4342,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CopyDescriptorSet : DisposableObject
+    public partial class CopyDescriptorSet : VulkanDisposableObject
     {
         public CopyDescriptorSet()
         {
@@ -4363,7 +4373,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.srcSet = SrcSet;
             _internal.srcBinding = SrcBinding;
@@ -4376,7 +4386,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FramebufferCreateInfo : DisposableObject
+    public partial class FramebufferCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpAttachments;
 
@@ -4416,7 +4426,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.renderPass = RenderPass;
@@ -4478,14 +4488,14 @@ namespace AdamantiumVulkan.Core
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription();
             _internal.flags = Flags;
-            _internal.format = Format;
-            _internal.samples = Samples;
-            _internal.loadOp = LoadOp;
-            _internal.storeOp = StoreOp;
-            _internal.stencilLoadOp = StencilLoadOp;
-            _internal.stencilStoreOp = StencilStoreOp;
-            _internal.initialLayout = InitialLayout;
-            _internal.finalLayout = FinalLayout;
+            _internal.format = (uint)Format;
+            _internal.samples = (uint)Samples;
+            _internal.loadOp = (uint)LoadOp;
+            _internal.storeOp = (uint)StoreOp;
+            _internal.stencilLoadOp = (uint)StencilLoadOp;
+            _internal.stencilStoreOp = (uint)StencilStoreOp;
+            _internal.initialLayout = (uint)InitialLayout;
+            _internal.finalLayout = (uint)FinalLayout;
             return _internal;
         }
     }
@@ -4509,12 +4519,12 @@ namespace AdamantiumVulkan.Core
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentReference();
             _internal.attachment = Attachment;
-            _internal.layout = Layout;
+            _internal.layout = (uint)Layout;
             return _internal;
         }
     }
 
-    public partial class SubpassDescription : DisposableObject
+    public partial class SubpassDescription : VulkanDisposableObject
     {
         private GCHandleReference refpInputAttachments;
 
@@ -4583,7 +4593,7 @@ namespace AdamantiumVulkan.Core
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDescription();
             _internal.flags = Flags;
-            _internal.pipelineBindPoint = PipelineBindPoint;
+            _internal.pipelineBindPoint = (uint)PipelineBindPoint;
             _internal.inputAttachmentCount = InputAttachmentCount;
             refpInputAttachments?.Dispose();
             if (PInputAttachments != null)
@@ -4691,7 +4701,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassCreateInfo : DisposableObject
+    public partial class RenderPassCreateInfo : VulkanDisposableObject
     {
         private GCHandleReference refpAttachments;
 
@@ -4749,7 +4759,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.attachmentCount = AttachmentCount;
@@ -4800,7 +4810,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CommandPoolCreateInfo : DisposableObject
+    public partial class CommandPoolCreateInfo : VulkanDisposableObject
     {
         public CommandPoolCreateInfo()
         {
@@ -4821,7 +4831,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.queueFamilyIndex = QueueFamilyIndex;
@@ -4829,7 +4839,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CommandBufferAllocateInfo : DisposableObject
+    public partial class CommandBufferAllocateInfo : VulkanDisposableObject
     {
         public CommandBufferAllocateInfo()
         {
@@ -4852,16 +4862,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.commandPool = CommandPool;
-            _internal.level = Level;
+            _internal.level = (uint)Level;
             _internal.commandBufferCount = CommandBufferCount;
             return _internal;
         }
     }
 
-    public partial class CommandBufferInheritanceInfo : DisposableObject
+    public partial class CommandBufferInheritanceInfo : VulkanDisposableObject
     {
         public CommandBufferInheritanceInfo()
         {
@@ -4873,7 +4883,7 @@ namespace AdamantiumVulkan.Core
             RenderPass = new RenderPass(_internal.renderPass);
             Subpass = _internal.subpass;
             Framebuffer = new Framebuffer(_internal.framebuffer);
-            OcclusionQueryEnable = _internal.occlusionQueryEnable;
+            OcclusionQueryEnable = System.Convert.ToBoolean(_internal.occlusionQueryEnable);
             QueryFlags = _internal.queryFlags;
             PipelineStatistics = _internal.pipelineStatistics;
         }
@@ -4890,19 +4900,19 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.renderPass = RenderPass;
             _internal.subpass = Subpass;
             _internal.framebuffer = Framebuffer;
-            _internal.occlusionQueryEnable = OcclusionQueryEnable;
+            _internal.occlusionQueryEnable = System.Convert.ToUInt32(OcclusionQueryEnable);
             _internal.queryFlags = QueryFlags;
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
     }
 
-    public partial class CommandBufferBeginInfo : DisposableObject
+    public partial class CommandBufferBeginInfo : VulkanDisposableObject
     {
         private StructReference refpInheritanceInfo;
 
@@ -4926,7 +4936,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             refpInheritanceInfo?.Dispose();
@@ -5292,7 +5302,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryBarrier : DisposableObject
+    public partial class MemoryBarrier : VulkanDisposableObject
     {
         public MemoryBarrier()
         {
@@ -5313,7 +5323,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryBarrier ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryBarrier();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.srcAccessMask = SrcAccessMask;
             _internal.dstAccessMask = DstAccessMask;
@@ -5321,7 +5331,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BufferMemoryBarrier : DisposableObject
+    public partial class BufferMemoryBarrier : VulkanDisposableObject
     {
         public BufferMemoryBarrier()
         {
@@ -5352,7 +5362,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.srcAccessMask = SrcAccessMask;
             _internal.dstAccessMask = DstAccessMask;
@@ -5365,7 +5375,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageMemoryBarrier : DisposableObject
+    public partial class ImageMemoryBarrier : VulkanDisposableObject
     {
         public ImageMemoryBarrier()
         {
@@ -5398,12 +5408,12 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.srcAccessMask = SrcAccessMask;
             _internal.dstAccessMask = DstAccessMask;
-            _internal.oldLayout = OldLayout;
-            _internal.newLayout = NewLayout;
+            _internal.oldLayout = (uint)OldLayout;
+            _internal.newLayout = (uint)NewLayout;
             _internal.srcQueueFamilyIndex = SrcQueueFamilyIndex;
             _internal.dstQueueFamilyIndex = DstQueueFamilyIndex;
             _internal.image = Image;
@@ -5415,7 +5425,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassBeginInfo : DisposableObject
+    public partial class RenderPassBeginInfo : VulkanDisposableObject
     {
         private GCHandleReference refpClearValues;
 
@@ -5451,7 +5461,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.renderPass = RenderPass;
             _internal.framebuffer = Framebuffer;
@@ -5571,7 +5581,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BaseOutStructure : DisposableObject
+    public partial class BaseOutStructure : VulkanDisposableObject
     {
         private StructReference refpNext;
 
@@ -5592,7 +5602,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBaseOutStructure ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBaseOutStructure();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             refpNext?.Dispose();
             if (PNext != null)
             {
@@ -5610,7 +5620,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BaseInStructure : DisposableObject
+    public partial class BaseInStructure : VulkanDisposableObject
     {
         private StructReference refpNext;
 
@@ -5631,7 +5641,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBaseInStructure ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBaseInStructure();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             refpNext?.Dispose();
             if (PNext != null)
             {
@@ -5649,7 +5659,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceSubgroupProperties : DisposableObject
+    public partial class PhysicalDeviceSubgroupProperties : VulkanDisposableObject
     {
         public PhysicalDeviceSubgroupProperties()
         {
@@ -5661,7 +5671,7 @@ namespace AdamantiumVulkan.Core
             SubgroupSize = _internal.subgroupSize;
             SupportedStages = _internal.supportedStages;
             SupportedOperations = _internal.supportedOperations;
-            QuadOperationsInAllStages = _internal.quadOperationsInAllStages;
+            QuadOperationsInAllStages = System.Convert.ToBoolean(_internal.quadOperationsInAllStages);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceSubgroupProperties;
@@ -5674,17 +5684,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.subgroupSize = SubgroupSize;
             _internal.supportedStages = SupportedStages;
             _internal.supportedOperations = SupportedOperations;
-            _internal.quadOperationsInAllStages = QuadOperationsInAllStages;
+            _internal.quadOperationsInAllStages = System.Convert.ToUInt32(QuadOperationsInAllStages);
             return _internal;
         }
     }
 
-    public partial class BindBufferMemoryInfo : DisposableObject
+    public partial class BindBufferMemoryInfo : VulkanDisposableObject
     {
         public BindBufferMemoryInfo()
         {
@@ -5707,7 +5717,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.buffer = Buffer;
             _internal.memory = Memory;
@@ -5716,7 +5726,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindImageMemoryInfo : DisposableObject
+    public partial class BindImageMemoryInfo : VulkanDisposableObject
     {
         public BindImageMemoryInfo()
         {
@@ -5739,7 +5749,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.image = Image;
             _internal.memory = Memory;
@@ -5748,7 +5758,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevice16BitStorageFeatures : DisposableObject
+    public partial class PhysicalDevice16BitStorageFeatures : VulkanDisposableObject
     {
         public PhysicalDevice16BitStorageFeatures()
         {
@@ -5757,10 +5767,10 @@ namespace AdamantiumVulkan.Core
         public PhysicalDevice16BitStorageFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures _internal)
         {
             PNext = _internal.pNext;
-            StorageBuffer16BitAccess = _internal.storageBuffer16BitAccess;
-            UniformAndStorageBuffer16BitAccess = _internal.uniformAndStorageBuffer16BitAccess;
-            StoragePushConstant16 = _internal.storagePushConstant16;
-            StorageInputOutput16 = _internal.storageInputOutput16;
+            StorageBuffer16BitAccess = System.Convert.ToBoolean(_internal.storageBuffer16BitAccess);
+            UniformAndStorageBuffer16BitAccess = System.Convert.ToBoolean(_internal.uniformAndStorageBuffer16BitAccess);
+            StoragePushConstant16 = System.Convert.ToBoolean(_internal.storagePushConstant16);
+            StorageInputOutput16 = System.Convert.ToBoolean(_internal.storageInputOutput16);
         }
 
         public StructureType SType => StructureType.PhysicalDevice16bitStorageFeatures;
@@ -5773,17 +5783,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.storageBuffer16BitAccess = StorageBuffer16BitAccess;
-            _internal.uniformAndStorageBuffer16BitAccess = UniformAndStorageBuffer16BitAccess;
-            _internal.storagePushConstant16 = StoragePushConstant16;
-            _internal.storageInputOutput16 = StorageInputOutput16;
+            _internal.storageBuffer16BitAccess = System.Convert.ToUInt32(StorageBuffer16BitAccess);
+            _internal.uniformAndStorageBuffer16BitAccess = System.Convert.ToUInt32(UniformAndStorageBuffer16BitAccess);
+            _internal.storagePushConstant16 = System.Convert.ToUInt32(StoragePushConstant16);
+            _internal.storageInputOutput16 = System.Convert.ToUInt32(StorageInputOutput16);
             return _internal;
         }
     }
 
-    public partial class MemoryDedicatedRequirements : DisposableObject
+    public partial class MemoryDedicatedRequirements : VulkanDisposableObject
     {
         public MemoryDedicatedRequirements()
         {
@@ -5792,8 +5802,8 @@ namespace AdamantiumVulkan.Core
         public MemoryDedicatedRequirements(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements _internal)
         {
             PNext = _internal.pNext;
-            PrefersDedicatedAllocation = _internal.prefersDedicatedAllocation;
-            RequiresDedicatedAllocation = _internal.requiresDedicatedAllocation;
+            PrefersDedicatedAllocation = System.Convert.ToBoolean(_internal.prefersDedicatedAllocation);
+            RequiresDedicatedAllocation = System.Convert.ToBoolean(_internal.requiresDedicatedAllocation);
         }
 
         public StructureType SType => StructureType.MemoryDedicatedRequirements;
@@ -5804,15 +5814,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.prefersDedicatedAllocation = PrefersDedicatedAllocation;
-            _internal.requiresDedicatedAllocation = RequiresDedicatedAllocation;
+            _internal.prefersDedicatedAllocation = System.Convert.ToUInt32(PrefersDedicatedAllocation);
+            _internal.requiresDedicatedAllocation = System.Convert.ToUInt32(RequiresDedicatedAllocation);
             return _internal;
         }
     }
 
-    public partial class MemoryDedicatedAllocateInfo : DisposableObject
+    public partial class MemoryDedicatedAllocateInfo : VulkanDisposableObject
     {
         public MemoryDedicatedAllocateInfo()
         {
@@ -5833,7 +5843,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.image = Image;
             _internal.buffer = Buffer;
@@ -5841,7 +5851,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryAllocateFlagsInfo : DisposableObject
+    public partial class MemoryAllocateFlagsInfo : VulkanDisposableObject
     {
         public MemoryAllocateFlagsInfo()
         {
@@ -5862,7 +5872,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.deviceMask = DeviceMask;
@@ -5870,7 +5880,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupRenderPassBeginInfo : DisposableObject
+    public partial class DeviceGroupRenderPassBeginInfo : VulkanDisposableObject
     {
         private StructReference refpDeviceRenderAreas;
 
@@ -5896,7 +5906,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.deviceMask = DeviceMask;
             _internal.deviceRenderAreaCount = DeviceRenderAreaCount;
@@ -5917,7 +5927,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceGroupCommandBufferBeginInfo : DisposableObject
+    public partial class DeviceGroupCommandBufferBeginInfo : VulkanDisposableObject
     {
         public DeviceGroupCommandBufferBeginInfo()
         {
@@ -5936,14 +5946,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
     }
 
-    public partial class DeviceGroupSubmitInfo : DisposableObject
+    public partial class DeviceGroupSubmitInfo : VulkanDisposableObject
     {
         private StructReference refpWaitSemaphoreDeviceIndices;
 
@@ -5990,7 +6000,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreCount = WaitSemaphoreCount;
             refpWaitSemaphoreDeviceIndices?.Dispose();
@@ -6025,7 +6035,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceGroupBindSparseInfo : DisposableObject
+    public partial class DeviceGroupBindSparseInfo : VulkanDisposableObject
     {
         public DeviceGroupBindSparseInfo()
         {
@@ -6046,7 +6056,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.resourceDeviceIndex = ResourceDeviceIndex;
             _internal.memoryDeviceIndex = MemoryDeviceIndex;
@@ -6054,7 +6064,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindBufferMemoryDeviceGroupInfo : DisposableObject
+    public partial class BindBufferMemoryDeviceGroupInfo : VulkanDisposableObject
     {
         private StructReference refpDeviceIndices;
 
@@ -6081,7 +6091,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.deviceIndexCount = DeviceIndexCount;
             refpDeviceIndices?.Dispose();
@@ -6100,7 +6110,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BindImageMemoryDeviceGroupInfo : DisposableObject
+    public partial class BindImageMemoryDeviceGroupInfo : VulkanDisposableObject
     {
         private StructReference refpDeviceIndices;
 
@@ -6134,7 +6144,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.deviceIndexCount = DeviceIndexCount;
             refpDeviceIndices?.Dispose();
@@ -6162,7 +6172,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceGroupProperties : DisposableObject
+    public partial class PhysicalDeviceGroupProperties : VulkanDisposableObject
     {
         public PhysicalDeviceGroupProperties()
         {
@@ -6177,7 +6187,7 @@ namespace AdamantiumVulkan.Core
             {
                 PhysicalDevices[i] = new PhysicalDevice(_internal.physicalDevices[i]);
             }
-            SubsetAllocation = _internal.subsetAllocation;
+            SubsetAllocation = System.Convert.ToBoolean(_internal.subsetAllocation);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceGroupProperties;
@@ -6189,7 +6199,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.physicalDeviceCount = PhysicalDeviceCount;
             if(PhysicalDevices != null)
@@ -6203,12 +6213,12 @@ namespace AdamantiumVulkan.Core
                     _internal.physicalDevices[i] = (AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T)PhysicalDevices[i];
                 }
             }
-            _internal.subsetAllocation = SubsetAllocation;
+            _internal.subsetAllocation = System.Convert.ToUInt32(SubsetAllocation);
             return _internal;
         }
     }
 
-    public partial class DeviceGroupDeviceCreateInfo : DisposableObject
+    public partial class DeviceGroupDeviceCreateInfo : VulkanDisposableObject
     {
         private StructReference refpPhysicalDevices;
 
@@ -6232,7 +6242,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.physicalDeviceCount = PhysicalDeviceCount;
             refpPhysicalDevices?.Dispose();
@@ -6252,7 +6262,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BufferMemoryRequirementsInfo2 : DisposableObject
+    public partial class BufferMemoryRequirementsInfo2 : VulkanDisposableObject
     {
         public BufferMemoryRequirementsInfo2()
         {
@@ -6271,14 +6281,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.buffer = Buffer;
             return _internal;
         }
     }
 
-    public partial class ImageMemoryRequirementsInfo2 : DisposableObject
+    public partial class ImageMemoryRequirementsInfo2 : VulkanDisposableObject
     {
         public ImageMemoryRequirementsInfo2()
         {
@@ -6297,14 +6307,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.image = Image;
             return _internal;
         }
     }
 
-    public partial class ImageSparseMemoryRequirementsInfo2 : DisposableObject
+    public partial class ImageSparseMemoryRequirementsInfo2 : VulkanDisposableObject
     {
         public ImageSparseMemoryRequirementsInfo2()
         {
@@ -6323,14 +6333,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.image = Image;
             return _internal;
         }
     }
 
-    public partial class MemoryRequirements2 : DisposableObject
+    public partial class MemoryRequirements2 : VulkanDisposableObject
     {
         public MemoryRequirements2()
         {
@@ -6349,7 +6359,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryRequirements2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (MemoryRequirements != null)
             {
@@ -6359,7 +6369,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseImageMemoryRequirements2 : DisposableObject
+    public partial class SparseImageMemoryRequirements2 : VulkanDisposableObject
     {
         public SparseImageMemoryRequirements2()
         {
@@ -6378,7 +6388,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (MemoryRequirements != null)
             {
@@ -6388,7 +6398,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFeatures2 : DisposableObject
+    public partial class PhysicalDeviceFeatures2 : VulkanDisposableObject
     {
         public PhysicalDeviceFeatures2()
         {
@@ -6407,7 +6417,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (Features != null)
             {
@@ -6417,7 +6427,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceProperties2 : DisposableObject
+    public partial class PhysicalDeviceProperties2 : VulkanDisposableObject
     {
         public PhysicalDeviceProperties2()
         {
@@ -6436,7 +6446,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (Properties != null)
             {
@@ -6446,7 +6456,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FormatProperties2 : DisposableObject
+    public partial class FormatProperties2 : VulkanDisposableObject
     {
         public FormatProperties2()
         {
@@ -6465,7 +6475,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFormatProperties2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFormatProperties2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (FormatProperties != null)
             {
@@ -6475,7 +6485,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageFormatProperties2 : DisposableObject
+    public partial class ImageFormatProperties2 : VulkanDisposableObject
     {
         public ImageFormatProperties2()
         {
@@ -6494,7 +6504,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageFormatProperties2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (ImageFormatProperties != null)
             {
@@ -6504,7 +6514,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceImageFormatInfo2 : DisposableObject
+    public partial class PhysicalDeviceImageFormatInfo2 : VulkanDisposableObject
     {
         public PhysicalDeviceImageFormatInfo2()
         {
@@ -6531,18 +6541,18 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.format = Format;
-            _internal.type = Type;
-            _internal.tiling = Tiling;
+            _internal.format = (uint)Format;
+            _internal.type = (uint)Type;
+            _internal.tiling = (uint)Tiling;
             _internal.usage = Usage;
             _internal.flags = Flags;
             return _internal;
         }
     }
 
-    public partial class QueueFamilyProperties2 : DisposableObject
+    public partial class QueueFamilyProperties2 : VulkanDisposableObject
     {
         public QueueFamilyProperties2()
         {
@@ -6561,7 +6571,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (QueueFamilyProperties != null)
             {
@@ -6571,7 +6581,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMemoryProperties2 : DisposableObject
+    public partial class PhysicalDeviceMemoryProperties2 : VulkanDisposableObject
     {
         public PhysicalDeviceMemoryProperties2()
         {
@@ -6590,7 +6600,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (MemoryProperties != null)
             {
@@ -6600,7 +6610,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseImageFormatProperties2 : DisposableObject
+    public partial class SparseImageFormatProperties2 : VulkanDisposableObject
     {
         public SparseImageFormatProperties2()
         {
@@ -6619,7 +6629,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (Properties != null)
             {
@@ -6629,7 +6639,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSparseImageFormatInfo2 : DisposableObject
+    public partial class PhysicalDeviceSparseImageFormatInfo2 : VulkanDisposableObject
     {
         public PhysicalDeviceSparseImageFormatInfo2()
         {
@@ -6656,18 +6666,18 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.format = Format;
-            _internal.type = Type;
-            _internal.samples = Samples;
+            _internal.format = (uint)Format;
+            _internal.type = (uint)Type;
+            _internal.samples = (uint)Samples;
             _internal.usage = Usage;
-            _internal.tiling = Tiling;
+            _internal.tiling = (uint)Tiling;
             return _internal;
         }
     }
 
-    public partial class PhysicalDevicePointClippingProperties : DisposableObject
+    public partial class PhysicalDevicePointClippingProperties : VulkanDisposableObject
     {
         public PhysicalDevicePointClippingProperties()
         {
@@ -6686,9 +6696,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.pointClippingBehavior = PointClippingBehavior;
+            _internal.pointClippingBehavior = (uint)PointClippingBehavior;
             return _internal;
         }
     }
@@ -6720,7 +6730,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassInputAttachmentAspectCreateInfo : DisposableObject
+    public partial class RenderPassInputAttachmentAspectCreateInfo : VulkanDisposableObject
     {
         private StructReference refpAspectReferences;
 
@@ -6744,7 +6754,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.aspectReferenceCount = AspectReferenceCount;
             refpAspectReferences?.Dispose();
@@ -6764,7 +6774,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageViewUsageCreateInfo : DisposableObject
+    public partial class ImageViewUsageCreateInfo : VulkanDisposableObject
     {
         public ImageViewUsageCreateInfo()
         {
@@ -6783,14 +6793,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.usage = Usage;
             return _internal;
         }
     }
 
-    public partial class PipelineTessellationDomainOriginStateCreateInfo : DisposableObject
+    public partial class PipelineTessellationDomainOriginStateCreateInfo : VulkanDisposableObject
     {
         public PipelineTessellationDomainOriginStateCreateInfo()
         {
@@ -6809,14 +6819,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.domainOrigin = DomainOrigin;
+            _internal.domainOrigin = (uint)DomainOrigin;
             return _internal;
         }
     }
 
-    public partial class RenderPassMultiviewCreateInfo : DisposableObject
+    public partial class RenderPassMultiviewCreateInfo : VulkanDisposableObject
     {
         private StructReference refpViewMasks;
 
@@ -6863,7 +6873,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.subpassCount = SubpassCount;
             refpViewMasks?.Dispose();
@@ -6898,7 +6908,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceMultiviewFeatures : DisposableObject
+    public partial class PhysicalDeviceMultiviewFeatures : VulkanDisposableObject
     {
         public PhysicalDeviceMultiviewFeatures()
         {
@@ -6907,9 +6917,9 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceMultiviewFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures _internal)
         {
             PNext = _internal.pNext;
-            Multiview = _internal.multiview;
-            MultiviewGeometryShader = _internal.multiviewGeometryShader;
-            MultiviewTessellationShader = _internal.multiviewTessellationShader;
+            Multiview = System.Convert.ToBoolean(_internal.multiview);
+            MultiviewGeometryShader = System.Convert.ToBoolean(_internal.multiviewGeometryShader);
+            MultiviewTessellationShader = System.Convert.ToBoolean(_internal.multiviewTessellationShader);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceMultiviewFeatures;
@@ -6921,16 +6931,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.multiview = Multiview;
-            _internal.multiviewGeometryShader = MultiviewGeometryShader;
-            _internal.multiviewTessellationShader = MultiviewTessellationShader;
+            _internal.multiview = System.Convert.ToUInt32(Multiview);
+            _internal.multiviewGeometryShader = System.Convert.ToUInt32(MultiviewGeometryShader);
+            _internal.multiviewTessellationShader = System.Convert.ToUInt32(MultiviewTessellationShader);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceMultiviewProperties : DisposableObject
+    public partial class PhysicalDeviceMultiviewProperties : VulkanDisposableObject
     {
         public PhysicalDeviceMultiviewProperties()
         {
@@ -6951,7 +6961,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxMultiviewViewCount = MaxMultiviewViewCount;
             _internal.maxMultiviewInstanceIndex = MaxMultiviewInstanceIndex;
@@ -6959,7 +6969,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceVariablePointersFeatures : DisposableObject
+    public partial class PhysicalDeviceVariablePointersFeatures : VulkanDisposableObject
     {
         public PhysicalDeviceVariablePointersFeatures()
         {
@@ -6968,8 +6978,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceVariablePointersFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures _internal)
         {
             PNext = _internal.pNext;
-            VariablePointersStorageBuffer = _internal.variablePointersStorageBuffer;
-            VariablePointers = _internal.variablePointers;
+            VariablePointersStorageBuffer = System.Convert.ToBoolean(_internal.variablePointersStorageBuffer);
+            VariablePointers = System.Convert.ToBoolean(_internal.variablePointers);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceVariablePointersFeatures;
@@ -6980,15 +6990,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.variablePointersStorageBuffer = VariablePointersStorageBuffer;
-            _internal.variablePointers = VariablePointers;
+            _internal.variablePointersStorageBuffer = System.Convert.ToUInt32(VariablePointersStorageBuffer);
+            _internal.variablePointers = System.Convert.ToUInt32(VariablePointers);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceProtectedMemoryFeatures : DisposableObject
+    public partial class PhysicalDeviceProtectedMemoryFeatures : VulkanDisposableObject
     {
         public PhysicalDeviceProtectedMemoryFeatures()
         {
@@ -6997,7 +7007,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceProtectedMemoryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures _internal)
         {
             PNext = _internal.pNext;
-            ProtectedMemory = _internal.protectedMemory;
+            ProtectedMemory = System.Convert.ToBoolean(_internal.protectedMemory);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceProtectedMemoryFeatures;
@@ -7007,14 +7017,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.protectedMemory = ProtectedMemory;
+            _internal.protectedMemory = System.Convert.ToUInt32(ProtectedMemory);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceProtectedMemoryProperties : DisposableObject
+    public partial class PhysicalDeviceProtectedMemoryProperties : VulkanDisposableObject
     {
         public PhysicalDeviceProtectedMemoryProperties()
         {
@@ -7023,7 +7033,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceProtectedMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties _internal)
         {
             PNext = _internal.pNext;
-            ProtectedNoFault = _internal.protectedNoFault;
+            ProtectedNoFault = System.Convert.ToBoolean(_internal.protectedNoFault);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceProtectedMemoryProperties;
@@ -7033,14 +7043,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.protectedNoFault = ProtectedNoFault;
+            _internal.protectedNoFault = System.Convert.ToUInt32(ProtectedNoFault);
             return _internal;
         }
     }
 
-    public partial class DeviceQueueInfo2 : DisposableObject
+    public partial class DeviceQueueInfo2 : VulkanDisposableObject
     {
         public DeviceQueueInfo2()
         {
@@ -7063,7 +7073,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2 ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.queueFamilyIndex = QueueFamilyIndex;
@@ -7072,7 +7082,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ProtectedSubmitInfo : DisposableObject
+    public partial class ProtectedSubmitInfo : VulkanDisposableObject
     {
         public ProtectedSubmitInfo()
         {
@@ -7081,7 +7091,7 @@ namespace AdamantiumVulkan.Core
         public ProtectedSubmitInfo(AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo _internal)
         {
             PNext = _internal.pNext;
-            ProtectedSubmit = _internal.protectedSubmit;
+            ProtectedSubmit = System.Convert.ToBoolean(_internal.protectedSubmit);
         }
 
         public StructureType SType => StructureType.ProtectedSubmitInfo;
@@ -7091,14 +7101,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.protectedSubmit = ProtectedSubmit;
+            _internal.protectedSubmit = System.Convert.ToUInt32(ProtectedSubmit);
             return _internal;
         }
     }
 
-    public partial class SamplerYcbcrConversionCreateInfo : DisposableObject
+    public partial class SamplerYcbcrConversionCreateInfo : VulkanDisposableObject
     {
         public SamplerYcbcrConversionCreateInfo()
         {
@@ -7114,7 +7124,7 @@ namespace AdamantiumVulkan.Core
             XChromaOffset = (ChromaLocation)_internal.xChromaOffset;
             YChromaOffset = (ChromaLocation)_internal.yChromaOffset;
             ChromaFilter = (Filter)_internal.chromaFilter;
-            ForceExplicitReconstruction = _internal.forceExplicitReconstruction;
+            ForceExplicitReconstruction = System.Convert.ToBoolean(_internal.forceExplicitReconstruction);
         }
 
         public StructureType SType => StructureType.SamplerYcbcrConversionCreateInfo;
@@ -7131,24 +7141,24 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.format = Format;
-            _internal.ycbcrModel = YcbcrModel;
-            _internal.ycbcrRange = YcbcrRange;
+            _internal.format = (uint)Format;
+            _internal.ycbcrModel = (uint)YcbcrModel;
+            _internal.ycbcrRange = (uint)YcbcrRange;
             if (Components != null)
             {
                 _internal.components = Components.ToInternal();
             }
-            _internal.xChromaOffset = XChromaOffset;
-            _internal.yChromaOffset = YChromaOffset;
-            _internal.chromaFilter = ChromaFilter;
-            _internal.forceExplicitReconstruction = ForceExplicitReconstruction;
+            _internal.xChromaOffset = (uint)XChromaOffset;
+            _internal.yChromaOffset = (uint)YChromaOffset;
+            _internal.chromaFilter = (uint)ChromaFilter;
+            _internal.forceExplicitReconstruction = System.Convert.ToUInt32(ForceExplicitReconstruction);
             return _internal;
         }
     }
 
-    public partial class SamplerYcbcrConversionInfo : DisposableObject
+    public partial class SamplerYcbcrConversionInfo : VulkanDisposableObject
     {
         public SamplerYcbcrConversionInfo()
         {
@@ -7167,14 +7177,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.conversion = Conversion;
             return _internal;
         }
     }
 
-    public partial class BindImagePlaneMemoryInfo : DisposableObject
+    public partial class BindImagePlaneMemoryInfo : VulkanDisposableObject
     {
         public BindImagePlaneMemoryInfo()
         {
@@ -7193,14 +7203,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.planeAspect = PlaneAspect;
+            _internal.planeAspect = (uint)PlaneAspect;
             return _internal;
         }
     }
 
-    public partial class ImagePlaneMemoryRequirementsInfo : DisposableObject
+    public partial class ImagePlaneMemoryRequirementsInfo : VulkanDisposableObject
     {
         public ImagePlaneMemoryRequirementsInfo()
         {
@@ -7219,14 +7229,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.planeAspect = PlaneAspect;
+            _internal.planeAspect = (uint)PlaneAspect;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : DisposableObject
+    public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : VulkanDisposableObject
     {
         public PhysicalDeviceSamplerYcbcrConversionFeatures()
         {
@@ -7235,7 +7245,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceSamplerYcbcrConversionFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures _internal)
         {
             PNext = _internal.pNext;
-            SamplerYcbcrConversion = _internal.samplerYcbcrConversion;
+            SamplerYcbcrConversion = System.Convert.ToBoolean(_internal.samplerYcbcrConversion);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceSamplerYcbcrConversionFeatures;
@@ -7245,14 +7255,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
+            _internal.samplerYcbcrConversion = System.Convert.ToUInt32(SamplerYcbcrConversion);
             return _internal;
         }
     }
 
-    public partial class SamplerYcbcrConversionImageFormatProperties : DisposableObject
+    public partial class SamplerYcbcrConversionImageFormatProperties : VulkanDisposableObject
     {
         public SamplerYcbcrConversionImageFormatProperties()
         {
@@ -7271,7 +7281,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.combinedImageSamplerDescriptorCount = CombinedImageSamplerDescriptorCount;
             return _internal;
@@ -7307,14 +7317,14 @@ namespace AdamantiumVulkan.Core
             _internal.dstBinding = DstBinding;
             _internal.dstArrayElement = DstArrayElement;
             _internal.descriptorCount = DescriptorCount;
-            _internal.descriptorType = DescriptorType;
+            _internal.descriptorType = (uint)DescriptorType;
             _internal.offset = Offset;
             _internal.stride = Stride;
             return _internal;
         }
     }
 
-    public partial class DescriptorUpdateTemplateCreateInfo : DisposableObject
+    public partial class DescriptorUpdateTemplateCreateInfo : VulkanDisposableObject
     {
         private StructReference refpDescriptorUpdateEntries;
 
@@ -7350,7 +7360,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.descriptorUpdateEntryCount = DescriptorUpdateEntryCount;
@@ -7361,9 +7371,9 @@ namespace AdamantiumVulkan.Core
                 refpDescriptorUpdateEntries = new StructReference(struct0);
                 _internal.pDescriptorUpdateEntries = refpDescriptorUpdateEntries.Handle;
             }
-            _internal.templateType = TemplateType;
+            _internal.templateType = (uint)TemplateType;
             _internal.descriptorSetLayout = DescriptorSetLayout;
-            _internal.pipelineBindPoint = PipelineBindPoint;
+            _internal.pipelineBindPoint = (uint)PipelineBindPoint;
             _internal.pipelineLayout = PipelineLayout;
             _internal.set = Set;
             return _internal;
@@ -7403,7 +7413,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalImageFormatInfo : DisposableObject
+    public partial class PhysicalDeviceExternalImageFormatInfo : VulkanDisposableObject
     {
         public PhysicalDeviceExternalImageFormatInfo()
         {
@@ -7422,14 +7432,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ExternalImageFormatProperties : DisposableObject
+    public partial class ExternalImageFormatProperties : VulkanDisposableObject
     {
         public ExternalImageFormatProperties()
         {
@@ -7448,7 +7458,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (ExternalMemoryProperties != null)
             {
@@ -7458,7 +7468,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalBufferInfo : DisposableObject
+    public partial class PhysicalDeviceExternalBufferInfo : VulkanDisposableObject
     {
         public PhysicalDeviceExternalBufferInfo()
         {
@@ -7481,16 +7491,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.usage = Usage;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ExternalBufferProperties : DisposableObject
+    public partial class ExternalBufferProperties : VulkanDisposableObject
     {
         public ExternalBufferProperties()
         {
@@ -7509,7 +7519,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalBufferProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalBufferProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (ExternalMemoryProperties != null)
             {
@@ -7519,7 +7529,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceIDProperties : DisposableObject
+    public partial class PhysicalDeviceIDProperties : VulkanDisposableObject
     {
         public PhysicalDeviceIDProperties()
         {
@@ -7556,7 +7566,7 @@ namespace AdamantiumVulkan.Core
             }
             DeviceLUID = System.Text.Encoding.ASCII.GetString(tmpArr2).Replace("\0", string.Empty);
             DeviceNodeMask = _internal.deviceNodeMask;
-            DeviceLUIDValid = _internal.deviceLUIDValid;
+            DeviceLUIDValid = System.Convert.ToBoolean(_internal.deviceLUIDValid);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceIdProperties;
@@ -7570,7 +7580,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if(DeviceUUID != null)
             {
@@ -7624,12 +7634,12 @@ namespace AdamantiumVulkan.Core
                 }
             }
             _internal.deviceNodeMask = DeviceNodeMask;
-            _internal.deviceLUIDValid = DeviceLUIDValid;
+            _internal.deviceLUIDValid = System.Convert.ToUInt32(DeviceLUIDValid);
             return _internal;
         }
     }
 
-    public partial class ExternalMemoryImageCreateInfo : DisposableObject
+    public partial class ExternalMemoryImageCreateInfo : VulkanDisposableObject
     {
         public ExternalMemoryImageCreateInfo()
         {
@@ -7648,14 +7658,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class ExternalMemoryBufferCreateInfo : DisposableObject
+    public partial class ExternalMemoryBufferCreateInfo : VulkanDisposableObject
     {
         public ExternalMemoryBufferCreateInfo()
         {
@@ -7674,14 +7684,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryBufferCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalMemoryBufferCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class ExportMemoryAllocateInfo : DisposableObject
+    public partial class ExportMemoryAllocateInfo : VulkanDisposableObject
     {
         public ExportMemoryAllocateInfo()
         {
@@ -7700,14 +7710,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceExternalFenceInfo : DisposableObject
+    public partial class PhysicalDeviceExternalFenceInfo : VulkanDisposableObject
     {
         public PhysicalDeviceExternalFenceInfo()
         {
@@ -7726,14 +7736,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ExternalFenceProperties : DisposableObject
+    public partial class ExternalFenceProperties : VulkanDisposableObject
     {
         public ExternalFenceProperties()
         {
@@ -7756,7 +7766,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalFenceProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalFenceProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
             _internal.compatibleHandleTypes = CompatibleHandleTypes;
@@ -7765,7 +7775,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExportFenceCreateInfo : DisposableObject
+    public partial class ExportFenceCreateInfo : VulkanDisposableObject
     {
         public ExportFenceCreateInfo()
         {
@@ -7784,14 +7794,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExportFenceCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExportFenceCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class ExportSemaphoreCreateInfo : DisposableObject
+    public partial class ExportSemaphoreCreateInfo : VulkanDisposableObject
     {
         public ExportSemaphoreCreateInfo()
         {
@@ -7810,14 +7820,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceExternalSemaphoreInfo : DisposableObject
+    public partial class PhysicalDeviceExternalSemaphoreInfo : VulkanDisposableObject
     {
         public PhysicalDeviceExternalSemaphoreInfo()
         {
@@ -7836,14 +7846,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ExternalSemaphoreProperties : DisposableObject
+    public partial class ExternalSemaphoreProperties : VulkanDisposableObject
     {
         public ExternalSemaphoreProperties()
         {
@@ -7866,7 +7876,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
             _internal.compatibleHandleTypes = CompatibleHandleTypes;
@@ -7875,7 +7885,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMaintenance3Properties : DisposableObject
+    public partial class PhysicalDeviceMaintenance3Properties : VulkanDisposableObject
     {
         public PhysicalDeviceMaintenance3Properties()
         {
@@ -7896,7 +7906,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxPerSetDescriptors = MaxPerSetDescriptors;
             _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
@@ -7904,7 +7914,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorSetLayoutSupport : DisposableObject
+    public partial class DescriptorSetLayoutSupport : VulkanDisposableObject
     {
         public DescriptorSetLayoutSupport()
         {
@@ -7913,7 +7923,7 @@ namespace AdamantiumVulkan.Core
         public DescriptorSetLayoutSupport(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport _internal)
         {
             PNext = _internal.pNext;
-            Supported = _internal.supported;
+            Supported = System.Convert.ToBoolean(_internal.supported);
         }
 
         public StructureType SType => StructureType.DescriptorSetLayoutSupport;
@@ -7923,14 +7933,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.supported = Supported;
+            _internal.supported = System.Convert.ToUInt32(Supported);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderDrawParametersFeatures : DisposableObject
+    public partial class PhysicalDeviceShaderDrawParametersFeatures : VulkanDisposableObject
     {
         public PhysicalDeviceShaderDrawParametersFeatures()
         {
@@ -7939,7 +7949,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceShaderDrawParametersFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures _internal)
         {
             PNext = _internal.pNext;
-            ShaderDrawParameters = _internal.shaderDrawParameters;
+            ShaderDrawParameters = System.Convert.ToBoolean(_internal.shaderDrawParameters);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceShaderDrawParametersFeatures;
@@ -7949,9 +7959,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderDrawParameters = ShaderDrawParameters;
+            _internal.shaderDrawParameters = System.Convert.ToUInt32(ShaderDrawParameters);
             return _internal;
         }
     }
@@ -8006,7 +8016,7 @@ namespace AdamantiumVulkan.Core
             }
             _internal.maxImageArrayLayers = MaxImageArrayLayers;
             _internal.supportedTransforms = SupportedTransforms;
-            _internal.currentTransform = CurrentTransform;
+            _internal.currentTransform = (uint)CurrentTransform;
             _internal.supportedCompositeAlpha = SupportedCompositeAlpha;
             _internal.supportedUsageFlags = SupportedUsageFlags;
             return _internal;
@@ -8031,13 +8041,13 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR();
-            _internal.format = Format;
-            _internal.colorSpace = ColorSpace;
+            _internal.format = (uint)Format;
+            _internal.colorSpace = (uint)ColorSpace;
             return _internal;
         }
     }
 
-    public partial class SwapchainCreateInfoKHR : DisposableObject
+    public partial class SwapchainCreateInfoKHR : VulkanDisposableObject
     {
         private GCHandleReference refpQueueFamilyIndices;
 
@@ -8064,7 +8074,7 @@ namespace AdamantiumVulkan.Core
             PreTransform = (SurfaceTransformFlagBitsKHR)_internal.preTransform;
             CompositeAlpha = (CompositeAlphaFlagBitsKHR)_internal.compositeAlpha;
             PresentMode = (PresentModeKHR)_internal.presentMode;
-            Clipped = _internal.clipped;
+            Clipped = System.Convert.ToBoolean(_internal.clipped);
             OldSwapchain = new SwapchainKHR(_internal.oldSwapchain);
         }
 
@@ -8090,20 +8100,20 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.surface = Surface;
             _internal.minImageCount = MinImageCount;
-            _internal.imageFormat = ImageFormat;
-            _internal.imageColorSpace = ImageColorSpace;
+            _internal.imageFormat = (uint)ImageFormat;
+            _internal.imageColorSpace = (uint)ImageColorSpace;
             if (ImageExtent != null)
             {
                 _internal.imageExtent = ImageExtent.ToInternal();
             }
             _internal.imageArrayLayers = ImageArrayLayers;
             _internal.imageUsage = ImageUsage;
-            _internal.imageSharingMode = ImageSharingMode;
+            _internal.imageSharingMode = (uint)ImageSharingMode;
             _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
             refpQueueFamilyIndices?.Dispose();
             if (PQueueFamilyIndices != null)
@@ -8116,10 +8126,10 @@ namespace AdamantiumVulkan.Core
                 refpQueueFamilyIndices = new GCHandleReference(tmpArray0);
                 _internal.pQueueFamilyIndices = refpQueueFamilyIndices.Handle;
             }
-            _internal.preTransform = PreTransform;
-            _internal.compositeAlpha = CompositeAlpha;
-            _internal.presentMode = PresentMode;
-            _internal.clipped = Clipped;
+            _internal.preTransform = (uint)PreTransform;
+            _internal.compositeAlpha = (uint)CompositeAlpha;
+            _internal.presentMode = (uint)PresentMode;
+            _internal.clipped = System.Convert.ToUInt32(Clipped);
             _internal.oldSwapchain = OldSwapchain;
             return _internal;
         }
@@ -8131,7 +8141,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PresentInfoKHR : DisposableObject
+    public partial class PresentInfoKHR : VulkanDisposableObject
     {
         private GCHandleReference refpWaitSemaphores;
 
@@ -8191,7 +8201,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPresentInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPresentInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreCount = WaitSemaphoreCount;
             refpWaitSemaphores?.Dispose();
@@ -8252,7 +8262,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageSwapchainCreateInfoKHR : DisposableObject
+    public partial class ImageSwapchainCreateInfoKHR : VulkanDisposableObject
     {
         public ImageSwapchainCreateInfoKHR()
         {
@@ -8271,14 +8281,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.swapchain = Swapchain;
             return _internal;
         }
     }
 
-    public partial class BindImageMemorySwapchainInfoKHR : DisposableObject
+    public partial class BindImageMemorySwapchainInfoKHR : VulkanDisposableObject
     {
         public BindImageMemorySwapchainInfoKHR()
         {
@@ -8299,7 +8309,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.swapchain = Swapchain;
             _internal.imageIndex = ImageIndex;
@@ -8307,7 +8317,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class AcquireNextImageInfoKHR : DisposableObject
+    public partial class AcquireNextImageInfoKHR : VulkanDisposableObject
     {
         public AcquireNextImageInfoKHR()
         {
@@ -8334,7 +8344,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.swapchain = Swapchain;
             _internal.timeout = Timeout;
@@ -8345,7 +8355,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupPresentCapabilitiesKHR : DisposableObject
+    public partial class DeviceGroupPresentCapabilitiesKHR : VulkanDisposableObject
     {
         public DeviceGroupPresentCapabilitiesKHR()
         {
@@ -8374,7 +8384,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if(PresentMask != null)
             {
@@ -8398,7 +8408,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupPresentInfoKHR : DisposableObject
+    public partial class DeviceGroupPresentInfoKHR : VulkanDisposableObject
     {
         private StructReference refpDeviceMasks;
 
@@ -8427,7 +8437,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.swapchainCount = SwapchainCount;
             refpDeviceMasks?.Dispose();
@@ -8436,7 +8446,7 @@ namespace AdamantiumVulkan.Core
                 refpDeviceMasks = new StructReference(PDeviceMasks);
                 _internal.pDeviceMasks = refpDeviceMasks.Handle;
             }
-            _internal.mode = Mode;
+            _internal.mode = (uint)Mode;
             return _internal;
         }
 
@@ -8447,7 +8457,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceGroupSwapchainCreateInfoKHR : DisposableObject
+    public partial class DeviceGroupSwapchainCreateInfoKHR : VulkanDisposableObject
     {
         public DeviceGroupSwapchainCreateInfoKHR()
         {
@@ -8466,14 +8476,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.modes = Modes;
             return _internal;
         }
     }
 
-    public partial class DisplayPropertiesKHR : DisposableObject
+    public partial class DisplayPropertiesKHR : VulkanDisposableObject
     {
         private StringReference refdisplayName;
 
@@ -8488,8 +8498,8 @@ namespace AdamantiumVulkan.Core
             PhysicalDimensions = new Extent2D(_internal.physicalDimensions);
             PhysicalResolution = new Extent2D(_internal.physicalResolution);
             SupportedTransforms = _internal.supportedTransforms;
-            PlaneReorderPossible = _internal.planeReorderPossible;
-            PersistentContent = _internal.persistentContent;
+            PlaneReorderPossible = System.Convert.ToBoolean(_internal.planeReorderPossible);
+            PersistentContent = System.Convert.ToBoolean(_internal.persistentContent);
         }
 
         public DisplayKHR Display { get; set; }
@@ -8519,8 +8529,8 @@ namespace AdamantiumVulkan.Core
                 _internal.physicalResolution = PhysicalResolution.ToInternal();
             }
             _internal.supportedTransforms = SupportedTransforms;
-            _internal.planeReorderPossible = PlaneReorderPossible;
-            _internal.persistentContent = PersistentContent;
+            _internal.planeReorderPossible = System.Convert.ToUInt32(PlaneReorderPossible);
+            _internal.persistentContent = System.Convert.ToUInt32(PersistentContent);
             return _internal;
         }
 
@@ -8585,7 +8595,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayModeCreateInfoKHR : DisposableObject
+    public partial class DisplayModeCreateInfoKHR : VulkanDisposableObject
     {
         public DisplayModeCreateInfoKHR()
         {
@@ -8606,7 +8616,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             if (Parameters != null)
@@ -8710,7 +8720,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplaySurfaceCreateInfoKHR : DisposableObject
+    public partial class DisplaySurfaceCreateInfoKHR : VulkanDisposableObject
     {
         public DisplaySurfaceCreateInfoKHR()
         {
@@ -8743,15 +8753,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.displayMode = DisplayMode;
             _internal.planeIndex = PlaneIndex;
             _internal.planeStackIndex = PlaneStackIndex;
-            _internal.transform = Transform;
+            _internal.transform = (uint)Transform;
             _internal.globalAlpha = GlobalAlpha;
-            _internal.alphaMode = AlphaMode;
+            _internal.alphaMode = (uint)AlphaMode;
             if (ImageExtent != null)
             {
                 _internal.imageExtent = ImageExtent.ToInternal();
@@ -8760,7 +8770,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPresentInfoKHR : DisposableObject
+    public partial class DisplayPresentInfoKHR : VulkanDisposableObject
     {
         public DisplayPresentInfoKHR()
         {
@@ -8771,7 +8781,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             SrcRect = new Rect2D(_internal.srcRect);
             DstRect = new Rect2D(_internal.dstRect);
-            Persistent = _internal.persistent;
+            Persistent = System.Convert.ToBoolean(_internal.persistent);
         }
 
         public StructureType SType => StructureType.DisplayPresentInfoKhr;
@@ -8783,7 +8793,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (SrcRect != null)
             {
@@ -8793,12 +8803,12 @@ namespace AdamantiumVulkan.Core
             {
                 _internal.dstRect = DstRect.ToInternal();
             }
-            _internal.persistent = Persistent;
+            _internal.persistent = System.Convert.ToUInt32(Persistent);
             return _internal;
         }
     }
 
-    public partial class ImportMemoryFdInfoKHR : DisposableObject
+    public partial class ImportMemoryFdInfoKHR : VulkanDisposableObject
     {
         public ImportMemoryFdInfoKHR()
         {
@@ -8819,15 +8829,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.fd = Fd;
             return _internal;
         }
     }
 
-    public partial class MemoryFdPropertiesKHR : DisposableObject
+    public partial class MemoryFdPropertiesKHR : VulkanDisposableObject
     {
         public MemoryFdPropertiesKHR()
         {
@@ -8846,14 +8856,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
     }
 
-    public partial class MemoryGetFdInfoKHR : DisposableObject
+    public partial class MemoryGetFdInfoKHR : VulkanDisposableObject
     {
         public MemoryGetFdInfoKHR()
         {
@@ -8874,15 +8884,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.memory = Memory;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ImportSemaphoreFdInfoKHR : DisposableObject
+    public partial class ImportSemaphoreFdInfoKHR : VulkanDisposableObject
     {
         public ImportSemaphoreFdInfoKHR()
         {
@@ -8907,17 +8917,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.semaphore = Semaphore;
             _internal.flags = Flags;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.fd = Fd;
             return _internal;
         }
     }
 
-    public partial class SemaphoreGetFdInfoKHR : DisposableObject
+    public partial class SemaphoreGetFdInfoKHR : VulkanDisposableObject
     {
         public SemaphoreGetFdInfoKHR()
         {
@@ -8938,15 +8948,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.semaphore = Semaphore;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class PhysicalDevicePushDescriptorPropertiesKHR : DisposableObject
+    public partial class PhysicalDevicePushDescriptorPropertiesKHR : VulkanDisposableObject
     {
         public PhysicalDevicePushDescriptorPropertiesKHR()
         {
@@ -8966,14 +8976,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxPushDescriptors = MaxPushDescriptors;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderFloat16Int8FeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceShaderFloat16Int8FeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceShaderFloat16Int8FeaturesKHR()
         {
@@ -8982,8 +8992,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceShaderFloat16Int8FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8FeaturesKHR _internal)
         {
             PNext = _internal.pNext;
-            ShaderFloat16 = _internal.shaderFloat16;
-            ShaderInt8 = _internal.shaderInt8;
+            ShaderFloat16 = System.Convert.ToBoolean(_internal.shaderFloat16);
+            ShaderInt8 = System.Convert.ToBoolean(_internal.shaderInt8);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceShaderFloat16Int8FeaturesKhr;
@@ -8994,10 +9004,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8FeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8FeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderFloat16 = ShaderFloat16;
-            _internal.shaderInt8 = ShaderInt8;
+            _internal.shaderFloat16 = System.Convert.ToUInt32(ShaderFloat16);
+            _internal.shaderInt8 = System.Convert.ToUInt32(ShaderInt8);
             return _internal;
         }
     }
@@ -9035,7 +9045,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PresentRegionKHR : DisposableObject
+    public partial class PresentRegionKHR : VulkanDisposableObject
     {
         private StructReference refpRectangles;
 
@@ -9074,7 +9084,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PresentRegionsKHR : DisposableObject
+    public partial class PresentRegionsKHR : VulkanDisposableObject
     {
         private StructReference refpRegions;
 
@@ -9098,7 +9108,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.swapchainCount = SwapchainCount;
             refpRegions?.Dispose();
@@ -9118,7 +9128,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceImagelessFramebufferFeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceImagelessFramebufferFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceImagelessFramebufferFeaturesKHR()
         {
@@ -9128,7 +9138,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            ImagelessFramebuffer = _internal.imagelessFramebuffer;
+            ImagelessFramebuffer = System.Convert.ToBoolean(_internal.imagelessFramebuffer);
         }
 
         public StructureType SType { get; set; }
@@ -9138,14 +9148,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.imagelessFramebuffer = ImagelessFramebuffer;
+            _internal.imagelessFramebuffer = System.Convert.ToUInt32(ImagelessFramebuffer);
             return _internal;
         }
     }
 
-    public partial class FramebufferAttachmentImageInfoKHR : DisposableObject
+    public partial class FramebufferAttachmentImageInfoKHR : VulkanDisposableObject
     {
         private GCHandleReference refpViewFormats;
 
@@ -9163,8 +9173,8 @@ namespace AdamantiumVulkan.Core
             Height = _internal.height;
             LayerCount = _internal.layerCount;
             ViewFormatCount = _internal.viewFormatCount;
-            var tmppViewFormats = new int[_internal.viewFormatCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pViewFormats, tmppViewFormats);
+            var tmppViewFormats = new uint[_internal.viewFormatCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pViewFormats, tmppViewFormats);
             Marshal.FreeHGlobal(_internal.pViewFormats);
             PViewFormats = new AdamantiumVulkan.Core.Format[_internal.viewFormatCount];
             for (int i = 0; i < tmppViewFormats.Length; ++i)
@@ -9186,7 +9196,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.usage = Usage;
@@ -9215,7 +9225,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class FramebufferAttachmentsCreateInfoKHR : DisposableObject
+    public partial class FramebufferAttachmentsCreateInfoKHR : VulkanDisposableObject
     {
         private StructReference refpAttachmentImageInfos;
 
@@ -9240,7 +9250,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.attachmentImageInfoCount = AttachmentImageInfoCount;
             refpAttachmentImageInfos?.Dispose();
@@ -9260,7 +9270,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class RenderPassAttachmentBeginInfoKHR : DisposableObject
+    public partial class RenderPassAttachmentBeginInfoKHR : VulkanDisposableObject
     {
         private StructReference refpAttachments;
 
@@ -9285,7 +9295,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.attachmentCount = AttachmentCount;
             refpAttachments?.Dispose();
@@ -9305,7 +9315,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AttachmentDescription2KHR : DisposableObject
+    public partial class AttachmentDescription2KHR : VulkanDisposableObject
     {
         public AttachmentDescription2KHR()
         {
@@ -9340,22 +9350,22 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkAttachmentDescription2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.format = Format;
-            _internal.samples = Samples;
-            _internal.loadOp = LoadOp;
-            _internal.storeOp = StoreOp;
-            _internal.stencilLoadOp = StencilLoadOp;
-            _internal.stencilStoreOp = StencilStoreOp;
-            _internal.initialLayout = InitialLayout;
-            _internal.finalLayout = FinalLayout;
+            _internal.format = (uint)Format;
+            _internal.samples = (uint)Samples;
+            _internal.loadOp = (uint)LoadOp;
+            _internal.storeOp = (uint)StoreOp;
+            _internal.stencilLoadOp = (uint)StencilLoadOp;
+            _internal.stencilStoreOp = (uint)StencilStoreOp;
+            _internal.initialLayout = (uint)InitialLayout;
+            _internal.finalLayout = (uint)FinalLayout;
             return _internal;
         }
     }
 
-    public partial class AttachmentReference2KHR : DisposableObject
+    public partial class AttachmentReference2KHR : VulkanDisposableObject
     {
         public AttachmentReference2KHR()
         {
@@ -9378,16 +9388,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.attachment = Attachment;
-            _internal.layout = Layout;
+            _internal.layout = (uint)Layout;
             _internal.aspectMask = AspectMask;
             return _internal;
         }
     }
 
-    public partial class SubpassDescription2KHR : DisposableObject
+    public partial class SubpassDescription2KHR : VulkanDisposableObject
     {
         private GCHandleReference refpInputAttachments;
 
@@ -9460,10 +9470,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.pipelineBindPoint = PipelineBindPoint;
+            _internal.pipelineBindPoint = (uint)PipelineBindPoint;
             _internal.viewMask = ViewMask;
             _internal.inputAttachmentCount = InputAttachmentCount;
             refpInputAttachments?.Dispose();
@@ -9533,7 +9543,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SubpassDependency2KHR : DisposableObject
+    public partial class SubpassDependency2KHR : VulkanDisposableObject
     {
         public SubpassDependency2KHR()
         {
@@ -9566,7 +9576,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSubpassDependency2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDependency2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.srcSubpass = SrcSubpass;
             _internal.dstSubpass = DstSubpass;
@@ -9580,7 +9590,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassCreateInfo2KHR : DisposableObject
+    public partial class RenderPassCreateInfo2KHR : VulkanDisposableObject
     {
         private StructReference refpAttachments;
 
@@ -9630,7 +9640,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.attachmentCount = AttachmentCount;
@@ -9677,7 +9687,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SubpassBeginInfoKHR : DisposableObject
+    public partial class SubpassBeginInfoKHR : VulkanDisposableObject
     {
         public SubpassBeginInfoKHR()
         {
@@ -9696,14 +9706,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.contents = Contents;
+            _internal.contents = (uint)Contents;
             return _internal;
         }
     }
 
-    public partial class SubpassEndInfoKHR : DisposableObject
+    public partial class SubpassEndInfoKHR : VulkanDisposableObject
     {
         public SubpassEndInfoKHR()
         {
@@ -9720,13 +9730,13 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             return _internal;
         }
     }
 
-    public partial class SharedPresentSurfaceCapabilitiesKHR : DisposableObject
+    public partial class SharedPresentSurfaceCapabilitiesKHR : VulkanDisposableObject
     {
         public SharedPresentSurfaceCapabilitiesKHR()
         {
@@ -9745,14 +9755,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.sharedPresentSupportedUsageFlags = SharedPresentSupportedUsageFlags;
             return _internal;
         }
     }
 
-    public partial class ImportFenceFdInfoKHR : DisposableObject
+    public partial class ImportFenceFdInfoKHR : VulkanDisposableObject
     {
         public ImportFenceFdInfoKHR()
         {
@@ -9777,17 +9787,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.fence = Fence;
             _internal.flags = Flags;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.fd = Fd;
             return _internal;
         }
     }
 
-    public partial class FenceGetFdInfoKHR : DisposableObject
+    public partial class FenceGetFdInfoKHR : VulkanDisposableObject
     {
         public FenceGetFdInfoKHR()
         {
@@ -9808,15 +9818,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.fence = Fence;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceSurfaceInfo2KHR : DisposableObject
+    public partial class PhysicalDeviceSurfaceInfo2KHR : VulkanDisposableObject
     {
         public PhysicalDeviceSurfaceInfo2KHR()
         {
@@ -9835,14 +9845,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.surface = Surface;
             return _internal;
         }
     }
 
-    public partial class SurfaceCapabilities2KHR : DisposableObject
+    public partial class SurfaceCapabilities2KHR : VulkanDisposableObject
     {
         public SurfaceCapabilities2KHR()
         {
@@ -9861,7 +9871,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (SurfaceCapabilities != null)
             {
@@ -9871,7 +9881,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SurfaceFormat2KHR : DisposableObject
+    public partial class SurfaceFormat2KHR : VulkanDisposableObject
     {
         public SurfaceFormat2KHR()
         {
@@ -9890,7 +9900,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (SurfaceFormat != null)
             {
@@ -9900,7 +9910,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayProperties2KHR : DisposableObject
+    public partial class DisplayProperties2KHR : VulkanDisposableObject
     {
         public DisplayProperties2KHR()
         {
@@ -9919,7 +9929,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (DisplayProperties != null)
             {
@@ -9929,7 +9939,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPlaneProperties2KHR : DisposableObject
+    public partial class DisplayPlaneProperties2KHR : VulkanDisposableObject
     {
         public DisplayPlaneProperties2KHR()
         {
@@ -9948,7 +9958,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (DisplayPlaneProperties != null)
             {
@@ -9958,7 +9968,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayModeProperties2KHR : DisposableObject
+    public partial class DisplayModeProperties2KHR : VulkanDisposableObject
     {
         public DisplayModeProperties2KHR()
         {
@@ -9977,7 +9987,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (DisplayModeProperties != null)
             {
@@ -9987,7 +9997,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPlaneInfo2KHR : DisposableObject
+    public partial class DisplayPlaneInfo2KHR : VulkanDisposableObject
     {
         public DisplayPlaneInfo2KHR()
         {
@@ -10008,7 +10018,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.mode = Mode;
             _internal.planeIndex = PlaneIndex;
@@ -10016,7 +10026,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPlaneCapabilities2KHR : DisposableObject
+    public partial class DisplayPlaneCapabilities2KHR : VulkanDisposableObject
     {
         public DisplayPlaneCapabilities2KHR()
         {
@@ -10035,7 +10045,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (Capabilities != null)
             {
@@ -10045,7 +10055,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageFormatListCreateInfoKHR : DisposableObject
+    public partial class ImageFormatListCreateInfoKHR : VulkanDisposableObject
     {
         private GCHandleReference refpViewFormats;
 
@@ -10057,8 +10067,8 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             ViewFormatCount = _internal.viewFormatCount;
-            var tmppViewFormats = new int[_internal.viewFormatCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pViewFormats, tmppViewFormats);
+            var tmppViewFormats = new uint[_internal.viewFormatCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pViewFormats, tmppViewFormats);
             Marshal.FreeHGlobal(_internal.pViewFormats);
             PViewFormats = new AdamantiumVulkan.Core.Format[_internal.viewFormatCount];
             for (int i = 0; i < tmppViewFormats.Length; ++i)
@@ -10075,7 +10085,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.viewFormatCount = ViewFormatCount;
             refpViewFormats?.Dispose();
@@ -10099,7 +10109,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR()
         {
@@ -10109,7 +10119,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            ShaderSubgroupExtendedTypes = _internal.shaderSubgroupExtendedTypes;
+            ShaderSubgroupExtendedTypes = System.Convert.ToBoolean(_internal.shaderSubgroupExtendedTypes);
         }
 
         public StructureType SType { get; set; }
@@ -10119,14 +10129,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderSubgroupExtendedTypes = ShaderSubgroupExtendedTypes;
+            _internal.shaderSubgroupExtendedTypes = System.Convert.ToUInt32(ShaderSubgroupExtendedTypes);
             return _internal;
         }
     }
 
-    public partial class PhysicalDevice8BitStorageFeaturesKHR : DisposableObject
+    public partial class PhysicalDevice8BitStorageFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDevice8BitStorageFeaturesKHR()
         {
@@ -10135,9 +10145,9 @@ namespace AdamantiumVulkan.Core
         public PhysicalDevice8BitStorageFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeaturesKHR _internal)
         {
             PNext = _internal.pNext;
-            StorageBuffer8BitAccess = _internal.storageBuffer8BitAccess;
-            UniformAndStorageBuffer8BitAccess = _internal.uniformAndStorageBuffer8BitAccess;
-            StoragePushConstant8 = _internal.storagePushConstant8;
+            StorageBuffer8BitAccess = System.Convert.ToBoolean(_internal.storageBuffer8BitAccess);
+            UniformAndStorageBuffer8BitAccess = System.Convert.ToBoolean(_internal.uniformAndStorageBuffer8BitAccess);
+            StoragePushConstant8 = System.Convert.ToBoolean(_internal.storagePushConstant8);
         }
 
         public StructureType SType => StructureType.PhysicalDevice8bitStorageFeaturesKhr;
@@ -10149,16 +10159,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.storageBuffer8BitAccess = StorageBuffer8BitAccess;
-            _internal.uniformAndStorageBuffer8BitAccess = UniformAndStorageBuffer8BitAccess;
-            _internal.storagePushConstant8 = StoragePushConstant8;
+            _internal.storageBuffer8BitAccess = System.Convert.ToUInt32(StorageBuffer8BitAccess);
+            _internal.uniformAndStorageBuffer8BitAccess = System.Convert.ToUInt32(UniformAndStorageBuffer8BitAccess);
+            _internal.storagePushConstant8 = System.Convert.ToUInt32(StoragePushConstant8);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceShaderAtomicInt64FeaturesKHR()
         {
@@ -10167,8 +10177,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceShaderAtomicInt64FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64FeaturesKHR _internal)
         {
             PNext = _internal.pNext;
-            ShaderBufferInt64Atomics = _internal.shaderBufferInt64Atomics;
-            ShaderSharedInt64Atomics = _internal.shaderSharedInt64Atomics;
+            ShaderBufferInt64Atomics = System.Convert.ToBoolean(_internal.shaderBufferInt64Atomics);
+            ShaderSharedInt64Atomics = System.Convert.ToBoolean(_internal.shaderSharedInt64Atomics);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceShaderAtomicInt64FeaturesKhr;
@@ -10179,15 +10189,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64FeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64FeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderBufferInt64Atomics = ShaderBufferInt64Atomics;
-            _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
+            _internal.shaderBufferInt64Atomics = System.Convert.ToUInt32(ShaderBufferInt64Atomics);
+            _internal.shaderSharedInt64Atomics = System.Convert.ToUInt32(ShaderSharedInt64Atomics);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderClockFeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceShaderClockFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceShaderClockFeaturesKHR()
         {
@@ -10197,8 +10207,8 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            ShaderSubgroupClock = _internal.shaderSubgroupClock;
-            ShaderDeviceClock = _internal.shaderDeviceClock;
+            ShaderSubgroupClock = System.Convert.ToBoolean(_internal.shaderSubgroupClock);
+            ShaderDeviceClock = System.Convert.ToBoolean(_internal.shaderDeviceClock);
         }
 
         public StructureType SType { get; set; }
@@ -10209,10 +10219,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderSubgroupClock = ShaderSubgroupClock;
-            _internal.shaderDeviceClock = ShaderDeviceClock;
+            _internal.shaderSubgroupClock = System.Convert.ToUInt32(ShaderSubgroupClock);
+            _internal.shaderDeviceClock = System.Convert.ToUInt32(ShaderDeviceClock);
             return _internal;
         }
     }
@@ -10247,7 +10257,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceDriverPropertiesKHR : DisposableObject
+    public partial class PhysicalDeviceDriverPropertiesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceDriverPropertiesKHR()
         {
@@ -10288,9 +10298,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverPropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverPropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.driverID = DriverID;
+            _internal.driverID = (uint)DriverID;
             if(DriverName != null)
             {
                 if (DriverName.Length > 256)
@@ -10333,7 +10343,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFloatControlsPropertiesKHR : DisposableObject
+    public partial class PhysicalDeviceFloatControlsPropertiesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceFloatControlsPropertiesKHR()
         {
@@ -10344,21 +10354,21 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             DenormBehaviorIndependence = (ShaderFloatControlsIndependenceKHR)_internal.denormBehaviorIndependence;
             RoundingModeIndependence = (ShaderFloatControlsIndependenceKHR)_internal.roundingModeIndependence;
-            ShaderSignedZeroInfNanPreserveFloat16 = _internal.shaderSignedZeroInfNanPreserveFloat16;
-            ShaderSignedZeroInfNanPreserveFloat32 = _internal.shaderSignedZeroInfNanPreserveFloat32;
-            ShaderSignedZeroInfNanPreserveFloat64 = _internal.shaderSignedZeroInfNanPreserveFloat64;
-            ShaderDenormPreserveFloat16 = _internal.shaderDenormPreserveFloat16;
-            ShaderDenormPreserveFloat32 = _internal.shaderDenormPreserveFloat32;
-            ShaderDenormPreserveFloat64 = _internal.shaderDenormPreserveFloat64;
-            ShaderDenormFlushToZeroFloat16 = _internal.shaderDenormFlushToZeroFloat16;
-            ShaderDenormFlushToZeroFloat32 = _internal.shaderDenormFlushToZeroFloat32;
-            ShaderDenormFlushToZeroFloat64 = _internal.shaderDenormFlushToZeroFloat64;
-            ShaderRoundingModeRTEFloat16 = _internal.shaderRoundingModeRTEFloat16;
-            ShaderRoundingModeRTEFloat32 = _internal.shaderRoundingModeRTEFloat32;
-            ShaderRoundingModeRTEFloat64 = _internal.shaderRoundingModeRTEFloat64;
-            ShaderRoundingModeRTZFloat16 = _internal.shaderRoundingModeRTZFloat16;
-            ShaderRoundingModeRTZFloat32 = _internal.shaderRoundingModeRTZFloat32;
-            ShaderRoundingModeRTZFloat64 = _internal.shaderRoundingModeRTZFloat64;
+            ShaderSignedZeroInfNanPreserveFloat16 = System.Convert.ToBoolean(_internal.shaderSignedZeroInfNanPreserveFloat16);
+            ShaderSignedZeroInfNanPreserveFloat32 = System.Convert.ToBoolean(_internal.shaderSignedZeroInfNanPreserveFloat32);
+            ShaderSignedZeroInfNanPreserveFloat64 = System.Convert.ToBoolean(_internal.shaderSignedZeroInfNanPreserveFloat64);
+            ShaderDenormPreserveFloat16 = System.Convert.ToBoolean(_internal.shaderDenormPreserveFloat16);
+            ShaderDenormPreserveFloat32 = System.Convert.ToBoolean(_internal.shaderDenormPreserveFloat32);
+            ShaderDenormPreserveFloat64 = System.Convert.ToBoolean(_internal.shaderDenormPreserveFloat64);
+            ShaderDenormFlushToZeroFloat16 = System.Convert.ToBoolean(_internal.shaderDenormFlushToZeroFloat16);
+            ShaderDenormFlushToZeroFloat32 = System.Convert.ToBoolean(_internal.shaderDenormFlushToZeroFloat32);
+            ShaderDenormFlushToZeroFloat64 = System.Convert.ToBoolean(_internal.shaderDenormFlushToZeroFloat64);
+            ShaderRoundingModeRTEFloat16 = System.Convert.ToBoolean(_internal.shaderRoundingModeRTEFloat16);
+            ShaderRoundingModeRTEFloat32 = System.Convert.ToBoolean(_internal.shaderRoundingModeRTEFloat32);
+            ShaderRoundingModeRTEFloat64 = System.Convert.ToBoolean(_internal.shaderRoundingModeRTEFloat64);
+            ShaderRoundingModeRTZFloat16 = System.Convert.ToBoolean(_internal.shaderRoundingModeRTZFloat16);
+            ShaderRoundingModeRTZFloat32 = System.Convert.ToBoolean(_internal.shaderRoundingModeRTZFloat32);
+            ShaderRoundingModeRTZFloat64 = System.Convert.ToBoolean(_internal.shaderRoundingModeRTZFloat64);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceFloatControlsPropertiesKhr;
@@ -10384,30 +10394,30 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsPropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsPropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.denormBehaviorIndependence = DenormBehaviorIndependence;
-            _internal.roundingModeIndependence = RoundingModeIndependence;
-            _internal.shaderSignedZeroInfNanPreserveFloat16 = ShaderSignedZeroInfNanPreserveFloat16;
-            _internal.shaderSignedZeroInfNanPreserveFloat32 = ShaderSignedZeroInfNanPreserveFloat32;
-            _internal.shaderSignedZeroInfNanPreserveFloat64 = ShaderSignedZeroInfNanPreserveFloat64;
-            _internal.shaderDenormPreserveFloat16 = ShaderDenormPreserveFloat16;
-            _internal.shaderDenormPreserveFloat32 = ShaderDenormPreserveFloat32;
-            _internal.shaderDenormPreserveFloat64 = ShaderDenormPreserveFloat64;
-            _internal.shaderDenormFlushToZeroFloat16 = ShaderDenormFlushToZeroFloat16;
-            _internal.shaderDenormFlushToZeroFloat32 = ShaderDenormFlushToZeroFloat32;
-            _internal.shaderDenormFlushToZeroFloat64 = ShaderDenormFlushToZeroFloat64;
-            _internal.shaderRoundingModeRTEFloat16 = ShaderRoundingModeRTEFloat16;
-            _internal.shaderRoundingModeRTEFloat32 = ShaderRoundingModeRTEFloat32;
-            _internal.shaderRoundingModeRTEFloat64 = ShaderRoundingModeRTEFloat64;
-            _internal.shaderRoundingModeRTZFloat16 = ShaderRoundingModeRTZFloat16;
-            _internal.shaderRoundingModeRTZFloat32 = ShaderRoundingModeRTZFloat32;
-            _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
+            _internal.denormBehaviorIndependence = (uint)DenormBehaviorIndependence;
+            _internal.roundingModeIndependence = (uint)RoundingModeIndependence;
+            _internal.shaderSignedZeroInfNanPreserveFloat16 = System.Convert.ToUInt32(ShaderSignedZeroInfNanPreserveFloat16);
+            _internal.shaderSignedZeroInfNanPreserveFloat32 = System.Convert.ToUInt32(ShaderSignedZeroInfNanPreserveFloat32);
+            _internal.shaderSignedZeroInfNanPreserveFloat64 = System.Convert.ToUInt32(ShaderSignedZeroInfNanPreserveFloat64);
+            _internal.shaderDenormPreserveFloat16 = System.Convert.ToUInt32(ShaderDenormPreserveFloat16);
+            _internal.shaderDenormPreserveFloat32 = System.Convert.ToUInt32(ShaderDenormPreserveFloat32);
+            _internal.shaderDenormPreserveFloat64 = System.Convert.ToUInt32(ShaderDenormPreserveFloat64);
+            _internal.shaderDenormFlushToZeroFloat16 = System.Convert.ToUInt32(ShaderDenormFlushToZeroFloat16);
+            _internal.shaderDenormFlushToZeroFloat32 = System.Convert.ToUInt32(ShaderDenormFlushToZeroFloat32);
+            _internal.shaderDenormFlushToZeroFloat64 = System.Convert.ToUInt32(ShaderDenormFlushToZeroFloat64);
+            _internal.shaderRoundingModeRTEFloat16 = System.Convert.ToUInt32(ShaderRoundingModeRTEFloat16);
+            _internal.shaderRoundingModeRTEFloat32 = System.Convert.ToUInt32(ShaderRoundingModeRTEFloat32);
+            _internal.shaderRoundingModeRTEFloat64 = System.Convert.ToUInt32(ShaderRoundingModeRTEFloat64);
+            _internal.shaderRoundingModeRTZFloat16 = System.Convert.ToUInt32(ShaderRoundingModeRTZFloat16);
+            _internal.shaderRoundingModeRTZFloat32 = System.Convert.ToUInt32(ShaderRoundingModeRTZFloat32);
+            _internal.shaderRoundingModeRTZFloat64 = System.Convert.ToUInt32(ShaderRoundingModeRTZFloat64);
             return _internal;
         }
     }
 
-    public partial class SubpassDescriptionDepthStencilResolveKHR : DisposableObject
+    public partial class SubpassDescriptionDepthStencilResolveKHR : VulkanDisposableObject
     {
         private StructReference refpDepthStencilResolveAttachment;
 
@@ -10433,10 +10443,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolveKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolveKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.depthResolveMode = DepthResolveMode;
-            _internal.stencilResolveMode = StencilResolveMode;
+            _internal.depthResolveMode = (uint)DepthResolveMode;
+            _internal.stencilResolveMode = (uint)StencilResolveMode;
             refpDepthStencilResolveAttachment?.Dispose();
             if (PDepthStencilResolveAttachment != null)
             {
@@ -10454,7 +10464,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceDepthStencilResolvePropertiesKHR : DisposableObject
+    public partial class PhysicalDeviceDepthStencilResolvePropertiesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceDepthStencilResolvePropertiesKHR()
         {
@@ -10465,8 +10475,8 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             SupportedDepthResolveModes = _internal.supportedDepthResolveModes;
             SupportedStencilResolveModes = _internal.supportedStencilResolveModes;
-            IndependentResolveNone = _internal.independentResolveNone;
-            IndependentResolve = _internal.independentResolve;
+            IndependentResolveNone = System.Convert.ToBoolean(_internal.independentResolveNone);
+            IndependentResolve = System.Convert.ToBoolean(_internal.independentResolve);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceDepthStencilResolvePropertiesKhr;
@@ -10479,17 +10489,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolvePropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolvePropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.supportedDepthResolveModes = SupportedDepthResolveModes;
             _internal.supportedStencilResolveModes = SupportedStencilResolveModes;
-            _internal.independentResolveNone = IndependentResolveNone;
-            _internal.independentResolve = IndependentResolve;
+            _internal.independentResolveNone = System.Convert.ToUInt32(IndependentResolveNone);
+            _internal.independentResolve = System.Convert.ToUInt32(IndependentResolve);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceTimelineSemaphoreFeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceTimelineSemaphoreFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceTimelineSemaphoreFeaturesKHR()
         {
@@ -10499,7 +10509,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            TimelineSemaphore = _internal.timelineSemaphore;
+            TimelineSemaphore = System.Convert.ToBoolean(_internal.timelineSemaphore);
         }
 
         public StructureType SType { get; set; }
@@ -10509,14 +10519,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.timelineSemaphore = TimelineSemaphore;
+            _internal.timelineSemaphore = System.Convert.ToUInt32(TimelineSemaphore);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceTimelineSemaphorePropertiesKHR : DisposableObject
+    public partial class PhysicalDeviceTimelineSemaphorePropertiesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceTimelineSemaphorePropertiesKHR()
         {
@@ -10536,14 +10546,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphorePropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphorePropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
             return _internal;
         }
     }
 
-    public partial class SemaphoreTypeCreateInfoKHR : DisposableObject
+    public partial class SemaphoreTypeCreateInfoKHR : VulkanDisposableObject
     {
         public SemaphoreTypeCreateInfoKHR()
         {
@@ -10565,15 +10575,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.semaphoreType = SemaphoreType;
+            _internal.semaphoreType = (uint)SemaphoreType;
             _internal.initialValue = InitialValue;
             return _internal;
         }
     }
 
-    public partial class TimelineSemaphoreSubmitInfoKHR : DisposableObject
+    public partial class TimelineSemaphoreSubmitInfoKHR : VulkanDisposableObject
     {
         private StructReference refpWaitSemaphoreValues;
 
@@ -10611,7 +10621,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreValueCount = WaitSemaphoreValueCount;
             refpWaitSemaphoreValues?.Dispose();
@@ -10638,7 +10648,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SemaphoreWaitInfoKHR : DisposableObject
+    public partial class SemaphoreWaitInfoKHR : VulkanDisposableObject
     {
         private StructReference refpSemaphores;
 
@@ -10673,7 +10683,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.semaphoreCount = SemaphoreCount;
@@ -10701,7 +10711,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SemaphoreSignalInfoKHR : DisposableObject
+    public partial class SemaphoreSignalInfoKHR : VulkanDisposableObject
     {
         public SemaphoreSignalInfoKHR()
         {
@@ -10723,7 +10733,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.semaphore = Semaphore;
             _internal.value = Value;
@@ -10731,7 +10741,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceVulkanMemoryModelFeaturesKHR()
         {
@@ -10740,9 +10750,9 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceVulkanMemoryModelFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeaturesKHR _internal)
         {
             PNext = _internal.pNext;
-            VulkanMemoryModel = _internal.vulkanMemoryModel;
-            VulkanMemoryModelDeviceScope = _internal.vulkanMemoryModelDeviceScope;
-            VulkanMemoryModelAvailabilityVisibilityChains = _internal.vulkanMemoryModelAvailabilityVisibilityChains;
+            VulkanMemoryModel = System.Convert.ToBoolean(_internal.vulkanMemoryModel);
+            VulkanMemoryModelDeviceScope = System.Convert.ToBoolean(_internal.vulkanMemoryModelDeviceScope);
+            VulkanMemoryModelAvailabilityVisibilityChains = System.Convert.ToBoolean(_internal.vulkanMemoryModelAvailabilityVisibilityChains);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceVulkanMemoryModelFeaturesKhr;
@@ -10754,16 +10764,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.vulkanMemoryModel = VulkanMemoryModel;
-            _internal.vulkanMemoryModelDeviceScope = VulkanMemoryModelDeviceScope;
-            _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
+            _internal.vulkanMemoryModel = System.Convert.ToUInt32(VulkanMemoryModel);
+            _internal.vulkanMemoryModelDeviceScope = System.Convert.ToUInt32(VulkanMemoryModelDeviceScope);
+            _internal.vulkanMemoryModelAvailabilityVisibilityChains = System.Convert.ToUInt32(VulkanMemoryModelAvailabilityVisibilityChains);
             return _internal;
         }
     }
 
-    public partial class SurfaceProtectedCapabilitiesKHR : DisposableObject
+    public partial class SurfaceProtectedCapabilitiesKHR : VulkanDisposableObject
     {
         public SurfaceProtectedCapabilitiesKHR()
         {
@@ -10773,7 +10783,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            SupportsProtected = _internal.supportsProtected;
+            SupportsProtected = System.Convert.ToBoolean(_internal.supportsProtected);
         }
 
         public StructureType SType { get; set; }
@@ -10783,14 +10793,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.supportsProtected = SupportsProtected;
+            _internal.supportsProtected = System.Convert.ToUInt32(SupportsProtected);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR : DisposableObject
+    public partial class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR()
         {
@@ -10800,7 +10810,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            UniformBufferStandardLayout = _internal.uniformBufferStandardLayout;
+            UniformBufferStandardLayout = System.Convert.ToBoolean(_internal.uniformBufferStandardLayout);
         }
 
         public StructureType SType { get; set; }
@@ -10810,14 +10820,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.uniformBufferStandardLayout = UniformBufferStandardLayout;
+            _internal.uniformBufferStandardLayout = System.Convert.ToUInt32(UniformBufferStandardLayout);
             return _internal;
         }
     }
 
-    public partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKHR : DisposableObject
+    public partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKHR : VulkanDisposableObject
     {
         public PhysicalDevicePipelineExecutablePropertiesFeaturesKHR()
         {
@@ -10827,7 +10837,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            PipelineExecutableInfo = _internal.pipelineExecutableInfo;
+            PipelineExecutableInfo = System.Convert.ToBoolean(_internal.pipelineExecutableInfo);
         }
 
         public StructureType SType { get; set; }
@@ -10837,14 +10847,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.pipelineExecutableInfo = PipelineExecutableInfo;
+            _internal.pipelineExecutableInfo = System.Convert.ToUInt32(PipelineExecutableInfo);
             return _internal;
         }
     }
 
-    public partial class PipelineInfoKHR : DisposableObject
+    public partial class PipelineInfoKHR : VulkanDisposableObject
     {
         public PipelineInfoKHR()
         {
@@ -10864,14 +10874,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.pipeline = Pipeline;
             return _internal;
         }
     }
 
-    public partial class PipelineExecutablePropertiesKHR : DisposableObject
+    public partial class PipelineExecutablePropertiesKHR : VulkanDisposableObject
     {
         public PipelineExecutablePropertiesKHR()
         {
@@ -10913,7 +10923,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.stages = Stages;
             if(Name != null)
@@ -10955,7 +10965,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutableInfoKHR : DisposableObject
+    public partial class PipelineExecutableInfoKHR : VulkanDisposableObject
     {
         public PipelineExecutableInfoKHR()
         {
@@ -10977,7 +10987,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.pipeline = Pipeline;
             _internal.executableIndex = ExecutableIndex;
@@ -10985,7 +10995,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutableStatisticKHR : DisposableObject
+    public partial class PipelineExecutableStatisticKHR : VulkanDisposableObject
     {
         public PipelineExecutableStatisticKHR()
         {
@@ -11027,7 +11037,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if(Name != null)
             {
@@ -11063,7 +11073,7 @@ namespace AdamantiumVulkan.Core
                     }
                 }
             }
-            _internal.format = Format;
+            _internal.format = (uint)Format;
             if (Value != null)
             {
                 _internal.value = Value.ToInternal();
@@ -11072,7 +11082,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutableInternalRepresentationKHR : DisposableObject
+    public partial class PipelineExecutableInternalRepresentationKHR : VulkanDisposableObject
     {
         public PipelineExecutableInternalRepresentationKHR()
         {
@@ -11100,7 +11110,7 @@ namespace AdamantiumVulkan.Core
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
-            IsText = _internal.isText;
+            IsText = System.Convert.ToBoolean(_internal.isText);
             DataSize = _internal.dataSize;
             PData = _internal.pData;
         }
@@ -11116,7 +11126,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if(Name != null)
             {
@@ -11152,14 +11162,14 @@ namespace AdamantiumVulkan.Core
                     }
                 }
             }
-            _internal.isText = IsText;
+            _internal.isText = System.Convert.ToUInt32(IsText);
             _internal.dataSize = DataSize;
             _internal.pData = PData;
             return _internal;
         }
     }
 
-    public partial class DebugReportCallbackCreateInfoEXT : DisposableObject
+    public partial class DebugReportCallbackCreateInfoEXT : VulkanDisposableObject
     {
         public DebugReportCallbackCreateInfoEXT()
         {
@@ -11182,7 +11192,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.pfnCallback = PfnCallback;
@@ -11191,7 +11201,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRasterizationStateRasterizationOrderAMD : DisposableObject
+    public partial class PipelineRasterizationStateRasterizationOrderAMD : VulkanDisposableObject
     {
         public PipelineRasterizationStateRasterizationOrderAMD()
         {
@@ -11210,14 +11220,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.rasterizationOrder = RasterizationOrder;
+            _internal.rasterizationOrder = (uint)RasterizationOrder;
             return _internal;
         }
     }
 
-    public partial class DebugMarkerObjectNameInfoEXT : DisposableObject
+    public partial class DebugMarkerObjectNameInfoEXT : VulkanDisposableObject
     {
         private StringReference refpObjectName;
 
@@ -11242,9 +11252,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.objectType = ObjectType;
+            _internal.objectType = (uint)ObjectType;
             _internal.@object = Object;
             refpObjectName?.Dispose();
             if (PObjectName != null)
@@ -11262,7 +11272,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugMarkerObjectTagInfoEXT : DisposableObject
+    public partial class DebugMarkerObjectTagInfoEXT : VulkanDisposableObject
     {
         public DebugMarkerObjectTagInfoEXT()
         {
@@ -11289,9 +11299,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.objectType = ObjectType;
+            _internal.objectType = (uint)ObjectType;
             _internal.@object = Object;
             _internal.tagName = TagName;
             _internal.tagSize = TagSize;
@@ -11300,7 +11310,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugMarkerMarkerInfoEXT : DisposableObject
+    public partial class DebugMarkerMarkerInfoEXT : VulkanDisposableObject
     {
         private StringReference refpMarkerName;
 
@@ -11331,7 +11341,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpMarkerName?.Dispose();
             if (PMarkerName != null)
@@ -11366,7 +11376,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DedicatedAllocationImageCreateInfoNV : DisposableObject
+    public partial class DedicatedAllocationImageCreateInfoNV : VulkanDisposableObject
     {
         public DedicatedAllocationImageCreateInfoNV()
         {
@@ -11375,7 +11385,7 @@ namespace AdamantiumVulkan.Core
         public DedicatedAllocationImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            DedicatedAllocation = _internal.dedicatedAllocation;
+            DedicatedAllocation = System.Convert.ToBoolean(_internal.dedicatedAllocation);
         }
 
         public StructureType SType => StructureType.DedicatedAllocationImageCreateInfoNv;
@@ -11385,14 +11395,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.dedicatedAllocation = DedicatedAllocation;
+            _internal.dedicatedAllocation = System.Convert.ToUInt32(DedicatedAllocation);
             return _internal;
         }
     }
 
-    public partial class DedicatedAllocationBufferCreateInfoNV : DisposableObject
+    public partial class DedicatedAllocationBufferCreateInfoNV : VulkanDisposableObject
     {
         public DedicatedAllocationBufferCreateInfoNV()
         {
@@ -11401,7 +11411,7 @@ namespace AdamantiumVulkan.Core
         public DedicatedAllocationBufferCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            DedicatedAllocation = _internal.dedicatedAllocation;
+            DedicatedAllocation = System.Convert.ToBoolean(_internal.dedicatedAllocation);
         }
 
         public StructureType SType => StructureType.DedicatedAllocationBufferCreateInfoNv;
@@ -11411,14 +11421,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.dedicatedAllocation = DedicatedAllocation;
+            _internal.dedicatedAllocation = System.Convert.ToUInt32(DedicatedAllocation);
             return _internal;
         }
     }
 
-    public partial class DedicatedAllocationMemoryAllocateInfoNV : DisposableObject
+    public partial class DedicatedAllocationMemoryAllocateInfoNV : VulkanDisposableObject
     {
         public DedicatedAllocationMemoryAllocateInfoNV()
         {
@@ -11439,7 +11449,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationMemoryAllocateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDedicatedAllocationMemoryAllocateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.image = Image;
             _internal.buffer = Buffer;
@@ -11447,7 +11457,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceTransformFeedbackFeaturesEXT()
         {
@@ -11456,8 +11466,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceTransformFeedbackFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            TransformFeedback = _internal.transformFeedback;
-            GeometryStreams = _internal.geometryStreams;
+            TransformFeedback = System.Convert.ToBoolean(_internal.transformFeedback);
+            GeometryStreams = System.Convert.ToBoolean(_internal.geometryStreams);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceTransformFeedbackFeaturesExt;
@@ -11468,15 +11478,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.transformFeedback = TransformFeedback;
-            _internal.geometryStreams = GeometryStreams;
+            _internal.transformFeedback = System.Convert.ToUInt32(TransformFeedback);
+            _internal.geometryStreams = System.Convert.ToUInt32(GeometryStreams);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceTransformFeedbackPropertiesEXT()
         {
@@ -11491,10 +11501,10 @@ namespace AdamantiumVulkan.Core
             MaxTransformFeedbackStreamDataSize = _internal.maxTransformFeedbackStreamDataSize;
             MaxTransformFeedbackBufferDataSize = _internal.maxTransformFeedbackBufferDataSize;
             MaxTransformFeedbackBufferDataStride = _internal.maxTransformFeedbackBufferDataStride;
-            TransformFeedbackQueries = _internal.transformFeedbackQueries;
-            TransformFeedbackStreamsLinesTriangles = _internal.transformFeedbackStreamsLinesTriangles;
-            TransformFeedbackRasterizationStreamSelect = _internal.transformFeedbackRasterizationStreamSelect;
-            TransformFeedbackDraw = _internal.transformFeedbackDraw;
+            TransformFeedbackQueries = System.Convert.ToBoolean(_internal.transformFeedbackQueries);
+            TransformFeedbackStreamsLinesTriangles = System.Convert.ToBoolean(_internal.transformFeedbackStreamsLinesTriangles);
+            TransformFeedbackRasterizationStreamSelect = System.Convert.ToBoolean(_internal.transformFeedbackRasterizationStreamSelect);
+            TransformFeedbackDraw = System.Convert.ToBoolean(_internal.transformFeedbackDraw);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceTransformFeedbackPropertiesExt;
@@ -11513,7 +11523,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxTransformFeedbackStreams = MaxTransformFeedbackStreams;
             _internal.maxTransformFeedbackBuffers = MaxTransformFeedbackBuffers;
@@ -11521,15 +11531,15 @@ namespace AdamantiumVulkan.Core
             _internal.maxTransformFeedbackStreamDataSize = MaxTransformFeedbackStreamDataSize;
             _internal.maxTransformFeedbackBufferDataSize = MaxTransformFeedbackBufferDataSize;
             _internal.maxTransformFeedbackBufferDataStride = MaxTransformFeedbackBufferDataStride;
-            _internal.transformFeedbackQueries = TransformFeedbackQueries;
-            _internal.transformFeedbackStreamsLinesTriangles = TransformFeedbackStreamsLinesTriangles;
-            _internal.transformFeedbackRasterizationStreamSelect = TransformFeedbackRasterizationStreamSelect;
-            _internal.transformFeedbackDraw = TransformFeedbackDraw;
+            _internal.transformFeedbackQueries = System.Convert.ToUInt32(TransformFeedbackQueries);
+            _internal.transformFeedbackStreamsLinesTriangles = System.Convert.ToUInt32(TransformFeedbackStreamsLinesTriangles);
+            _internal.transformFeedbackRasterizationStreamSelect = System.Convert.ToUInt32(TransformFeedbackRasterizationStreamSelect);
+            _internal.transformFeedbackDraw = System.Convert.ToUInt32(TransformFeedbackDraw);
             return _internal;
         }
     }
 
-    public partial class PipelineRasterizationStateStreamCreateInfoEXT : DisposableObject
+    public partial class PipelineRasterizationStateStreamCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineRasterizationStateStreamCreateInfoEXT()
         {
@@ -11550,7 +11560,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.rasterizationStream = RasterizationStream;
@@ -11558,7 +11568,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageViewHandleInfoNVX : DisposableObject
+    public partial class ImageViewHandleInfoNVX : VulkanDisposableObject
     {
         public ImageViewHandleInfoNVX()
         {
@@ -11582,16 +11592,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.imageView = ImageView;
-            _internal.descriptorType = DescriptorType;
+            _internal.descriptorType = (uint)DescriptorType;
             _internal.sampler = Sampler;
             return _internal;
         }
     }
 
-    public partial class TextureLODGatherFormatPropertiesAMD : DisposableObject
+    public partial class TextureLODGatherFormatPropertiesAMD : VulkanDisposableObject
     {
         public TextureLODGatherFormatPropertiesAMD()
         {
@@ -11600,7 +11610,7 @@ namespace AdamantiumVulkan.Core
         public TextureLODGatherFormatPropertiesAMD(AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD _internal)
         {
             PNext = _internal.pNext;
-            SupportsTextureGatherLODBiasAMD = _internal.supportsTextureGatherLODBiasAMD;
+            SupportsTextureGatherLODBiasAMD = System.Convert.ToBoolean(_internal.supportsTextureGatherLODBiasAMD);
         }
 
         public StructureType SType => StructureType.TextureLodGatherFormatPropertiesAmd;
@@ -11610,9 +11620,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.supportsTextureGatherLODBiasAMD = SupportsTextureGatherLODBiasAMD;
+            _internal.supportsTextureGatherLODBiasAMD = System.Convert.ToUInt32(SupportsTextureGatherLODBiasAMD);
             return _internal;
         }
     }
@@ -11716,7 +11726,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCornerSampledImageFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceCornerSampledImageFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceCornerSampledImageFeaturesNV()
         {
@@ -11725,7 +11735,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceCornerSampledImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            CornerSampledImage = _internal.cornerSampledImage;
+            CornerSampledImage = System.Convert.ToBoolean(_internal.cornerSampledImage);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceCornerSampledImageFeaturesNv;
@@ -11735,9 +11745,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.cornerSampledImage = CornerSampledImage;
+            _internal.cornerSampledImage = System.Convert.ToUInt32(CornerSampledImage);
             return _internal;
         }
     }
@@ -11775,7 +11785,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalMemoryImageCreateInfoNV : DisposableObject
+    public partial class ExternalMemoryImageCreateInfoNV : VulkanDisposableObject
     {
         public ExternalMemoryImageCreateInfoNV()
         {
@@ -11794,14 +11804,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class ExportMemoryAllocateInfoNV : DisposableObject
+    public partial class ExportMemoryAllocateInfoNV : VulkanDisposableObject
     {
         public ExportMemoryAllocateInfoNV()
         {
@@ -11820,14 +11830,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
     }
 
-    public partial class ValidationFlagsEXT : DisposableObject
+    public partial class ValidationFlagsEXT : VulkanDisposableObject
     {
         private GCHandleReference refpDisabledValidationChecks;
 
@@ -11839,8 +11849,8 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             DisabledValidationCheckCount = _internal.disabledValidationCheckCount;
-            var tmppDisabledValidationChecks = new int[_internal.disabledValidationCheckCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pDisabledValidationChecks, tmppDisabledValidationChecks);
+            var tmppDisabledValidationChecks = new uint[_internal.disabledValidationCheckCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pDisabledValidationChecks, tmppDisabledValidationChecks);
             Marshal.FreeHGlobal(_internal.pDisabledValidationChecks);
             PDisabledValidationChecks = new AdamantiumVulkan.Core.ValidationCheckEXT[_internal.disabledValidationCheckCount];
             for (int i = 0; i < tmppDisabledValidationChecks.Length; ++i)
@@ -11857,7 +11867,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.disabledValidationCheckCount = DisabledValidationCheckCount;
             refpDisabledValidationChecks?.Dispose();
@@ -11881,7 +11891,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT()
         {
@@ -11891,7 +11901,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            TextureCompressionASTC_HDR = _internal.textureCompressionASTC_HDR;
+            TextureCompressionASTC_HDR = System.Convert.ToBoolean(_internal.textureCompressionASTC_HDR);
         }
 
         public StructureType SType { get; set; }
@@ -11901,14 +11911,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.textureCompressionASTC_HDR = TextureCompressionASTC_HDR;
+            _internal.textureCompressionASTC_HDR = System.Convert.ToUInt32(TextureCompressionASTC_HDR);
             return _internal;
         }
     }
 
-    public partial class ImageViewASTCDecodeModeEXT : DisposableObject
+    public partial class ImageViewASTCDecodeModeEXT : VulkanDisposableObject
     {
         public ImageViewASTCDecodeModeEXT()
         {
@@ -11927,14 +11937,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.decodeMode = DecodeMode;
+            _internal.decodeMode = (uint)DecodeMode;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceASTCDecodeFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceASTCDecodeFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceASTCDecodeFeaturesEXT()
         {
@@ -11943,7 +11953,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceASTCDecodeFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            DecodeModeSharedExponent = _internal.decodeModeSharedExponent;
+            DecodeModeSharedExponent = System.Convert.ToBoolean(_internal.decodeModeSharedExponent);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceAstcDecodeFeaturesExt;
@@ -11953,14 +11963,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.decodeModeSharedExponent = DecodeModeSharedExponent;
+            _internal.decodeModeSharedExponent = System.Convert.ToUInt32(DecodeModeSharedExponent);
             return _internal;
         }
     }
 
-    public partial class ConditionalRenderingBeginInfoEXT : DisposableObject
+    public partial class ConditionalRenderingBeginInfoEXT : VulkanDisposableObject
     {
         public ConditionalRenderingBeginInfoEXT()
         {
@@ -11983,7 +11993,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.buffer = Buffer;
             _internal.offset = Offset;
@@ -11992,7 +12002,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceConditionalRenderingFeaturesEXT()
         {
@@ -12001,8 +12011,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceConditionalRenderingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            ConditionalRendering = _internal.conditionalRendering;
-            InheritedConditionalRendering = _internal.inheritedConditionalRendering;
+            ConditionalRendering = System.Convert.ToBoolean(_internal.conditionalRendering);
+            InheritedConditionalRendering = System.Convert.ToBoolean(_internal.inheritedConditionalRendering);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceConditionalRenderingFeaturesExt;
@@ -12013,15 +12023,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.conditionalRendering = ConditionalRendering;
-            _internal.inheritedConditionalRendering = InheritedConditionalRendering;
+            _internal.conditionalRendering = System.Convert.ToUInt32(ConditionalRendering);
+            _internal.inheritedConditionalRendering = System.Convert.ToUInt32(InheritedConditionalRendering);
             return _internal;
         }
     }
 
-    public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : DisposableObject
+    public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : VulkanDisposableObject
     {
         public CommandBufferInheritanceConditionalRenderingInfoEXT()
         {
@@ -12030,7 +12040,7 @@ namespace AdamantiumVulkan.Core
         public CommandBufferInheritanceConditionalRenderingInfoEXT(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            ConditionalRenderingEnable = _internal.conditionalRenderingEnable;
+            ConditionalRenderingEnable = System.Convert.ToBoolean(_internal.conditionalRenderingEnable);
         }
 
         public StructureType SType => StructureType.CommandBufferInheritanceConditionalRenderingInfoExt;
@@ -12040,14 +12050,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.conditionalRenderingEnable = ConditionalRenderingEnable;
+            _internal.conditionalRenderingEnable = System.Convert.ToUInt32(ConditionalRenderingEnable);
             return _internal;
         }
     }
 
-    public partial class DeviceGeneratedCommandsFeaturesNVX : DisposableObject
+    public partial class DeviceGeneratedCommandsFeaturesNVX : VulkanDisposableObject
     {
         public DeviceGeneratedCommandsFeaturesNVX()
         {
@@ -12056,7 +12066,7 @@ namespace AdamantiumVulkan.Core
         public DeviceGeneratedCommandsFeaturesNVX(AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX _internal)
         {
             PNext = _internal.pNext;
-            ComputeBindingPointSupport = _internal.computeBindingPointSupport;
+            ComputeBindingPointSupport = System.Convert.ToBoolean(_internal.computeBindingPointSupport);
         }
 
         public StructureType SType => StructureType.DeviceGeneratedCommandsFeaturesNvx;
@@ -12066,14 +12076,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.computeBindingPointSupport = ComputeBindingPointSupport;
+            _internal.computeBindingPointSupport = System.Convert.ToUInt32(ComputeBindingPointSupport);
             return _internal;
         }
     }
 
-    public partial class DeviceGeneratedCommandsLimitsNVX : DisposableObject
+    public partial class DeviceGeneratedCommandsLimitsNVX : VulkanDisposableObject
     {
         public DeviceGeneratedCommandsLimitsNVX()
         {
@@ -12100,7 +12110,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsLimitsNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsLimitsNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxIndirectCommandsLayoutTokenCount = MaxIndirectCommandsLayoutTokenCount;
             _internal.maxObjectEntryCounts = MaxObjectEntryCounts;
@@ -12131,7 +12141,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsTokenNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsTokenNVX();
-            _internal.tokenType = TokenType;
+            _internal.tokenType = (uint)TokenType;
             _internal.buffer = Buffer;
             _internal.offset = Offset;
             return _internal;
@@ -12160,7 +12170,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNVX();
-            _internal.tokenType = TokenType;
+            _internal.tokenType = (uint)TokenType;
             _internal.bindingUnit = BindingUnit;
             _internal.dynamicCount = DynamicCount;
             _internal.divisor = Divisor;
@@ -12168,7 +12178,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class IndirectCommandsLayoutCreateInfoNVX : DisposableObject
+    public partial class IndirectCommandsLayoutCreateInfoNVX : VulkanDisposableObject
     {
         private StructReference refpTokens;
 
@@ -12196,9 +12206,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.pipelineBindPoint = PipelineBindPoint;
+            _internal.pipelineBindPoint = (uint)PipelineBindPoint;
             _internal.flags = Flags;
             _internal.tokenCount = TokenCount;
             refpTokens?.Dispose();
@@ -12218,7 +12228,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ProcessCommandsInfoNVX : DisposableObject
+    public partial class ProcessCommandsInfoNVX : VulkanDisposableObject
     {
         private StructReference refpIndirectCommandsTokens;
 
@@ -12258,7 +12268,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.objectTable = ObjectTable;
             _internal.indirectCommandsLayout = IndirectCommandsLayout;
@@ -12286,7 +12296,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ReserveSpaceForCommandsInfoNVX : DisposableObject
+    public partial class ReserveSpaceForCommandsInfoNVX : VulkanDisposableObject
     {
         public ReserveSpaceForCommandsInfoNVX()
         {
@@ -12309,7 +12319,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.objectTable = ObjectTable;
             _internal.indirectCommandsLayout = IndirectCommandsLayout;
@@ -12318,7 +12328,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ObjectTableCreateInfoNVX : DisposableObject
+    public partial class ObjectTableCreateInfoNVX : VulkanDisposableObject
     {
         private GCHandleReference refpObjectEntryTypes;
 
@@ -12334,8 +12344,8 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             ObjectCount = _internal.objectCount;
-            var tmppObjectEntryTypes = new int[_internal.objectCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pObjectEntryTypes, tmppObjectEntryTypes);
+            var tmppObjectEntryTypes = new uint[_internal.objectCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pObjectEntryTypes, tmppObjectEntryTypes);
             Marshal.FreeHGlobal(_internal.pObjectEntryTypes);
             PObjectEntryTypes = new AdamantiumVulkan.Core.ObjectEntryTypeNVX[_internal.objectCount];
             for (int i = 0; i < tmppObjectEntryTypes.Length; ++i)
@@ -12370,7 +12380,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTableCreateInfoNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTableCreateInfoNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.objectCount = ObjectCount;
             refpObjectEntryTypes?.Dispose();
@@ -12441,7 +12451,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTableEntryNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTableEntryNVX();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             return _internal;
         }
@@ -12467,7 +12477,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTablePipelineEntryNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTablePipelineEntryNVX();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             _internal.pipeline = Pipeline;
             return _internal;
@@ -12496,7 +12506,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTableDescriptorSetEntryNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTableDescriptorSetEntryNVX();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             _internal.pipelineLayout = PipelineLayout;
             _internal.descriptorSet = DescriptorSet;
@@ -12524,7 +12534,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTableVertexBufferEntryNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTableVertexBufferEntryNVX();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             _internal.buffer = Buffer;
             return _internal;
@@ -12553,10 +12563,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTableIndexBufferEntryNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTableIndexBufferEntryNVX();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             _internal.buffer = Buffer;
-            _internal.indexType = IndexType;
+            _internal.indexType = (uint)IndexType;
             return _internal;
         }
     }
@@ -12583,7 +12593,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkObjectTablePushConstantEntryNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkObjectTablePushConstantEntryNVX();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             _internal.pipelineLayout = PipelineLayout;
             _internal.stageFlags = StageFlags;
@@ -12615,7 +12625,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineViewportWScalingStateCreateInfoNV : DisposableObject
+    public partial class PipelineViewportWScalingStateCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpViewportWScalings;
 
@@ -12626,7 +12636,7 @@ namespace AdamantiumVulkan.Core
         public PipelineViewportWScalingStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            ViewportWScalingEnable = _internal.viewportWScalingEnable;
+            ViewportWScalingEnable = System.Convert.ToBoolean(_internal.viewportWScalingEnable);
             ViewportCount = _internal.viewportCount;
             PViewportWScalings = new ViewportWScalingNV(Marshal.PtrToStructure<VkViewportWScalingNV>(_internal.pViewportWScalings));
             Marshal.FreeHGlobal(_internal.pViewportWScalings);
@@ -12641,9 +12651,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.viewportWScalingEnable = ViewportWScalingEnable;
+            _internal.viewportWScalingEnable = System.Convert.ToUInt32(ViewportWScalingEnable);
             _internal.viewportCount = ViewportCount;
             refpViewportWScalings?.Dispose();
             if (PViewportWScalings != null)
@@ -12662,7 +12672,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SurfaceCapabilities2EXT : DisposableObject
+    public partial class SurfaceCapabilities2EXT : VulkanDisposableObject
     {
         public SurfaceCapabilities2EXT()
         {
@@ -12701,7 +12711,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.minImageCount = MinImageCount;
             _internal.maxImageCount = MaxImageCount;
@@ -12719,7 +12729,7 @@ namespace AdamantiumVulkan.Core
             }
             _internal.maxImageArrayLayers = MaxImageArrayLayers;
             _internal.supportedTransforms = SupportedTransforms;
-            _internal.currentTransform = CurrentTransform;
+            _internal.currentTransform = (uint)CurrentTransform;
             _internal.supportedCompositeAlpha = SupportedCompositeAlpha;
             _internal.supportedUsageFlags = SupportedUsageFlags;
             _internal.supportedSurfaceCounters = SupportedSurfaceCounters;
@@ -12727,7 +12737,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPowerInfoEXT : DisposableObject
+    public partial class DisplayPowerInfoEXT : VulkanDisposableObject
     {
         public DisplayPowerInfoEXT()
         {
@@ -12746,14 +12756,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.powerState = PowerState;
+            _internal.powerState = (uint)PowerState;
             return _internal;
         }
     }
 
-    public partial class DeviceEventInfoEXT : DisposableObject
+    public partial class DeviceEventInfoEXT : VulkanDisposableObject
     {
         public DeviceEventInfoEXT()
         {
@@ -12772,14 +12782,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.deviceEvent = DeviceEvent;
+            _internal.deviceEvent = (uint)DeviceEvent;
             return _internal;
         }
     }
 
-    public partial class DisplayEventInfoEXT : DisposableObject
+    public partial class DisplayEventInfoEXT : VulkanDisposableObject
     {
         public DisplayEventInfoEXT()
         {
@@ -12799,14 +12809,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.displayEvent = DisplayEvent;
+            _internal.displayEvent = (uint)DisplayEvent;
             return _internal;
         }
     }
 
-    public partial class SwapchainCounterCreateInfoEXT : DisposableObject
+    public partial class SwapchainCounterCreateInfoEXT : VulkanDisposableObject
     {
         public SwapchainCounterCreateInfoEXT()
         {
@@ -12825,7 +12835,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.surfaceCounters = SurfaceCounters;
             return _internal;
@@ -12910,7 +12920,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PresentTimesInfoGOOGLE : DisposableObject
+    public partial class PresentTimesInfoGOOGLE : VulkanDisposableObject
     {
         private StructReference refpTimes;
 
@@ -12934,7 +12944,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.swapchainCount = SwapchainCount;
             refpTimes?.Dispose();
@@ -12954,7 +12964,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX : DisposableObject
+    public partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX : VulkanDisposableObject
     {
         public PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX()
         {
@@ -12963,7 +12973,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX _internal)
         {
             PNext = _internal.pNext;
-            PerViewPositionAllComponents = _internal.perViewPositionAllComponents;
+            PerViewPositionAllComponents = System.Convert.ToBoolean(_internal.perViewPositionAllComponents);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceMultiviewPerViewAttributesPropertiesNvx;
@@ -12973,9 +12983,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.perViewPositionAllComponents = PerViewPositionAllComponents;
+            _internal.perViewPositionAllComponents = System.Convert.ToUInt32(PerViewPositionAllComponents);
             return _internal;
         }
     }
@@ -13002,15 +13012,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV();
-            _internal.x = X;
-            _internal.y = Y;
-            _internal.z = Z;
-            _internal.w = W;
+            _internal.x = (uint)X;
+            _internal.y = (uint)Y;
+            _internal.z = (uint)Z;
+            _internal.w = (uint)W;
             return _internal;
         }
     }
 
-    public partial class PipelineViewportSwizzleStateCreateInfoNV : DisposableObject
+    public partial class PipelineViewportSwizzleStateCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpViewportSwizzles;
 
@@ -13036,7 +13046,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.viewportCount = ViewportCount;
@@ -13057,7 +13067,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceDiscardRectanglePropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceDiscardRectanglePropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceDiscardRectanglePropertiesEXT()
         {
@@ -13076,14 +13086,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxDiscardRectangles = MaxDiscardRectangles;
             return _internal;
         }
     }
 
-    public partial class PipelineDiscardRectangleStateCreateInfoEXT : DisposableObject
+    public partial class PipelineDiscardRectangleStateCreateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpDiscardRectangles;
 
@@ -13111,10 +13121,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.discardRectangleMode = DiscardRectangleMode;
+            _internal.discardRectangleMode = (uint)DiscardRectangleMode;
             _internal.discardRectangleCount = DiscardRectangleCount;
             refpDiscardRectangles?.Dispose();
             if (PDiscardRectangles != null)
@@ -13133,7 +13143,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceConservativeRasterizationPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceConservativeRasterizationPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceConservativeRasterizationPropertiesEXT()
         {
@@ -13145,12 +13155,12 @@ namespace AdamantiumVulkan.Core
             PrimitiveOverestimationSize = _internal.primitiveOverestimationSize;
             MaxExtraPrimitiveOverestimationSize = _internal.maxExtraPrimitiveOverestimationSize;
             ExtraPrimitiveOverestimationSizeGranularity = _internal.extraPrimitiveOverestimationSizeGranularity;
-            PrimitiveUnderestimation = _internal.primitiveUnderestimation;
-            ConservativePointAndLineRasterization = _internal.conservativePointAndLineRasterization;
-            DegenerateTrianglesRasterized = _internal.degenerateTrianglesRasterized;
-            DegenerateLinesRasterized = _internal.degenerateLinesRasterized;
-            FullyCoveredFragmentShaderInputVariable = _internal.fullyCoveredFragmentShaderInputVariable;
-            ConservativeRasterizationPostDepthCoverage = _internal.conservativeRasterizationPostDepthCoverage;
+            PrimitiveUnderestimation = System.Convert.ToBoolean(_internal.primitiveUnderestimation);
+            ConservativePointAndLineRasterization = System.Convert.ToBoolean(_internal.conservativePointAndLineRasterization);
+            DegenerateTrianglesRasterized = System.Convert.ToBoolean(_internal.degenerateTrianglesRasterized);
+            DegenerateLinesRasterized = System.Convert.ToBoolean(_internal.degenerateLinesRasterized);
+            FullyCoveredFragmentShaderInputVariable = System.Convert.ToBoolean(_internal.fullyCoveredFragmentShaderInputVariable);
+            ConservativeRasterizationPostDepthCoverage = System.Convert.ToBoolean(_internal.conservativeRasterizationPostDepthCoverage);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceConservativeRasterizationPropertiesExt;
@@ -13168,22 +13178,22 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.primitiveOverestimationSize = PrimitiveOverestimationSize;
             _internal.maxExtraPrimitiveOverestimationSize = MaxExtraPrimitiveOverestimationSize;
             _internal.extraPrimitiveOverestimationSizeGranularity = ExtraPrimitiveOverestimationSizeGranularity;
-            _internal.primitiveUnderestimation = PrimitiveUnderestimation;
-            _internal.conservativePointAndLineRasterization = ConservativePointAndLineRasterization;
-            _internal.degenerateTrianglesRasterized = DegenerateTrianglesRasterized;
-            _internal.degenerateLinesRasterized = DegenerateLinesRasterized;
-            _internal.fullyCoveredFragmentShaderInputVariable = FullyCoveredFragmentShaderInputVariable;
-            _internal.conservativeRasterizationPostDepthCoverage = ConservativeRasterizationPostDepthCoverage;
+            _internal.primitiveUnderestimation = System.Convert.ToUInt32(PrimitiveUnderestimation);
+            _internal.conservativePointAndLineRasterization = System.Convert.ToUInt32(ConservativePointAndLineRasterization);
+            _internal.degenerateTrianglesRasterized = System.Convert.ToUInt32(DegenerateTrianglesRasterized);
+            _internal.degenerateLinesRasterized = System.Convert.ToUInt32(DegenerateLinesRasterized);
+            _internal.fullyCoveredFragmentShaderInputVariable = System.Convert.ToUInt32(FullyCoveredFragmentShaderInputVariable);
+            _internal.conservativeRasterizationPostDepthCoverage = System.Convert.ToUInt32(ConservativeRasterizationPostDepthCoverage);
             return _internal;
         }
     }
 
-    public partial class PipelineRasterizationConservativeStateCreateInfoEXT : DisposableObject
+    public partial class PipelineRasterizationConservativeStateCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineRasterizationConservativeStateCreateInfoEXT()
         {
@@ -13206,16 +13216,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.conservativeRasterizationMode = ConservativeRasterizationMode;
+            _internal.conservativeRasterizationMode = (uint)ConservativeRasterizationMode;
             _internal.extraPrimitiveOverestimationSize = ExtraPrimitiveOverestimationSize;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceDepthClipEnableFeaturesEXT()
         {
@@ -13224,7 +13234,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceDepthClipEnableFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            DepthClipEnable = _internal.depthClipEnable;
+            DepthClipEnable = System.Convert.ToBoolean(_internal.depthClipEnable);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceDepthClipEnableFeaturesExt;
@@ -13234,14 +13244,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.depthClipEnable = DepthClipEnable;
+            _internal.depthClipEnable = System.Convert.ToUInt32(DepthClipEnable);
             return _internal;
         }
     }
 
-    public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : DisposableObject
+    public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineRasterizationDepthClipStateCreateInfoEXT()
         {
@@ -13251,7 +13261,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            DepthClipEnable = _internal.depthClipEnable;
+            DepthClipEnable = System.Convert.ToBoolean(_internal.depthClipEnable);
         }
 
         public StructureType SType => StructureType.PipelineRasterizationDepthClipStateCreateInfoExt;
@@ -13262,10 +13272,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.depthClipEnable = DepthClipEnable;
+            _internal.depthClipEnable = System.Convert.ToUInt32(DepthClipEnable);
             return _internal;
         }
     }
@@ -13294,7 +13304,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class HdrMetadataEXT : DisposableObject
+    public partial class HdrMetadataEXT : VulkanDisposableObject
     {
         public HdrMetadataEXT()
         {
@@ -13327,7 +13337,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (DisplayPrimaryRed != null)
             {
@@ -13353,7 +13363,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugUtilsObjectNameInfoEXT : DisposableObject
+    public partial class DebugUtilsObjectNameInfoEXT : VulkanDisposableObject
     {
         private StringReference refpObjectName;
 
@@ -13378,9 +13388,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.objectType = ObjectType;
+            _internal.objectType = (uint)ObjectType;
             _internal.objectHandle = ObjectHandle;
             refpObjectName?.Dispose();
             if (PObjectName != null)
@@ -13398,7 +13408,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugUtilsObjectTagInfoEXT : DisposableObject
+    public partial class DebugUtilsObjectTagInfoEXT : VulkanDisposableObject
     {
         public DebugUtilsObjectTagInfoEXT()
         {
@@ -13425,9 +13435,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.objectType = ObjectType;
+            _internal.objectType = (uint)ObjectType;
             _internal.objectHandle = ObjectHandle;
             _internal.tagName = TagName;
             _internal.tagSize = TagSize;
@@ -13436,7 +13446,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugUtilsLabelEXT : DisposableObject
+    public partial class DebugUtilsLabelEXT : VulkanDisposableObject
     {
         private StringReference refpLabelName;
 
@@ -13467,7 +13477,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpLabelName?.Dispose();
             if (PLabelName != null)
@@ -13502,7 +13512,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugUtilsMessengerCallbackDataEXT : DisposableObject
+    public partial class DebugUtilsMessengerCallbackDataEXT : VulkanDisposableObject
     {
         private StringReference refpMessageIdName;
 
@@ -13552,7 +13562,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             refpMessageIdName?.Dispose();
@@ -13606,7 +13616,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugUtilsMessengerCreateInfoEXT : DisposableObject
+    public partial class DebugUtilsMessengerCreateInfoEXT : VulkanDisposableObject
     {
         public DebugUtilsMessengerCreateInfoEXT()
         {
@@ -13633,7 +13643,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.messageSeverity = MessageSeverity;
@@ -13644,7 +13654,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SamplerReductionModeCreateInfoEXT : DisposableObject
+    public partial class SamplerReductionModeCreateInfoEXT : VulkanDisposableObject
     {
         public SamplerReductionModeCreateInfoEXT()
         {
@@ -13663,14 +13673,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.reductionMode = ReductionMode;
+            _internal.reductionMode = (uint)ReductionMode;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceSamplerFilterMinmaxPropertiesEXT()
         {
@@ -13679,8 +13689,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceSamplerFilterMinmaxPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT _internal)
         {
             PNext = _internal.pNext;
-            FilterMinmaxSingleComponentFormats = _internal.filterMinmaxSingleComponentFormats;
-            FilterMinmaxImageComponentMapping = _internal.filterMinmaxImageComponentMapping;
+            FilterMinmaxSingleComponentFormats = System.Convert.ToBoolean(_internal.filterMinmaxSingleComponentFormats);
+            FilterMinmaxImageComponentMapping = System.Convert.ToBoolean(_internal.filterMinmaxImageComponentMapping);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceSamplerFilterMinmaxPropertiesExt;
@@ -13691,15 +13701,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.filterMinmaxSingleComponentFormats = FilterMinmaxSingleComponentFormats;
-            _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
+            _internal.filterMinmaxSingleComponentFormats = System.Convert.ToUInt32(FilterMinmaxSingleComponentFormats);
+            _internal.filterMinmaxImageComponentMapping = System.Convert.ToUInt32(FilterMinmaxImageComponentMapping);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceInlineUniformBlockFeaturesEXT()
         {
@@ -13708,8 +13718,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceInlineUniformBlockFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            InlineUniformBlock = _internal.inlineUniformBlock;
-            DescriptorBindingInlineUniformBlockUpdateAfterBind = _internal.descriptorBindingInlineUniformBlockUpdateAfterBind;
+            InlineUniformBlock = System.Convert.ToBoolean(_internal.inlineUniformBlock);
+            DescriptorBindingInlineUniformBlockUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingInlineUniformBlockUpdateAfterBind);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceInlineUniformBlockFeaturesExt;
@@ -13720,15 +13730,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.inlineUniformBlock = InlineUniformBlock;
-            _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
+            _internal.inlineUniformBlock = System.Convert.ToUInt32(InlineUniformBlock);
+            _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingInlineUniformBlockUpdateAfterBind);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceInlineUniformBlockPropertiesEXT()
         {
@@ -13755,7 +13765,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxInlineUniformBlockSize = MaxInlineUniformBlockSize;
             _internal.maxPerStageDescriptorInlineUniformBlocks = MaxPerStageDescriptorInlineUniformBlocks;
@@ -13766,7 +13776,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class WriteDescriptorSetInlineUniformBlockEXT : DisposableObject
+    public partial class WriteDescriptorSetInlineUniformBlockEXT : VulkanDisposableObject
     {
         public WriteDescriptorSetInlineUniformBlockEXT()
         {
@@ -13787,7 +13797,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlockEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlockEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.dataSize = DataSize;
             _internal.pData = PData;
@@ -13795,7 +13805,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : DisposableObject
+    public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : VulkanDisposableObject
     {
         public DescriptorPoolInlineUniformBlockCreateInfoEXT()
         {
@@ -13814,7 +13824,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxInlineUniformBlockBindings = MaxInlineUniformBlockBindings;
             return _internal;
@@ -13845,7 +13855,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SampleLocationsInfoEXT : DisposableObject
+    public partial class SampleLocationsInfoEXT : VulkanDisposableObject
     {
         private StructReference refpSampleLocations;
 
@@ -13873,9 +13883,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.sampleLocationsPerPixel = SampleLocationsPerPixel;
+            _internal.sampleLocationsPerPixel = (uint)SampleLocationsPerPixel;
             if (SampleLocationGridSize != null)
             {
                 _internal.sampleLocationGridSize = SampleLocationGridSize.ToInternal();
@@ -13952,7 +13962,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassSampleLocationsBeginInfoEXT : DisposableObject
+    public partial class RenderPassSampleLocationsBeginInfoEXT : VulkanDisposableObject
     {
         private StructReference refpAttachmentInitialSampleLocations;
 
@@ -13983,7 +13993,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.attachmentInitialSampleLocationsCount = AttachmentInitialSampleLocationsCount;
             refpAttachmentInitialSampleLocations?.Dispose();
@@ -14012,7 +14022,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineSampleLocationsStateCreateInfoEXT : DisposableObject
+    public partial class PipelineSampleLocationsStateCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineSampleLocationsStateCreateInfoEXT()
         {
@@ -14021,7 +14031,7 @@ namespace AdamantiumVulkan.Core
         public PipelineSampleLocationsStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            SampleLocationsEnable = _internal.sampleLocationsEnable;
+            SampleLocationsEnable = System.Convert.ToBoolean(_internal.sampleLocationsEnable);
             SampleLocationsInfo = new SampleLocationsInfoEXT(_internal.sampleLocationsInfo);
         }
 
@@ -14033,9 +14043,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.sampleLocationsEnable = SampleLocationsEnable;
+            _internal.sampleLocationsEnable = System.Convert.ToUInt32(SampleLocationsEnable);
             if (SampleLocationsInfo != null)
             {
                 _internal.sampleLocationsInfo = SampleLocationsInfo.ToInternal();
@@ -14044,7 +14054,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSampleLocationsPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceSampleLocationsPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceSampleLocationsPropertiesEXT()
         {
@@ -14065,7 +14075,7 @@ namespace AdamantiumVulkan.Core
             }
             SampleLocationCoordinateRange = tmpArr0;
             SampleLocationSubPixelBits = _internal.sampleLocationSubPixelBits;
-            VariableSampleLocations = _internal.variableSampleLocations;
+            VariableSampleLocations = System.Convert.ToBoolean(_internal.variableSampleLocations);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceSampleLocationsPropertiesExt;
@@ -14079,7 +14089,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.sampleLocationSampleCounts = SampleLocationSampleCounts;
             if (MaxSampleLocationGridSize != null)
@@ -14104,12 +14114,12 @@ namespace AdamantiumVulkan.Core
                 }
             }
             _internal.sampleLocationSubPixelBits = SampleLocationSubPixelBits;
-            _internal.variableSampleLocations = VariableSampleLocations;
+            _internal.variableSampleLocations = System.Convert.ToUInt32(VariableSampleLocations);
             return _internal;
         }
     }
 
-    public partial class MultisamplePropertiesEXT : DisposableObject
+    public partial class MultisamplePropertiesEXT : VulkanDisposableObject
     {
         public MultisamplePropertiesEXT()
         {
@@ -14128,7 +14138,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (MaxSampleLocationGridSize != null)
             {
@@ -14138,7 +14148,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceBlendOperationAdvancedFeaturesEXT()
         {
@@ -14147,7 +14157,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceBlendOperationAdvancedFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            AdvancedBlendCoherentOperations = _internal.advancedBlendCoherentOperations;
+            AdvancedBlendCoherentOperations = System.Convert.ToBoolean(_internal.advancedBlendCoherentOperations);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceBlendOperationAdvancedFeaturesExt;
@@ -14157,14 +14167,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.advancedBlendCoherentOperations = AdvancedBlendCoherentOperations;
+            _internal.advancedBlendCoherentOperations = System.Convert.ToUInt32(AdvancedBlendCoherentOperations);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceBlendOperationAdvancedPropertiesEXT()
         {
@@ -14174,11 +14184,11 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             AdvancedBlendMaxColorAttachments = _internal.advancedBlendMaxColorAttachments;
-            AdvancedBlendIndependentBlend = _internal.advancedBlendIndependentBlend;
-            AdvancedBlendNonPremultipliedSrcColor = _internal.advancedBlendNonPremultipliedSrcColor;
-            AdvancedBlendNonPremultipliedDstColor = _internal.advancedBlendNonPremultipliedDstColor;
-            AdvancedBlendCorrelatedOverlap = _internal.advancedBlendCorrelatedOverlap;
-            AdvancedBlendAllOperations = _internal.advancedBlendAllOperations;
+            AdvancedBlendIndependentBlend = System.Convert.ToBoolean(_internal.advancedBlendIndependentBlend);
+            AdvancedBlendNonPremultipliedSrcColor = System.Convert.ToBoolean(_internal.advancedBlendNonPremultipliedSrcColor);
+            AdvancedBlendNonPremultipliedDstColor = System.Convert.ToBoolean(_internal.advancedBlendNonPremultipliedDstColor);
+            AdvancedBlendCorrelatedOverlap = System.Convert.ToBoolean(_internal.advancedBlendCorrelatedOverlap);
+            AdvancedBlendAllOperations = System.Convert.ToBoolean(_internal.advancedBlendAllOperations);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceBlendOperationAdvancedPropertiesExt;
@@ -14193,19 +14203,19 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.advancedBlendMaxColorAttachments = AdvancedBlendMaxColorAttachments;
-            _internal.advancedBlendIndependentBlend = AdvancedBlendIndependentBlend;
-            _internal.advancedBlendNonPremultipliedSrcColor = AdvancedBlendNonPremultipliedSrcColor;
-            _internal.advancedBlendNonPremultipliedDstColor = AdvancedBlendNonPremultipliedDstColor;
-            _internal.advancedBlendCorrelatedOverlap = AdvancedBlendCorrelatedOverlap;
-            _internal.advancedBlendAllOperations = AdvancedBlendAllOperations;
+            _internal.advancedBlendIndependentBlend = System.Convert.ToUInt32(AdvancedBlendIndependentBlend);
+            _internal.advancedBlendNonPremultipliedSrcColor = System.Convert.ToUInt32(AdvancedBlendNonPremultipliedSrcColor);
+            _internal.advancedBlendNonPremultipliedDstColor = System.Convert.ToUInt32(AdvancedBlendNonPremultipliedDstColor);
+            _internal.advancedBlendCorrelatedOverlap = System.Convert.ToUInt32(AdvancedBlendCorrelatedOverlap);
+            _internal.advancedBlendAllOperations = System.Convert.ToUInt32(AdvancedBlendAllOperations);
             return _internal;
         }
     }
 
-    public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : DisposableObject
+    public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineColorBlendAdvancedStateCreateInfoEXT()
         {
@@ -14214,8 +14224,8 @@ namespace AdamantiumVulkan.Core
         public PipelineColorBlendAdvancedStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT _internal)
         {
             PNext = _internal.pNext;
-            SrcPremultiplied = _internal.srcPremultiplied;
-            DstPremultiplied = _internal.dstPremultiplied;
+            SrcPremultiplied = System.Convert.ToBoolean(_internal.srcPremultiplied);
+            DstPremultiplied = System.Convert.ToBoolean(_internal.dstPremultiplied);
             BlendOverlap = (BlendOverlapEXT)_internal.blendOverlap;
         }
 
@@ -14228,16 +14238,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.srcPremultiplied = SrcPremultiplied;
-            _internal.dstPremultiplied = DstPremultiplied;
-            _internal.blendOverlap = BlendOverlap;
+            _internal.srcPremultiplied = System.Convert.ToUInt32(SrcPremultiplied);
+            _internal.dstPremultiplied = System.Convert.ToUInt32(DstPremultiplied);
+            _internal.blendOverlap = (uint)BlendOverlap;
             return _internal;
         }
     }
 
-    public partial class PipelineCoverageToColorStateCreateInfoNV : DisposableObject
+    public partial class PipelineCoverageToColorStateCreateInfoNV : VulkanDisposableObject
     {
         public PipelineCoverageToColorStateCreateInfoNV()
         {
@@ -14247,7 +14257,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            CoverageToColorEnable = _internal.coverageToColorEnable;
+            CoverageToColorEnable = System.Convert.ToBoolean(_internal.coverageToColorEnable);
             CoverageToColorLocation = _internal.coverageToColorLocation;
         }
 
@@ -14260,16 +14270,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.coverageToColorEnable = CoverageToColorEnable;
+            _internal.coverageToColorEnable = System.Convert.ToUInt32(CoverageToColorEnable);
             _internal.coverageToColorLocation = CoverageToColorLocation;
             return _internal;
         }
     }
 
-    public partial class PipelineCoverageModulationStateCreateInfoNV : DisposableObject
+    public partial class PipelineCoverageModulationStateCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpCoverageModulationTable;
 
@@ -14282,7 +14292,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             CoverageModulationMode = (CoverageModulationModeNV)_internal.coverageModulationMode;
-            CoverageModulationTableEnable = _internal.coverageModulationTableEnable;
+            CoverageModulationTableEnable = System.Convert.ToBoolean(_internal.coverageModulationTableEnable);
             CoverageModulationTableCount = _internal.coverageModulationTableCount;
             if(_internal.pCoverageModulationTable != System.IntPtr.Zero)
             {
@@ -14302,11 +14312,11 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.coverageModulationMode = CoverageModulationMode;
-            _internal.coverageModulationTableEnable = CoverageModulationTableEnable;
+            _internal.coverageModulationMode = (uint)CoverageModulationMode;
+            _internal.coverageModulationTableEnable = System.Convert.ToUInt32(CoverageModulationTableEnable);
             _internal.coverageModulationTableCount = CoverageModulationTableCount;
             refpCoverageModulationTable?.Dispose();
             if (PCoverageModulationTable != null)
@@ -14324,7 +14334,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : DisposableObject
+    public partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : VulkanDisposableObject
     {
         public PhysicalDeviceShaderSMBuiltinsPropertiesNV()
         {
@@ -14346,7 +14356,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.shaderSMCount = ShaderSMCount;
             _internal.shaderWarpsPerSM = ShaderWarpsPerSM;
@@ -14354,7 +14364,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderSMBuiltinsFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceShaderSMBuiltinsFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceShaderSMBuiltinsFeaturesNV()
         {
@@ -14364,7 +14374,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            ShaderSMBuiltins = _internal.shaderSMBuiltins;
+            ShaderSMBuiltins = System.Convert.ToBoolean(_internal.shaderSMBuiltins);
         }
 
         public StructureType SType { get; set; }
@@ -14374,9 +14384,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderSMBuiltins = ShaderSMBuiltins;
+            _internal.shaderSMBuiltins = System.Convert.ToUInt32(ShaderSMBuiltins);
             return _internal;
         }
     }
@@ -14408,7 +14418,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DrmFormatModifierPropertiesListEXT : DisposableObject
+    public partial class DrmFormatModifierPropertiesListEXT : VulkanDisposableObject
     {
         private StructReference refpDrmFormatModifierProperties;
 
@@ -14432,7 +14442,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.drmFormatModifierCount = DrmFormatModifierCount;
             refpDrmFormatModifierProperties?.Dispose();
@@ -14452,7 +14462,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : DisposableObject
+    public partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : VulkanDisposableObject
     {
         private StructReference refpQueueFamilyIndices;
 
@@ -14483,10 +14493,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.drmFormatModifier = DrmFormatModifier;
-            _internal.sharingMode = SharingMode;
+            _internal.sharingMode = (uint)SharingMode;
             _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
             refpQueueFamilyIndices?.Dispose();
             if (PQueueFamilyIndices != null)
@@ -14504,7 +14514,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageDrmFormatModifierListCreateInfoEXT : DisposableObject
+    public partial class ImageDrmFormatModifierListCreateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpDrmFormatModifiers;
 
@@ -14531,7 +14541,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.drmFormatModifierCount = DrmFormatModifierCount;
             refpDrmFormatModifiers?.Dispose();
@@ -14550,7 +14560,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageDrmFormatModifierExplicitCreateInfoEXT : DisposableObject
+    public partial class ImageDrmFormatModifierExplicitCreateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpPlaneLayouts;
 
@@ -14576,7 +14586,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.drmFormatModifier = DrmFormatModifier;
             _internal.drmFormatModifierPlaneCount = DrmFormatModifierPlaneCount;
@@ -14597,7 +14607,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageDrmFormatModifierPropertiesEXT : DisposableObject
+    public partial class ImageDrmFormatModifierPropertiesEXT : VulkanDisposableObject
     {
         public ImageDrmFormatModifierPropertiesEXT()
         {
@@ -14616,14 +14626,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.drmFormatModifier = DrmFormatModifier;
             return _internal;
         }
     }
 
-    public partial class ValidationCacheCreateInfoEXT : DisposableObject
+    public partial class ValidationCacheCreateInfoEXT : VulkanDisposableObject
     {
         public ValidationCacheCreateInfoEXT()
         {
@@ -14646,7 +14656,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.initialDataSize = InitialDataSize;
@@ -14655,7 +14665,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ShaderModuleValidationCacheCreateInfoEXT : DisposableObject
+    public partial class ShaderModuleValidationCacheCreateInfoEXT : VulkanDisposableObject
     {
         public ShaderModuleValidationCacheCreateInfoEXT()
         {
@@ -14674,14 +14684,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.validationCache = ValidationCache;
             return _internal;
         }
     }
 
-    public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : DisposableObject
+    public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpBindingFlags;
 
@@ -14708,7 +14718,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.bindingCount = BindingCount;
             refpBindingFlags?.Dispose();
@@ -14727,7 +14737,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceDescriptorIndexingFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceDescriptorIndexingFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceDescriptorIndexingFeaturesEXT()
         {
@@ -14736,26 +14746,26 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceDescriptorIndexingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            ShaderInputAttachmentArrayDynamicIndexing = _internal.shaderInputAttachmentArrayDynamicIndexing;
-            ShaderUniformTexelBufferArrayDynamicIndexing = _internal.shaderUniformTexelBufferArrayDynamicIndexing;
-            ShaderStorageTexelBufferArrayDynamicIndexing = _internal.shaderStorageTexelBufferArrayDynamicIndexing;
-            ShaderUniformBufferArrayNonUniformIndexing = _internal.shaderUniformBufferArrayNonUniformIndexing;
-            ShaderSampledImageArrayNonUniformIndexing = _internal.shaderSampledImageArrayNonUniformIndexing;
-            ShaderStorageBufferArrayNonUniformIndexing = _internal.shaderStorageBufferArrayNonUniformIndexing;
-            ShaderStorageImageArrayNonUniformIndexing = _internal.shaderStorageImageArrayNonUniformIndexing;
-            ShaderInputAttachmentArrayNonUniformIndexing = _internal.shaderInputAttachmentArrayNonUniformIndexing;
-            ShaderUniformTexelBufferArrayNonUniformIndexing = _internal.shaderUniformTexelBufferArrayNonUniformIndexing;
-            ShaderStorageTexelBufferArrayNonUniformIndexing = _internal.shaderStorageTexelBufferArrayNonUniformIndexing;
-            DescriptorBindingUniformBufferUpdateAfterBind = _internal.descriptorBindingUniformBufferUpdateAfterBind;
-            DescriptorBindingSampledImageUpdateAfterBind = _internal.descriptorBindingSampledImageUpdateAfterBind;
-            DescriptorBindingStorageImageUpdateAfterBind = _internal.descriptorBindingStorageImageUpdateAfterBind;
-            DescriptorBindingStorageBufferUpdateAfterBind = _internal.descriptorBindingStorageBufferUpdateAfterBind;
-            DescriptorBindingUniformTexelBufferUpdateAfterBind = _internal.descriptorBindingUniformTexelBufferUpdateAfterBind;
-            DescriptorBindingStorageTexelBufferUpdateAfterBind = _internal.descriptorBindingStorageTexelBufferUpdateAfterBind;
-            DescriptorBindingUpdateUnusedWhilePending = _internal.descriptorBindingUpdateUnusedWhilePending;
-            DescriptorBindingPartiallyBound = _internal.descriptorBindingPartiallyBound;
-            DescriptorBindingVariableDescriptorCount = _internal.descriptorBindingVariableDescriptorCount;
-            RuntimeDescriptorArray = _internal.runtimeDescriptorArray;
+            ShaderInputAttachmentArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderInputAttachmentArrayDynamicIndexing);
+            ShaderUniformTexelBufferArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderUniformTexelBufferArrayDynamicIndexing);
+            ShaderStorageTexelBufferArrayDynamicIndexing = System.Convert.ToBoolean(_internal.shaderStorageTexelBufferArrayDynamicIndexing);
+            ShaderUniformBufferArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderUniformBufferArrayNonUniformIndexing);
+            ShaderSampledImageArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderSampledImageArrayNonUniformIndexing);
+            ShaderStorageBufferArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderStorageBufferArrayNonUniformIndexing);
+            ShaderStorageImageArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderStorageImageArrayNonUniformIndexing);
+            ShaderInputAttachmentArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderInputAttachmentArrayNonUniformIndexing);
+            ShaderUniformTexelBufferArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderUniformTexelBufferArrayNonUniformIndexing);
+            ShaderStorageTexelBufferArrayNonUniformIndexing = System.Convert.ToBoolean(_internal.shaderStorageTexelBufferArrayNonUniformIndexing);
+            DescriptorBindingUniformBufferUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingUniformBufferUpdateAfterBind);
+            DescriptorBindingSampledImageUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingSampledImageUpdateAfterBind);
+            DescriptorBindingStorageImageUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingStorageImageUpdateAfterBind);
+            DescriptorBindingStorageBufferUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingStorageBufferUpdateAfterBind);
+            DescriptorBindingUniformTexelBufferUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingUniformTexelBufferUpdateAfterBind);
+            DescriptorBindingStorageTexelBufferUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingStorageTexelBufferUpdateAfterBind);
+            DescriptorBindingUpdateUnusedWhilePending = System.Convert.ToBoolean(_internal.descriptorBindingUpdateUnusedWhilePending);
+            DescriptorBindingPartiallyBound = System.Convert.ToBoolean(_internal.descriptorBindingPartiallyBound);
+            DescriptorBindingVariableDescriptorCount = System.Convert.ToBoolean(_internal.descriptorBindingVariableDescriptorCount);
+            RuntimeDescriptorArray = System.Convert.ToBoolean(_internal.runtimeDescriptorArray);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceDescriptorIndexingFeaturesExt;
@@ -14784,33 +14794,33 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderInputAttachmentArrayDynamicIndexing = ShaderInputAttachmentArrayDynamicIndexing;
-            _internal.shaderUniformTexelBufferArrayDynamicIndexing = ShaderUniformTexelBufferArrayDynamicIndexing;
-            _internal.shaderStorageTexelBufferArrayDynamicIndexing = ShaderStorageTexelBufferArrayDynamicIndexing;
-            _internal.shaderUniformBufferArrayNonUniformIndexing = ShaderUniformBufferArrayNonUniformIndexing;
-            _internal.shaderSampledImageArrayNonUniformIndexing = ShaderSampledImageArrayNonUniformIndexing;
-            _internal.shaderStorageBufferArrayNonUniformIndexing = ShaderStorageBufferArrayNonUniformIndexing;
-            _internal.shaderStorageImageArrayNonUniformIndexing = ShaderStorageImageArrayNonUniformIndexing;
-            _internal.shaderInputAttachmentArrayNonUniformIndexing = ShaderInputAttachmentArrayNonUniformIndexing;
-            _internal.shaderUniformTexelBufferArrayNonUniformIndexing = ShaderUniformTexelBufferArrayNonUniformIndexing;
-            _internal.shaderStorageTexelBufferArrayNonUniformIndexing = ShaderStorageTexelBufferArrayNonUniformIndexing;
-            _internal.descriptorBindingUniformBufferUpdateAfterBind = DescriptorBindingUniformBufferUpdateAfterBind;
-            _internal.descriptorBindingSampledImageUpdateAfterBind = DescriptorBindingSampledImageUpdateAfterBind;
-            _internal.descriptorBindingStorageImageUpdateAfterBind = DescriptorBindingStorageImageUpdateAfterBind;
-            _internal.descriptorBindingStorageBufferUpdateAfterBind = DescriptorBindingStorageBufferUpdateAfterBind;
-            _internal.descriptorBindingUniformTexelBufferUpdateAfterBind = DescriptorBindingUniformTexelBufferUpdateAfterBind;
-            _internal.descriptorBindingStorageTexelBufferUpdateAfterBind = DescriptorBindingStorageTexelBufferUpdateAfterBind;
-            _internal.descriptorBindingUpdateUnusedWhilePending = DescriptorBindingUpdateUnusedWhilePending;
-            _internal.descriptorBindingPartiallyBound = DescriptorBindingPartiallyBound;
-            _internal.descriptorBindingVariableDescriptorCount = DescriptorBindingVariableDescriptorCount;
-            _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
+            _internal.shaderInputAttachmentArrayDynamicIndexing = System.Convert.ToUInt32(ShaderInputAttachmentArrayDynamicIndexing);
+            _internal.shaderUniformTexelBufferArrayDynamicIndexing = System.Convert.ToUInt32(ShaderUniformTexelBufferArrayDynamicIndexing);
+            _internal.shaderStorageTexelBufferArrayDynamicIndexing = System.Convert.ToUInt32(ShaderStorageTexelBufferArrayDynamicIndexing);
+            _internal.shaderUniformBufferArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderUniformBufferArrayNonUniformIndexing);
+            _internal.shaderSampledImageArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderSampledImageArrayNonUniformIndexing);
+            _internal.shaderStorageBufferArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderStorageBufferArrayNonUniformIndexing);
+            _internal.shaderStorageImageArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderStorageImageArrayNonUniformIndexing);
+            _internal.shaderInputAttachmentArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderInputAttachmentArrayNonUniformIndexing);
+            _internal.shaderUniformTexelBufferArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderUniformTexelBufferArrayNonUniformIndexing);
+            _internal.shaderStorageTexelBufferArrayNonUniformIndexing = System.Convert.ToUInt32(ShaderStorageTexelBufferArrayNonUniformIndexing);
+            _internal.descriptorBindingUniformBufferUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingUniformBufferUpdateAfterBind);
+            _internal.descriptorBindingSampledImageUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingSampledImageUpdateAfterBind);
+            _internal.descriptorBindingStorageImageUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingStorageImageUpdateAfterBind);
+            _internal.descriptorBindingStorageBufferUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingStorageBufferUpdateAfterBind);
+            _internal.descriptorBindingUniformTexelBufferUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingUniformTexelBufferUpdateAfterBind);
+            _internal.descriptorBindingStorageTexelBufferUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingStorageTexelBufferUpdateAfterBind);
+            _internal.descriptorBindingUpdateUnusedWhilePending = System.Convert.ToUInt32(DescriptorBindingUpdateUnusedWhilePending);
+            _internal.descriptorBindingPartiallyBound = System.Convert.ToUInt32(DescriptorBindingPartiallyBound);
+            _internal.descriptorBindingVariableDescriptorCount = System.Convert.ToUInt32(DescriptorBindingVariableDescriptorCount);
+            _internal.runtimeDescriptorArray = System.Convert.ToUInt32(RuntimeDescriptorArray);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceDescriptorIndexingPropertiesEXT()
         {
@@ -14820,13 +14830,13 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             MaxUpdateAfterBindDescriptorsInAllPools = _internal.maxUpdateAfterBindDescriptorsInAllPools;
-            ShaderUniformBufferArrayNonUniformIndexingNative = _internal.shaderUniformBufferArrayNonUniformIndexingNative;
-            ShaderSampledImageArrayNonUniformIndexingNative = _internal.shaderSampledImageArrayNonUniformIndexingNative;
-            ShaderStorageBufferArrayNonUniformIndexingNative = _internal.shaderStorageBufferArrayNonUniformIndexingNative;
-            ShaderStorageImageArrayNonUniformIndexingNative = _internal.shaderStorageImageArrayNonUniformIndexingNative;
-            ShaderInputAttachmentArrayNonUniformIndexingNative = _internal.shaderInputAttachmentArrayNonUniformIndexingNative;
-            RobustBufferAccessUpdateAfterBind = _internal.robustBufferAccessUpdateAfterBind;
-            QuadDivergentImplicitLod = _internal.quadDivergentImplicitLod;
+            ShaderUniformBufferArrayNonUniformIndexingNative = System.Convert.ToBoolean(_internal.shaderUniformBufferArrayNonUniformIndexingNative);
+            ShaderSampledImageArrayNonUniformIndexingNative = System.Convert.ToBoolean(_internal.shaderSampledImageArrayNonUniformIndexingNative);
+            ShaderStorageBufferArrayNonUniformIndexingNative = System.Convert.ToBoolean(_internal.shaderStorageBufferArrayNonUniformIndexingNative);
+            ShaderStorageImageArrayNonUniformIndexingNative = System.Convert.ToBoolean(_internal.shaderStorageImageArrayNonUniformIndexingNative);
+            ShaderInputAttachmentArrayNonUniformIndexingNative = System.Convert.ToBoolean(_internal.shaderInputAttachmentArrayNonUniformIndexingNative);
+            RobustBufferAccessUpdateAfterBind = System.Convert.ToBoolean(_internal.robustBufferAccessUpdateAfterBind);
+            QuadDivergentImplicitLod = System.Convert.ToBoolean(_internal.quadDivergentImplicitLod);
             MaxPerStageDescriptorUpdateAfterBindSamplers = _internal.maxPerStageDescriptorUpdateAfterBindSamplers;
             MaxPerStageDescriptorUpdateAfterBindUniformBuffers = _internal.maxPerStageDescriptorUpdateAfterBindUniformBuffers;
             MaxPerStageDescriptorUpdateAfterBindStorageBuffers = _internal.maxPerStageDescriptorUpdateAfterBindStorageBuffers;
@@ -14873,16 +14883,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxUpdateAfterBindDescriptorsInAllPools = MaxUpdateAfterBindDescriptorsInAllPools;
-            _internal.shaderUniformBufferArrayNonUniformIndexingNative = ShaderUniformBufferArrayNonUniformIndexingNative;
-            _internal.shaderSampledImageArrayNonUniformIndexingNative = ShaderSampledImageArrayNonUniformIndexingNative;
-            _internal.shaderStorageBufferArrayNonUniformIndexingNative = ShaderStorageBufferArrayNonUniformIndexingNative;
-            _internal.shaderStorageImageArrayNonUniformIndexingNative = ShaderStorageImageArrayNonUniformIndexingNative;
-            _internal.shaderInputAttachmentArrayNonUniformIndexingNative = ShaderInputAttachmentArrayNonUniformIndexingNative;
-            _internal.robustBufferAccessUpdateAfterBind = RobustBufferAccessUpdateAfterBind;
-            _internal.quadDivergentImplicitLod = QuadDivergentImplicitLod;
+            _internal.shaderUniformBufferArrayNonUniformIndexingNative = System.Convert.ToUInt32(ShaderUniformBufferArrayNonUniformIndexingNative);
+            _internal.shaderSampledImageArrayNonUniformIndexingNative = System.Convert.ToUInt32(ShaderSampledImageArrayNonUniformIndexingNative);
+            _internal.shaderStorageBufferArrayNonUniformIndexingNative = System.Convert.ToUInt32(ShaderStorageBufferArrayNonUniformIndexingNative);
+            _internal.shaderStorageImageArrayNonUniformIndexingNative = System.Convert.ToUInt32(ShaderStorageImageArrayNonUniformIndexingNative);
+            _internal.shaderInputAttachmentArrayNonUniformIndexingNative = System.Convert.ToUInt32(ShaderInputAttachmentArrayNonUniformIndexingNative);
+            _internal.robustBufferAccessUpdateAfterBind = System.Convert.ToUInt32(RobustBufferAccessUpdateAfterBind);
+            _internal.quadDivergentImplicitLod = System.Convert.ToUInt32(QuadDivergentImplicitLod);
             _internal.maxPerStageDescriptorUpdateAfterBindSamplers = MaxPerStageDescriptorUpdateAfterBindSamplers;
             _internal.maxPerStageDescriptorUpdateAfterBindUniformBuffers = MaxPerStageDescriptorUpdateAfterBindUniformBuffers;
             _internal.maxPerStageDescriptorUpdateAfterBindStorageBuffers = MaxPerStageDescriptorUpdateAfterBindStorageBuffers;
@@ -14902,7 +14912,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : DisposableObject
+    public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpDescriptorCounts;
 
@@ -14929,7 +14939,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.descriptorSetCount = DescriptorSetCount;
             refpDescriptorCounts?.Dispose();
@@ -14948,7 +14958,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorSetVariableDescriptorCountLayoutSupportEXT : DisposableObject
+    public partial class DescriptorSetVariableDescriptorCountLayoutSupportEXT : VulkanDisposableObject
     {
         public DescriptorSetVariableDescriptorCountLayoutSupportEXT()
         {
@@ -14967,14 +14977,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupportEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupportEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxVariableDescriptorCount = MaxVariableDescriptorCount;
             return _internal;
         }
     }
 
-    public partial class ShadingRatePaletteNV : DisposableObject
+    public partial class ShadingRatePaletteNV : VulkanDisposableObject
     {
         private GCHandleReference refpShadingRatePaletteEntries;
 
@@ -14985,8 +14995,8 @@ namespace AdamantiumVulkan.Core
         public ShadingRatePaletteNV(AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV _internal)
         {
             ShadingRatePaletteEntryCount = _internal.shadingRatePaletteEntryCount;
-            var tmppShadingRatePaletteEntries = new int[_internal.shadingRatePaletteEntryCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pShadingRatePaletteEntries, tmppShadingRatePaletteEntries);
+            var tmppShadingRatePaletteEntries = new uint[_internal.shadingRatePaletteEntryCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pShadingRatePaletteEntries, tmppShadingRatePaletteEntries);
             Marshal.FreeHGlobal(_internal.pShadingRatePaletteEntries);
             PShadingRatePaletteEntries = new AdamantiumVulkan.Core.ShadingRatePaletteEntryNV[_internal.shadingRatePaletteEntryCount];
             for (int i = 0; i < tmppShadingRatePaletteEntries.Length; ++i)
@@ -15023,7 +15033,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineViewportShadingRateImageStateCreateInfoNV : DisposableObject
+    public partial class PipelineViewportShadingRateImageStateCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpShadingRatePalettes;
 
@@ -15034,7 +15044,7 @@ namespace AdamantiumVulkan.Core
         public PipelineViewportShadingRateImageStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            ShadingRateImageEnable = _internal.shadingRateImageEnable;
+            ShadingRateImageEnable = System.Convert.ToBoolean(_internal.shadingRateImageEnable);
             ViewportCount = _internal.viewportCount;
             PShadingRatePalettes = new ShadingRatePaletteNV(Marshal.PtrToStructure<VkShadingRatePaletteNV>(_internal.pShadingRatePalettes));
             Marshal.FreeHGlobal(_internal.pShadingRatePalettes);
@@ -15049,9 +15059,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shadingRateImageEnable = ShadingRateImageEnable;
+            _internal.shadingRateImageEnable = System.Convert.ToUInt32(ShadingRateImageEnable);
             _internal.viewportCount = ViewportCount;
             refpShadingRatePalettes?.Dispose();
             if (PShadingRatePalettes != null)
@@ -15070,7 +15080,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceShadingRateImageFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceShadingRateImageFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceShadingRateImageFeaturesNV()
         {
@@ -15079,8 +15089,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceShadingRateImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            ShadingRateImage = _internal.shadingRateImage;
-            ShadingRateCoarseSampleOrder = _internal.shadingRateCoarseSampleOrder;
+            ShadingRateImage = System.Convert.ToBoolean(_internal.shadingRateImage);
+            ShadingRateCoarseSampleOrder = System.Convert.ToBoolean(_internal.shadingRateCoarseSampleOrder);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceShadingRateImageFeaturesNv;
@@ -15091,15 +15101,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shadingRateImage = ShadingRateImage;
-            _internal.shadingRateCoarseSampleOrder = ShadingRateCoarseSampleOrder;
+            _internal.shadingRateImage = System.Convert.ToUInt32(ShadingRateImage);
+            _internal.shadingRateCoarseSampleOrder = System.Convert.ToUInt32(ShadingRateCoarseSampleOrder);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShadingRateImagePropertiesNV : DisposableObject
+    public partial class PhysicalDeviceShadingRateImagePropertiesNV : VulkanDisposableObject
     {
         public PhysicalDeviceShadingRateImagePropertiesNV()
         {
@@ -15122,7 +15132,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (ShadingRateTexelSize != null)
             {
@@ -15161,7 +15171,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CoarseSampleOrderCustomNV : DisposableObject
+    public partial class CoarseSampleOrderCustomNV : VulkanDisposableObject
     {
         private StructReference refpSampleLocations;
 
@@ -15186,7 +15196,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV();
-            _internal.shadingRate = ShadingRate;
+            _internal.shadingRate = (uint)ShadingRate;
             _internal.sampleCount = SampleCount;
             _internal.sampleLocationCount = SampleLocationCount;
             refpSampleLocations?.Dispose();
@@ -15206,7 +15216,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV : DisposableObject
+    public partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpCustomSampleOrders;
 
@@ -15232,9 +15242,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.sampleOrderType = SampleOrderType;
+            _internal.sampleOrderType = (uint)SampleOrderType;
             _internal.customSampleOrderCount = CustomSampleOrderCount;
             refpCustomSampleOrders?.Dispose();
             if (PCustomSampleOrders != null)
@@ -15253,7 +15263,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class RayTracingShaderGroupCreateInfoNV : DisposableObject
+    public partial class RayTracingShaderGroupCreateInfoNV : VulkanDisposableObject
     {
         public RayTracingShaderGroupCreateInfoNV()
         {
@@ -15280,9 +15290,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.generalShader = GeneralShader;
             _internal.closestHitShader = ClosestHitShader;
             _internal.anyHitShader = AnyHitShader;
@@ -15291,7 +15301,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RayTracingPipelineCreateInfoNV : DisposableObject
+    public partial class RayTracingPipelineCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpStages;
 
@@ -15332,7 +15342,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.stageCount = StageCount;
@@ -15366,7 +15376,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class GeometryTrianglesNV : DisposableObject
+    public partial class GeometryTrianglesNV : VulkanDisposableObject
     {
         public GeometryTrianglesNV()
         {
@@ -15405,24 +15415,24 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.vertexData = VertexData;
             _internal.vertexOffset = VertexOffset;
             _internal.vertexCount = VertexCount;
             _internal.vertexStride = VertexStride;
-            _internal.vertexFormat = VertexFormat;
+            _internal.vertexFormat = (uint)VertexFormat;
             _internal.indexData = IndexData;
             _internal.indexOffset = IndexOffset;
             _internal.indexCount = IndexCount;
-            _internal.indexType = IndexType;
+            _internal.indexType = (uint)IndexType;
             _internal.transformData = TransformData;
             _internal.transformOffset = TransformOffset;
             return _internal;
         }
     }
 
-    public partial class GeometryAABBNV : DisposableObject
+    public partial class GeometryAABBNV : VulkanDisposableObject
     {
         public GeometryAABBNV()
         {
@@ -15447,7 +15457,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkGeometryAABBNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryAABBNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.aabbData = AabbData;
             _internal.numAABBs = NumAABBs;
@@ -15487,7 +15497,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class GeometryNV : DisposableObject
+    public partial class GeometryNV : VulkanDisposableObject
     {
         public GeometryNV()
         {
@@ -15510,9 +15520,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkGeometryNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.geometryType = GeometryType;
+            _internal.geometryType = (uint)GeometryType;
             if (Geometry != null)
             {
                 _internal.geometry = Geometry.ToInternal();
@@ -15522,7 +15532,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class AccelerationStructureInfoNV : DisposableObject
+    public partial class AccelerationStructureInfoNV : VulkanDisposableObject
     {
         private StructReference refpGeometries;
 
@@ -15552,9 +15562,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.flags = Flags;
             _internal.instanceCount = InstanceCount;
             _internal.geometryCount = GeometryCount;
@@ -15575,7 +15585,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AccelerationStructureCreateInfoNV : DisposableObject
+    public partial class AccelerationStructureCreateInfoNV : VulkanDisposableObject
     {
         public AccelerationStructureCreateInfoNV()
         {
@@ -15596,7 +15606,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.compactedSize = CompactedSize;
             if (Info != null)
@@ -15607,7 +15617,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindAccelerationStructureMemoryInfoNV : DisposableObject
+    public partial class BindAccelerationStructureMemoryInfoNV : VulkanDisposableObject
     {
         private StructReference refpDeviceIndices;
 
@@ -15640,7 +15650,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.accelerationStructure = AccelerationStructure;
             _internal.memory = Memory;
@@ -15662,7 +15672,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class WriteDescriptorSetAccelerationStructureNV : DisposableObject
+    public partial class WriteDescriptorSetAccelerationStructureNV : VulkanDisposableObject
     {
         private StructReference refpAccelerationStructures;
 
@@ -15686,7 +15696,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.accelerationStructureCount = AccelerationStructureCount;
             refpAccelerationStructures?.Dispose();
@@ -15706,7 +15716,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AccelerationStructureMemoryRequirementsInfoNV : DisposableObject
+    public partial class AccelerationStructureMemoryRequirementsInfoNV : VulkanDisposableObject
     {
         public AccelerationStructureMemoryRequirementsInfoNV()
         {
@@ -15727,15 +15737,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             _internal.accelerationStructure = AccelerationStructure;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceRayTracingPropertiesNV : DisposableObject
+    public partial class PhysicalDeviceRayTracingPropertiesNV : VulkanDisposableObject
     {
         public PhysicalDeviceRayTracingPropertiesNV()
         {
@@ -15768,7 +15778,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.shaderGroupHandleSize = ShaderGroupHandleSize;
             _internal.maxRecursionDepth = MaxRecursionDepth;
@@ -15782,7 +15792,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceRepresentativeFragmentTestFeaturesNV()
         {
@@ -15791,7 +15801,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceRepresentativeFragmentTestFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            RepresentativeFragmentTest = _internal.representativeFragmentTest;
+            RepresentativeFragmentTest = System.Convert.ToBoolean(_internal.representativeFragmentTest);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceRepresentativeFragmentTestFeaturesNv;
@@ -15801,14 +15811,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.representativeFragmentTest = RepresentativeFragmentTest;
+            _internal.representativeFragmentTest = System.Convert.ToUInt32(RepresentativeFragmentTest);
             return _internal;
         }
     }
 
-    public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : DisposableObject
+    public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : VulkanDisposableObject
     {
         public PipelineRepresentativeFragmentTestStateCreateInfoNV()
         {
@@ -15817,7 +15827,7 @@ namespace AdamantiumVulkan.Core
         public PipelineRepresentativeFragmentTestStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV _internal)
         {
             PNext = _internal.pNext;
-            RepresentativeFragmentTestEnable = _internal.representativeFragmentTestEnable;
+            RepresentativeFragmentTestEnable = System.Convert.ToBoolean(_internal.representativeFragmentTestEnable);
         }
 
         public StructureType SType => StructureType.PipelineRepresentativeFragmentTestStateCreateInfoNv;
@@ -15827,14 +15837,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.representativeFragmentTestEnable = RepresentativeFragmentTestEnable;
+            _internal.representativeFragmentTestEnable = System.Convert.ToUInt32(RepresentativeFragmentTestEnable);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceImageViewImageFormatInfoEXT : DisposableObject
+    public partial class PhysicalDeviceImageViewImageFormatInfoEXT : VulkanDisposableObject
     {
         public PhysicalDeviceImageViewImageFormatInfoEXT()
         {
@@ -15853,14 +15863,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.imageViewType = ImageViewType;
+            _internal.imageViewType = (uint)ImageViewType;
             return _internal;
         }
     }
 
-    public partial class FilterCubicImageViewImageFormatPropertiesEXT : DisposableObject
+    public partial class FilterCubicImageViewImageFormatPropertiesEXT : VulkanDisposableObject
     {
         public FilterCubicImageViewImageFormatPropertiesEXT()
         {
@@ -15869,8 +15879,8 @@ namespace AdamantiumVulkan.Core
         public FilterCubicImageViewImageFormatPropertiesEXT(AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT _internal)
         {
             PNext = _internal.pNext;
-            FilterCubic = _internal.filterCubic;
-            FilterCubicMinmax = _internal.filterCubicMinmax;
+            FilterCubic = System.Convert.ToBoolean(_internal.filterCubic);
+            FilterCubicMinmax = System.Convert.ToBoolean(_internal.filterCubicMinmax);
         }
 
         public StructureType SType => StructureType.FilterCubicImageViewImageFormatPropertiesExt;
@@ -15881,15 +15891,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.filterCubic = FilterCubic;
-            _internal.filterCubicMinmax = FilterCubicMinmax;
+            _internal.filterCubic = System.Convert.ToUInt32(FilterCubic);
+            _internal.filterCubicMinmax = System.Convert.ToUInt32(FilterCubicMinmax);
             return _internal;
         }
     }
 
-    public partial class DeviceQueueGlobalPriorityCreateInfoEXT : DisposableObject
+    public partial class DeviceQueueGlobalPriorityCreateInfoEXT : VulkanDisposableObject
     {
         public DeviceQueueGlobalPriorityCreateInfoEXT()
         {
@@ -15908,14 +15918,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.globalPriority = GlobalPriority;
+            _internal.globalPriority = (uint)GlobalPriority;
             return _internal;
         }
     }
 
-    public partial class ImportMemoryHostPointerInfoEXT : DisposableObject
+    public partial class ImportMemoryHostPointerInfoEXT : VulkanDisposableObject
     {
         public ImportMemoryHostPointerInfoEXT()
         {
@@ -15936,15 +15946,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.pHostPointer = PHostPointer;
             return _internal;
         }
     }
 
-    public partial class MemoryHostPointerPropertiesEXT : DisposableObject
+    public partial class MemoryHostPointerPropertiesEXT : VulkanDisposableObject
     {
         public MemoryHostPointerPropertiesEXT()
         {
@@ -15963,14 +15973,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceExternalMemoryHostPropertiesEXT()
         {
@@ -15989,14 +15999,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.minImportedHostPointerAlignment = MinImportedHostPointerAlignment;
             return _internal;
         }
     }
 
-    public partial class PipelineCompilerControlCreateInfoAMD : DisposableObject
+    public partial class PipelineCompilerControlCreateInfoAMD : VulkanDisposableObject
     {
         public PipelineCompilerControlCreateInfoAMD()
         {
@@ -16016,14 +16026,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.compilerControlFlags = CompilerControlFlags;
             return _internal;
         }
     }
 
-    public partial class CalibratedTimestampInfoEXT : DisposableObject
+    public partial class CalibratedTimestampInfoEXT : VulkanDisposableObject
     {
         public CalibratedTimestampInfoEXT()
         {
@@ -16042,14 +16052,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.timeDomain = TimeDomain;
+            _internal.timeDomain = (uint)TimeDomain;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderCorePropertiesAMD : DisposableObject
+    public partial class PhysicalDeviceShaderCorePropertiesAMD : VulkanDisposableObject
     {
         public PhysicalDeviceShaderCorePropertiesAMD()
         {
@@ -16094,7 +16104,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.shaderEngineCount = ShaderEngineCount;
             _internal.shaderArraysPerEngineCount = ShaderArraysPerEngineCount;
@@ -16114,7 +16124,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceMemoryOverallocationCreateInfoAMD : DisposableObject
+    public partial class DeviceMemoryOverallocationCreateInfoAMD : VulkanDisposableObject
     {
         public DeviceMemoryOverallocationCreateInfoAMD()
         {
@@ -16133,14 +16143,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.overallocationBehavior = OverallocationBehavior;
+            _internal.overallocationBehavior = (uint)OverallocationBehavior;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceVertexAttributeDivisorPropertiesEXT()
         {
@@ -16159,7 +16169,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
             return _internal;
@@ -16190,7 +16200,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineVertexInputDivisorStateCreateInfoEXT : DisposableObject
+    public partial class PipelineVertexInputDivisorStateCreateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpVertexBindingDivisors;
 
@@ -16214,7 +16224,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.vertexBindingDivisorCount = VertexBindingDivisorCount;
             refpVertexBindingDivisors?.Dispose();
@@ -16234,7 +16244,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceVertexAttributeDivisorFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceVertexAttributeDivisorFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceVertexAttributeDivisorFeaturesEXT()
         {
@@ -16243,8 +16253,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceVertexAttributeDivisorFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            VertexAttributeInstanceRateDivisor = _internal.vertexAttributeInstanceRateDivisor;
-            VertexAttributeInstanceRateZeroDivisor = _internal.vertexAttributeInstanceRateZeroDivisor;
+            VertexAttributeInstanceRateDivisor = System.Convert.ToBoolean(_internal.vertexAttributeInstanceRateDivisor);
+            VertexAttributeInstanceRateZeroDivisor = System.Convert.ToBoolean(_internal.vertexAttributeInstanceRateZeroDivisor);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceVertexAttributeDivisorFeaturesExt;
@@ -16255,10 +16265,10 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.vertexAttributeInstanceRateDivisor = VertexAttributeInstanceRateDivisor;
-            _internal.vertexAttributeInstanceRateZeroDivisor = VertexAttributeInstanceRateZeroDivisor;
+            _internal.vertexAttributeInstanceRateDivisor = System.Convert.ToUInt32(VertexAttributeInstanceRateDivisor);
+            _internal.vertexAttributeInstanceRateZeroDivisor = System.Convert.ToUInt32(VertexAttributeInstanceRateZeroDivisor);
             return _internal;
         }
     }
@@ -16287,7 +16297,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineCreationFeedbackCreateInfoEXT : DisposableObject
+    public partial class PipelineCreationFeedbackCreateInfoEXT : VulkanDisposableObject
     {
         private StructReference refpPipelineCreationFeedback;
 
@@ -16317,7 +16327,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpPipelineCreationFeedback?.Dispose();
             if (PPipelineCreationFeedback != null)
@@ -16345,7 +16355,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceComputeShaderDerivativesFeaturesNV()
         {
@@ -16354,8 +16364,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceComputeShaderDerivativesFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            ComputeDerivativeGroupQuads = _internal.computeDerivativeGroupQuads;
-            ComputeDerivativeGroupLinear = _internal.computeDerivativeGroupLinear;
+            ComputeDerivativeGroupQuads = System.Convert.ToBoolean(_internal.computeDerivativeGroupQuads);
+            ComputeDerivativeGroupLinear = System.Convert.ToBoolean(_internal.computeDerivativeGroupLinear);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceComputeShaderDerivativesFeaturesNv;
@@ -16366,15 +16376,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.computeDerivativeGroupQuads = ComputeDerivativeGroupQuads;
-            _internal.computeDerivativeGroupLinear = ComputeDerivativeGroupLinear;
+            _internal.computeDerivativeGroupQuads = System.Convert.ToUInt32(ComputeDerivativeGroupQuads);
+            _internal.computeDerivativeGroupLinear = System.Convert.ToUInt32(ComputeDerivativeGroupLinear);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceMeshShaderFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceMeshShaderFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceMeshShaderFeaturesNV()
         {
@@ -16383,8 +16393,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceMeshShaderFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            TaskShader = _internal.taskShader;
-            MeshShader = _internal.meshShader;
+            TaskShader = System.Convert.ToBoolean(_internal.taskShader);
+            MeshShader = System.Convert.ToBoolean(_internal.meshShader);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceMeshShaderFeaturesNv;
@@ -16395,15 +16405,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.taskShader = TaskShader;
-            _internal.meshShader = MeshShader;
+            _internal.taskShader = System.Convert.ToUInt32(TaskShader);
+            _internal.meshShader = System.Convert.ToUInt32(MeshShader);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceMeshShaderPropertiesNV : DisposableObject
+    public partial class PhysicalDeviceMeshShaderPropertiesNV : VulkanDisposableObject
     {
         public PhysicalDeviceMeshShaderPropertiesNV()
         {
@@ -16462,7 +16472,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.maxDrawMeshTasksCount = MaxDrawMeshTasksCount;
             _internal.maxTaskWorkGroupInvocations = MaxTaskWorkGroupInvocations;
@@ -16537,7 +16547,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFragmentShaderBarycentricFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceFragmentShaderBarycentricFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceFragmentShaderBarycentricFeaturesNV()
         {
@@ -16546,7 +16556,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceFragmentShaderBarycentricFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            FragmentShaderBarycentric = _internal.fragmentShaderBarycentric;
+            FragmentShaderBarycentric = System.Convert.ToBoolean(_internal.fragmentShaderBarycentric);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceFragmentShaderBarycentricFeaturesNv;
@@ -16556,14 +16566,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.fragmentShaderBarycentric = FragmentShaderBarycentric;
+            _internal.fragmentShaderBarycentric = System.Convert.ToUInt32(FragmentShaderBarycentric);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceShaderImageFootprintFeaturesNV()
         {
@@ -16572,7 +16582,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceShaderImageFootprintFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            ImageFootprint = _internal.imageFootprint;
+            ImageFootprint = System.Convert.ToBoolean(_internal.imageFootprint);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceShaderImageFootprintFeaturesNv;
@@ -16582,14 +16592,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.imageFootprint = ImageFootprint;
+            _internal.imageFootprint = System.Convert.ToUInt32(ImageFootprint);
             return _internal;
         }
     }
 
-    public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : DisposableObject
+    public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : VulkanDisposableObject
     {
         private StructReference refpExclusiveScissors;
 
@@ -16613,7 +16623,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.exclusiveScissorCount = ExclusiveScissorCount;
             refpExclusiveScissors?.Dispose();
@@ -16633,7 +16643,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceExclusiveScissorFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceExclusiveScissorFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceExclusiveScissorFeaturesNV()
         {
@@ -16642,7 +16652,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceExclusiveScissorFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            ExclusiveScissor = _internal.exclusiveScissor;
+            ExclusiveScissor = System.Convert.ToBoolean(_internal.exclusiveScissor);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceExclusiveScissorFeaturesNv;
@@ -16652,14 +16662,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.exclusiveScissor = ExclusiveScissor;
+            _internal.exclusiveScissor = System.Convert.ToUInt32(ExclusiveScissor);
             return _internal;
         }
     }
 
-    public partial class QueueFamilyCheckpointPropertiesNV : DisposableObject
+    public partial class QueueFamilyCheckpointPropertiesNV : VulkanDisposableObject
     {
         public QueueFamilyCheckpointPropertiesNV()
         {
@@ -16678,14 +16688,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.checkpointExecutionStageMask = CheckpointExecutionStageMask;
             return _internal;
         }
     }
 
-    public partial class CheckpointDataNV : DisposableObject
+    public partial class CheckpointDataNV : VulkanDisposableObject
     {
         public CheckpointDataNV()
         {
@@ -16706,15 +16716,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCheckpointDataNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCheckpointDataNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.stage = Stage;
+            _internal.stage = (uint)Stage;
             _internal.pCheckpointMarker = PCheckpointMarker;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL : DisposableObject
+    public partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL : VulkanDisposableObject
     {
         public PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL()
         {
@@ -16724,7 +16734,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            ShaderIntegerFunctions2 = _internal.shaderIntegerFunctions2;
+            ShaderIntegerFunctions2 = System.Convert.ToBoolean(_internal.shaderIntegerFunctions2);
         }
 
         public StructureType SType { get; set; }
@@ -16734,9 +16744,9 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderIntegerFunctions2 = ShaderIntegerFunctions2;
+            _internal.shaderIntegerFunctions2 = System.Convert.ToUInt32(ShaderIntegerFunctions2);
             return _internal;
         }
     }
@@ -16759,7 +16769,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL();
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             if (Data != null)
             {
                 _internal.data = Data.ToInternal();
@@ -16768,7 +16778,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class InitializePerformanceApiInfoINTEL : DisposableObject
+    public partial class InitializePerformanceApiInfoINTEL : VulkanDisposableObject
     {
         public InitializePerformanceApiInfoINTEL()
         {
@@ -16788,14 +16798,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.pUserData = PUserData;
             return _internal;
         }
     }
 
-    public partial class QueryPoolCreateInfoINTEL : DisposableObject
+    public partial class QueryPoolCreateInfoINTEL : VulkanDisposableObject
     {
         public QueryPoolCreateInfoINTEL()
         {
@@ -16815,14 +16825,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfoINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfoINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.performanceCountersSampling = PerformanceCountersSampling;
+            _internal.performanceCountersSampling = (uint)PerformanceCountersSampling;
             return _internal;
         }
     }
 
-    public partial class PerformanceMarkerInfoINTEL : DisposableObject
+    public partial class PerformanceMarkerInfoINTEL : VulkanDisposableObject
     {
         public PerformanceMarkerInfoINTEL()
         {
@@ -16842,14 +16852,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.marker = Marker;
             return _internal;
         }
     }
 
-    public partial class PerformanceStreamMarkerInfoINTEL : DisposableObject
+    public partial class PerformanceStreamMarkerInfoINTEL : VulkanDisposableObject
     {
         public PerformanceStreamMarkerInfoINTEL()
         {
@@ -16869,14 +16879,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.marker = Marker;
             return _internal;
         }
     }
 
-    public partial class PerformanceOverrideInfoINTEL : DisposableObject
+    public partial class PerformanceOverrideInfoINTEL : VulkanDisposableObject
     {
         public PerformanceOverrideInfoINTEL()
         {
@@ -16887,7 +16897,7 @@ namespace AdamantiumVulkan.Core
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             Type = (PerformanceOverrideTypeINTEL)_internal.type;
-            Enable = _internal.enable;
+            Enable = System.Convert.ToBoolean(_internal.enable);
             Parameter = _internal.parameter;
         }
 
@@ -16900,16 +16910,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.type = Type;
-            _internal.enable = Enable;
+            _internal.type = (uint)Type;
+            _internal.enable = System.Convert.ToUInt32(Enable);
             _internal.parameter = Parameter;
             return _internal;
         }
     }
 
-    public partial class PerformanceConfigurationAcquireInfoINTEL : DisposableObject
+    public partial class PerformanceConfigurationAcquireInfoINTEL : VulkanDisposableObject
     {
         public PerformanceConfigurationAcquireInfoINTEL()
         {
@@ -16929,14 +16939,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.type = Type;
+            _internal.type = (uint)Type;
             return _internal;
         }
     }
 
-    public partial class PhysicalDevicePCIBusInfoPropertiesEXT : DisposableObject
+    public partial class PhysicalDevicePCIBusInfoPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDevicePCIBusInfoPropertiesEXT()
         {
@@ -16961,7 +16971,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.pciDomain = PciDomain;
             _internal.pciBus = PciBus;
@@ -16971,7 +16981,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayNativeHdrSurfaceCapabilitiesAMD : DisposableObject
+    public partial class DisplayNativeHdrSurfaceCapabilitiesAMD : VulkanDisposableObject
     {
         public DisplayNativeHdrSurfaceCapabilitiesAMD()
         {
@@ -16981,7 +16991,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            LocalDimmingSupport = _internal.localDimmingSupport;
+            LocalDimmingSupport = System.Convert.ToBoolean(_internal.localDimmingSupport);
         }
 
         public StructureType SType { get; set; }
@@ -16991,14 +17001,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.localDimmingSupport = LocalDimmingSupport;
+            _internal.localDimmingSupport = System.Convert.ToUInt32(LocalDimmingSupport);
             return _internal;
         }
     }
 
-    public partial class SwapchainDisplayNativeHdrCreateInfoAMD : DisposableObject
+    public partial class SwapchainDisplayNativeHdrCreateInfoAMD : VulkanDisposableObject
     {
         public SwapchainDisplayNativeHdrCreateInfoAMD()
         {
@@ -17008,7 +17018,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            LocalDimmingEnable = _internal.localDimmingEnable;
+            LocalDimmingEnable = System.Convert.ToBoolean(_internal.localDimmingEnable);
         }
 
         public StructureType SType { get; set; }
@@ -17018,14 +17028,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.localDimmingEnable = LocalDimmingEnable;
+            _internal.localDimmingEnable = System.Convert.ToUInt32(LocalDimmingEnable);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceFragmentDensityMapFeaturesEXT()
         {
@@ -17034,9 +17044,9 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceFragmentDensityMapFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            FragmentDensityMap = _internal.fragmentDensityMap;
-            FragmentDensityMapDynamic = _internal.fragmentDensityMapDynamic;
-            FragmentDensityMapNonSubsampledImages = _internal.fragmentDensityMapNonSubsampledImages;
+            FragmentDensityMap = System.Convert.ToBoolean(_internal.fragmentDensityMap);
+            FragmentDensityMapDynamic = System.Convert.ToBoolean(_internal.fragmentDensityMapDynamic);
+            FragmentDensityMapNonSubsampledImages = System.Convert.ToBoolean(_internal.fragmentDensityMapNonSubsampledImages);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceFragmentDensityMapFeaturesExt;
@@ -17048,16 +17058,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.fragmentDensityMap = FragmentDensityMap;
-            _internal.fragmentDensityMapDynamic = FragmentDensityMapDynamic;
-            _internal.fragmentDensityMapNonSubsampledImages = FragmentDensityMapNonSubsampledImages;
+            _internal.fragmentDensityMap = System.Convert.ToUInt32(FragmentDensityMap);
+            _internal.fragmentDensityMapDynamic = System.Convert.ToUInt32(FragmentDensityMapDynamic);
+            _internal.fragmentDensityMapNonSubsampledImages = System.Convert.ToUInt32(FragmentDensityMapNonSubsampledImages);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceFragmentDensityMapPropertiesEXT()
         {
@@ -17068,7 +17078,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             MinFragmentDensityTexelSize = new Extent2D(_internal.minFragmentDensityTexelSize);
             MaxFragmentDensityTexelSize = new Extent2D(_internal.maxFragmentDensityTexelSize);
-            FragmentDensityInvocations = _internal.fragmentDensityInvocations;
+            FragmentDensityInvocations = System.Convert.ToBoolean(_internal.fragmentDensityInvocations);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceFragmentDensityMapPropertiesExt;
@@ -17080,7 +17090,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (MinFragmentDensityTexelSize != null)
             {
@@ -17090,12 +17100,12 @@ namespace AdamantiumVulkan.Core
             {
                 _internal.maxFragmentDensityTexelSize = MaxFragmentDensityTexelSize.ToInternal();
             }
-            _internal.fragmentDensityInvocations = FragmentDensityInvocations;
+            _internal.fragmentDensityInvocations = System.Convert.ToUInt32(FragmentDensityInvocations);
             return _internal;
         }
     }
 
-    public partial class RenderPassFragmentDensityMapCreateInfoEXT : DisposableObject
+    public partial class RenderPassFragmentDensityMapCreateInfoEXT : VulkanDisposableObject
     {
         public RenderPassFragmentDensityMapCreateInfoEXT()
         {
@@ -17114,7 +17124,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if (FragmentDensityMapAttachment != null)
             {
@@ -17124,7 +17134,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceScalarBlockLayoutFeaturesEXT()
         {
@@ -17133,7 +17143,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceScalarBlockLayoutFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            ScalarBlockLayout = _internal.scalarBlockLayout;
+            ScalarBlockLayout = System.Convert.ToBoolean(_internal.scalarBlockLayout);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceScalarBlockLayoutFeaturesExt;
@@ -17143,14 +17153,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.scalarBlockLayout = ScalarBlockLayout;
+            _internal.scalarBlockLayout = System.Convert.ToUInt32(ScalarBlockLayout);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceSubgroupSizeControlFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceSubgroupSizeControlFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceSubgroupSizeControlFeaturesEXT()
         {
@@ -17160,8 +17170,8 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            SubgroupSizeControl = _internal.subgroupSizeControl;
-            ComputeFullSubgroups = _internal.computeFullSubgroups;
+            SubgroupSizeControl = System.Convert.ToBoolean(_internal.subgroupSizeControl);
+            ComputeFullSubgroups = System.Convert.ToBoolean(_internal.computeFullSubgroups);
         }
 
         public StructureType SType { get; set; }
@@ -17172,15 +17182,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.subgroupSizeControl = SubgroupSizeControl;
-            _internal.computeFullSubgroups = ComputeFullSubgroups;
+            _internal.subgroupSizeControl = System.Convert.ToUInt32(SubgroupSizeControl);
+            _internal.computeFullSubgroups = System.Convert.ToUInt32(ComputeFullSubgroups);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceSubgroupSizeControlPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceSubgroupSizeControlPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceSubgroupSizeControlPropertiesEXT()
         {
@@ -17206,7 +17216,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.minSubgroupSize = MinSubgroupSize;
             _internal.maxSubgroupSize = MaxSubgroupSize;
@@ -17216,7 +17226,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT : DisposableObject
+    public partial class PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT()
         {
@@ -17236,14 +17246,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.requiredSubgroupSize = RequiredSubgroupSize;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderCoreProperties2AMD : DisposableObject
+    public partial class PhysicalDeviceShaderCoreProperties2AMD : VulkanDisposableObject
     {
         public PhysicalDeviceShaderCoreProperties2AMD()
         {
@@ -17265,7 +17275,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.shaderCoreFeatures = ShaderCoreFeatures;
             _internal.activeComputeUnitCount = ActiveComputeUnitCount;
@@ -17273,7 +17283,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCoherentMemoryFeaturesAMD : DisposableObject
+    public partial class PhysicalDeviceCoherentMemoryFeaturesAMD : VulkanDisposableObject
     {
         public PhysicalDeviceCoherentMemoryFeaturesAMD()
         {
@@ -17283,7 +17293,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            DeviceCoherentMemory = _internal.deviceCoherentMemory;
+            DeviceCoherentMemory = System.Convert.ToBoolean(_internal.deviceCoherentMemory);
         }
 
         public StructureType SType { get; set; }
@@ -17293,14 +17303,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.deviceCoherentMemory = DeviceCoherentMemory;
+            _internal.deviceCoherentMemory = System.Convert.ToUInt32(DeviceCoherentMemory);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceMemoryBudgetPropertiesEXT()
         {
@@ -17337,7 +17347,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             if(HeapBudget != null)
             {
@@ -17377,7 +17387,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceMemoryPriorityFeaturesEXT()
         {
@@ -17386,7 +17396,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceMemoryPriorityFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            MemoryPriority = _internal.memoryPriority;
+            MemoryPriority = System.Convert.ToBoolean(_internal.memoryPriority);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceMemoryPriorityFeaturesExt;
@@ -17396,14 +17406,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.memoryPriority = MemoryPriority;
+            _internal.memoryPriority = System.Convert.ToUInt32(MemoryPriority);
             return _internal;
         }
     }
 
-    public partial class MemoryPriorityAllocateInfoEXT : DisposableObject
+    public partial class MemoryPriorityAllocateInfoEXT : VulkanDisposableObject
     {
         public MemoryPriorityAllocateInfoEXT()
         {
@@ -17422,14 +17432,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.priority = Priority;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV()
         {
@@ -17438,7 +17448,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            DedicatedAllocationImageAliasing = _internal.dedicatedAllocationImageAliasing;
+            DedicatedAllocationImageAliasing = System.Convert.ToBoolean(_internal.dedicatedAllocationImageAliasing);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNv;
@@ -17448,14 +17458,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.dedicatedAllocationImageAliasing = DedicatedAllocationImageAliasing;
+            _internal.dedicatedAllocationImageAliasing = System.Convert.ToUInt32(DedicatedAllocationImageAliasing);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceBufferDeviceAddressFeaturesEXT()
         {
@@ -17464,9 +17474,9 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceBufferDeviceAddressFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT _internal)
         {
             PNext = _internal.pNext;
-            BufferDeviceAddress = _internal.bufferDeviceAddress;
-            BufferDeviceAddressCaptureReplay = _internal.bufferDeviceAddressCaptureReplay;
-            BufferDeviceAddressMultiDevice = _internal.bufferDeviceAddressMultiDevice;
+            BufferDeviceAddress = System.Convert.ToBoolean(_internal.bufferDeviceAddress);
+            BufferDeviceAddressCaptureReplay = System.Convert.ToBoolean(_internal.bufferDeviceAddressCaptureReplay);
+            BufferDeviceAddressMultiDevice = System.Convert.ToBoolean(_internal.bufferDeviceAddressMultiDevice);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceBufferDeviceAddressFeaturesExt;
@@ -17478,16 +17488,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.bufferDeviceAddress = BufferDeviceAddress;
-            _internal.bufferDeviceAddressCaptureReplay = BufferDeviceAddressCaptureReplay;
-            _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
+            _internal.bufferDeviceAddress = System.Convert.ToUInt32(BufferDeviceAddress);
+            _internal.bufferDeviceAddressCaptureReplay = System.Convert.ToUInt32(BufferDeviceAddressCaptureReplay);
+            _internal.bufferDeviceAddressMultiDevice = System.Convert.ToUInt32(BufferDeviceAddressMultiDevice);
             return _internal;
         }
     }
 
-    public partial class BufferDeviceAddressInfoEXT : DisposableObject
+    public partial class BufferDeviceAddressInfoEXT : VulkanDisposableObject
     {
         public BufferDeviceAddressInfoEXT()
         {
@@ -17506,14 +17516,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.buffer = Buffer;
             return _internal;
         }
     }
 
-    public partial class BufferDeviceAddressCreateInfoEXT : DisposableObject
+    public partial class BufferDeviceAddressCreateInfoEXT : VulkanDisposableObject
     {
         public BufferDeviceAddressCreateInfoEXT()
         {
@@ -17532,14 +17542,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.deviceAddress = DeviceAddress;
             return _internal;
         }
     }
 
-    public partial class ImageStencilUsageCreateInfoEXT : DisposableObject
+    public partial class ImageStencilUsageCreateInfoEXT : VulkanDisposableObject
     {
         public ImageStencilUsageCreateInfoEXT()
         {
@@ -17558,14 +17568,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.stencilUsage = StencilUsage;
             return _internal;
         }
     }
 
-    public partial class ValidationFeaturesEXT : DisposableObject
+    public partial class ValidationFeaturesEXT : VulkanDisposableObject
     {
         private GCHandleReference refpEnabledValidationFeatures;
 
@@ -17579,8 +17589,8 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             EnabledValidationFeatureCount = _internal.enabledValidationFeatureCount;
-            var tmppEnabledValidationFeatures = new int[_internal.enabledValidationFeatureCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pEnabledValidationFeatures, tmppEnabledValidationFeatures);
+            var tmppEnabledValidationFeatures = new uint[_internal.enabledValidationFeatureCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pEnabledValidationFeatures, tmppEnabledValidationFeatures);
             Marshal.FreeHGlobal(_internal.pEnabledValidationFeatures);
             PEnabledValidationFeatures = new AdamantiumVulkan.Core.ValidationFeatureEnableEXT[_internal.enabledValidationFeatureCount];
             for (int i = 0; i < tmppEnabledValidationFeatures.Length; ++i)
@@ -17588,8 +17598,8 @@ namespace AdamantiumVulkan.Core
                 PEnabledValidationFeatures[i] = (AdamantiumVulkan.Core.ValidationFeatureEnableEXT)tmppEnabledValidationFeatures[i];
             }
             DisabledValidationFeatureCount = _internal.disabledValidationFeatureCount;
-            var tmppDisabledValidationFeatures = new int[_internal.disabledValidationFeatureCount];
-            MarshalUtils.IntPtrToManagedArray<int>(_internal.pDisabledValidationFeatures, tmppDisabledValidationFeatures);
+            var tmppDisabledValidationFeatures = new uint[_internal.disabledValidationFeatureCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pDisabledValidationFeatures, tmppDisabledValidationFeatures);
             Marshal.FreeHGlobal(_internal.pDisabledValidationFeatures);
             PDisabledValidationFeatures = new AdamantiumVulkan.Core.ValidationFeatureDisableEXT[_internal.disabledValidationFeatureCount];
             for (int i = 0; i < tmppDisabledValidationFeatures.Length; ++i)
@@ -17608,7 +17618,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.enabledValidationFeatureCount = EnabledValidationFeatureCount;
             refpEnabledValidationFeatures?.Dispose();
@@ -17645,7 +17655,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CooperativeMatrixPropertiesNV : DisposableObject
+    public partial class CooperativeMatrixPropertiesNV : VulkanDisposableObject
     {
         public CooperativeMatrixPropertiesNV()
         {
@@ -17678,21 +17688,21 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.MSize = MSize;
             _internal.NSize = NSize;
             _internal.KSize = KSize;
-            _internal.AType = AType;
-            _internal.BType = BType;
-            _internal.CType = CType;
-            _internal.DType = DType;
-            _internal.scope = Scope;
+            _internal.AType = (uint)AType;
+            _internal.BType = (uint)BType;
+            _internal.CType = (uint)CType;
+            _internal.DType = (uint)DType;
+            _internal.scope = (uint)Scope;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceCooperativeMatrixFeaturesNV()
         {
@@ -17701,8 +17711,8 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceCooperativeMatrixFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV _internal)
         {
             PNext = _internal.pNext;
-            CooperativeMatrix = _internal.cooperativeMatrix;
-            CooperativeMatrixRobustBufferAccess = _internal.cooperativeMatrixRobustBufferAccess;
+            CooperativeMatrix = System.Convert.ToBoolean(_internal.cooperativeMatrix);
+            CooperativeMatrixRobustBufferAccess = System.Convert.ToBoolean(_internal.cooperativeMatrixRobustBufferAccess);
         }
 
         public StructureType SType => StructureType.PhysicalDeviceCooperativeMatrixFeaturesNv;
@@ -17713,15 +17723,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.cooperativeMatrix = CooperativeMatrix;
-            _internal.cooperativeMatrixRobustBufferAccess = CooperativeMatrixRobustBufferAccess;
+            _internal.cooperativeMatrix = System.Convert.ToUInt32(CooperativeMatrix);
+            _internal.cooperativeMatrixRobustBufferAccess = System.Convert.ToUInt32(CooperativeMatrixRobustBufferAccess);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : DisposableObject
+    public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : VulkanDisposableObject
     {
         public PhysicalDeviceCooperativeMatrixPropertiesNV()
         {
@@ -17740,14 +17750,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixPropertiesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixPropertiesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.cooperativeMatrixSupportedStages = CooperativeMatrixSupportedStages;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceCoverageReductionModeFeaturesNV : DisposableObject
+    public partial class PhysicalDeviceCoverageReductionModeFeaturesNV : VulkanDisposableObject
     {
         public PhysicalDeviceCoverageReductionModeFeaturesNV()
         {
@@ -17757,7 +17767,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            CoverageReductionMode = _internal.coverageReductionMode;
+            CoverageReductionMode = System.Convert.ToBoolean(_internal.coverageReductionMode);
         }
 
         public StructureType SType { get; set; }
@@ -17767,14 +17777,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.coverageReductionMode = CoverageReductionMode;
+            _internal.coverageReductionMode = System.Convert.ToUInt32(CoverageReductionMode);
             return _internal;
         }
     }
 
-    public partial class PipelineCoverageReductionStateCreateInfoNV : DisposableObject
+    public partial class PipelineCoverageReductionStateCreateInfoNV : VulkanDisposableObject
     {
         public PipelineCoverageReductionStateCreateInfoNV()
         {
@@ -17796,15 +17806,15 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
-            _internal.coverageReductionMode = CoverageReductionMode;
+            _internal.coverageReductionMode = (uint)CoverageReductionMode;
             return _internal;
         }
     }
 
-    public partial class FramebufferMixedSamplesCombinationNV : DisposableObject
+    public partial class FramebufferMixedSamplesCombinationNV : VulkanDisposableObject
     {
         public FramebufferMixedSamplesCombinationNV()
         {
@@ -17830,17 +17840,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.coverageReductionMode = CoverageReductionMode;
-            _internal.rasterizationSamples = RasterizationSamples;
+            _internal.coverageReductionMode = (uint)CoverageReductionMode;
+            _internal.rasterizationSamples = (uint)RasterizationSamples;
             _internal.depthStencilSamples = DepthStencilSamples;
             _internal.colorSamples = ColorSamples;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceFragmentShaderInterlockFeaturesEXT()
         {
@@ -17850,9 +17860,9 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            FragmentShaderSampleInterlock = _internal.fragmentShaderSampleInterlock;
-            FragmentShaderPixelInterlock = _internal.fragmentShaderPixelInterlock;
-            FragmentShaderShadingRateInterlock = _internal.fragmentShaderShadingRateInterlock;
+            FragmentShaderSampleInterlock = System.Convert.ToBoolean(_internal.fragmentShaderSampleInterlock);
+            FragmentShaderPixelInterlock = System.Convert.ToBoolean(_internal.fragmentShaderPixelInterlock);
+            FragmentShaderShadingRateInterlock = System.Convert.ToBoolean(_internal.fragmentShaderShadingRateInterlock);
         }
 
         public StructureType SType { get; set; }
@@ -17864,16 +17874,16 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.fragmentShaderSampleInterlock = FragmentShaderSampleInterlock;
-            _internal.fragmentShaderPixelInterlock = FragmentShaderPixelInterlock;
-            _internal.fragmentShaderShadingRateInterlock = FragmentShaderShadingRateInterlock;
+            _internal.fragmentShaderSampleInterlock = System.Convert.ToUInt32(FragmentShaderSampleInterlock);
+            _internal.fragmentShaderPixelInterlock = System.Convert.ToUInt32(FragmentShaderPixelInterlock);
+            _internal.fragmentShaderShadingRateInterlock = System.Convert.ToUInt32(FragmentShaderShadingRateInterlock);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceYcbcrImageArraysFeaturesEXT()
         {
@@ -17883,7 +17893,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            YcbcrImageArrays = _internal.ycbcrImageArrays;
+            YcbcrImageArrays = System.Convert.ToBoolean(_internal.ycbcrImageArrays);
         }
 
         public StructureType SType { get; set; }
@@ -17893,14 +17903,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.ycbcrImageArrays = YcbcrImageArrays;
+            _internal.ycbcrImageArrays = System.Convert.ToUInt32(YcbcrImageArrays);
             return _internal;
         }
     }
 
-    public partial class HeadlessSurfaceCreateInfoEXT : DisposableObject
+    public partial class HeadlessSurfaceCreateInfoEXT : VulkanDisposableObject
     {
         public HeadlessSurfaceCreateInfoEXT()
         {
@@ -17919,14 +17929,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceLineRasterizationFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceLineRasterizationFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceLineRasterizationFeaturesEXT()
         {
@@ -17936,12 +17946,12 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            RectangularLines = _internal.rectangularLines;
-            BresenhamLines = _internal.bresenhamLines;
-            SmoothLines = _internal.smoothLines;
-            StippledRectangularLines = _internal.stippledRectangularLines;
-            StippledBresenhamLines = _internal.stippledBresenhamLines;
-            StippledSmoothLines = _internal.stippledSmoothLines;
+            RectangularLines = System.Convert.ToBoolean(_internal.rectangularLines);
+            BresenhamLines = System.Convert.ToBoolean(_internal.bresenhamLines);
+            SmoothLines = System.Convert.ToBoolean(_internal.smoothLines);
+            StippledRectangularLines = System.Convert.ToBoolean(_internal.stippledRectangularLines);
+            StippledBresenhamLines = System.Convert.ToBoolean(_internal.stippledBresenhamLines);
+            StippledSmoothLines = System.Convert.ToBoolean(_internal.stippledSmoothLines);
         }
 
         public StructureType SType { get; set; }
@@ -17956,19 +17966,19 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.rectangularLines = RectangularLines;
-            _internal.bresenhamLines = BresenhamLines;
-            _internal.smoothLines = SmoothLines;
-            _internal.stippledRectangularLines = StippledRectangularLines;
-            _internal.stippledBresenhamLines = StippledBresenhamLines;
-            _internal.stippledSmoothLines = StippledSmoothLines;
+            _internal.rectangularLines = System.Convert.ToUInt32(RectangularLines);
+            _internal.bresenhamLines = System.Convert.ToUInt32(BresenhamLines);
+            _internal.smoothLines = System.Convert.ToUInt32(SmoothLines);
+            _internal.stippledRectangularLines = System.Convert.ToUInt32(StippledRectangularLines);
+            _internal.stippledBresenhamLines = System.Convert.ToUInt32(StippledBresenhamLines);
+            _internal.stippledSmoothLines = System.Convert.ToUInt32(StippledSmoothLines);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceLineRasterizationPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceLineRasterizationPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceLineRasterizationPropertiesEXT()
         {
@@ -17988,14 +17998,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.lineSubPixelPrecisionBits = LineSubPixelPrecisionBits;
             return _internal;
         }
     }
 
-    public partial class PipelineRasterizationLineStateCreateInfoEXT : DisposableObject
+    public partial class PipelineRasterizationLineStateCreateInfoEXT : VulkanDisposableObject
     {
         public PipelineRasterizationLineStateCreateInfoEXT()
         {
@@ -18006,7 +18016,7 @@ namespace AdamantiumVulkan.Core
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             LineRasterizationMode = (LineRasterizationModeEXT)_internal.lineRasterizationMode;
-            StippledLineEnable = _internal.stippledLineEnable;
+            StippledLineEnable = System.Convert.ToBoolean(_internal.stippledLineEnable);
             LineStippleFactor = _internal.lineStippleFactor;
             LineStipplePattern = _internal.lineStipplePattern;
         }
@@ -18021,17 +18031,17 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.lineRasterizationMode = LineRasterizationMode;
-            _internal.stippledLineEnable = StippledLineEnable;
+            _internal.lineRasterizationMode = (uint)LineRasterizationMode;
+            _internal.stippledLineEnable = System.Convert.ToUInt32(StippledLineEnable);
             _internal.lineStippleFactor = LineStippleFactor;
             _internal.lineStipplePattern = LineStipplePattern;
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceHostQueryResetFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceHostQueryResetFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceHostQueryResetFeaturesEXT()
         {
@@ -18041,7 +18051,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            HostQueryReset = _internal.hostQueryReset;
+            HostQueryReset = System.Convert.ToBoolean(_internal.hostQueryReset);
         }
 
         public StructureType SType { get; set; }
@@ -18051,14 +18061,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.hostQueryReset = HostQueryReset;
+            _internal.hostQueryReset = System.Convert.ToUInt32(HostQueryReset);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceIndexTypeUint8FeaturesEXT()
         {
@@ -18068,7 +18078,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            IndexTypeUint8 = _internal.indexTypeUint8;
+            IndexTypeUint8 = System.Convert.ToBoolean(_internal.indexTypeUint8);
         }
 
         public StructureType SType { get; set; }
@@ -18078,14 +18088,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.indexTypeUint8 = IndexTypeUint8;
+            _internal.indexTypeUint8 = System.Convert.ToUInt32(IndexTypeUint8);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT()
         {
@@ -18095,7 +18105,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            ShaderDemoteToHelperInvocation = _internal.shaderDemoteToHelperInvocation;
+            ShaderDemoteToHelperInvocation = System.Convert.ToBoolean(_internal.shaderDemoteToHelperInvocation);
         }
 
         public StructureType SType { get; set; }
@@ -18105,14 +18115,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.shaderDemoteToHelperInvocation = ShaderDemoteToHelperInvocation;
+            _internal.shaderDemoteToHelperInvocation = System.Convert.ToUInt32(ShaderDemoteToHelperInvocation);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : DisposableObject
+    public partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceTexelBufferAlignmentFeaturesEXT()
         {
@@ -18122,7 +18132,7 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            TexelBufferAlignment = _internal.texelBufferAlignment;
+            TexelBufferAlignment = System.Convert.ToBoolean(_internal.texelBufferAlignment);
         }
 
         public StructureType SType { get; set; }
@@ -18132,14 +18142,14 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.texelBufferAlignment = TexelBufferAlignment;
+            _internal.texelBufferAlignment = System.Convert.ToUInt32(TexelBufferAlignment);
             return _internal;
         }
     }
 
-    public partial class PhysicalDeviceTexelBufferAlignmentPropertiesEXT : DisposableObject
+    public partial class PhysicalDeviceTexelBufferAlignmentPropertiesEXT : VulkanDisposableObject
     {
         public PhysicalDeviceTexelBufferAlignmentPropertiesEXT()
         {
@@ -18150,9 +18160,9 @@ namespace AdamantiumVulkan.Core
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             StorageTexelBufferOffsetAlignmentBytes = _internal.storageTexelBufferOffsetAlignmentBytes;
-            StorageTexelBufferOffsetSingleTexelAlignment = _internal.storageTexelBufferOffsetSingleTexelAlignment;
+            StorageTexelBufferOffsetSingleTexelAlignment = System.Convert.ToBoolean(_internal.storageTexelBufferOffsetSingleTexelAlignment);
             UniformTexelBufferOffsetAlignmentBytes = _internal.uniformTexelBufferOffsetAlignmentBytes;
-            UniformTexelBufferOffsetSingleTexelAlignment = _internal.uniformTexelBufferOffsetSingleTexelAlignment;
+            UniformTexelBufferOffsetSingleTexelAlignment = System.Convert.ToBoolean(_internal.uniformTexelBufferOffsetSingleTexelAlignment);
         }
 
         public StructureType SType { get; set; }
@@ -18165,12 +18175,12 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.storageTexelBufferOffsetAlignmentBytes = StorageTexelBufferOffsetAlignmentBytes;
-            _internal.storageTexelBufferOffsetSingleTexelAlignment = StorageTexelBufferOffsetSingleTexelAlignment;
+            _internal.storageTexelBufferOffsetSingleTexelAlignment = System.Convert.ToUInt32(StorageTexelBufferOffsetSingleTexelAlignment);
             _internal.uniformTexelBufferOffsetAlignmentBytes = UniformTexelBufferOffsetAlignmentBytes;
-            _internal.uniformTexelBufferOffsetSingleTexelAlignment = UniformTexelBufferOffsetSingleTexelAlignment;
+            _internal.uniformTexelBufferOffsetSingleTexelAlignment = System.Convert.ToUInt32(UniformTexelBufferOffsetSingleTexelAlignment);
             return _internal;
         }
     }

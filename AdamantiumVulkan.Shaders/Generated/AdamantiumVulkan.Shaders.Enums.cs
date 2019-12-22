@@ -10,7 +10,7 @@ namespace AdamantiumVulkan.Shaders
     using System;
     using System.Runtime.InteropServices;
 
-    public enum ShadercTargetEnv : int
+    public enum ShadercTargetEnv : uint
     {
         ///<summary>
         /// SPIR-V under Vulkan semantics
@@ -34,7 +34,7 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    public enum ShadercEnvVersion : int
+    public enum ShadercEnvVersion : uint
     {
         ///<summary>
         /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
@@ -61,7 +61,7 @@ namespace AdamantiumVulkan.Shaders
     ///<summary>
     /// The known versions of SPIR-V.
     ///</summary>
-    public enum ShadercSpirvVersion : int
+    public enum ShadercSpirvVersion : uint
     {
         ///<summary>
         /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
@@ -93,7 +93,7 @@ namespace AdamantiumVulkan.Shaders
     ///<summary>
     /// Indicate the status of a compilation.
     ///</summary>
-    public enum ShadercCompilationStatus : int
+    public enum ShadercCompilationStatus : uint
     {
         Success = 0,
 
@@ -125,7 +125,7 @@ namespace AdamantiumVulkan.Shaders
     /// Source language kind.
     ///</summary>
     [Flags]
-    public enum ShadercSourceLanguage : int
+    public enum ShadercSourceLanguage : uint
     {
         Glsl = 0,
 
@@ -133,7 +133,7 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    public enum ShadercShaderKind : int
+    public enum ShadercShaderKind : uint
     {
         ///<summary>
         /// Forced shader kinds. These shader kinds force the compiler to compile the source code as the specified kind of shader.
@@ -207,7 +207,7 @@ namespace AdamantiumVulkan.Shaders
 
     }
 
-    public enum ShadercProfile : int
+    public enum ShadercProfile : uint
     {
         ///<summary>
         /// Used if and only if GLSL version did not specify profiles.
@@ -226,7 +226,7 @@ namespace AdamantiumVulkan.Shaders
     /// Optimization level.
     ///</summary>
     [Flags]
-    public enum ShadercOptimizationLevel : int
+    public enum ShadercOptimizationLevel : uint
     {
         ///<summary>
         /// no optimization
@@ -248,7 +248,7 @@ namespace AdamantiumVulkan.Shaders
     ///<summary>
     /// Resource limits.
     ///</summary>
-    public enum ShadercLimit : int
+    public enum ShadercLimit : uint
     {
         AxLights = 0,
 
@@ -421,7 +421,7 @@ namespace AdamantiumVulkan.Shaders
     ///<summary>
     /// Uniform resource kinds. In Vulkan, uniform resources are bound to the pipeline via descriptors with numbered bindings and sets.
     ///</summary>
-    public enum ShadercUniformKind : int
+    public enum ShadercUniformKind : uint
     {
         ///<summary>
         /// Image and image buffer.
@@ -459,7 +459,7 @@ namespace AdamantiumVulkan.Shaders
     /// The kinds of include requests.
     ///</summary>
     [Flags]
-    public enum ShadercIncludeType : int
+    public enum ShadercIncludeType : uint
     {
         ///<summary>
         /// E.g. #include "source"

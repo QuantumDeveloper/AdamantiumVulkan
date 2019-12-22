@@ -11,7 +11,7 @@ namespace AdamantiumVulkan.Core
     using System.Runtime.InteropServices;
 
     [Flags]
-    public enum PipelineCacheHeaderVersion : int
+    public enum PipelineCacheHeaderVersion : uint
     {
         One = 1,
 
@@ -91,7 +91,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum StructureType : int
+    public enum StructureType : uint
     {
         ApplicationInfo = 0,
 
@@ -861,7 +861,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum SystemAllocationScope : int
+    public enum SystemAllocationScope : uint
     {
         Command = 0,
 
@@ -880,7 +880,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum InternalAllocationType : int
+    public enum InternalAllocationType : uint
     {
         Executable = 0,
 
@@ -890,7 +890,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum Format : int
+    public enum Format : uint
     {
         UNDEFINED = 0,
 
@@ -1380,7 +1380,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ImageType : int
+    public enum ImageType : uint
     {
         _1d = 0,
 
@@ -1394,7 +1394,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ImageTiling : int
+    public enum ImageTiling : uint
     {
         Optimal = 0,
 
@@ -1408,7 +1408,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PhysicalDeviceType : int
+    public enum PhysicalDeviceType : uint
     {
         Other = 0,
 
@@ -1426,7 +1426,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum QueryType : int
+    public enum QueryType : uint
     {
         Occlusion = 0,
 
@@ -1447,7 +1447,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SharingMode : int
+    public enum SharingMode : uint
     {
         Exclusive = 0,
 
@@ -1459,7 +1459,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ImageLayout : int
+    public enum ImageLayout : uint
     {
         Undefined = 0,
 
@@ -1497,7 +1497,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ImageViewType : int
+    public enum ImageViewType : uint
     {
         _1d = 0,
 
@@ -1519,7 +1519,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ComponentSwizzle : int
+    public enum ComponentSwizzle : uint
     {
         Identity = 0,
 
@@ -1542,7 +1542,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum VertexInputRate : int
+    public enum VertexInputRate : uint
     {
         Vertex = 0,
 
@@ -1554,7 +1554,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PrimitiveTopology : int
+    public enum PrimitiveTopology : uint
     {
         PointList = 0,
 
@@ -1584,7 +1584,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PolygonMode : int
+    public enum PolygonMode : uint
     {
         Fill = 0,
 
@@ -1601,7 +1601,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum FrontFace : int
+    public enum FrontFace : uint
     {
         CounterClockwise = 0,
 
@@ -1613,7 +1613,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum CompareOp : int
+    public enum CompareOp : uint
     {
         Never = 0,
 
@@ -1637,7 +1637,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum StencilOp : int
+    public enum StencilOp : uint
     {
         Keep = 0,
 
@@ -1661,7 +1661,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum LogicOp : int
+    public enum LogicOp : uint
     {
         Clear = 0,
 
@@ -1701,7 +1701,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum BlendFactor : int
+    public enum BlendFactor : uint
     {
         Zero = 0,
 
@@ -1747,7 +1747,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum BlendOp : int
+    public enum BlendOp : uint
     {
         Add = 0,
 
@@ -1857,7 +1857,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum DynamicState : int
+    public enum DynamicState : uint
     {
         Viewport = 0,
 
@@ -1897,7 +1897,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum Filter : int
+    public enum Filter : uint
     {
         Nearest = 0,
 
@@ -1912,7 +1912,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SamplerMipmapMode : int
+    public enum SamplerMipmapMode : uint
     {
         Nearest = 0,
 
@@ -1924,7 +1924,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum SamplerAddressMode : int
+    public enum SamplerAddressMode : uint
     {
         Repeat = 0,
 
@@ -1940,7 +1940,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum BorderColor : int
+    public enum BorderColor : uint
     {
         FloatTransparentBlack = 0,
 
@@ -1960,7 +1960,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum DescriptorType : int
+    public enum DescriptorType : uint
     {
         Sampler = 0,
 
@@ -1994,7 +1994,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum AttachmentLoadOp : int
+    public enum AttachmentLoadOp : uint
     {
         Load = 0,
 
@@ -2009,7 +2009,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum AttachmentStoreOp : int
+    public enum AttachmentStoreOp : uint
     {
         Store = 0,
 
@@ -2021,7 +2021,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PipelineBindPoint : int
+    public enum PipelineBindPoint : uint
     {
         Graphics = 0,
 
@@ -2036,7 +2036,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CommandBufferLevel : int
+    public enum CommandBufferLevel : uint
     {
         Primary = 0,
 
@@ -2048,7 +2048,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum IndexType : int
+    public enum IndexType : uint
     {
         Uint16 = 0,
 
@@ -2065,7 +2065,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SubpassContents : int
+    public enum SubpassContents : uint
     {
         Inline = 0,
 
@@ -2077,7 +2077,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ObjectType : int
+    public enum ObjectType : uint
     {
         Unknown = 0,
 
@@ -2163,7 +2163,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum VendorId : int
+    public enum VendorId : uint
     {
         Viv = 65537,
 
@@ -2178,7 +2178,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum FormatFeatureFlagBits : int
+    public enum FormatFeatureFlagBits : uint
     {
         SampledImageBit = 1,
 
@@ -2235,7 +2235,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ImageUsageFlagBits : int
+    public enum ImageUsageFlagBits : uint
     {
         TransferSrcBit = 1,
 
@@ -2262,7 +2262,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ImageCreateFlagBits : int
+    public enum ImageCreateFlagBits : uint
     {
         SparseBindingBit = 1,
 
@@ -2299,7 +2299,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SampleCountFlagBits : int
+    public enum SampleCountFlagBits : uint
     {
         _1Bit = 1,
 
@@ -2320,7 +2320,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum QueueFlagBits : int
+    public enum QueueFlagBits : uint
     {
         GraphicsBit = 1,
 
@@ -2337,7 +2337,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum MemoryPropertyFlagBits : int
+    public enum MemoryPropertyFlagBits : uint
     {
         DeviceLocalBit = 1,
 
@@ -2360,7 +2360,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum MemoryHeapFlagBits : int
+    public enum MemoryHeapFlagBits : uint
     {
         DeviceLocalBit = 1,
 
@@ -2371,7 +2371,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DeviceQueueCreateFlagBits : int
+    public enum DeviceQueueCreateFlagBits : uint
     {
         ProtectedBit = 1,
 
@@ -2380,7 +2380,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PipelineStageFlagBits : int
+    public enum PipelineStageFlagBits : uint
     {
         TopOfPipeBit = 1,
 
@@ -2439,7 +2439,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ImageAspectFlagBits : int
+    public enum ImageAspectFlagBits : uint
     {
         ColorBit = 1,
 
@@ -2468,7 +2468,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SparseImageFormatFlagBits : int
+    public enum SparseImageFormatFlagBits : uint
     {
         SingleMiptailBit = 1,
 
@@ -2481,7 +2481,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SparseMemoryBindFlagBits : int
+    public enum SparseMemoryBindFlagBits : uint
     {
         MetadataBit = 1,
 
@@ -2490,7 +2490,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum FenceCreateFlagBits : int
+    public enum FenceCreateFlagBits : uint
     {
         SignaledBit = 1,
 
@@ -2499,7 +2499,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum QueryPipelineStatisticFlagBits : int
+    public enum QueryPipelineStatisticFlagBits : uint
     {
         InputAssemblyVerticesBit = 1,
 
@@ -2528,7 +2528,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum QueryResultFlagBits : int
+    public enum QueryResultFlagBits : uint
     {
         _64Bit = 1,
 
@@ -2543,7 +2543,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum BufferCreateFlagBits : int
+    public enum BufferCreateFlagBits : uint
     {
         SparseBindingBit = 1,
 
@@ -2560,7 +2560,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum BufferUsageFlagBits : int
+    public enum BufferUsageFlagBits : uint
     {
         TransferSrcBit = 1,
 
@@ -2595,7 +2595,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ImageViewCreateFlagBits : int
+    public enum ImageViewCreateFlagBits : uint
     {
         RagmentDensityMapDynamicBitExt = 1,
 
@@ -2604,14 +2604,14 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ShaderModuleCreateFlagBits : int
+    public enum ShaderModuleCreateFlagBits : uint
     {
         VkShaderModuleCreateFlagBitsMaxEnum = 2147483647,
 
     }
 
     [Flags]
-    public enum PipelineCreateFlagBits : int
+    public enum PipelineCreateFlagBits : uint
     {
         DisableOptimizationBit = 1,
 
@@ -2634,7 +2634,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PipelineShaderStageCreateFlagBits : int
+    public enum PipelineShaderStageCreateFlagBits : uint
     {
         AllowVaryingSubgroupSizeBitExt = 1,
 
@@ -2644,7 +2644,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ShaderStageFlagBits : int
+    public enum ShaderStageFlagBits : uint
     {
         VertexBit = 1,
 
@@ -2680,7 +2680,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum CullModeFlagBits : int
+    public enum CullModeFlagBits : uint
     {
         None = 0,
 
@@ -2695,7 +2695,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ColorComponentFlagBits : int
+    public enum ColorComponentFlagBits : uint
     {
         RBit = 1,
 
@@ -2710,7 +2710,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SamplerCreateFlagBits : int
+    public enum SamplerCreateFlagBits : uint
     {
         SubsampledBitExt = 1,
 
@@ -2721,7 +2721,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DescriptorSetLayoutCreateFlagBits : int
+    public enum DescriptorSetLayoutCreateFlagBits : uint
     {
         PushDescriptorBitKhr = 1,
 
@@ -2732,7 +2732,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DescriptorPoolCreateFlagBits : int
+    public enum DescriptorPoolCreateFlagBits : uint
     {
         FreeDescriptorSetBit = 1,
 
@@ -2743,7 +2743,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum FramebufferCreateFlagBits : int
+    public enum FramebufferCreateFlagBits : uint
     {
         ImagelessBitKhr = 1,
 
@@ -2752,14 +2752,14 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum RenderPassCreateFlagBits : int
+    public enum RenderPassCreateFlagBits : uint
     {
         VkRenderPassCreateFlagBitsMaxEnum = 2147483647,
 
     }
 
     [Flags]
-    public enum AttachmentDescriptionFlagBits : int
+    public enum AttachmentDescriptionFlagBits : uint
     {
         MayAliasBit = 1,
 
@@ -2768,7 +2768,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SubpassDescriptionFlagBits : int
+    public enum SubpassDescriptionFlagBits : uint
     {
         PerViewAttributesBitNvx = 1,
 
@@ -2779,7 +2779,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum AccessFlagBits : int
+    public enum AccessFlagBits : uint
     {
         IndirectCommandReadBit = 1,
 
@@ -2842,7 +2842,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DependencyFlagBits : int
+    public enum DependencyFlagBits : uint
     {
         ByRegionBit = 1,
 
@@ -2855,7 +2855,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CommandPoolCreateFlagBits : int
+    public enum CommandPoolCreateFlagBits : uint
     {
         TransientBit = 1,
 
@@ -2868,7 +2868,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CommandPoolResetFlagBits : int
+    public enum CommandPoolResetFlagBits : uint
     {
         ReleaseResourcesBit = 1,
 
@@ -2877,7 +2877,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CommandBufferUsageFlagBits : int
+    public enum CommandBufferUsageFlagBits : uint
     {
         OneTimeSubmitBit = 1,
 
@@ -2890,7 +2890,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum QueryControlFlagBits : int
+    public enum QueryControlFlagBits : uint
     {
         PreciseBit = 1,
 
@@ -2899,7 +2899,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CommandBufferResetFlagBits : int
+    public enum CommandBufferResetFlagBits : uint
     {
         ReleaseResourcesBit = 1,
 
@@ -2907,7 +2907,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum StencilFaceFlagBits : int
+    public enum StencilFaceFlagBits : uint
     {
         FrontBit = 1,
 
@@ -2920,7 +2920,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PointClippingBehavior : int
+    public enum PointClippingBehavior : uint
     {
         AllClipPlanes = 0,
 
@@ -2933,7 +2933,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum TessellationDomainOrigin : int
+    public enum TessellationDomainOrigin : uint
     {
         UpperLeft = 0,
 
@@ -2945,7 +2945,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum SamplerYcbcrModelConversion : int
+    public enum SamplerYcbcrModelConversion : uint
     {
         RgbIdentity = 0,
 
@@ -2964,7 +2964,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SamplerYcbcrRange : int
+    public enum SamplerYcbcrRange : uint
     {
         ItuFull = 0,
 
@@ -2977,7 +2977,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ChromaLocation : int
+    public enum ChromaLocation : uint
     {
         CositedEven = 0,
 
@@ -2990,7 +2990,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DescriptorUpdateTemplateType : int
+    public enum DescriptorUpdateTemplateType : uint
     {
         DescriptorSet = 0,
 
@@ -3001,7 +3001,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SubgroupFeatureFlagBits : int
+    public enum SubgroupFeatureFlagBits : uint
     {
         BasicBit = 1,
 
@@ -3026,7 +3026,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PeerMemoryFeatureFlagBits : int
+    public enum PeerMemoryFeatureFlagBits : uint
     {
         CopySrcBit = 1,
 
@@ -3041,7 +3041,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum MemoryAllocateFlagBits : int
+    public enum MemoryAllocateFlagBits : uint
     {
         DeviceMaskBit = 1,
 
@@ -3050,7 +3050,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalMemoryHandleTypeFlagBits : int
+    public enum ExternalMemoryHandleTypeFlagBits : uint
     {
         OpaqueFdBit = 1,
 
@@ -3079,7 +3079,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalMemoryFeatureFlagBits : int
+    public enum ExternalMemoryFeatureFlagBits : uint
     {
         DedicatedOnlyBit = 1,
 
@@ -3092,7 +3092,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalFenceHandleTypeFlagBits : int
+    public enum ExternalFenceHandleTypeFlagBits : uint
     {
         OpaqueFdBit = 1,
 
@@ -3107,7 +3107,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalFenceFeatureFlagBits : int
+    public enum ExternalFenceFeatureFlagBits : uint
     {
         ExportableBit = 1,
 
@@ -3118,7 +3118,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum FenceImportFlagBits : int
+    public enum FenceImportFlagBits : uint
     {
         TemporaryBit = 1,
 
@@ -3127,7 +3127,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SemaphoreImportFlagBits : int
+    public enum SemaphoreImportFlagBits : uint
     {
         TemporaryBit = 1,
 
@@ -3136,7 +3136,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalSemaphoreHandleTypeFlagBits : int
+    public enum ExternalSemaphoreHandleTypeFlagBits : uint
     {
         OpaqueFdBit = 1,
 
@@ -3153,7 +3153,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalSemaphoreFeatureFlagBits : int
+    public enum ExternalSemaphoreFeatureFlagBits : uint
     {
         ExportableBit = 1,
 
@@ -3163,7 +3163,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ColorSpaceKHR : int
+    public enum ColorSpaceKHR : uint
     {
         SrgbNonlinearKhr = 0,
 
@@ -3203,7 +3203,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PresentModeKHR : int
+    public enum PresentModeKHR : uint
     {
         ImmediateKhr = 0,
 
@@ -3224,7 +3224,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SurfaceTransformFlagBitsKHR : int
+    public enum SurfaceTransformFlagBitsKHR : uint
     {
         IdentityBitKhr = 1,
 
@@ -3249,7 +3249,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CompositeAlphaFlagBitsKHR : int
+    public enum CompositeAlphaFlagBitsKHR : uint
     {
         OpaqueBitKhr = 1,
 
@@ -3264,7 +3264,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SwapchainCreateFlagBitsKHR : int
+    public enum SwapchainCreateFlagBitsKHR : uint
     {
         SplitInstanceBindRegionsBitKhr = 1,
 
@@ -3277,7 +3277,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DeviceGroupPresentModeFlagBitsKHR : int
+    public enum DeviceGroupPresentModeFlagBitsKHR : uint
     {
         LocalBitKhr = 1,
 
@@ -3292,7 +3292,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DisplayPlaneAlphaFlagBitsKHR : int
+    public enum DisplayPlaneAlphaFlagBitsKHR : uint
     {
         OpaqueBitKhr = 1,
 
@@ -3306,7 +3306,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum DriverIdKHR : int
+    public enum DriverIdKHR : uint
     {
         AmdProprietaryKhr = 1,
 
@@ -3336,7 +3336,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ShaderFloatControlsIndependenceKHR : int
+    public enum ShaderFloatControlsIndependenceKHR : uint
     {
         _32BitOnlyKhr = 0,
 
@@ -3351,7 +3351,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ResolveModeFlagBitsKHR : int
+    public enum ResolveModeFlagBitsKHR : uint
     {
         NoneKhr = 0,
 
@@ -3368,7 +3368,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SemaphoreTypeKHR : int
+    public enum SemaphoreTypeKHR : uint
     {
         BinaryKhr = 0,
 
@@ -3381,7 +3381,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SemaphoreWaitFlagBitsKHR : int
+    public enum SemaphoreWaitFlagBitsKHR : uint
     {
         AnyBitKhr = 1,
 
@@ -3389,7 +3389,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PipelineExecutableStatisticFormatKHR : int
+    public enum PipelineExecutableStatisticFormatKHR : uint
     {
         Bool32Khr = 0,
 
@@ -3405,7 +3405,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum DebugReportObjectTypeEXT : int
+    public enum DebugReportObjectTypeEXT : uint
     {
         UnknownExt = 0,
 
@@ -3488,7 +3488,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DebugReportFlagBitsEXT : int
+    public enum DebugReportFlagBitsEXT : uint
     {
         InformationBitExt = 1,
 
@@ -3505,7 +3505,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum RasterizationOrderAMD : int
+    public enum RasterizationOrderAMD : uint
     {
         StrictAmd = 0,
 
@@ -3517,7 +3517,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ShaderInfoTypeAMD : int
+    public enum ShaderInfoTypeAMD : uint
     {
         StatisticsAmd = 0,
 
@@ -3532,7 +3532,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalMemoryHandleTypeFlagBitsNV : int
+    public enum ExternalMemoryHandleTypeFlagBitsNV : uint
     {
         OpaqueWin32BitNv = 1,
 
@@ -3547,7 +3547,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ExternalMemoryFeatureFlagBitsNV : int
+    public enum ExternalMemoryFeatureFlagBitsNV : uint
     {
         DedicatedOnlyBitNv = 1,
 
@@ -3560,7 +3560,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ValidationCheckEXT : int
+    public enum ValidationCheckEXT : uint
     {
         AllExt = 0,
 
@@ -3573,7 +3573,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ConditionalRenderingFlagBitsEXT : int
+    public enum ConditionalRenderingFlagBitsEXT : uint
     {
         InvertedBitExt = 1,
 
@@ -3581,7 +3581,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum IndirectCommandsTokenTypeNVX : int
+    public enum IndirectCommandsTokenTypeNVX : uint
     {
         PipelineNvx = 0,
 
@@ -3605,7 +3605,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ObjectEntryTypeNVX : int
+    public enum ObjectEntryTypeNVX : uint
     {
         DescriptorSetNvx = 0,
 
@@ -3624,7 +3624,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum IndirectCommandsLayoutUsageFlagBitsNVX : int
+    public enum IndirectCommandsLayoutUsageFlagBitsNVX : uint
     {
         UnorderedSequencesBitNvx = 1,
 
@@ -3639,7 +3639,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ObjectEntryUsageFlagBitsNVX : int
+    public enum ObjectEntryUsageFlagBitsNVX : uint
     {
         GraphicsBitNvx = 1,
 
@@ -3650,7 +3650,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum SurfaceCounterFlagBitsEXT : int
+    public enum SurfaceCounterFlagBitsEXT : uint
     {
         VblankExt = 1,
 
@@ -3658,7 +3658,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum DisplayPowerStateEXT : int
+    public enum DisplayPowerStateEXT : uint
     {
         OffExt = 0,
 
@@ -3673,7 +3673,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DeviceEventTypeEXT : int
+    public enum DeviceEventTypeEXT : uint
     {
         DisplayHotplugExt = 0,
 
@@ -3684,7 +3684,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DisplayEventTypeEXT : int
+    public enum DisplayEventTypeEXT : uint
     {
         FirstPixelOutExt = 0,
 
@@ -3694,7 +3694,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ViewportCoordinateSwizzleNV : int
+    public enum ViewportCoordinateSwizzleNV : uint
     {
         PositiveXNv = 0,
 
@@ -3719,7 +3719,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DiscardRectangleModeEXT : int
+    public enum DiscardRectangleModeEXT : uint
     {
         InclusiveExt = 0,
 
@@ -3731,7 +3731,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ConservativeRasterizationModeEXT : int
+    public enum ConservativeRasterizationModeEXT : uint
     {
         DisabledExt = 0,
 
@@ -3746,7 +3746,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DebugUtilsMessageSeverityFlagBitsEXT : int
+    public enum DebugUtilsMessageSeverityFlagBitsEXT : uint
     {
         VerboseBitExt = 1,
 
@@ -3761,7 +3761,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DebugUtilsMessageTypeFlagBitsEXT : int
+    public enum DebugUtilsMessageTypeFlagBitsEXT : uint
     {
         GeneralBitExt = 1,
 
@@ -3773,7 +3773,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum SamplerReductionModeEXT : int
+    public enum SamplerReductionModeEXT : uint
     {
         WeightedAverageExt = 0,
 
@@ -3787,7 +3787,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum BlendOverlapEXT : int
+    public enum BlendOverlapEXT : uint
     {
         UncorrelatedExt = 0,
 
@@ -3801,7 +3801,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum CoverageModulationModeNV : int
+    public enum CoverageModulationModeNV : uint
     {
         NoneNv = 0,
 
@@ -3818,7 +3818,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ValidationCacheHeaderVersionEXT : int
+    public enum ValidationCacheHeaderVersionEXT : uint
     {
         OneExt = 1,
 
@@ -3827,7 +3827,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum DescriptorBindingFlagBitsEXT : int
+    public enum DescriptorBindingFlagBitsEXT : uint
     {
         UpdateAfterBindBitExt = 1,
 
@@ -3841,7 +3841,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ShadingRatePaletteEntryNV : int
+    public enum ShadingRatePaletteEntryNV : uint
     {
         NoInvocationsNv = 0,
 
@@ -3873,7 +3873,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum CoarseSampleOrderTypeNV : int
+    public enum CoarseSampleOrderTypeNV : uint
     {
         DefaultNv = 0,
 
@@ -3890,7 +3890,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum AccelerationStructureTypeNV : int
+    public enum AccelerationStructureTypeNV : uint
     {
         TopLevelNv = 0,
 
@@ -3902,7 +3902,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum RayTracingShaderGroupTypeNV : int
+    public enum RayTracingShaderGroupTypeNV : uint
     {
         GeneralNv = 0,
 
@@ -3917,7 +3917,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum GeometryTypeNV : int
+    public enum GeometryTypeNV : uint
     {
         TrianglesNv = 0,
 
@@ -3930,7 +3930,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CopyAccelerationStructureModeNV : int
+    public enum CopyAccelerationStructureModeNV : uint
     {
         CloneNv = 0,
 
@@ -3942,7 +3942,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum AccelerationStructureMemoryRequirementsTypeNV : int
+    public enum AccelerationStructureMemoryRequirementsTypeNV : uint
     {
         ObjectNv = 0,
 
@@ -3957,7 +3957,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum GeometryFlagBitsNV : int
+    public enum GeometryFlagBitsNV : uint
     {
         OpaqueBitNv = 1,
 
@@ -3968,7 +3968,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum GeometryInstanceFlagBitsNV : int
+    public enum GeometryInstanceFlagBitsNV : uint
     {
         TriangleCullDisableBitNv = 1,
 
@@ -3983,7 +3983,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum BuildAccelerationStructureFlagBitsNV : int
+    public enum BuildAccelerationStructureFlagBitsNV : uint
     {
         AllowUpdateBitNv = 1,
 
@@ -3999,7 +3999,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum QueueGlobalPriorityEXT : int
+    public enum QueueGlobalPriorityEXT : uint
     {
         LowExt = 128,
 
@@ -4016,13 +4016,13 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PipelineCompilerControlFlagBitsAMD : int
+    public enum PipelineCompilerControlFlagBitsAMD : uint
     {
         VkPipelineCompilerControlFlagBitsMaxEnumAmd = 2147483647,
 
     }
 
-    public enum TimeDomainEXT : int
+    public enum TimeDomainEXT : uint
     {
         DeviceExt = 0,
 
@@ -4038,7 +4038,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum MemoryOverallocationBehaviorAMD : int
+    public enum MemoryOverallocationBehaviorAMD : uint
     {
         DefaultAmd = 0,
 
@@ -4053,7 +4053,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PipelineCreationFeedbackFlagBitsEXT : int
+    public enum PipelineCreationFeedbackFlagBitsEXT : uint
     {
         ValidBitExt = 1,
 
@@ -4066,7 +4066,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PerformanceConfigurationTypeINTEL : int
+    public enum PerformanceConfigurationTypeINTEL : uint
     {
         CommandQueueMetricsDiscoveryActivatedIntel = 0,
 
@@ -4077,7 +4077,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum QueryPoolSamplingModeINTEL : int
+    public enum QueryPoolSamplingModeINTEL : uint
     {
         ManualIntel = 0,
 
@@ -4088,7 +4088,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PerformanceOverrideTypeINTEL : int
+    public enum PerformanceOverrideTypeINTEL : uint
     {
         NullHardwareIntel = 0,
 
@@ -4101,7 +4101,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PerformanceParameterTypeINTEL : int
+    public enum PerformanceParameterTypeINTEL : uint
     {
         HwCountersSupportedIntel = 0,
 
@@ -4113,7 +4113,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum PerformanceValueTypeINTEL : int
+    public enum PerformanceValueTypeINTEL : uint
     {
         Uint32Intel = 0,
 
@@ -4132,13 +4132,13 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ShaderCorePropertiesFlagBitsAMD : int
+    public enum ShaderCorePropertiesFlagBitsAMD : uint
     {
         VkShaderCorePropertiesFlagBitsMaxEnumAmd = 2147483647,
 
     }
 
-    public enum ValidationFeatureEnableEXT : int
+    public enum ValidationFeatureEnableEXT : uint
     {
         GpuAssistedExt = 0,
 
@@ -4152,7 +4152,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ValidationFeatureDisableEXT : int
+    public enum ValidationFeatureDisableEXT : uint
     {
         AllExt = 0,
 
@@ -4174,7 +4174,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ComponentTypeNV : int
+    public enum ComponentTypeNV : uint
     {
         Float16Nv = 0,
 
@@ -4204,7 +4204,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum ScopeNV : int
+    public enum ScopeNV : uint
     {
         DeviceNv = 1,
 
@@ -4219,7 +4219,7 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum CoverageReductionModeNV : int
+    public enum CoverageReductionModeNV : uint
     {
         MergeNv = 0,
 
@@ -4231,7 +4231,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public enum LineRasterizationModeEXT : int
+    public enum LineRasterizationModeEXT : uint
     {
         DefaultExt = 0,
 

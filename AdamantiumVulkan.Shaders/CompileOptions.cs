@@ -3,7 +3,7 @@ using System;
 
 namespace AdamantiumVulkan.Shaders
 {
-    public class CompileOptions : DisposableObject
+    public class CompileOptions : VulkanDisposableObject
     {
         private ShadercCompileOptionsT compileOptions;
         private bool setAutoBindUniforms;

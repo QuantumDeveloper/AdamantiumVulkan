@@ -10,7 +10,7 @@ namespace AdamantiumVulkan.SPIRV
     using System;
     using System.Runtime.InteropServices;
 
-    public enum SpvSourceLanguage : int
+    public enum SpvSourceLanguage : uint
     {
         Unknown = 0,
 
@@ -28,7 +28,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvExecutionModel : int
+    public enum SpvExecutionModel : uint
     {
         Vertex = 0,
 
@@ -64,7 +64,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvAddressingModel : int
+    public enum SpvAddressingModel : uint
     {
         Logical = 0,
 
@@ -78,7 +78,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvMemoryModel : int
+    public enum SpvMemoryModel : uint
     {
         Simple = 0,
 
@@ -92,7 +92,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvExecutionMode : int
+    public enum SpvExecutionMode : uint
     {
         Invocations = 0,
 
@@ -210,7 +210,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvStorageClass : int
+    public enum SpvStorageClass : uint
     {
         UniformConstant = 0,
 
@@ -256,7 +256,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvDim : int
+    public enum SpvDim : uint
     {
         _1d = 0,
 
@@ -276,7 +276,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvSamplerAddressingMode : int
+    public enum SpvSamplerAddressingMode : uint
     {
         None = 0,
 
@@ -293,7 +293,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvSamplerFilterMode : int
+    public enum SpvSamplerFilterMode : uint
     {
         Nearest = 0,
 
@@ -303,7 +303,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvImageFormat : int
+    public enum SpvImageFormat : uint
     {
         Unknown = 0,
 
@@ -389,7 +389,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvImageChannelOrder : int
+    public enum SpvImageChannelOrder : uint
     {
         R = 0,
 
@@ -435,7 +435,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvImageChannelDataType : int
+    public enum SpvImageChannelDataType : uint
     {
         SnormInt8 = 0,
 
@@ -475,7 +475,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvImageOperandsShift : int
+    public enum SpvImageOperandsShift : uint
     {
         BiasShift = 0,
 
@@ -510,7 +510,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvImageOperandsMask : int
+    public enum SpvImageOperandsMask : uint
     {
         MaskNone = 0,
 
@@ -544,7 +544,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvFPFastMathModeShift : int
+    public enum SpvFPFastMathModeShift : uint
     {
         NotNaNShift = 0,
 
@@ -561,7 +561,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvFPFastMathModeMask : int
+    public enum SpvFPFastMathModeMask : uint
     {
         MaskNone = 0,
 
@@ -577,7 +577,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvFPRoundingMode : int
+    public enum SpvFPRoundingMode : uint
     {
         Rte = 0,
 
@@ -592,7 +592,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvLinkageType : int
+    public enum SpvLinkageType : uint
     {
         Export = 0,
 
@@ -603,7 +603,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvAccessQualifier : int
+    public enum SpvAccessQualifier : uint
     {
         ReadOnly = 0,
 
@@ -615,7 +615,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvFunctionParameterAttribute : int
+    public enum SpvFunctionParameterAttribute : uint
     {
         Zext = 0,
 
@@ -637,7 +637,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvDecoration : int
+    public enum SpvDecoration : uint
     {
         RelaxedPrecision = 0,
 
@@ -771,7 +771,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvBuiltIn : int
+    public enum SpvBuiltIn : uint
     {
         Position = 0,
 
@@ -968,7 +968,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvSelectionControlShift : int
+    public enum SpvSelectionControlShift : uint
     {
         FlattenShift = 0,
 
@@ -979,7 +979,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvSelectionControlMask : int
+    public enum SpvSelectionControlMask : uint
     {
         MaskNone = 0,
 
@@ -989,7 +989,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvLoopControlShift : int
+    public enum SpvLoopControlShift : uint
     {
         UnrollShift = 0,
 
@@ -1014,7 +1014,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvLoopControlMask : int
+    public enum SpvLoopControlMask : uint
     {
         MaskNone = 0,
 
@@ -1038,7 +1038,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvFunctionControlShift : int
+    public enum SpvFunctionControlShift : uint
     {
         InlineShift = 0,
 
@@ -1053,7 +1053,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvFunctionControlMask : int
+    public enum SpvFunctionControlMask : uint
     {
         MaskNone = 0,
 
@@ -1067,7 +1067,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvMemorySemanticsShift : int
+    public enum SpvMemorySemanticsShift : uint
     {
         AcquireShift = 1,
 
@@ -1102,7 +1102,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvMemorySemanticsMask : int
+    public enum SpvMemorySemanticsMask : uint
     {
         MaskNone = 0,
 
@@ -1136,7 +1136,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvMemoryAccessShift : int
+    public enum SpvMemoryAccessShift : uint
     {
         VolatileShift = 0,
 
@@ -1155,7 +1155,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvMemoryAccessMask : int
+    public enum SpvMemoryAccessMask : uint
     {
         MaskNone = 0,
 
@@ -1173,7 +1173,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvScope : int
+    public enum SpvScope : uint
     {
         CrossDevice = 0,
 
@@ -1191,7 +1191,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvGroupOperation : int
+    public enum SpvGroupOperation : uint
     {
         Reduce = 0,
 
@@ -1212,7 +1212,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvKernelEnqueueFlags : int
+    public enum SpvKernelEnqueueFlags : uint
     {
         NoWait = 0,
 
@@ -1225,7 +1225,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvKernelProfilingInfoShift : int
+    public enum SpvKernelProfilingInfoShift : uint
     {
         CmdExecTimeShift = 0,
 
@@ -1234,7 +1234,7 @@ namespace AdamantiumVulkan.SPIRV
     }
 
     [Flags]
-    public enum SpvKernelProfilingInfoMask : int
+    public enum SpvKernelProfilingInfoMask : uint
     {
         MaskNone = 0,
 
@@ -1242,7 +1242,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvCapability : int
+    public enum SpvCapability : uint
     {
         Matrix = 0,
 
@@ -1522,7 +1522,7 @@ namespace AdamantiumVulkan.SPIRV
 
     }
 
-    public enum SpvOp : int
+    public enum SpvOp : uint
     {
         Nop = 0,
 

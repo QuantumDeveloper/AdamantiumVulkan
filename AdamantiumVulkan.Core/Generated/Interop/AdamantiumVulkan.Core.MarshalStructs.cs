@@ -1368,7 +1368,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkApplicationInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -1387,7 +1387,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkInstanceCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -1425,115 +1425,115 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFeatures
     {
-        public bool robustBufferAccess;
+        public uint robustBufferAccess;
 
-        public bool fullDrawIndexUint32;
+        public uint fullDrawIndexUint32;
 
-        public bool imageCubeArray;
+        public uint imageCubeArray;
 
-        public bool independentBlend;
+        public uint independentBlend;
 
-        public bool geometryShader;
+        public uint geometryShader;
 
-        public bool tessellationShader;
+        public uint tessellationShader;
 
-        public bool sampleRateShading;
+        public uint sampleRateShading;
 
-        public bool dualSrcBlend;
+        public uint dualSrcBlend;
 
-        public bool logicOp;
+        public uint logicOp;
 
-        public bool multiDrawIndirect;
+        public uint multiDrawIndirect;
 
-        public bool drawIndirectFirstInstance;
+        public uint drawIndirectFirstInstance;
 
-        public bool depthClamp;
+        public uint depthClamp;
 
-        public bool depthBiasClamp;
+        public uint depthBiasClamp;
 
-        public bool fillModeNonSolid;
+        public uint fillModeNonSolid;
 
-        public bool depthBounds;
+        public uint depthBounds;
 
-        public bool wideLines;
+        public uint wideLines;
 
-        public bool largePoints;
+        public uint largePoints;
 
-        public bool alphaToOne;
+        public uint alphaToOne;
 
-        public bool multiViewport;
+        public uint multiViewport;
 
-        public bool samplerAnisotropy;
+        public uint samplerAnisotropy;
 
-        public bool textureCompressionETC2;
+        public uint textureCompressionETC2;
 
-        public bool textureCompressionASTC_LDR;
+        public uint textureCompressionASTC_LDR;
 
-        public bool textureCompressionBC;
+        public uint textureCompressionBC;
 
-        public bool occlusionQueryPrecise;
+        public uint occlusionQueryPrecise;
 
-        public bool pipelineStatisticsQuery;
+        public uint pipelineStatisticsQuery;
 
-        public bool vertexPipelineStoresAndAtomics;
+        public uint vertexPipelineStoresAndAtomics;
 
-        public bool fragmentStoresAndAtomics;
+        public uint fragmentStoresAndAtomics;
 
-        public bool shaderTessellationAndGeometryPointSize;
+        public uint shaderTessellationAndGeometryPointSize;
 
-        public bool shaderImageGatherExtended;
+        public uint shaderImageGatherExtended;
 
-        public bool shaderStorageImageExtendedFormats;
+        public uint shaderStorageImageExtendedFormats;
 
-        public bool shaderStorageImageMultisample;
+        public uint shaderStorageImageMultisample;
 
-        public bool shaderStorageImageReadWithoutFormat;
+        public uint shaderStorageImageReadWithoutFormat;
 
-        public bool shaderStorageImageWriteWithoutFormat;
+        public uint shaderStorageImageWriteWithoutFormat;
 
-        public bool shaderUniformBufferArrayDynamicIndexing;
+        public uint shaderUniformBufferArrayDynamicIndexing;
 
-        public bool shaderSampledImageArrayDynamicIndexing;
+        public uint shaderSampledImageArrayDynamicIndexing;
 
-        public bool shaderStorageBufferArrayDynamicIndexing;
+        public uint shaderStorageBufferArrayDynamicIndexing;
 
-        public bool shaderStorageImageArrayDynamicIndexing;
+        public uint shaderStorageImageArrayDynamicIndexing;
 
-        public bool shaderClipDistance;
+        public uint shaderClipDistance;
 
-        public bool shaderCullDistance;
+        public uint shaderCullDistance;
 
-        public bool shaderFloat64;
+        public uint shaderFloat64;
 
-        public bool shaderInt64;
+        public uint shaderInt64;
 
-        public bool shaderInt16;
+        public uint shaderInt16;
 
-        public bool shaderResourceResidency;
+        public uint shaderResourceResidency;
 
-        public bool shaderResourceMinLod;
+        public uint shaderResourceMinLod;
 
-        public bool sparseBinding;
+        public uint sparseBinding;
 
-        public bool sparseResidencyBuffer;
+        public uint sparseResidencyBuffer;
 
-        public bool sparseResidencyImage2D;
+        public uint sparseResidencyImage2D;
 
-        public bool sparseResidencyImage3D;
+        public uint sparseResidencyImage3D;
 
-        public bool sparseResidency2Samples;
+        public uint sparseResidency2Samples;
 
-        public bool sparseResidency4Samples;
+        public uint sparseResidency4Samples;
 
-        public bool sparseResidency8Samples;
+        public uint sparseResidency8Samples;
 
-        public bool sparseResidency16Samples;
+        public uint sparseResidency16Samples;
 
-        public bool sparseResidencyAliased;
+        public uint sparseResidencyAliased;
 
-        public bool variableMultisampleRate;
+        public uint variableMultisampleRate;
 
-        public bool inheritedQueries;
+        public uint inheritedQueries;
 
     }
 
@@ -1759,7 +1759,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint maxSampleMaskWords;
 
-        public bool timestampComputeAndGraphics;
+        public uint timestampComputeAndGraphics;
 
         public float timestampPeriod;
 
@@ -1779,9 +1779,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public float lineWidthGranularity;
 
-        public bool strictLines;
+        public uint strictLines;
 
-        public bool standardSampleLocations;
+        public uint standardSampleLocations;
 
         public ulong optimalBufferCopyOffsetAlignment;
 
@@ -1794,15 +1794,15 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSparseProperties
     {
-        public bool residencyStandard2DBlockShape;
+        public uint residencyStandard2DBlockShape;
 
-        public bool residencyStandard2DMultisampleBlockShape;
+        public uint residencyStandard2DMultisampleBlockShape;
 
-        public bool residencyStandard3DBlockShape;
+        public uint residencyStandard3DBlockShape;
 
-        public bool residencyAlignedMipSize;
+        public uint residencyAlignedMipSize;
 
-        public bool residencyNonResidentStrict;
+        public uint residencyNonResidentStrict;
 
     }
 
@@ -1817,7 +1817,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint deviceID;
 
-        public PhysicalDeviceType deviceType;
+        public uint deviceType;
 
         public unsafe fixed sbyte deviceName[256];
 
@@ -1878,7 +1878,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceQueueCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -1895,7 +1895,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -1942,7 +1942,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubmitInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -1965,7 +1965,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryAllocateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -1978,7 +1978,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMappedMemoryRange
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2117,7 +2117,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindSparseInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2146,7 +2146,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFenceCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2157,7 +2157,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2168,7 +2168,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkEventCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2179,13 +2179,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueryPoolCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public QueryType queryType;
+        public uint queryType;
 
         public uint queryCount;
 
@@ -2196,7 +2196,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2206,7 +2206,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint usage;
 
-        public SharingMode sharingMode;
+        public uint sharingMode;
 
         public uint queueFamilyIndexCount;
 
@@ -2217,7 +2217,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferViewCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2225,7 +2225,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public VkBuffer_T buffer;
 
-        public Format format;
+        public uint format;
 
         public ulong offset;
 
@@ -2236,15 +2236,15 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public ImageType imageType;
+        public uint imageType;
 
-        public Format format;
+        public uint format;
 
         public VkExtent3D extent;
 
@@ -2252,19 +2252,19 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint arrayLayers;
 
-        public SampleCountFlagBits samples;
+        public uint samples;
 
-        public ImageTiling tiling;
+        public uint tiling;
 
         public uint usage;
 
-        public SharingMode sharingMode;
+        public uint sharingMode;
 
         public uint queueFamilyIndexCount;
 
         public System.IntPtr pQueueFamilyIndices;
 
-        public ImageLayout initialLayout;
+        public uint initialLayout;
 
     }
 
@@ -2286,13 +2286,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkComponentMapping
     {
-        public ComponentSwizzle r;
+        public uint r;
 
-        public ComponentSwizzle g;
+        public uint g;
 
-        public ComponentSwizzle b;
+        public uint b;
 
-        public ComponentSwizzle a;
+        public uint a;
 
     }
 
@@ -2314,7 +2314,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageViewCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2322,9 +2322,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public VkImage_T image;
 
-        public ImageViewType viewType;
+        public uint viewType;
 
-        public Format format;
+        public uint format;
 
         public VkComponentMapping components;
 
@@ -2335,7 +2335,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkShaderModuleCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2350,7 +2350,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCacheCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2389,13 +2389,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineShaderStageCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public ShaderStageFlagBits stage;
+        public uint stage;
 
         public VkShaderModule_T module;
 
@@ -2412,7 +2412,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint stride;
 
-        public VertexInputRate inputRate;
+        public uint inputRate;
 
     }
 
@@ -2423,7 +2423,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint binding;
 
-        public Format format;
+        public uint format;
 
         public uint offset;
 
@@ -2432,7 +2432,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineVertexInputStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2451,22 +2451,22 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineInputAssemblyStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public PrimitiveTopology topology;
+        public uint topology;
 
-        public bool primitiveRestartEnable;
+        public uint primitiveRestartEnable;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineTessellationStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2523,7 +2523,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineViewportStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2542,23 +2542,23 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRasterizationStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public bool depthClampEnable;
+        public uint depthClampEnable;
 
-        public bool rasterizerDiscardEnable;
+        public uint rasterizerDiscardEnable;
 
-        public PolygonMode polygonMode;
+        public uint polygonMode;
 
         public uint cullMode;
 
-        public FrontFace frontFace;
+        public uint frontFace;
 
-        public bool depthBiasEnable;
+        public uint depthBiasEnable;
 
         public float depthBiasConstantFactor;
 
@@ -2573,36 +2573,36 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineMultisampleStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public SampleCountFlagBits rasterizationSamples;
+        public uint rasterizationSamples;
 
-        public bool sampleShadingEnable;
+        public uint sampleShadingEnable;
 
         public float minSampleShading;
 
         public System.IntPtr pSampleMask;
 
-        public bool alphaToCoverageEnable;
+        public uint alphaToCoverageEnable;
 
-        public bool alphaToOneEnable;
+        public uint alphaToOneEnable;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkStencilOpState
     {
-        public StencilOp failOp;
+        public uint failOp;
 
-        public StencilOp passOp;
+        public uint passOp;
 
-        public StencilOp depthFailOp;
+        public uint depthFailOp;
 
-        public CompareOp compareOp;
+        public uint compareOp;
 
         public uint compareMask;
 
@@ -2615,21 +2615,21 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineDepthStencilStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public bool depthTestEnable;
+        public uint depthTestEnable;
 
-        public bool depthWriteEnable;
+        public uint depthWriteEnable;
 
-        public CompareOp depthCompareOp;
+        public uint depthCompareOp;
 
-        public bool depthBoundsTestEnable;
+        public uint depthBoundsTestEnable;
 
-        public bool stencilTestEnable;
+        public uint stencilTestEnable;
 
         public VkStencilOpState front;
 
@@ -2644,19 +2644,19 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineColorBlendAttachmentState
     {
-        public bool blendEnable;
+        public uint blendEnable;
 
-        public BlendFactor srcColorBlendFactor;
+        public uint srcColorBlendFactor;
 
-        public BlendFactor dstColorBlendFactor;
+        public uint dstColorBlendFactor;
 
-        public BlendOp colorBlendOp;
+        public uint colorBlendOp;
 
-        public BlendFactor srcAlphaBlendFactor;
+        public uint srcAlphaBlendFactor;
 
-        public BlendFactor dstAlphaBlendFactor;
+        public uint dstAlphaBlendFactor;
 
-        public BlendOp alphaBlendOp;
+        public uint alphaBlendOp;
 
         public uint colorWriteMask;
 
@@ -2665,15 +2665,15 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineColorBlendStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public bool logicOpEnable;
+        public uint logicOpEnable;
 
-        public LogicOp logicOp;
+        public uint logicOp;
 
         public uint attachmentCount;
 
@@ -2686,7 +2686,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineDynamicStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2701,7 +2701,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkGraphicsPipelineCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2744,7 +2744,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkComputePipelineCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2774,7 +2774,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineLayoutCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2793,41 +2793,41 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSamplerCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public Filter magFilter;
+        public uint magFilter;
 
-        public Filter minFilter;
+        public uint minFilter;
 
-        public SamplerMipmapMode mipmapMode;
+        public uint mipmapMode;
 
-        public SamplerAddressMode addressModeU;
+        public uint addressModeU;
 
-        public SamplerAddressMode addressModeV;
+        public uint addressModeV;
 
-        public SamplerAddressMode addressModeW;
+        public uint addressModeW;
 
         public float mipLodBias;
 
-        public bool anisotropyEnable;
+        public uint anisotropyEnable;
 
         public float maxAnisotropy;
 
-        public bool compareEnable;
+        public uint compareEnable;
 
-        public CompareOp compareOp;
+        public uint compareOp;
 
         public float minLod;
 
         public float maxLod;
 
-        public BorderColor borderColor;
+        public uint borderColor;
 
-        public bool unnormalizedCoordinates;
+        public uint unnormalizedCoordinates;
 
     }
 
@@ -2836,7 +2836,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint binding;
 
-        public DescriptorType descriptorType;
+        public uint descriptorType;
 
         public uint descriptorCount;
 
@@ -2849,7 +2849,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetLayoutCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2864,7 +2864,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorPoolSize
     {
-        public DescriptorType type;
+        public uint type;
 
         public uint descriptorCount;
 
@@ -2873,7 +2873,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorPoolCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2890,7 +2890,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetAllocateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2909,7 +2909,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public VkImageView_T imageView;
 
-        public ImageLayout imageLayout;
+        public uint imageLayout;
 
     }
 
@@ -2927,7 +2927,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkWriteDescriptorSet
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2939,7 +2939,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint descriptorCount;
 
-        public DescriptorType descriptorType;
+        public uint descriptorType;
 
         public System.IntPtr pImageInfo;
 
@@ -2952,7 +2952,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCopyDescriptorSet
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -2975,7 +2975,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFramebufferCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3000,21 +3000,21 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint flags;
 
-        public Format format;
+        public uint format;
 
-        public SampleCountFlagBits samples;
+        public uint samples;
 
-        public AttachmentLoadOp loadOp;
+        public uint loadOp;
 
-        public AttachmentStoreOp storeOp;
+        public uint storeOp;
 
-        public AttachmentLoadOp stencilLoadOp;
+        public uint stencilLoadOp;
 
-        public AttachmentStoreOp stencilStoreOp;
+        public uint stencilStoreOp;
 
-        public ImageLayout initialLayout;
+        public uint initialLayout;
 
-        public ImageLayout finalLayout;
+        public uint finalLayout;
 
     }
 
@@ -3023,7 +3023,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint attachment;
 
-        public ImageLayout layout;
+        public uint layout;
 
     }
 
@@ -3032,7 +3032,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint flags;
 
-        public PipelineBindPoint pipelineBindPoint;
+        public uint pipelineBindPoint;
 
         public uint inputAttachmentCount;
 
@@ -3074,7 +3074,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3097,7 +3097,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandPoolCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3110,13 +3110,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandBufferAllocateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkCommandPool_T commandPool;
 
-        public CommandBufferLevel level;
+        public uint level;
 
         public uint commandBufferCount;
 
@@ -3125,7 +3125,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandBufferInheritanceInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3135,7 +3135,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public VkFramebuffer_T framebuffer;
 
-        public bool occlusionQueryEnable;
+        public uint occlusionQueryEnable;
 
         public uint queryFlags;
 
@@ -3146,7 +3146,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandBufferBeginInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3276,7 +3276,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryBarrier
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3289,7 +3289,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferMemoryBarrier
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3312,7 +3312,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageMemoryBarrier
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3320,9 +3320,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint dstAccessMask;
 
-        public ImageLayout oldLayout;
+        public uint oldLayout;
 
-        public ImageLayout newLayout;
+        public uint newLayout;
 
         public uint srcQueueFamilyIndex;
 
@@ -3337,7 +3337,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassBeginInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3395,7 +3395,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBaseOutStructure
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3404,7 +3404,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBaseInStructure
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3658,7 +3658,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSubgroupProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3668,14 +3668,14 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint supportedOperations;
 
-        public bool quadOperationsInAllStages;
+        public uint quadOperationsInAllStages;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindBufferMemoryInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3690,7 +3690,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindImageMemoryInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3705,37 +3705,37 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevice16BitStorageFeatures
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool storageBuffer16BitAccess;
+        public uint storageBuffer16BitAccess;
 
-        public bool uniformAndStorageBuffer16BitAccess;
+        public uint uniformAndStorageBuffer16BitAccess;
 
-        public bool storagePushConstant16;
+        public uint storagePushConstant16;
 
-        public bool storageInputOutput16;
+        public uint storageInputOutput16;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryDedicatedRequirements
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool prefersDedicatedAllocation;
+        public uint prefersDedicatedAllocation;
 
-        public bool requiresDedicatedAllocation;
+        public uint requiresDedicatedAllocation;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryDedicatedAllocateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3748,7 +3748,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryAllocateFlagsInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3761,7 +3761,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupRenderPassBeginInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3776,7 +3776,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupCommandBufferBeginInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3787,7 +3787,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupSubmitInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3808,7 +3808,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupBindSparseInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3821,7 +3821,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindBufferMemoryDeviceGroupInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3834,7 +3834,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindImageMemoryDeviceGroupInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3851,7 +3851,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceGroupProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3860,14 +3860,14 @@ namespace AdamantiumVulkan.Core.Interop
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public VkPhysicalDevice_T[] physicalDevices;
 
-        public bool subsetAllocation;
+        public uint subsetAllocation;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupDeviceCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3880,7 +3880,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferMemoryRequirementsInfo2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3891,7 +3891,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageMemoryRequirementsInfo2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3902,7 +3902,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageSparseMemoryRequirementsInfo2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3913,7 +3913,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryRequirements2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3924,7 +3924,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSparseImageMemoryRequirements2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3935,7 +3935,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFeatures2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3946,7 +3946,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceProperties2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3957,7 +3957,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFormatProperties2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3968,7 +3968,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageFormatProperties2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -3979,15 +3979,15 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceImageFormatInfo2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public Format format;
+        public uint format;
 
-        public ImageType type;
+        public uint type;
 
-        public ImageTiling tiling;
+        public uint tiling;
 
         public uint usage;
 
@@ -3998,7 +3998,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueueFamilyProperties2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4009,7 +4009,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMemoryProperties2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4020,7 +4020,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSparseImageFormatProperties2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4031,30 +4031,30 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSparseImageFormatInfo2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public Format format;
+        public uint format;
 
-        public ImageType type;
+        public uint type;
 
-        public SampleCountFlagBits samples;
+        public uint samples;
 
         public uint usage;
 
-        public ImageTiling tiling;
+        public uint tiling;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevicePointClippingProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public PointClippingBehavior pointClippingBehavior;
+        public uint pointClippingBehavior;
 
     }
 
@@ -4072,7 +4072,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassInputAttachmentAspectCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4085,7 +4085,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageViewUsageCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4096,18 +4096,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineTessellationDomainOriginStateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public TessellationDomainOrigin domainOrigin;
+        public uint domainOrigin;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassMultiviewCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4128,22 +4128,22 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMultiviewFeatures
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool multiview;
+        public uint multiview;
 
-        public bool multiviewGeometryShader;
+        public uint multiviewGeometryShader;
 
-        public bool multiviewTessellationShader;
+        public uint multiviewTessellationShader;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMultiviewProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4156,42 +4156,42 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceVariablePointersFeatures
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool variablePointersStorageBuffer;
+        public uint variablePointersStorageBuffer;
 
-        public bool variablePointers;
+        public uint variablePointers;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceProtectedMemoryFeatures
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool protectedMemory;
+        public uint protectedMemory;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceProtectedMemoryProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool protectedNoFault;
+        public uint protectedNoFault;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceQueueInfo2
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4206,43 +4206,43 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkProtectedSubmitInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool protectedSubmit;
+        public uint protectedSubmit;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSamplerYcbcrConversionCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public Format format;
+        public uint format;
 
-        public SamplerYcbcrModelConversion ycbcrModel;
+        public uint ycbcrModel;
 
-        public SamplerYcbcrRange ycbcrRange;
+        public uint ycbcrRange;
 
         public VkComponentMapping components;
 
-        public ChromaLocation xChromaOffset;
+        public uint xChromaOffset;
 
-        public ChromaLocation yChromaOffset;
+        public uint yChromaOffset;
 
-        public Filter chromaFilter;
+        public uint chromaFilter;
 
-        public bool forceExplicitReconstruction;
+        public uint forceExplicitReconstruction;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSamplerYcbcrConversionInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4253,40 +4253,40 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindImagePlaneMemoryInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ImageAspectFlagBits planeAspect;
+        public uint planeAspect;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImagePlaneMemoryRequirementsInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ImageAspectFlagBits planeAspect;
+        public uint planeAspect;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSamplerYcbcrConversionFeatures
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool samplerYcbcrConversion;
+        public uint samplerYcbcrConversion;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSamplerYcbcrConversionImageFormatProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4303,7 +4303,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint descriptorCount;
 
-        public DescriptorType descriptorType;
+        public uint descriptorType;
 
         public ulong offset;
 
@@ -4314,7 +4314,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorUpdateTemplateCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4324,11 +4324,11 @@ namespace AdamantiumVulkan.Core.Interop
 
         public System.IntPtr pDescriptorUpdateEntries;
 
-        public DescriptorUpdateTemplateType templateType;
+        public uint templateType;
 
         public VkDescriptorSetLayout_T descriptorSetLayout;
 
-        public PipelineBindPoint pipelineBindPoint;
+        public uint pipelineBindPoint;
 
         public VkPipelineLayout_T pipelineLayout;
 
@@ -4350,18 +4350,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceExternalImageFormatInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalImageFormatProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4372,7 +4372,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceExternalBufferInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4380,14 +4380,14 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint usage;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalBufferProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4398,7 +4398,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceIDProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4410,14 +4410,14 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint deviceNodeMask;
 
-        public bool deviceLUIDValid;
+        public uint deviceLUIDValid;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalMemoryImageCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4428,7 +4428,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalMemoryBufferCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4439,7 +4439,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportMemoryAllocateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4450,18 +4450,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceExternalFenceInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ExternalFenceHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalFenceProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4476,7 +4476,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportFenceCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4487,7 +4487,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportSemaphoreCreateInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4498,18 +4498,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceExternalSemaphoreInfo
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ExternalSemaphoreHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalSemaphoreProperties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4524,7 +4524,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMaintenance3Properties
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4537,22 +4537,22 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetLayoutSupport
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool supported;
+        public uint supported;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderDrawParametersFeatures
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderDrawParameters;
+        public uint shaderDrawParameters;
 
     }
 
@@ -4619,7 +4619,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint supportedTransforms;
 
-        public SurfaceTransformFlagBitsKHR currentTransform;
+        public uint currentTransform;
 
         public uint supportedCompositeAlpha;
 
@@ -4630,9 +4630,9 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceFormatKHR
     {
-        public Format format;
+        public uint format;
 
-        public ColorSpaceKHR colorSpace;
+        public uint colorSpace;
 
     }
 
@@ -4685,7 +4685,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSwapchainCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4695,9 +4695,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint minImageCount;
 
-        public Format imageFormat;
+        public uint imageFormat;
 
-        public ColorSpaceKHR imageColorSpace;
+        public uint imageColorSpace;
 
         public VkExtent2D imageExtent;
 
@@ -4705,19 +4705,19 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint imageUsage;
 
-        public SharingMode imageSharingMode;
+        public uint imageSharingMode;
 
         public uint queueFamilyIndexCount;
 
         public System.IntPtr pQueueFamilyIndices;
 
-        public SurfaceTransformFlagBitsKHR preTransform;
+        public uint preTransform;
 
-        public CompositeAlphaFlagBitsKHR compositeAlpha;
+        public uint compositeAlpha;
 
-        public PresentModeKHR presentMode;
+        public uint presentMode;
 
-        public bool clipped;
+        public uint clipped;
 
         public VkSwapchainKHR_T oldSwapchain;
 
@@ -4726,7 +4726,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPresentInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4747,7 +4747,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageSwapchainCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4758,7 +4758,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindImageMemorySwapchainInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4771,7 +4771,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkAcquireNextImageInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4790,7 +4790,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupPresentCapabilitiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4803,7 +4803,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupPresentInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4811,14 +4811,14 @@ namespace AdamantiumVulkan.Core.Interop
 
         public System.IntPtr pDeviceMasks;
 
-        public DeviceGroupPresentModeFlagBitsKHR mode;
+        public uint mode;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGroupSwapchainCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4914,9 +4914,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint supportedTransforms;
 
-        public bool planeReorderPossible;
+        public uint planeReorderPossible;
 
-        public bool persistentContent;
+        public uint persistentContent;
 
     }
 
@@ -4941,7 +4941,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayModeCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4986,7 +4986,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplaySurfaceCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -4998,11 +4998,11 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint planeStackIndex;
 
-        public SurfaceTransformFlagBitsKHR transform;
+        public uint transform;
 
         public float globalAlpha;
 
-        public DisplayPlaneAlphaFlagBitsKHR alphaMode;
+        public uint alphaMode;
 
         public VkExtent2D imageExtent;
 
@@ -5011,7 +5011,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayPresentInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5019,7 +5019,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public VkRect2D dstRect;
 
-        public bool persistent;
+        public uint persistent;
 
     }
 
@@ -5111,11 +5111,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportMemoryFdInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public int fd;
 
@@ -5124,7 +5124,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryFdPropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5135,13 +5135,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryGetFdInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkDeviceMemory_T memory;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
@@ -5199,7 +5199,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportSemaphoreFdInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5207,7 +5207,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public ExternalSemaphoreHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public int fd;
 
@@ -5216,20 +5216,20 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreGetFdInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkSemaphore_T semaphore;
 
-        public ExternalSemaphoreHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevicePushDescriptorPropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5240,13 +5240,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderFloat16Int8FeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderFloat16;
+        public uint shaderFloat16;
 
-        public bool shaderInt8;
+        public uint shaderInt8;
 
     }
 
@@ -5273,7 +5273,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPresentRegionsKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5303,18 +5303,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceImagelessFramebufferFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool imagelessFramebuffer;
+        public uint imagelessFramebuffer;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFramebufferAttachmentImageInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5337,7 +5337,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFramebufferAttachmentsCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5350,7 +5350,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassAttachmentBeginInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5363,40 +5363,40 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkAttachmentDescription2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public Format format;
+        public uint format;
 
-        public SampleCountFlagBits samples;
+        public uint samples;
 
-        public AttachmentLoadOp loadOp;
+        public uint loadOp;
 
-        public AttachmentStoreOp storeOp;
+        public uint storeOp;
 
-        public AttachmentLoadOp stencilLoadOp;
+        public uint stencilLoadOp;
 
-        public AttachmentStoreOp stencilStoreOp;
+        public uint stencilStoreOp;
 
-        public ImageLayout initialLayout;
+        public uint initialLayout;
 
-        public ImageLayout finalLayout;
+        public uint finalLayout;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkAttachmentReference2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint attachment;
 
-        public ImageLayout layout;
+        public uint layout;
 
         public uint aspectMask;
 
@@ -5405,13 +5405,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubpassDescription2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public PipelineBindPoint pipelineBindPoint;
+        public uint pipelineBindPoint;
 
         public uint viewMask;
 
@@ -5436,7 +5436,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubpassDependency2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5461,7 +5461,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassCreateInfo2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5488,18 +5488,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubpassBeginInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public SubpassContents contents;
+        public uint contents;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubpassEndInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5508,7 +5508,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSharedPresentSurfaceCapabilitiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5570,7 +5570,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportFenceFdInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5578,7 +5578,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint flags;
 
-        public ExternalFenceHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public int fd;
 
@@ -5587,20 +5587,20 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFenceGetFdInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkFence_T fence;
 
-        public ExternalFenceHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSurfaceInfo2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5611,7 +5611,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceCapabilities2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5622,7 +5622,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceFormat2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5633,7 +5633,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayProperties2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5644,7 +5644,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayPlaneProperties2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5655,7 +5655,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayModeProperties2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5666,7 +5666,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayPlaneInfo2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5679,7 +5679,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayPlaneCapabilities2KHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5690,7 +5690,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageFormatListCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5703,52 +5703,52 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderSubgroupExtendedTypes;
+        public uint shaderSubgroupExtendedTypes;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevice8BitStorageFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool storageBuffer8BitAccess;
+        public uint storageBuffer8BitAccess;
 
-        public bool uniformAndStorageBuffer8BitAccess;
+        public uint uniformAndStorageBuffer8BitAccess;
 
-        public bool storagePushConstant8;
+        public uint storagePushConstant8;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderAtomicInt64FeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderBufferInt64Atomics;
+        public uint shaderBufferInt64Atomics;
 
-        public bool shaderSharedInt64Atomics;
+        public uint shaderSharedInt64Atomics;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderClockFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderSubgroupClock;
+        public uint shaderSubgroupClock;
 
-        public bool shaderDeviceClock;
+        public uint shaderDeviceClock;
 
     }
 
@@ -5768,11 +5768,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDriverPropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public DriverIdKHR driverID;
+        public uint driverID;
 
         public unsafe fixed sbyte driverName[256];
 
@@ -5785,43 +5785,43 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFloatControlsPropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ShaderFloatControlsIndependenceKHR denormBehaviorIndependence;
+        public uint denormBehaviorIndependence;
 
-        public ShaderFloatControlsIndependenceKHR roundingModeIndependence;
+        public uint roundingModeIndependence;
 
-        public bool shaderSignedZeroInfNanPreserveFloat16;
+        public uint shaderSignedZeroInfNanPreserveFloat16;
 
-        public bool shaderSignedZeroInfNanPreserveFloat32;
+        public uint shaderSignedZeroInfNanPreserveFloat32;
 
-        public bool shaderSignedZeroInfNanPreserveFloat64;
+        public uint shaderSignedZeroInfNanPreserveFloat64;
 
-        public bool shaderDenormPreserveFloat16;
+        public uint shaderDenormPreserveFloat16;
 
-        public bool shaderDenormPreserveFloat32;
+        public uint shaderDenormPreserveFloat32;
 
-        public bool shaderDenormPreserveFloat64;
+        public uint shaderDenormPreserveFloat64;
 
-        public bool shaderDenormFlushToZeroFloat16;
+        public uint shaderDenormFlushToZeroFloat16;
 
-        public bool shaderDenormFlushToZeroFloat32;
+        public uint shaderDenormFlushToZeroFloat32;
 
-        public bool shaderDenormFlushToZeroFloat64;
+        public uint shaderDenormFlushToZeroFloat64;
 
-        public bool shaderRoundingModeRTEFloat16;
+        public uint shaderRoundingModeRTEFloat16;
 
-        public bool shaderRoundingModeRTEFloat32;
+        public uint shaderRoundingModeRTEFloat32;
 
-        public bool shaderRoundingModeRTEFloat64;
+        public uint shaderRoundingModeRTEFloat64;
 
-        public bool shaderRoundingModeRTZFloat16;
+        public uint shaderRoundingModeRTZFloat16;
 
-        public bool shaderRoundingModeRTZFloat32;
+        public uint shaderRoundingModeRTZFloat32;
 
-        public bool shaderRoundingModeRTZFloat64;
+        public uint shaderRoundingModeRTZFloat64;
 
     }
 
@@ -5845,13 +5845,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubpassDescriptionDepthStencilResolveKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ResolveModeFlagBitsKHR depthResolveMode;
+        public uint depthResolveMode;
 
-        public ResolveModeFlagBitsKHR stencilResolveMode;
+        public uint stencilResolveMode;
 
         public System.IntPtr pDepthStencilResolveAttachment;
 
@@ -5860,7 +5860,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDepthStencilResolvePropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5868,9 +5868,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint supportedStencilResolveModes;
 
-        public bool independentResolveNone;
+        public uint independentResolveNone;
 
-        public bool independentResolve;
+        public uint independentResolve;
 
     }
 
@@ -5894,18 +5894,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTimelineSemaphoreFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool timelineSemaphore;
+        public uint timelineSemaphore;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTimelineSemaphorePropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5916,11 +5916,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreTypeCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public SemaphoreTypeKHR semaphoreType;
+        public uint semaphoreType;
 
         public ulong initialValue;
 
@@ -5929,7 +5929,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkTimelineSemaphoreSubmitInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5946,7 +5946,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreWaitInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5963,7 +5963,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreSignalInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -5976,55 +5976,55 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceVulkanMemoryModelFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool vulkanMemoryModel;
+        public uint vulkanMemoryModel;
 
-        public bool vulkanMemoryModelDeviceScope;
+        public uint vulkanMemoryModelDeviceScope;
 
-        public bool vulkanMemoryModelAvailabilityVisibilityChains;
+        public uint vulkanMemoryModelAvailabilityVisibilityChains;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceProtectedCapabilitiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool supportsProtected;
+        public uint supportsProtected;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool uniformBufferStandardLayout;
+        public uint uniformBufferStandardLayout;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool pipelineExecutableInfo;
+        public uint pipelineExecutableInfo;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6035,7 +6035,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineExecutablePropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6052,7 +6052,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineExecutableInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6065,7 +6065,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineExecutableStatisticKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6073,7 +6073,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public unsafe fixed sbyte description[256];
 
-        public PipelineExecutableStatisticFormatKHR format;
+        public uint format;
 
         public VkPipelineExecutableStatisticValueKHR value;
 
@@ -6082,7 +6082,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineExecutableInternalRepresentationKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6090,7 +6090,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public unsafe fixed sbyte description[256];
 
-        public bool isText;
+        public uint isText;
 
         public ulong dataSize;
 
@@ -6130,7 +6130,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugReportCallbackCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6145,22 +6145,22 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRasterizationStateRasterizationOrderAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public RasterizationOrderAMD rasterizationOrder;
+        public uint rasterizationOrder;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugMarkerObjectNameInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public DebugReportObjectTypeEXT objectType;
+        public uint objectType;
 
         public ulong @object;
 
@@ -6171,11 +6171,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugMarkerObjectTagInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public DebugReportObjectTypeEXT objectType;
+        public uint objectType;
 
         public ulong @object;
 
@@ -6190,7 +6190,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugMarkerMarkerInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6203,29 +6203,29 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDedicatedAllocationImageCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool dedicatedAllocation;
+        public uint dedicatedAllocation;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDedicatedAllocationBufferCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool dedicatedAllocation;
+        public uint dedicatedAllocation;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDedicatedAllocationMemoryAllocateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6255,20 +6255,20 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTransformFeedbackFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool transformFeedback;
+        public uint transformFeedback;
 
-        public bool geometryStreams;
+        public uint geometryStreams;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTransformFeedbackPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6284,20 +6284,20 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint maxTransformFeedbackBufferDataStride;
 
-        public bool transformFeedbackQueries;
+        public uint transformFeedbackQueries;
 
-        public bool transformFeedbackStreamsLinesTriangles;
+        public uint transformFeedbackStreamsLinesTriangles;
 
-        public bool transformFeedbackRasterizationStreamSelect;
+        public uint transformFeedbackRasterizationStreamSelect;
 
-        public bool transformFeedbackDraw;
+        public uint transformFeedbackDraw;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRasterizationStateStreamCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6310,13 +6310,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageViewHandleInfoNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkImageView_T imageView;
 
-        public DescriptorType descriptorType;
+        public uint descriptorType;
 
         public VkSampler_T sampler;
 
@@ -6325,11 +6325,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkTextureLODGatherFormatPropertiesAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool supportsTextureGatherLODBiasAMD;
+        public uint supportsTextureGatherLODBiasAMD;
 
     }
 
@@ -6370,11 +6370,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceCornerSampledImageFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool cornerSampledImage;
+        public uint cornerSampledImage;
 
     }
 
@@ -6428,7 +6428,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExternalMemoryImageCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6439,7 +6439,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportMemoryAllocateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6450,7 +6450,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkValidationFlagsEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6463,33 +6463,33 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool textureCompressionASTC_HDR;
+        public uint textureCompressionASTC_HDR;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageViewASTCDecodeModeEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public Format decodeMode;
+        public uint decodeMode;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceASTCDecodeFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool decodeModeSharedExponent;
+        public uint decodeModeSharedExponent;
 
     }
 
@@ -6513,7 +6513,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkConditionalRenderingBeginInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6528,24 +6528,24 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceConditionalRenderingFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool conditionalRendering;
+        public uint conditionalRendering;
 
-        public bool inheritedConditionalRendering;
+        public uint inheritedConditionalRendering;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCommandBufferInheritanceConditionalRenderingInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool conditionalRenderingEnable;
+        public uint conditionalRenderingEnable;
 
     }
 
@@ -6610,18 +6610,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGeneratedCommandsFeaturesNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool computeBindingPointSupport;
+        public uint computeBindingPointSupport;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceGeneratedCommandsLimitsNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6640,7 +6640,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkIndirectCommandsTokenNVX
     {
-        public IndirectCommandsTokenTypeNVX tokenType;
+        public uint tokenType;
 
         public VkBuffer_T buffer;
 
@@ -6651,7 +6651,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkIndirectCommandsLayoutTokenNVX
     {
-        public IndirectCommandsTokenTypeNVX tokenType;
+        public uint tokenType;
 
         public uint bindingUnit;
 
@@ -6664,11 +6664,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkIndirectCommandsLayoutCreateInfoNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public PipelineBindPoint pipelineBindPoint;
+        public uint pipelineBindPoint;
 
         public uint flags;
 
@@ -6681,7 +6681,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCmdProcessCommandsInfoNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6710,7 +6710,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCmdReserveSpaceForCommandsInfoNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6725,7 +6725,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTableCreateInfoNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6752,7 +6752,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTableEntryNVX
     {
-        public ObjectEntryTypeNVX type;
+        public uint type;
 
         public uint flags;
 
@@ -6761,7 +6761,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTablePipelineEntryNVX
     {
-        public ObjectEntryTypeNVX type;
+        public uint type;
 
         public uint flags;
 
@@ -6772,7 +6772,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTableDescriptorSetEntryNVX
     {
-        public ObjectEntryTypeNVX type;
+        public uint type;
 
         public uint flags;
 
@@ -6785,7 +6785,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTableVertexBufferEntryNVX
     {
-        public ObjectEntryTypeNVX type;
+        public uint type;
 
         public uint flags;
 
@@ -6796,20 +6796,20 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTableIndexBufferEntryNVX
     {
-        public ObjectEntryTypeNVX type;
+        public uint type;
 
         public uint flags;
 
         public VkBuffer_T buffer;
 
-        public IndexType indexType;
+        public uint indexType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkObjectTablePushConstantEntryNVX
     {
-        public ObjectEntryTypeNVX type;
+        public uint type;
 
         public uint flags;
 
@@ -6831,11 +6831,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineViewportWScalingStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool viewportWScalingEnable;
+        public uint viewportWScalingEnable;
 
         public uint viewportCount;
 
@@ -6863,7 +6863,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceCapabilities2EXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6881,7 +6881,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint supportedTransforms;
 
-        public SurfaceTransformFlagBitsKHR currentTransform;
+        public uint currentTransform;
 
         public uint supportedCompositeAlpha;
 
@@ -6894,40 +6894,40 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayPowerInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public DisplayPowerStateEXT powerState;
+        public uint powerState;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceEventInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public DeviceEventTypeEXT deviceEvent;
+        public uint deviceEvent;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayEventInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public DisplayEventTypeEXT displayEvent;
+        public uint displayEvent;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSwapchainCounterCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6969,7 +6969,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPresentTimesInfoGOOGLE
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -6982,11 +6982,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool perViewPositionAllComponents;
+        public uint perViewPositionAllComponents;
 
     }
 
@@ -7010,20 +7010,20 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkViewportSwizzleNV
     {
-        public ViewportCoordinateSwizzleNV x;
+        public uint x;
 
-        public ViewportCoordinateSwizzleNV y;
+        public uint y;
 
-        public ViewportCoordinateSwizzleNV z;
+        public uint z;
 
-        public ViewportCoordinateSwizzleNV w;
+        public uint w;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineViewportSwizzleStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7055,7 +7055,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDiscardRectanglePropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7066,13 +7066,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineDiscardRectangleStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public DiscardRectangleModeEXT discardRectangleMode;
+        public uint discardRectangleMode;
 
         public uint discardRectangleCount;
 
@@ -7100,7 +7100,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceConservativeRasterizationPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7110,30 +7110,30 @@ namespace AdamantiumVulkan.Core.Interop
 
         public float extraPrimitiveOverestimationSizeGranularity;
 
-        public bool primitiveUnderestimation;
+        public uint primitiveUnderestimation;
 
-        public bool conservativePointAndLineRasterization;
+        public uint conservativePointAndLineRasterization;
 
-        public bool degenerateTrianglesRasterized;
+        public uint degenerateTrianglesRasterized;
 
-        public bool degenerateLinesRasterized;
+        public uint degenerateLinesRasterized;
 
-        public bool fullyCoveredFragmentShaderInputVariable;
+        public uint fullyCoveredFragmentShaderInputVariable;
 
-        public bool conservativeRasterizationPostDepthCoverage;
+        public uint conservativeRasterizationPostDepthCoverage;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRasterizationConservativeStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public ConservativeRasterizationModeEXT conservativeRasterizationMode;
+        public uint conservativeRasterizationMode;
 
         public float extraPrimitiveOverestimationSize;
 
@@ -7159,24 +7159,24 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDepthClipEnableFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool depthClipEnable;
+        public uint depthClipEnable;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRasterizationDepthClipStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public bool depthClipEnable;
+        public uint depthClipEnable;
 
     }
 
@@ -7192,7 +7192,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkHdrMetadataEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7297,11 +7297,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugUtilsObjectNameInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ObjectType objectType;
+        public uint objectType;
 
         public ulong objectHandle;
 
@@ -7312,11 +7312,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugUtilsObjectTagInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ObjectType objectType;
+        public uint objectType;
 
         public ulong objectHandle;
 
@@ -7331,7 +7331,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugUtilsLabelEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7344,7 +7344,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugUtilsMessengerCallbackDataEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7373,7 +7373,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugUtilsMessengerCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7392,44 +7392,44 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSamplerReductionModeCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public SamplerReductionModeEXT reductionMode;
+        public uint reductionMode;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool filterMinmaxSingleComponentFormats;
+        public uint filterMinmaxSingleComponentFormats;
 
-        public bool filterMinmaxImageComponentMapping;
+        public uint filterMinmaxImageComponentMapping;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceInlineUniformBlockFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool inlineUniformBlock;
+        public uint inlineUniformBlock;
 
-        public bool descriptorBindingInlineUniformBlockUpdateAfterBind;
+        public uint descriptorBindingInlineUniformBlockUpdateAfterBind;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceInlineUniformBlockPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7448,7 +7448,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkWriteDescriptorSetInlineUniformBlockEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7461,7 +7461,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorPoolInlineUniformBlockCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7481,11 +7481,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSampleLocationsInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public SampleCountFlagBits sampleLocationsPerPixel;
+        public uint sampleLocationsPerPixel;
 
         public VkExtent2D sampleLocationGridSize;
 
@@ -7516,7 +7516,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassSampleLocationsBeginInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7533,11 +7533,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineSampleLocationsStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool sampleLocationsEnable;
+        public uint sampleLocationsEnable;
 
         public VkSampleLocationsInfoEXT sampleLocationsInfo;
 
@@ -7546,7 +7546,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSampleLocationsPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7558,14 +7558,14 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint sampleLocationSubPixelBits;
 
-        public bool variableSampleLocations;
+        public uint variableSampleLocations;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMultisamplePropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7576,47 +7576,47 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool advancedBlendCoherentOperations;
+        public uint advancedBlendCoherentOperations;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint advancedBlendMaxColorAttachments;
 
-        public bool advancedBlendIndependentBlend;
+        public uint advancedBlendIndependentBlend;
 
-        public bool advancedBlendNonPremultipliedSrcColor;
+        public uint advancedBlendNonPremultipliedSrcColor;
 
-        public bool advancedBlendNonPremultipliedDstColor;
+        public uint advancedBlendNonPremultipliedDstColor;
 
-        public bool advancedBlendCorrelatedOverlap;
+        public uint advancedBlendCorrelatedOverlap;
 
-        public bool advancedBlendAllOperations;
+        public uint advancedBlendAllOperations;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineColorBlendAdvancedStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool srcPremultiplied;
+        public uint srcPremultiplied;
 
-        public bool dstPremultiplied;
+        public uint dstPremultiplied;
 
-        public BlendOverlapEXT blendOverlap;
+        public uint blendOverlap;
 
     }
 
@@ -7640,13 +7640,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCoverageToColorStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public bool coverageToColorEnable;
+        public uint coverageToColorEnable;
 
         public uint coverageToColorLocation;
 
@@ -7672,15 +7672,15 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCoverageModulationStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public CoverageModulationModeNV coverageModulationMode;
+        public uint coverageModulationMode;
 
-        public bool coverageModulationTableEnable;
+        public uint coverageModulationTableEnable;
 
         public uint coverageModulationTableCount;
 
@@ -7691,7 +7691,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderSMBuiltinsPropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7704,11 +7704,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderSMBuiltinsFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderSMBuiltins;
+        public uint shaderSMBuiltins;
 
     }
 
@@ -7726,7 +7726,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDrmFormatModifierPropertiesListEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7739,13 +7739,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceImageDrmFormatModifierInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public ulong drmFormatModifier;
 
-        public SharingMode sharingMode;
+        public uint sharingMode;
 
         public uint queueFamilyIndexCount;
 
@@ -7756,7 +7756,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageDrmFormatModifierListCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7769,7 +7769,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageDrmFormatModifierExplicitCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7784,7 +7784,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageDrmFormatModifierPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7824,7 +7824,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkValidationCacheCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7839,7 +7839,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkShaderModuleValidationCacheCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7867,7 +7867,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetLayoutBindingFlagsCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7880,74 +7880,74 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDescriptorIndexingFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderInputAttachmentArrayDynamicIndexing;
+        public uint shaderInputAttachmentArrayDynamicIndexing;
 
-        public bool shaderUniformTexelBufferArrayDynamicIndexing;
+        public uint shaderUniformTexelBufferArrayDynamicIndexing;
 
-        public bool shaderStorageTexelBufferArrayDynamicIndexing;
+        public uint shaderStorageTexelBufferArrayDynamicIndexing;
 
-        public bool shaderUniformBufferArrayNonUniformIndexing;
+        public uint shaderUniformBufferArrayNonUniformIndexing;
 
-        public bool shaderSampledImageArrayNonUniformIndexing;
+        public uint shaderSampledImageArrayNonUniformIndexing;
 
-        public bool shaderStorageBufferArrayNonUniformIndexing;
+        public uint shaderStorageBufferArrayNonUniformIndexing;
 
-        public bool shaderStorageImageArrayNonUniformIndexing;
+        public uint shaderStorageImageArrayNonUniformIndexing;
 
-        public bool shaderInputAttachmentArrayNonUniformIndexing;
+        public uint shaderInputAttachmentArrayNonUniformIndexing;
 
-        public bool shaderUniformTexelBufferArrayNonUniformIndexing;
+        public uint shaderUniformTexelBufferArrayNonUniformIndexing;
 
-        public bool shaderStorageTexelBufferArrayNonUniformIndexing;
+        public uint shaderStorageTexelBufferArrayNonUniformIndexing;
 
-        public bool descriptorBindingUniformBufferUpdateAfterBind;
+        public uint descriptorBindingUniformBufferUpdateAfterBind;
 
-        public bool descriptorBindingSampledImageUpdateAfterBind;
+        public uint descriptorBindingSampledImageUpdateAfterBind;
 
-        public bool descriptorBindingStorageImageUpdateAfterBind;
+        public uint descriptorBindingStorageImageUpdateAfterBind;
 
-        public bool descriptorBindingStorageBufferUpdateAfterBind;
+        public uint descriptorBindingStorageBufferUpdateAfterBind;
 
-        public bool descriptorBindingUniformTexelBufferUpdateAfterBind;
+        public uint descriptorBindingUniformTexelBufferUpdateAfterBind;
 
-        public bool descriptorBindingStorageTexelBufferUpdateAfterBind;
+        public uint descriptorBindingStorageTexelBufferUpdateAfterBind;
 
-        public bool descriptorBindingUpdateUnusedWhilePending;
+        public uint descriptorBindingUpdateUnusedWhilePending;
 
-        public bool descriptorBindingPartiallyBound;
+        public uint descriptorBindingPartiallyBound;
 
-        public bool descriptorBindingVariableDescriptorCount;
+        public uint descriptorBindingVariableDescriptorCount;
 
-        public bool runtimeDescriptorArray;
+        public uint runtimeDescriptorArray;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDescriptorIndexingPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint maxUpdateAfterBindDescriptorsInAllPools;
 
-        public bool shaderUniformBufferArrayNonUniformIndexingNative;
+        public uint shaderUniformBufferArrayNonUniformIndexingNative;
 
-        public bool shaderSampledImageArrayNonUniformIndexingNative;
+        public uint shaderSampledImageArrayNonUniformIndexingNative;
 
-        public bool shaderStorageBufferArrayNonUniformIndexingNative;
+        public uint shaderStorageBufferArrayNonUniformIndexingNative;
 
-        public bool shaderStorageImageArrayNonUniformIndexingNative;
+        public uint shaderStorageImageArrayNonUniformIndexingNative;
 
-        public bool shaderInputAttachmentArrayNonUniformIndexingNative;
+        public uint shaderInputAttachmentArrayNonUniformIndexingNative;
 
-        public bool robustBufferAccessUpdateAfterBind;
+        public uint robustBufferAccessUpdateAfterBind;
 
-        public bool quadDivergentImplicitLod;
+        public uint quadDivergentImplicitLod;
 
         public uint maxPerStageDescriptorUpdateAfterBindSamplers;
 
@@ -7984,7 +7984,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetVariableDescriptorCountAllocateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -7997,7 +7997,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorSetVariableDescriptorCountLayoutSupportEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8017,11 +8017,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineViewportShadingRateImageStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shadingRateImageEnable;
+        public uint shadingRateImageEnable;
 
         public uint viewportCount;
 
@@ -8032,20 +8032,20 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShadingRateImageFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shadingRateImage;
+        public uint shadingRateImage;
 
-        public bool shadingRateCoarseSampleOrder;
+        public uint shadingRateCoarseSampleOrder;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShadingRateImagePropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8071,7 +8071,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCoarseSampleOrderCustomNV
     {
-        public ShadingRatePaletteEntryNV shadingRate;
+        public uint shadingRate;
 
         public uint sampleCount;
 
@@ -8084,11 +8084,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineViewportCoarseSampleOrderStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public CoarseSampleOrderTypeNV sampleOrderType;
+        public uint sampleOrderType;
 
         public uint customSampleOrderCount;
 
@@ -8162,11 +8162,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRayTracingShaderGroupCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public RayTracingShaderGroupTypeNV type;
+        public uint type;
 
         public uint generalShader;
 
@@ -8181,7 +8181,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRayTracingPipelineCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8208,7 +8208,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkGeometryTrianglesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8220,7 +8220,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public ulong vertexStride;
 
-        public Format vertexFormat;
+        public uint vertexFormat;
 
         public VkBuffer_T indexData;
 
@@ -8228,7 +8228,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint indexCount;
 
-        public IndexType indexType;
+        public uint indexType;
 
         public VkBuffer_T transformData;
 
@@ -8239,7 +8239,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkGeometryAABBNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8265,11 +8265,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkGeometryNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public GeometryTypeNV geometryType;
+        public uint geometryType;
 
         public VkGeometryDataNV geometry;
 
@@ -8280,11 +8280,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkAccelerationStructureInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public AccelerationStructureTypeNV type;
+        public uint type;
 
         public uint flags;
 
@@ -8299,7 +8299,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkAccelerationStructureCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8312,7 +8312,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBindAccelerationStructureMemoryInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8331,7 +8331,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkWriteDescriptorSetAccelerationStructureNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8344,11 +8344,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkAccelerationStructureMemoryRequirementsInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public AccelerationStructureMemoryRequirementsTypeNV type;
+        public uint type;
 
         public VkAccelerationStructureNV_T accelerationStructure;
 
@@ -8357,7 +8357,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceRayTracingPropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8382,68 +8382,68 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool representativeFragmentTest;
+        public uint representativeFragmentTest;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRepresentativeFragmentTestStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool representativeFragmentTestEnable;
+        public uint representativeFragmentTestEnable;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceImageViewImageFormatInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ImageViewType imageViewType;
+        public uint imageViewType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFilterCubicImageViewImageFormatPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool filterCubic;
+        public uint filterCubic;
 
-        public bool filterCubicMinmax;
+        public uint filterCubicMinmax;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceQueueGlobalPriorityCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public QueueGlobalPriorityEXT globalPriority;
+        public uint globalPriority;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportMemoryHostPointerInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public System.IntPtr pHostPointer;
 
@@ -8452,7 +8452,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryHostPointerPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8463,7 +8463,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceExternalMemoryHostPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8491,7 +8491,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCompilerControlCreateInfoAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8502,18 +8502,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCalibratedTimestampInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public TimeDomainEXT timeDomain;
+        public uint timeDomain;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderCorePropertiesAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8550,18 +8550,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDeviceMemoryOverallocationCreateInfoAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public MemoryOverallocationBehaviorAMD overallocationBehavior;
+        public uint overallocationBehavior;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8581,7 +8581,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineVertexInputDivisorStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8594,13 +8594,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool vertexAttributeInstanceRateDivisor;
+        public uint vertexAttributeInstanceRateDivisor;
 
-        public bool vertexAttributeInstanceRateZeroDivisor;
+        public uint vertexAttributeInstanceRateZeroDivisor;
 
     }
 
@@ -8633,7 +8633,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCreationFeedbackCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8648,33 +8648,33 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceComputeShaderDerivativesFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool computeDerivativeGroupQuads;
+        public uint computeDerivativeGroupQuads;
 
-        public bool computeDerivativeGroupLinear;
+        public uint computeDerivativeGroupLinear;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMeshShaderFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool taskShader;
+        public uint taskShader;
 
-        public bool meshShader;
+        public uint meshShader;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMeshShaderPropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8718,29 +8718,29 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool fragmentShaderBarycentric;
+        public uint fragmentShaderBarycentric;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderImageFootprintFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool imageFootprint;
+        public uint imageFootprint;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineViewportExclusiveScissorStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8753,18 +8753,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceExclusiveScissorFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool exclusiveScissor;
+        public uint exclusiveScissor;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueueFamilyCheckpointPropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8775,11 +8775,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCheckpointDataNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public PipelineStageFlagBits stage;
+        public uint stage;
 
         public System.IntPtr pCheckpointMarker;
 
@@ -8788,11 +8788,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderIntegerFunctions2;
+        public uint shaderIntegerFunctions2;
 
     }
 
@@ -8811,7 +8811,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPerformanceValueINTEL
     {
-        public PerformanceValueTypeINTEL type;
+        public uint type;
 
         public VkPerformanceValueDataINTEL data;
 
@@ -8820,7 +8820,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkInitializePerformanceApiInfoINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8831,18 +8831,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueryPoolCreateInfoINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public QueryPoolSamplingModeINTEL performanceCountersSampling;
+        public uint performanceCountersSampling;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPerformanceMarkerInfoINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8853,7 +8853,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPerformanceStreamMarkerInfoINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8864,13 +8864,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPerformanceOverrideInfoINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public PerformanceOverrideTypeINTEL type;
+        public uint type;
 
-        public bool enable;
+        public uint enable;
 
         public ulong parameter;
 
@@ -8879,18 +8879,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPerformanceConfigurationAcquireInfoINTEL
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public PerformanceConfigurationTypeINTEL type;
+        public uint type;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDevicePCIBusInfoPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8907,44 +8907,44 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayNativeHdrSurfaceCapabilitiesAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool localDimmingSupport;
+        public uint localDimmingSupport;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSwapchainDisplayNativeHdrCreateInfoAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool localDimmingEnable;
+        public uint localDimmingEnable;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFragmentDensityMapFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool fragmentDensityMap;
+        public uint fragmentDensityMap;
 
-        public bool fragmentDensityMapDynamic;
+        public uint fragmentDensityMapDynamic;
 
-        public bool fragmentDensityMapNonSubsampledImages;
+        public uint fragmentDensityMapNonSubsampledImages;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFragmentDensityMapPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8952,14 +8952,14 @@ namespace AdamantiumVulkan.Core.Interop
 
         public VkExtent2D maxFragmentDensityTexelSize;
 
-        public bool fragmentDensityInvocations;
+        public uint fragmentDensityInvocations;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRenderPassFragmentDensityMapCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -8970,31 +8970,31 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceScalarBlockLayoutFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool scalarBlockLayout;
+        public uint scalarBlockLayout;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSubgroupSizeControlFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool subgroupSizeControl;
+        public uint subgroupSizeControl;
 
-        public bool computeFullSubgroups;
+        public uint computeFullSubgroups;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSubgroupSizeControlPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9011,7 +9011,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9039,7 +9039,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderCoreProperties2AMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9052,18 +9052,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceCoherentMemoryFeaturesAMD
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool deviceCoherentMemory;
+        public uint deviceCoherentMemory;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMemoryBudgetPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9076,18 +9076,18 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMemoryPriorityFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool memoryPriority;
+        public uint memoryPriority;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryPriorityAllocateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9098,11 +9098,11 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool dedicatedAllocationImageAliasing;
+        public uint dedicatedAllocationImageAliasing;
 
     }
 
@@ -9126,22 +9126,22 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceBufferDeviceAddressFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool bufferDeviceAddress;
+        public uint bufferDeviceAddress;
 
-        public bool bufferDeviceAddressCaptureReplay;
+        public uint bufferDeviceAddressCaptureReplay;
 
-        public bool bufferDeviceAddressMultiDevice;
+        public uint bufferDeviceAddressMultiDevice;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferDeviceAddressInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9152,7 +9152,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferDeviceAddressCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9163,7 +9163,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageStencilUsageCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9174,7 +9174,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkValidationFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9191,7 +9191,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkCooperativeMatrixPropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9201,35 +9201,35 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint KSize;
 
-        public ComponentTypeNV AType;
+        public uint AType;
 
-        public ComponentTypeNV BType;
+        public uint BType;
 
-        public ComponentTypeNV CType;
+        public uint CType;
 
-        public ComponentTypeNV DType;
+        public uint DType;
 
-        public ScopeNV scope;
+        public uint scope;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceCooperativeMatrixFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool cooperativeMatrix;
+        public uint cooperativeMatrix;
 
-        public bool cooperativeMatrixRobustBufferAccess;
+        public uint cooperativeMatrixRobustBufferAccess;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceCooperativeMatrixPropertiesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9257,37 +9257,37 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceCoverageReductionModeFeaturesNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool coverageReductionMode;
+        public uint coverageReductionMode;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCoverageReductionStateCreateInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public uint flags;
 
-        public CoverageReductionModeNV coverageReductionMode;
+        public uint coverageReductionMode;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFramebufferMixedSamplesCombinationNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public CoverageReductionModeNV coverageReductionMode;
+        public uint coverageReductionMode;
 
-        public SampleCountFlagBits rasterizationSamples;
+        public uint rasterizationSamples;
 
         public uint depthStencilSamples;
 
@@ -9298,26 +9298,26 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool fragmentShaderSampleInterlock;
+        public uint fragmentShaderSampleInterlock;
 
-        public bool fragmentShaderPixelInterlock;
+        public uint fragmentShaderPixelInterlock;
 
-        public bool fragmentShaderShadingRateInterlock;
+        public uint fragmentShaderShadingRateInterlock;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceYcbcrImageArraysFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool ycbcrImageArrays;
+        public uint ycbcrImageArrays;
 
     }
 
@@ -9341,7 +9341,7 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkHeadlessSurfaceCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9352,28 +9352,28 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceLineRasterizationFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool rectangularLines;
+        public uint rectangularLines;
 
-        public bool bresenhamLines;
+        public uint bresenhamLines;
 
-        public bool smoothLines;
+        public uint smoothLines;
 
-        public bool stippledRectangularLines;
+        public uint stippledRectangularLines;
 
-        public bool stippledBresenhamLines;
+        public uint stippledBresenhamLines;
 
-        public bool stippledSmoothLines;
+        public uint stippledSmoothLines;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceLineRasterizationPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -9384,13 +9384,13 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineRasterizationLineStateCreateInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public LineRasterizationModeEXT lineRasterizationMode;
+        public uint lineRasterizationMode;
 
-        public bool stippledLineEnable;
+        public uint stippledLineEnable;
 
         public uint lineStippleFactor;
 
@@ -9401,61 +9401,61 @@ namespace AdamantiumVulkan.Core.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceHostQueryResetFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool hostQueryReset;
+        public uint hostQueryReset;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceIndexTypeUint8FeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool indexTypeUint8;
+        public uint indexTypeUint8;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool shaderDemoteToHelperInvocation;
+        public uint shaderDemoteToHelperInvocation;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool texelBufferAlignment;
+        public uint texelBufferAlignment;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public ulong storageTexelBufferOffsetAlignmentBytes;
 
-        public bool storageTexelBufferOffsetSingleTexelAlignment;
+        public uint storageTexelBufferOffsetSingleTexelAlignment;
 
         public ulong uniformTexelBufferOffsetAlignmentBytes;
 
-        public bool uniformTexelBufferOffsetSingleTexelAlignment;
+        public uint uniformTexelBufferOffsetSingleTexelAlignment;
 
     }
 

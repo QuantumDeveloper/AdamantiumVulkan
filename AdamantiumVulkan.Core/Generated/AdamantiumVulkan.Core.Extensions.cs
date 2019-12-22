@@ -10,7 +10,7 @@ namespace AdamantiumVulkan.Core
     using System;
     using System.Runtime.InteropServices;
 
-    public partial class Instance : DisposableObject
+    public partial class Instance : VulkanDisposableObject
     {
         protected override void UnmanagedDisposeOverride()
         {
@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class Device : DisposableObject
+    public partial class Device : VulkanDisposableObject
     {
         protected override void UnmanagedDisposeOverride()
         {

@@ -10,7 +10,7 @@ namespace AdamantiumVulkan.Windows
     using System;
     using System.Runtime.InteropServices;
 
-    public enum FullScreenExclusiveEXT : int
+    public enum FullScreenExclusiveEXT : uint
     {
         DefaultExt = 0,
 

@@ -418,7 +418,7 @@ namespace AdamantiumVulkan.Shaders
         ///</summary>
         public static bool ParseVersionProfile(string str, ref int version, ref ShadercProfile profile)
         {
-            var arg0 = (int)profile;
+            var arg0 = (uint)profile;
             var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_parse_version_profile(str, ref version, ref arg0);
             profile = (ShadercProfile)arg0;
             return result;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AdamantiumVulkan.Shaders
 {
-    public class ShaderCompiler : DisposableObject
+    public class ShaderCompiler : VulkanDisposableObject
     {
         private ShadercCompilerT compiler;
 

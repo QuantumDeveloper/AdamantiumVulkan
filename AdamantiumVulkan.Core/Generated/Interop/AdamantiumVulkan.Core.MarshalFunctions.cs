@@ -773,7 +773,7 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern Result vkGetPerformanceParameterINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] PerformanceParameterTypeINTEL parameter, [In] System.IntPtr pValue);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pTimeDomainCount, ref int pTimeDomains);
+        internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pTimeDomainCount, ref uint pTimeDomains);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] System.IntPtr pProperties);
@@ -911,10 +911,10 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, ref System.IntPtr pSurfaceFormats);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModesKHR", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, [In, Out] int[] pPresentModes);
+        internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, [In, Out] uint[] pPresentModes);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModesKHR", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, ref int pPresentModes);
+        internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, ref uint pPresentModes);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceSupportKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref bool pSupported);

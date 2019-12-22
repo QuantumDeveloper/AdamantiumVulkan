@@ -44,7 +44,7 @@ namespace AdamantiumVulkan.Windows
         {
             var arg0 = physicalDevice;
             var arg1 = ReferenceEquals(pSurfaceInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSurfaceInfo.ToInternal());
-            var arg2 = (int)pPresentModes;
+            var arg2 = (uint)pPresentModes;
             var result = AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetPhysicalDeviceSurfacePresentModes2EXT(arg0, arg1, ref pPresentModeCount, ref arg2);
             pSurfaceInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);

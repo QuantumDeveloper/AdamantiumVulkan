@@ -149,7 +149,7 @@ namespace AdamantiumVulkan.Core
 
         public PipelineExecutableStatisticValueKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR _internal)
         {
-            B32 = _internal.b32;
+            B32 = System.Convert.ToBoolean(_internal.b32);
             I64 = _internal.i64;
             U64 = _internal.u64;
             F64 = _internal.f64;
@@ -163,7 +163,7 @@ namespace AdamantiumVulkan.Core
         public AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR();
-            _internal.b32 = B32;
+            _internal.b32 = System.Convert.ToUInt32(B32);
             _internal.i64 = I64;
             _internal.u64 = U64;
             _internal.f64 = F64;
@@ -171,7 +171,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PerformanceValueDataINTEL : DisposableObject
+    public partial class PerformanceValueDataINTEL : VulkanDisposableObject
     {
         private StringReference refvalueString;
 
@@ -184,7 +184,7 @@ namespace AdamantiumVulkan.Core
             Value32 = _internal.value32;
             Value64 = _internal.value64;
             ValueFloat = _internal.valueFloat;
-            ValueBool = _internal.valueBool;
+            ValueBool = System.Convert.ToBoolean(_internal.valueBool);
             ValueString = Marshal.PtrToStringAnsi(_internal.valueString);
         }
 
@@ -200,7 +200,7 @@ namespace AdamantiumVulkan.Core
             _internal.value32 = Value32;
             _internal.value64 = Value64;
             _internal.valueFloat = ValueFloat;
-            _internal.valueBool = ValueBool;
+            _internal.valueBool = System.Convert.ToUInt32(ValueBool);
             refvalueString?.Dispose();
             if (ValueString != null)
             {
