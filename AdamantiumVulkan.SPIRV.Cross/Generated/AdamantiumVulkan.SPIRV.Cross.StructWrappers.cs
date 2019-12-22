@@ -12,7 +12,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     using AdamantiumVulkan.SPIRV.Cross;
     using AdamantiumVulkan.SPIRV.Cross.Interop;
 
-    public partial class SpvcReflectedResource : DisposableObject
+    public partial class SpvcReflectedResource : VulkanDisposableObject
     {
         private StringReference refname;
 
@@ -55,7 +55,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
     }
 
-    public partial class SpvcEntryPoint : DisposableObject
+    public partial class SpvcEntryPoint : VulkanDisposableObject
     {
         private StringReference refname;
 
@@ -200,7 +200,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         }
     }
 
-    public partial class SpvcHlslVertexAttributeRemap : DisposableObject
+    public partial class SpvcHlslVertexAttributeRemap : VulkanDisposableObject
     {
         private StringReference refsemantic;
 
@@ -270,7 +270,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.msl_offset = Msl_offset;
             _internal.msl_stride = Msl_stride;
             _internal.per_instance = Per_instance;
-            _internal.format = Format;
+            _internal.format = (uint)Format;
             _internal.builtin = Builtin;
             return _internal;
         }
@@ -356,15 +356,15 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslConstexprSampler ToInternal()
         {
             var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslConstexprSampler();
-            _internal.coord = Coord;
-            _internal.min_filter = Min_filter;
-            _internal.mag_filter = Mag_filter;
-            _internal.mip_filter = Mip_filter;
-            _internal.s_address = S_address;
-            _internal.t_address = T_address;
-            _internal.r_address = R_address;
-            _internal.compare_func = Compare_func;
-            _internal.border_color = Border_color;
+            _internal.coord = (uint)Coord;
+            _internal.min_filter = (uint)Min_filter;
+            _internal.mag_filter = (uint)Mag_filter;
+            _internal.mip_filter = (uint)Mip_filter;
+            _internal.s_address = (uint)S_address;
+            _internal.t_address = (uint)T_address;
+            _internal.r_address = (uint)R_address;
+            _internal.compare_func = (uint)Compare_func;
+            _internal.border_color = (uint)Border_color;
             _internal.lod_clamp_min = Lod_clamp_min;
             _internal.lod_clamp_max = Lod_clamp_max;
             _internal.max_anisotropy = Max_anisotropy;
@@ -388,7 +388,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
             Chroma_filter = (SpvcMslSamplerFilter)_internal.chroma_filter;
             X_chroma_offset = (SpvcMslChromaLocation)_internal.x_chroma_offset;
             Y_chroma_offset = (SpvcMslChromaLocation)_internal.y_chroma_offset;
-            Swizzle = _internal.swizzle;
+            Swizzle = new SpvcMslComponentSwizzle[4];
+            for (int i = 0; i < 4; ++i)
+            {
+                Swizzle[i] = (SpvcMslComponentSwizzle)(_internal.swizzle[i]);
+            }
             Ycbcr_model = (SpvcMslSamplerYcbcrModelConversion)_internal.ycbcr_model;
             Ycbcr_range = (SpvcMslSamplerYcbcrRange)_internal.ycbcr_range;
             Bpc = _internal.bpc;
@@ -408,19 +412,23 @@ namespace AdamantiumVulkan.SPIRV.Cross
         {
             var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslSamplerYcbcrConversion();
             _internal.planes = Planes;
-            _internal.resolution = Resolution;
-            _internal.chroma_filter = Chroma_filter;
-            _internal.x_chroma_offset = X_chroma_offset;
-            _internal.y_chroma_offset = Y_chroma_offset;
+            _internal.resolution = (uint)Resolution;
+            _internal.chroma_filter = (uint)Chroma_filter;
+            _internal.x_chroma_offset = (uint)X_chroma_offset;
+            _internal.y_chroma_offset = (uint)Y_chroma_offset;
             if(Swizzle != null)
             {
                 if (Swizzle.Length > 4)
                     throw new System.ArgumentOutOfRangeException(nameof(Swizzle), "Array is out of bounds. Size should not be more than 4");
 
-                _internal.swizzle = Swizzle;
+                _internal.swizzle = new uint[4];
+                for (int i = 0; i < Swizzle.Length; ++i)
+                {
+                    _internal.swizzle[i] = (uint)Swizzle[i];
+                }
             }
-            _internal.ycbcr_model = Ycbcr_model;
-            _internal.ycbcr_range = Ycbcr_range;
+            _internal.ycbcr_model = (uint)Ycbcr_model;
+            _internal.ycbcr_range = (uint)Ycbcr_range;
             _internal.bpc = Bpc;
             return _internal;
         }

@@ -212,7 +212,7 @@ namespace AdamantiumVulkan.Shaders.Interop
         /// Parses the version and profile from a given null-terminated string containing both version and profile, like: '450core'. Returns false if the string can not be parsed. Returns true when the parsing succeeds. The parsed version and profile are returned through arguments.
         ///</summary>
         [DllImport(LibraryPath, EntryPoint = "shaderc_parse_version_profile", CallingConvention = CallingConvention.Winapi)]
-        internal static extern bool shaderc_parse_version_profile([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string str, ref int version, ref int profile);
+        internal static extern bool shaderc_parse_version_profile([In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string str, ref int version, ref uint profile);
 
         ///<summary>
         /// Returns a pointer to the start of the compilation output data bytes, either SPIR-V binary or char string. When the source string is compiled into SPIR-V binary, this is guaranteed to be castable to a uint32_t*. If the result contains assembly text or preprocessed source text, the pointer will point to the resulting array of characters.

@@ -14,7 +14,7 @@ namespace AdamantiumVulkan.Windows
     using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core.Interop;
 
-    public partial class Win32SurfaceCreateInfoKHR : DisposableObject
+    public partial class Win32SurfaceCreateInfoKHR : VulkanDisposableObject
     {
         public Win32SurfaceCreateInfoKHR()
         {
@@ -37,7 +37,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.hinstance = Hinstance;
@@ -46,7 +46,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ImportMemoryWin32HandleInfoKHR : DisposableObject
+    public partial class ImportMemoryWin32HandleInfoKHR : VulkanDisposableObject
     {
         public ImportMemoryWin32HandleInfoKHR()
         {
@@ -70,16 +70,16 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.handle = Handle;
             _internal.name = Name;
             return _internal;
         }
     }
 
-    public partial class ExportMemoryWin32HandleInfoKHR : DisposableObject
+    public partial class ExportMemoryWin32HandleInfoKHR : VulkanDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -105,7 +105,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpAttributes?.Dispose();
             if (PAttributes != null)
@@ -125,7 +125,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class MemoryWin32HandlePropertiesKHR : DisposableObject
+    public partial class MemoryWin32HandlePropertiesKHR : VulkanDisposableObject
     {
         public MemoryWin32HandlePropertiesKHR()
         {
@@ -145,14 +145,14 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
     }
 
-    public partial class MemoryGetWin32HandleInfoKHR : DisposableObject
+    public partial class MemoryGetWin32HandleInfoKHR : VulkanDisposableObject
     {
         public MemoryGetWin32HandleInfoKHR()
         {
@@ -174,15 +174,15 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.memory = Memory;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class Win32KeyedMutexAcquireReleaseInfoKHR : DisposableObject
+    public partial class Win32KeyedMutexAcquireReleaseInfoKHR : VulkanDisposableObject
     {
         private StructReference refpAcquireSyncs;
 
@@ -238,7 +238,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.acquireCount = AcquireCount;
             refpAcquireSyncs?.Dispose();
@@ -288,7 +288,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class ImportSemaphoreWin32HandleInfoKHR : DisposableObject
+    public partial class ImportSemaphoreWin32HandleInfoKHR : VulkanDisposableObject
     {
         public ImportSemaphoreWin32HandleInfoKHR()
         {
@@ -316,18 +316,18 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.semaphore = Semaphore;
             _internal.flags = Flags;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.handle = Handle;
             _internal.name = Name;
             return _internal;
         }
     }
 
-    public partial class ExportSemaphoreWin32HandleInfoKHR : DisposableObject
+    public partial class ExportSemaphoreWin32HandleInfoKHR : VulkanDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -353,7 +353,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpAttributes?.Dispose();
             if (PAttributes != null)
@@ -373,7 +373,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class D3D12FenceSubmitInfoKHR : DisposableObject
+    public partial class D3D12FenceSubmitInfoKHR : VulkanDisposableObject
     {
         private StructReference refpWaitSemaphoreValues;
 
@@ -411,7 +411,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreValuesCount = WaitSemaphoreValuesCount;
             refpWaitSemaphoreValues?.Dispose();
@@ -438,7 +438,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class SemaphoreGetWin32HandleInfoKHR : DisposableObject
+    public partial class SemaphoreGetWin32HandleInfoKHR : VulkanDisposableObject
     {
         public SemaphoreGetWin32HandleInfoKHR()
         {
@@ -460,15 +460,15 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.semaphore = Semaphore;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ImportFenceWin32HandleInfoKHR : DisposableObject
+    public partial class ImportFenceWin32HandleInfoKHR : VulkanDisposableObject
     {
         public ImportFenceWin32HandleInfoKHR()
         {
@@ -496,18 +496,18 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.fence = Fence;
             _internal.flags = Flags;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             _internal.handle = Handle;
             _internal.name = Name;
             return _internal;
         }
     }
 
-    public partial class ExportFenceWin32HandleInfoKHR : DisposableObject
+    public partial class ExportFenceWin32HandleInfoKHR : VulkanDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -533,7 +533,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpAttributes?.Dispose();
             if (PAttributes != null)
@@ -553,7 +553,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class FenceGetWin32HandleInfoKHR : DisposableObject
+    public partial class FenceGetWin32HandleInfoKHR : VulkanDisposableObject
     {
         public FenceGetWin32HandleInfoKHR()
         {
@@ -575,15 +575,15 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.fence = Fence;
-            _internal.handleType = HandleType;
+            _internal.handleType = (uint)HandleType;
             return _internal;
         }
     }
 
-    public partial class ImportMemoryWin32HandleInfoNV : DisposableObject
+    public partial class ImportMemoryWin32HandleInfoNV : VulkanDisposableObject
     {
         public ImportMemoryWin32HandleInfoNV()
         {
@@ -605,7 +605,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.handleType = HandleType;
             _internal.handle = Handle;
@@ -613,7 +613,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ExportMemoryWin32HandleInfoNV : DisposableObject
+    public partial class ExportMemoryWin32HandleInfoNV : VulkanDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -637,7 +637,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             refpAttributes?.Dispose();
             if (PAttributes != null)
@@ -656,7 +656,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class Win32KeyedMutexAcquireReleaseInfoNV : DisposableObject
+    public partial class Win32KeyedMutexAcquireReleaseInfoNV : VulkanDisposableObject
     {
         private StructReference refpAcquireSyncs;
 
@@ -712,7 +712,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.acquireCount = AcquireCount;
             refpAcquireSyncs?.Dispose();
@@ -762,7 +762,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class SurfaceFullScreenExclusiveInfoEXT : DisposableObject
+    public partial class SurfaceFullScreenExclusiveInfoEXT : VulkanDisposableObject
     {
         public SurfaceFullScreenExclusiveInfoEXT()
         {
@@ -782,14 +782,14 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.fullScreenExclusive = FullScreenExclusive;
+            _internal.fullScreenExclusive = (uint)FullScreenExclusive;
             return _internal;
         }
     }
 
-    public partial class SurfaceCapabilitiesFullScreenExclusiveEXT : DisposableObject
+    public partial class SurfaceCapabilitiesFullScreenExclusiveEXT : VulkanDisposableObject
     {
         public SurfaceCapabilitiesFullScreenExclusiveEXT()
         {
@@ -799,7 +799,7 @@ namespace AdamantiumVulkan.Windows
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            FullScreenExclusiveSupported = _internal.fullScreenExclusiveSupported;
+            FullScreenExclusiveSupported = System.Convert.ToBoolean(_internal.fullScreenExclusiveSupported);
         }
 
         public StructureType SType { get; set; }
@@ -809,14 +809,14 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            _internal.fullScreenExclusiveSupported = FullScreenExclusiveSupported;
+            _internal.fullScreenExclusiveSupported = System.Convert.ToUInt32(FullScreenExclusiveSupported);
             return _internal;
         }
     }
 
-    public partial class SurfaceFullScreenExclusiveWin32InfoEXT : DisposableObject
+    public partial class SurfaceFullScreenExclusiveWin32InfoEXT : VulkanDisposableObject
     {
         public SurfaceFullScreenExclusiveWin32InfoEXT()
         {
@@ -836,7 +836,7 @@ namespace AdamantiumVulkan.Windows
         public AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT ToInternal()
         {
             var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.hmonitor = Hmonitor;
             return _internal;

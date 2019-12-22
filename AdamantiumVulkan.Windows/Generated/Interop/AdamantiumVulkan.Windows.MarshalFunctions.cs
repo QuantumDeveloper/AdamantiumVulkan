@@ -39,7 +39,7 @@ namespace AdamantiumVulkan.Windows.Interop
         internal static extern Result vkGetMemoryWin32HandlePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ExternalMemoryHandleTypeFlagBits handleType, [In] System.IntPtr handle, [In] System.IntPtr pMemoryWin32HandleProperties);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModes2EXT", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkGetPhysicalDeviceSurfacePresentModes2EXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pSurfaceInfo, ref uint pPresentModeCount, ref int pPresentModes);
+        internal static extern Result vkGetPhysicalDeviceSurfacePresentModes2EXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pSurfaceInfo, ref uint pPresentModeCount, ref uint pPresentModes);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceWin32PresentationSupportKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern bool vkGetPhysicalDeviceWin32PresentationSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex);

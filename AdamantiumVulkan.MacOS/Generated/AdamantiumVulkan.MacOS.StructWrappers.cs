@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.MacOS
     using AdamantiumVulkan.Core;
     using AdamantiumVulkan.MacOS.Interop;
 
-    public partial class MacOSSurfaceCreateInfoMVK : DisposableObject
+    public partial class MacOSSurfaceCreateInfoMVK : VulkanDisposableObject
     {
         public MacOSSurfaceCreateInfoMVK()
         {
@@ -34,7 +34,7 @@ namespace AdamantiumVulkan.MacOS
         public AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK ToInternal()
         {
             var _internal = new AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK();
-            _internal.sType = SType;
+            _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.flags = Flags;
             _internal.pView = PView;

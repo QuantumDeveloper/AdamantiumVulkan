@@ -31,7 +31,7 @@ namespace AdamantiumVulkan.MacOS.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMacOSSurfaceCreateInfoMVK
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 

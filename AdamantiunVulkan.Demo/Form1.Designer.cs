@@ -949,7 +949,7 @@ namespace VulkanEngineTestCore
             colorBlending.LogicOpEnable = false;
             colorBlending.LogicOp = LogicOp.Copy;
             colorBlending.AttachmentCount = 1;
-            colorBlending.PAttachments = colorBlendAttachment;
+            colorBlending.PAttachments = new PipelineColorBlendAttachmentState[] { colorBlendAttachment };
             colorBlending.BlendConstants = new float[4];
             colorBlending.BlendConstants[0] = 0.0f;
             colorBlending.BlendConstants[1] = 0.0f;

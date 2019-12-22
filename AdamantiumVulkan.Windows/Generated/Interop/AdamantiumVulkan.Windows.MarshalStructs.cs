@@ -33,7 +33,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkWin32SurfaceCreateInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -48,11 +48,11 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportMemoryWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public System.IntPtr handle;
 
@@ -63,7 +63,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportMemoryWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -78,7 +78,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryWin32HandlePropertiesKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -89,20 +89,20 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryGetWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkDeviceMemory_T memory;
 
-        public ExternalMemoryHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkWin32KeyedMutexAcquireReleaseInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -125,7 +125,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportSemaphoreWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -133,7 +133,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
         public uint flags;
 
-        public ExternalSemaphoreHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public System.IntPtr handle;
 
@@ -144,7 +144,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportSemaphoreWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -159,7 +159,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkD3D12FenceSubmitInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -176,20 +176,20 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreGetWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkSemaphore_T semaphore;
 
-        public ExternalSemaphoreHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportFenceWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -197,7 +197,7 @@ namespace AdamantiumVulkan.Windows.Interop
 
         public uint flags;
 
-        public ExternalFenceHandleTypeFlagBits handleType;
+        public uint handleType;
 
         public System.IntPtr handle;
 
@@ -208,7 +208,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportFenceWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -223,20 +223,20 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkFenceGetWin32HandleInfoKHR
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
         public VkFence_T fence;
 
-        public ExternalFenceHandleTypeFlagBits handleType;
+        public uint handleType;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImportMemoryWin32HandleInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -249,7 +249,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkExportMemoryWin32HandleInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -262,7 +262,7 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkWin32KeyedMutexAcquireReleaseInfoNV
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
@@ -285,29 +285,29 @@ namespace AdamantiumVulkan.Windows.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceFullScreenExclusiveInfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public FullScreenExclusiveEXT fullScreenExclusive;
+        public uint fullScreenExclusive;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceCapabilitiesFullScreenExclusiveEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 
-        public bool fullScreenExclusiveSupported;
+        public uint fullScreenExclusiveSupported;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceFullScreenExclusiveWin32InfoEXT
     {
-        public StructureType sType;
+        public uint sType;
 
         public System.IntPtr pNext;
 

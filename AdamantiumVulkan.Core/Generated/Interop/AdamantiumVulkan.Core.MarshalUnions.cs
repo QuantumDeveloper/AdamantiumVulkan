@@ -39,7 +39,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineExecutableStatisticValueKHR
     {
         [FieldOffset(0)]
-        public bool b32;
+        public uint b32;
 
         [FieldOffset(0)]
         public long i64;
@@ -65,7 +65,7 @@ namespace AdamantiumVulkan.Core.Interop
         public float valueFloat;
 
         [FieldOffset(0)]
-        public bool valueBool;
+        public uint valueBool;
 
         [FieldOffset(0)]
         public System.IntPtr valueString;

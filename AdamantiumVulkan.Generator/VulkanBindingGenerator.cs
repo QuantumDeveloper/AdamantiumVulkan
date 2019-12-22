@@ -1153,6 +1153,10 @@ namespace AdamantiumVulkan.Generator
                 .WithField("pScissors")
                 .TreatAsPointerToArray(new CustomType("VkRect2D"), true, "scissorCount");
 
+            api.Class("VkPipelineColorBlendStateCreateInfo")
+                .WithField("pAttachments")
+                .TreatAsPointerToArray(new CustomType("VkPipelineColorBlendAttachmentState"), true, "attachmentCount");
+
             api.Function("shaderc_result_get_bytes").
                 WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
 

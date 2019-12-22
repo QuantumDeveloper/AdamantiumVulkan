@@ -92,7 +92,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class DisposableObject: IDisposable
+    public class VulkanDisposableObject: IDisposable
     {
         public bool IsDisposed { get; private set; }
 
@@ -117,7 +117,7 @@ namespace AdamantiumVulkan
 
         protected virtual void UnmanagedDisposeOverride() { }
 
-        ~DisposableObject()
+        ~VulkanDisposableObject()
         {
             Dispose(false);
         }
@@ -129,9 +129,8 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class GCHandleReference : DisposableObject
+    public class GCHandleReference : VulkanDisposableObject
     {
-        bool isInitialized;
         GCHandle reference;
 
         public IntPtr Handle
@@ -150,7 +149,6 @@ namespace AdamantiumVulkan
         {
             if (obj != null)
             {
-                isInitialized = true;
                 reference = GCHandle.Alloc(obj, GCHandleType.Pinned);
             }
         }
@@ -158,14 +156,14 @@ namespace AdamantiumVulkan
         protected override void UnmanagedDisposeOverride()
         {
             base.UnmanagedDisposeOverride();
-            if (isInitialized)
+            if (reference.IsAllocated)
             {
                 reference.Free();
             }
         }
     }
 
-    public class StringReference : DisposableObject
+    public class StringReference : VulkanDisposableObject
     {
         bool isInitialized;
         IntPtr reference;
@@ -200,7 +198,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class StringArrayReference : DisposableObject
+    public class StringArrayReference : VulkanDisposableObject
     {
         IntPtr[] stringReferences;
 
@@ -253,7 +251,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class StructReference : DisposableObject
+    public class StructReference : VulkanDisposableObject
     {
         bool isInitialized;
         IntPtr reference;

@@ -346,7 +346,7 @@ namespace AdamantiumVulkan.Core
 
         public Result GetPhysicalDeviceCalibrateableTimeDomainsEXT(ref uint pTimeDomainCount, ref TimeDomainEXT pTimeDomains)
         {
-            var arg1 = (int)pTimeDomains;
+            var arg1 = (uint)pTimeDomains;
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(this, ref pTimeDomainCount, ref arg1);
             pTimeDomains = (TimeDomainEXT)arg1;
             return result;
@@ -792,12 +792,12 @@ namespace AdamantiumVulkan.Core
         public Result GetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref uint pPresentModeCount, PresentModeKHR[] pPresentModes)
         {
             var arg1 = ReferenceEquals(surface, null) ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = ReferenceEquals(pPresentModes, null) ? null : new int[pPresentModes.Length];
+            var arg2 = ReferenceEquals(pPresentModes, null) ? null : new uint[pPresentModes.Length];
             if (!ReferenceEquals(pPresentModes, null))
             {
                 for (var i = 0; i < pPresentModes.Length; ++i)
                 {
-                    arg2[i] = (int)pPresentModes[i];
+                    arg2[i] = (uint)pPresentModes[i];
                 }
             }
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfacePresentModesKHR(this, arg1, ref pPresentModeCount, arg2);
@@ -806,7 +806,7 @@ namespace AdamantiumVulkan.Core
         public Result GetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref uint pPresentModeCount, ref PresentModeKHR pPresentModes)
         {
             var arg1 = ReferenceEquals(surface, null) ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = (int)pPresentModes;
+            var arg2 = (uint)pPresentModes;
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfacePresentModesKHR(this, arg1, ref pPresentModeCount, ref arg2);
             pPresentModes = (PresentModeKHR)arg2;
             return result;
@@ -2462,7 +2462,7 @@ namespace AdamantiumVulkan.Core
         public Result UnregisterObjectsNVX(AdamantiumVulkan.Core.ObjectTableNVX objectTable, uint objectCount, in ObjectEntryTypeNVX pObjectEntryTypes, in uint pObjectIndices)
         {
             var arg1 = ReferenceEquals(objectTable, null) ? new VkObjectTableNVX_T() : (VkObjectTableNVX_T)objectTable;
-            var arg2 = new GCHandleReference((int)pObjectEntryTypes);
+            var arg2 = new GCHandleReference((uint)pObjectEntryTypes);
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkUnregisterObjectsNVX(this, arg1, objectCount, arg2.Handle, pObjectIndices);
             arg2?.Dispose();
             return result;
