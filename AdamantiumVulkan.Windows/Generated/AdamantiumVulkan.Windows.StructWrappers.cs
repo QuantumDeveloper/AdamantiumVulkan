@@ -14,7 +14,7 @@ namespace AdamantiumVulkan.Windows
     using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core.Interop;
 
-    public partial class Win32SurfaceCreateInfoKHR : VulkanDisposableObject
+    public partial class Win32SurfaceCreateInfoKHR : QBDisposableObject
     {
         public Win32SurfaceCreateInfoKHR()
         {
@@ -46,7 +46,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ImportMemoryWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class ImportMemoryWin32HandleInfoKHR : QBDisposableObject
     {
         public ImportMemoryWin32HandleInfoKHR()
         {
@@ -79,7 +79,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ExportMemoryWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class ExportMemoryWin32HandleInfoKHR : QBDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -125,7 +125,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class MemoryWin32HandlePropertiesKHR : VulkanDisposableObject
+    public partial class MemoryWin32HandlePropertiesKHR : QBDisposableObject
     {
         public MemoryWin32HandlePropertiesKHR()
         {
@@ -152,7 +152,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class MemoryGetWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class MemoryGetWin32HandleInfoKHR : QBDisposableObject
     {
         public MemoryGetWin32HandleInfoKHR()
         {
@@ -182,7 +182,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class Win32KeyedMutexAcquireReleaseInfoKHR : VulkanDisposableObject
+    public partial class Win32KeyedMutexAcquireReleaseInfoKHR : QBDisposableObject
     {
         private StructReference refpAcquireSyncs;
 
@@ -288,7 +288,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class ImportSemaphoreWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class ImportSemaphoreWin32HandleInfoKHR : QBDisposableObject
     {
         public ImportSemaphoreWin32HandleInfoKHR()
         {
@@ -327,7 +327,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ExportSemaphoreWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class ExportSemaphoreWin32HandleInfoKHR : QBDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -373,7 +373,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class D3D12FenceSubmitInfoKHR : VulkanDisposableObject
+    public partial class D3D12FenceSubmitInfoKHR : QBDisposableObject
     {
         private StructReference refpWaitSemaphoreValues;
 
@@ -438,7 +438,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class SemaphoreGetWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class SemaphoreGetWin32HandleInfoKHR : QBDisposableObject
     {
         public SemaphoreGetWin32HandleInfoKHR()
         {
@@ -468,7 +468,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ImportFenceWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class ImportFenceWin32HandleInfoKHR : QBDisposableObject
     {
         public ImportFenceWin32HandleInfoKHR()
         {
@@ -507,7 +507,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ExportFenceWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class ExportFenceWin32HandleInfoKHR : QBDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -553,7 +553,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class FenceGetWin32HandleInfoKHR : VulkanDisposableObject
+    public partial class FenceGetWin32HandleInfoKHR : QBDisposableObject
     {
         public FenceGetWin32HandleInfoKHR()
         {
@@ -583,7 +583,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ImportMemoryWin32HandleInfoNV : VulkanDisposableObject
+    public partial class ImportMemoryWin32HandleInfoNV : QBDisposableObject
     {
         public ImportMemoryWin32HandleInfoNV()
         {
@@ -613,7 +613,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class ExportMemoryWin32HandleInfoNV : VulkanDisposableObject
+    public partial class ExportMemoryWin32HandleInfoNV : QBDisposableObject
     {
         private StructReference refpAttributes;
 
@@ -656,7 +656,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class Win32KeyedMutexAcquireReleaseInfoNV : VulkanDisposableObject
+    public partial class Win32KeyedMutexAcquireReleaseInfoNV : QBDisposableObject
     {
         private StructReference refpAcquireSyncs;
 
@@ -762,7 +762,7 @@ namespace AdamantiumVulkan.Windows
 
     }
 
-    public partial class SurfaceFullScreenExclusiveInfoEXT : VulkanDisposableObject
+    public partial class SurfaceFullScreenExclusiveInfoEXT : QBDisposableObject
     {
         public SurfaceFullScreenExclusiveInfoEXT()
         {
@@ -789,7 +789,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class SurfaceCapabilitiesFullScreenExclusiveEXT : VulkanDisposableObject
+    public partial class SurfaceCapabilitiesFullScreenExclusiveEXT : QBDisposableObject
     {
         public SurfaceCapabilitiesFullScreenExclusiveEXT()
         {
@@ -816,7 +816,7 @@ namespace AdamantiumVulkan.Windows
         }
     }
 
-    public partial class SurfaceFullScreenExclusiveWin32InfoEXT : VulkanDisposableObject
+    public partial class SurfaceFullScreenExclusiveWin32InfoEXT : QBDisposableObject
     {
         public SurfaceFullScreenExclusiveWin32InfoEXT()
         {

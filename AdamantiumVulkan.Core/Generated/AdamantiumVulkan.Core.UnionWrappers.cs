@@ -171,7 +171,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PerformanceValueDataINTEL : VulkanDisposableObject
+    public partial class PerformanceValueDataINTEL : QBDisposableObject
     {
         private StringReference refvalueString;
 

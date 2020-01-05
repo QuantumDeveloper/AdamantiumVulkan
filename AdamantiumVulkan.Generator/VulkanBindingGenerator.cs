@@ -183,8 +183,7 @@ namespace AdamantiumVulkan.Generator
 
         public override void OnSetupComplete(ProcessingContext context)
         {
-            var renameTargets = RenameTargets.Any;
-            renameTargets &= ~RenameTargets.Function & ~RenameTargets.Struct & ~RenameTargets.Union;
+            var renameTargets = RenameTargetsUtil.AnyExcept(RenameTargets.Function | RenameTargets.Struct | RenameTargets.Union);
             var vkRenameItems = new List<RegexRenameRunItem>()
             {
                 new RegexRenameRunItem("^vkCmd", string.Empty, renameTargets, true),

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AdamantiumVulkan.Core
 {
-    public partial class PipelineRasterizationStateCreateInfo
+    public partial class PipelineRasterizationStateCreateInfo : ICloneable
     {
         public static PipelineRasterizationStateCreateInfo Defaults()
         {
@@ -19,13 +18,160 @@ namespace AdamantiumVulkan.Core
 
             return state;
         }
+
+        public object Clone()
+        {
+            var clone = new PipelineRasterizationStateCreateInfo();
+            clone.Flags = Flags;
+            clone.DepthClampEnable = DepthClampEnable;
+            clone.RasterizerDiscardEnable = RasterizerDiscardEnable;
+            clone.PolygonMode = PolygonMode;
+            clone.LineWidth = LineWidth;
+            clone.CullMode = CullMode;
+            clone.FrontFace = FrontFace;
+            clone.DepthBiasEnable = DepthBiasEnable;
+            return clone;
+        }
     }
 
-    public partial class PipelineDepthStencilStateCreateInfo
+    public partial class PipelineDepthStencilStateCreateInfo : ICloneable
     {
         public static PipelineDepthStencilStateCreateInfo Defaults()
         {
-            return null;
+            var state = new PipelineDepthStencilStateCreateInfo();
+            state.DepthTestEnable = false;
+            state.DepthWriteEnable = true;
+            state.DepthCompareOp = CompareOp.Less;
+            state.DepthBoundsTestEnable = false;
+            state.MinDepthBounds = 0.0f;
+            state.MaxDepthBounds = 1.0f;
+            state.StencilTestEnable = true;
+            state.Front = new StencilOpState() { CompareOp = CompareOp.Always, DepthFailOp = StencilOp.Keep, FailOp = StencilOp.Keep, PassOp = StencilOp.Keep };
+            state.Back = new StencilOpState() { CompareOp = CompareOp.Always, DepthFailOp = StencilOp.Keep, FailOp = StencilOp.Keep, PassOp = StencilOp.Keep };
+            return state;
+        }
+
+        public object Clone()
+        {
+            var clone = new PipelineDepthStencilStateCreateInfo();
+            clone.Flags = Flags;
+            clone.DepthTestEnable = DepthTestEnable;
+            clone.DepthWriteEnable = DepthWriteEnable;
+            clone.DepthCompareOp = DepthCompareOp;
+            clone.DepthBoundsTestEnable = DepthBoundsTestEnable;
+            clone.MinDepthBounds = MinDepthBounds;
+            clone.MaxDepthBounds = MaxDepthBounds;
+            clone.StencilTestEnable = StencilTestEnable;
+            clone.Front = (StencilOpState)Front.Clone();
+            clone.Back = (StencilOpState)Back.Clone();
+            return clone;
+        }
+    }
+
+    public partial class PipelineColorBlendStateCreateInfo: ICloneable
+    {
+        public static PipelineColorBlendStateCreateInfo Defaults()
+        {
+            var colorBlendAttachment = new PipelineColorBlendAttachmentState();
+            colorBlendAttachment.ColorWriteMask = (uint)(ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
+            colorBlendAttachment.BlendEnable = false;
+
+            var state = new PipelineColorBlendStateCreateInfo();
+            state.LogicOpEnable = false;
+            state.LogicOp = LogicOp.Copy;
+            state.AttachmentCount = 1;
+            state.PAttachments = new PipelineColorBlendAttachmentState[] { colorBlendAttachment };
+            state.BlendConstants = new float[4];
+            state.BlendConstants[0] = 0.0f;
+            state.BlendConstants[1] = 0.0f;
+            state.BlendConstants[2] = 0.0f;
+            state.BlendConstants[3] = 0.0f;
+
+            return state;
+        }
+
+        public object Clone()
+        {
+            var colorBlenAttachments = new List<PipelineColorBlendAttachmentState>();
+            foreach (var attachment in PAttachments)
+            {
+                var colorBlendAttachment = (PipelineColorBlendAttachmentState)attachment.Clone();
+                colorBlenAttachments.Add(colorBlendAttachment);
+            }
+
+            var clone = new PipelineColorBlendStateCreateInfo();
+            clone.Flags = Flags;
+            clone.LogicOpEnable = LogicOpEnable;
+            clone.LogicOp = LogicOp.Copy;
+            clone.AttachmentCount = AttachmentCount;
+            clone.PAttachments = colorBlenAttachments.ToArray();
+            clone.BlendConstants = new float[BlendConstants.Length];
+            for (int i = 0; i < clone.BlendConstants.Length; ++i)
+            {
+                clone.BlendConstants[i] = BlendConstants[i];
+            }
+
+            return clone;
+        }
+    }
+
+    public partial class PipelineColorBlendAttachmentState : ICloneable
+    {
+        public override int GetHashCode()
+        {
+            int hashCode = ColorWriteMask.GetHashCode();
+            hashCode = (hashCode * 397) ^ BlendEnable.GetHashCode();
+            hashCode = (hashCode * 397) ^ AlphaBlendOp.GetHashCode();
+            hashCode = (hashCode * 397) ^ ColorBlendOp.GetHashCode();
+            hashCode = (hashCode * 397) ^ SrcAlphaBlendFactor.GetHashCode();
+            hashCode = (hashCode * 397) ^ SrcColorBlendFactor.GetHashCode();
+            hashCode = (hashCode * 397) ^ DstAlphaBlendFactor.GetHashCode();
+            hashCode = (hashCode * 397) ^ DstColorBlendFactor.GetHashCode();
+            return hashCode;
+        }
+
+        public object Clone()
+        {
+            var clone = new PipelineColorBlendAttachmentState();
+            clone.ColorWriteMask = ColorWriteMask;
+            clone.BlendEnable = BlendEnable;
+            clone.AlphaBlendOp = AlphaBlendOp;
+            clone.ColorBlendOp = ColorBlendOp;
+            clone.SrcAlphaBlendFactor = SrcAlphaBlendFactor;
+            clone.SrcColorBlendFactor = SrcColorBlendFactor;
+            clone.DstAlphaBlendFactor = DstAlphaBlendFactor;
+            clone.DstColorBlendFactor = DstColorBlendFactor;
+
+            return clone;
+        }
+    }
+
+    public partial class StencilOpState : ICloneable
+    {
+        public override int GetHashCode()
+        {
+            int hashCode = FailOp.GetHashCode();
+            hashCode = (hashCode * 397) ^ PassOp.GetHashCode();
+            hashCode = (hashCode * 397) ^ DepthFailOp.GetHashCode();
+            hashCode = (hashCode * 397) ^ CompareOp.GetHashCode();
+            hashCode = (hashCode * 397) ^ CompareMask.GetHashCode();
+            hashCode = (hashCode * 397) ^ WriteMask.GetHashCode();
+            hashCode = (hashCode * 397) ^ Reference.GetHashCode();
+            return hashCode;
+        }
+
+        public object Clone()
+        {
+            var clone = new StencilOpState();
+            clone.FailOp = FailOp;
+            clone.PassOp = PassOp;
+            clone.DepthFailOp = DepthFailOp;
+            clone.CompareOp = CompareOp;
+            clone.CompareMask = CompareMask;
+            clone.WriteMask = WriteMask;
+            clone.Reference = Reference;
+
+            return clone;
         }
     }
 }
