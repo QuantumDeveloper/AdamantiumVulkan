@@ -12,7 +12,7 @@ namespace AdamantiumVulkan.Core
     using AdamantiumVulkan;
     using AdamantiumVulkan.Core.Interop;
 
-    public partial class ApplicationInfo : VulkanDisposableObject
+    public partial class ApplicationInfo : QBDisposableObject
     {
         private StringReference refpApplicationName;
 
@@ -71,7 +71,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class InstanceCreateInfo : VulkanDisposableObject
+    public partial class InstanceCreateInfo : QBDisposableObject
     {
         private StructReference refpApplicationInfo;
 
@@ -87,7 +87,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            PApplicationInfo = new ApplicationInfo(Marshal.PtrToStructure<VkApplicationInfo>(_internal.pApplicationInfo));
+            PApplicationInfo = new ApplicationInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkApplicationInfo>(_internal.pApplicationInfo));
             Marshal.FreeHGlobal(_internal.pApplicationInfo);
             EnabledLayerCount = _internal.enabledLayerCount;
             EnabledExtensionCount = _internal.enabledExtensionCount;
@@ -141,7 +141,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AllocationCallbacks : VulkanDisposableObject
+    public partial class AllocationCallbacks : QBDisposableObject
     {
         public AllocationCallbacks()
         {
@@ -1201,7 +1201,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceQueueCreateInfo : VulkanDisposableObject
+    public partial class DeviceQueueCreateInfo : QBDisposableObject
     {
         private StructReference refpQueuePriorities;
 
@@ -1253,7 +1253,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceCreateInfo : VulkanDisposableObject
+    public partial class DeviceCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpQueueCreateInfos;
 
@@ -1282,7 +1282,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(_internal.pQueueCreateInfos);
             EnabledLayerCount = _internal.enabledLayerCount;
             EnabledExtensionCount = _internal.enabledExtensionCount;
-            PEnabledFeatures = new PhysicalDeviceFeatures(Marshal.PtrToStructure<VkPhysicalDeviceFeatures>(_internal.pEnabledFeatures));
+            PEnabledFeatures = new PhysicalDeviceFeatures(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures>(_internal.pEnabledFeatures));
             Marshal.FreeHGlobal(_internal.pEnabledFeatures);
         }
 
@@ -1475,7 +1475,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SubmitInfo : VulkanDisposableObject
+    public partial class SubmitInfo : QBDisposableObject
     {
         private GCHandleReference refpWaitSemaphores;
 
@@ -1596,7 +1596,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class MemoryAllocateInfo : VulkanDisposableObject
+    public partial class MemoryAllocateInfo : QBDisposableObject
     {
         public MemoryAllocateInfo()
         {
@@ -1625,7 +1625,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MappedMemoryRange : VulkanDisposableObject
+    public partial class MappedMemoryRange : QBDisposableObject
     {
         public MappedMemoryRange()
         {
@@ -1783,7 +1783,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseBufferMemoryBindInfo : VulkanDisposableObject
+    public partial class SparseBufferMemoryBindInfo : QBDisposableObject
     {
         private StructReference refpBinds;
 
@@ -1795,7 +1795,7 @@ namespace AdamantiumVulkan.Core
         {
             Buffer = new Buffer(_internal.buffer);
             BindCount = _internal.bindCount;
-            PBinds = new SparseMemoryBind(Marshal.PtrToStructure<VkSparseMemoryBind>(_internal.pBinds));
+            PBinds = new SparseMemoryBind(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>(_internal.pBinds));
             Marshal.FreeHGlobal(_internal.pBinds);
         }
 
@@ -1825,7 +1825,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SparseImageOpaqueMemoryBindInfo : VulkanDisposableObject
+    public partial class SparseImageOpaqueMemoryBindInfo : QBDisposableObject
     {
         private StructReference refpBinds;
 
@@ -1837,7 +1837,7 @@ namespace AdamantiumVulkan.Core
         {
             Image = new Image(_internal.image);
             BindCount = _internal.bindCount;
-            PBinds = new SparseMemoryBind(Marshal.PtrToStructure<VkSparseMemoryBind>(_internal.pBinds));
+            PBinds = new SparseMemoryBind(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>(_internal.pBinds));
             Marshal.FreeHGlobal(_internal.pBinds);
         }
 
@@ -1966,7 +1966,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseImageMemoryBindInfo : VulkanDisposableObject
+    public partial class SparseImageMemoryBindInfo : QBDisposableObject
     {
         private StructReference refpBinds;
 
@@ -1978,7 +1978,7 @@ namespace AdamantiumVulkan.Core
         {
             Image = new Image(_internal.image);
             BindCount = _internal.bindCount;
-            PBinds = new SparseImageMemoryBind(Marshal.PtrToStructure<VkSparseImageMemoryBind>(_internal.pBinds));
+            PBinds = new SparseImageMemoryBind(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind>(_internal.pBinds));
             Marshal.FreeHGlobal(_internal.pBinds);
         }
 
@@ -2008,7 +2008,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BindSparseInfo : VulkanDisposableObject
+    public partial class BindSparseInfo : QBDisposableObject
     {
         private StructReference refpWaitSemaphores;
 
@@ -2031,13 +2031,13 @@ namespace AdamantiumVulkan.Core
             PWaitSemaphores = new Semaphore(Marshal.PtrToStructure<Semaphore>(_internal.pWaitSemaphores));
             Marshal.FreeHGlobal(_internal.pWaitSemaphores);
             BufferBindCount = _internal.bufferBindCount;
-            PBufferBinds = new SparseBufferMemoryBindInfo(Marshal.PtrToStructure<VkSparseBufferMemoryBindInfo>(_internal.pBufferBinds));
+            PBufferBinds = new SparseBufferMemoryBindInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo>(_internal.pBufferBinds));
             Marshal.FreeHGlobal(_internal.pBufferBinds);
             ImageOpaqueBindCount = _internal.imageOpaqueBindCount;
-            PImageOpaqueBinds = new SparseImageOpaqueMemoryBindInfo(Marshal.PtrToStructure<VkSparseImageOpaqueMemoryBindInfo>(_internal.pImageOpaqueBinds));
+            PImageOpaqueBinds = new SparseImageOpaqueMemoryBindInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(_internal.pImageOpaqueBinds));
             Marshal.FreeHGlobal(_internal.pImageOpaqueBinds);
             ImageBindCount = _internal.imageBindCount;
-            PImageBinds = new SparseImageMemoryBindInfo(Marshal.PtrToStructure<VkSparseImageMemoryBindInfo>(_internal.pImageBinds));
+            PImageBinds = new SparseImageMemoryBindInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo>(_internal.pImageBinds));
             Marshal.FreeHGlobal(_internal.pImageBinds);
             SignalSemaphoreCount = _internal.signalSemaphoreCount;
             PSignalSemaphores = new Semaphore(Marshal.PtrToStructure<Semaphore>(_internal.pSignalSemaphores));
@@ -2116,7 +2116,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class FenceCreateInfo : VulkanDisposableObject
+    public partial class FenceCreateInfo : QBDisposableObject
     {
         public FenceCreateInfo()
         {
@@ -2142,7 +2142,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SemaphoreCreateInfo : VulkanDisposableObject
+    public partial class SemaphoreCreateInfo : QBDisposableObject
     {
         public SemaphoreCreateInfo()
         {
@@ -2168,7 +2168,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class EventCreateInfo : VulkanDisposableObject
+    public partial class EventCreateInfo : QBDisposableObject
     {
         public EventCreateInfo()
         {
@@ -2194,7 +2194,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class QueryPoolCreateInfo : VulkanDisposableObject
+    public partial class QueryPoolCreateInfo : QBDisposableObject
     {
         public QueryPoolCreateInfo()
         {
@@ -2229,7 +2229,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BufferCreateInfo : VulkanDisposableObject
+    public partial class BufferCreateInfo : QBDisposableObject
     {
         private StructReference refpQueueFamilyIndices;
 
@@ -2287,7 +2287,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BufferViewCreateInfo : VulkanDisposableObject
+    public partial class BufferViewCreateInfo : QBDisposableObject
     {
         public BufferViewCreateInfo()
         {
@@ -2325,7 +2325,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageCreateInfo : VulkanDisposableObject
+    public partial class ImageCreateInfo : QBDisposableObject
     {
         private StructReference refpQueueFamilyIndices;
 
@@ -2503,7 +2503,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageViewCreateInfo : VulkanDisposableObject
+    public partial class ImageViewCreateInfo : QBDisposableObject
     {
         public ImageViewCreateInfo()
         {
@@ -2550,7 +2550,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ShaderModuleCreateInfo : VulkanDisposableObject
+    public partial class ShaderModuleCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpCode;
 
@@ -2602,7 +2602,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineCacheCreateInfo : VulkanDisposableObject
+    public partial class PipelineCacheCreateInfo : QBDisposableObject
     {
         public PipelineCacheCreateInfo()
         {
@@ -2661,7 +2661,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SpecializationInfo : VulkanDisposableObject
+    public partial class SpecializationInfo : QBDisposableObject
     {
         private StructReference refpMapEntries;
 
@@ -2672,7 +2672,7 @@ namespace AdamantiumVulkan.Core
         public SpecializationInfo(AdamantiumVulkan.Core.Interop.VkSpecializationInfo _internal)
         {
             MapEntryCount = _internal.mapEntryCount;
-            PMapEntries = new SpecializationMapEntry(Marshal.PtrToStructure<VkSpecializationMapEntry>(_internal.pMapEntries));
+            PMapEntries = new SpecializationMapEntry(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry>(_internal.pMapEntries));
             Marshal.FreeHGlobal(_internal.pMapEntries);
             DataSize = _internal.dataSize;
             PData = _internal.pData;
@@ -2706,7 +2706,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineShaderStageCreateInfo : VulkanDisposableObject
+    public partial class PipelineShaderStageCreateInfo : QBDisposableObject
     {
         private StringReference refpName;
 
@@ -2723,7 +2723,7 @@ namespace AdamantiumVulkan.Core
             Stage = (ShaderStageFlagBits)_internal.stage;
             Module = new ShaderModule(_internal.module);
             PName = Marshal.PtrToStringAnsi(_internal.pName);
-            PSpecializationInfo = new SpecializationInfo(Marshal.PtrToStructure<VkSpecializationInfo>(_internal.pSpecializationInfo));
+            PSpecializationInfo = new SpecializationInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(_internal.pSpecializationInfo));
             Marshal.FreeHGlobal(_internal.pSpecializationInfo);
         }
 
@@ -2824,7 +2824,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineVertexInputStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineVertexInputStateCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpVertexBindingDescriptions;
 
@@ -2907,7 +2907,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineInputAssemblyStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineInputAssemblyStateCreateInfo : QBDisposableObject
     {
         public PipelineInputAssemblyStateCreateInfo()
         {
@@ -2939,7 +2939,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineTessellationStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineTessellationStateCreateInfo : QBDisposableObject
     {
         public PipelineTessellationStateCreateInfo()
         {
@@ -3082,7 +3082,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineViewportStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineViewportStateCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpViewports;
 
@@ -3165,7 +3165,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineRasterizationStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineRasterizationStateCreateInfo : QBDisposableObject
     {
         public PipelineRasterizationStateCreateInfo()
         {
@@ -3221,7 +3221,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineMultisampleStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineMultisampleStateCreateInfo : QBDisposableObject
     {
         private StructReference refpSampleMask;
 
@@ -3321,7 +3321,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineDepthStencilStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineDepthStencilStateCreateInfo : QBDisposableObject
     {
         public PipelineDepthStencilStateCreateInfo()
         {
@@ -3422,7 +3422,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineColorBlendStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineColorBlendStateCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpAttachments;
 
@@ -3512,7 +3512,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineDynamicStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineDynamicStateCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpDynamicStates;
 
@@ -3569,7 +3569,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class GraphicsPipelineCreateInfo : VulkanDisposableObject
+    public partial class GraphicsPipelineCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpStages;
 
@@ -3608,23 +3608,23 @@ namespace AdamantiumVulkan.Core
                 PStages[i] = new PipelineShaderStageCreateInfo(nativeTmpArray0[i]);
             }
             Marshal.FreeHGlobal(_internal.pStages);
-            PVertexInputState = new PipelineVertexInputStateCreateInfo(Marshal.PtrToStructure<VkPipelineVertexInputStateCreateInfo>(_internal.pVertexInputState));
+            PVertexInputState = new PipelineVertexInputStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>(_internal.pVertexInputState));
             Marshal.FreeHGlobal(_internal.pVertexInputState);
-            PInputAssemblyState = new PipelineInputAssemblyStateCreateInfo(Marshal.PtrToStructure<VkPipelineInputAssemblyStateCreateInfo>(_internal.pInputAssemblyState));
+            PInputAssemblyState = new PipelineInputAssemblyStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo>(_internal.pInputAssemblyState));
             Marshal.FreeHGlobal(_internal.pInputAssemblyState);
-            PTessellationState = new PipelineTessellationStateCreateInfo(Marshal.PtrToStructure<VkPipelineTessellationStateCreateInfo>(_internal.pTessellationState));
+            PTessellationState = new PipelineTessellationStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo>(_internal.pTessellationState));
             Marshal.FreeHGlobal(_internal.pTessellationState);
-            PViewportState = new PipelineViewportStateCreateInfo(Marshal.PtrToStructure<VkPipelineViewportStateCreateInfo>(_internal.pViewportState));
+            PViewportState = new PipelineViewportStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo>(_internal.pViewportState));
             Marshal.FreeHGlobal(_internal.pViewportState);
-            PRasterizationState = new PipelineRasterizationStateCreateInfo(Marshal.PtrToStructure<VkPipelineRasterizationStateCreateInfo>(_internal.pRasterizationState));
+            PRasterizationState = new PipelineRasterizationStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo>(_internal.pRasterizationState));
             Marshal.FreeHGlobal(_internal.pRasterizationState);
-            PMultisampleState = new PipelineMultisampleStateCreateInfo(Marshal.PtrToStructure<VkPipelineMultisampleStateCreateInfo>(_internal.pMultisampleState));
+            PMultisampleState = new PipelineMultisampleStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo>(_internal.pMultisampleState));
             Marshal.FreeHGlobal(_internal.pMultisampleState);
-            PDepthStencilState = new PipelineDepthStencilStateCreateInfo(Marshal.PtrToStructure<VkPipelineDepthStencilStateCreateInfo>(_internal.pDepthStencilState));
+            PDepthStencilState = new PipelineDepthStencilStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo>(_internal.pDepthStencilState));
             Marshal.FreeHGlobal(_internal.pDepthStencilState);
-            PColorBlendState = new PipelineColorBlendStateCreateInfo(Marshal.PtrToStructure<VkPipelineColorBlendStateCreateInfo>(_internal.pColorBlendState));
+            PColorBlendState = new PipelineColorBlendStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>(_internal.pColorBlendState));
             Marshal.FreeHGlobal(_internal.pColorBlendState);
-            PDynamicState = new PipelineDynamicStateCreateInfo(Marshal.PtrToStructure<VkPipelineDynamicStateCreateInfo>(_internal.pDynamicState));
+            PDynamicState = new PipelineDynamicStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(_internal.pDynamicState));
             Marshal.FreeHGlobal(_internal.pDynamicState);
             Layout = new PipelineLayout(_internal.layout);
             RenderPass = new RenderPass(_internal.renderPass);
@@ -3758,7 +3758,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ComputePipelineCreateInfo : VulkanDisposableObject
+    public partial class ComputePipelineCreateInfo : QBDisposableObject
     {
         public ComputePipelineCreateInfo()
         {
@@ -3826,7 +3826,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineLayoutCreateInfo : VulkanDisposableObject
+    public partial class PipelineLayoutCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpSetLayouts;
 
@@ -3850,7 +3850,7 @@ namespace AdamantiumVulkan.Core
             }
             Marshal.FreeHGlobal(_internal.pSetLayouts);
             PushConstantRangeCount = _internal.pushConstantRangeCount;
-            PPushConstantRanges = new PushConstantRange(Marshal.PtrToStructure<VkPushConstantRange>(_internal.pPushConstantRanges));
+            PPushConstantRanges = new PushConstantRange(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPushConstantRange>(_internal.pPushConstantRanges));
             Marshal.FreeHGlobal(_internal.pPushConstantRanges);
         }
 
@@ -3899,7 +3899,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SamplerCreateInfo : VulkanDisposableObject
+    public partial class SamplerCreateInfo : QBDisposableObject
     {
         public SamplerCreateInfo()
         {
@@ -3970,7 +3970,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorSetLayoutBinding : VulkanDisposableObject
+    public partial class DescriptorSetLayoutBinding : QBDisposableObject
     {
         private StructReference refpImmutableSamplers;
 
@@ -4018,7 +4018,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorSetLayoutCreateInfo : VulkanDisposableObject
+    public partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpBindings;
 
@@ -4099,7 +4099,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorPoolCreateInfo : VulkanDisposableObject
+    public partial class DescriptorPoolCreateInfo : QBDisposableObject
     {
         private StructReference refpPoolSizes;
 
@@ -4113,7 +4113,7 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             MaxSets = _internal.maxSets;
             PoolSizeCount = _internal.poolSizeCount;
-            PPoolSizes = new DescriptorPoolSize(Marshal.PtrToStructure<VkDescriptorPoolSize>(_internal.pPoolSizes));
+            PPoolSizes = new DescriptorPoolSize(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize>(_internal.pPoolSizes));
             Marshal.FreeHGlobal(_internal.pPoolSizes);
         }
 
@@ -4149,7 +4149,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorSetAllocateInfo : VulkanDisposableObject
+    public partial class DescriptorSetAllocateInfo : QBDisposableObject
     {
         private GCHandleReference refpSetLayouts;
 
@@ -4260,7 +4260,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class WriteDescriptorSet : VulkanDisposableObject
+    public partial class WriteDescriptorSet : QBDisposableObject
     {
         private StructReference refpImageInfo;
 
@@ -4280,9 +4280,9 @@ namespace AdamantiumVulkan.Core
             DstArrayElement = _internal.dstArrayElement;
             DescriptorCount = _internal.descriptorCount;
             DescriptorType = (DescriptorType)_internal.descriptorType;
-            PImageInfo = new DescriptorImageInfo(Marshal.PtrToStructure<VkDescriptorImageInfo>(_internal.pImageInfo));
+            PImageInfo = new DescriptorImageInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(_internal.pImageInfo));
             Marshal.FreeHGlobal(_internal.pImageInfo);
-            PBufferInfo = new DescriptorBufferInfo(Marshal.PtrToStructure<VkDescriptorBufferInfo>(_internal.pBufferInfo));
+            PBufferInfo = new DescriptorBufferInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo>(_internal.pBufferInfo));
             Marshal.FreeHGlobal(_internal.pBufferInfo);
             PTexelBufferView = new BufferView(Marshal.PtrToStructure<BufferView>(_internal.pTexelBufferView));
             Marshal.FreeHGlobal(_internal.pTexelBufferView);
@@ -4342,7 +4342,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CopyDescriptorSet : VulkanDisposableObject
+    public partial class CopyDescriptorSet : QBDisposableObject
     {
         public CopyDescriptorSet()
         {
@@ -4386,7 +4386,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FramebufferCreateInfo : VulkanDisposableObject
+    public partial class FramebufferCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpAttachments;
 
@@ -4524,7 +4524,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SubpassDescription : VulkanDisposableObject
+    public partial class SubpassDescription : QBDisposableObject
     {
         private GCHandleReference refpInputAttachments;
 
@@ -4570,7 +4570,7 @@ namespace AdamantiumVulkan.Core
                 PResolveAttachments[i] = new AttachmentReference(nativeTmpArray2[i]);
             }
             Marshal.FreeHGlobal(_internal.pResolveAttachments);
-            PDepthStencilAttachment = new AttachmentReference(Marshal.PtrToStructure<VkAttachmentReference>(_internal.pDepthStencilAttachment));
+            PDepthStencilAttachment = new AttachmentReference(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(_internal.pDepthStencilAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilAttachment);
             PreserveAttachmentCount = _internal.preserveAttachmentCount;
             PPreserveAttachments = new uint[_internal.preserveAttachmentCount];
@@ -4701,7 +4701,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassCreateInfo : VulkanDisposableObject
+    public partial class RenderPassCreateInfo : QBDisposableObject
     {
         private GCHandleReference refpAttachments;
 
@@ -4810,7 +4810,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CommandPoolCreateInfo : VulkanDisposableObject
+    public partial class CommandPoolCreateInfo : QBDisposableObject
     {
         public CommandPoolCreateInfo()
         {
@@ -4839,7 +4839,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CommandBufferAllocateInfo : VulkanDisposableObject
+    public partial class CommandBufferAllocateInfo : QBDisposableObject
     {
         public CommandBufferAllocateInfo()
         {
@@ -4871,7 +4871,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CommandBufferInheritanceInfo : VulkanDisposableObject
+    public partial class CommandBufferInheritanceInfo : QBDisposableObject
     {
         public CommandBufferInheritanceInfo()
         {
@@ -4912,7 +4912,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CommandBufferBeginInfo : VulkanDisposableObject
+    public partial class CommandBufferBeginInfo : QBDisposableObject
     {
         private StructReference refpInheritanceInfo;
 
@@ -4924,7 +4924,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             Flags = _internal.flags;
-            PInheritanceInfo = new CommandBufferInheritanceInfo(Marshal.PtrToStructure<VkCommandBufferInheritanceInfo>(_internal.pInheritanceInfo));
+            PInheritanceInfo = new CommandBufferInheritanceInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(_internal.pInheritanceInfo));
             Marshal.FreeHGlobal(_internal.pInheritanceInfo);
         }
 
@@ -5302,7 +5302,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryBarrier : VulkanDisposableObject
+    public partial class MemoryBarrier : QBDisposableObject
     {
         public MemoryBarrier()
         {
@@ -5331,7 +5331,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BufferMemoryBarrier : VulkanDisposableObject
+    public partial class BufferMemoryBarrier : QBDisposableObject
     {
         public BufferMemoryBarrier()
         {
@@ -5375,7 +5375,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageMemoryBarrier : VulkanDisposableObject
+    public partial class ImageMemoryBarrier : QBDisposableObject
     {
         public ImageMemoryBarrier()
         {
@@ -5425,7 +5425,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassBeginInfo : VulkanDisposableObject
+    public partial class RenderPassBeginInfo : QBDisposableObject
     {
         private GCHandleReference refpClearValues;
 
@@ -5581,7 +5581,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BaseOutStructure : VulkanDisposableObject
+    public partial class BaseOutStructure : QBDisposableObject
     {
         private StructReference refpNext;
 
@@ -5592,7 +5592,7 @@ namespace AdamantiumVulkan.Core
         public BaseOutStructure(AdamantiumVulkan.Core.Interop.VkBaseOutStructure _internal)
         {
             SType = (StructureType)_internal.sType;
-            PNext = new BaseOutStructure(Marshal.PtrToStructure<VkBaseOutStructure>(_internal.pNext));
+            PNext = new BaseOutStructure(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkBaseOutStructure>(_internal.pNext));
             Marshal.FreeHGlobal(_internal.pNext);
         }
 
@@ -5620,7 +5620,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BaseInStructure : VulkanDisposableObject
+    public partial class BaseInStructure : QBDisposableObject
     {
         private StructReference refpNext;
 
@@ -5631,7 +5631,7 @@ namespace AdamantiumVulkan.Core
         public BaseInStructure(AdamantiumVulkan.Core.Interop.VkBaseInStructure _internal)
         {
             SType = (StructureType)_internal.sType;
-            PNext = new BaseInStructure(Marshal.PtrToStructure<VkBaseInStructure>(_internal.pNext));
+            PNext = new BaseInStructure(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkBaseInStructure>(_internal.pNext));
             Marshal.FreeHGlobal(_internal.pNext);
         }
 
@@ -5659,7 +5659,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceSubgroupProperties : VulkanDisposableObject
+    public partial class PhysicalDeviceSubgroupProperties : QBDisposableObject
     {
         public PhysicalDeviceSubgroupProperties()
         {
@@ -5694,7 +5694,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindBufferMemoryInfo : VulkanDisposableObject
+    public partial class BindBufferMemoryInfo : QBDisposableObject
     {
         public BindBufferMemoryInfo()
         {
@@ -5726,7 +5726,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindImageMemoryInfo : VulkanDisposableObject
+    public partial class BindImageMemoryInfo : QBDisposableObject
     {
         public BindImageMemoryInfo()
         {
@@ -5758,7 +5758,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevice16BitStorageFeatures : VulkanDisposableObject
+    public partial class PhysicalDevice16BitStorageFeatures : QBDisposableObject
     {
         public PhysicalDevice16BitStorageFeatures()
         {
@@ -5793,7 +5793,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryDedicatedRequirements : VulkanDisposableObject
+    public partial class MemoryDedicatedRequirements : QBDisposableObject
     {
         public MemoryDedicatedRequirements()
         {
@@ -5822,7 +5822,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryDedicatedAllocateInfo : VulkanDisposableObject
+    public partial class MemoryDedicatedAllocateInfo : QBDisposableObject
     {
         public MemoryDedicatedAllocateInfo()
         {
@@ -5851,7 +5851,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryAllocateFlagsInfo : VulkanDisposableObject
+    public partial class MemoryAllocateFlagsInfo : QBDisposableObject
     {
         public MemoryAllocateFlagsInfo()
         {
@@ -5880,7 +5880,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupRenderPassBeginInfo : VulkanDisposableObject
+    public partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
     {
         private StructReference refpDeviceRenderAreas;
 
@@ -5893,7 +5893,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             DeviceMask = _internal.deviceMask;
             DeviceRenderAreaCount = _internal.deviceRenderAreaCount;
-            PDeviceRenderAreas = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pDeviceRenderAreas));
+            PDeviceRenderAreas = new Rect2D(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRect2D>(_internal.pDeviceRenderAreas));
             Marshal.FreeHGlobal(_internal.pDeviceRenderAreas);
         }
 
@@ -5927,7 +5927,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceGroupCommandBufferBeginInfo : VulkanDisposableObject
+    public partial class DeviceGroupCommandBufferBeginInfo : QBDisposableObject
     {
         public DeviceGroupCommandBufferBeginInfo()
         {
@@ -5953,7 +5953,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupSubmitInfo : VulkanDisposableObject
+    public partial class DeviceGroupSubmitInfo : QBDisposableObject
     {
         private StructReference refpWaitSemaphoreDeviceIndices;
 
@@ -6035,7 +6035,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceGroupBindSparseInfo : VulkanDisposableObject
+    public partial class DeviceGroupBindSparseInfo : QBDisposableObject
     {
         public DeviceGroupBindSparseInfo()
         {
@@ -6064,7 +6064,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindBufferMemoryDeviceGroupInfo : VulkanDisposableObject
+    public partial class BindBufferMemoryDeviceGroupInfo : QBDisposableObject
     {
         private StructReference refpDeviceIndices;
 
@@ -6110,7 +6110,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BindImageMemoryDeviceGroupInfo : VulkanDisposableObject
+    public partial class BindImageMemoryDeviceGroupInfo : QBDisposableObject
     {
         private StructReference refpDeviceIndices;
 
@@ -6130,7 +6130,7 @@ namespace AdamantiumVulkan.Core
                 Marshal.FreeHGlobal(_internal.pDeviceIndices);
             }
             SplitInstanceBindRegionCount = _internal.splitInstanceBindRegionCount;
-            PSplitInstanceBindRegions = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pSplitInstanceBindRegions));
+            PSplitInstanceBindRegions = new Rect2D(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRect2D>(_internal.pSplitInstanceBindRegions));
             Marshal.FreeHGlobal(_internal.pSplitInstanceBindRegions);
         }
 
@@ -6172,7 +6172,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceGroupProperties : VulkanDisposableObject
+    public partial class PhysicalDeviceGroupProperties : QBDisposableObject
     {
         public PhysicalDeviceGroupProperties()
         {
@@ -6218,7 +6218,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupDeviceCreateInfo : VulkanDisposableObject
+    public partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
     {
         private StructReference refpPhysicalDevices;
 
@@ -6262,7 +6262,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BufferMemoryRequirementsInfo2 : VulkanDisposableObject
+    public partial class BufferMemoryRequirementsInfo2 : QBDisposableObject
     {
         public BufferMemoryRequirementsInfo2()
         {
@@ -6288,7 +6288,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageMemoryRequirementsInfo2 : VulkanDisposableObject
+    public partial class ImageMemoryRequirementsInfo2 : QBDisposableObject
     {
         public ImageMemoryRequirementsInfo2()
         {
@@ -6314,7 +6314,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageSparseMemoryRequirementsInfo2 : VulkanDisposableObject
+    public partial class ImageSparseMemoryRequirementsInfo2 : QBDisposableObject
     {
         public ImageSparseMemoryRequirementsInfo2()
         {
@@ -6340,7 +6340,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryRequirements2 : VulkanDisposableObject
+    public partial class MemoryRequirements2 : QBDisposableObject
     {
         public MemoryRequirements2()
         {
@@ -6369,7 +6369,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseImageMemoryRequirements2 : VulkanDisposableObject
+    public partial class SparseImageMemoryRequirements2 : QBDisposableObject
     {
         public SparseImageMemoryRequirements2()
         {
@@ -6398,7 +6398,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFeatures2 : VulkanDisposableObject
+    public partial class PhysicalDeviceFeatures2 : QBDisposableObject
     {
         public PhysicalDeviceFeatures2()
         {
@@ -6427,7 +6427,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceProperties2 : VulkanDisposableObject
+    public partial class PhysicalDeviceProperties2 : QBDisposableObject
     {
         public PhysicalDeviceProperties2()
         {
@@ -6456,7 +6456,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FormatProperties2 : VulkanDisposableObject
+    public partial class FormatProperties2 : QBDisposableObject
     {
         public FormatProperties2()
         {
@@ -6485,7 +6485,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageFormatProperties2 : VulkanDisposableObject
+    public partial class ImageFormatProperties2 : QBDisposableObject
     {
         public ImageFormatProperties2()
         {
@@ -6514,7 +6514,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceImageFormatInfo2 : VulkanDisposableObject
+    public partial class PhysicalDeviceImageFormatInfo2 : QBDisposableObject
     {
         public PhysicalDeviceImageFormatInfo2()
         {
@@ -6552,7 +6552,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class QueueFamilyProperties2 : VulkanDisposableObject
+    public partial class QueueFamilyProperties2 : QBDisposableObject
     {
         public QueueFamilyProperties2()
         {
@@ -6581,7 +6581,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMemoryProperties2 : VulkanDisposableObject
+    public partial class PhysicalDeviceMemoryProperties2 : QBDisposableObject
     {
         public PhysicalDeviceMemoryProperties2()
         {
@@ -6610,7 +6610,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SparseImageFormatProperties2 : VulkanDisposableObject
+    public partial class SparseImageFormatProperties2 : QBDisposableObject
     {
         public SparseImageFormatProperties2()
         {
@@ -6639,7 +6639,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSparseImageFormatInfo2 : VulkanDisposableObject
+    public partial class PhysicalDeviceSparseImageFormatInfo2 : QBDisposableObject
     {
         public PhysicalDeviceSparseImageFormatInfo2()
         {
@@ -6677,7 +6677,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevicePointClippingProperties : VulkanDisposableObject
+    public partial class PhysicalDevicePointClippingProperties : QBDisposableObject
     {
         public PhysicalDevicePointClippingProperties()
         {
@@ -6730,7 +6730,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassInputAttachmentAspectCreateInfo : VulkanDisposableObject
+    public partial class RenderPassInputAttachmentAspectCreateInfo : QBDisposableObject
     {
         private StructReference refpAspectReferences;
 
@@ -6742,7 +6742,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             AspectReferenceCount = _internal.aspectReferenceCount;
-            PAspectReferences = new InputAttachmentAspectReference(Marshal.PtrToStructure<VkInputAttachmentAspectReference>(_internal.pAspectReferences));
+            PAspectReferences = new InputAttachmentAspectReference(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(_internal.pAspectReferences));
             Marshal.FreeHGlobal(_internal.pAspectReferences);
         }
 
@@ -6774,7 +6774,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageViewUsageCreateInfo : VulkanDisposableObject
+    public partial class ImageViewUsageCreateInfo : QBDisposableObject
     {
         public ImageViewUsageCreateInfo()
         {
@@ -6800,7 +6800,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineTessellationDomainOriginStateCreateInfo : VulkanDisposableObject
+    public partial class PipelineTessellationDomainOriginStateCreateInfo : QBDisposableObject
     {
         public PipelineTessellationDomainOriginStateCreateInfo()
         {
@@ -6826,7 +6826,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassMultiviewCreateInfo : VulkanDisposableObject
+    public partial class RenderPassMultiviewCreateInfo : QBDisposableObject
     {
         private StructReference refpViewMasks;
 
@@ -6908,7 +6908,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceMultiviewFeatures : VulkanDisposableObject
+    public partial class PhysicalDeviceMultiviewFeatures : QBDisposableObject
     {
         public PhysicalDeviceMultiviewFeatures()
         {
@@ -6940,7 +6940,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMultiviewProperties : VulkanDisposableObject
+    public partial class PhysicalDeviceMultiviewProperties : QBDisposableObject
     {
         public PhysicalDeviceMultiviewProperties()
         {
@@ -6969,7 +6969,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceVariablePointersFeatures : VulkanDisposableObject
+    public partial class PhysicalDeviceVariablePointersFeatures : QBDisposableObject
     {
         public PhysicalDeviceVariablePointersFeatures()
         {
@@ -6998,7 +6998,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceProtectedMemoryFeatures : VulkanDisposableObject
+    public partial class PhysicalDeviceProtectedMemoryFeatures : QBDisposableObject
     {
         public PhysicalDeviceProtectedMemoryFeatures()
         {
@@ -7024,7 +7024,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceProtectedMemoryProperties : VulkanDisposableObject
+    public partial class PhysicalDeviceProtectedMemoryProperties : QBDisposableObject
     {
         public PhysicalDeviceProtectedMemoryProperties()
         {
@@ -7050,7 +7050,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceQueueInfo2 : VulkanDisposableObject
+    public partial class DeviceQueueInfo2 : QBDisposableObject
     {
         public DeviceQueueInfo2()
         {
@@ -7082,7 +7082,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ProtectedSubmitInfo : VulkanDisposableObject
+    public partial class ProtectedSubmitInfo : QBDisposableObject
     {
         public ProtectedSubmitInfo()
         {
@@ -7108,7 +7108,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SamplerYcbcrConversionCreateInfo : VulkanDisposableObject
+    public partial class SamplerYcbcrConversionCreateInfo : QBDisposableObject
     {
         public SamplerYcbcrConversionCreateInfo()
         {
@@ -7158,7 +7158,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SamplerYcbcrConversionInfo : VulkanDisposableObject
+    public partial class SamplerYcbcrConversionInfo : QBDisposableObject
     {
         public SamplerYcbcrConversionInfo()
         {
@@ -7184,7 +7184,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindImagePlaneMemoryInfo : VulkanDisposableObject
+    public partial class BindImagePlaneMemoryInfo : QBDisposableObject
     {
         public BindImagePlaneMemoryInfo()
         {
@@ -7210,7 +7210,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImagePlaneMemoryRequirementsInfo : VulkanDisposableObject
+    public partial class ImagePlaneMemoryRequirementsInfo : QBDisposableObject
     {
         public ImagePlaneMemoryRequirementsInfo()
         {
@@ -7236,7 +7236,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : VulkanDisposableObject
+    public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : QBDisposableObject
     {
         public PhysicalDeviceSamplerYcbcrConversionFeatures()
         {
@@ -7262,7 +7262,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SamplerYcbcrConversionImageFormatProperties : VulkanDisposableObject
+    public partial class SamplerYcbcrConversionImageFormatProperties : QBDisposableObject
     {
         public SamplerYcbcrConversionImageFormatProperties()
         {
@@ -7324,7 +7324,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorUpdateTemplateCreateInfo : VulkanDisposableObject
+    public partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObject
     {
         private StructReference refpDescriptorUpdateEntries;
 
@@ -7337,7 +7337,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             DescriptorUpdateEntryCount = _internal.descriptorUpdateEntryCount;
-            PDescriptorUpdateEntries = new DescriptorUpdateTemplateEntry(Marshal.PtrToStructure<VkDescriptorUpdateTemplateEntry>(_internal.pDescriptorUpdateEntries));
+            PDescriptorUpdateEntries = new DescriptorUpdateTemplateEntry(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(_internal.pDescriptorUpdateEntries));
             Marshal.FreeHGlobal(_internal.pDescriptorUpdateEntries);
             TemplateType = (DescriptorUpdateTemplateType)_internal.templateType;
             DescriptorSetLayout = new DescriptorSetLayout(_internal.descriptorSetLayout);
@@ -7413,7 +7413,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalImageFormatInfo : VulkanDisposableObject
+    public partial class PhysicalDeviceExternalImageFormatInfo : QBDisposableObject
     {
         public PhysicalDeviceExternalImageFormatInfo()
         {
@@ -7439,7 +7439,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalImageFormatProperties : VulkanDisposableObject
+    public partial class ExternalImageFormatProperties : QBDisposableObject
     {
         public ExternalImageFormatProperties()
         {
@@ -7468,7 +7468,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalBufferInfo : VulkanDisposableObject
+    public partial class PhysicalDeviceExternalBufferInfo : QBDisposableObject
     {
         public PhysicalDeviceExternalBufferInfo()
         {
@@ -7500,7 +7500,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalBufferProperties : VulkanDisposableObject
+    public partial class ExternalBufferProperties : QBDisposableObject
     {
         public ExternalBufferProperties()
         {
@@ -7529,7 +7529,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceIDProperties : VulkanDisposableObject
+    public partial class PhysicalDeviceIDProperties : QBDisposableObject
     {
         public PhysicalDeviceIDProperties()
         {
@@ -7639,7 +7639,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalMemoryImageCreateInfo : VulkanDisposableObject
+    public partial class ExternalMemoryImageCreateInfo : QBDisposableObject
     {
         public ExternalMemoryImageCreateInfo()
         {
@@ -7665,7 +7665,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalMemoryBufferCreateInfo : VulkanDisposableObject
+    public partial class ExternalMemoryBufferCreateInfo : QBDisposableObject
     {
         public ExternalMemoryBufferCreateInfo()
         {
@@ -7691,7 +7691,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExportMemoryAllocateInfo : VulkanDisposableObject
+    public partial class ExportMemoryAllocateInfo : QBDisposableObject
     {
         public ExportMemoryAllocateInfo()
         {
@@ -7717,7 +7717,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalFenceInfo : VulkanDisposableObject
+    public partial class PhysicalDeviceExternalFenceInfo : QBDisposableObject
     {
         public PhysicalDeviceExternalFenceInfo()
         {
@@ -7743,7 +7743,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalFenceProperties : VulkanDisposableObject
+    public partial class ExternalFenceProperties : QBDisposableObject
     {
         public ExternalFenceProperties()
         {
@@ -7775,7 +7775,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExportFenceCreateInfo : VulkanDisposableObject
+    public partial class ExportFenceCreateInfo : QBDisposableObject
     {
         public ExportFenceCreateInfo()
         {
@@ -7801,7 +7801,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExportSemaphoreCreateInfo : VulkanDisposableObject
+    public partial class ExportSemaphoreCreateInfo : QBDisposableObject
     {
         public ExportSemaphoreCreateInfo()
         {
@@ -7827,7 +7827,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalSemaphoreInfo : VulkanDisposableObject
+    public partial class PhysicalDeviceExternalSemaphoreInfo : QBDisposableObject
     {
         public PhysicalDeviceExternalSemaphoreInfo()
         {
@@ -7853,7 +7853,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalSemaphoreProperties : VulkanDisposableObject
+    public partial class ExternalSemaphoreProperties : QBDisposableObject
     {
         public ExternalSemaphoreProperties()
         {
@@ -7885,7 +7885,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMaintenance3Properties : VulkanDisposableObject
+    public partial class PhysicalDeviceMaintenance3Properties : QBDisposableObject
     {
         public PhysicalDeviceMaintenance3Properties()
         {
@@ -7914,7 +7914,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorSetLayoutSupport : VulkanDisposableObject
+    public partial class DescriptorSetLayoutSupport : QBDisposableObject
     {
         public DescriptorSetLayoutSupport()
         {
@@ -7940,7 +7940,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderDrawParametersFeatures : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderDrawParametersFeatures : QBDisposableObject
     {
         public PhysicalDeviceShaderDrawParametersFeatures()
         {
@@ -8047,7 +8047,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SwapchainCreateInfoKHR : VulkanDisposableObject
+    public partial class SwapchainCreateInfoKHR : QBDisposableObject
     {
         private GCHandleReference refpQueueFamilyIndices;
 
@@ -8141,7 +8141,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PresentInfoKHR : VulkanDisposableObject
+    public partial class PresentInfoKHR : QBDisposableObject
     {
         private GCHandleReference refpWaitSemaphores;
 
@@ -8262,7 +8262,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageSwapchainCreateInfoKHR : VulkanDisposableObject
+    public partial class ImageSwapchainCreateInfoKHR : QBDisposableObject
     {
         public ImageSwapchainCreateInfoKHR()
         {
@@ -8288,7 +8288,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindImageMemorySwapchainInfoKHR : VulkanDisposableObject
+    public partial class BindImageMemorySwapchainInfoKHR : QBDisposableObject
     {
         public BindImageMemorySwapchainInfoKHR()
         {
@@ -8317,7 +8317,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class AcquireNextImageInfoKHR : VulkanDisposableObject
+    public partial class AcquireNextImageInfoKHR : QBDisposableObject
     {
         public AcquireNextImageInfoKHR()
         {
@@ -8355,7 +8355,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupPresentCapabilitiesKHR : VulkanDisposableObject
+    public partial class DeviceGroupPresentCapabilitiesKHR : QBDisposableObject
     {
         public DeviceGroupPresentCapabilitiesKHR()
         {
@@ -8408,7 +8408,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGroupPresentInfoKHR : VulkanDisposableObject
+    public partial class DeviceGroupPresentInfoKHR : QBDisposableObject
     {
         private StructReference refpDeviceMasks;
 
@@ -8457,7 +8457,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DeviceGroupSwapchainCreateInfoKHR : VulkanDisposableObject
+    public partial class DeviceGroupSwapchainCreateInfoKHR : QBDisposableObject
     {
         public DeviceGroupSwapchainCreateInfoKHR()
         {
@@ -8483,7 +8483,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPropertiesKHR : VulkanDisposableObject
+    public partial class DisplayPropertiesKHR : QBDisposableObject
     {
         private StringReference refdisplayName;
 
@@ -8595,7 +8595,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayModeCreateInfoKHR : VulkanDisposableObject
+    public partial class DisplayModeCreateInfoKHR : QBDisposableObject
     {
         public DisplayModeCreateInfoKHR()
         {
@@ -8720,7 +8720,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplaySurfaceCreateInfoKHR : VulkanDisposableObject
+    public partial class DisplaySurfaceCreateInfoKHR : QBDisposableObject
     {
         public DisplaySurfaceCreateInfoKHR()
         {
@@ -8770,7 +8770,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPresentInfoKHR : VulkanDisposableObject
+    public partial class DisplayPresentInfoKHR : QBDisposableObject
     {
         public DisplayPresentInfoKHR()
         {
@@ -8808,7 +8808,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImportMemoryFdInfoKHR : VulkanDisposableObject
+    public partial class ImportMemoryFdInfoKHR : QBDisposableObject
     {
         public ImportMemoryFdInfoKHR()
         {
@@ -8837,7 +8837,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryFdPropertiesKHR : VulkanDisposableObject
+    public partial class MemoryFdPropertiesKHR : QBDisposableObject
     {
         public MemoryFdPropertiesKHR()
         {
@@ -8863,7 +8863,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryGetFdInfoKHR : VulkanDisposableObject
+    public partial class MemoryGetFdInfoKHR : QBDisposableObject
     {
         public MemoryGetFdInfoKHR()
         {
@@ -8892,7 +8892,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImportSemaphoreFdInfoKHR : VulkanDisposableObject
+    public partial class ImportSemaphoreFdInfoKHR : QBDisposableObject
     {
         public ImportSemaphoreFdInfoKHR()
         {
@@ -8927,7 +8927,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SemaphoreGetFdInfoKHR : VulkanDisposableObject
+    public partial class SemaphoreGetFdInfoKHR : QBDisposableObject
     {
         public SemaphoreGetFdInfoKHR()
         {
@@ -8956,7 +8956,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevicePushDescriptorPropertiesKHR : VulkanDisposableObject
+    public partial class PhysicalDevicePushDescriptorPropertiesKHR : QBDisposableObject
     {
         public PhysicalDevicePushDescriptorPropertiesKHR()
         {
@@ -8983,7 +8983,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderFloat16Int8FeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderFloat16Int8FeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceShaderFloat16Int8FeaturesKHR()
         {
@@ -9045,7 +9045,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PresentRegionKHR : VulkanDisposableObject
+    public partial class PresentRegionKHR : QBDisposableObject
     {
         private StructReference refpRectangles;
 
@@ -9056,7 +9056,7 @@ namespace AdamantiumVulkan.Core
         public PresentRegionKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionKHR _internal)
         {
             RectangleCount = _internal.rectangleCount;
-            PRectangles = new RectLayerKHR(Marshal.PtrToStructure<VkRectLayerKHR>(_internal.pRectangles));
+            PRectangles = new RectLayerKHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRectLayerKHR>(_internal.pRectangles));
             Marshal.FreeHGlobal(_internal.pRectangles);
         }
 
@@ -9084,7 +9084,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PresentRegionsKHR : VulkanDisposableObject
+    public partial class PresentRegionsKHR : QBDisposableObject
     {
         private StructReference refpRegions;
 
@@ -9096,7 +9096,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             SwapchainCount = _internal.swapchainCount;
-            PRegions = new PresentRegionKHR(Marshal.PtrToStructure<VkPresentRegionKHR>(_internal.pRegions));
+            PRegions = new PresentRegionKHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(_internal.pRegions));
             Marshal.FreeHGlobal(_internal.pRegions);
         }
 
@@ -9128,7 +9128,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceImagelessFramebufferFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceImagelessFramebufferFeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceImagelessFramebufferFeaturesKHR()
         {
@@ -9155,7 +9155,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FramebufferAttachmentImageInfoKHR : VulkanDisposableObject
+    public partial class FramebufferAttachmentImageInfoKHR : QBDisposableObject
     {
         private GCHandleReference refpViewFormats;
 
@@ -9225,7 +9225,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class FramebufferAttachmentsCreateInfoKHR : VulkanDisposableObject
+    public partial class FramebufferAttachmentsCreateInfoKHR : QBDisposableObject
     {
         private StructReference refpAttachmentImageInfos;
 
@@ -9238,7 +9238,7 @@ namespace AdamantiumVulkan.Core
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             AttachmentImageInfoCount = _internal.attachmentImageInfoCount;
-            PAttachmentImageInfos = new FramebufferAttachmentImageInfoKHR(Marshal.PtrToStructure<VkFramebufferAttachmentImageInfoKHR>(_internal.pAttachmentImageInfos));
+            PAttachmentImageInfos = new FramebufferAttachmentImageInfoKHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfoKHR>(_internal.pAttachmentImageInfos));
             Marshal.FreeHGlobal(_internal.pAttachmentImageInfos);
         }
 
@@ -9270,7 +9270,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class RenderPassAttachmentBeginInfoKHR : VulkanDisposableObject
+    public partial class RenderPassAttachmentBeginInfoKHR : QBDisposableObject
     {
         private StructReference refpAttachments;
 
@@ -9315,7 +9315,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AttachmentDescription2KHR : VulkanDisposableObject
+    public partial class AttachmentDescription2KHR : QBDisposableObject
     {
         public AttachmentDescription2KHR()
         {
@@ -9365,7 +9365,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class AttachmentReference2KHR : VulkanDisposableObject
+    public partial class AttachmentReference2KHR : QBDisposableObject
     {
         public AttachmentReference2KHR()
         {
@@ -9397,7 +9397,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SubpassDescription2KHR : VulkanDisposableObject
+    public partial class SubpassDescription2KHR : QBDisposableObject
     {
         private GCHandleReference refpInputAttachments;
 
@@ -9445,7 +9445,7 @@ namespace AdamantiumVulkan.Core
                 PResolveAttachments[i] = new AttachmentReference2KHR(nativeTmpArray2[i]);
             }
             Marshal.FreeHGlobal(_internal.pResolveAttachments);
-            PDepthStencilAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pDepthStencilAttachment));
+            PDepthStencilAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR>(_internal.pDepthStencilAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilAttachment);
             PreserveAttachmentCount = _internal.preserveAttachmentCount;
             PPreserveAttachments = new uint[_internal.preserveAttachmentCount];
@@ -9543,7 +9543,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SubpassDependency2KHR : VulkanDisposableObject
+    public partial class SubpassDependency2KHR : QBDisposableObject
     {
         public SubpassDependency2KHR()
         {
@@ -9590,7 +9590,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassCreateInfo2KHR : VulkanDisposableObject
+    public partial class RenderPassCreateInfo2KHR : QBDisposableObject
     {
         private StructReference refpAttachments;
 
@@ -9609,13 +9609,13 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             AttachmentCount = _internal.attachmentCount;
-            PAttachments = new AttachmentDescription2KHR(Marshal.PtrToStructure<VkAttachmentDescription2KHR>(_internal.pAttachments));
+            PAttachments = new AttachmentDescription2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2KHR>(_internal.pAttachments));
             Marshal.FreeHGlobal(_internal.pAttachments);
             SubpassCount = _internal.subpassCount;
-            PSubpasses = new SubpassDescription2KHR(Marshal.PtrToStructure<VkSubpassDescription2KHR>(_internal.pSubpasses));
+            PSubpasses = new SubpassDescription2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR>(_internal.pSubpasses));
             Marshal.FreeHGlobal(_internal.pSubpasses);
             DependencyCount = _internal.dependencyCount;
-            PDependencies = new SubpassDependency2KHR(Marshal.PtrToStructure<VkSubpassDependency2KHR>(_internal.pDependencies));
+            PDependencies = new SubpassDependency2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSubpassDependency2KHR>(_internal.pDependencies));
             Marshal.FreeHGlobal(_internal.pDependencies);
             CorrelatedViewMaskCount = _internal.correlatedViewMaskCount;
             if(_internal.pCorrelatedViewMasks != System.IntPtr.Zero)
@@ -9687,7 +9687,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SubpassBeginInfoKHR : VulkanDisposableObject
+    public partial class SubpassBeginInfoKHR : QBDisposableObject
     {
         public SubpassBeginInfoKHR()
         {
@@ -9713,7 +9713,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SubpassEndInfoKHR : VulkanDisposableObject
+    public partial class SubpassEndInfoKHR : QBDisposableObject
     {
         public SubpassEndInfoKHR()
         {
@@ -9736,7 +9736,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SharedPresentSurfaceCapabilitiesKHR : VulkanDisposableObject
+    public partial class SharedPresentSurfaceCapabilitiesKHR : QBDisposableObject
     {
         public SharedPresentSurfaceCapabilitiesKHR()
         {
@@ -9762,7 +9762,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImportFenceFdInfoKHR : VulkanDisposableObject
+    public partial class ImportFenceFdInfoKHR : QBDisposableObject
     {
         public ImportFenceFdInfoKHR()
         {
@@ -9797,7 +9797,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FenceGetFdInfoKHR : VulkanDisposableObject
+    public partial class FenceGetFdInfoKHR : QBDisposableObject
     {
         public FenceGetFdInfoKHR()
         {
@@ -9826,7 +9826,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSurfaceInfo2KHR : VulkanDisposableObject
+    public partial class PhysicalDeviceSurfaceInfo2KHR : QBDisposableObject
     {
         public PhysicalDeviceSurfaceInfo2KHR()
         {
@@ -9852,7 +9852,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SurfaceCapabilities2KHR : VulkanDisposableObject
+    public partial class SurfaceCapabilities2KHR : QBDisposableObject
     {
         public SurfaceCapabilities2KHR()
         {
@@ -9881,7 +9881,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SurfaceFormat2KHR : VulkanDisposableObject
+    public partial class SurfaceFormat2KHR : QBDisposableObject
     {
         public SurfaceFormat2KHR()
         {
@@ -9910,7 +9910,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayProperties2KHR : VulkanDisposableObject
+    public partial class DisplayProperties2KHR : QBDisposableObject
     {
         public DisplayProperties2KHR()
         {
@@ -9939,7 +9939,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPlaneProperties2KHR : VulkanDisposableObject
+    public partial class DisplayPlaneProperties2KHR : QBDisposableObject
     {
         public DisplayPlaneProperties2KHR()
         {
@@ -9968,7 +9968,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayModeProperties2KHR : VulkanDisposableObject
+    public partial class DisplayModeProperties2KHR : QBDisposableObject
     {
         public DisplayModeProperties2KHR()
         {
@@ -9997,7 +9997,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPlaneInfo2KHR : VulkanDisposableObject
+    public partial class DisplayPlaneInfo2KHR : QBDisposableObject
     {
         public DisplayPlaneInfo2KHR()
         {
@@ -10026,7 +10026,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPlaneCapabilities2KHR : VulkanDisposableObject
+    public partial class DisplayPlaneCapabilities2KHR : QBDisposableObject
     {
         public DisplayPlaneCapabilities2KHR()
         {
@@ -10055,7 +10055,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageFormatListCreateInfoKHR : VulkanDisposableObject
+    public partial class ImageFormatListCreateInfoKHR : QBDisposableObject
     {
         private GCHandleReference refpViewFormats;
 
@@ -10109,7 +10109,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR()
         {
@@ -10136,7 +10136,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevice8BitStorageFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDevice8BitStorageFeaturesKHR : QBDisposableObject
     {
         public PhysicalDevice8BitStorageFeaturesKHR()
         {
@@ -10168,7 +10168,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceShaderAtomicInt64FeaturesKHR()
         {
@@ -10197,7 +10197,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderClockFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderClockFeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceShaderClockFeaturesKHR()
         {
@@ -10257,7 +10257,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceDriverPropertiesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceDriverPropertiesKHR : QBDisposableObject
     {
         public PhysicalDeviceDriverPropertiesKHR()
         {
@@ -10343,7 +10343,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFloatControlsPropertiesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceFloatControlsPropertiesKHR : QBDisposableObject
     {
         public PhysicalDeviceFloatControlsPropertiesKHR()
         {
@@ -10417,7 +10417,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SubpassDescriptionDepthStencilResolveKHR : VulkanDisposableObject
+    public partial class SubpassDescriptionDepthStencilResolveKHR : QBDisposableObject
     {
         private StructReference refpDepthStencilResolveAttachment;
 
@@ -10430,7 +10430,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             DepthResolveMode = (ResolveModeFlagBitsKHR)_internal.depthResolveMode;
             StencilResolveMode = (ResolveModeFlagBitsKHR)_internal.stencilResolveMode;
-            PDepthStencilResolveAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<VkAttachmentReference2KHR>(_internal.pDepthStencilResolveAttachment));
+            PDepthStencilResolveAttachment = new AttachmentReference2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR>(_internal.pDepthStencilResolveAttachment));
             Marshal.FreeHGlobal(_internal.pDepthStencilResolveAttachment);
         }
 
@@ -10464,7 +10464,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceDepthStencilResolvePropertiesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceDepthStencilResolvePropertiesKHR : QBDisposableObject
     {
         public PhysicalDeviceDepthStencilResolvePropertiesKHR()
         {
@@ -10499,7 +10499,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTimelineSemaphoreFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceTimelineSemaphoreFeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceTimelineSemaphoreFeaturesKHR()
         {
@@ -10526,7 +10526,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTimelineSemaphorePropertiesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceTimelineSemaphorePropertiesKHR : QBDisposableObject
     {
         public PhysicalDeviceTimelineSemaphorePropertiesKHR()
         {
@@ -10553,7 +10553,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SemaphoreTypeCreateInfoKHR : VulkanDisposableObject
+    public partial class SemaphoreTypeCreateInfoKHR : QBDisposableObject
     {
         public SemaphoreTypeCreateInfoKHR()
         {
@@ -10583,7 +10583,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class TimelineSemaphoreSubmitInfoKHR : VulkanDisposableObject
+    public partial class TimelineSemaphoreSubmitInfoKHR : QBDisposableObject
     {
         private StructReference refpWaitSemaphoreValues;
 
@@ -10648,7 +10648,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SemaphoreWaitInfoKHR : VulkanDisposableObject
+    public partial class SemaphoreWaitInfoKHR : QBDisposableObject
     {
         private StructReference refpSemaphores;
 
@@ -10711,7 +10711,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SemaphoreSignalInfoKHR : VulkanDisposableObject
+    public partial class SemaphoreSignalInfoKHR : QBDisposableObject
     {
         public SemaphoreSignalInfoKHR()
         {
@@ -10741,7 +10741,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceVulkanMemoryModelFeaturesKHR()
         {
@@ -10773,7 +10773,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SurfaceProtectedCapabilitiesKHR : VulkanDisposableObject
+    public partial class SurfaceProtectedCapabilitiesKHR : QBDisposableObject
     {
         public SurfaceProtectedCapabilitiesKHR()
         {
@@ -10800,7 +10800,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR : QBDisposableObject
     {
         public PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR()
         {
@@ -10827,7 +10827,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKHR : VulkanDisposableObject
+    public partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKHR : QBDisposableObject
     {
         public PhysicalDevicePipelineExecutablePropertiesFeaturesKHR()
         {
@@ -10854,7 +10854,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineInfoKHR : VulkanDisposableObject
+    public partial class PipelineInfoKHR : QBDisposableObject
     {
         public PipelineInfoKHR()
         {
@@ -10881,7 +10881,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutablePropertiesKHR : VulkanDisposableObject
+    public partial class PipelineExecutablePropertiesKHR : QBDisposableObject
     {
         public PipelineExecutablePropertiesKHR()
         {
@@ -10965,7 +10965,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutableInfoKHR : VulkanDisposableObject
+    public partial class PipelineExecutableInfoKHR : QBDisposableObject
     {
         public PipelineExecutableInfoKHR()
         {
@@ -10995,7 +10995,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutableStatisticKHR : VulkanDisposableObject
+    public partial class PipelineExecutableStatisticKHR : QBDisposableObject
     {
         public PipelineExecutableStatisticKHR()
         {
@@ -11082,7 +11082,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineExecutableInternalRepresentationKHR : VulkanDisposableObject
+    public partial class PipelineExecutableInternalRepresentationKHR : QBDisposableObject
     {
         public PipelineExecutableInternalRepresentationKHR()
         {
@@ -11169,7 +11169,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugReportCallbackCreateInfoEXT : VulkanDisposableObject
+    public partial class DebugReportCallbackCreateInfoEXT : QBDisposableObject
     {
         public DebugReportCallbackCreateInfoEXT()
         {
@@ -11201,7 +11201,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRasterizationStateRasterizationOrderAMD : VulkanDisposableObject
+    public partial class PipelineRasterizationStateRasterizationOrderAMD : QBDisposableObject
     {
         public PipelineRasterizationStateRasterizationOrderAMD()
         {
@@ -11227,7 +11227,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugMarkerObjectNameInfoEXT : VulkanDisposableObject
+    public partial class DebugMarkerObjectNameInfoEXT : QBDisposableObject
     {
         private StringReference refpObjectName;
 
@@ -11272,7 +11272,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugMarkerObjectTagInfoEXT : VulkanDisposableObject
+    public partial class DebugMarkerObjectTagInfoEXT : QBDisposableObject
     {
         public DebugMarkerObjectTagInfoEXT()
         {
@@ -11310,7 +11310,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugMarkerMarkerInfoEXT : VulkanDisposableObject
+    public partial class DebugMarkerMarkerInfoEXT : QBDisposableObject
     {
         private StringReference refpMarkerName;
 
@@ -11376,7 +11376,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DedicatedAllocationImageCreateInfoNV : VulkanDisposableObject
+    public partial class DedicatedAllocationImageCreateInfoNV : QBDisposableObject
     {
         public DedicatedAllocationImageCreateInfoNV()
         {
@@ -11402,7 +11402,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DedicatedAllocationBufferCreateInfoNV : VulkanDisposableObject
+    public partial class DedicatedAllocationBufferCreateInfoNV : QBDisposableObject
     {
         public DedicatedAllocationBufferCreateInfoNV()
         {
@@ -11428,7 +11428,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DedicatedAllocationMemoryAllocateInfoNV : VulkanDisposableObject
+    public partial class DedicatedAllocationMemoryAllocateInfoNV : QBDisposableObject
     {
         public DedicatedAllocationMemoryAllocateInfoNV()
         {
@@ -11457,7 +11457,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceTransformFeedbackFeaturesEXT()
         {
@@ -11486,7 +11486,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceTransformFeedbackPropertiesEXT()
         {
@@ -11539,7 +11539,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRasterizationStateStreamCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineRasterizationStateStreamCreateInfoEXT : QBDisposableObject
     {
         public PipelineRasterizationStateStreamCreateInfoEXT()
         {
@@ -11568,7 +11568,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageViewHandleInfoNVX : VulkanDisposableObject
+    public partial class ImageViewHandleInfoNVX : QBDisposableObject
     {
         public ImageViewHandleInfoNVX()
         {
@@ -11601,7 +11601,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class TextureLODGatherFormatPropertiesAMD : VulkanDisposableObject
+    public partial class TextureLODGatherFormatPropertiesAMD : QBDisposableObject
     {
         public TextureLODGatherFormatPropertiesAMD()
         {
@@ -11726,7 +11726,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCornerSampledImageFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceCornerSampledImageFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceCornerSampledImageFeaturesNV()
         {
@@ -11785,7 +11785,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExternalMemoryImageCreateInfoNV : VulkanDisposableObject
+    public partial class ExternalMemoryImageCreateInfoNV : QBDisposableObject
     {
         public ExternalMemoryImageCreateInfoNV()
         {
@@ -11811,7 +11811,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ExportMemoryAllocateInfoNV : VulkanDisposableObject
+    public partial class ExportMemoryAllocateInfoNV : QBDisposableObject
     {
         public ExportMemoryAllocateInfoNV()
         {
@@ -11837,7 +11837,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ValidationFlagsEXT : VulkanDisposableObject
+    public partial class ValidationFlagsEXT : QBDisposableObject
     {
         private GCHandleReference refpDisabledValidationChecks;
 
@@ -11891,7 +11891,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT()
         {
@@ -11918,7 +11918,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageViewASTCDecodeModeEXT : VulkanDisposableObject
+    public partial class ImageViewASTCDecodeModeEXT : QBDisposableObject
     {
         public ImageViewASTCDecodeModeEXT()
         {
@@ -11944,7 +11944,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceASTCDecodeFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceASTCDecodeFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceASTCDecodeFeaturesEXT()
         {
@@ -11970,7 +11970,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ConditionalRenderingBeginInfoEXT : VulkanDisposableObject
+    public partial class ConditionalRenderingBeginInfoEXT : QBDisposableObject
     {
         public ConditionalRenderingBeginInfoEXT()
         {
@@ -12002,7 +12002,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceConditionalRenderingFeaturesEXT()
         {
@@ -12031,7 +12031,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : VulkanDisposableObject
+    public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : QBDisposableObject
     {
         public CommandBufferInheritanceConditionalRenderingInfoEXT()
         {
@@ -12057,7 +12057,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGeneratedCommandsFeaturesNVX : VulkanDisposableObject
+    public partial class DeviceGeneratedCommandsFeaturesNVX : QBDisposableObject
     {
         public DeviceGeneratedCommandsFeaturesNVX()
         {
@@ -12083,7 +12083,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceGeneratedCommandsLimitsNVX : VulkanDisposableObject
+    public partial class DeviceGeneratedCommandsLimitsNVX : QBDisposableObject
     {
         public DeviceGeneratedCommandsLimitsNVX()
         {
@@ -12178,7 +12178,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class IndirectCommandsLayoutCreateInfoNVX : VulkanDisposableObject
+    public partial class IndirectCommandsLayoutCreateInfoNVX : QBDisposableObject
     {
         private StructReference refpTokens;
 
@@ -12192,7 +12192,7 @@ namespace AdamantiumVulkan.Core
             PipelineBindPoint = (PipelineBindPoint)_internal.pipelineBindPoint;
             Flags = _internal.flags;
             TokenCount = _internal.tokenCount;
-            PTokens = new IndirectCommandsLayoutTokenNVX(Marshal.PtrToStructure<VkIndirectCommandsLayoutTokenNVX>(_internal.pTokens));
+            PTokens = new IndirectCommandsLayoutTokenNVX(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNVX>(_internal.pTokens));
             Marshal.FreeHGlobal(_internal.pTokens);
         }
 
@@ -12228,7 +12228,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ProcessCommandsInfoNVX : VulkanDisposableObject
+    public partial class ProcessCommandsInfoNVX : QBDisposableObject
     {
         private StructReference refpIndirectCommandsTokens;
 
@@ -12242,7 +12242,7 @@ namespace AdamantiumVulkan.Core
             ObjectTable = new ObjectTableNVX(_internal.objectTable);
             IndirectCommandsLayout = new IndirectCommandsLayoutNVX(_internal.indirectCommandsLayout);
             IndirectCommandsTokenCount = _internal.indirectCommandsTokenCount;
-            PIndirectCommandsTokens = new IndirectCommandsTokenNVX(Marshal.PtrToStructure<VkIndirectCommandsTokenNVX>(_internal.pIndirectCommandsTokens));
+            PIndirectCommandsTokens = new IndirectCommandsTokenNVX(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkIndirectCommandsTokenNVX>(_internal.pIndirectCommandsTokens));
             Marshal.FreeHGlobal(_internal.pIndirectCommandsTokens);
             MaxSequencesCount = _internal.maxSequencesCount;
             TargetCommandBuffer = new CommandBuffer(_internal.targetCommandBuffer);
@@ -12296,7 +12296,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ReserveSpaceForCommandsInfoNVX : VulkanDisposableObject
+    public partial class ReserveSpaceForCommandsInfoNVX : QBDisposableObject
     {
         public ReserveSpaceForCommandsInfoNVX()
         {
@@ -12328,7 +12328,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ObjectTableCreateInfoNVX : VulkanDisposableObject
+    public partial class ObjectTableCreateInfoNVX : QBDisposableObject
     {
         private GCHandleReference refpObjectEntryTypes;
 
@@ -12625,7 +12625,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineViewportWScalingStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineViewportWScalingStateCreateInfoNV : QBDisposableObject
     {
         private StructReference refpViewportWScalings;
 
@@ -12638,7 +12638,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             ViewportWScalingEnable = System.Convert.ToBoolean(_internal.viewportWScalingEnable);
             ViewportCount = _internal.viewportCount;
-            PViewportWScalings = new ViewportWScalingNV(Marshal.PtrToStructure<VkViewportWScalingNV>(_internal.pViewportWScalings));
+            PViewportWScalings = new ViewportWScalingNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(_internal.pViewportWScalings));
             Marshal.FreeHGlobal(_internal.pViewportWScalings);
         }
 
@@ -12672,7 +12672,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class SurfaceCapabilities2EXT : VulkanDisposableObject
+    public partial class SurfaceCapabilities2EXT : QBDisposableObject
     {
         public SurfaceCapabilities2EXT()
         {
@@ -12737,7 +12737,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayPowerInfoEXT : VulkanDisposableObject
+    public partial class DisplayPowerInfoEXT : QBDisposableObject
     {
         public DisplayPowerInfoEXT()
         {
@@ -12763,7 +12763,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceEventInfoEXT : VulkanDisposableObject
+    public partial class DeviceEventInfoEXT : QBDisposableObject
     {
         public DeviceEventInfoEXT()
         {
@@ -12789,7 +12789,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayEventInfoEXT : VulkanDisposableObject
+    public partial class DisplayEventInfoEXT : QBDisposableObject
     {
         public DisplayEventInfoEXT()
         {
@@ -12816,7 +12816,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SwapchainCounterCreateInfoEXT : VulkanDisposableObject
+    public partial class SwapchainCounterCreateInfoEXT : QBDisposableObject
     {
         public SwapchainCounterCreateInfoEXT()
         {
@@ -12920,7 +12920,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PresentTimesInfoGOOGLE : VulkanDisposableObject
+    public partial class PresentTimesInfoGOOGLE : QBDisposableObject
     {
         private StructReference refpTimes;
 
@@ -12932,7 +12932,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             SwapchainCount = _internal.swapchainCount;
-            PTimes = new PresentTimeGOOGLE(Marshal.PtrToStructure<VkPresentTimeGOOGLE>(_internal.pTimes));
+            PTimes = new PresentTimeGOOGLE(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(_internal.pTimes));
             Marshal.FreeHGlobal(_internal.pTimes);
         }
 
@@ -12964,7 +12964,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX : VulkanDisposableObject
+    public partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX : QBDisposableObject
     {
         public PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX()
         {
@@ -13020,7 +13020,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineViewportSwizzleStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineViewportSwizzleStateCreateInfoNV : QBDisposableObject
     {
         private StructReference refpViewportSwizzles;
 
@@ -13033,7 +13033,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             ViewportCount = _internal.viewportCount;
-            PViewportSwizzles = new ViewportSwizzleNV(Marshal.PtrToStructure<VkViewportSwizzleNV>(_internal.pViewportSwizzles));
+            PViewportSwizzles = new ViewportSwizzleNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV>(_internal.pViewportSwizzles));
             Marshal.FreeHGlobal(_internal.pViewportSwizzles);
         }
 
@@ -13067,7 +13067,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceDiscardRectanglePropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceDiscardRectanglePropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceDiscardRectanglePropertiesEXT()
         {
@@ -13093,7 +13093,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineDiscardRectangleStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineDiscardRectangleStateCreateInfoEXT : QBDisposableObject
     {
         private StructReference refpDiscardRectangles;
 
@@ -13107,7 +13107,7 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             DiscardRectangleMode = (DiscardRectangleModeEXT)_internal.discardRectangleMode;
             DiscardRectangleCount = _internal.discardRectangleCount;
-            PDiscardRectangles = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pDiscardRectangles));
+            PDiscardRectangles = new Rect2D(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRect2D>(_internal.pDiscardRectangles));
             Marshal.FreeHGlobal(_internal.pDiscardRectangles);
         }
 
@@ -13143,7 +13143,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceConservativeRasterizationPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceConservativeRasterizationPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceConservativeRasterizationPropertiesEXT()
         {
@@ -13193,7 +13193,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRasterizationConservativeStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineRasterizationConservativeStateCreateInfoEXT : QBDisposableObject
     {
         public PipelineRasterizationConservativeStateCreateInfoEXT()
         {
@@ -13225,7 +13225,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceDepthClipEnableFeaturesEXT()
         {
@@ -13251,7 +13251,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : QBDisposableObject
     {
         public PipelineRasterizationDepthClipStateCreateInfoEXT()
         {
@@ -13304,7 +13304,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class HdrMetadataEXT : VulkanDisposableObject
+    public partial class HdrMetadataEXT : QBDisposableObject
     {
         public HdrMetadataEXT()
         {
@@ -13363,7 +13363,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugUtilsObjectNameInfoEXT : VulkanDisposableObject
+    public partial class DebugUtilsObjectNameInfoEXT : QBDisposableObject
     {
         private StringReference refpObjectName;
 
@@ -13408,7 +13408,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugUtilsObjectTagInfoEXT : VulkanDisposableObject
+    public partial class DebugUtilsObjectTagInfoEXT : QBDisposableObject
     {
         public DebugUtilsObjectTagInfoEXT()
         {
@@ -13446,7 +13446,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DebugUtilsLabelEXT : VulkanDisposableObject
+    public partial class DebugUtilsLabelEXT : QBDisposableObject
     {
         private StringReference refpLabelName;
 
@@ -13512,7 +13512,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugUtilsMessengerCallbackDataEXT : VulkanDisposableObject
+    public partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObject
     {
         private StringReference refpMessageIdName;
 
@@ -13536,13 +13536,13 @@ namespace AdamantiumVulkan.Core
             MessageIdNumber = _internal.messageIdNumber;
             PMessage = Marshal.PtrToStringAnsi(_internal.pMessage);
             QueueLabelCount = _internal.queueLabelCount;
-            PQueueLabels = new DebugUtilsLabelEXT(Marshal.PtrToStructure<VkDebugUtilsLabelEXT>(_internal.pQueueLabels));
+            PQueueLabels = new DebugUtilsLabelEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(_internal.pQueueLabels));
             Marshal.FreeHGlobal(_internal.pQueueLabels);
             CmdBufLabelCount = _internal.cmdBufLabelCount;
-            PCmdBufLabels = new DebugUtilsLabelEXT(Marshal.PtrToStructure<VkDebugUtilsLabelEXT>(_internal.pCmdBufLabels));
+            PCmdBufLabels = new DebugUtilsLabelEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(_internal.pCmdBufLabels));
             Marshal.FreeHGlobal(_internal.pCmdBufLabels);
             ObjectCount = _internal.objectCount;
-            PObjects = new DebugUtilsObjectNameInfoEXT(Marshal.PtrToStructure<VkDebugUtilsObjectNameInfoEXT>(_internal.pObjects));
+            PObjects = new DebugUtilsObjectNameInfoEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(_internal.pObjects));
             Marshal.FreeHGlobal(_internal.pObjects);
         }
 
@@ -13616,7 +13616,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DebugUtilsMessengerCreateInfoEXT : VulkanDisposableObject
+    public partial class DebugUtilsMessengerCreateInfoEXT : QBDisposableObject
     {
         public DebugUtilsMessengerCreateInfoEXT()
         {
@@ -13654,7 +13654,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SamplerReductionModeCreateInfoEXT : VulkanDisposableObject
+    public partial class SamplerReductionModeCreateInfoEXT : QBDisposableObject
     {
         public SamplerReductionModeCreateInfoEXT()
         {
@@ -13680,7 +13680,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceSamplerFilterMinmaxPropertiesEXT()
         {
@@ -13709,7 +13709,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceInlineUniformBlockFeaturesEXT()
         {
@@ -13738,7 +13738,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceInlineUniformBlockPropertiesEXT()
         {
@@ -13776,7 +13776,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class WriteDescriptorSetInlineUniformBlockEXT : VulkanDisposableObject
+    public partial class WriteDescriptorSetInlineUniformBlockEXT : QBDisposableObject
     {
         public WriteDescriptorSetInlineUniformBlockEXT()
         {
@@ -13805,7 +13805,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : VulkanDisposableObject
+    public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : QBDisposableObject
     {
         public DescriptorPoolInlineUniformBlockCreateInfoEXT()
         {
@@ -13855,7 +13855,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SampleLocationsInfoEXT : VulkanDisposableObject
+    public partial class SampleLocationsInfoEXT : QBDisposableObject
     {
         private StructReference refpSampleLocations;
 
@@ -13869,7 +13869,7 @@ namespace AdamantiumVulkan.Core
             SampleLocationsPerPixel = (SampleCountFlagBits)_internal.sampleLocationsPerPixel;
             SampleLocationGridSize = new Extent2D(_internal.sampleLocationGridSize);
             SampleLocationsCount = _internal.sampleLocationsCount;
-            PSampleLocations = new SampleLocationEXT(Marshal.PtrToStructure<VkSampleLocationEXT>(_internal.pSampleLocations));
+            PSampleLocations = new SampleLocationEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(_internal.pSampleLocations));
             Marshal.FreeHGlobal(_internal.pSampleLocations);
         }
 
@@ -13962,7 +13962,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassSampleLocationsBeginInfoEXT : VulkanDisposableObject
+    public partial class RenderPassSampleLocationsBeginInfoEXT : QBDisposableObject
     {
         private StructReference refpAttachmentInitialSampleLocations;
 
@@ -13976,10 +13976,10 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             AttachmentInitialSampleLocationsCount = _internal.attachmentInitialSampleLocationsCount;
-            PAttachmentInitialSampleLocations = new AttachmentSampleLocationsEXT(Marshal.PtrToStructure<VkAttachmentSampleLocationsEXT>(_internal.pAttachmentInitialSampleLocations));
+            PAttachmentInitialSampleLocations = new AttachmentSampleLocationsEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT>(_internal.pAttachmentInitialSampleLocations));
             Marshal.FreeHGlobal(_internal.pAttachmentInitialSampleLocations);
             PostSubpassSampleLocationsCount = _internal.postSubpassSampleLocationsCount;
-            PPostSubpassSampleLocations = new SubpassSampleLocationsEXT(Marshal.PtrToStructure<VkSubpassSampleLocationsEXT>(_internal.pPostSubpassSampleLocations));
+            PPostSubpassSampleLocations = new SubpassSampleLocationsEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT>(_internal.pPostSubpassSampleLocations));
             Marshal.FreeHGlobal(_internal.pPostSubpassSampleLocations);
         }
 
@@ -14022,7 +14022,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineSampleLocationsStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineSampleLocationsStateCreateInfoEXT : QBDisposableObject
     {
         public PipelineSampleLocationsStateCreateInfoEXT()
         {
@@ -14054,7 +14054,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSampleLocationsPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceSampleLocationsPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceSampleLocationsPropertiesEXT()
         {
@@ -14119,7 +14119,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MultisamplePropertiesEXT : VulkanDisposableObject
+    public partial class MultisamplePropertiesEXT : QBDisposableObject
     {
         public MultisamplePropertiesEXT()
         {
@@ -14148,7 +14148,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceBlendOperationAdvancedFeaturesEXT()
         {
@@ -14174,7 +14174,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceBlendOperationAdvancedPropertiesEXT()
         {
@@ -14215,7 +14215,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : QBDisposableObject
     {
         public PipelineColorBlendAdvancedStateCreateInfoEXT()
         {
@@ -14247,7 +14247,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineCoverageToColorStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineCoverageToColorStateCreateInfoNV : QBDisposableObject
     {
         public PipelineCoverageToColorStateCreateInfoNV()
         {
@@ -14279,7 +14279,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineCoverageModulationStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineCoverageModulationStateCreateInfoNV : QBDisposableObject
     {
         private StructReference refpCoverageModulationTable;
 
@@ -14334,7 +14334,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : QBDisposableObject
     {
         public PhysicalDeviceShaderSMBuiltinsPropertiesNV()
         {
@@ -14364,7 +14364,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderSMBuiltinsFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderSMBuiltinsFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceShaderSMBuiltinsFeaturesNV()
         {
@@ -14418,7 +14418,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DrmFormatModifierPropertiesListEXT : VulkanDisposableObject
+    public partial class DrmFormatModifierPropertiesListEXT : QBDisposableObject
     {
         private StructReference refpDrmFormatModifierProperties;
 
@@ -14430,7 +14430,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             DrmFormatModifierCount = _internal.drmFormatModifierCount;
-            PDrmFormatModifierProperties = new DrmFormatModifierPropertiesEXT(Marshal.PtrToStructure<VkDrmFormatModifierPropertiesEXT>(_internal.pDrmFormatModifierProperties));
+            PDrmFormatModifierProperties = new DrmFormatModifierPropertiesEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT>(_internal.pDrmFormatModifierProperties));
             Marshal.FreeHGlobal(_internal.pDrmFormatModifierProperties);
         }
 
@@ -14462,7 +14462,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : QBDisposableObject
     {
         private StructReference refpQueueFamilyIndices;
 
@@ -14514,7 +14514,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageDrmFormatModifierListCreateInfoEXT : VulkanDisposableObject
+    public partial class ImageDrmFormatModifierListCreateInfoEXT : QBDisposableObject
     {
         private StructReference refpDrmFormatModifiers;
 
@@ -14560,7 +14560,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageDrmFormatModifierExplicitCreateInfoEXT : VulkanDisposableObject
+    public partial class ImageDrmFormatModifierExplicitCreateInfoEXT : QBDisposableObject
     {
         private StructReference refpPlaneLayouts;
 
@@ -14573,7 +14573,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             DrmFormatModifier = _internal.drmFormatModifier;
             DrmFormatModifierPlaneCount = _internal.drmFormatModifierPlaneCount;
-            PPlaneLayouts = new SubresourceLayout(Marshal.PtrToStructure<VkSubresourceLayout>(_internal.pPlaneLayouts));
+            PPlaneLayouts = new SubresourceLayout(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(_internal.pPlaneLayouts));
             Marshal.FreeHGlobal(_internal.pPlaneLayouts);
         }
 
@@ -14607,7 +14607,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ImageDrmFormatModifierPropertiesEXT : VulkanDisposableObject
+    public partial class ImageDrmFormatModifierPropertiesEXT : QBDisposableObject
     {
         public ImageDrmFormatModifierPropertiesEXT()
         {
@@ -14633,7 +14633,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ValidationCacheCreateInfoEXT : VulkanDisposableObject
+    public partial class ValidationCacheCreateInfoEXT : QBDisposableObject
     {
         public ValidationCacheCreateInfoEXT()
         {
@@ -14665,7 +14665,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ShaderModuleValidationCacheCreateInfoEXT : VulkanDisposableObject
+    public partial class ShaderModuleValidationCacheCreateInfoEXT : QBDisposableObject
     {
         public ShaderModuleValidationCacheCreateInfoEXT()
         {
@@ -14691,7 +14691,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : VulkanDisposableObject
+    public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : QBDisposableObject
     {
         private StructReference refpBindingFlags;
 
@@ -14737,7 +14737,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceDescriptorIndexingFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceDescriptorIndexingFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceDescriptorIndexingFeaturesEXT()
         {
@@ -14820,7 +14820,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceDescriptorIndexingPropertiesEXT()
         {
@@ -14912,7 +14912,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : VulkanDisposableObject
+    public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : QBDisposableObject
     {
         private StructReference refpDescriptorCounts;
 
@@ -14958,7 +14958,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorSetVariableDescriptorCountLayoutSupportEXT : VulkanDisposableObject
+    public partial class DescriptorSetVariableDescriptorCountLayoutSupportEXT : QBDisposableObject
     {
         public DescriptorSetVariableDescriptorCountLayoutSupportEXT()
         {
@@ -14984,7 +14984,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ShadingRatePaletteNV : VulkanDisposableObject
+    public partial class ShadingRatePaletteNV : QBDisposableObject
     {
         private GCHandleReference refpShadingRatePaletteEntries;
 
@@ -15033,7 +15033,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineViewportShadingRateImageStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineViewportShadingRateImageStateCreateInfoNV : QBDisposableObject
     {
         private StructReference refpShadingRatePalettes;
 
@@ -15046,7 +15046,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             ShadingRateImageEnable = System.Convert.ToBoolean(_internal.shadingRateImageEnable);
             ViewportCount = _internal.viewportCount;
-            PShadingRatePalettes = new ShadingRatePaletteNV(Marshal.PtrToStructure<VkShadingRatePaletteNV>(_internal.pShadingRatePalettes));
+            PShadingRatePalettes = new ShadingRatePaletteNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(_internal.pShadingRatePalettes));
             Marshal.FreeHGlobal(_internal.pShadingRatePalettes);
         }
 
@@ -15080,7 +15080,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceShadingRateImageFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceShadingRateImageFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceShadingRateImageFeaturesNV()
         {
@@ -15109,7 +15109,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShadingRateImagePropertiesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceShadingRateImagePropertiesNV : QBDisposableObject
     {
         public PhysicalDeviceShadingRateImagePropertiesNV()
         {
@@ -15171,7 +15171,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CoarseSampleOrderCustomNV : VulkanDisposableObject
+    public partial class CoarseSampleOrderCustomNV : QBDisposableObject
     {
         private StructReference refpSampleLocations;
 
@@ -15184,7 +15184,7 @@ namespace AdamantiumVulkan.Core
             ShadingRate = (ShadingRatePaletteEntryNV)_internal.shadingRate;
             SampleCount = _internal.sampleCount;
             SampleLocationCount = _internal.sampleLocationCount;
-            PSampleLocations = new CoarseSampleLocationNV(Marshal.PtrToStructure<VkCoarseSampleLocationNV>(_internal.pSampleLocations));
+            PSampleLocations = new CoarseSampleLocationNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(_internal.pSampleLocations));
             Marshal.FreeHGlobal(_internal.pSampleLocations);
         }
 
@@ -15216,7 +15216,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV : QBDisposableObject
     {
         private StructReference refpCustomSampleOrders;
 
@@ -15229,7 +15229,7 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             SampleOrderType = (CoarseSampleOrderTypeNV)_internal.sampleOrderType;
             CustomSampleOrderCount = _internal.customSampleOrderCount;
-            PCustomSampleOrders = new CoarseSampleOrderCustomNV(Marshal.PtrToStructure<VkCoarseSampleOrderCustomNV>(_internal.pCustomSampleOrders));
+            PCustomSampleOrders = new CoarseSampleOrderCustomNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(_internal.pCustomSampleOrders));
             Marshal.FreeHGlobal(_internal.pCustomSampleOrders);
         }
 
@@ -15263,7 +15263,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class RayTracingShaderGroupCreateInfoNV : VulkanDisposableObject
+    public partial class RayTracingShaderGroupCreateInfoNV : QBDisposableObject
     {
         public RayTracingShaderGroupCreateInfoNV()
         {
@@ -15301,7 +15301,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RayTracingPipelineCreateInfoNV : VulkanDisposableObject
+    public partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
     {
         private StructReference refpStages;
 
@@ -15316,10 +15316,10 @@ namespace AdamantiumVulkan.Core
             PNext = _internal.pNext;
             Flags = _internal.flags;
             StageCount = _internal.stageCount;
-            PStages = new PipelineShaderStageCreateInfo(Marshal.PtrToStructure<VkPipelineShaderStageCreateInfo>(_internal.pStages));
+            PStages = new PipelineShaderStageCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(_internal.pStages));
             Marshal.FreeHGlobal(_internal.pStages);
             GroupCount = _internal.groupCount;
-            PGroups = new RayTracingShaderGroupCreateInfoNV(Marshal.PtrToStructure<VkRayTracingShaderGroupCreateInfoNV>(_internal.pGroups));
+            PGroups = new RayTracingShaderGroupCreateInfoNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>(_internal.pGroups));
             Marshal.FreeHGlobal(_internal.pGroups);
             MaxRecursionDepth = _internal.maxRecursionDepth;
             Layout = new PipelineLayout(_internal.layout);
@@ -15376,7 +15376,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class GeometryTrianglesNV : VulkanDisposableObject
+    public partial class GeometryTrianglesNV : QBDisposableObject
     {
         public GeometryTrianglesNV()
         {
@@ -15432,7 +15432,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class GeometryAABBNV : VulkanDisposableObject
+    public partial class GeometryAABBNV : QBDisposableObject
     {
         public GeometryAABBNV()
         {
@@ -15497,7 +15497,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class GeometryNV : VulkanDisposableObject
+    public partial class GeometryNV : QBDisposableObject
     {
         public GeometryNV()
         {
@@ -15532,7 +15532,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class AccelerationStructureInfoNV : VulkanDisposableObject
+    public partial class AccelerationStructureInfoNV : QBDisposableObject
     {
         private StructReference refpGeometries;
 
@@ -15547,7 +15547,7 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             InstanceCount = _internal.instanceCount;
             GeometryCount = _internal.geometryCount;
-            PGeometries = new GeometryNV(Marshal.PtrToStructure<VkGeometryNV>(_internal.pGeometries));
+            PGeometries = new GeometryNV(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkGeometryNV>(_internal.pGeometries));
             Marshal.FreeHGlobal(_internal.pGeometries);
         }
 
@@ -15585,7 +15585,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AccelerationStructureCreateInfoNV : VulkanDisposableObject
+    public partial class AccelerationStructureCreateInfoNV : QBDisposableObject
     {
         public AccelerationStructureCreateInfoNV()
         {
@@ -15617,7 +15617,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BindAccelerationStructureMemoryInfoNV : VulkanDisposableObject
+    public partial class BindAccelerationStructureMemoryInfoNV : QBDisposableObject
     {
         private StructReference refpDeviceIndices;
 
@@ -15672,7 +15672,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class WriteDescriptorSetAccelerationStructureNV : VulkanDisposableObject
+    public partial class WriteDescriptorSetAccelerationStructureNV : QBDisposableObject
     {
         private StructReference refpAccelerationStructures;
 
@@ -15716,7 +15716,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AccelerationStructureMemoryRequirementsInfoNV : VulkanDisposableObject
+    public partial class AccelerationStructureMemoryRequirementsInfoNV : QBDisposableObject
     {
         public AccelerationStructureMemoryRequirementsInfoNV()
         {
@@ -15745,7 +15745,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceRayTracingPropertiesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceRayTracingPropertiesNV : QBDisposableObject
     {
         public PhysicalDeviceRayTracingPropertiesNV()
         {
@@ -15792,7 +15792,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceRepresentativeFragmentTestFeaturesNV()
         {
@@ -15818,7 +15818,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : QBDisposableObject
     {
         public PipelineRepresentativeFragmentTestStateCreateInfoNV()
         {
@@ -15844,7 +15844,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceImageViewImageFormatInfoEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceImageViewImageFormatInfoEXT : QBDisposableObject
     {
         public PhysicalDeviceImageViewImageFormatInfoEXT()
         {
@@ -15870,7 +15870,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FilterCubicImageViewImageFormatPropertiesEXT : VulkanDisposableObject
+    public partial class FilterCubicImageViewImageFormatPropertiesEXT : QBDisposableObject
     {
         public FilterCubicImageViewImageFormatPropertiesEXT()
         {
@@ -15899,7 +15899,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceQueueGlobalPriorityCreateInfoEXT : VulkanDisposableObject
+    public partial class DeviceQueueGlobalPriorityCreateInfoEXT : QBDisposableObject
     {
         public DeviceQueueGlobalPriorityCreateInfoEXT()
         {
@@ -15925,7 +15925,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImportMemoryHostPointerInfoEXT : VulkanDisposableObject
+    public partial class ImportMemoryHostPointerInfoEXT : QBDisposableObject
     {
         public ImportMemoryHostPointerInfoEXT()
         {
@@ -15954,7 +15954,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryHostPointerPropertiesEXT : VulkanDisposableObject
+    public partial class MemoryHostPointerPropertiesEXT : QBDisposableObject
     {
         public MemoryHostPointerPropertiesEXT()
         {
@@ -15980,7 +15980,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceExternalMemoryHostPropertiesEXT()
         {
@@ -16006,7 +16006,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineCompilerControlCreateInfoAMD : VulkanDisposableObject
+    public partial class PipelineCompilerControlCreateInfoAMD : QBDisposableObject
     {
         public PipelineCompilerControlCreateInfoAMD()
         {
@@ -16033,7 +16033,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CalibratedTimestampInfoEXT : VulkanDisposableObject
+    public partial class CalibratedTimestampInfoEXT : QBDisposableObject
     {
         public CalibratedTimestampInfoEXT()
         {
@@ -16059,7 +16059,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderCorePropertiesAMD : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderCorePropertiesAMD : QBDisposableObject
     {
         public PhysicalDeviceShaderCorePropertiesAMD()
         {
@@ -16124,7 +16124,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DeviceMemoryOverallocationCreateInfoAMD : VulkanDisposableObject
+    public partial class DeviceMemoryOverallocationCreateInfoAMD : QBDisposableObject
     {
         public DeviceMemoryOverallocationCreateInfoAMD()
         {
@@ -16150,7 +16150,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceVertexAttributeDivisorPropertiesEXT()
         {
@@ -16200,7 +16200,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineVertexInputDivisorStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineVertexInputDivisorStateCreateInfoEXT : QBDisposableObject
     {
         private StructReference refpVertexBindingDivisors;
 
@@ -16212,7 +16212,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             VertexBindingDivisorCount = _internal.vertexBindingDivisorCount;
-            PVertexBindingDivisors = new VertexInputBindingDivisorDescriptionEXT(Marshal.PtrToStructure<VkVertexInputBindingDivisorDescriptionEXT>(_internal.pVertexBindingDivisors));
+            PVertexBindingDivisors = new VertexInputBindingDivisorDescriptionEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT>(_internal.pVertexBindingDivisors));
             Marshal.FreeHGlobal(_internal.pVertexBindingDivisors);
         }
 
@@ -16244,7 +16244,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceVertexAttributeDivisorFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceVertexAttributeDivisorFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceVertexAttributeDivisorFeaturesEXT()
         {
@@ -16297,7 +16297,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineCreationFeedbackCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineCreationFeedbackCreateInfoEXT : QBDisposableObject
     {
         private StructReference refpPipelineCreationFeedback;
 
@@ -16311,10 +16311,10 @@ namespace AdamantiumVulkan.Core
         {
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            PPipelineCreationFeedback = new PipelineCreationFeedbackEXT(Marshal.PtrToStructure<VkPipelineCreationFeedbackEXT>(_internal.pPipelineCreationFeedback));
+            PPipelineCreationFeedback = new PipelineCreationFeedbackEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackEXT>(_internal.pPipelineCreationFeedback));
             Marshal.FreeHGlobal(_internal.pPipelineCreationFeedback);
             PipelineStageCreationFeedbackCount = _internal.pipelineStageCreationFeedbackCount;
-            PPipelineStageCreationFeedbacks = new PipelineCreationFeedbackEXT(Marshal.PtrToStructure<VkPipelineCreationFeedbackEXT>(_internal.pPipelineStageCreationFeedbacks));
+            PPipelineStageCreationFeedbacks = new PipelineCreationFeedbackEXT(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackEXT>(_internal.pPipelineStageCreationFeedbacks));
             Marshal.FreeHGlobal(_internal.pPipelineStageCreationFeedbacks);
         }
 
@@ -16355,7 +16355,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceComputeShaderDerivativesFeaturesNV()
         {
@@ -16384,7 +16384,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMeshShaderFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceMeshShaderFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceMeshShaderFeaturesNV()
         {
@@ -16413,7 +16413,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMeshShaderPropertiesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceMeshShaderPropertiesNV : QBDisposableObject
     {
         public PhysicalDeviceMeshShaderPropertiesNV()
         {
@@ -16547,7 +16547,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFragmentShaderBarycentricFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceFragmentShaderBarycentricFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceFragmentShaderBarycentricFeaturesNV()
         {
@@ -16573,7 +16573,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceShaderImageFootprintFeaturesNV()
         {
@@ -16599,7 +16599,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : QBDisposableObject
     {
         private StructReference refpExclusiveScissors;
 
@@ -16611,7 +16611,7 @@ namespace AdamantiumVulkan.Core
         {
             PNext = _internal.pNext;
             ExclusiveScissorCount = _internal.exclusiveScissorCount;
-            PExclusiveScissors = new Rect2D(Marshal.PtrToStructure<VkRect2D>(_internal.pExclusiveScissors));
+            PExclusiveScissors = new Rect2D(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRect2D>(_internal.pExclusiveScissors));
             Marshal.FreeHGlobal(_internal.pExclusiveScissors);
         }
 
@@ -16643,7 +16643,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class PhysicalDeviceExclusiveScissorFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceExclusiveScissorFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceExclusiveScissorFeaturesNV()
         {
@@ -16669,7 +16669,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class QueueFamilyCheckpointPropertiesNV : VulkanDisposableObject
+    public partial class QueueFamilyCheckpointPropertiesNV : QBDisposableObject
     {
         public QueueFamilyCheckpointPropertiesNV()
         {
@@ -16695,7 +16695,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class CheckpointDataNV : VulkanDisposableObject
+    public partial class CheckpointDataNV : QBDisposableObject
     {
         public CheckpointDataNV()
         {
@@ -16724,7 +16724,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL : QBDisposableObject
     {
         public PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL()
         {
@@ -16778,7 +16778,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class InitializePerformanceApiInfoINTEL : VulkanDisposableObject
+    public partial class InitializePerformanceApiInfoINTEL : QBDisposableObject
     {
         public InitializePerformanceApiInfoINTEL()
         {
@@ -16805,7 +16805,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class QueryPoolCreateInfoINTEL : VulkanDisposableObject
+    public partial class QueryPoolCreateInfoINTEL : QBDisposableObject
     {
         public QueryPoolCreateInfoINTEL()
         {
@@ -16832,7 +16832,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PerformanceMarkerInfoINTEL : VulkanDisposableObject
+    public partial class PerformanceMarkerInfoINTEL : QBDisposableObject
     {
         public PerformanceMarkerInfoINTEL()
         {
@@ -16859,7 +16859,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PerformanceStreamMarkerInfoINTEL : VulkanDisposableObject
+    public partial class PerformanceStreamMarkerInfoINTEL : QBDisposableObject
     {
         public PerformanceStreamMarkerInfoINTEL()
         {
@@ -16886,7 +16886,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PerformanceOverrideInfoINTEL : VulkanDisposableObject
+    public partial class PerformanceOverrideInfoINTEL : QBDisposableObject
     {
         public PerformanceOverrideInfoINTEL()
         {
@@ -16919,7 +16919,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PerformanceConfigurationAcquireInfoINTEL : VulkanDisposableObject
+    public partial class PerformanceConfigurationAcquireInfoINTEL : QBDisposableObject
     {
         public PerformanceConfigurationAcquireInfoINTEL()
         {
@@ -16946,7 +16946,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDevicePCIBusInfoPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDevicePCIBusInfoPropertiesEXT : QBDisposableObject
     {
         public PhysicalDevicePCIBusInfoPropertiesEXT()
         {
@@ -16981,7 +16981,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class DisplayNativeHdrSurfaceCapabilitiesAMD : VulkanDisposableObject
+    public partial class DisplayNativeHdrSurfaceCapabilitiesAMD : QBDisposableObject
     {
         public DisplayNativeHdrSurfaceCapabilitiesAMD()
         {
@@ -17008,7 +17008,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class SwapchainDisplayNativeHdrCreateInfoAMD : VulkanDisposableObject
+    public partial class SwapchainDisplayNativeHdrCreateInfoAMD : QBDisposableObject
     {
         public SwapchainDisplayNativeHdrCreateInfoAMD()
         {
@@ -17035,7 +17035,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceFragmentDensityMapFeaturesEXT()
         {
@@ -17067,7 +17067,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceFragmentDensityMapPropertiesEXT()
         {
@@ -17105,7 +17105,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class RenderPassFragmentDensityMapCreateInfoEXT : VulkanDisposableObject
+    public partial class RenderPassFragmentDensityMapCreateInfoEXT : QBDisposableObject
     {
         public RenderPassFragmentDensityMapCreateInfoEXT()
         {
@@ -17134,7 +17134,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceScalarBlockLayoutFeaturesEXT()
         {
@@ -17160,7 +17160,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSubgroupSizeControlFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceSubgroupSizeControlFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceSubgroupSizeControlFeaturesEXT()
         {
@@ -17190,7 +17190,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceSubgroupSizeControlPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceSubgroupSizeControlPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceSubgroupSizeControlPropertiesEXT()
         {
@@ -17226,7 +17226,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT : QBDisposableObject
     {
         public PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT()
         {
@@ -17253,7 +17253,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderCoreProperties2AMD : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderCoreProperties2AMD : QBDisposableObject
     {
         public PhysicalDeviceShaderCoreProperties2AMD()
         {
@@ -17283,7 +17283,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCoherentMemoryFeaturesAMD : VulkanDisposableObject
+    public partial class PhysicalDeviceCoherentMemoryFeaturesAMD : QBDisposableObject
     {
         public PhysicalDeviceCoherentMemoryFeaturesAMD()
         {
@@ -17310,7 +17310,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceMemoryBudgetPropertiesEXT()
         {
@@ -17387,7 +17387,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceMemoryPriorityFeaturesEXT()
         {
@@ -17413,7 +17413,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class MemoryPriorityAllocateInfoEXT : VulkanDisposableObject
+    public partial class MemoryPriorityAllocateInfoEXT : QBDisposableObject
     {
         public MemoryPriorityAllocateInfoEXT()
         {
@@ -17439,7 +17439,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV()
         {
@@ -17465,7 +17465,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceBufferDeviceAddressFeaturesEXT()
         {
@@ -17497,7 +17497,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BufferDeviceAddressInfoEXT : VulkanDisposableObject
+    public partial class BufferDeviceAddressInfoEXT : QBDisposableObject
     {
         public BufferDeviceAddressInfoEXT()
         {
@@ -17523,7 +17523,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class BufferDeviceAddressCreateInfoEXT : VulkanDisposableObject
+    public partial class BufferDeviceAddressCreateInfoEXT : QBDisposableObject
     {
         public BufferDeviceAddressCreateInfoEXT()
         {
@@ -17549,7 +17549,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ImageStencilUsageCreateInfoEXT : VulkanDisposableObject
+    public partial class ImageStencilUsageCreateInfoEXT : QBDisposableObject
     {
         public ImageStencilUsageCreateInfoEXT()
         {
@@ -17575,7 +17575,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class ValidationFeaturesEXT : VulkanDisposableObject
+    public partial class ValidationFeaturesEXT : QBDisposableObject
     {
         private GCHandleReference refpEnabledValidationFeatures;
 
@@ -17655,7 +17655,7 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class CooperativeMatrixPropertiesNV : VulkanDisposableObject
+    public partial class CooperativeMatrixPropertiesNV : QBDisposableObject
     {
         public CooperativeMatrixPropertiesNV()
         {
@@ -17702,7 +17702,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceCooperativeMatrixFeaturesNV()
         {
@@ -17731,7 +17731,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : QBDisposableObject
     {
         public PhysicalDeviceCooperativeMatrixPropertiesNV()
         {
@@ -17757,7 +17757,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceCoverageReductionModeFeaturesNV : VulkanDisposableObject
+    public partial class PhysicalDeviceCoverageReductionModeFeaturesNV : QBDisposableObject
     {
         public PhysicalDeviceCoverageReductionModeFeaturesNV()
         {
@@ -17784,7 +17784,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineCoverageReductionStateCreateInfoNV : VulkanDisposableObject
+    public partial class PipelineCoverageReductionStateCreateInfoNV : QBDisposableObject
     {
         public PipelineCoverageReductionStateCreateInfoNV()
         {
@@ -17814,7 +17814,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class FramebufferMixedSamplesCombinationNV : VulkanDisposableObject
+    public partial class FramebufferMixedSamplesCombinationNV : QBDisposableObject
     {
         public FramebufferMixedSamplesCombinationNV()
         {
@@ -17850,7 +17850,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceFragmentShaderInterlockFeaturesEXT()
         {
@@ -17883,7 +17883,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceYcbcrImageArraysFeaturesEXT()
         {
@@ -17910,7 +17910,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class HeadlessSurfaceCreateInfoEXT : VulkanDisposableObject
+    public partial class HeadlessSurfaceCreateInfoEXT : QBDisposableObject
     {
         public HeadlessSurfaceCreateInfoEXT()
         {
@@ -17936,7 +17936,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceLineRasterizationFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceLineRasterizationFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceLineRasterizationFeaturesEXT()
         {
@@ -17978,7 +17978,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceLineRasterizationPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceLineRasterizationPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceLineRasterizationPropertiesEXT()
         {
@@ -18005,7 +18005,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PipelineRasterizationLineStateCreateInfoEXT : VulkanDisposableObject
+    public partial class PipelineRasterizationLineStateCreateInfoEXT : QBDisposableObject
     {
         public PipelineRasterizationLineStateCreateInfoEXT()
         {
@@ -18041,7 +18041,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceHostQueryResetFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceHostQueryResetFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceHostQueryResetFeaturesEXT()
         {
@@ -18068,7 +18068,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceIndexTypeUint8FeaturesEXT()
         {
@@ -18095,7 +18095,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT()
         {
@@ -18122,7 +18122,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceTexelBufferAlignmentFeaturesEXT()
         {
@@ -18149,7 +18149,7 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class PhysicalDeviceTexelBufferAlignmentPropertiesEXT : VulkanDisposableObject
+    public partial class PhysicalDeviceTexelBufferAlignmentPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceTexelBufferAlignmentPropertiesEXT()
         {

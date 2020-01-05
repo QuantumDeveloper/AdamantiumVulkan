@@ -12,7 +12,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     using AdamantiumVulkan.SPIRV.Cross;
     using AdamantiumVulkan.SPIRV.Cross.Interop;
 
-    public partial class SpvcReflectedResource : VulkanDisposableObject
+    public partial class SpvcReflectedResource : QBDisposableObject
     {
         private StringReference refname;
 
@@ -55,7 +55,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
     }
 
-    public partial class SpvcEntryPoint : VulkanDisposableObject
+    public partial class SpvcEntryPoint : QBDisposableObject
     {
         private StringReference refname;
 
@@ -200,7 +200,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         }
     }
 
-    public partial class SpvcHlslVertexAttributeRemap : VulkanDisposableObject
+    public partial class SpvcHlslVertexAttributeRemap : QBDisposableObject
     {
         private StringReference refsemantic;
 

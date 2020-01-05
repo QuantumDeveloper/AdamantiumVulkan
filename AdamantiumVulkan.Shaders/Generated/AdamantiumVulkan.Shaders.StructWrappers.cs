@@ -11,7 +11,7 @@ namespace AdamantiumVulkan.Shaders
     using System.Runtime.InteropServices;
     using AdamantiumVulkan.Shaders;
 
-    public partial class ShadercIncludeResult : VulkanDisposableObject
+    public partial class ShadercIncludeResult : QBDisposableObject
     {
         private StringReference refsource_name;
 

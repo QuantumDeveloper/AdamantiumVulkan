@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.MacOS
     using AdamantiumVulkan.Core;
     using AdamantiumVulkan.MacOS.Interop;
 
-    public partial class MacOSSurfaceCreateInfoMVK : VulkanDisposableObject
+    public partial class MacOSSurfaceCreateInfoMVK : QBDisposableObject
     {
         public MacOSSurfaceCreateInfoMVK()
         {

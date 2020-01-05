@@ -92,7 +92,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class VulkanDisposableObject: IDisposable
+    public class QBDisposableObject: IDisposable
     {
         public bool IsDisposed { get; private set; }
 
@@ -117,7 +117,7 @@ namespace AdamantiumVulkan
 
         protected virtual void UnmanagedDisposeOverride() { }
 
-        ~VulkanDisposableObject()
+        ~QBDisposableObject()
         {
             Dispose(false);
         }
@@ -129,7 +129,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class GCHandleReference : VulkanDisposableObject
+    public class GCHandleReference : QBDisposableObject
     {
         GCHandle reference;
 
@@ -163,7 +163,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class StringReference : VulkanDisposableObject
+    public class StringReference : QBDisposableObject
     {
         bool isInitialized;
         IntPtr reference;
@@ -198,7 +198,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class StringArrayReference : VulkanDisposableObject
+    public class StringArrayReference : QBDisposableObject
     {
         IntPtr[] stringReferences;
 
@@ -251,7 +251,7 @@ namespace AdamantiumVulkan
         }
     }
 
-    public class StructReference : VulkanDisposableObject
+    public class StructReference : QBDisposableObject
     {
         bool isInitialized;
         IntPtr reference;

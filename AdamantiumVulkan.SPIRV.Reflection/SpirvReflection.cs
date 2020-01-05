@@ -5,7 +5,7 @@ using AdamantiumVulkan.Shaders;
 
 namespace AdamantiumVulkan.SPIRV.Reflection
 {
-    public class SpirvReflection : VulkanDisposableObject
+    public class SpirvReflection : QBDisposableObject
     {
         private SpvcContext context;
         private SpvcCompiler compiler;
