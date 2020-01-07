@@ -40,6 +40,12 @@ namespace AdamantiumVulkan.MacOS
             _internal.pView = PView;
             return _internal;
         }
+
+        public static implicit operator MacOSSurfaceCreateInfoMVK(AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK m)
+        {
+            return new MacOSSurfaceCreateInfoMVK(m);
+        }
+
     }
 
 

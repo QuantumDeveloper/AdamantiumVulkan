@@ -44,6 +44,12 @@ namespace AdamantiumVulkan.Windows
             _internal.hwnd = Hwnd;
             return _internal;
         }
+
+        public static implicit operator Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR w)
+        {
+            return new Win32SurfaceCreateInfoKHR(w);
+        }
+
     }
 
     public partial class ImportMemoryWin32HandleInfoKHR : QBDisposableObject
@@ -77,6 +83,12 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        public static implicit operator ImportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR i)
+        {
+            return new ImportMemoryWin32HandleInfoKHR(i);
+        }
+
     }
 
     public partial class ExportMemoryWin32HandleInfoKHR : QBDisposableObject
@@ -123,6 +135,12 @@ namespace AdamantiumVulkan.Windows
             refpAttributes?.Dispose();
         }
 
+
+        public static implicit operator ExportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR e)
+        {
+            return new ExportMemoryWin32HandleInfoKHR(e);
+        }
+
     }
 
     public partial class MemoryWin32HandlePropertiesKHR : QBDisposableObject
@@ -150,6 +168,12 @@ namespace AdamantiumVulkan.Windows
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        public static implicit operator MemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR m)
+        {
+            return new MemoryWin32HandlePropertiesKHR(m);
+        }
+
     }
 
     public partial class MemoryGetWin32HandleInfoKHR : QBDisposableObject
@@ -180,6 +204,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator MemoryGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR m)
+        {
+            return new MemoryGetWin32HandleInfoKHR(m);
+        }
+
     }
 
     public partial class Win32KeyedMutexAcquireReleaseInfoKHR : QBDisposableObject
@@ -286,6 +316,12 @@ namespace AdamantiumVulkan.Windows
             refpReleaseKeys?.Dispose();
         }
 
+
+        public static implicit operator Win32KeyedMutexAcquireReleaseInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR w)
+        {
+            return new Win32KeyedMutexAcquireReleaseInfoKHR(w);
+        }
+
     }
 
     public partial class ImportSemaphoreWin32HandleInfoKHR : QBDisposableObject
@@ -325,6 +361,12 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        public static implicit operator ImportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR i)
+        {
+            return new ImportSemaphoreWin32HandleInfoKHR(i);
+        }
+
     }
 
     public partial class ExportSemaphoreWin32HandleInfoKHR : QBDisposableObject
@@ -369,6 +411,12 @@ namespace AdamantiumVulkan.Windows
         protected override void UnmanagedDisposeOverride()
         {
             refpAttributes?.Dispose();
+        }
+
+
+        public static implicit operator ExportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR e)
+        {
+            return new ExportSemaphoreWin32HandleInfoKHR(e);
         }
 
     }
@@ -436,6 +484,12 @@ namespace AdamantiumVulkan.Windows
             refpSignalSemaphoreValues?.Dispose();
         }
 
+
+        public static implicit operator D3D12FenceSubmitInfoKHR(AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR d)
+        {
+            return new D3D12FenceSubmitInfoKHR(d);
+        }
+
     }
 
     public partial class SemaphoreGetWin32HandleInfoKHR : QBDisposableObject
@@ -466,6 +520,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator SemaphoreGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR s)
+        {
+            return new SemaphoreGetWin32HandleInfoKHR(s);
+        }
+
     }
 
     public partial class ImportFenceWin32HandleInfoKHR : QBDisposableObject
@@ -505,6 +565,12 @@ namespace AdamantiumVulkan.Windows
             _internal.name = Name;
             return _internal;
         }
+
+        public static implicit operator ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR i)
+        {
+            return new ImportFenceWin32HandleInfoKHR(i);
+        }
+
     }
 
     public partial class ExportFenceWin32HandleInfoKHR : QBDisposableObject
@@ -551,6 +617,12 @@ namespace AdamantiumVulkan.Windows
             refpAttributes?.Dispose();
         }
 
+
+        public static implicit operator ExportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR e)
+        {
+            return new ExportFenceWin32HandleInfoKHR(e);
+        }
+
     }
 
     public partial class FenceGetWin32HandleInfoKHR : QBDisposableObject
@@ -581,6 +653,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator FenceGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR f)
+        {
+            return new FenceGetWin32HandleInfoKHR(f);
+        }
+
     }
 
     public partial class ImportMemoryWin32HandleInfoNV : QBDisposableObject
@@ -611,6 +689,12 @@ namespace AdamantiumVulkan.Windows
             _internal.handle = Handle;
             return _internal;
         }
+
+        public static implicit operator ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV i)
+        {
+            return new ImportMemoryWin32HandleInfoNV(i);
+        }
+
     }
 
     public partial class ExportMemoryWin32HandleInfoNV : QBDisposableObject
@@ -652,6 +736,12 @@ namespace AdamantiumVulkan.Windows
         protected override void UnmanagedDisposeOverride()
         {
             refpAttributes?.Dispose();
+        }
+
+
+        public static implicit operator ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV e)
+        {
+            return new ExportMemoryWin32HandleInfoNV(e);
         }
 
     }
@@ -760,6 +850,12 @@ namespace AdamantiumVulkan.Windows
             refpReleaseKeys?.Dispose();
         }
 
+
+        public static implicit operator Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV w)
+        {
+            return new Win32KeyedMutexAcquireReleaseInfoNV(w);
+        }
+
     }
 
     public partial class SurfaceFullScreenExclusiveInfoEXT : QBDisposableObject
@@ -787,6 +883,12 @@ namespace AdamantiumVulkan.Windows
             _internal.fullScreenExclusive = (uint)FullScreenExclusive;
             return _internal;
         }
+
+        public static implicit operator SurfaceFullScreenExclusiveInfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT s)
+        {
+            return new SurfaceFullScreenExclusiveInfoEXT(s);
+        }
+
     }
 
     public partial class SurfaceCapabilitiesFullScreenExclusiveEXT : QBDisposableObject
@@ -814,6 +916,12 @@ namespace AdamantiumVulkan.Windows
             _internal.fullScreenExclusiveSupported = System.Convert.ToUInt32(FullScreenExclusiveSupported);
             return _internal;
         }
+
+        public static implicit operator SurfaceCapabilitiesFullScreenExclusiveEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT s)
+        {
+            return new SurfaceCapabilitiesFullScreenExclusiveEXT(s);
+        }
+
     }
 
     public partial class SurfaceFullScreenExclusiveWin32InfoEXT : QBDisposableObject
@@ -841,6 +949,12 @@ namespace AdamantiumVulkan.Windows
             _internal.hmonitor = Hmonitor;
             return _internal;
         }
+
+        public static implicit operator SurfaceFullScreenExclusiveWin32InfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT s)
+        {
+            return new SurfaceFullScreenExclusiveWin32InfoEXT(s);
+        }
+
     }
 
 

@@ -109,6 +109,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ClearColorValue(AdamantiumVulkan.Core.Interop.VkClearColorValue c)
+        {
+            return new ClearColorValue(c);
+        }
+
     }
 
     public partial class ClearValue
@@ -139,6 +145,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ClearValue(AdamantiumVulkan.Core.Interop.VkClearValue c)
+        {
+            return new ClearValue(c);
+        }
+
     }
 
     public partial class PipelineExecutableStatisticValueKHR
@@ -169,6 +181,12 @@ namespace AdamantiumVulkan.Core
             _internal.f64 = F64;
             return _internal;
         }
+
+        public static implicit operator PipelineExecutableStatisticValueKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR p)
+        {
+            return new PipelineExecutableStatisticValueKHR(p);
+        }
+
     }
 
     public partial class PerformanceValueDataINTEL : QBDisposableObject
@@ -213,6 +231,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refvalueString?.Dispose();
+        }
+
+
+        public static implicit operator PerformanceValueDataINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL p)
+        {
+            return new PerformanceValueDataINTEL(p);
         }
 
     }

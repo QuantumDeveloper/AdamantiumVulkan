@@ -53,6 +53,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             refname?.Dispose();
         }
 
+
+        public static implicit operator SpvcReflectedResource(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcReflectedResource s)
+        {
+            return new SpvcReflectedResource(s);
+        }
+
     }
 
     public partial class SpvcEntryPoint : QBDisposableObject
@@ -90,6 +96,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             refname?.Dispose();
         }
 
+
+        public static implicit operator SpvcEntryPoint(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcEntryPoint s)
+        {
+            return new SpvcEntryPoint(s);
+        }
+
     }
 
     public partial class SpvcCombinedImageSampler
@@ -117,6 +129,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.sampler_id = Sampler_id;
             return _internal;
         }
+
+        public static implicit operator SpvcCombinedImageSampler(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCombinedImageSampler s)
+        {
+            return new SpvcCombinedImageSampler(s);
+        }
+
     }
 
     public partial class SpvcSpecializationConstant
@@ -141,6 +159,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.constant_id = Constant_id;
             return _internal;
         }
+
+        public static implicit operator SpvcSpecializationConstant(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcSpecializationConstant s)
+        {
+            return new SpvcSpecializationConstant(s);
+        }
+
     }
 
     public partial class SpvcBufferRange
@@ -168,6 +192,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.range = Range;
             return _internal;
         }
+
+        public static implicit operator SpvcBufferRange(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcBufferRange s)
+        {
+            return new SpvcBufferRange(s);
+        }
+
     }
 
     public partial class SpvcHlslRootConstants
@@ -198,6 +228,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.space = Space;
             return _internal;
         }
+
+        public static implicit operator SpvcHlslRootConstants(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslRootConstants s)
+        {
+            return new SpvcHlslRootConstants(s);
+        }
+
     }
 
     public partial class SpvcHlslVertexAttributeRemap : QBDisposableObject
@@ -235,6 +271,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             refsemantic?.Dispose();
         }
 
+
+        public static implicit operator SpvcHlslVertexAttributeRemap(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslVertexAttributeRemap s)
+        {
+            return new SpvcHlslVertexAttributeRemap(s);
+        }
+
     }
 
     public partial class SpvcMslVertexAttribute
@@ -261,6 +303,16 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public byte Per_instance { get; set; }
         public SpvcMslVertexFormat Format { get; set; }
         public SpvBuiltIn Builtin { get; set; }
+        ///<summary>
+        /// Initializes the vertex attribute struct.
+        ///</summary>
+        public void MslVertexAttributeInit()
+        {
+            var arg0 = MarshalUtils.MarshalStructToPtr(ToInternal());
+            AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_msl_vertex_attribute_init(arg0);
+            Marshal.FreeHGlobal(arg0);
+        }
+
 
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslVertexAttribute ToInternal()
         {
@@ -274,6 +326,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.builtin = Builtin;
             return _internal;
         }
+
+        public static implicit operator SpvcMslVertexAttribute(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslVertexAttribute s)
+        {
+            return new SpvcMslVertexAttribute(s);
+        }
+
     }
 
     public partial class SpvcMslResourceBinding
@@ -298,6 +356,16 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public uint Msl_buffer { get; set; }
         public uint Msl_texture { get; set; }
         public uint Msl_sampler { get; set; }
+        ///<summary>
+        /// Initializes the resource binding struct. The defaults are non-zero.
+        ///</summary>
+        public void MslResourceBindingInit()
+        {
+            var arg0 = MarshalUtils.MarshalStructToPtr(ToInternal());
+            AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_msl_resource_binding_init(arg0);
+            Marshal.FreeHGlobal(arg0);
+        }
+
 
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslResourceBinding ToInternal()
         {
@@ -310,6 +378,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.msl_sampler = Msl_sampler;
             return _internal;
         }
+
+        public static implicit operator SpvcMslResourceBinding(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslResourceBinding s)
+        {
+            return new SpvcMslResourceBinding(s);
+        }
+
     }
 
     public partial class SpvcMslConstexprSampler
@@ -352,6 +426,16 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public byte Compare_enable { get; set; }
         public byte Lod_clamp_enable { get; set; }
         public byte Anisotropy_enable { get; set; }
+        ///<summary>
+        /// Initializes the constexpr sampler struct. The defaults are non-zero.
+        ///</summary>
+        public void MslConstexprSamplerInit()
+        {
+            var arg0 = MarshalUtils.MarshalStructToPtr(ToInternal());
+            AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_msl_constexpr_sampler_init(arg0);
+            Marshal.FreeHGlobal(arg0);
+        }
+
 
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslConstexprSampler ToInternal()
         {
@@ -373,6 +457,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.anisotropy_enable = Anisotropy_enable;
             return _internal;
         }
+
+        public static implicit operator SpvcMslConstexprSampler(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslConstexprSampler s)
+        {
+            return new SpvcMslConstexprSampler(s);
+        }
+
     }
 
     public partial class SpvcMslSamplerYcbcrConversion
@@ -407,6 +497,16 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public SpvcMslSamplerYcbcrModelConversion Ycbcr_model { get; set; }
         public SpvcMslSamplerYcbcrRange Ycbcr_range { get; set; }
         public uint Bpc { get; set; }
+        ///<summary>
+        /// Initializes the constexpr sampler struct. The defaults are non-zero.
+        ///</summary>
+        public void MslSamplerYcbcrConversionInit()
+        {
+            var arg0 = MarshalUtils.MarshalStructToPtr(ToInternal());
+            AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_msl_sampler_ycbcr_conversion_init(arg0);
+            Marshal.FreeHGlobal(arg0);
+        }
+
 
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslSamplerYcbcrConversion ToInternal()
         {
@@ -432,6 +532,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.bpc = Bpc;
             return _internal;
         }
+
+        public static implicit operator SpvcMslSamplerYcbcrConversion(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslSamplerYcbcrConversion s)
+        {
+            return new SpvcMslSamplerYcbcrConversion(s);
+        }
+
     }
 
 

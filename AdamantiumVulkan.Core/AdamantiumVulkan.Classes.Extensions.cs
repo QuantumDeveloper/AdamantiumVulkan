@@ -475,4 +475,28 @@ namespace AdamantiumVulkan.Core
             __Instance.pointer = IntPtr.Zero;
         }
     }
+
+    public partial class DescriptorSetLayout
+    {
+        public void Destroy(Device device)
+        {
+            if (NativePointer == IntPtr.Zero) return;
+
+            device.DestroyDescriptorSetLayout(this);
+            __Instance.pointer = IntPtr.Zero;
+
+        }
+    }
+
+    public partial class PipelineLayout
+    {
+        public void Destroy(Device device)
+        {
+            if (NativePointer == IntPtr.Zero) return;
+
+            device.DestroyPipelineLayout(this);
+            __Instance.pointer = IntPtr.Zero;
+
+        }
+    }
 }

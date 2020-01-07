@@ -34,7 +34,7 @@ namespace AdamantiumVulkan.Windows
 
     public static partial class PhysicalDeviceExtension
     {
-        public static bool GetPhysicalDeviceWin32PresentationSupportKHR(this AdamantiumVulkan.Core.PhysicalDevice physicalDevice, uint queueFamilyIndex)
+        public static Bool32 GetPhysicalDeviceWin32PresentationSupportKHR(this AdamantiumVulkan.Core.PhysicalDevice physicalDevice, uint queueFamilyIndex)
         {
             var arg0 = physicalDevice;
             return AdamantiumVulkan.Windows.Interop.VulkanInterop.vkGetPhysicalDeviceWin32PresentationSupportKHR(arg0, queueFamilyIndex);
