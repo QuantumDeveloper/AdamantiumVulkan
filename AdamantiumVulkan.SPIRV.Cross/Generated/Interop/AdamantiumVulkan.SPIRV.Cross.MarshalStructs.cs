@@ -115,6 +115,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(SpvcTypeId s)
         {
             return s.value;
@@ -135,6 +136,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(SpvcVariableId s)
         {
             return s.value;
@@ -154,6 +156,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     public partial struct SpvcConstantId
     {
         public uint value;
+
 
         public static implicit operator uint(SpvcConstantId s)
         {
@@ -270,6 +273,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     public partial struct SpvcBool
     {
         public byte value;
+
 
         public static implicit operator byte(SpvcBool s)
         {

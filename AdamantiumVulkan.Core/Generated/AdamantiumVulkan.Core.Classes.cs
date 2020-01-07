@@ -181,6 +181,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkInstance_T(Instance i)
         {
             return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkInstance_T();
@@ -188,7 +189,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Instance(AdamantiumVulkan.Core.Interop.VkInstance_T i)
         {
-            return new Instance(){__Instance = i};
+            return new Instance(i);
         }
 
     }
@@ -824,6 +825,7 @@ namespace AdamantiumVulkan.Core
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkReleaseDisplayEXT(this, arg1);
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T(PhysicalDevice p)
         {
             return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T();
@@ -831,7 +833,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator PhysicalDevice(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T p)
         {
-            return new PhysicalDevice(){__Instance = p};
+            return new PhysicalDevice(p);
         }
 
     }
@@ -1535,7 +1537,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public void DestroyDescriptorSetLayout(AdamantiumVulkan.Core.DescriptorSetLayout descriptorSetLayout, in AllocationCallbacks pAllocator)
+        public void DestroyDescriptorSetLayout(AdamantiumVulkan.Core.DescriptorSetLayout descriptorSetLayout, in AllocationCallbacks pAllocator = null)
         {
             var arg1 = ReferenceEquals(descriptorSetLayout, null) ? new VkDescriptorSetLayout_T() : (VkDescriptorSetLayout_T)descriptorSetLayout;
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
@@ -1823,7 +1825,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public ulong GetBufferDeviceAddressEXT(in BufferDeviceAddressInfoEXT pInfo)
+        public DeviceAddress GetBufferDeviceAddressEXT(in BufferDeviceAddressInfoEXT pInfo)
         {
             var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferDeviceAddressEXT(this, arg1);
@@ -2558,6 +2560,7 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDevice_T(Device d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDevice_T();
@@ -2565,7 +2568,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Device(AdamantiumVulkan.Core.Interop.VkDevice_T d)
         {
-            return new Device(){__Instance = d};
+            return new Device(d);
         }
 
     }
@@ -2680,6 +2683,7 @@ namespace AdamantiumVulkan.Core
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkQueueWaitIdle(this);
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkQueue_T(Queue q)
         {
             return q?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkQueue_T();
@@ -2687,7 +2691,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Queue(AdamantiumVulkan.Core.Interop.VkQueue_T q)
         {
-            return new Queue(){__Instance = q};
+            return new Queue(q);
         }
 
     }
@@ -2710,6 +2714,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkSemaphore_T(Semaphore s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkSemaphore_T();
@@ -2717,7 +2722,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Semaphore(AdamantiumVulkan.Core.Interop.VkSemaphore_T s)
         {
-            return new Semaphore(){__Instance = s};
+            return new Semaphore(s);
         }
 
     }
@@ -3555,6 +3560,7 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdWriteTimestamp(this, pipelineStage, arg1, query);
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkCommandBuffer_T(CommandBuffer c)
         {
             return c?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T();
@@ -3562,7 +3568,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator CommandBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T c)
         {
-            return new CommandBuffer(){__Instance = c};
+            return new CommandBuffer(c);
         }
 
     }
@@ -3585,6 +3591,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkFence_T(Fence f)
         {
             return f?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkFence_T();
@@ -3592,7 +3599,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Fence(AdamantiumVulkan.Core.Interop.VkFence_T f)
         {
-            return new Fence(){__Instance = f};
+            return new Fence(f);
         }
 
     }
@@ -3615,6 +3622,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDeviceMemory_T(DeviceMemory d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDeviceMemory_T();
@@ -3622,7 +3630,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DeviceMemory(AdamantiumVulkan.Core.Interop.VkDeviceMemory_T d)
         {
-            return new DeviceMemory(){__Instance = d};
+            return new DeviceMemory(d);
         }
 
     }
@@ -3645,6 +3653,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkBuffer_T(Buffer b)
         {
             return b?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkBuffer_T();
@@ -3652,7 +3661,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Buffer(AdamantiumVulkan.Core.Interop.VkBuffer_T b)
         {
-            return new Buffer(){__Instance = b};
+            return new Buffer(b);
         }
 
     }
@@ -3675,6 +3684,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkImage_T(Image i)
         {
             return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkImage_T();
@@ -3682,7 +3692,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Image(AdamantiumVulkan.Core.Interop.VkImage_T i)
         {
-            return new Image(){__Instance = i};
+            return new Image(i);
         }
 
     }
@@ -3705,6 +3715,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkEvent_T(Event e)
         {
             return e?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkEvent_T();
@@ -3712,7 +3723,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Event(AdamantiumVulkan.Core.Interop.VkEvent_T e)
         {
-            return new Event(){__Instance = e};
+            return new Event(e);
         }
 
     }
@@ -3735,6 +3746,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkQueryPool_T(QueryPool q)
         {
             return q?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkQueryPool_T();
@@ -3742,7 +3754,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator QueryPool(AdamantiumVulkan.Core.Interop.VkQueryPool_T q)
         {
-            return new QueryPool(){__Instance = q};
+            return new QueryPool(q);
         }
 
     }
@@ -3765,6 +3777,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkBufferView_T(BufferView b)
         {
             return b?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkBufferView_T();
@@ -3772,7 +3785,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator BufferView(AdamantiumVulkan.Core.Interop.VkBufferView_T b)
         {
-            return new BufferView(){__Instance = b};
+            return new BufferView(b);
         }
 
     }
@@ -3795,6 +3808,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkImageView_T(ImageView i)
         {
             return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkImageView_T();
@@ -3802,7 +3816,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator ImageView(AdamantiumVulkan.Core.Interop.VkImageView_T i)
         {
-            return new ImageView(){__Instance = i};
+            return new ImageView(i);
         }
 
     }
@@ -3825,6 +3839,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkShaderModule_T(ShaderModule s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkShaderModule_T();
@@ -3832,7 +3847,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator ShaderModule(AdamantiumVulkan.Core.Interop.VkShaderModule_T s)
         {
-            return new ShaderModule(){__Instance = s};
+            return new ShaderModule(s);
         }
 
     }
@@ -3855,6 +3870,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkPipelineCache_T(PipelineCache p)
         {
             return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPipelineCache_T();
@@ -3862,7 +3878,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator PipelineCache(AdamantiumVulkan.Core.Interop.VkPipelineCache_T p)
         {
-            return new PipelineCache(){__Instance = p};
+            return new PipelineCache(p);
         }
 
     }
@@ -3885,6 +3901,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkPipelineLayout_T(PipelineLayout p)
         {
             return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPipelineLayout_T();
@@ -3892,7 +3909,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator PipelineLayout(AdamantiumVulkan.Core.Interop.VkPipelineLayout_T p)
         {
-            return new PipelineLayout(){__Instance = p};
+            return new PipelineLayout(p);
         }
 
     }
@@ -3915,6 +3932,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkRenderPass_T(RenderPass r)
         {
             return r?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkRenderPass_T();
@@ -3922,7 +3940,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator RenderPass(AdamantiumVulkan.Core.Interop.VkRenderPass_T r)
         {
-            return new RenderPass(){__Instance = r};
+            return new RenderPass(r);
         }
 
     }
@@ -3945,6 +3963,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkPipeline_T(Pipeline p)
         {
             return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPipeline_T();
@@ -3952,7 +3971,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Pipeline(AdamantiumVulkan.Core.Interop.VkPipeline_T p)
         {
-            return new Pipeline(){__Instance = p};
+            return new Pipeline(p);
         }
 
     }
@@ -3975,6 +3994,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T(DescriptorSetLayout d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T();
@@ -3982,7 +4002,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DescriptorSetLayout(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T d)
         {
-            return new DescriptorSetLayout(){__Instance = d};
+            return new DescriptorSetLayout(d);
         }
 
     }
@@ -4005,6 +4025,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkSampler_T(Sampler s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkSampler_T();
@@ -4012,7 +4033,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Sampler(AdamantiumVulkan.Core.Interop.VkSampler_T s)
         {
-            return new Sampler(){__Instance = s};
+            return new Sampler(s);
         }
 
     }
@@ -4035,6 +4056,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorPool_T(DescriptorPool d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorPool_T();
@@ -4042,7 +4064,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DescriptorPool(AdamantiumVulkan.Core.Interop.VkDescriptorPool_T d)
         {
-            return new DescriptorPool(){__Instance = d};
+            return new DescriptorPool(d);
         }
 
     }
@@ -4065,6 +4087,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorSet_T(DescriptorSet d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorSet_T();
@@ -4072,7 +4095,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DescriptorSet(AdamantiumVulkan.Core.Interop.VkDescriptorSet_T d)
         {
-            return new DescriptorSet(){__Instance = d};
+            return new DescriptorSet(d);
         }
 
     }
@@ -4095,6 +4118,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkFramebuffer_T(Framebuffer f)
         {
             return f?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkFramebuffer_T();
@@ -4102,7 +4126,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator Framebuffer(AdamantiumVulkan.Core.Interop.VkFramebuffer_T f)
         {
-            return new Framebuffer(){__Instance = f};
+            return new Framebuffer(f);
         }
 
     }
@@ -4125,6 +4149,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkCommandPool_T(CommandPool c)
         {
             return c?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkCommandPool_T();
@@ -4132,7 +4157,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator CommandPool(AdamantiumVulkan.Core.Interop.VkCommandPool_T c)
         {
-            return new CommandPool(){__Instance = c};
+            return new CommandPool(c);
         }
 
     }
@@ -4155,6 +4180,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T(SamplerYcbcrConversion s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T();
@@ -4162,7 +4188,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator SamplerYcbcrConversion(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T s)
         {
-            return new SamplerYcbcrConversion(){__Instance = s};
+            return new SamplerYcbcrConversion(s);
         }
 
     }
@@ -4185,6 +4211,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T(DescriptorUpdateTemplate d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T();
@@ -4192,7 +4219,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DescriptorUpdateTemplate(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T d)
         {
-            return new DescriptorUpdateTemplate(){__Instance = d};
+            return new DescriptorUpdateTemplate(d);
         }
 
     }
@@ -4215,6 +4242,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T(SurfaceKHR s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T();
@@ -4222,7 +4250,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator SurfaceKHR(AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T s)
         {
-            return new SurfaceKHR(){__Instance = s};
+            return new SurfaceKHR(s);
         }
 
     }
@@ -4245,6 +4273,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T(SwapchainKHR s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T();
@@ -4252,7 +4281,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator SwapchainKHR(AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T s)
         {
-            return new SwapchainKHR(){__Instance = s};
+            return new SwapchainKHR(s);
         }
 
     }
@@ -4275,6 +4304,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDisplayKHR_T(DisplayKHR d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDisplayKHR_T();
@@ -4282,7 +4312,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DisplayKHR(AdamantiumVulkan.Core.Interop.VkDisplayKHR_T d)
         {
-            return new DisplayKHR(){__Instance = d};
+            return new DisplayKHR(d);
         }
 
     }
@@ -4305,6 +4335,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T(DisplayModeKHR d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T();
@@ -4312,7 +4343,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DisplayModeKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T d)
         {
-            return new DisplayModeKHR(){__Instance = d};
+            return new DisplayModeKHR(d);
         }
 
     }
@@ -4335,6 +4366,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T(DescriptorUpdateTemplateKHR d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T();
@@ -4342,7 +4374,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DescriptorUpdateTemplateKHR(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T d)
         {
-            return new DescriptorUpdateTemplateKHR(){__Instance = d};
+            return new DescriptorUpdateTemplateKHR(d);
         }
 
     }
@@ -4365,6 +4397,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T(SamplerYcbcrConversionKHR s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T();
@@ -4372,7 +4405,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator SamplerYcbcrConversionKHR(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T s)
         {
-            return new SamplerYcbcrConversionKHR(){__Instance = s};
+            return new SamplerYcbcrConversionKHR(s);
         }
 
     }
@@ -4395,6 +4428,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T(DebugReportCallbackEXT d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T();
@@ -4402,7 +4436,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DebugReportCallbackEXT(AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T d)
         {
-            return new DebugReportCallbackEXT(){__Instance = d};
+            return new DebugReportCallbackEXT(d);
         }
 
     }
@@ -4425,6 +4459,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T(ObjectTableNVX o)
         {
             return o?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T();
@@ -4432,7 +4467,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator ObjectTableNVX(AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T o)
         {
-            return new ObjectTableNVX(){__Instance = o};
+            return new ObjectTableNVX(o);
         }
 
     }
@@ -4455,6 +4490,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T(IndirectCommandsLayoutNVX i)
         {
             return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T();
@@ -4462,7 +4498,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator IndirectCommandsLayoutNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T i)
         {
-            return new IndirectCommandsLayoutNVX(){__Instance = i};
+            return new IndirectCommandsLayoutNVX(i);
         }
 
     }
@@ -4485,6 +4521,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T(DebugUtilsMessengerEXT d)
         {
             return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T();
@@ -4492,7 +4529,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator DebugUtilsMessengerEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T d)
         {
-            return new DebugUtilsMessengerEXT(){__Instance = d};
+            return new DebugUtilsMessengerEXT(d);
         }
 
     }
@@ -4515,6 +4552,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T(ValidationCacheEXT v)
         {
             return v?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T();
@@ -4522,7 +4560,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator ValidationCacheEXT(AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T v)
         {
-            return new ValidationCacheEXT(){__Instance = v};
+            return new ValidationCacheEXT(v);
         }
 
     }
@@ -4545,6 +4583,7 @@ namespace AdamantiumVulkan.Core
             get => __Instance.pointer;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T(AccelerationStructureNV a)
         {
             return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T();
@@ -4552,7 +4591,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T a)
         {
-            return new AccelerationStructureNV(){__Instance = a};
+            return new AccelerationStructureNV(a);
         }
 
     }
@@ -4570,6 +4609,7 @@ namespace AdamantiumVulkan.Core
             this.__Instance = __Instance;
         }
 
+
         public static implicit operator AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T(PerformanceConfigurationINTEL p)
         {
             return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T();
@@ -4577,7 +4617,7 @@ namespace AdamantiumVulkan.Core
 
         public static implicit operator PerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T p)
         {
-            return new PerformanceConfigurationINTEL(){__Instance = p};
+            return new PerformanceConfigurationINTEL(p);
         }
 
     }

@@ -111,7 +111,7 @@ namespace AdamantiumVulkan.Generator
 
         public override void OnSetupPostProcessing(ProcessingContext context)
         {
-            context.AddPreGeneratorPass(new FunctionToInstanceMethodAction(), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new FunctionToInstanceMethodPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.Winapi), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsCleanupPass(), ExecutionPassKind.PerTranslationUnit);
@@ -1365,6 +1365,7 @@ namespace AdamantiumVulkan.Generator
                 "vkDestroyPipelineLayout",
                 "vkDestroySampler",
                 "vkDestroyDescriptorPool",
+                "vkDestroyDescriptorSetLayout",
                 "vkDestroyFramebuffer",
                 "vkDestroyRenderPass",
                 "vkDestroyCommandPool",

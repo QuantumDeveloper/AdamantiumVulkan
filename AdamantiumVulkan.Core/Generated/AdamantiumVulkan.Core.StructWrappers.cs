@@ -69,6 +69,12 @@ namespace AdamantiumVulkan.Core
             refpEngineName?.Dispose();
         }
 
+
+        public static implicit operator ApplicationInfo(AdamantiumVulkan.Core.Interop.VkApplicationInfo a)
+        {
+            return new ApplicationInfo(a);
+        }
+
     }
 
     public partial class InstanceCreateInfo : QBDisposableObject
@@ -139,6 +145,12 @@ namespace AdamantiumVulkan.Core
             refppEnabledExtensionNames?.Dispose();
         }
 
+
+        public static implicit operator InstanceCreateInfo(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo i)
+        {
+            return new InstanceCreateInfo(i);
+        }
+
     }
 
     public partial class AllocationCallbacks : QBDisposableObject
@@ -175,6 +187,12 @@ namespace AdamantiumVulkan.Core
             _internal.pfnInternalFree = PfnInternalFree;
             return _internal;
         }
+
+        public static implicit operator AllocationCallbacks(AdamantiumVulkan.Core.Interop.VkAllocationCallbacks a)
+        {
+            return new AllocationCallbacks(a);
+        }
+
     }
 
     public partial class PhysicalDeviceFeatures
@@ -358,6 +376,12 @@ namespace AdamantiumVulkan.Core
             _internal.inheritedQueries = System.Convert.ToUInt32(InheritedQueries);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures p)
+        {
+            return new PhysicalDeviceFeatures(p);
+        }
+
     }
 
     public partial class FormatProperties
@@ -385,6 +409,12 @@ namespace AdamantiumVulkan.Core
             _internal.bufferFeatures = BufferFeatures;
             return _internal;
         }
+
+        public static implicit operator FormatProperties(AdamantiumVulkan.Core.Interop.VkFormatProperties f)
+        {
+            return new FormatProperties(f);
+        }
+
     }
 
     public partial class Extent3D
@@ -412,6 +442,12 @@ namespace AdamantiumVulkan.Core
             _internal.depth = Depth;
             return _internal;
         }
+
+        public static implicit operator Extent3D(AdamantiumVulkan.Core.Interop.VkExtent3D e)
+        {
+            return new Extent3D(e);
+        }
+
     }
 
     public partial class ImageFormatProperties
@@ -448,6 +484,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxResourceSize = MaxResourceSize;
             return _internal;
         }
+
+        public static implicit operator ImageFormatProperties(AdamantiumVulkan.Core.Interop.VkImageFormatProperties i)
+        {
+            return new ImageFormatProperties(i);
+        }
+
     }
 
     public partial class PhysicalDeviceLimits
@@ -928,6 +970,12 @@ namespace AdamantiumVulkan.Core
             _internal.nonCoherentAtomSize = NonCoherentAtomSize;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceLimits(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits p)
+        {
+            return new PhysicalDeviceLimits(p);
+        }
+
     }
 
     public partial class PhysicalDeviceSparseProperties
@@ -961,6 +1009,12 @@ namespace AdamantiumVulkan.Core
             _internal.residencyNonResidentStrict = System.Convert.ToUInt32(ResidencyNonResidentStrict);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSparseProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties p)
+        {
+            return new PhysicalDeviceSparseProperties(p);
+        }
+
     }
 
     public partial class PhysicalDeviceProperties
@@ -1060,6 +1114,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties p)
+        {
+            return new PhysicalDeviceProperties(p);
+        }
+
     }
 
     public partial class QueueFamilyProperties
@@ -1093,6 +1153,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator QueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties q)
+        {
+            return new QueueFamilyProperties(q);
+        }
+
     }
 
     public partial class MemoryType
@@ -1117,6 +1183,12 @@ namespace AdamantiumVulkan.Core
             _internal.heapIndex = HeapIndex;
             return _internal;
         }
+
+        public static implicit operator MemoryType(AdamantiumVulkan.Core.Interop.VkMemoryType m)
+        {
+            return new MemoryType(m);
+        }
+
     }
 
     public partial class MemoryHeap
@@ -1141,6 +1213,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator MemoryHeap(AdamantiumVulkan.Core.Interop.VkMemoryHeap m)
+        {
+            return new MemoryHeap(m);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryProperties
@@ -1199,6 +1277,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties p)
+        {
+            return new PhysicalDeviceMemoryProperties(p);
+        }
+
     }
 
     public partial class DeviceQueueCreateInfo : QBDisposableObject
@@ -1249,6 +1333,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueuePriorities?.Dispose();
+        }
+
+
+        public static implicit operator DeviceQueueCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo d)
+        {
+            return new DeviceQueueCreateInfo(d);
         }
 
     }
@@ -1347,6 +1437,12 @@ namespace AdamantiumVulkan.Core
             refpEnabledFeatures?.Dispose();
         }
 
+
+        public static implicit operator DeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo d)
+        {
+            return new DeviceCreateInfo(d);
+        }
+
     }
 
     public partial class ExtensionProperties
@@ -1395,6 +1491,12 @@ namespace AdamantiumVulkan.Core
             _internal.specVersion = SpecVersion;
             return _internal;
         }
+
+        public static implicit operator ExtensionProperties(AdamantiumVulkan.Core.Interop.VkExtensionProperties e)
+        {
+            return new ExtensionProperties(e);
+        }
+
     }
 
     public partial class LayerProperties
@@ -1473,6 +1575,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator LayerProperties(AdamantiumVulkan.Core.Interop.VkLayerProperties l)
+        {
+            return new LayerProperties(l);
+        }
+
     }
 
     public partial class SubmitInfo : QBDisposableObject
@@ -1594,6 +1702,12 @@ namespace AdamantiumVulkan.Core
             refpSignalSemaphores?.Dispose();
         }
 
+
+        public static implicit operator SubmitInfo(AdamantiumVulkan.Core.Interop.VkSubmitInfo s)
+        {
+            return new SubmitInfo(s);
+        }
+
     }
 
     public partial class MemoryAllocateInfo : QBDisposableObject
@@ -1623,6 +1737,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeIndex = MemoryTypeIndex;
             return _internal;
         }
+
+        public static implicit operator MemoryAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo m)
+        {
+            return new MemoryAllocateInfo(m);
+        }
+
     }
 
     public partial class MappedMemoryRange : QBDisposableObject
@@ -1655,6 +1775,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        public static implicit operator MappedMemoryRange(AdamantiumVulkan.Core.Interop.VkMappedMemoryRange m)
+        {
+            return new MappedMemoryRange(m);
+        }
+
     }
 
     public partial class MemoryRequirements
@@ -1682,6 +1808,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        public static implicit operator MemoryRequirements(AdamantiumVulkan.Core.Interop.VkMemoryRequirements m)
+        {
+            return new MemoryRequirements(m);
+        }
+
     }
 
     public partial class SparseImageFormatProperties
@@ -1712,6 +1844,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator SparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties s)
+        {
+            return new SparseImageFormatProperties(s);
+        }
+
     }
 
     public partial class SparseImageMemoryRequirements
@@ -1748,6 +1886,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageMipTailStride = ImageMipTailStride;
             return _internal;
         }
+
+        public static implicit operator SparseImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements s)
+        {
+            return new SparseImageMemoryRequirements(s);
+        }
+
     }
 
     public partial class SparseMemoryBind
@@ -1781,6 +1925,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator SparseMemoryBind(AdamantiumVulkan.Core.Interop.VkSparseMemoryBind s)
+        {
+            return new SparseMemoryBind(s);
+        }
+
     }
 
     public partial class SparseBufferMemoryBindInfo : QBDisposableObject
@@ -1821,6 +1971,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpBinds?.Dispose();
+        }
+
+
+        public static implicit operator SparseBufferMemoryBindInfo(AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo s)
+        {
+            return new SparseBufferMemoryBindInfo(s);
         }
 
     }
@@ -1865,6 +2021,12 @@ namespace AdamantiumVulkan.Core
             refpBinds?.Dispose();
         }
 
+
+        public static implicit operator SparseImageOpaqueMemoryBindInfo(AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo s)
+        {
+            return new SparseImageOpaqueMemoryBindInfo(s);
+        }
+
     }
 
     public partial class ImageSubresource
@@ -1892,6 +2054,12 @@ namespace AdamantiumVulkan.Core
             _internal.arrayLayer = ArrayLayer;
             return _internal;
         }
+
+        public static implicit operator ImageSubresource(AdamantiumVulkan.Core.Interop.VkImageSubresource i)
+        {
+            return new ImageSubresource(i);
+        }
+
     }
 
     public partial class Offset3D
@@ -1919,6 +2087,12 @@ namespace AdamantiumVulkan.Core
             _internal.z = Z;
             return _internal;
         }
+
+        public static implicit operator Offset3D(AdamantiumVulkan.Core.Interop.VkOffset3D o)
+        {
+            return new Offset3D(o);
+        }
+
     }
 
     public partial class SparseImageMemoryBind
@@ -1964,6 +2138,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator SparseImageMemoryBind(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind s)
+        {
+            return new SparseImageMemoryBind(s);
+        }
+
     }
 
     public partial class SparseImageMemoryBindInfo : QBDisposableObject
@@ -2004,6 +2184,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpBinds?.Dispose();
+        }
+
+
+        public static implicit operator SparseImageMemoryBindInfo(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo s)
+        {
+            return new SparseImageMemoryBindInfo(s);
         }
 
     }
@@ -2114,6 +2300,12 @@ namespace AdamantiumVulkan.Core
             refpSignalSemaphores?.Dispose();
         }
 
+
+        public static implicit operator BindSparseInfo(AdamantiumVulkan.Core.Interop.VkBindSparseInfo b)
+        {
+            return new BindSparseInfo(b);
+        }
+
     }
 
     public partial class FenceCreateInfo : QBDisposableObject
@@ -2140,6 +2332,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator FenceCreateInfo(AdamantiumVulkan.Core.Interop.VkFenceCreateInfo f)
+        {
+            return new FenceCreateInfo(f);
+        }
+
     }
 
     public partial class SemaphoreCreateInfo : QBDisposableObject
@@ -2166,6 +2364,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator SemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo s)
+        {
+            return new SemaphoreCreateInfo(s);
+        }
+
     }
 
     public partial class EventCreateInfo : QBDisposableObject
@@ -2192,6 +2396,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator EventCreateInfo(AdamantiumVulkan.Core.Interop.VkEventCreateInfo e)
+        {
+            return new EventCreateInfo(e);
+        }
+
     }
 
     public partial class QueryPoolCreateInfo : QBDisposableObject
@@ -2227,6 +2437,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
+
+        public static implicit operator QueryPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo q)
+        {
+            return new QueryPoolCreateInfo(q);
+        }
+
     }
 
     public partial class BufferCreateInfo : QBDisposableObject
@@ -2285,6 +2501,12 @@ namespace AdamantiumVulkan.Core
             refpQueueFamilyIndices?.Dispose();
         }
 
+
+        public static implicit operator BufferCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferCreateInfo b)
+        {
+            return new BufferCreateInfo(b);
+        }
+
     }
 
     public partial class BufferViewCreateInfo : QBDisposableObject
@@ -2323,6 +2545,12 @@ namespace AdamantiumVulkan.Core
             _internal.range = Range;
             return _internal;
         }
+
+        public static implicit operator BufferViewCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo b)
+        {
+            return new BufferViewCreateInfo(b);
+        }
+
     }
 
     public partial class ImageCreateInfo : QBDisposableObject
@@ -2405,6 +2633,12 @@ namespace AdamantiumVulkan.Core
             refpQueueFamilyIndices?.Dispose();
         }
 
+
+        public static implicit operator ImageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageCreateInfo i)
+        {
+            return new ImageCreateInfo(i);
+        }
+
     }
 
     public partial class SubresourceLayout
@@ -2438,6 +2672,12 @@ namespace AdamantiumVulkan.Core
             _internal.depthPitch = DepthPitch;
             return _internal;
         }
+
+        public static implicit operator SubresourceLayout(AdamantiumVulkan.Core.Interop.VkSubresourceLayout s)
+        {
+            return new SubresourceLayout(s);
+        }
+
     }
 
     public partial class ComponentMapping
@@ -2468,6 +2708,12 @@ namespace AdamantiumVulkan.Core
             _internal.a = (uint)A;
             return _internal;
         }
+
+        public static implicit operator ComponentMapping(AdamantiumVulkan.Core.Interop.VkComponentMapping c)
+        {
+            return new ComponentMapping(c);
+        }
+
     }
 
     public partial class ImageSubresourceRange
@@ -2501,6 +2747,12 @@ namespace AdamantiumVulkan.Core
             _internal.layerCount = LayerCount;
             return _internal;
         }
+
+        public static implicit operator ImageSubresourceRange(AdamantiumVulkan.Core.Interop.VkImageSubresourceRange i)
+        {
+            return new ImageSubresourceRange(i);
+        }
+
     }
 
     public partial class ImageViewCreateInfo : QBDisposableObject
@@ -2548,6 +2800,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ImageViewCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo i)
+        {
+            return new ImageViewCreateInfo(i);
+        }
+
     }
 
     public partial class ShaderModuleCreateInfo : QBDisposableObject
@@ -2600,6 +2858,12 @@ namespace AdamantiumVulkan.Core
             refpCode?.Dispose();
         }
 
+
+        public static implicit operator ShaderModuleCreateInfo(AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo s)
+        {
+            return new ShaderModuleCreateInfo(s);
+        }
+
     }
 
     public partial class PipelineCacheCreateInfo : QBDisposableObject
@@ -2632,6 +2896,12 @@ namespace AdamantiumVulkan.Core
             _internal.pInitialData = PInitialData;
             return _internal;
         }
+
+        public static implicit operator PipelineCacheCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo p)
+        {
+            return new PipelineCacheCreateInfo(p);
+        }
+
     }
 
     public partial class SpecializationMapEntry
@@ -2659,6 +2929,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        public static implicit operator SpecializationMapEntry(AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry s)
+        {
+            return new SpecializationMapEntry(s);
+        }
+
     }
 
     public partial class SpecializationInfo : QBDisposableObject
@@ -2702,6 +2978,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpMapEntries?.Dispose();
+        }
+
+
+        public static implicit operator SpecializationInfo(AdamantiumVulkan.Core.Interop.VkSpecializationInfo s)
+        {
+            return new SpecializationInfo(s);
         }
 
     }
@@ -2765,6 +3047,12 @@ namespace AdamantiumVulkan.Core
             refpSpecializationInfo?.Dispose();
         }
 
+
+        public static implicit operator PipelineShaderStageCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo p)
+        {
+            return new PipelineShaderStageCreateInfo(p);
+        }
+
     }
 
     public partial class VertexInputBindingDescription
@@ -2792,6 +3080,12 @@ namespace AdamantiumVulkan.Core
             _internal.inputRate = (uint)InputRate;
             return _internal;
         }
+
+        public static implicit operator VertexInputBindingDescription(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription v)
+        {
+            return new VertexInputBindingDescription(v);
+        }
+
     }
 
     public partial class VertexInputAttributeDescription
@@ -2822,6 +3116,12 @@ namespace AdamantiumVulkan.Core
             _internal.offset = Offset;
             return _internal;
         }
+
+        public static implicit operator VertexInputAttributeDescription(AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription v)
+        {
+            return new VertexInputAttributeDescription(v);
+        }
+
     }
 
     public partial class PipelineVertexInputStateCreateInfo : QBDisposableObject
@@ -2905,6 +3205,12 @@ namespace AdamantiumVulkan.Core
             refpVertexAttributeDescriptions?.Dispose();
         }
 
+
+        public static implicit operator PipelineVertexInputStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo p)
+        {
+            return new PipelineVertexInputStateCreateInfo(p);
+        }
+
     }
 
     public partial class PipelineInputAssemblyStateCreateInfo : QBDisposableObject
@@ -2937,6 +3243,12 @@ namespace AdamantiumVulkan.Core
             _internal.primitiveRestartEnable = System.Convert.ToUInt32(PrimitiveRestartEnable);
             return _internal;
         }
+
+        public static implicit operator PipelineInputAssemblyStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo p)
+        {
+            return new PipelineInputAssemblyStateCreateInfo(p);
+        }
+
     }
 
     public partial class PipelineTessellationStateCreateInfo : QBDisposableObject
@@ -2966,6 +3278,12 @@ namespace AdamantiumVulkan.Core
             _internal.patchControlPoints = PatchControlPoints;
             return _internal;
         }
+
+        public static implicit operator PipelineTessellationStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo p)
+        {
+            return new PipelineTessellationStateCreateInfo(p);
+        }
+
     }
 
     public partial class Viewport
@@ -3002,6 +3320,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDepth = MaxDepth;
             return _internal;
         }
+
+        public static implicit operator Viewport(AdamantiumVulkan.Core.Interop.VkViewport v)
+        {
+            return new Viewport(v);
+        }
+
     }
 
     public partial class Offset2D
@@ -3026,6 +3350,12 @@ namespace AdamantiumVulkan.Core
             _internal.y = Y;
             return _internal;
         }
+
+        public static implicit operator Offset2D(AdamantiumVulkan.Core.Interop.VkOffset2D o)
+        {
+            return new Offset2D(o);
+        }
+
     }
 
     public partial class Extent2D
@@ -3050,6 +3380,12 @@ namespace AdamantiumVulkan.Core
             _internal.height = Height;
             return _internal;
         }
+
+        public static implicit operator Extent2D(AdamantiumVulkan.Core.Interop.VkExtent2D e)
+        {
+            return new Extent2D(e);
+        }
+
     }
 
     public partial class Rect2D
@@ -3080,6 +3416,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator Rect2D(AdamantiumVulkan.Core.Interop.VkRect2D r)
+        {
+            return new Rect2D(r);
+        }
+
     }
 
     public partial class PipelineViewportStateCreateInfo : QBDisposableObject
@@ -3163,6 +3505,12 @@ namespace AdamantiumVulkan.Core
             refpScissors?.Dispose();
         }
 
+
+        public static implicit operator PipelineViewportStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo p)
+        {
+            return new PipelineViewportStateCreateInfo(p);
+        }
+
     }
 
     public partial class PipelineRasterizationStateCreateInfo : QBDisposableObject
@@ -3219,6 +3567,12 @@ namespace AdamantiumVulkan.Core
             _internal.lineWidth = LineWidth;
             return _internal;
         }
+
+        public static implicit operator PipelineRasterizationStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo p)
+        {
+            return new PipelineRasterizationStateCreateInfo(p);
+        }
+
     }
 
     public partial class PipelineMultisampleStateCreateInfo : QBDisposableObject
@@ -3280,6 +3634,12 @@ namespace AdamantiumVulkan.Core
             refpSampleMask?.Dispose();
         }
 
+
+        public static implicit operator PipelineMultisampleStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo p)
+        {
+            return new PipelineMultisampleStateCreateInfo(p);
+        }
+
     }
 
     public partial class StencilOpState
@@ -3319,6 +3679,12 @@ namespace AdamantiumVulkan.Core
             _internal.reference = Reference;
             return _internal;
         }
+
+        public static implicit operator StencilOpState(AdamantiumVulkan.Core.Interop.VkStencilOpState s)
+        {
+            return new StencilOpState(s);
+        }
+
     }
 
     public partial class PipelineDepthStencilStateCreateInfo : QBDisposableObject
@@ -3378,6 +3744,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDepthBounds = MaxDepthBounds;
             return _internal;
         }
+
+        public static implicit operator PipelineDepthStencilStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo p)
+        {
+            return new PipelineDepthStencilStateCreateInfo(p);
+        }
+
     }
 
     public partial class PipelineColorBlendAttachmentState
@@ -3420,6 +3792,12 @@ namespace AdamantiumVulkan.Core
             _internal.colorWriteMask = ColorWriteMask;
             return _internal;
         }
+
+        public static implicit operator PipelineColorBlendAttachmentState(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState p)
+        {
+            return new PipelineColorBlendAttachmentState(p);
+        }
+
     }
 
     public partial class PipelineColorBlendStateCreateInfo : QBDisposableObject
@@ -3510,6 +3888,12 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
         }
 
+
+        public static implicit operator PipelineColorBlendStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo p)
+        {
+            return new PipelineColorBlendStateCreateInfo(p);
+        }
+
     }
 
     public partial class PipelineDynamicStateCreateInfo : QBDisposableObject
@@ -3565,6 +3949,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDynamicStates?.Dispose();
+        }
+
+
+        public static implicit operator PipelineDynamicStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo p)
+        {
+            return new PipelineDynamicStateCreateInfo(p);
         }
 
     }
@@ -3756,6 +4146,12 @@ namespace AdamantiumVulkan.Core
             refpDynamicState?.Dispose();
         }
 
+
+        public static implicit operator GraphicsPipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo g)
+        {
+            return new GraphicsPipelineCreateInfo(g);
+        }
+
     }
 
     public partial class ComputePipelineCreateInfo : QBDisposableObject
@@ -3797,6 +4193,12 @@ namespace AdamantiumVulkan.Core
             _internal.basePipelineIndex = BasePipelineIndex;
             return _internal;
         }
+
+        public static implicit operator ComputePipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo c)
+        {
+            return new ComputePipelineCreateInfo(c);
+        }
+
     }
 
     public partial class PushConstantRange
@@ -3824,6 +4226,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        public static implicit operator PushConstantRange(AdamantiumVulkan.Core.Interop.VkPushConstantRange p)
+        {
+            return new PushConstantRange(p);
+        }
+
     }
 
     public partial class PipelineLayoutCreateInfo : QBDisposableObject
@@ -3897,6 +4305,12 @@ namespace AdamantiumVulkan.Core
             refpPushConstantRanges?.Dispose();
         }
 
+
+        public static implicit operator PipelineLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo p)
+        {
+            return new PipelineLayoutCreateInfo(p);
+        }
+
     }
 
     public partial class SamplerCreateInfo : QBDisposableObject
@@ -3968,6 +4382,12 @@ namespace AdamantiumVulkan.Core
             _internal.unnormalizedCoordinates = System.Convert.ToUInt32(UnnormalizedCoordinates);
             return _internal;
         }
+
+        public static implicit operator SamplerCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo s)
+        {
+            return new SamplerCreateInfo(s);
+        }
+
     }
 
     public partial class DescriptorSetLayoutBinding : QBDisposableObject
@@ -4014,6 +4434,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpImmutableSamplers?.Dispose();
+        }
+
+
+        public static implicit operator DescriptorSetLayoutBinding(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding d)
+        {
+            return new DescriptorSetLayoutBinding(d);
         }
 
     }
@@ -4073,6 +4499,12 @@ namespace AdamantiumVulkan.Core
             refpBindings?.Dispose();
         }
 
+
+        public static implicit operator DescriptorSetLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo d)
+        {
+            return new DescriptorSetLayoutCreateInfo(d);
+        }
+
     }
 
     public partial class DescriptorPoolSize
@@ -4097,6 +4529,12 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorCount = DescriptorCount;
             return _internal;
         }
+
+        public static implicit operator DescriptorPoolSize(AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize d)
+        {
+            return new DescriptorPoolSize(d);
+        }
+
     }
 
     public partial class DescriptorPoolCreateInfo : QBDisposableObject
@@ -4145,6 +4583,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpPoolSizes?.Dispose();
+        }
+
+
+        public static implicit operator DescriptorPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo d)
+        {
+            return new DescriptorPoolCreateInfo(d);
         }
 
     }
@@ -4204,6 +4648,12 @@ namespace AdamantiumVulkan.Core
             refpSetLayouts?.Dispose();
         }
 
+
+        public static implicit operator DescriptorSetAllocateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo d)
+        {
+            return new DescriptorSetAllocateInfo(d);
+        }
+
     }
 
     public partial class DescriptorImageInfo
@@ -4231,6 +4681,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageLayout = (uint)ImageLayout;
             return _internal;
         }
+
+        public static implicit operator DescriptorImageInfo(AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo d)
+        {
+            return new DescriptorImageInfo(d);
+        }
+
     }
 
     public partial class DescriptorBufferInfo
@@ -4258,6 +4714,12 @@ namespace AdamantiumVulkan.Core
             _internal.range = Range;
             return _internal;
         }
+
+        public static implicit operator DescriptorBufferInfo(AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo d)
+        {
+            return new DescriptorBufferInfo(d);
+        }
+
     }
 
     public partial class WriteDescriptorSet : QBDisposableObject
@@ -4340,6 +4802,12 @@ namespace AdamantiumVulkan.Core
             refpTexelBufferView?.Dispose();
         }
 
+
+        public static implicit operator WriteDescriptorSet(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet w)
+        {
+            return new WriteDescriptorSet(w);
+        }
+
     }
 
     public partial class CopyDescriptorSet : QBDisposableObject
@@ -4384,6 +4852,12 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorCount = DescriptorCount;
             return _internal;
         }
+
+        public static implicit operator CopyDescriptorSet(AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet c)
+        {
+            return new CopyDescriptorSet(c);
+        }
+
     }
 
     public partial class FramebufferCreateInfo : QBDisposableObject
@@ -4453,6 +4927,12 @@ namespace AdamantiumVulkan.Core
             refpAttachments?.Dispose();
         }
 
+
+        public static implicit operator FramebufferCreateInfo(AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo f)
+        {
+            return new FramebufferCreateInfo(f);
+        }
+
     }
 
     public partial class AttachmentDescription
@@ -4498,6 +4978,12 @@ namespace AdamantiumVulkan.Core
             _internal.finalLayout = (uint)FinalLayout;
             return _internal;
         }
+
+        public static implicit operator AttachmentDescription(AdamantiumVulkan.Core.Interop.VkAttachmentDescription a)
+        {
+            return new AttachmentDescription(a);
+        }
+
     }
 
     public partial class AttachmentReference
@@ -4522,6 +5008,12 @@ namespace AdamantiumVulkan.Core
             _internal.layout = (uint)Layout;
             return _internal;
         }
+
+        public static implicit operator AttachmentReference(AdamantiumVulkan.Core.Interop.VkAttachmentReference a)
+        {
+            return new AttachmentReference(a);
+        }
+
     }
 
     public partial class SubpassDescription : QBDisposableObject
@@ -4660,6 +5152,12 @@ namespace AdamantiumVulkan.Core
             refpPreserveAttachments?.Dispose();
         }
 
+
+        public static implicit operator SubpassDescription(AdamantiumVulkan.Core.Interop.VkSubpassDescription s)
+        {
+            return new SubpassDescription(s);
+        }
+
     }
 
     public partial class SubpassDependency
@@ -4699,6 +5197,12 @@ namespace AdamantiumVulkan.Core
             _internal.dependencyFlags = DependencyFlags;
             return _internal;
         }
+
+        public static implicit operator SubpassDependency(AdamantiumVulkan.Core.Interop.VkSubpassDependency s)
+        {
+            return new SubpassDependency(s);
+        }
+
     }
 
     public partial class RenderPassCreateInfo : QBDisposableObject
@@ -4808,6 +5312,12 @@ namespace AdamantiumVulkan.Core
             refpDependencies?.Dispose();
         }
 
+
+        public static implicit operator RenderPassCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo r)
+        {
+            return new RenderPassCreateInfo(r);
+        }
+
     }
 
     public partial class CommandPoolCreateInfo : QBDisposableObject
@@ -4837,6 +5347,12 @@ namespace AdamantiumVulkan.Core
             _internal.queueFamilyIndex = QueueFamilyIndex;
             return _internal;
         }
+
+        public static implicit operator CommandPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo c)
+        {
+            return new CommandPoolCreateInfo(c);
+        }
+
     }
 
     public partial class CommandBufferAllocateInfo : QBDisposableObject
@@ -4869,6 +5385,12 @@ namespace AdamantiumVulkan.Core
             _internal.commandBufferCount = CommandBufferCount;
             return _internal;
         }
+
+        public static implicit operator CommandBufferAllocateInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo c)
+        {
+            return new CommandBufferAllocateInfo(c);
+        }
+
     }
 
     public partial class CommandBufferInheritanceInfo : QBDisposableObject
@@ -4910,6 +5432,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineStatistics = PipelineStatistics;
             return _internal;
         }
+
+        public static implicit operator CommandBufferInheritanceInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo c)
+        {
+            return new CommandBufferInheritanceInfo(c);
+        }
+
     }
 
     public partial class CommandBufferBeginInfo : QBDisposableObject
@@ -4954,6 +5482,12 @@ namespace AdamantiumVulkan.Core
             refpInheritanceInfo?.Dispose();
         }
 
+
+        public static implicit operator CommandBufferBeginInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo c)
+        {
+            return new CommandBufferBeginInfo(c);
+        }
+
     }
 
     public partial class BufferCopy
@@ -4981,6 +5515,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        public static implicit operator BufferCopy(AdamantiumVulkan.Core.Interop.VkBufferCopy b)
+        {
+            return new BufferCopy(b);
+        }
+
     }
 
     public partial class ImageSubresourceLayers
@@ -5011,6 +5551,12 @@ namespace AdamantiumVulkan.Core
             _internal.layerCount = LayerCount;
             return _internal;
         }
+
+        public static implicit operator ImageSubresourceLayers(AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers i)
+        {
+            return new ImageSubresourceLayers(i);
+        }
+
     }
 
     public partial class ImageCopy
@@ -5059,6 +5605,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ImageCopy(AdamantiumVulkan.Core.Interop.VkImageCopy i)
+        {
+            return new ImageCopy(i);
+        }
+
     }
 
     public partial class ImageBlit
@@ -5123,6 +5675,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ImageBlit(AdamantiumVulkan.Core.Interop.VkImageBlit i)
+        {
+            return new ImageBlit(i);
+        }
+
     }
 
     public partial class BufferImageCopy
@@ -5168,6 +5726,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator BufferImageCopy(AdamantiumVulkan.Core.Interop.VkBufferImageCopy b)
+        {
+            return new BufferImageCopy(b);
+        }
+
     }
 
     public partial class ClearDepthStencilValue
@@ -5192,6 +5756,12 @@ namespace AdamantiumVulkan.Core
             _internal.stencil = Stencil;
             return _internal;
         }
+
+        public static implicit operator ClearDepthStencilValue(AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue c)
+        {
+            return new ClearDepthStencilValue(c);
+        }
+
     }
 
     public partial class ClearAttachment
@@ -5222,6 +5792,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ClearAttachment(AdamantiumVulkan.Core.Interop.VkClearAttachment c)
+        {
+            return new ClearAttachment(c);
+        }
+
     }
 
     public partial class ClearRect
@@ -5252,6 +5828,12 @@ namespace AdamantiumVulkan.Core
             _internal.layerCount = LayerCount;
             return _internal;
         }
+
+        public static implicit operator ClearRect(AdamantiumVulkan.Core.Interop.VkClearRect c)
+        {
+            return new ClearRect(c);
+        }
+
     }
 
     public partial class ImageResolve
@@ -5300,6 +5882,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ImageResolve(AdamantiumVulkan.Core.Interop.VkImageResolve i)
+        {
+            return new ImageResolve(i);
+        }
+
     }
 
     public partial class MemoryBarrier : QBDisposableObject
@@ -5329,6 +5917,12 @@ namespace AdamantiumVulkan.Core
             _internal.dstAccessMask = DstAccessMask;
             return _internal;
         }
+
+        public static implicit operator MemoryBarrier(AdamantiumVulkan.Core.Interop.VkMemoryBarrier m)
+        {
+            return new MemoryBarrier(m);
+        }
+
     }
 
     public partial class BufferMemoryBarrier : QBDisposableObject
@@ -5373,6 +5967,12 @@ namespace AdamantiumVulkan.Core
             _internal.size = Size;
             return _internal;
         }
+
+        public static implicit operator BufferMemoryBarrier(AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier b)
+        {
+            return new BufferMemoryBarrier(b);
+        }
+
     }
 
     public partial class ImageMemoryBarrier : QBDisposableObject
@@ -5423,6 +6023,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ImageMemoryBarrier(AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier i)
+        {
+            return new ImageMemoryBarrier(i);
+        }
+
     }
 
     public partial class RenderPassBeginInfo : QBDisposableObject
@@ -5489,6 +6095,12 @@ namespace AdamantiumVulkan.Core
             refpClearValues?.Dispose();
         }
 
+
+        public static implicit operator RenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo r)
+        {
+            return new RenderPassBeginInfo(r);
+        }
+
     }
 
     public partial class DispatchIndirectCommand
@@ -5516,6 +6128,12 @@ namespace AdamantiumVulkan.Core
             _internal.z = Z;
             return _internal;
         }
+
+        public static implicit operator DispatchIndirectCommand(AdamantiumVulkan.Core.Interop.VkDispatchIndirectCommand d)
+        {
+            return new DispatchIndirectCommand(d);
+        }
+
     }
 
     public partial class DrawIndexedIndirectCommand
@@ -5549,6 +6167,12 @@ namespace AdamantiumVulkan.Core
             _internal.firstInstance = FirstInstance;
             return _internal;
         }
+
+        public static implicit operator DrawIndexedIndirectCommand(AdamantiumVulkan.Core.Interop.VkDrawIndexedIndirectCommand d)
+        {
+            return new DrawIndexedIndirectCommand(d);
+        }
+
     }
 
     public partial class DrawIndirectCommand
@@ -5579,6 +6203,12 @@ namespace AdamantiumVulkan.Core
             _internal.firstInstance = FirstInstance;
             return _internal;
         }
+
+        public static implicit operator DrawIndirectCommand(AdamantiumVulkan.Core.Interop.VkDrawIndirectCommand d)
+        {
+            return new DrawIndirectCommand(d);
+        }
+
     }
 
     public partial class BaseOutStructure : QBDisposableObject
@@ -5616,6 +6246,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpNext?.Dispose();
+        }
+
+
+        public static implicit operator BaseOutStructure(AdamantiumVulkan.Core.Interop.VkBaseOutStructure b)
+        {
+            return new BaseOutStructure(b);
         }
 
     }
@@ -5657,6 +6293,12 @@ namespace AdamantiumVulkan.Core
             refpNext?.Dispose();
         }
 
+
+        public static implicit operator BaseInStructure(AdamantiumVulkan.Core.Interop.VkBaseInStructure b)
+        {
+            return new BaseInStructure(b);
+        }
+
     }
 
     public partial class PhysicalDeviceSubgroupProperties : QBDisposableObject
@@ -5692,6 +6334,12 @@ namespace AdamantiumVulkan.Core
             _internal.quadOperationsInAllStages = System.Convert.ToUInt32(QuadOperationsInAllStages);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSubgroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties p)
+        {
+            return new PhysicalDeviceSubgroupProperties(p);
+        }
+
     }
 
     public partial class BindBufferMemoryInfo : QBDisposableObject
@@ -5724,6 +6372,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryOffset = MemoryOffset;
             return _internal;
         }
+
+        public static implicit operator BindBufferMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo b)
+        {
+            return new BindBufferMemoryInfo(b);
+        }
+
     }
 
     public partial class BindImageMemoryInfo : QBDisposableObject
@@ -5756,6 +6410,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryOffset = MemoryOffset;
             return _internal;
         }
+
+        public static implicit operator BindImageMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo b)
+        {
+            return new BindImageMemoryInfo(b);
+        }
+
     }
 
     public partial class PhysicalDevice16BitStorageFeatures : QBDisposableObject
@@ -5791,6 +6451,12 @@ namespace AdamantiumVulkan.Core
             _internal.storageInputOutput16 = System.Convert.ToUInt32(StorageInputOutput16);
             return _internal;
         }
+
+        public static implicit operator PhysicalDevice16BitStorageFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures p)
+        {
+            return new PhysicalDevice16BitStorageFeatures(p);
+        }
+
     }
 
     public partial class MemoryDedicatedRequirements : QBDisposableObject
@@ -5820,6 +6486,12 @@ namespace AdamantiumVulkan.Core
             _internal.requiresDedicatedAllocation = System.Convert.ToUInt32(RequiresDedicatedAllocation);
             return _internal;
         }
+
+        public static implicit operator MemoryDedicatedRequirements(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements m)
+        {
+            return new MemoryDedicatedRequirements(m);
+        }
+
     }
 
     public partial class MemoryDedicatedAllocateInfo : QBDisposableObject
@@ -5849,6 +6521,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        public static implicit operator MemoryDedicatedAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo m)
+        {
+            return new MemoryDedicatedAllocateInfo(m);
+        }
+
     }
 
     public partial class MemoryAllocateFlagsInfo : QBDisposableObject
@@ -5878,6 +6556,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
+
+        public static implicit operator MemoryAllocateFlagsInfo(AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo m)
+        {
+            return new MemoryAllocateFlagsInfo(m);
+        }
+
     }
 
     public partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
@@ -5925,6 +6609,12 @@ namespace AdamantiumVulkan.Core
             refpDeviceRenderAreas?.Dispose();
         }
 
+
+        public static implicit operator DeviceGroupRenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo d)
+        {
+            return new DeviceGroupRenderPassBeginInfo(d);
+        }
+
     }
 
     public partial class DeviceGroupCommandBufferBeginInfo : QBDisposableObject
@@ -5951,6 +6641,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
+
+        public static implicit operator DeviceGroupCommandBufferBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo d)
+        {
+            return new DeviceGroupCommandBufferBeginInfo(d);
+        }
+
     }
 
     public partial class DeviceGroupSubmitInfo : QBDisposableObject
@@ -6033,6 +6729,12 @@ namespace AdamantiumVulkan.Core
             refpSignalSemaphoreDeviceIndices?.Dispose();
         }
 
+
+        public static implicit operator DeviceGroupSubmitInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo d)
+        {
+            return new DeviceGroupSubmitInfo(d);
+        }
+
     }
 
     public partial class DeviceGroupBindSparseInfo : QBDisposableObject
@@ -6062,6 +6764,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryDeviceIndex = MemoryDeviceIndex;
             return _internal;
         }
+
+        public static implicit operator DeviceGroupBindSparseInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo d)
+        {
+            return new DeviceGroupBindSparseInfo(d);
+        }
+
     }
 
     public partial class BindBufferMemoryDeviceGroupInfo : QBDisposableObject
@@ -6106,6 +6814,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDeviceIndices?.Dispose();
+        }
+
+
+        public static implicit operator BindBufferMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo b)
+        {
+            return new BindBufferMemoryDeviceGroupInfo(b);
         }
 
     }
@@ -6170,6 +6884,12 @@ namespace AdamantiumVulkan.Core
             refpSplitInstanceBindRegions?.Dispose();
         }
 
+
+        public static implicit operator BindImageMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo b)
+        {
+            return new BindImageMemoryDeviceGroupInfo(b);
+        }
+
     }
 
     public partial class PhysicalDeviceGroupProperties : QBDisposableObject
@@ -6216,6 +6936,12 @@ namespace AdamantiumVulkan.Core
             _internal.subsetAllocation = System.Convert.ToUInt32(SubsetAllocation);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceGroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties p)
+        {
+            return new PhysicalDeviceGroupProperties(p);
+        }
+
     }
 
     public partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
@@ -6260,6 +6986,12 @@ namespace AdamantiumVulkan.Core
             refpPhysicalDevices?.Dispose();
         }
 
+
+        public static implicit operator DeviceGroupDeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo d)
+        {
+            return new DeviceGroupDeviceCreateInfo(d);
+        }
+
     }
 
     public partial class BufferMemoryRequirementsInfo2 : QBDisposableObject
@@ -6286,6 +7018,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        public static implicit operator BufferMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2 b)
+        {
+            return new BufferMemoryRequirementsInfo2(b);
+        }
+
     }
 
     public partial class ImageMemoryRequirementsInfo2 : QBDisposableObject
@@ -6312,6 +7050,12 @@ namespace AdamantiumVulkan.Core
             _internal.image = Image;
             return _internal;
         }
+
+        public static implicit operator ImageMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2 i)
+        {
+            return new ImageMemoryRequirementsInfo2(i);
+        }
+
     }
 
     public partial class ImageSparseMemoryRequirementsInfo2 : QBDisposableObject
@@ -6338,6 +7082,12 @@ namespace AdamantiumVulkan.Core
             _internal.image = Image;
             return _internal;
         }
+
+        public static implicit operator ImageSparseMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2 i)
+        {
+            return new ImageSparseMemoryRequirementsInfo2(i);
+        }
+
     }
 
     public partial class MemoryRequirements2 : QBDisposableObject
@@ -6367,6 +7117,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator MemoryRequirements2(AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 m)
+        {
+            return new MemoryRequirements2(m);
+        }
+
     }
 
     public partial class SparseImageMemoryRequirements2 : QBDisposableObject
@@ -6396,6 +7152,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator SparseImageMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 s)
+        {
+            return new SparseImageMemoryRequirements2(s);
+        }
+
     }
 
     public partial class PhysicalDeviceFeatures2 : QBDisposableObject
@@ -6425,6 +7187,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 p)
+        {
+            return new PhysicalDeviceFeatures2(p);
+        }
+
     }
 
     public partial class PhysicalDeviceProperties2 : QBDisposableObject
@@ -6454,6 +7222,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2 p)
+        {
+            return new PhysicalDeviceProperties2(p);
+        }
+
     }
 
     public partial class FormatProperties2 : QBDisposableObject
@@ -6483,6 +7257,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator FormatProperties2(AdamantiumVulkan.Core.Interop.VkFormatProperties2 f)
+        {
+            return new FormatProperties2(f);
+        }
+
     }
 
     public partial class ImageFormatProperties2 : QBDisposableObject
@@ -6512,6 +7292,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 i)
+        {
+            return new ImageFormatProperties2(i);
+        }
+
     }
 
     public partial class PhysicalDeviceImageFormatInfo2 : QBDisposableObject
@@ -6550,6 +7336,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 p)
+        {
+            return new PhysicalDeviceImageFormatInfo2(p);
+        }
+
     }
 
     public partial class QueueFamilyProperties2 : QBDisposableObject
@@ -6579,6 +7371,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator QueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 q)
+        {
+            return new QueueFamilyProperties2(q);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryProperties2 : QBDisposableObject
@@ -6608,6 +7406,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMemoryProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 p)
+        {
+            return new PhysicalDeviceMemoryProperties2(p);
+        }
+
     }
 
     public partial class SparseImageFormatProperties2 : QBDisposableObject
@@ -6637,6 +7441,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator SparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 s)
+        {
+            return new SparseImageFormatProperties2(s);
+        }
+
     }
 
     public partial class PhysicalDeviceSparseImageFormatInfo2 : QBDisposableObject
@@ -6675,6 +7485,12 @@ namespace AdamantiumVulkan.Core
             _internal.tiling = (uint)Tiling;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSparseImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2 p)
+        {
+            return new PhysicalDeviceSparseImageFormatInfo2(p);
+        }
+
     }
 
     public partial class PhysicalDevicePointClippingProperties : QBDisposableObject
@@ -6701,6 +7517,12 @@ namespace AdamantiumVulkan.Core
             _internal.pointClippingBehavior = (uint)PointClippingBehavior;
             return _internal;
         }
+
+        public static implicit operator PhysicalDevicePointClippingProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties p)
+        {
+            return new PhysicalDevicePointClippingProperties(p);
+        }
+
     }
 
     public partial class InputAttachmentAspectReference
@@ -6728,6 +7550,12 @@ namespace AdamantiumVulkan.Core
             _internal.aspectMask = AspectMask;
             return _internal;
         }
+
+        public static implicit operator InputAttachmentAspectReference(AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference i)
+        {
+            return new InputAttachmentAspectReference(i);
+        }
+
     }
 
     public partial class RenderPassInputAttachmentAspectCreateInfo : QBDisposableObject
@@ -6772,6 +7600,12 @@ namespace AdamantiumVulkan.Core
             refpAspectReferences?.Dispose();
         }
 
+
+        public static implicit operator RenderPassInputAttachmentAspectCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo r)
+        {
+            return new RenderPassInputAttachmentAspectCreateInfo(r);
+        }
+
     }
 
     public partial class ImageViewUsageCreateInfo : QBDisposableObject
@@ -6798,6 +7632,12 @@ namespace AdamantiumVulkan.Core
             _internal.usage = Usage;
             return _internal;
         }
+
+        public static implicit operator ImageViewUsageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo i)
+        {
+            return new ImageViewUsageCreateInfo(i);
+        }
+
     }
 
     public partial class PipelineTessellationDomainOriginStateCreateInfo : QBDisposableObject
@@ -6824,6 +7664,12 @@ namespace AdamantiumVulkan.Core
             _internal.domainOrigin = (uint)DomainOrigin;
             return _internal;
         }
+
+        public static implicit operator PipelineTessellationDomainOriginStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo p)
+        {
+            return new PipelineTessellationDomainOriginStateCreateInfo(p);
+        }
+
     }
 
     public partial class RenderPassMultiviewCreateInfo : QBDisposableObject
@@ -6906,6 +7752,12 @@ namespace AdamantiumVulkan.Core
             refpCorrelationMasks?.Dispose();
         }
 
+
+        public static implicit operator RenderPassMultiviewCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo r)
+        {
+            return new RenderPassMultiviewCreateInfo(r);
+        }
+
     }
 
     public partial class PhysicalDeviceMultiviewFeatures : QBDisposableObject
@@ -6938,6 +7790,12 @@ namespace AdamantiumVulkan.Core
             _internal.multiviewTessellationShader = System.Convert.ToUInt32(MultiviewTessellationShader);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMultiviewFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures p)
+        {
+            return new PhysicalDeviceMultiviewFeatures(p);
+        }
+
     }
 
     public partial class PhysicalDeviceMultiviewProperties : QBDisposableObject
@@ -6967,6 +7825,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxMultiviewInstanceIndex = MaxMultiviewInstanceIndex;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMultiviewProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewProperties p)
+        {
+            return new PhysicalDeviceMultiviewProperties(p);
+        }
+
     }
 
     public partial class PhysicalDeviceVariablePointersFeatures : QBDisposableObject
@@ -6996,6 +7860,12 @@ namespace AdamantiumVulkan.Core
             _internal.variablePointers = System.Convert.ToUInt32(VariablePointers);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceVariablePointersFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures p)
+        {
+            return new PhysicalDeviceVariablePointersFeatures(p);
+        }
+
     }
 
     public partial class PhysicalDeviceProtectedMemoryFeatures : QBDisposableObject
@@ -7022,6 +7892,12 @@ namespace AdamantiumVulkan.Core
             _internal.protectedMemory = System.Convert.ToUInt32(ProtectedMemory);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceProtectedMemoryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures p)
+        {
+            return new PhysicalDeviceProtectedMemoryFeatures(p);
+        }
+
     }
 
     public partial class PhysicalDeviceProtectedMemoryProperties : QBDisposableObject
@@ -7048,6 +7924,12 @@ namespace AdamantiumVulkan.Core
             _internal.protectedNoFault = System.Convert.ToUInt32(ProtectedNoFault);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceProtectedMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties p)
+        {
+            return new PhysicalDeviceProtectedMemoryProperties(p);
+        }
+
     }
 
     public partial class DeviceQueueInfo2 : QBDisposableObject
@@ -7080,6 +7962,12 @@ namespace AdamantiumVulkan.Core
             _internal.queueIndex = QueueIndex;
             return _internal;
         }
+
+        public static implicit operator DeviceQueueInfo2(AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2 d)
+        {
+            return new DeviceQueueInfo2(d);
+        }
+
     }
 
     public partial class ProtectedSubmitInfo : QBDisposableObject
@@ -7106,6 +7994,12 @@ namespace AdamantiumVulkan.Core
             _internal.protectedSubmit = System.Convert.ToUInt32(ProtectedSubmit);
             return _internal;
         }
+
+        public static implicit operator ProtectedSubmitInfo(AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo p)
+        {
+            return new ProtectedSubmitInfo(p);
+        }
+
     }
 
     public partial class SamplerYcbcrConversionCreateInfo : QBDisposableObject
@@ -7156,6 +8050,12 @@ namespace AdamantiumVulkan.Core
             _internal.forceExplicitReconstruction = System.Convert.ToUInt32(ForceExplicitReconstruction);
             return _internal;
         }
+
+        public static implicit operator SamplerYcbcrConversionCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo s)
+        {
+            return new SamplerYcbcrConversionCreateInfo(s);
+        }
+
     }
 
     public partial class SamplerYcbcrConversionInfo : QBDisposableObject
@@ -7182,6 +8082,12 @@ namespace AdamantiumVulkan.Core
             _internal.conversion = Conversion;
             return _internal;
         }
+
+        public static implicit operator SamplerYcbcrConversionInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo s)
+        {
+            return new SamplerYcbcrConversionInfo(s);
+        }
+
     }
 
     public partial class BindImagePlaneMemoryInfo : QBDisposableObject
@@ -7208,6 +8114,12 @@ namespace AdamantiumVulkan.Core
             _internal.planeAspect = (uint)PlaneAspect;
             return _internal;
         }
+
+        public static implicit operator BindImagePlaneMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo b)
+        {
+            return new BindImagePlaneMemoryInfo(b);
+        }
+
     }
 
     public partial class ImagePlaneMemoryRequirementsInfo : QBDisposableObject
@@ -7234,6 +8146,12 @@ namespace AdamantiumVulkan.Core
             _internal.planeAspect = (uint)PlaneAspect;
             return _internal;
         }
+
+        public static implicit operator ImagePlaneMemoryRequirementsInfo(AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo i)
+        {
+            return new ImagePlaneMemoryRequirementsInfo(i);
+        }
+
     }
 
     public partial class PhysicalDeviceSamplerYcbcrConversionFeatures : QBDisposableObject
@@ -7260,6 +8178,12 @@ namespace AdamantiumVulkan.Core
             _internal.samplerYcbcrConversion = System.Convert.ToUInt32(SamplerYcbcrConversion);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSamplerYcbcrConversionFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures p)
+        {
+            return new PhysicalDeviceSamplerYcbcrConversionFeatures(p);
+        }
+
     }
 
     public partial class SamplerYcbcrConversionImageFormatProperties : QBDisposableObject
@@ -7286,6 +8210,12 @@ namespace AdamantiumVulkan.Core
             _internal.combinedImageSamplerDescriptorCount = CombinedImageSamplerDescriptorCount;
             return _internal;
         }
+
+        public static implicit operator SamplerYcbcrConversionImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties s)
+        {
+            return new SamplerYcbcrConversionImageFormatProperties(s);
+        }
+
     }
 
     public partial class DescriptorUpdateTemplateEntry
@@ -7322,6 +8252,12 @@ namespace AdamantiumVulkan.Core
             _internal.stride = Stride;
             return _internal;
         }
+
+        public static implicit operator DescriptorUpdateTemplateEntry(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry d)
+        {
+            return new DescriptorUpdateTemplateEntry(d);
+        }
+
     }
 
     public partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObject
@@ -7384,6 +8320,12 @@ namespace AdamantiumVulkan.Core
             refpDescriptorUpdateEntries?.Dispose();
         }
 
+
+        public static implicit operator DescriptorUpdateTemplateCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo d)
+        {
+            return new DescriptorUpdateTemplateCreateInfo(d);
+        }
+
     }
 
     public partial class ExternalMemoryProperties
@@ -7411,6 +8353,12 @@ namespace AdamantiumVulkan.Core
             _internal.compatibleHandleTypes = CompatibleHandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExternalMemoryProperties(AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties e)
+        {
+            return new ExternalMemoryProperties(e);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalImageFormatInfo : QBDisposableObject
@@ -7437,6 +8385,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceExternalImageFormatInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo p)
+        {
+            return new PhysicalDeviceExternalImageFormatInfo(p);
+        }
+
     }
 
     public partial class ExternalImageFormatProperties : QBDisposableObject
@@ -7466,6 +8420,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ExternalImageFormatProperties(AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties e)
+        {
+            return new ExternalImageFormatProperties(e);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalBufferInfo : QBDisposableObject
@@ -7498,6 +8458,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceExternalBufferInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo p)
+        {
+            return new PhysicalDeviceExternalBufferInfo(p);
+        }
+
     }
 
     public partial class ExternalBufferProperties : QBDisposableObject
@@ -7527,6 +8493,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkExternalBufferProperties e)
+        {
+            return new ExternalBufferProperties(e);
+        }
+
     }
 
     public partial class PhysicalDeviceIDProperties : QBDisposableObject
@@ -7637,6 +8609,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceLUIDValid = System.Convert.ToUInt32(DeviceLUIDValid);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceIDProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties p)
+        {
+            return new PhysicalDeviceIDProperties(p);
+        }
+
     }
 
     public partial class ExternalMemoryImageCreateInfo : QBDisposableObject
@@ -7663,6 +8641,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExternalMemoryImageCreateInfo(AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo e)
+        {
+            return new ExternalMemoryImageCreateInfo(e);
+        }
+
     }
 
     public partial class ExternalMemoryBufferCreateInfo : QBDisposableObject
@@ -7689,6 +8673,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExternalMemoryBufferCreateInfo(AdamantiumVulkan.Core.Interop.VkExternalMemoryBufferCreateInfo e)
+        {
+            return new ExternalMemoryBufferCreateInfo(e);
+        }
+
     }
 
     public partial class ExportMemoryAllocateInfo : QBDisposableObject
@@ -7715,6 +8705,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExportMemoryAllocateInfo(AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfo e)
+        {
+            return new ExportMemoryAllocateInfo(e);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalFenceInfo : QBDisposableObject
@@ -7741,6 +8737,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceExternalFenceInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo p)
+        {
+            return new PhysicalDeviceExternalFenceInfo(p);
+        }
+
     }
 
     public partial class ExternalFenceProperties : QBDisposableObject
@@ -7773,6 +8775,12 @@ namespace AdamantiumVulkan.Core
             _internal.externalFenceFeatures = ExternalFenceFeatures;
             return _internal;
         }
+
+        public static implicit operator ExternalFenceProperties(AdamantiumVulkan.Core.Interop.VkExternalFenceProperties e)
+        {
+            return new ExternalFenceProperties(e);
+        }
+
     }
 
     public partial class ExportFenceCreateInfo : QBDisposableObject
@@ -7799,6 +8807,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExportFenceCreateInfo(AdamantiumVulkan.Core.Interop.VkExportFenceCreateInfo e)
+        {
+            return new ExportFenceCreateInfo(e);
+        }
+
     }
 
     public partial class ExportSemaphoreCreateInfo : QBDisposableObject
@@ -7825,6 +8839,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExportSemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo e)
+        {
+            return new ExportSemaphoreCreateInfo(e);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalSemaphoreInfo : QBDisposableObject
@@ -7851,6 +8871,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceExternalSemaphoreInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo p)
+        {
+            return new PhysicalDeviceExternalSemaphoreInfo(p);
+        }
+
     }
 
     public partial class ExternalSemaphoreProperties : QBDisposableObject
@@ -7883,6 +8909,12 @@ namespace AdamantiumVulkan.Core
             _internal.externalSemaphoreFeatures = ExternalSemaphoreFeatures;
             return _internal;
         }
+
+        public static implicit operator ExternalSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties e)
+        {
+            return new ExternalSemaphoreProperties(e);
+        }
+
     }
 
     public partial class PhysicalDeviceMaintenance3Properties : QBDisposableObject
@@ -7912,6 +8944,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMaintenance3Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties p)
+        {
+            return new PhysicalDeviceMaintenance3Properties(p);
+        }
+
     }
 
     public partial class DescriptorSetLayoutSupport : QBDisposableObject
@@ -7938,6 +8976,12 @@ namespace AdamantiumVulkan.Core
             _internal.supported = System.Convert.ToUInt32(Supported);
             return _internal;
         }
+
+        public static implicit operator DescriptorSetLayoutSupport(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport d)
+        {
+            return new DescriptorSetLayoutSupport(d);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderDrawParametersFeatures : QBDisposableObject
@@ -7964,6 +9008,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderDrawParameters = System.Convert.ToUInt32(ShaderDrawParameters);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderDrawParametersFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures p)
+        {
+            return new PhysicalDeviceShaderDrawParametersFeatures(p);
+        }
+
     }
 
     public partial class SurfaceCapabilitiesKHR
@@ -8021,6 +9071,12 @@ namespace AdamantiumVulkan.Core
             _internal.supportedUsageFlags = SupportedUsageFlags;
             return _internal;
         }
+
+        public static implicit operator SurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR s)
+        {
+            return new SurfaceCapabilitiesKHR(s);
+        }
+
     }
 
     public partial class SurfaceFormatKHR
@@ -8045,6 +9101,12 @@ namespace AdamantiumVulkan.Core
             _internal.colorSpace = (uint)ColorSpace;
             return _internal;
         }
+
+        public static implicit operator SurfaceFormatKHR(AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR s)
+        {
+            return new SurfaceFormatKHR(s);
+        }
+
     }
 
     public partial class SwapchainCreateInfoKHR : QBDisposableObject
@@ -8137,6 +9199,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpQueueFamilyIndices?.Dispose();
+        }
+
+
+        public static implicit operator SwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR s)
+        {
+            return new SwapchainCreateInfoKHR(s);
         }
 
     }
@@ -8260,6 +9328,12 @@ namespace AdamantiumVulkan.Core
             refpResults?.Dispose();
         }
 
+
+        public static implicit operator PresentInfoKHR(AdamantiumVulkan.Core.Interop.VkPresentInfoKHR p)
+        {
+            return new PresentInfoKHR(p);
+        }
+
     }
 
     public partial class ImageSwapchainCreateInfoKHR : QBDisposableObject
@@ -8286,6 +9360,12 @@ namespace AdamantiumVulkan.Core
             _internal.swapchain = Swapchain;
             return _internal;
         }
+
+        public static implicit operator ImageSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR i)
+        {
+            return new ImageSwapchainCreateInfoKHR(i);
+        }
+
     }
 
     public partial class BindImageMemorySwapchainInfoKHR : QBDisposableObject
@@ -8315,6 +9395,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageIndex = ImageIndex;
             return _internal;
         }
+
+        public static implicit operator BindImageMemorySwapchainInfoKHR(AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR b)
+        {
+            return new BindImageMemorySwapchainInfoKHR(b);
+        }
+
     }
 
     public partial class AcquireNextImageInfoKHR : QBDisposableObject
@@ -8353,6 +9439,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceMask = DeviceMask;
             return _internal;
         }
+
+        public static implicit operator AcquireNextImageInfoKHR(AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR a)
+        {
+            return new AcquireNextImageInfoKHR(a);
+        }
+
     }
 
     public partial class DeviceGroupPresentCapabilitiesKHR : QBDisposableObject
@@ -8406,6 +9498,12 @@ namespace AdamantiumVulkan.Core
             _internal.modes = Modes;
             return _internal;
         }
+
+        public static implicit operator DeviceGroupPresentCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR d)
+        {
+            return new DeviceGroupPresentCapabilitiesKHR(d);
+        }
+
     }
 
     public partial class DeviceGroupPresentInfoKHR : QBDisposableObject
@@ -8455,6 +9553,12 @@ namespace AdamantiumVulkan.Core
             refpDeviceMasks?.Dispose();
         }
 
+
+        public static implicit operator DeviceGroupPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR d)
+        {
+            return new DeviceGroupPresentInfoKHR(d);
+        }
+
     }
 
     public partial class DeviceGroupSwapchainCreateInfoKHR : QBDisposableObject
@@ -8481,6 +9585,12 @@ namespace AdamantiumVulkan.Core
             _internal.modes = Modes;
             return _internal;
         }
+
+        public static implicit operator DeviceGroupSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR d)
+        {
+            return new DeviceGroupSwapchainCreateInfoKHR(d);
+        }
+
     }
 
     public partial class DisplayPropertiesKHR : QBDisposableObject
@@ -8539,6 +9649,12 @@ namespace AdamantiumVulkan.Core
             refdisplayName?.Dispose();
         }
 
+
+        public static implicit operator DisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR d)
+        {
+            return new DisplayPropertiesKHR(d);
+        }
+
     }
 
     public partial class DisplayModeParametersKHR
@@ -8566,6 +9682,12 @@ namespace AdamantiumVulkan.Core
             _internal.refreshRate = RefreshRate;
             return _internal;
         }
+
+        public static implicit operator DisplayModeParametersKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR d)
+        {
+            return new DisplayModeParametersKHR(d);
+        }
+
     }
 
     public partial class DisplayModePropertiesKHR
@@ -8593,6 +9715,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR d)
+        {
+            return new DisplayModePropertiesKHR(d);
+        }
+
     }
 
     public partial class DisplayModeCreateInfoKHR : QBDisposableObject
@@ -8625,6 +9753,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayModeCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR d)
+        {
+            return new DisplayModeCreateInfoKHR(d);
+        }
+
     }
 
     public partial class DisplayPlaneCapabilitiesKHR
@@ -8694,6 +9828,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayPlaneCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR d)
+        {
+            return new DisplayPlaneCapabilitiesKHR(d);
+        }
+
     }
 
     public partial class DisplayPlanePropertiesKHR
@@ -8718,6 +9858,12 @@ namespace AdamantiumVulkan.Core
             _internal.currentStackIndex = CurrentStackIndex;
             return _internal;
         }
+
+        public static implicit operator DisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR d)
+        {
+            return new DisplayPlanePropertiesKHR(d);
+        }
+
     }
 
     public partial class DisplaySurfaceCreateInfoKHR : QBDisposableObject
@@ -8768,6 +9914,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplaySurfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR d)
+        {
+            return new DisplaySurfaceCreateInfoKHR(d);
+        }
+
     }
 
     public partial class DisplayPresentInfoKHR : QBDisposableObject
@@ -8806,6 +9958,12 @@ namespace AdamantiumVulkan.Core
             _internal.persistent = System.Convert.ToUInt32(Persistent);
             return _internal;
         }
+
+        public static implicit operator DisplayPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR d)
+        {
+            return new DisplayPresentInfoKHR(d);
+        }
+
     }
 
     public partial class ImportMemoryFdInfoKHR : QBDisposableObject
@@ -8835,6 +9993,12 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
+
+        public static implicit operator ImportMemoryFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR i)
+        {
+            return new ImportMemoryFdInfoKHR(i);
+        }
+
     }
 
     public partial class MemoryFdPropertiesKHR : QBDisposableObject
@@ -8861,6 +10025,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        public static implicit operator MemoryFdPropertiesKHR(AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR m)
+        {
+            return new MemoryFdPropertiesKHR(m);
+        }
+
     }
 
     public partial class MemoryGetFdInfoKHR : QBDisposableObject
@@ -8890,6 +10060,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator MemoryGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR m)
+        {
+            return new MemoryGetFdInfoKHR(m);
+        }
+
     }
 
     public partial class ImportSemaphoreFdInfoKHR : QBDisposableObject
@@ -8925,6 +10101,12 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
+
+        public static implicit operator ImportSemaphoreFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR i)
+        {
+            return new ImportSemaphoreFdInfoKHR(i);
+        }
+
     }
 
     public partial class SemaphoreGetFdInfoKHR : QBDisposableObject
@@ -8954,6 +10136,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator SemaphoreGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR s)
+        {
+            return new SemaphoreGetFdInfoKHR(s);
+        }
+
     }
 
     public partial class PhysicalDevicePushDescriptorPropertiesKHR : QBDisposableObject
@@ -8981,6 +10169,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxPushDescriptors = MaxPushDescriptors;
             return _internal;
         }
+
+        public static implicit operator PhysicalDevicePushDescriptorPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR p)
+        {
+            return new PhysicalDevicePushDescriptorPropertiesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderFloat16Int8FeaturesKHR : QBDisposableObject
@@ -9010,6 +10204,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderInt8 = System.Convert.ToUInt32(ShaderInt8);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderFloat16Int8FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8FeaturesKHR p)
+        {
+            return new PhysicalDeviceShaderFloat16Int8FeaturesKHR(p);
+        }
+
     }
 
     public partial class RectLayerKHR
@@ -9043,6 +10243,12 @@ namespace AdamantiumVulkan.Core
             _internal.layer = Layer;
             return _internal;
         }
+
+        public static implicit operator RectLayerKHR(AdamantiumVulkan.Core.Interop.VkRectLayerKHR r)
+        {
+            return new RectLayerKHR(r);
+        }
+
     }
 
     public partial class PresentRegionKHR : QBDisposableObject
@@ -9080,6 +10286,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpRectangles?.Dispose();
+        }
+
+
+        public static implicit operator PresentRegionKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionKHR p)
+        {
+            return new PresentRegionKHR(p);
         }
 
     }
@@ -9126,6 +10338,12 @@ namespace AdamantiumVulkan.Core
             refpRegions?.Dispose();
         }
 
+
+        public static implicit operator PresentRegionsKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR p)
+        {
+            return new PresentRegionsKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceImagelessFramebufferFeaturesKHR : QBDisposableObject
@@ -9153,6 +10371,12 @@ namespace AdamantiumVulkan.Core
             _internal.imagelessFramebuffer = System.Convert.ToUInt32(ImagelessFramebuffer);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceImagelessFramebufferFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeaturesKHR p)
+        {
+            return new PhysicalDeviceImagelessFramebufferFeaturesKHR(p);
+        }
+
     }
 
     public partial class FramebufferAttachmentImageInfoKHR : QBDisposableObject
@@ -9223,6 +10447,12 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
         }
 
+
+        public static implicit operator FramebufferAttachmentImageInfoKHR(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfoKHR f)
+        {
+            return new FramebufferAttachmentImageInfoKHR(f);
+        }
+
     }
 
     public partial class FramebufferAttachmentsCreateInfoKHR : QBDisposableObject
@@ -9268,6 +10498,12 @@ namespace AdamantiumVulkan.Core
             refpAttachmentImageInfos?.Dispose();
         }
 
+
+        public static implicit operator FramebufferAttachmentsCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfoKHR f)
+        {
+            return new FramebufferAttachmentsCreateInfoKHR(f);
+        }
+
     }
 
     public partial class RenderPassAttachmentBeginInfoKHR : QBDisposableObject
@@ -9311,6 +10547,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpAttachments?.Dispose();
+        }
+
+
+        public static implicit operator RenderPassAttachmentBeginInfoKHR(AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfoKHR r)
+        {
+            return new RenderPassAttachmentBeginInfoKHR(r);
         }
 
     }
@@ -9363,6 +10605,12 @@ namespace AdamantiumVulkan.Core
             _internal.finalLayout = (uint)FinalLayout;
             return _internal;
         }
+
+        public static implicit operator AttachmentDescription2KHR(AdamantiumVulkan.Core.Interop.VkAttachmentDescription2KHR a)
+        {
+            return new AttachmentDescription2KHR(a);
+        }
+
     }
 
     public partial class AttachmentReference2KHR : QBDisposableObject
@@ -9395,6 +10643,12 @@ namespace AdamantiumVulkan.Core
             _internal.aspectMask = AspectMask;
             return _internal;
         }
+
+        public static implicit operator AttachmentReference2KHR(AdamantiumVulkan.Core.Interop.VkAttachmentReference2KHR a)
+        {
+            return new AttachmentReference2KHR(a);
+        }
+
     }
 
     public partial class SubpassDescription2KHR : QBDisposableObject
@@ -9541,6 +10795,12 @@ namespace AdamantiumVulkan.Core
             refpPreserveAttachments?.Dispose();
         }
 
+
+        public static implicit operator SubpassDescription2KHR(AdamantiumVulkan.Core.Interop.VkSubpassDescription2KHR s)
+        {
+            return new SubpassDescription2KHR(s);
+        }
+
     }
 
     public partial class SubpassDependency2KHR : QBDisposableObject
@@ -9588,6 +10848,12 @@ namespace AdamantiumVulkan.Core
             _internal.viewOffset = ViewOffset;
             return _internal;
         }
+
+        public static implicit operator SubpassDependency2KHR(AdamantiumVulkan.Core.Interop.VkSubpassDependency2KHR s)
+        {
+            return new SubpassDependency2KHR(s);
+        }
+
     }
 
     public partial class RenderPassCreateInfo2KHR : QBDisposableObject
@@ -9685,6 +10951,12 @@ namespace AdamantiumVulkan.Core
             refpCorrelatedViewMasks?.Dispose();
         }
 
+
+        public static implicit operator RenderPassCreateInfo2KHR(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2KHR r)
+        {
+            return new RenderPassCreateInfo2KHR(r);
+        }
+
     }
 
     public partial class SubpassBeginInfoKHR : QBDisposableObject
@@ -9711,6 +10983,12 @@ namespace AdamantiumVulkan.Core
             _internal.contents = (uint)Contents;
             return _internal;
         }
+
+        public static implicit operator SubpassBeginInfoKHR(AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR s)
+        {
+            return new SubpassBeginInfoKHR(s);
+        }
+
     }
 
     public partial class SubpassEndInfoKHR : QBDisposableObject
@@ -9734,6 +11012,12 @@ namespace AdamantiumVulkan.Core
             _internal.pNext = PNext;
             return _internal;
         }
+
+        public static implicit operator SubpassEndInfoKHR(AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR s)
+        {
+            return new SubpassEndInfoKHR(s);
+        }
+
     }
 
     public partial class SharedPresentSurfaceCapabilitiesKHR : QBDisposableObject
@@ -9760,6 +11044,12 @@ namespace AdamantiumVulkan.Core
             _internal.sharedPresentSupportedUsageFlags = SharedPresentSupportedUsageFlags;
             return _internal;
         }
+
+        public static implicit operator SharedPresentSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR s)
+        {
+            return new SharedPresentSurfaceCapabilitiesKHR(s);
+        }
+
     }
 
     public partial class ImportFenceFdInfoKHR : QBDisposableObject
@@ -9795,6 +11085,12 @@ namespace AdamantiumVulkan.Core
             _internal.fd = Fd;
             return _internal;
         }
+
+        public static implicit operator ImportFenceFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR i)
+        {
+            return new ImportFenceFdInfoKHR(i);
+        }
+
     }
 
     public partial class FenceGetFdInfoKHR : QBDisposableObject
@@ -9824,6 +11120,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleType = (uint)HandleType;
             return _internal;
         }
+
+        public static implicit operator FenceGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR f)
+        {
+            return new FenceGetFdInfoKHR(f);
+        }
+
     }
 
     public partial class PhysicalDeviceSurfaceInfo2KHR : QBDisposableObject
@@ -9850,6 +11152,12 @@ namespace AdamantiumVulkan.Core
             _internal.surface = Surface;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSurfaceInfo2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR p)
+        {
+            return new PhysicalDeviceSurfaceInfo2KHR(p);
+        }
+
     }
 
     public partial class SurfaceCapabilities2KHR : QBDisposableObject
@@ -9879,6 +11187,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator SurfaceCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR s)
+        {
+            return new SurfaceCapabilities2KHR(s);
+        }
+
     }
 
     public partial class SurfaceFormat2KHR : QBDisposableObject
@@ -9908,6 +11222,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator SurfaceFormat2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR s)
+        {
+            return new SurfaceFormat2KHR(s);
+        }
+
     }
 
     public partial class DisplayProperties2KHR : QBDisposableObject
@@ -9937,6 +11257,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR d)
+        {
+            return new DisplayProperties2KHR(d);
+        }
+
     }
 
     public partial class DisplayPlaneProperties2KHR : QBDisposableObject
@@ -9966,6 +11292,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR d)
+        {
+            return new DisplayPlaneProperties2KHR(d);
+        }
+
     }
 
     public partial class DisplayModeProperties2KHR : QBDisposableObject
@@ -9995,6 +11327,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR d)
+        {
+            return new DisplayModeProperties2KHR(d);
+        }
+
     }
 
     public partial class DisplayPlaneInfo2KHR : QBDisposableObject
@@ -10024,6 +11362,12 @@ namespace AdamantiumVulkan.Core
             _internal.planeIndex = PlaneIndex;
             return _internal;
         }
+
+        public static implicit operator DisplayPlaneInfo2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR d)
+        {
+            return new DisplayPlaneInfo2KHR(d);
+        }
+
     }
 
     public partial class DisplayPlaneCapabilities2KHR : QBDisposableObject
@@ -10053,6 +11397,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator DisplayPlaneCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR d)
+        {
+            return new DisplayPlaneCapabilities2KHR(d);
+        }
+
     }
 
     public partial class ImageFormatListCreateInfoKHR : QBDisposableObject
@@ -10107,6 +11457,12 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
         }
 
+
+        public static implicit operator ImageFormatListCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfoKHR i)
+        {
+            return new ImageFormatListCreateInfoKHR(i);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR : QBDisposableObject
@@ -10134,6 +11490,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderSubgroupExtendedTypes = System.Convert.ToUInt32(ShaderSubgroupExtendedTypes);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR p)
+        {
+            return new PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDevice8BitStorageFeaturesKHR : QBDisposableObject
@@ -10166,6 +11528,12 @@ namespace AdamantiumVulkan.Core
             _internal.storagePushConstant8 = System.Convert.ToUInt32(StoragePushConstant8);
             return _internal;
         }
+
+        public static implicit operator PhysicalDevice8BitStorageFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeaturesKHR p)
+        {
+            return new PhysicalDevice8BitStorageFeaturesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderAtomicInt64FeaturesKHR : QBDisposableObject
@@ -10195,6 +11563,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderSharedInt64Atomics = System.Convert.ToUInt32(ShaderSharedInt64Atomics);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderAtomicInt64FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64FeaturesKHR p)
+        {
+            return new PhysicalDeviceShaderAtomicInt64FeaturesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderClockFeaturesKHR : QBDisposableObject
@@ -10225,6 +11599,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderDeviceClock = System.Convert.ToUInt32(ShaderDeviceClock);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderClockFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR p)
+        {
+            return new PhysicalDeviceShaderClockFeaturesKHR(p);
+        }
+
     }
 
     public partial class ConformanceVersionKHR
@@ -10255,6 +11635,12 @@ namespace AdamantiumVulkan.Core
             _internal.patch = Patch;
             return _internal;
         }
+
+        public static implicit operator ConformanceVersionKHR(AdamantiumVulkan.Core.Interop.VkConformanceVersionKHR c)
+        {
+            return new ConformanceVersionKHR(c);
+        }
+
     }
 
     public partial class PhysicalDeviceDriverPropertiesKHR : QBDisposableObject
@@ -10341,6 +11727,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDriverPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverPropertiesKHR p)
+        {
+            return new PhysicalDeviceDriverPropertiesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceFloatControlsPropertiesKHR : QBDisposableObject
@@ -10415,6 +11807,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderRoundingModeRTZFloat64 = System.Convert.ToUInt32(ShaderRoundingModeRTZFloat64);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFloatControlsPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsPropertiesKHR p)
+        {
+            return new PhysicalDeviceFloatControlsPropertiesKHR(p);
+        }
+
     }
 
     public partial class SubpassDescriptionDepthStencilResolveKHR : QBDisposableObject
@@ -10462,6 +11860,12 @@ namespace AdamantiumVulkan.Core
             refpDepthStencilResolveAttachment?.Dispose();
         }
 
+
+        public static implicit operator SubpassDescriptionDepthStencilResolveKHR(AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolveKHR s)
+        {
+            return new SubpassDescriptionDepthStencilResolveKHR(s);
+        }
+
     }
 
     public partial class PhysicalDeviceDepthStencilResolvePropertiesKHR : QBDisposableObject
@@ -10497,6 +11901,12 @@ namespace AdamantiumVulkan.Core
             _internal.independentResolve = System.Convert.ToUInt32(IndependentResolve);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDepthStencilResolvePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolvePropertiesKHR p)
+        {
+            return new PhysicalDeviceDepthStencilResolvePropertiesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceTimelineSemaphoreFeaturesKHR : QBDisposableObject
@@ -10524,6 +11934,12 @@ namespace AdamantiumVulkan.Core
             _internal.timelineSemaphore = System.Convert.ToUInt32(TimelineSemaphore);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTimelineSemaphoreFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeaturesKHR p)
+        {
+            return new PhysicalDeviceTimelineSemaphoreFeaturesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDeviceTimelineSemaphorePropertiesKHR : QBDisposableObject
@@ -10551,6 +11967,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTimelineSemaphorePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphorePropertiesKHR p)
+        {
+            return new PhysicalDeviceTimelineSemaphorePropertiesKHR(p);
+        }
+
     }
 
     public partial class SemaphoreTypeCreateInfoKHR : QBDisposableObject
@@ -10581,6 +12003,12 @@ namespace AdamantiumVulkan.Core
             _internal.initialValue = InitialValue;
             return _internal;
         }
+
+        public static implicit operator SemaphoreTypeCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfoKHR s)
+        {
+            return new SemaphoreTypeCreateInfoKHR(s);
+        }
+
     }
 
     public partial class TimelineSemaphoreSubmitInfoKHR : QBDisposableObject
@@ -10646,6 +12074,12 @@ namespace AdamantiumVulkan.Core
             refpSignalSemaphoreValues?.Dispose();
         }
 
+
+        public static implicit operator TimelineSemaphoreSubmitInfoKHR(AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfoKHR t)
+        {
+            return new TimelineSemaphoreSubmitInfoKHR(t);
+        }
+
     }
 
     public partial class SemaphoreWaitInfoKHR : QBDisposableObject
@@ -10709,6 +12143,12 @@ namespace AdamantiumVulkan.Core
             refpValues?.Dispose();
         }
 
+
+        public static implicit operator SemaphoreWaitInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR s)
+        {
+            return new SemaphoreWaitInfoKHR(s);
+        }
+
     }
 
     public partial class SemaphoreSignalInfoKHR : QBDisposableObject
@@ -10739,6 +12179,12 @@ namespace AdamantiumVulkan.Core
             _internal.value = Value;
             return _internal;
         }
+
+        public static implicit operator SemaphoreSignalInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR s)
+        {
+            return new SemaphoreSignalInfoKHR(s);
+        }
+
     }
 
     public partial class PhysicalDeviceVulkanMemoryModelFeaturesKHR : QBDisposableObject
@@ -10771,6 +12217,12 @@ namespace AdamantiumVulkan.Core
             _internal.vulkanMemoryModelAvailabilityVisibilityChains = System.Convert.ToUInt32(VulkanMemoryModelAvailabilityVisibilityChains);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceVulkanMemoryModelFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeaturesKHR p)
+        {
+            return new PhysicalDeviceVulkanMemoryModelFeaturesKHR(p);
+        }
+
     }
 
     public partial class SurfaceProtectedCapabilitiesKHR : QBDisposableObject
@@ -10798,6 +12250,12 @@ namespace AdamantiumVulkan.Core
             _internal.supportsProtected = System.Convert.ToUInt32(SupportsProtected);
             return _internal;
         }
+
+        public static implicit operator SurfaceProtectedCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR s)
+        {
+            return new SurfaceProtectedCapabilitiesKHR(s);
+        }
+
     }
 
     public partial class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR : QBDisposableObject
@@ -10825,6 +12283,12 @@ namespace AdamantiumVulkan.Core
             _internal.uniformBufferStandardLayout = System.Convert.ToUInt32(UniformBufferStandardLayout);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR p)
+        {
+            return new PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR(p);
+        }
+
     }
 
     public partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKHR : QBDisposableObject
@@ -10852,6 +12316,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipelineExecutableInfo = System.Convert.ToUInt32(PipelineExecutableInfo);
             return _internal;
         }
+
+        public static implicit operator PhysicalDevicePipelineExecutablePropertiesFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR p)
+        {
+            return new PhysicalDevicePipelineExecutablePropertiesFeaturesKHR(p);
+        }
+
     }
 
     public partial class PipelineInfoKHR : QBDisposableObject
@@ -10879,6 +12349,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipeline = Pipeline;
             return _internal;
         }
+
+        public static implicit operator PipelineInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR p)
+        {
+            return new PipelineInfoKHR(p);
+        }
+
     }
 
     public partial class PipelineExecutablePropertiesKHR : QBDisposableObject
@@ -10963,6 +12439,12 @@ namespace AdamantiumVulkan.Core
             _internal.subgroupSize = SubgroupSize;
             return _internal;
         }
+
+        public static implicit operator PipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR p)
+        {
+            return new PipelineExecutablePropertiesKHR(p);
+        }
+
     }
 
     public partial class PipelineExecutableInfoKHR : QBDisposableObject
@@ -10993,6 +12475,12 @@ namespace AdamantiumVulkan.Core
             _internal.executableIndex = ExecutableIndex;
             return _internal;
         }
+
+        public static implicit operator PipelineExecutableInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR p)
+        {
+            return new PipelineExecutableInfoKHR(p);
+        }
+
     }
 
     public partial class PipelineExecutableStatisticKHR : QBDisposableObject
@@ -11080,6 +12568,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PipelineExecutableStatisticKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR p)
+        {
+            return new PipelineExecutableStatisticKHR(p);
+        }
+
     }
 
     public partial class PipelineExecutableInternalRepresentationKHR : QBDisposableObject
@@ -11167,6 +12661,12 @@ namespace AdamantiumVulkan.Core
             _internal.pData = PData;
             return _internal;
         }
+
+        public static implicit operator PipelineExecutableInternalRepresentationKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR p)
+        {
+            return new PipelineExecutableInternalRepresentationKHR(p);
+        }
+
     }
 
     public partial class DebugReportCallbackCreateInfoEXT : QBDisposableObject
@@ -11199,6 +12699,12 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
+
+        public static implicit operator DebugReportCallbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT d)
+        {
+            return new DebugReportCallbackCreateInfoEXT(d);
+        }
+
     }
 
     public partial class PipelineRasterizationStateRasterizationOrderAMD : QBDisposableObject
@@ -11225,6 +12731,12 @@ namespace AdamantiumVulkan.Core
             _internal.rasterizationOrder = (uint)RasterizationOrder;
             return _internal;
         }
+
+        public static implicit operator PipelineRasterizationStateRasterizationOrderAMD(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD p)
+        {
+            return new PipelineRasterizationStateRasterizationOrderAMD(p);
+        }
+
     }
 
     public partial class DebugMarkerObjectNameInfoEXT : QBDisposableObject
@@ -11270,6 +12782,12 @@ namespace AdamantiumVulkan.Core
             refpObjectName?.Dispose();
         }
 
+
+        public static implicit operator DebugMarkerObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT d)
+        {
+            return new DebugMarkerObjectNameInfoEXT(d);
+        }
+
     }
 
     public partial class DebugMarkerObjectTagInfoEXT : QBDisposableObject
@@ -11308,6 +12826,12 @@ namespace AdamantiumVulkan.Core
             _internal.pTag = PTag;
             return _internal;
         }
+
+        public static implicit operator DebugMarkerObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT d)
+        {
+            return new DebugMarkerObjectTagInfoEXT(d);
+        }
+
     }
 
     public partial class DebugMarkerMarkerInfoEXT : QBDisposableObject
@@ -11374,6 +12898,12 @@ namespace AdamantiumVulkan.Core
             refpMarkerName?.Dispose();
         }
 
+
+        public static implicit operator DebugMarkerMarkerInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT d)
+        {
+            return new DebugMarkerMarkerInfoEXT(d);
+        }
+
     }
 
     public partial class DedicatedAllocationImageCreateInfoNV : QBDisposableObject
@@ -11400,6 +12930,12 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocation = System.Convert.ToUInt32(DedicatedAllocation);
             return _internal;
         }
+
+        public static implicit operator DedicatedAllocationImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV d)
+        {
+            return new DedicatedAllocationImageCreateInfoNV(d);
+        }
+
     }
 
     public partial class DedicatedAllocationBufferCreateInfoNV : QBDisposableObject
@@ -11426,6 +12962,12 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocation = System.Convert.ToUInt32(DedicatedAllocation);
             return _internal;
         }
+
+        public static implicit operator DedicatedAllocationBufferCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV d)
+        {
+            return new DedicatedAllocationBufferCreateInfoNV(d);
+        }
+
     }
 
     public partial class DedicatedAllocationMemoryAllocateInfoNV : QBDisposableObject
@@ -11455,6 +12997,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        public static implicit operator DedicatedAllocationMemoryAllocateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationMemoryAllocateInfoNV d)
+        {
+            return new DedicatedAllocationMemoryAllocateInfoNV(d);
+        }
+
     }
 
     public partial class PhysicalDeviceTransformFeedbackFeaturesEXT : QBDisposableObject
@@ -11484,6 +13032,12 @@ namespace AdamantiumVulkan.Core
             _internal.geometryStreams = System.Convert.ToUInt32(GeometryStreams);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTransformFeedbackFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT p)
+        {
+            return new PhysicalDeviceTransformFeedbackFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceTransformFeedbackPropertiesEXT : QBDisposableObject
@@ -11537,6 +13091,12 @@ namespace AdamantiumVulkan.Core
             _internal.transformFeedbackDraw = System.Convert.ToUInt32(TransformFeedbackDraw);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTransformFeedbackPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT p)
+        {
+            return new PhysicalDeviceTransformFeedbackPropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineRasterizationStateStreamCreateInfoEXT : QBDisposableObject
@@ -11566,6 +13126,12 @@ namespace AdamantiumVulkan.Core
             _internal.rasterizationStream = RasterizationStream;
             return _internal;
         }
+
+        public static implicit operator PipelineRasterizationStateStreamCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT p)
+        {
+            return new PipelineRasterizationStateStreamCreateInfoEXT(p);
+        }
+
     }
 
     public partial class ImageViewHandleInfoNVX : QBDisposableObject
@@ -11599,6 +13165,12 @@ namespace AdamantiumVulkan.Core
             _internal.sampler = Sampler;
             return _internal;
         }
+
+        public static implicit operator ImageViewHandleInfoNVX(AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX i)
+        {
+            return new ImageViewHandleInfoNVX(i);
+        }
+
     }
 
     public partial class TextureLODGatherFormatPropertiesAMD : QBDisposableObject
@@ -11625,6 +13197,12 @@ namespace AdamantiumVulkan.Core
             _internal.supportsTextureGatherLODBiasAMD = System.Convert.ToUInt32(SupportsTextureGatherLODBiasAMD);
             return _internal;
         }
+
+        public static implicit operator TextureLODGatherFormatPropertiesAMD(AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD t)
+        {
+            return new TextureLODGatherFormatPropertiesAMD(t);
+        }
+
     }
 
     public partial class ShaderResourceUsageAMD
@@ -11658,6 +13236,12 @@ namespace AdamantiumVulkan.Core
             _internal.scratchMemUsageInBytes = ScratchMemUsageInBytes;
             return _internal;
         }
+
+        public static implicit operator ShaderResourceUsageAMD(AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD s)
+        {
+            return new ShaderResourceUsageAMD(s);
+        }
+
     }
 
     public partial class ShaderStatisticsInfoAMD
@@ -11724,6 +13308,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator ShaderStatisticsInfoAMD(AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD s)
+        {
+            return new ShaderStatisticsInfoAMD(s);
+        }
+
     }
 
     public partial class PhysicalDeviceCornerSampledImageFeaturesNV : QBDisposableObject
@@ -11750,6 +13340,12 @@ namespace AdamantiumVulkan.Core
             _internal.cornerSampledImage = System.Convert.ToUInt32(CornerSampledImage);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceCornerSampledImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV p)
+        {
+            return new PhysicalDeviceCornerSampledImageFeaturesNV(p);
+        }
+
     }
 
     public partial class ExternalImageFormatPropertiesNV
@@ -11783,6 +13379,12 @@ namespace AdamantiumVulkan.Core
             _internal.compatibleHandleTypes = CompatibleHandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExternalImageFormatPropertiesNV(AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV e)
+        {
+            return new ExternalImageFormatPropertiesNV(e);
+        }
+
     }
 
     public partial class ExternalMemoryImageCreateInfoNV : QBDisposableObject
@@ -11809,6 +13411,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExternalMemoryImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV e)
+        {
+            return new ExternalMemoryImageCreateInfoNV(e);
+        }
+
     }
 
     public partial class ExportMemoryAllocateInfoNV : QBDisposableObject
@@ -11835,6 +13443,12 @@ namespace AdamantiumVulkan.Core
             _internal.handleTypes = HandleTypes;
             return _internal;
         }
+
+        public static implicit operator ExportMemoryAllocateInfoNV(AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV e)
+        {
+            return new ExportMemoryAllocateInfoNV(e);
+        }
+
     }
 
     public partial class ValidationFlagsEXT : QBDisposableObject
@@ -11889,6 +13503,12 @@ namespace AdamantiumVulkan.Core
             refpDisabledValidationChecks?.Dispose();
         }
 
+
+        public static implicit operator ValidationFlagsEXT(AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT v)
+        {
+            return new ValidationFlagsEXT(v);
+        }
+
     }
 
     public partial class PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT : QBDisposableObject
@@ -11916,6 +13536,12 @@ namespace AdamantiumVulkan.Core
             _internal.textureCompressionASTC_HDR = System.Convert.ToUInt32(TextureCompressionASTC_HDR);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT p)
+        {
+            return new PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT(p);
+        }
+
     }
 
     public partial class ImageViewASTCDecodeModeEXT : QBDisposableObject
@@ -11942,6 +13568,12 @@ namespace AdamantiumVulkan.Core
             _internal.decodeMode = (uint)DecodeMode;
             return _internal;
         }
+
+        public static implicit operator ImageViewASTCDecodeModeEXT(AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT i)
+        {
+            return new ImageViewASTCDecodeModeEXT(i);
+        }
+
     }
 
     public partial class PhysicalDeviceASTCDecodeFeaturesEXT : QBDisposableObject
@@ -11968,6 +13600,12 @@ namespace AdamantiumVulkan.Core
             _internal.decodeModeSharedExponent = System.Convert.ToUInt32(DecodeModeSharedExponent);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceASTCDecodeFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT p)
+        {
+            return new PhysicalDeviceASTCDecodeFeaturesEXT(p);
+        }
+
     }
 
     public partial class ConditionalRenderingBeginInfoEXT : QBDisposableObject
@@ -12000,6 +13638,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator ConditionalRenderingBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT c)
+        {
+            return new ConditionalRenderingBeginInfoEXT(c);
+        }
+
     }
 
     public partial class PhysicalDeviceConditionalRenderingFeaturesEXT : QBDisposableObject
@@ -12029,6 +13673,12 @@ namespace AdamantiumVulkan.Core
             _internal.inheritedConditionalRendering = System.Convert.ToUInt32(InheritedConditionalRendering);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceConditionalRenderingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT p)
+        {
+            return new PhysicalDeviceConditionalRenderingFeaturesEXT(p);
+        }
+
     }
 
     public partial class CommandBufferInheritanceConditionalRenderingInfoEXT : QBDisposableObject
@@ -12055,6 +13705,12 @@ namespace AdamantiumVulkan.Core
             _internal.conditionalRenderingEnable = System.Convert.ToUInt32(ConditionalRenderingEnable);
             return _internal;
         }
+
+        public static implicit operator CommandBufferInheritanceConditionalRenderingInfoEXT(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT c)
+        {
+            return new CommandBufferInheritanceConditionalRenderingInfoEXT(c);
+        }
+
     }
 
     public partial class DeviceGeneratedCommandsFeaturesNVX : QBDisposableObject
@@ -12081,6 +13737,12 @@ namespace AdamantiumVulkan.Core
             _internal.computeBindingPointSupport = System.Convert.ToUInt32(ComputeBindingPointSupport);
             return _internal;
         }
+
+        public static implicit operator DeviceGeneratedCommandsFeaturesNVX(AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX d)
+        {
+            return new DeviceGeneratedCommandsFeaturesNVX(d);
+        }
+
     }
 
     public partial class DeviceGeneratedCommandsLimitsNVX : QBDisposableObject
@@ -12119,6 +13781,12 @@ namespace AdamantiumVulkan.Core
             _internal.minCommandsTokenBufferOffsetAlignment = MinCommandsTokenBufferOffsetAlignment;
             return _internal;
         }
+
+        public static implicit operator DeviceGeneratedCommandsLimitsNVX(AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsLimitsNVX d)
+        {
+            return new DeviceGeneratedCommandsLimitsNVX(d);
+        }
+
     }
 
     public partial class IndirectCommandsTokenNVX
@@ -12146,6 +13814,12 @@ namespace AdamantiumVulkan.Core
             _internal.offset = Offset;
             return _internal;
         }
+
+        public static implicit operator IndirectCommandsTokenNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsTokenNVX i)
+        {
+            return new IndirectCommandsTokenNVX(i);
+        }
+
     }
 
     public partial class IndirectCommandsLayoutTokenNVX
@@ -12176,6 +13850,12 @@ namespace AdamantiumVulkan.Core
             _internal.divisor = Divisor;
             return _internal;
         }
+
+        public static implicit operator IndirectCommandsLayoutTokenNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNVX i)
+        {
+            return new IndirectCommandsLayoutTokenNVX(i);
+        }
+
     }
 
     public partial class IndirectCommandsLayoutCreateInfoNVX : QBDisposableObject
@@ -12224,6 +13904,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpTokens?.Dispose();
+        }
+
+
+        public static implicit operator IndirectCommandsLayoutCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX i)
+        {
+            return new IndirectCommandsLayoutCreateInfoNVX(i);
         }
 
     }
@@ -12294,6 +13980,12 @@ namespace AdamantiumVulkan.Core
             refpIndirectCommandsTokens?.Dispose();
         }
 
+
+        public static implicit operator ProcessCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX p)
+        {
+            return new ProcessCommandsInfoNVX(p);
+        }
+
     }
 
     public partial class ReserveSpaceForCommandsInfoNVX : QBDisposableObject
@@ -12326,6 +14018,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxSequencesCount = MaxSequencesCount;
             return _internal;
         }
+
+        public static implicit operator ReserveSpaceForCommandsInfoNVX(AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX r)
+        {
+            return new ReserveSpaceForCommandsInfoNVX(r);
+        }
+
     }
 
     public partial class ObjectTableCreateInfoNVX : QBDisposableObject
@@ -12431,6 +14129,12 @@ namespace AdamantiumVulkan.Core
             refpObjectEntryUsageFlags?.Dispose();
         }
 
+
+        public static implicit operator ObjectTableCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkObjectTableCreateInfoNVX o)
+        {
+            return new ObjectTableCreateInfoNVX(o);
+        }
+
     }
 
     public partial class ObjectTableEntryNVX
@@ -12455,6 +14159,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator ObjectTableEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableEntryNVX o)
+        {
+            return new ObjectTableEntryNVX(o);
+        }
+
     }
 
     public partial class ObjectTablePipelineEntryNVX
@@ -12482,6 +14192,12 @@ namespace AdamantiumVulkan.Core
             _internal.pipeline = Pipeline;
             return _internal;
         }
+
+        public static implicit operator ObjectTablePipelineEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTablePipelineEntryNVX o)
+        {
+            return new ObjectTablePipelineEntryNVX(o);
+        }
+
     }
 
     public partial class ObjectTableDescriptorSetEntryNVX
@@ -12512,6 +14228,12 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorSet = DescriptorSet;
             return _internal;
         }
+
+        public static implicit operator ObjectTableDescriptorSetEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableDescriptorSetEntryNVX o)
+        {
+            return new ObjectTableDescriptorSetEntryNVX(o);
+        }
+
     }
 
     public partial class ObjectTableVertexBufferEntryNVX
@@ -12539,6 +14261,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        public static implicit operator ObjectTableVertexBufferEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableVertexBufferEntryNVX o)
+        {
+            return new ObjectTableVertexBufferEntryNVX(o);
+        }
+
     }
 
     public partial class ObjectTableIndexBufferEntryNVX
@@ -12569,6 +14297,12 @@ namespace AdamantiumVulkan.Core
             _internal.indexType = (uint)IndexType;
             return _internal;
         }
+
+        public static implicit operator ObjectTableIndexBufferEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTableIndexBufferEntryNVX o)
+        {
+            return new ObjectTableIndexBufferEntryNVX(o);
+        }
+
     }
 
     public partial class ObjectTablePushConstantEntryNVX
@@ -12599,6 +14333,12 @@ namespace AdamantiumVulkan.Core
             _internal.stageFlags = StageFlags;
             return _internal;
         }
+
+        public static implicit operator ObjectTablePushConstantEntryNVX(AdamantiumVulkan.Core.Interop.VkObjectTablePushConstantEntryNVX o)
+        {
+            return new ObjectTablePushConstantEntryNVX(o);
+        }
+
     }
 
     public partial class ViewportWScalingNV
@@ -12623,6 +14363,12 @@ namespace AdamantiumVulkan.Core
             _internal.ycoeff = Ycoeff;
             return _internal;
         }
+
+        public static implicit operator ViewportWScalingNV(AdamantiumVulkan.Core.Interop.VkViewportWScalingNV v)
+        {
+            return new ViewportWScalingNV(v);
+        }
+
     }
 
     public partial class PipelineViewportWScalingStateCreateInfoNV : QBDisposableObject
@@ -12668,6 +14414,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpViewportWScalings?.Dispose();
+        }
+
+
+        public static implicit operator PipelineViewportWScalingStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV p)
+        {
+            return new PipelineViewportWScalingStateCreateInfoNV(p);
         }
 
     }
@@ -12735,6 +14487,12 @@ namespace AdamantiumVulkan.Core
             _internal.supportedSurfaceCounters = SupportedSurfaceCounters;
             return _internal;
         }
+
+        public static implicit operator SurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT s)
+        {
+            return new SurfaceCapabilities2EXT(s);
+        }
+
     }
 
     public partial class DisplayPowerInfoEXT : QBDisposableObject
@@ -12761,6 +14519,12 @@ namespace AdamantiumVulkan.Core
             _internal.powerState = (uint)PowerState;
             return _internal;
         }
+
+        public static implicit operator DisplayPowerInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT d)
+        {
+            return new DisplayPowerInfoEXT(d);
+        }
+
     }
 
     public partial class DeviceEventInfoEXT : QBDisposableObject
@@ -12787,6 +14551,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceEvent = (uint)DeviceEvent;
             return _internal;
         }
+
+        public static implicit operator DeviceEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT d)
+        {
+            return new DeviceEventInfoEXT(d);
+        }
+
     }
 
     public partial class DisplayEventInfoEXT : QBDisposableObject
@@ -12814,6 +14584,12 @@ namespace AdamantiumVulkan.Core
             _internal.displayEvent = (uint)DisplayEvent;
             return _internal;
         }
+
+        public static implicit operator DisplayEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT d)
+        {
+            return new DisplayEventInfoEXT(d);
+        }
+
     }
 
     public partial class SwapchainCounterCreateInfoEXT : QBDisposableObject
@@ -12840,6 +14616,12 @@ namespace AdamantiumVulkan.Core
             _internal.surfaceCounters = SurfaceCounters;
             return _internal;
         }
+
+        public static implicit operator SwapchainCounterCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT s)
+        {
+            return new SwapchainCounterCreateInfoEXT(s);
+        }
+
     }
 
     public partial class RefreshCycleDurationGOOGLE
@@ -12861,6 +14643,12 @@ namespace AdamantiumVulkan.Core
             _internal.refreshDuration = RefreshDuration;
             return _internal;
         }
+
+        public static implicit operator RefreshCycleDurationGOOGLE(AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE r)
+        {
+            return new RefreshCycleDurationGOOGLE(r);
+        }
+
     }
 
     public partial class PastPresentationTimingGOOGLE
@@ -12894,6 +14682,12 @@ namespace AdamantiumVulkan.Core
             _internal.presentMargin = PresentMargin;
             return _internal;
         }
+
+        public static implicit operator PastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE p)
+        {
+            return new PastPresentationTimingGOOGLE(p);
+        }
+
     }
 
     public partial class PresentTimeGOOGLE
@@ -12918,6 +14712,12 @@ namespace AdamantiumVulkan.Core
             _internal.desiredPresentTime = DesiredPresentTime;
             return _internal;
         }
+
+        public static implicit operator PresentTimeGOOGLE(AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE p)
+        {
+            return new PresentTimeGOOGLE(p);
+        }
+
     }
 
     public partial class PresentTimesInfoGOOGLE : QBDisposableObject
@@ -12962,6 +14762,12 @@ namespace AdamantiumVulkan.Core
             refpTimes?.Dispose();
         }
 
+
+        public static implicit operator PresentTimesInfoGOOGLE(AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE p)
+        {
+            return new PresentTimesInfoGOOGLE(p);
+        }
+
     }
 
     public partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX : QBDisposableObject
@@ -12988,6 +14794,12 @@ namespace AdamantiumVulkan.Core
             _internal.perViewPositionAllComponents = System.Convert.ToUInt32(PerViewPositionAllComponents);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX p)
+        {
+            return new PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(p);
+        }
+
     }
 
     public partial class ViewportSwizzleNV
@@ -13018,6 +14830,12 @@ namespace AdamantiumVulkan.Core
             _internal.w = (uint)W;
             return _internal;
         }
+
+        public static implicit operator ViewportSwizzleNV(AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV v)
+        {
+            return new ViewportSwizzleNV(v);
+        }
+
     }
 
     public partial class PipelineViewportSwizzleStateCreateInfoNV : QBDisposableObject
@@ -13065,6 +14883,12 @@ namespace AdamantiumVulkan.Core
             refpViewportSwizzles?.Dispose();
         }
 
+
+        public static implicit operator PipelineViewportSwizzleStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV p)
+        {
+            return new PipelineViewportSwizzleStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceDiscardRectanglePropertiesEXT : QBDisposableObject
@@ -13091,6 +14915,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDiscardRectangles = MaxDiscardRectangles;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDiscardRectanglePropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT p)
+        {
+            return new PhysicalDeviceDiscardRectanglePropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineDiscardRectangleStateCreateInfoEXT : QBDisposableObject
@@ -13139,6 +14969,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDiscardRectangles?.Dispose();
+        }
+
+
+        public static implicit operator PipelineDiscardRectangleStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT p)
+        {
+            return new PipelineDiscardRectangleStateCreateInfoEXT(p);
         }
 
     }
@@ -13191,6 +15027,12 @@ namespace AdamantiumVulkan.Core
             _internal.conservativeRasterizationPostDepthCoverage = System.Convert.ToUInt32(ConservativeRasterizationPostDepthCoverage);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceConservativeRasterizationPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT p)
+        {
+            return new PhysicalDeviceConservativeRasterizationPropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineRasterizationConservativeStateCreateInfoEXT : QBDisposableObject
@@ -13223,6 +15065,12 @@ namespace AdamantiumVulkan.Core
             _internal.extraPrimitiveOverestimationSize = ExtraPrimitiveOverestimationSize;
             return _internal;
         }
+
+        public static implicit operator PipelineRasterizationConservativeStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT p)
+        {
+            return new PipelineRasterizationConservativeStateCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceDepthClipEnableFeaturesEXT : QBDisposableObject
@@ -13249,6 +15097,12 @@ namespace AdamantiumVulkan.Core
             _internal.depthClipEnable = System.Convert.ToUInt32(DepthClipEnable);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDepthClipEnableFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT p)
+        {
+            return new PhysicalDeviceDepthClipEnableFeaturesEXT(p);
+        }
+
     }
 
     public partial class PipelineRasterizationDepthClipStateCreateInfoEXT : QBDisposableObject
@@ -13278,6 +15132,12 @@ namespace AdamantiumVulkan.Core
             _internal.depthClipEnable = System.Convert.ToUInt32(DepthClipEnable);
             return _internal;
         }
+
+        public static implicit operator PipelineRasterizationDepthClipStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT p)
+        {
+            return new PipelineRasterizationDepthClipStateCreateInfoEXT(p);
+        }
+
     }
 
     public partial class XYColorEXT
@@ -13302,6 +15162,12 @@ namespace AdamantiumVulkan.Core
             _internal.y = Y;
             return _internal;
         }
+
+        public static implicit operator XYColorEXT(AdamantiumVulkan.Core.Interop.VkXYColorEXT x)
+        {
+            return new XYColorEXT(x);
+        }
+
     }
 
     public partial class HdrMetadataEXT : QBDisposableObject
@@ -13361,6 +15227,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxFrameAverageLightLevel = MaxFrameAverageLightLevel;
             return _internal;
         }
+
+        public static implicit operator HdrMetadataEXT(AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT h)
+        {
+            return new HdrMetadataEXT(h);
+        }
+
     }
 
     public partial class DebugUtilsObjectNameInfoEXT : QBDisposableObject
@@ -13406,6 +15278,12 @@ namespace AdamantiumVulkan.Core
             refpObjectName?.Dispose();
         }
 
+
+        public static implicit operator DebugUtilsObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT d)
+        {
+            return new DebugUtilsObjectNameInfoEXT(d);
+        }
+
     }
 
     public partial class DebugUtilsObjectTagInfoEXT : QBDisposableObject
@@ -13444,6 +15322,12 @@ namespace AdamantiumVulkan.Core
             _internal.pTag = PTag;
             return _internal;
         }
+
+        public static implicit operator DebugUtilsObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT d)
+        {
+            return new DebugUtilsObjectTagInfoEXT(d);
+        }
+
     }
 
     public partial class DebugUtilsLabelEXT : QBDisposableObject
@@ -13508,6 +15392,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpLabelName?.Dispose();
+        }
+
+
+        public static implicit operator DebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT d)
+        {
+            return new DebugUtilsLabelEXT(d);
         }
 
     }
@@ -13614,6 +15504,12 @@ namespace AdamantiumVulkan.Core
             refpObjects?.Dispose();
         }
 
+
+        public static implicit operator DebugUtilsMessengerCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT d)
+        {
+            return new DebugUtilsMessengerCallbackDataEXT(d);
+        }
+
     }
 
     public partial class DebugUtilsMessengerCreateInfoEXT : QBDisposableObject
@@ -13652,6 +15548,12 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
+
+        public static implicit operator DebugUtilsMessengerCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT d)
+        {
+            return new DebugUtilsMessengerCreateInfoEXT(d);
+        }
+
     }
 
     public partial class SamplerReductionModeCreateInfoEXT : QBDisposableObject
@@ -13678,6 +15580,12 @@ namespace AdamantiumVulkan.Core
             _internal.reductionMode = (uint)ReductionMode;
             return _internal;
         }
+
+        public static implicit operator SamplerReductionModeCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfoEXT s)
+        {
+            return new SamplerReductionModeCreateInfoEXT(s);
+        }
+
     }
 
     public partial class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT : QBDisposableObject
@@ -13707,6 +15615,12 @@ namespace AdamantiumVulkan.Core
             _internal.filterMinmaxImageComponentMapping = System.Convert.ToUInt32(FilterMinmaxImageComponentMapping);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSamplerFilterMinmaxPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT p)
+        {
+            return new PhysicalDeviceSamplerFilterMinmaxPropertiesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceInlineUniformBlockFeaturesEXT : QBDisposableObject
@@ -13736,6 +15650,12 @@ namespace AdamantiumVulkan.Core
             _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingInlineUniformBlockUpdateAfterBind);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceInlineUniformBlockFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeaturesEXT p)
+        {
+            return new PhysicalDeviceInlineUniformBlockFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceInlineUniformBlockPropertiesEXT : QBDisposableObject
@@ -13774,6 +15694,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceInlineUniformBlockPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockPropertiesEXT p)
+        {
+            return new PhysicalDeviceInlineUniformBlockPropertiesEXT(p);
+        }
+
     }
 
     public partial class WriteDescriptorSetInlineUniformBlockEXT : QBDisposableObject
@@ -13803,6 +15729,12 @@ namespace AdamantiumVulkan.Core
             _internal.pData = PData;
             return _internal;
         }
+
+        public static implicit operator WriteDescriptorSetInlineUniformBlockEXT(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlockEXT w)
+        {
+            return new WriteDescriptorSetInlineUniformBlockEXT(w);
+        }
+
     }
 
     public partial class DescriptorPoolInlineUniformBlockCreateInfoEXT : QBDisposableObject
@@ -13829,6 +15761,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxInlineUniformBlockBindings = MaxInlineUniformBlockBindings;
             return _internal;
         }
+
+        public static implicit operator DescriptorPoolInlineUniformBlockCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfoEXT d)
+        {
+            return new DescriptorPoolInlineUniformBlockCreateInfoEXT(d);
+        }
+
     }
 
     public partial class SampleLocationEXT
@@ -13853,6 +15791,12 @@ namespace AdamantiumVulkan.Core
             _internal.y = Y;
             return _internal;
         }
+
+        public static implicit operator SampleLocationEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationEXT s)
+        {
+            return new SampleLocationEXT(s);
+        }
+
     }
 
     public partial class SampleLocationsInfoEXT : QBDisposableObject
@@ -13906,6 +15850,12 @@ namespace AdamantiumVulkan.Core
             refpSampleLocations?.Dispose();
         }
 
+
+        public static implicit operator SampleLocationsInfoEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT s)
+        {
+            return new SampleLocationsInfoEXT(s);
+        }
+
     }
 
     public partial class AttachmentSampleLocationsEXT
@@ -13933,6 +15883,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator AttachmentSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT a)
+        {
+            return new AttachmentSampleLocationsEXT(a);
+        }
+
     }
 
     public partial class SubpassSampleLocationsEXT
@@ -13960,6 +15916,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator SubpassSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT s)
+        {
+            return new SubpassSampleLocationsEXT(s);
+        }
+
     }
 
     public partial class RenderPassSampleLocationsBeginInfoEXT : QBDisposableObject
@@ -14020,6 +15982,12 @@ namespace AdamantiumVulkan.Core
             refpPostSubpassSampleLocations?.Dispose();
         }
 
+
+        public static implicit operator RenderPassSampleLocationsBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT r)
+        {
+            return new RenderPassSampleLocationsBeginInfoEXT(r);
+        }
+
     }
 
     public partial class PipelineSampleLocationsStateCreateInfoEXT : QBDisposableObject
@@ -14052,6 +16020,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PipelineSampleLocationsStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT p)
+        {
+            return new PipelineSampleLocationsStateCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceSampleLocationsPropertiesEXT : QBDisposableObject
@@ -14117,6 +16091,12 @@ namespace AdamantiumVulkan.Core
             _internal.variableSampleLocations = System.Convert.ToUInt32(VariableSampleLocations);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSampleLocationsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT p)
+        {
+            return new PhysicalDeviceSampleLocationsPropertiesEXT(p);
+        }
+
     }
 
     public partial class MultisamplePropertiesEXT : QBDisposableObject
@@ -14146,6 +16126,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator MultisamplePropertiesEXT(AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT m)
+        {
+            return new MultisamplePropertiesEXT(m);
+        }
+
     }
 
     public partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : QBDisposableObject
@@ -14172,6 +16158,12 @@ namespace AdamantiumVulkan.Core
             _internal.advancedBlendCoherentOperations = System.Convert.ToUInt32(AdvancedBlendCoherentOperations);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceBlendOperationAdvancedFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT p)
+        {
+            return new PhysicalDeviceBlendOperationAdvancedFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : QBDisposableObject
@@ -14213,6 +16205,12 @@ namespace AdamantiumVulkan.Core
             _internal.advancedBlendAllOperations = System.Convert.ToUInt32(AdvancedBlendAllOperations);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceBlendOperationAdvancedPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT p)
+        {
+            return new PhysicalDeviceBlendOperationAdvancedPropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineColorBlendAdvancedStateCreateInfoEXT : QBDisposableObject
@@ -14245,6 +16243,12 @@ namespace AdamantiumVulkan.Core
             _internal.blendOverlap = (uint)BlendOverlap;
             return _internal;
         }
+
+        public static implicit operator PipelineColorBlendAdvancedStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT p)
+        {
+            return new PipelineColorBlendAdvancedStateCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PipelineCoverageToColorStateCreateInfoNV : QBDisposableObject
@@ -14277,6 +16281,12 @@ namespace AdamantiumVulkan.Core
             _internal.coverageToColorLocation = CoverageToColorLocation;
             return _internal;
         }
+
+        public static implicit operator PipelineCoverageToColorStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV p)
+        {
+            return new PipelineCoverageToColorStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class PipelineCoverageModulationStateCreateInfoNV : QBDisposableObject
@@ -14332,6 +16342,12 @@ namespace AdamantiumVulkan.Core
             refpCoverageModulationTable?.Dispose();
         }
 
+
+        public static implicit operator PipelineCoverageModulationStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV p)
+        {
+            return new PipelineCoverageModulationStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : QBDisposableObject
@@ -14362,6 +16378,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderWarpsPerSM = ShaderWarpsPerSM;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderSMBuiltinsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV p)
+        {
+            return new PhysicalDeviceShaderSMBuiltinsPropertiesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderSMBuiltinsFeaturesNV : QBDisposableObject
@@ -14389,6 +16411,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderSMBuiltins = System.Convert.ToUInt32(ShaderSMBuiltins);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderSMBuiltinsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsFeaturesNV p)
+        {
+            return new PhysicalDeviceShaderSMBuiltinsFeaturesNV(p);
+        }
+
     }
 
     public partial class DrmFormatModifierPropertiesEXT
@@ -14416,6 +16444,12 @@ namespace AdamantiumVulkan.Core
             _internal.drmFormatModifierTilingFeatures = DrmFormatModifierTilingFeatures;
             return _internal;
         }
+
+        public static implicit operator DrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT d)
+        {
+            return new DrmFormatModifierPropertiesEXT(d);
+        }
+
     }
 
     public partial class DrmFormatModifierPropertiesListEXT : QBDisposableObject
@@ -14458,6 +16492,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDrmFormatModifierProperties?.Dispose();
+        }
+
+
+        public static implicit operator DrmFormatModifierPropertiesListEXT(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT d)
+        {
+            return new DrmFormatModifierPropertiesListEXT(d);
         }
 
     }
@@ -14512,6 +16552,12 @@ namespace AdamantiumVulkan.Core
             refpQueueFamilyIndices?.Dispose();
         }
 
+
+        public static implicit operator PhysicalDeviceImageDrmFormatModifierInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT p)
+        {
+            return new PhysicalDeviceImageDrmFormatModifierInfoEXT(p);
+        }
+
     }
 
     public partial class ImageDrmFormatModifierListCreateInfoEXT : QBDisposableObject
@@ -14556,6 +16602,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpDrmFormatModifiers?.Dispose();
+        }
+
+
+        public static implicit operator ImageDrmFormatModifierListCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT i)
+        {
+            return new ImageDrmFormatModifierListCreateInfoEXT(i);
         }
 
     }
@@ -14605,6 +16657,12 @@ namespace AdamantiumVulkan.Core
             refpPlaneLayouts?.Dispose();
         }
 
+
+        public static implicit operator ImageDrmFormatModifierExplicitCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT i)
+        {
+            return new ImageDrmFormatModifierExplicitCreateInfoEXT(i);
+        }
+
     }
 
     public partial class ImageDrmFormatModifierPropertiesEXT : QBDisposableObject
@@ -14631,6 +16689,12 @@ namespace AdamantiumVulkan.Core
             _internal.drmFormatModifier = DrmFormatModifier;
             return _internal;
         }
+
+        public static implicit operator ImageDrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT i)
+        {
+            return new ImageDrmFormatModifierPropertiesEXT(i);
+        }
+
     }
 
     public partial class ValidationCacheCreateInfoEXT : QBDisposableObject
@@ -14663,6 +16727,12 @@ namespace AdamantiumVulkan.Core
             _internal.pInitialData = PInitialData;
             return _internal;
         }
+
+        public static implicit operator ValidationCacheCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT v)
+        {
+            return new ValidationCacheCreateInfoEXT(v);
+        }
+
     }
 
     public partial class ShaderModuleValidationCacheCreateInfoEXT : QBDisposableObject
@@ -14689,6 +16759,12 @@ namespace AdamantiumVulkan.Core
             _internal.validationCache = ValidationCache;
             return _internal;
         }
+
+        public static implicit operator ShaderModuleValidationCacheCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT s)
+        {
+            return new ShaderModuleValidationCacheCreateInfoEXT(s);
+        }
+
     }
 
     public partial class DescriptorSetLayoutBindingFlagsCreateInfoEXT : QBDisposableObject
@@ -14733,6 +16809,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpBindingFlags?.Dispose();
+        }
+
+
+        public static implicit operator DescriptorSetLayoutBindingFlagsCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfoEXT d)
+        {
+            return new DescriptorSetLayoutBindingFlagsCreateInfoEXT(d);
         }
 
     }
@@ -14818,6 +16900,12 @@ namespace AdamantiumVulkan.Core
             _internal.runtimeDescriptorArray = System.Convert.ToUInt32(RuntimeDescriptorArray);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDescriptorIndexingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeaturesEXT p)
+        {
+            return new PhysicalDeviceDescriptorIndexingFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceDescriptorIndexingPropertiesEXT : QBDisposableObject
@@ -14910,6 +16998,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDescriptorIndexingPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingPropertiesEXT p)
+        {
+            return new PhysicalDeviceDescriptorIndexingPropertiesEXT(p);
+        }
+
     }
 
     public partial class DescriptorSetVariableDescriptorCountAllocateInfoEXT : QBDisposableObject
@@ -14956,6 +17050,12 @@ namespace AdamantiumVulkan.Core
             refpDescriptorCounts?.Dispose();
         }
 
+
+        public static implicit operator DescriptorSetVariableDescriptorCountAllocateInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfoEXT d)
+        {
+            return new DescriptorSetVariableDescriptorCountAllocateInfoEXT(d);
+        }
+
     }
 
     public partial class DescriptorSetVariableDescriptorCountLayoutSupportEXT : QBDisposableObject
@@ -14982,6 +17082,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxVariableDescriptorCount = MaxVariableDescriptorCount;
             return _internal;
         }
+
+        public static implicit operator DescriptorSetVariableDescriptorCountLayoutSupportEXT(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupportEXT d)
+        {
+            return new DescriptorSetVariableDescriptorCountLayoutSupportEXT(d);
+        }
+
     }
 
     public partial class ShadingRatePaletteNV : QBDisposableObject
@@ -15031,6 +17137,12 @@ namespace AdamantiumVulkan.Core
             refpShadingRatePaletteEntries?.Dispose();
         }
 
+
+        public static implicit operator ShadingRatePaletteNV(AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV s)
+        {
+            return new ShadingRatePaletteNV(s);
+        }
+
     }
 
     public partial class PipelineViewportShadingRateImageStateCreateInfoNV : QBDisposableObject
@@ -15078,6 +17190,12 @@ namespace AdamantiumVulkan.Core
             refpShadingRatePalettes?.Dispose();
         }
 
+
+        public static implicit operator PipelineViewportShadingRateImageStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV p)
+        {
+            return new PipelineViewportShadingRateImageStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShadingRateImageFeaturesNV : QBDisposableObject
@@ -15107,6 +17225,12 @@ namespace AdamantiumVulkan.Core
             _internal.shadingRateCoarseSampleOrder = System.Convert.ToUInt32(ShadingRateCoarseSampleOrder);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShadingRateImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV p)
+        {
+            return new PhysicalDeviceShadingRateImageFeaturesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShadingRateImagePropertiesNV : QBDisposableObject
@@ -15142,6 +17266,12 @@ namespace AdamantiumVulkan.Core
             _internal.shadingRateMaxCoarseSamples = ShadingRateMaxCoarseSamples;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShadingRateImagePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV p)
+        {
+            return new PhysicalDeviceShadingRateImagePropertiesNV(p);
+        }
+
     }
 
     public partial class CoarseSampleLocationNV
@@ -15169,6 +17299,12 @@ namespace AdamantiumVulkan.Core
             _internal.sample = Sample;
             return _internal;
         }
+
+        public static implicit operator CoarseSampleLocationNV(AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV c)
+        {
+            return new CoarseSampleLocationNV(c);
+        }
+
     }
 
     public partial class CoarseSampleOrderCustomNV : QBDisposableObject
@@ -15212,6 +17348,12 @@ namespace AdamantiumVulkan.Core
         protected override void UnmanagedDisposeOverride()
         {
             refpSampleLocations?.Dispose();
+        }
+
+
+        public static implicit operator CoarseSampleOrderCustomNV(AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV c)
+        {
+            return new CoarseSampleOrderCustomNV(c);
         }
 
     }
@@ -15261,6 +17403,12 @@ namespace AdamantiumVulkan.Core
             refpCustomSampleOrders?.Dispose();
         }
 
+
+        public static implicit operator PipelineViewportCoarseSampleOrderStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV p)
+        {
+            return new PipelineViewportCoarseSampleOrderStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class RayTracingShaderGroupCreateInfoNV : QBDisposableObject
@@ -15299,6 +17447,12 @@ namespace AdamantiumVulkan.Core
             _internal.intersectionShader = IntersectionShader;
             return _internal;
         }
+
+        public static implicit operator RayTracingShaderGroupCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV r)
+        {
+            return new RayTracingShaderGroupCreateInfoNV(r);
+        }
+
     }
 
     public partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
@@ -15374,6 +17528,12 @@ namespace AdamantiumVulkan.Core
             refpGroups?.Dispose();
         }
 
+
+        public static implicit operator RayTracingPipelineCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV r)
+        {
+            return new RayTracingPipelineCreateInfoNV(r);
+        }
+
     }
 
     public partial class GeometryTrianglesNV : QBDisposableObject
@@ -15430,6 +17590,12 @@ namespace AdamantiumVulkan.Core
             _internal.transformOffset = TransformOffset;
             return _internal;
         }
+
+        public static implicit operator GeometryTrianglesNV(AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV g)
+        {
+            return new GeometryTrianglesNV(g);
+        }
+
     }
 
     public partial class GeometryAABBNV : QBDisposableObject
@@ -15465,6 +17631,12 @@ namespace AdamantiumVulkan.Core
             _internal.offset = Offset;
             return _internal;
         }
+
+        public static implicit operator GeometryAABBNV(AdamantiumVulkan.Core.Interop.VkGeometryAABBNV g)
+        {
+            return new GeometryAABBNV(g);
+        }
+
     }
 
     public partial class GeometryDataNV
@@ -15495,6 +17667,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator GeometryDataNV(AdamantiumVulkan.Core.Interop.VkGeometryDataNV g)
+        {
+            return new GeometryDataNV(g);
+        }
+
     }
 
     public partial class GeometryNV : QBDisposableObject
@@ -15530,6 +17708,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator GeometryNV(AdamantiumVulkan.Core.Interop.VkGeometryNV g)
+        {
+            return new GeometryNV(g);
+        }
+
     }
 
     public partial class AccelerationStructureInfoNV : QBDisposableObject
@@ -15583,6 +17767,12 @@ namespace AdamantiumVulkan.Core
             refpGeometries?.Dispose();
         }
 
+
+        public static implicit operator AccelerationStructureInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV a)
+        {
+            return new AccelerationStructureInfoNV(a);
+        }
+
     }
 
     public partial class AccelerationStructureCreateInfoNV : QBDisposableObject
@@ -15615,6 +17805,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator AccelerationStructureCreateInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV a)
+        {
+            return new AccelerationStructureCreateInfoNV(a);
+        }
+
     }
 
     public partial class BindAccelerationStructureMemoryInfoNV : QBDisposableObject
@@ -15670,6 +17866,12 @@ namespace AdamantiumVulkan.Core
             refpDeviceIndices?.Dispose();
         }
 
+
+        public static implicit operator BindAccelerationStructureMemoryInfoNV(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV b)
+        {
+            return new BindAccelerationStructureMemoryInfoNV(b);
+        }
+
     }
 
     public partial class WriteDescriptorSetAccelerationStructureNV : QBDisposableObject
@@ -15714,6 +17916,12 @@ namespace AdamantiumVulkan.Core
             refpAccelerationStructures?.Dispose();
         }
 
+
+        public static implicit operator WriteDescriptorSetAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV w)
+        {
+            return new WriteDescriptorSetAccelerationStructureNV(w);
+        }
+
     }
 
     public partial class AccelerationStructureMemoryRequirementsInfoNV : QBDisposableObject
@@ -15743,6 +17951,12 @@ namespace AdamantiumVulkan.Core
             _internal.accelerationStructure = AccelerationStructure;
             return _internal;
         }
+
+        public static implicit operator AccelerationStructureMemoryRequirementsInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV a)
+        {
+            return new AccelerationStructureMemoryRequirementsInfoNV(a);
+        }
+
     }
 
     public partial class PhysicalDeviceRayTracingPropertiesNV : QBDisposableObject
@@ -15790,6 +18004,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceRayTracingPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV p)
+        {
+            return new PhysicalDeviceRayTracingPropertiesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV : QBDisposableObject
@@ -15816,6 +18036,12 @@ namespace AdamantiumVulkan.Core
             _internal.representativeFragmentTest = System.Convert.ToUInt32(RepresentativeFragmentTest);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceRepresentativeFragmentTestFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV p)
+        {
+            return new PhysicalDeviceRepresentativeFragmentTestFeaturesNV(p);
+        }
+
     }
 
     public partial class PipelineRepresentativeFragmentTestStateCreateInfoNV : QBDisposableObject
@@ -15842,6 +18068,12 @@ namespace AdamantiumVulkan.Core
             _internal.representativeFragmentTestEnable = System.Convert.ToUInt32(RepresentativeFragmentTestEnable);
             return _internal;
         }
+
+        public static implicit operator PipelineRepresentativeFragmentTestStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV p)
+        {
+            return new PipelineRepresentativeFragmentTestStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceImageViewImageFormatInfoEXT : QBDisposableObject
@@ -15868,6 +18100,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageViewType = (uint)ImageViewType;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceImageViewImageFormatInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT p)
+        {
+            return new PhysicalDeviceImageViewImageFormatInfoEXT(p);
+        }
+
     }
 
     public partial class FilterCubicImageViewImageFormatPropertiesEXT : QBDisposableObject
@@ -15897,6 +18135,12 @@ namespace AdamantiumVulkan.Core
             _internal.filterCubicMinmax = System.Convert.ToUInt32(FilterCubicMinmax);
             return _internal;
         }
+
+        public static implicit operator FilterCubicImageViewImageFormatPropertiesEXT(AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT f)
+        {
+            return new FilterCubicImageViewImageFormatPropertiesEXT(f);
+        }
+
     }
 
     public partial class DeviceQueueGlobalPriorityCreateInfoEXT : QBDisposableObject
@@ -15923,6 +18167,12 @@ namespace AdamantiumVulkan.Core
             _internal.globalPriority = (uint)GlobalPriority;
             return _internal;
         }
+
+        public static implicit operator DeviceQueueGlobalPriorityCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoEXT d)
+        {
+            return new DeviceQueueGlobalPriorityCreateInfoEXT(d);
+        }
+
     }
 
     public partial class ImportMemoryHostPointerInfoEXT : QBDisposableObject
@@ -15952,6 +18202,12 @@ namespace AdamantiumVulkan.Core
             _internal.pHostPointer = PHostPointer;
             return _internal;
         }
+
+        public static implicit operator ImportMemoryHostPointerInfoEXT(AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT i)
+        {
+            return new ImportMemoryHostPointerInfoEXT(i);
+        }
+
     }
 
     public partial class MemoryHostPointerPropertiesEXT : QBDisposableObject
@@ -15978,6 +18234,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryTypeBits = MemoryTypeBits;
             return _internal;
         }
+
+        public static implicit operator MemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT m)
+        {
+            return new MemoryHostPointerPropertiesEXT(m);
+        }
+
     }
 
     public partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : QBDisposableObject
@@ -16004,6 +18266,12 @@ namespace AdamantiumVulkan.Core
             _internal.minImportedHostPointerAlignment = MinImportedHostPointerAlignment;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceExternalMemoryHostPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT p)
+        {
+            return new PhysicalDeviceExternalMemoryHostPropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineCompilerControlCreateInfoAMD : QBDisposableObject
@@ -16031,6 +18299,12 @@ namespace AdamantiumVulkan.Core
             _internal.compilerControlFlags = CompilerControlFlags;
             return _internal;
         }
+
+        public static implicit operator PipelineCompilerControlCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD p)
+        {
+            return new PipelineCompilerControlCreateInfoAMD(p);
+        }
+
     }
 
     public partial class CalibratedTimestampInfoEXT : QBDisposableObject
@@ -16057,6 +18331,12 @@ namespace AdamantiumVulkan.Core
             _internal.timeDomain = (uint)TimeDomain;
             return _internal;
         }
+
+        public static implicit operator CalibratedTimestampInfoEXT(AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT c)
+        {
+            return new CalibratedTimestampInfoEXT(c);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderCorePropertiesAMD : QBDisposableObject
@@ -16122,6 +18402,12 @@ namespace AdamantiumVulkan.Core
             _internal.vgprAllocationGranularity = VgprAllocationGranularity;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderCorePropertiesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD p)
+        {
+            return new PhysicalDeviceShaderCorePropertiesAMD(p);
+        }
+
     }
 
     public partial class DeviceMemoryOverallocationCreateInfoAMD : QBDisposableObject
@@ -16148,6 +18434,12 @@ namespace AdamantiumVulkan.Core
             _internal.overallocationBehavior = (uint)OverallocationBehavior;
             return _internal;
         }
+
+        public static implicit operator DeviceMemoryOverallocationCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD d)
+        {
+            return new DeviceMemoryOverallocationCreateInfoAMD(d);
+        }
+
     }
 
     public partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : QBDisposableObject
@@ -16174,6 +18466,12 @@ namespace AdamantiumVulkan.Core
             _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceVertexAttributeDivisorPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT p)
+        {
+            return new PhysicalDeviceVertexAttributeDivisorPropertiesEXT(p);
+        }
+
     }
 
     public partial class VertexInputBindingDivisorDescriptionEXT
@@ -16198,6 +18496,12 @@ namespace AdamantiumVulkan.Core
             _internal.divisor = Divisor;
             return _internal;
         }
+
+        public static implicit operator VertexInputBindingDivisorDescriptionEXT(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT v)
+        {
+            return new VertexInputBindingDivisorDescriptionEXT(v);
+        }
+
     }
 
     public partial class PipelineVertexInputDivisorStateCreateInfoEXT : QBDisposableObject
@@ -16242,6 +18546,12 @@ namespace AdamantiumVulkan.Core
             refpVertexBindingDivisors?.Dispose();
         }
 
+
+        public static implicit operator PipelineVertexInputDivisorStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoEXT p)
+        {
+            return new PipelineVertexInputDivisorStateCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceVertexAttributeDivisorFeaturesEXT : QBDisposableObject
@@ -16271,6 +18581,12 @@ namespace AdamantiumVulkan.Core
             _internal.vertexAttributeInstanceRateZeroDivisor = System.Convert.ToUInt32(VertexAttributeInstanceRateZeroDivisor);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceVertexAttributeDivisorFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT p)
+        {
+            return new PhysicalDeviceVertexAttributeDivisorFeaturesEXT(p);
+        }
+
     }
 
     public partial class PipelineCreationFeedbackEXT
@@ -16295,6 +18611,12 @@ namespace AdamantiumVulkan.Core
             _internal.duration = Duration;
             return _internal;
         }
+
+        public static implicit operator PipelineCreationFeedbackEXT(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackEXT p)
+        {
+            return new PipelineCreationFeedbackEXT(p);
+        }
+
     }
 
     public partial class PipelineCreationFeedbackCreateInfoEXT : QBDisposableObject
@@ -16353,6 +18675,12 @@ namespace AdamantiumVulkan.Core
             refpPipelineStageCreationFeedbacks?.Dispose();
         }
 
+
+        public static implicit operator PipelineCreationFeedbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfoEXT p)
+        {
+            return new PipelineCreationFeedbackCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : QBDisposableObject
@@ -16382,6 +18710,12 @@ namespace AdamantiumVulkan.Core
             _internal.computeDerivativeGroupLinear = System.Convert.ToUInt32(ComputeDerivativeGroupLinear);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceComputeShaderDerivativesFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV p)
+        {
+            return new PhysicalDeviceComputeShaderDerivativesFeaturesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceMeshShaderFeaturesNV : QBDisposableObject
@@ -16411,6 +18745,12 @@ namespace AdamantiumVulkan.Core
             _internal.meshShader = System.Convert.ToUInt32(MeshShader);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMeshShaderFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV p)
+        {
+            return new PhysicalDeviceMeshShaderFeaturesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceMeshShaderPropertiesNV : QBDisposableObject
@@ -16521,6 +18861,12 @@ namespace AdamantiumVulkan.Core
             _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMeshShaderPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV p)
+        {
+            return new PhysicalDeviceMeshShaderPropertiesNV(p);
+        }
+
     }
 
     public partial class DrawMeshTasksIndirectCommandNV
@@ -16545,6 +18891,12 @@ namespace AdamantiumVulkan.Core
             _internal.firstTask = FirstTask;
             return _internal;
         }
+
+        public static implicit operator DrawMeshTasksIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV d)
+        {
+            return new DrawMeshTasksIndirectCommandNV(d);
+        }
+
     }
 
     public partial class PhysicalDeviceFragmentShaderBarycentricFeaturesNV : QBDisposableObject
@@ -16571,6 +18923,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentShaderBarycentric = System.Convert.ToUInt32(FragmentShaderBarycentric);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFragmentShaderBarycentricFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV p)
+        {
+            return new PhysicalDeviceFragmentShaderBarycentricFeaturesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderImageFootprintFeaturesNV : QBDisposableObject
@@ -16597,6 +18955,12 @@ namespace AdamantiumVulkan.Core
             _internal.imageFootprint = System.Convert.ToUInt32(ImageFootprint);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderImageFootprintFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV p)
+        {
+            return new PhysicalDeviceShaderImageFootprintFeaturesNV(p);
+        }
+
     }
 
     public partial class PipelineViewportExclusiveScissorStateCreateInfoNV : QBDisposableObject
@@ -16641,6 +19005,12 @@ namespace AdamantiumVulkan.Core
             refpExclusiveScissors?.Dispose();
         }
 
+
+        public static implicit operator PipelineViewportExclusiveScissorStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV p)
+        {
+            return new PipelineViewportExclusiveScissorStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceExclusiveScissorFeaturesNV : QBDisposableObject
@@ -16667,6 +19037,12 @@ namespace AdamantiumVulkan.Core
             _internal.exclusiveScissor = System.Convert.ToUInt32(ExclusiveScissor);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceExclusiveScissorFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV p)
+        {
+            return new PhysicalDeviceExclusiveScissorFeaturesNV(p);
+        }
+
     }
 
     public partial class QueueFamilyCheckpointPropertiesNV : QBDisposableObject
@@ -16693,6 +19069,12 @@ namespace AdamantiumVulkan.Core
             _internal.checkpointExecutionStageMask = CheckpointExecutionStageMask;
             return _internal;
         }
+
+        public static implicit operator QueueFamilyCheckpointPropertiesNV(AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV q)
+        {
+            return new QueueFamilyCheckpointPropertiesNV(q);
+        }
+
     }
 
     public partial class CheckpointDataNV : QBDisposableObject
@@ -16722,6 +19104,12 @@ namespace AdamantiumVulkan.Core
             _internal.pCheckpointMarker = PCheckpointMarker;
             return _internal;
         }
+
+        public static implicit operator CheckpointDataNV(AdamantiumVulkan.Core.Interop.VkCheckpointDataNV c)
+        {
+            return new CheckpointDataNV(c);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL : QBDisposableObject
@@ -16749,6 +19137,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderIntegerFunctions2 = System.Convert.ToUInt32(ShaderIntegerFunctions2);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL p)
+        {
+            return new PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL(p);
+        }
+
     }
 
     public partial class PerformanceValueINTEL
@@ -16776,6 +19170,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PerformanceValueINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL p)
+        {
+            return new PerformanceValueINTEL(p);
+        }
+
     }
 
     public partial class InitializePerformanceApiInfoINTEL : QBDisposableObject
@@ -16803,6 +19203,12 @@ namespace AdamantiumVulkan.Core
             _internal.pUserData = PUserData;
             return _internal;
         }
+
+        public static implicit operator InitializePerformanceApiInfoINTEL(AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL i)
+        {
+            return new InitializePerformanceApiInfoINTEL(i);
+        }
+
     }
 
     public partial class QueryPoolCreateInfoINTEL : QBDisposableObject
@@ -16830,6 +19236,12 @@ namespace AdamantiumVulkan.Core
             _internal.performanceCountersSampling = (uint)PerformanceCountersSampling;
             return _internal;
         }
+
+        public static implicit operator QueryPoolCreateInfoINTEL(AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfoINTEL q)
+        {
+            return new QueryPoolCreateInfoINTEL(q);
+        }
+
     }
 
     public partial class PerformanceMarkerInfoINTEL : QBDisposableObject
@@ -16857,6 +19269,12 @@ namespace AdamantiumVulkan.Core
             _internal.marker = Marker;
             return _internal;
         }
+
+        public static implicit operator PerformanceMarkerInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL p)
+        {
+            return new PerformanceMarkerInfoINTEL(p);
+        }
+
     }
 
     public partial class PerformanceStreamMarkerInfoINTEL : QBDisposableObject
@@ -16884,6 +19302,12 @@ namespace AdamantiumVulkan.Core
             _internal.marker = Marker;
             return _internal;
         }
+
+        public static implicit operator PerformanceStreamMarkerInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL p)
+        {
+            return new PerformanceStreamMarkerInfoINTEL(p);
+        }
+
     }
 
     public partial class PerformanceOverrideInfoINTEL : QBDisposableObject
@@ -16917,6 +19341,12 @@ namespace AdamantiumVulkan.Core
             _internal.parameter = Parameter;
             return _internal;
         }
+
+        public static implicit operator PerformanceOverrideInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL p)
+        {
+            return new PerformanceOverrideInfoINTEL(p);
+        }
+
     }
 
     public partial class PerformanceConfigurationAcquireInfoINTEL : QBDisposableObject
@@ -16944,6 +19374,12 @@ namespace AdamantiumVulkan.Core
             _internal.type = (uint)Type;
             return _internal;
         }
+
+        public static implicit operator PerformanceConfigurationAcquireInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL p)
+        {
+            return new PerformanceConfigurationAcquireInfoINTEL(p);
+        }
+
     }
 
     public partial class PhysicalDevicePCIBusInfoPropertiesEXT : QBDisposableObject
@@ -16979,6 +19415,12 @@ namespace AdamantiumVulkan.Core
             _internal.pciFunction = PciFunction;
             return _internal;
         }
+
+        public static implicit operator PhysicalDevicePCIBusInfoPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT p)
+        {
+            return new PhysicalDevicePCIBusInfoPropertiesEXT(p);
+        }
+
     }
 
     public partial class DisplayNativeHdrSurfaceCapabilitiesAMD : QBDisposableObject
@@ -17006,6 +19448,12 @@ namespace AdamantiumVulkan.Core
             _internal.localDimmingSupport = System.Convert.ToUInt32(LocalDimmingSupport);
             return _internal;
         }
+
+        public static implicit operator DisplayNativeHdrSurfaceCapabilitiesAMD(AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD d)
+        {
+            return new DisplayNativeHdrSurfaceCapabilitiesAMD(d);
+        }
+
     }
 
     public partial class SwapchainDisplayNativeHdrCreateInfoAMD : QBDisposableObject
@@ -17033,6 +19481,12 @@ namespace AdamantiumVulkan.Core
             _internal.localDimmingEnable = System.Convert.ToUInt32(LocalDimmingEnable);
             return _internal;
         }
+
+        public static implicit operator SwapchainDisplayNativeHdrCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD s)
+        {
+            return new SwapchainDisplayNativeHdrCreateInfoAMD(s);
+        }
+
     }
 
     public partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : QBDisposableObject
@@ -17065,6 +19519,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentDensityMapNonSubsampledImages = System.Convert.ToUInt32(FragmentDensityMapNonSubsampledImages);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFragmentDensityMapFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT p)
+        {
+            return new PhysicalDeviceFragmentDensityMapFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : QBDisposableObject
@@ -17103,6 +19563,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentDensityInvocations = System.Convert.ToUInt32(FragmentDensityInvocations);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFragmentDensityMapPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT p)
+        {
+            return new PhysicalDeviceFragmentDensityMapPropertiesEXT(p);
+        }
+
     }
 
     public partial class RenderPassFragmentDensityMapCreateInfoEXT : QBDisposableObject
@@ -17132,6 +19598,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator RenderPassFragmentDensityMapCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT r)
+        {
+            return new RenderPassFragmentDensityMapCreateInfoEXT(r);
+        }
+
     }
 
     public partial class PhysicalDeviceScalarBlockLayoutFeaturesEXT : QBDisposableObject
@@ -17158,6 +19630,12 @@ namespace AdamantiumVulkan.Core
             _internal.scalarBlockLayout = System.Convert.ToUInt32(ScalarBlockLayout);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceScalarBlockLayoutFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeaturesEXT p)
+        {
+            return new PhysicalDeviceScalarBlockLayoutFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceSubgroupSizeControlFeaturesEXT : QBDisposableObject
@@ -17188,6 +19666,12 @@ namespace AdamantiumVulkan.Core
             _internal.computeFullSubgroups = System.Convert.ToUInt32(ComputeFullSubgroups);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSubgroupSizeControlFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeaturesEXT p)
+        {
+            return new PhysicalDeviceSubgroupSizeControlFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceSubgroupSizeControlPropertiesEXT : QBDisposableObject
@@ -17224,6 +19708,12 @@ namespace AdamantiumVulkan.Core
             _internal.requiredSubgroupSizeStages = RequiredSubgroupSizeStages;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceSubgroupSizeControlPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlPropertiesEXT p)
+        {
+            return new PhysicalDeviceSubgroupSizeControlPropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT : QBDisposableObject
@@ -17251,6 +19741,12 @@ namespace AdamantiumVulkan.Core
             _internal.requiredSubgroupSize = RequiredSubgroupSize;
             return _internal;
         }
+
+        public static implicit operator PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT p)
+        {
+            return new PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderCoreProperties2AMD : QBDisposableObject
@@ -17281,6 +19777,12 @@ namespace AdamantiumVulkan.Core
             _internal.activeComputeUnitCount = ActiveComputeUnitCount;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderCoreProperties2AMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD p)
+        {
+            return new PhysicalDeviceShaderCoreProperties2AMD(p);
+        }
+
     }
 
     public partial class PhysicalDeviceCoherentMemoryFeaturesAMD : QBDisposableObject
@@ -17308,6 +19810,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceCoherentMemory = System.Convert.ToUInt32(DeviceCoherentMemory);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceCoherentMemoryFeaturesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD p)
+        {
+            return new PhysicalDeviceCoherentMemoryFeaturesAMD(p);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : QBDisposableObject
@@ -17385,6 +19893,12 @@ namespace AdamantiumVulkan.Core
             }
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMemoryBudgetPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT p)
+        {
+            return new PhysicalDeviceMemoryBudgetPropertiesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceMemoryPriorityFeaturesEXT : QBDisposableObject
@@ -17411,6 +19925,12 @@ namespace AdamantiumVulkan.Core
             _internal.memoryPriority = System.Convert.ToUInt32(MemoryPriority);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceMemoryPriorityFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT p)
+        {
+            return new PhysicalDeviceMemoryPriorityFeaturesEXT(p);
+        }
+
     }
 
     public partial class MemoryPriorityAllocateInfoEXT : QBDisposableObject
@@ -17437,6 +19957,12 @@ namespace AdamantiumVulkan.Core
             _internal.priority = Priority;
             return _internal;
         }
+
+        public static implicit operator MemoryPriorityAllocateInfoEXT(AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT m)
+        {
+            return new MemoryPriorityAllocateInfoEXT(m);
+        }
+
     }
 
     public partial class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV : QBDisposableObject
@@ -17463,6 +19989,12 @@ namespace AdamantiumVulkan.Core
             _internal.dedicatedAllocationImageAliasing = System.Convert.ToUInt32(DedicatedAllocationImageAliasing);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV p)
+        {
+            return new PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : QBDisposableObject
@@ -17495,6 +20027,12 @@ namespace AdamantiumVulkan.Core
             _internal.bufferDeviceAddressMultiDevice = System.Convert.ToUInt32(BufferDeviceAddressMultiDevice);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceBufferDeviceAddressFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT p)
+        {
+            return new PhysicalDeviceBufferDeviceAddressFeaturesEXT(p);
+        }
+
     }
 
     public partial class BufferDeviceAddressInfoEXT : QBDisposableObject
@@ -17521,6 +20059,12 @@ namespace AdamantiumVulkan.Core
             _internal.buffer = Buffer;
             return _internal;
         }
+
+        public static implicit operator BufferDeviceAddressInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfoEXT b)
+        {
+            return new BufferDeviceAddressInfoEXT(b);
+        }
+
     }
 
     public partial class BufferDeviceAddressCreateInfoEXT : QBDisposableObject
@@ -17547,6 +20091,12 @@ namespace AdamantiumVulkan.Core
             _internal.deviceAddress = DeviceAddress;
             return _internal;
         }
+
+        public static implicit operator BufferDeviceAddressCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT b)
+        {
+            return new BufferDeviceAddressCreateInfoEXT(b);
+        }
+
     }
 
     public partial class ImageStencilUsageCreateInfoEXT : QBDisposableObject
@@ -17573,6 +20123,12 @@ namespace AdamantiumVulkan.Core
             _internal.stencilUsage = StencilUsage;
             return _internal;
         }
+
+        public static implicit operator ImageStencilUsageCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfoEXT i)
+        {
+            return new ImageStencilUsageCreateInfoEXT(i);
+        }
+
     }
 
     public partial class ValidationFeaturesEXT : QBDisposableObject
@@ -17653,6 +20209,12 @@ namespace AdamantiumVulkan.Core
             refpDisabledValidationFeatures?.Dispose();
         }
 
+
+        public static implicit operator ValidationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT v)
+        {
+            return new ValidationFeaturesEXT(v);
+        }
+
     }
 
     public partial class CooperativeMatrixPropertiesNV : QBDisposableObject
@@ -17700,6 +20262,12 @@ namespace AdamantiumVulkan.Core
             _internal.scope = (uint)Scope;
             return _internal;
         }
+
+        public static implicit operator CooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV c)
+        {
+            return new CooperativeMatrixPropertiesNV(c);
+        }
+
     }
 
     public partial class PhysicalDeviceCooperativeMatrixFeaturesNV : QBDisposableObject
@@ -17729,6 +20297,12 @@ namespace AdamantiumVulkan.Core
             _internal.cooperativeMatrixRobustBufferAccess = System.Convert.ToUInt32(CooperativeMatrixRobustBufferAccess);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceCooperativeMatrixFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV p)
+        {
+            return new PhysicalDeviceCooperativeMatrixFeaturesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceCooperativeMatrixPropertiesNV : QBDisposableObject
@@ -17755,6 +20329,12 @@ namespace AdamantiumVulkan.Core
             _internal.cooperativeMatrixSupportedStages = CooperativeMatrixSupportedStages;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixPropertiesNV p)
+        {
+            return new PhysicalDeviceCooperativeMatrixPropertiesNV(p);
+        }
+
     }
 
     public partial class PhysicalDeviceCoverageReductionModeFeaturesNV : QBDisposableObject
@@ -17782,6 +20362,12 @@ namespace AdamantiumVulkan.Core
             _internal.coverageReductionMode = System.Convert.ToUInt32(CoverageReductionMode);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceCoverageReductionModeFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV p)
+        {
+            return new PhysicalDeviceCoverageReductionModeFeaturesNV(p);
+        }
+
     }
 
     public partial class PipelineCoverageReductionStateCreateInfoNV : QBDisposableObject
@@ -17812,6 +20398,12 @@ namespace AdamantiumVulkan.Core
             _internal.coverageReductionMode = (uint)CoverageReductionMode;
             return _internal;
         }
+
+        public static implicit operator PipelineCoverageReductionStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV p)
+        {
+            return new PipelineCoverageReductionStateCreateInfoNV(p);
+        }
+
     }
 
     public partial class FramebufferMixedSamplesCombinationNV : QBDisposableObject
@@ -17848,6 +20440,12 @@ namespace AdamantiumVulkan.Core
             _internal.colorSamples = ColorSamples;
             return _internal;
         }
+
+        public static implicit operator FramebufferMixedSamplesCombinationNV(AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV f)
+        {
+            return new FramebufferMixedSamplesCombinationNV(f);
+        }
+
     }
 
     public partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : QBDisposableObject
@@ -17881,6 +20479,12 @@ namespace AdamantiumVulkan.Core
             _internal.fragmentShaderShadingRateInterlock = System.Convert.ToUInt32(FragmentShaderShadingRateInterlock);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceFragmentShaderInterlockFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT p)
+        {
+            return new PhysicalDeviceFragmentShaderInterlockFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : QBDisposableObject
@@ -17908,6 +20512,12 @@ namespace AdamantiumVulkan.Core
             _internal.ycbcrImageArrays = System.Convert.ToUInt32(YcbcrImageArrays);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceYcbcrImageArraysFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT p)
+        {
+            return new PhysicalDeviceYcbcrImageArraysFeaturesEXT(p);
+        }
+
     }
 
     public partial class HeadlessSurfaceCreateInfoEXT : QBDisposableObject
@@ -17934,6 +20544,12 @@ namespace AdamantiumVulkan.Core
             _internal.flags = Flags;
             return _internal;
         }
+
+        public static implicit operator HeadlessSurfaceCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT h)
+        {
+            return new HeadlessSurfaceCreateInfoEXT(h);
+        }
+
     }
 
     public partial class PhysicalDeviceLineRasterizationFeaturesEXT : QBDisposableObject
@@ -17976,6 +20592,12 @@ namespace AdamantiumVulkan.Core
             _internal.stippledSmoothLines = System.Convert.ToUInt32(StippledSmoothLines);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceLineRasterizationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeaturesEXT p)
+        {
+            return new PhysicalDeviceLineRasterizationFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceLineRasterizationPropertiesEXT : QBDisposableObject
@@ -18003,6 +20625,12 @@ namespace AdamantiumVulkan.Core
             _internal.lineSubPixelPrecisionBits = LineSubPixelPrecisionBits;
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceLineRasterizationPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationPropertiesEXT p)
+        {
+            return new PhysicalDeviceLineRasterizationPropertiesEXT(p);
+        }
+
     }
 
     public partial class PipelineRasterizationLineStateCreateInfoEXT : QBDisposableObject
@@ -18039,6 +20667,12 @@ namespace AdamantiumVulkan.Core
             _internal.lineStipplePattern = LineStipplePattern;
             return _internal;
         }
+
+        public static implicit operator PipelineRasterizationLineStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfoEXT p)
+        {
+            return new PipelineRasterizationLineStateCreateInfoEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceHostQueryResetFeaturesEXT : QBDisposableObject
@@ -18066,6 +20700,12 @@ namespace AdamantiumVulkan.Core
             _internal.hostQueryReset = System.Convert.ToUInt32(HostQueryReset);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceHostQueryResetFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeaturesEXT p)
+        {
+            return new PhysicalDeviceHostQueryResetFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : QBDisposableObject
@@ -18093,6 +20733,12 @@ namespace AdamantiumVulkan.Core
             _internal.indexTypeUint8 = System.Convert.ToUInt32(IndexTypeUint8);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceIndexTypeUint8FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT p)
+        {
+            return new PhysicalDeviceIndexTypeUint8FeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT : QBDisposableObject
@@ -18120,6 +20766,12 @@ namespace AdamantiumVulkan.Core
             _internal.shaderDemoteToHelperInvocation = System.Convert.ToUInt32(ShaderDemoteToHelperInvocation);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT p)
+        {
+            return new PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : QBDisposableObject
@@ -18147,6 +20799,12 @@ namespace AdamantiumVulkan.Core
             _internal.texelBufferAlignment = System.Convert.ToUInt32(TexelBufferAlignment);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTexelBufferAlignmentFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT p)
+        {
+            return new PhysicalDeviceTexelBufferAlignmentFeaturesEXT(p);
+        }
+
     }
 
     public partial class PhysicalDeviceTexelBufferAlignmentPropertiesEXT : QBDisposableObject
@@ -18183,6 +20841,12 @@ namespace AdamantiumVulkan.Core
             _internal.uniformTexelBufferOffsetSingleTexelAlignment = System.Convert.ToUInt32(UniformTexelBufferOffsetSingleTexelAlignment);
             return _internal;
         }
+
+        public static implicit operator PhysicalDeviceTexelBufferAlignmentPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT p)
+        {
+            return new PhysicalDeviceTexelBufferAlignmentPropertiesEXT(p);
+        }
+
     }
 
 

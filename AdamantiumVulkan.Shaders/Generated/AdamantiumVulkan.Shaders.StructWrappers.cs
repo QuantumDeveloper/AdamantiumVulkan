@@ -63,6 +63,12 @@ namespace AdamantiumVulkan.Shaders
             refcontent?.Dispose();
         }
 
+
+        public static implicit operator ShadercIncludeResult(AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult s)
+        {
+            return new ShadercIncludeResult(s);
+        }
+
     }
 
 

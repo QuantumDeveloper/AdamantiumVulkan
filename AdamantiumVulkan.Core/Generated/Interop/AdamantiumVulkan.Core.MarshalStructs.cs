@@ -16,6 +16,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkFlags v)
         {
             return v.value;
@@ -32,6 +33,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkBool32
     {
         public uint value;
+
 
         public static implicit operator uint(VkBool32 v)
         {
@@ -50,6 +52,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public ulong value;
 
+
         public static implicit operator ulong(VkDeviceSize v)
         {
             return v.value;
@@ -66,6 +69,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkSampleMask
     {
         public uint value;
+
 
         public static implicit operator uint(VkSampleMask v)
         {
@@ -384,6 +388,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkInstanceCreateFlags v)
         {
             return v.value;
@@ -400,6 +405,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkFormatFeatureFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkFormatFeatureFlags v)
         {
@@ -418,6 +424,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkImageUsageFlags v)
         {
             return v.value;
@@ -434,6 +441,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkImageCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkImageCreateFlags v)
         {
@@ -452,6 +460,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSampleCountFlags v)
         {
             return v.value;
@@ -468,6 +477,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkQueueFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkQueueFlags v)
         {
@@ -486,6 +496,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkMemoryPropertyFlags v)
         {
             return v.value;
@@ -502,6 +513,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkMemoryHeapFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkMemoryHeapFlags v)
         {
@@ -520,6 +532,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDeviceCreateFlags v)
         {
             return v.value;
@@ -536,6 +549,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDeviceQueueCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkDeviceQueueCreateFlags v)
         {
@@ -554,6 +568,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineStageFlags v)
         {
             return v.value;
@@ -570,6 +585,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkMemoryMapFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkMemoryMapFlags v)
         {
@@ -588,6 +604,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkImageAspectFlags v)
         {
             return v.value;
@@ -604,6 +621,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkSparseImageFormatFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkSparseImageFormatFlags v)
         {
@@ -622,6 +640,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSparseMemoryBindFlags v)
         {
             return v.value;
@@ -638,6 +657,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkFenceCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkFenceCreateFlags v)
         {
@@ -656,6 +676,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSemaphoreCreateFlags v)
         {
             return v.value;
@@ -672,6 +693,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkEventCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkEventCreateFlags v)
         {
@@ -690,6 +712,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkQueryPoolCreateFlags v)
         {
             return v.value;
@@ -706,6 +729,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkQueryPipelineStatisticFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkQueryPipelineStatisticFlags v)
         {
@@ -724,6 +748,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkQueryResultFlags v)
         {
             return v.value;
@@ -740,6 +765,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkBufferCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkBufferCreateFlags v)
         {
@@ -758,6 +784,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkBufferUsageFlags v)
         {
             return v.value;
@@ -774,6 +801,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkBufferViewCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkBufferViewCreateFlags v)
         {
@@ -792,6 +820,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkImageViewCreateFlags v)
         {
             return v.value;
@@ -808,6 +837,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkShaderModuleCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkShaderModuleCreateFlags v)
         {
@@ -826,6 +856,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineCacheCreateFlags v)
         {
             return v.value;
@@ -842,6 +873,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineCreateFlags v)
         {
@@ -860,6 +892,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineShaderStageCreateFlags v)
         {
             return v.value;
@@ -876,6 +909,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineVertexInputStateCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineVertexInputStateCreateFlags v)
         {
@@ -894,6 +928,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineInputAssemblyStateCreateFlags v)
         {
             return v.value;
@@ -910,6 +945,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineTessellationStateCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineTessellationStateCreateFlags v)
         {
@@ -928,6 +964,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineViewportStateCreateFlags v)
         {
             return v.value;
@@ -944,6 +981,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineRasterizationStateCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineRasterizationStateCreateFlags v)
         {
@@ -962,6 +1000,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkCullModeFlags v)
         {
             return v.value;
@@ -978,6 +1017,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineMultisampleStateCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineMultisampleStateCreateFlags v)
         {
@@ -996,6 +1036,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineDepthStencilStateCreateFlags v)
         {
             return v.value;
@@ -1012,6 +1053,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineColorBlendStateCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineColorBlendStateCreateFlags v)
         {
@@ -1030,6 +1072,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkColorComponentFlags v)
         {
             return v.value;
@@ -1046,6 +1089,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineDynamicStateCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineDynamicStateCreateFlags v)
         {
@@ -1064,6 +1108,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineLayoutCreateFlags v)
         {
             return v.value;
@@ -1080,6 +1125,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkShaderStageFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkShaderStageFlags v)
         {
@@ -1098,6 +1144,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSamplerCreateFlags v)
         {
             return v.value;
@@ -1114,6 +1161,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDescriptorSetLayoutCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkDescriptorSetLayoutCreateFlags v)
         {
@@ -1132,6 +1180,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDescriptorPoolCreateFlags v)
         {
             return v.value;
@@ -1148,6 +1197,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDescriptorPoolResetFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkDescriptorPoolResetFlags v)
         {
@@ -1166,6 +1216,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkFramebufferCreateFlags v)
         {
             return v.value;
@@ -1182,6 +1233,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkRenderPassCreateFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkRenderPassCreateFlags v)
         {
@@ -1200,6 +1252,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkAttachmentDescriptionFlags v)
         {
             return v.value;
@@ -1216,6 +1269,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkSubpassDescriptionFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkSubpassDescriptionFlags v)
         {
@@ -1234,6 +1288,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkAccessFlags v)
         {
             return v.value;
@@ -1250,6 +1305,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDependencyFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkDependencyFlags v)
         {
@@ -1268,6 +1324,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkCommandPoolCreateFlags v)
         {
             return v.value;
@@ -1284,6 +1341,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkCommandPoolResetFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkCommandPoolResetFlags v)
         {
@@ -1302,6 +1360,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkCommandBufferUsageFlags v)
         {
             return v.value;
@@ -1318,6 +1377,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkQueryControlFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkQueryControlFlags v)
         {
@@ -1336,6 +1396,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkCommandBufferResetFlags v)
         {
             return v.value;
@@ -1352,6 +1413,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkStencilFaceFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkStencilFaceFlags v)
         {
@@ -3439,6 +3501,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSubgroupFeatureFlags v)
         {
             return v.value;
@@ -3455,6 +3518,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPeerMemoryFeatureFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkPeerMemoryFeatureFlags v)
         {
@@ -3473,6 +3537,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkMemoryAllocateFlags v)
         {
             return v.value;
@@ -3489,6 +3554,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkCommandPoolTrimFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkCommandPoolTrimFlags v)
         {
@@ -3507,6 +3573,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDescriptorUpdateTemplateCreateFlags v)
         {
             return v.value;
@@ -3523,6 +3590,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkExternalMemoryHandleTypeFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkExternalMemoryHandleTypeFlags v)
         {
@@ -3541,6 +3609,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalMemoryFeatureFlags v)
         {
             return v.value;
@@ -3557,6 +3626,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkExternalFenceHandleTypeFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkExternalFenceHandleTypeFlags v)
         {
@@ -3575,6 +3645,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalFenceFeatureFlags v)
         {
             return v.value;
@@ -3591,6 +3662,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkFenceImportFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkFenceImportFlags v)
         {
@@ -3609,6 +3681,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSemaphoreImportFlags v)
         {
             return v.value;
@@ -3626,6 +3699,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalSemaphoreHandleTypeFlags v)
         {
             return v.value;
@@ -3642,6 +3716,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkExternalSemaphoreFeatureFlags
     {
         public uint value;
+
 
         public static implicit operator uint(VkExternalSemaphoreFeatureFlags v)
         {
@@ -4573,6 +4648,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSurfaceTransformFlagsKHR v)
         {
             return v.value;
@@ -4589,6 +4665,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkCompositeAlphaFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkCompositeAlphaFlagsKHR v)
         {
@@ -4653,6 +4730,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSwapchainCreateFlagsKHR v)
         {
             return v.value;
@@ -4669,6 +4747,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDeviceGroupPresentModeFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkDeviceGroupPresentModeFlagsKHR v)
         {
@@ -4855,6 +4934,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDisplayPlaneAlphaFlagsKHR v)
         {
             return v.value;
@@ -4872,6 +4952,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDisplayModeCreateFlagsKHR v)
         {
             return v.value;
@@ -4888,6 +4969,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDisplaySurfaceCreateFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkDisplaySurfaceCreateFlagsKHR v)
         {
@@ -5028,6 +5110,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPeerMemoryFeatureFlagsKHR v)
         {
             return v.value;
@@ -5044,6 +5127,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkMemoryAllocateFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkMemoryAllocateFlagsKHR v)
         {
@@ -5062,6 +5146,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkCommandPoolTrimFlagsKHR v)
         {
             return v.value;
@@ -5079,6 +5164,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalMemoryHandleTypeFlagsKHR v)
         {
             return v.value;
@@ -5095,6 +5181,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkExternalMemoryFeatureFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkExternalMemoryFeatureFlagsKHR v)
         {
@@ -5150,6 +5237,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalSemaphoreHandleTypeFlagsKHR v)
         {
             return v.value;
@@ -5167,6 +5255,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalSemaphoreFeatureFlagsKHR v)
         {
             return v.value;
@@ -5183,6 +5272,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkSemaphoreImportFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkSemaphoreImportFlagsKHR v)
         {
@@ -5287,6 +5377,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDescriptorUpdateTemplateCreateFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkDescriptorUpdateTemplateCreateFlagsKHR v)
         {
@@ -5521,6 +5612,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalFenceHandleTypeFlagsKHR v)
         {
             return v.value;
@@ -5538,6 +5630,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalFenceFeatureFlagsKHR v)
         {
             return v.value;
@@ -5554,6 +5647,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkFenceImportFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkFenceImportFlagsKHR v)
         {
@@ -5830,6 +5924,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkResolveModeFlagsKHR v)
         {
             return v.value;
@@ -5878,6 +5973,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkSemaphoreWaitFlagsKHR
     {
         public uint value;
+
 
         public static implicit operator uint(VkSemaphoreWaitFlagsKHR v)
         {
@@ -6115,6 +6211,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDebugReportFlagsEXT v)
         {
             return v.value;
@@ -6239,6 +6336,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineRasterizationStateStreamCreateFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineRasterizationStateStreamCreateFlagsEXT v)
         {
@@ -6383,6 +6481,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkExternalMemoryHandleTypeFlagsNV v)
         {
             return v.value;
@@ -6399,6 +6498,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkExternalMemoryFeatureFlagsNV
     {
         public uint value;
+
 
         public static implicit operator uint(VkExternalMemoryFeatureFlagsNV v)
         {
@@ -6498,6 +6598,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkConditionalRenderingFlagsEXT v)
         {
             return v.value;
@@ -6578,6 +6679,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkIndirectCommandsLayoutUsageFlagsNVX v)
         {
             return v.value;
@@ -6594,6 +6696,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkObjectEntryUsageFlagsNVX
     {
         public uint value;
+
 
         public static implicit operator uint(VkObjectEntryUsageFlagsNVX v)
         {
@@ -6848,6 +6951,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkSurfaceCounterFlagsEXT v)
         {
             return v.value;
@@ -6995,6 +7099,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineViewportSwizzleStateCreateFlagsNV v)
         {
             return v.value;
@@ -7040,6 +7145,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineDiscardRectangleStateCreateFlagsEXT v)
         {
             return v.value;
@@ -7084,6 +7190,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineRasterizationConservativeStateCreateFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineRasterizationConservativeStateCreateFlagsEXT v)
         {
@@ -7143,6 +7250,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineRasterizationDepthClipStateCreateFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineRasterizationDepthClipStateCreateFlagsEXT v)
         {
@@ -7231,6 +7339,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDebugUtilsMessengerCallbackDataFlagsEXT v)
         {
             return v.value;
@@ -7247,6 +7356,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDebugUtilsMessengerCreateFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkDebugUtilsMessengerCreateFlagsEXT v)
         {
@@ -7265,6 +7375,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkDebugUtilsMessageSeverityFlagsEXT v)
         {
             return v.value;
@@ -7281,6 +7392,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDebugUtilsMessageTypeFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkDebugUtilsMessageTypeFlagsEXT v)
         {
@@ -7625,6 +7737,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineCoverageToColorStateCreateFlagsNV v)
         {
             return v.value;
@@ -7656,6 +7769,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineCoverageModulationStateCreateFlagsNV
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineCoverageModulationStateCreateFlagsNV v)
         {
@@ -7809,6 +7923,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkValidationCacheCreateFlagsEXT v)
         {
             return v.value;
@@ -7851,6 +7966,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDescriptorBindingFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkDescriptorBindingFlagsEXT v)
         {
@@ -8113,6 +8229,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkGeometryFlagsNV v)
         {
             return v.value;
@@ -8130,6 +8247,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkGeometryInstanceFlagsNV v)
         {
             return v.value;
@@ -8146,6 +8264,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkBuildAccelerationStructureFlagsNV
     {
         public uint value;
+
 
         public static implicit operator uint(VkBuildAccelerationStructureFlagsNV v)
         {
@@ -8476,6 +8595,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineCompilerControlFlagsAMD v)
         {
             return v.value;
@@ -8608,6 +8728,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkPipelineCreationFeedbackFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkPipelineCreationFeedbackFlagsEXT v)
         {
@@ -9024,6 +9145,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkShaderCorePropertiesFlagsAMD v)
         {
             return v.value;
@@ -9110,6 +9232,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkDeviceAddress
     {
         public ulong value;
+
 
         public static implicit operator ulong(VkDeviceAddress v)
         {
@@ -9242,6 +9365,7 @@ namespace AdamantiumVulkan.Core.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkPipelineCoverageReductionStateCreateFlagsNV v)
         {
             return v.value;
@@ -9325,6 +9449,7 @@ namespace AdamantiumVulkan.Core.Interop
     public partial struct VkHeadlessSurfaceCreateFlagsEXT
     {
         public uint value;
+
 
         public static implicit operator uint(VkHeadlessSurfaceCreateFlagsEXT v)
         {

@@ -16,6 +16,7 @@ namespace AdamantiumVulkan.MacOS.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkMacOSSurfaceCreateFlagsMVK v)
         {
             return v.value;

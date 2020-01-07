@@ -79,6 +79,7 @@ namespace AdamantiumVulkan.Shaders
             AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compiler_release(this);
         }
 
+
         public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercCompiler(ShadercCompilerT s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Shaders.Interop.ShadercCompiler();
@@ -86,7 +87,7 @@ namespace AdamantiumVulkan.Shaders
 
         public static implicit operator ShadercCompilerT(AdamantiumVulkan.Shaders.Interop.ShadercCompiler s)
         {
-            return new ShadercCompilerT(){__Instance = s};
+            return new ShadercCompilerT(s);
         }
 
     }
@@ -307,6 +308,7 @@ namespace AdamantiumVulkan.Shaders
             AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_warnings_as_errors(this);
         }
 
+
         public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions(ShadercCompileOptionsT s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions();
@@ -314,7 +316,7 @@ namespace AdamantiumVulkan.Shaders
 
         public static implicit operator ShadercCompileOptionsT(AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions s)
         {
-            return new ShadercCompileOptionsT(){__Instance = s};
+            return new ShadercCompileOptionsT(s);
         }
 
     }
@@ -391,6 +393,7 @@ namespace AdamantiumVulkan.Shaders
             AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_result_release(this);
         }
 
+
         public static implicit operator AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult(ShadercCompilationResultT s)
         {
             return s?.__Instance ?? new AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult();
@@ -398,7 +401,7 @@ namespace AdamantiumVulkan.Shaders
 
         public static implicit operator ShadercCompilationResultT(AdamantiumVulkan.Shaders.Interop.ShadercCompilationResult s)
         {
-            return new ShadercCompilationResultT(){__Instance = s};
+            return new ShadercCompilationResultT(s);
         }
 
     }

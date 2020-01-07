@@ -18,6 +18,7 @@ namespace AdamantiumVulkan.Windows.Interop
     {
         public uint value;
 
+
         public static implicit operator uint(VkWin32SurfaceCreateFlagsKHR v)
         {
             return v.value;
