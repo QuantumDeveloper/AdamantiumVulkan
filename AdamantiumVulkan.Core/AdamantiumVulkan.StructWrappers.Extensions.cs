@@ -5,7 +5,7 @@ namespace AdamantiumVulkan.Core
 {
     public partial class PipelineRasterizationStateCreateInfo : ICloneable
     {
-        public static PipelineRasterizationStateCreateInfo Defaults()
+        public static PipelineRasterizationStateCreateInfo Default()
         {
             var state = new PipelineRasterizationStateCreateInfo();
             state.DepthClampEnable = false;
@@ -36,7 +36,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class PipelineDepthStencilStateCreateInfo : ICloneable
     {
-        public static PipelineDepthStencilStateCreateInfo Defaults()
+        public static PipelineDepthStencilStateCreateInfo Default()
         {
             var state = new PipelineDepthStencilStateCreateInfo();
             state.DepthTestEnable = false;
@@ -70,7 +70,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class PipelineColorBlendStateCreateInfo: ICloneable
     {
-        public static PipelineColorBlendStateCreateInfo Defaults()
+        public static PipelineColorBlendStateCreateInfo Default()
         {
             var colorBlendAttachment = new PipelineColorBlendAttachmentState();
             colorBlendAttachment.ColorWriteMask = (uint)(ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
