@@ -151,12 +151,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_add_header_line(this, line);
         }
 
-        public SpvcBool BufferGetHlslCounterBuffer(uint id, ref uint counter_id)
+        public bool BufferGetHlslCounterBuffer(uint id, ref uint counter_id)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_buffer_get_hlsl_counter_buffer(this, id, ref counter_id);
         }
 
-        public SpvcBool BufferIsHlslCounterBuffer(uint id)
+        public bool BufferIsHlslCounterBuffer(uint id)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_buffer_is_hlsl_counter_buffer(this, id);
         }
@@ -240,7 +240,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         ///<summary>
         /// Misc reflection Maps to C++ API.
         ///</summary>
-        public SpvcBool GetBinaryOffsetForDecoration(uint id, SpvDecoration decoration, ref uint word_offset)
+        public bool GetBinaryOffsetForDecoration(uint id, SpvDecoration decoration, ref uint word_offset)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_binary_offset_for_decoration(this, id, decoration, ref word_offset);
         }
@@ -393,7 +393,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_type_handle(this, id);
         }
 
-        public SpvcConstantId GetWorkGroupSizeSpecializationConstants(SpvcSpecializationConstant x, SpvcSpecializationConstant y, SpvcSpecializationConstant z)
+        public uint GetWorkGroupSizeSpecializationConstants(SpvcSpecializationConstant x, SpvcSpecializationConstant y, SpvcSpecializationConstant z)
         {
             var arg1 = ReferenceEquals(x, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(x.ToInternal());
             var arg2 = ReferenceEquals(y, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(y.ToInternal());
@@ -405,12 +405,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return result;
         }
 
-        public SpvcBool HasDecoration(uint id, SpvDecoration decoration)
+        public bool HasDecoration(uint id, SpvDecoration decoration)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_decoration(this, id, decoration);
         }
 
-        public SpvcBool HasMemberDecoration(uint id, uint member_index, SpvDecoration decoration)
+        public bool HasMemberDecoration(uint id, uint member_index, SpvDecoration decoration)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_member_decoration(this, id, member_index, decoration);
         }
@@ -424,7 +424,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return result;
         }
 
-        public SpvcVariableId HlslRemapNumWorkgroupsBuiltin()
+        public uint HlslRemapNumWorkgroupsBuiltin()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_remap_num_workgroups_builtin(this);
         }
@@ -488,17 +488,17 @@ namespace AdamantiumVulkan.SPIRV.Cross
         ///<summary>
         /// MSL specifics. Maps to C++ API.
         ///</summary>
-        public SpvcBool MslIsRasterizationDisabled()
+        public bool MslIsRasterizationDisabled()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_rasterization_disabled(this);
         }
 
-        public SpvcBool MslIsResourceUsed(SpvExecutionModel model, uint set, uint binding)
+        public bool MslIsResourceUsed(SpvExecutionModel model, uint set, uint binding)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_resource_used(this, model, set, binding);
         }
 
-        public SpvcBool MslIsVertexAttributeUsed(uint location)
+        public bool MslIsVertexAttributeUsed(uint location)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_vertex_attribute_used(this, location);
         }
@@ -506,32 +506,32 @@ namespace AdamantiumVulkan.SPIRV.Cross
         ///<summary>
         /// Obsolete. Renamed to needs_swizzle_buffer.
         ///</summary>
-        public SpvcBool MslNeedsAuxBuffer()
+        public bool MslNeedsAuxBuffer()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_needs_aux_buffer(this);
         }
 
-        public SpvcBool MslNeedsBufferSizeBuffer()
+        public bool MslNeedsBufferSizeBuffer()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_needs_buffer_size_buffer(this);
         }
 
-        public SpvcBool MslNeedsInputThreadgroupMem()
+        public bool MslNeedsInputThreadgroupMem()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_needs_input_threadgroup_mem(this);
         }
 
-        public SpvcBool MslNeedsOutputBuffer()
+        public bool MslNeedsOutputBuffer()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_needs_output_buffer(this);
         }
 
-        public SpvcBool MslNeedsPatchOutputBuffer()
+        public bool MslNeedsPatchOutputBuffer()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_needs_patch_output_buffer(this);
         }
 
-        public SpvcBool MslNeedsSwizzleBuffer()
+        public bool MslNeedsSwizzleBuffer()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_needs_swizzle_buffer(this);
         }
@@ -779,12 +779,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             this.__Instance = __Instance;
         }
 
-        public SpvcBool ArrayDimensionIsLiteral(uint dimension)
+        public bool ArrayDimensionIsLiteral(uint dimension)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_array_dimension_is_literal(this, dimension);
         }
 
-        public SpvId GetArrayDimension(uint dimension)
+        public uint GetArrayDimension(uint dimension)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_array_dimension(this, dimension);
         }
@@ -809,7 +809,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_access_qualifier(this);
         }
 
-        public SpvcBool GetImageArrayed()
+        public bool GetImageArrayed()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_arrayed(this);
         }
@@ -819,17 +819,17 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_dimension(this);
         }
 
-        public SpvcBool GetImageIsDepth()
+        public bool GetImageIsDepth()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_is_depth(this);
         }
 
-        public SpvcBool GetImageIsStorage()
+        public bool GetImageIsStorage()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_is_storage(this);
         }
 
-        public SpvcBool GetImageMultisampled()
+        public bool GetImageMultisampled()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_multisampled(this);
         }
@@ -837,7 +837,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         ///<summary>
         /// Image type query.
         ///</summary>
-        public SpvcTypeId GetImageSampledType()
+        public uint GetImageSampledType()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_sampled_type(this);
         }
@@ -847,7 +847,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_storage_format(this);
         }
 
-        public SpvcTypeId GetMemberType(uint index)
+        public uint GetMemberType(uint index)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_member_type(this, index);
         }
@@ -898,7 +898,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
             this.__Instance = __Instance;
         }
 
-        public SpvcTypeId GetConstantType()
+        public uint GetConstantType()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_constant_get_constant_type(this);
         }
