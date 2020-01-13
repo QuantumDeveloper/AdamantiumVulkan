@@ -1825,7 +1825,7 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public DeviceAddress GetBufferDeviceAddressEXT(in BufferDeviceAddressInfoEXT pInfo)
+        public ulong GetBufferDeviceAddressEXT(in BufferDeviceAddressInfoEXT pInfo)
         {
             var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferDeviceAddressEXT(this, arg1);
