@@ -80,7 +80,7 @@ namespace AdamantiumVulkan.Core
             state.LogicOpEnable = false;
             state.LogicOp = LogicOp.Copy;
             state.AttachmentCount = 1;
-            state.PAttachments = new PipelineColorBlendAttachmentState[] { colorBlendAttachment };
+            state.PAttachments = new [] { colorBlendAttachment };
             state.BlendConstants = new float[4];
             state.BlendConstants[0] = 0.0f;
             state.BlendConstants[1] = 0.0f;
