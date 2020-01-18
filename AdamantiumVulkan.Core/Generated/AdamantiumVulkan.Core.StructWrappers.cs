@@ -3935,10 +3935,10 @@ namespace AdamantiumVulkan.Core
             refpDynamicStates?.Dispose();
             if (PDynamicStates != null)
             {
-                var tmpArray0 = new DynamicState[PDynamicStates.Length];
+                var tmpArray0 = new uint[PDynamicStates.Length];
                 for (int i = 0; i < PDynamicStates.Length; ++i)
                 {
-                    tmpArray0[i] = PDynamicStates[i];
+                    tmpArray0[i] = (uint)PDynamicStates[i];
                 }
                 refpDynamicStates = new GCHandleReference(tmpArray0);
                 _internal.pDynamicStates = refpDynamicStates.Handle;
@@ -9309,10 +9309,10 @@ namespace AdamantiumVulkan.Core
             refpResults?.Dispose();
             if (PResults != null)
             {
-                var tmpArray3 = new Result[PResults.Length];
+                var tmpArray3 = new int[PResults.Length];
                 for (int i = 0; i < PResults.Length; ++i)
                 {
-                    tmpArray3[i] = PResults[i];
+                    tmpArray3[i] = (int)PResults[i];
                 }
                 refpResults = new GCHandleReference(tmpArray3);
                 _internal.pResults = refpResults.Handle;
@@ -10431,10 +10431,10 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
             if (PViewFormats != null)
             {
-                var tmpArray0 = new Format[PViewFormats.Length];
+                var tmpArray0 = new uint[PViewFormats.Length];
                 for (int i = 0; i < PViewFormats.Length; ++i)
                 {
-                    tmpArray0[i] = PViewFormats[i];
+                    tmpArray0[i] = (uint)PViewFormats[i];
                 }
                 refpViewFormats = new GCHandleReference(tmpArray0);
                 _internal.pViewFormats = refpViewFormats.Handle;
@@ -11441,10 +11441,10 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
             if (PViewFormats != null)
             {
-                var tmpArray0 = new Format[PViewFormats.Length];
+                var tmpArray0 = new uint[PViewFormats.Length];
                 for (int i = 0; i < PViewFormats.Length; ++i)
                 {
-                    tmpArray0[i] = PViewFormats[i];
+                    tmpArray0[i] = (uint)PViewFormats[i];
                 }
                 refpViewFormats = new GCHandleReference(tmpArray0);
                 _internal.pViewFormats = refpViewFormats.Handle;
@@ -13487,10 +13487,10 @@ namespace AdamantiumVulkan.Core
             refpDisabledValidationChecks?.Dispose();
             if (PDisabledValidationChecks != null)
             {
-                var tmpArray0 = new ValidationCheckEXT[PDisabledValidationChecks.Length];
+                var tmpArray0 = new uint[PDisabledValidationChecks.Length];
                 for (int i = 0; i < PDisabledValidationChecks.Length; ++i)
                 {
-                    tmpArray0[i] = PDisabledValidationChecks[i];
+                    tmpArray0[i] = (uint)PDisabledValidationChecks[i];
                 }
                 refpDisabledValidationChecks = new GCHandleReference(tmpArray0);
                 _internal.pDisabledValidationChecks = refpDisabledValidationChecks.Handle;
@@ -14084,10 +14084,10 @@ namespace AdamantiumVulkan.Core
             refpObjectEntryTypes?.Dispose();
             if (PObjectEntryTypes != null)
             {
-                var tmpArray0 = new ObjectEntryTypeNVX[PObjectEntryTypes.Length];
+                var tmpArray0 = new uint[PObjectEntryTypes.Length];
                 for (int i = 0; i < PObjectEntryTypes.Length; ++i)
                 {
-                    tmpArray0[i] = PObjectEntryTypes[i];
+                    tmpArray0[i] = (uint)PObjectEntryTypes[i];
                 }
                 refpObjectEntryTypes = new GCHandleReference(tmpArray0);
                 _internal.pObjectEntryTypes = refpObjectEntryTypes.Handle;
@@ -17121,10 +17121,10 @@ namespace AdamantiumVulkan.Core
             refpShadingRatePaletteEntries?.Dispose();
             if (PShadingRatePaletteEntries != null)
             {
-                var tmpArray0 = new ShadingRatePaletteEntryNV[PShadingRatePaletteEntries.Length];
+                var tmpArray0 = new uint[PShadingRatePaletteEntries.Length];
                 for (int i = 0; i < PShadingRatePaletteEntries.Length; ++i)
                 {
-                    tmpArray0[i] = PShadingRatePaletteEntries[i];
+                    tmpArray0[i] = (uint)PShadingRatePaletteEntries[i];
                 }
                 refpShadingRatePaletteEntries = new GCHandleReference(tmpArray0);
                 _internal.pShadingRatePaletteEntries = refpShadingRatePaletteEntries.Handle;
@@ -20180,10 +20180,10 @@ namespace AdamantiumVulkan.Core
             refpEnabledValidationFeatures?.Dispose();
             if (PEnabledValidationFeatures != null)
             {
-                var tmpArray0 = new ValidationFeatureEnableEXT[PEnabledValidationFeatures.Length];
+                var tmpArray0 = new uint[PEnabledValidationFeatures.Length];
                 for (int i = 0; i < PEnabledValidationFeatures.Length; ++i)
                 {
-                    tmpArray0[i] = PEnabledValidationFeatures[i];
+                    tmpArray0[i] = (uint)PEnabledValidationFeatures[i];
                 }
                 refpEnabledValidationFeatures = new GCHandleReference(tmpArray0);
                 _internal.pEnabledValidationFeatures = refpEnabledValidationFeatures.Handle;
@@ -20192,10 +20192,10 @@ namespace AdamantiumVulkan.Core
             refpDisabledValidationFeatures?.Dispose();
             if (PDisabledValidationFeatures != null)
             {
-                var tmpArray1 = new ValidationFeatureDisableEXT[PDisabledValidationFeatures.Length];
+                var tmpArray1 = new uint[PDisabledValidationFeatures.Length];
                 for (int i = 0; i < PDisabledValidationFeatures.Length; ++i)
                 {
-                    tmpArray1[i] = PDisabledValidationFeatures[i];
+                    tmpArray1[i] = (uint)PDisabledValidationFeatures[i];
                 }
                 refpDisabledValidationFeatures = new GCHandleReference(tmpArray1);
                 _internal.pDisabledValidationFeatures = refpDisabledValidationFeatures.Handle;
