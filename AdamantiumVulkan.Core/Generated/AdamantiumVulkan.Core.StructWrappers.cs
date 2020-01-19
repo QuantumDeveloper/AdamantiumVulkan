@@ -4539,7 +4539,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class DescriptorPoolCreateInfo : QBDisposableObject
     {
-        private StructReference refpPoolSizes;
+        private GCHandleReference refpPoolSizes;
 
         public DescriptorPoolCreateInfo()
         {
@@ -4551,7 +4551,13 @@ namespace AdamantiumVulkan.Core
             Flags = _internal.flags;
             MaxSets = _internal.maxSets;
             PoolSizeCount = _internal.poolSizeCount;
-            PPoolSizes = new DescriptorPoolSize(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize>(_internal.pPoolSizes));
+            PPoolSizes = new DescriptorPoolSize[_internal.poolSizeCount];
+            var nativeTmpArray0 = new VkDescriptorPoolSize[_internal.poolSizeCount];
+            MarshalUtils.IntPtrToManagedArray<VkDescriptorPoolSize>(_internal.pPoolSizes, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PPoolSizes[i] = new DescriptorPoolSize(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pPoolSizes);
         }
 
@@ -4560,7 +4566,7 @@ namespace AdamantiumVulkan.Core
         public uint Flags { get; set; }
         public uint MaxSets { get; set; }
         public uint PoolSizeCount { get; set; }
-        public DescriptorPoolSize PPoolSizes { get; set; }
+        public DescriptorPoolSize[] PPoolSizes { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo ToInternal()
         {
@@ -4573,8 +4579,12 @@ namespace AdamantiumVulkan.Core
             refpPoolSizes?.Dispose();
             if (PPoolSizes != null)
             {
-                var struct0 = PPoolSizes.ToInternal();
-                refpPoolSizes = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize[PPoolSizes.Length];
+                for (int i = 0; i < PPoolSizes.Length; ++i)
+                {
+                    tmpArray0[i] = PPoolSizes[i].ToInternal();
+                }
+                refpPoolSizes = new GCHandleReference(tmpArray0);
                 _internal.pPoolSizes = refpPoolSizes.Handle;
             }
             return _internal;

@@ -1156,6 +1156,10 @@ namespace AdamantiumVulkan.Generator
                 .WithField("pAttachments")
                 .TreatAsPointerToArray(new CustomType("VkPipelineColorBlendAttachmentState"), true, "attachmentCount");
 
+            api.Class("VkDescriptorPoolCreateInfo")
+                .WithField("pPoolSizes")
+                .TreatAsPointerToArray(new CustomType("VkDescriptorPoolSize"), true, "poolSizeCount");
+
             api.Function("shaderc_result_get_bytes").
                 WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
 

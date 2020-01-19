@@ -429,6 +429,8 @@ namespace VulkanEngineTestCore
 
             renderPassInfos[1] = renderPassInfo;
 
+            commandBuffer.SetViewport(0, 1, new Viewport() { X = 0, Y = 0, Width = this.ClientSize.Width, Height = this.ClientSize.Height, MinDepth = 0, MaxDepth = 1 });
+
             commandBuffer.BeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
 
             commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
@@ -962,6 +964,10 @@ namespace VulkanEngineTestCore
 
             pipelineLayout = logicalDevice.CreatePipelineLayout(pipelineLayoutInfo);
 
+            var dynamicState = new PipelineDynamicStateCreateInfo();
+            dynamicState.PDynamicStates = new[] { DynamicState.Viewport };
+            dynamicState.DynamicStateCount = 1;
+
             var pipelineInfo = new GraphicsPipelineCreateInfo();
             pipelineInfo.StageCount = 2;
             pipelineInfo.PStages = shaderStages;
@@ -974,6 +980,7 @@ namespace VulkanEngineTestCore
             pipelineInfo.Layout = pipelineLayout;
             pipelineInfo.RenderPass = renderPass;
             pipelineInfo.Subpass = 0;
+            pipelineInfo.PDynamicState = dynamicState;
 
             var pipelines = logicalDevice.CreateGraphicsPipelines(null, 1, pipelineInfo);
             graphicsPipeline = pipelines[0];
@@ -1410,7 +1417,7 @@ namespace VulkanEngineTestCore
 
             DescriptorPoolCreateInfo poolInfo = new DescriptorPoolCreateInfo();
             poolInfo.PoolSizeCount = 1;
-            poolInfo.PPoolSizes = pool;
+            poolInfo.PPoolSizes = new[] { pool };
             poolInfo.MaxSets = (uint)swapchainImages.Length;
 
             descriptorPool = logicalDevice.CreateDescriptorPool(poolInfo);
