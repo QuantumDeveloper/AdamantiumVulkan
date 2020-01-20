@@ -17,9 +17,9 @@ namespace AdamantiumVulkan
         // Register a call-back for native library resolution.
         public static void Register()
         {
-            var coreResolver = new LibraryNameResolver("AdamantiumVulkan.Core") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libMoltenVK" };
-            var windowsResolver = new LibraryNameResolver("AdamantiumVulkan.Windows") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libMoltenVK" };
-            var macOSResolver = new LibraryNameResolver("AdamantiumVulkan.MacOS") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libMoltenVK" };
+            var coreResolver = new LibraryNameResolver("AdamantiumVulkan.Core") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libvulkan" };
+            var windowsResolver = new LibraryNameResolver("AdamantiumVulkan.Windows") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libvulkan" };
+            var macOSResolver = new LibraryNameResolver("AdamantiumVulkan.MacOS") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libvulkan" };
             var shadersResolver = new LibraryNameResolver("AdamantiumVulkan.Shaders") { WindowsLibraryName = "shaderc_shared", OSXLibraryName = "libshaderc_shared" };
             var spirvCrossResolver = new LibraryNameResolver("AdamantiumVulkan.SPIRV.Cross") { WindowsLibraryName = "spirv-cross-c-shared", OSXLibraryName = "libspirv-cross-c-shared" };
             RegisterAssembly(coreResolver);

@@ -174,4 +174,52 @@ namespace AdamantiumVulkan.Core
             return clone;
         }
     }
+
+    public partial class Viewport
+    {
+        public override int GetHashCode()
+        {
+            int hashCode = X.GetHashCode();
+            hashCode = (hashCode * 397) ^ Y.GetHashCode();
+            hashCode = (hashCode * 397) ^ Width.GetHashCode();
+            hashCode = (hashCode * 397) ^ Height.GetHashCode();
+            hashCode = (hashCode * 397) ^ MinDepth.GetHashCode();
+            hashCode = (hashCode * 397) ^ MaxDepth.GetHashCode();
+
+            return hashCode;
+        }
+    }
+    
+    public partial class Rect2D
+    {
+        public override int GetHashCode()
+        {
+            int hashCode = Offset.GetHashCode();
+            hashCode = (hashCode * 397) ^ Extent.GetHashCode();
+
+            return hashCode;
+        }
+    }
+    
+    public partial class Offset2D
+    {
+        public override int GetHashCode()
+        {
+            int hashCode = X.GetHashCode();
+            hashCode = (hashCode * 397) ^ Y.GetHashCode();
+
+            return hashCode;
+        }
+    }
+    
+    public partial class Extent2D
+    {
+        public override int GetHashCode()
+        {
+            int hashCode = Width.GetHashCode();
+            hashCode = (hashCode * 397) ^ Height.GetHashCode();
+
+            return hashCode;
+        }
+    }
 }
