@@ -1455,7 +1455,7 @@ namespace VulkanEngineTestCore
                 descriptorWriter.DstArrayElement = 0;
                 descriptorWriter.DescriptorType = DescriptorType.CombinedImageSampler;
                 descriptorWriter.DescriptorCount = 1;
-                descriptorWriter.PImageInfo = imageInfo;
+                descriptorWriter.PImageInfo = new DescriptorImageInfo[] { imageInfo };
 
                 logicalDevice.UpdateDescriptorSets(1, descriptorWriter, 0, out var copies);
             }
