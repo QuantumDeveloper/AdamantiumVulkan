@@ -33,6 +33,10 @@ namespace AdamantiumVulkan.Generator
             string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Shaders", "Generated"));
             string spirvPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.SPIRV", "Generated"));
             string spirvCrossPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.SPIRV.Cross", "Generated"));
+            
+            PathManager vulkanPathManager = new PathManager();
+            vulkanPathManager.AddFilePath(OSPlatform.Windows, @"M:\VulkanSDK\1.1.126.0\Include\vulkan\vulkan.h");
+            vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan.h"));
 
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = true;
@@ -43,7 +47,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            vkMainModule.Files.Add(@"M:\VulkanSDK\1.1.126.0\Include\vulkan\vulkan.h");
+            vkMainModule.Files.AddRange(vulkanPathManager.Files);
             vkMainModule.ForceCallingConvention = true;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
             vkMainModule.AllowConvertStructToClass = true;
@@ -81,7 +85,7 @@ namespace AdamantiumVulkan.Generator
             var spirvCrossSpecs = GeneratorSpecializations.All;
             spirvCrossSpecs &= ~GeneratorSpecializations.Constants;
             spivCrossModule = options.AddModule(spirvCrossLibrary);
-            spivCrossModule.Name = "Spirv-Cross";
+            spivCrossModule.Name = "Spirv.Cross";
             spivCrossModule.Files.Add(@"M:\GitHUB\ShadersVulkan\spirv-cross\include\spirv_cross_c.h");
             spivCrossModule.Defines.Add("SPVC_EXPORT_SYMBOLS");
             spivCrossModule.Defines.Add("_MSC_VER");
@@ -1108,6 +1112,31 @@ namespace AdamantiumVulkan.Generator
         {
             PostProcessingApi api = new PostProcessingApi();
 
+            api.Class("VkFramebufferAttachmentImageInfoKHR").WithField("pViewFormats")
+                .TreatAsPointerToArray(new CustomType("vkFormat"), true, "viewFormatCount");
+
+            api.Class("VkPipelineViewportStateCreateInfo")
+                .WithField("pViewports")
+                .TreatAsPointerToArray(new CustomType("VkViewport"), true, "viewportCount")
+                .WithField("pScissors")
+                .TreatAsPointerToArray(new CustomType("VkRect2D"), true, "scissorCount");
+
+            api.Class("VkPipelineColorBlendStateCreateInfo")
+                .WithField("pAttachments")
+                .TreatAsPointerToArray(new CustomType("VkPipelineColorBlendAttachmentState"), true, "attachmentCount");
+
+            api.Class("VkDescriptorPoolCreateInfo")
+                .WithField("pPoolSizes")
+                .TreatAsPointerToArray(new CustomType("VkDescriptorPoolSize"), true, "poolSizeCount");
+            
+            api.Class("VkWriteDescriptorSet")
+                .WithField("pImageInfo")
+                .TreatAsPointerToArray(new CustomType("VkDescriptorImageInfo"), true, "descriptorCount")
+                .WithField("pBufferInfo")
+                .TreatAsPointerToArray(new CustomType("VkDescriptorBufferInfo"), true, "descriptorCount")
+                .WithField("pTexelBufferView")
+                .TreatAsPointerToArray(new CustomType("VkBufferView"), true, "descriptorCount");
+
             api.Function("vkUpdateDescriptorSets")
                 .WithParameterName("pDescriptorWrites")
                 .TreatAsPointerToArray(new CustomType("VkWriteDescriptorSet"), true, "descriptorWriteCount")
@@ -1142,24 +1171,7 @@ namespace AdamantiumVulkan.Generator
             api.Function("vkCmdSetViewport")
                 .WithParameterName("pViewports")
                 .TreatAsPointerToArray(new CustomType("VkViewport"), true, "viewportCount");
-
-            api.Class("VkFramebufferAttachmentImageInfoKHR").WithField("pViewFormats")
-                .TreatAsPointerToArray(new CustomType("vkFormat"), true, "viewFormatCount");
-
-            api.Class("VkPipelineViewportStateCreateInfo")
-                .WithField("pViewports")
-                .TreatAsPointerToArray(new CustomType("VkViewport"), true, "viewportCount")
-                .WithField("pScissors")
-                .TreatAsPointerToArray(new CustomType("VkRect2D"), true, "scissorCount");
-
-            api.Class("VkPipelineColorBlendStateCreateInfo")
-                .WithField("pAttachments")
-                .TreatAsPointerToArray(new CustomType("VkPipelineColorBlendAttachmentState"), true, "attachmentCount");
-
-            api.Class("VkDescriptorPoolCreateInfo")
-                .WithField("pPoolSizes")
-                .TreatAsPointerToArray(new CustomType("VkDescriptorPoolSize"), true, "poolSizeCount");
-
+            
             api.Function("shaderc_result_get_bytes").
                 WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
 
