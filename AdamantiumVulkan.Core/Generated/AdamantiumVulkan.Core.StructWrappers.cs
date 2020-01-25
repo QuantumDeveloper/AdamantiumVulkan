@@ -4734,11 +4734,11 @@ namespace AdamantiumVulkan.Core
 
     public partial class WriteDescriptorSet : QBDisposableObject
     {
-        private StructReference refpImageInfo;
+        private GCHandleReference refpImageInfo;
 
-        private StructReference refpBufferInfo;
+        private GCHandleReference refpBufferInfo;
 
-        private StructReference refpTexelBufferView;
+        private GCHandleReference refpTexelBufferView;
 
         public WriteDescriptorSet()
         {
@@ -4752,11 +4752,29 @@ namespace AdamantiumVulkan.Core
             DstArrayElement = _internal.dstArrayElement;
             DescriptorCount = _internal.descriptorCount;
             DescriptorType = (DescriptorType)_internal.descriptorType;
-            PImageInfo = new DescriptorImageInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(_internal.pImageInfo));
+            PImageInfo = new DescriptorImageInfo[_internal.descriptorCount];
+            var nativeTmpArray0 = new VkDescriptorImageInfo[_internal.descriptorCount];
+            MarshalUtils.IntPtrToManagedArray<VkDescriptorImageInfo>(_internal.pImageInfo, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PImageInfo[i] = new DescriptorImageInfo(nativeTmpArray0[i]);
+            }
             Marshal.FreeHGlobal(_internal.pImageInfo);
-            PBufferInfo = new DescriptorBufferInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo>(_internal.pBufferInfo));
+            PBufferInfo = new DescriptorBufferInfo[_internal.descriptorCount];
+            var nativeTmpArray1 = new VkDescriptorBufferInfo[_internal.descriptorCount];
+            MarshalUtils.IntPtrToManagedArray<VkDescriptorBufferInfo>(_internal.pBufferInfo, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PBufferInfo[i] = new DescriptorBufferInfo(nativeTmpArray1[i]);
+            }
             Marshal.FreeHGlobal(_internal.pBufferInfo);
-            PTexelBufferView = new BufferView(Marshal.PtrToStructure<BufferView>(_internal.pTexelBufferView));
+            PTexelBufferView = new BufferView[_internal.descriptorCount];
+            var nativeTmpArray2 = new VkBufferView_T[_internal.descriptorCount];
+            MarshalUtils.IntPtrToManagedArray<VkBufferView_T>(_internal.pTexelBufferView, nativeTmpArray2);
+            for (int i = 0; i < nativeTmpArray2.Length; ++i)
+            {
+                PTexelBufferView[i] = new BufferView(nativeTmpArray2[i]);
+            }
             Marshal.FreeHGlobal(_internal.pTexelBufferView);
         }
 
@@ -4767,9 +4785,9 @@ namespace AdamantiumVulkan.Core
         public uint DstArrayElement { get; set; }
         public uint DescriptorCount { get; set; }
         public DescriptorType DescriptorType { get; set; }
-        public DescriptorImageInfo PImageInfo { get; set; }
-        public DescriptorBufferInfo PBufferInfo { get; set; }
-        public BufferView PTexelBufferView { get; set; }
+        public DescriptorImageInfo[] PImageInfo { get; set; }
+        public DescriptorBufferInfo[] PBufferInfo { get; set; }
+        public BufferView[] PTexelBufferView { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet ToInternal()
         {
@@ -4784,22 +4802,34 @@ namespace AdamantiumVulkan.Core
             refpImageInfo?.Dispose();
             if (PImageInfo != null)
             {
-                var struct0 = PImageInfo.ToInternal();
-                refpImageInfo = new StructReference(struct0);
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo[PImageInfo.Length];
+                for (int i = 0; i < PImageInfo.Length; ++i)
+                {
+                    tmpArray0[i] = PImageInfo[i].ToInternal();
+                }
+                refpImageInfo = new GCHandleReference(tmpArray0);
                 _internal.pImageInfo = refpImageInfo.Handle;
             }
             refpBufferInfo?.Dispose();
             if (PBufferInfo != null)
             {
-                var struct1 = PBufferInfo.ToInternal();
-                refpBufferInfo = new StructReference(struct1);
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo[PBufferInfo.Length];
+                for (int i = 0; i < PBufferInfo.Length; ++i)
+                {
+                    tmpArray1[i] = PBufferInfo[i].ToInternal();
+                }
+                refpBufferInfo = new GCHandleReference(tmpArray1);
                 _internal.pBufferInfo = refpBufferInfo.Handle;
             }
             refpTexelBufferView?.Dispose();
             if (PTexelBufferView != null)
             {
-                AdamantiumVulkan.Core.Interop.VkBufferView_T struct2 = PTexelBufferView;
-                refpTexelBufferView = new StructReference(struct2);
+                var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkBufferView_T[PTexelBufferView.Length];
+                for (int i = 0; i < PTexelBufferView.Length; ++i)
+                {
+                    tmpArray2[i] = PTexelBufferView[i];
+                }
+                refpTexelBufferView = new GCHandleReference(tmpArray2);
                 _internal.pTexelBufferView = refpTexelBufferView.Handle;
             }
             return _internal;
