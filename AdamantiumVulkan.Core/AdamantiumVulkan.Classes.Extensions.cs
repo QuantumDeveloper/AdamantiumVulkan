@@ -158,7 +158,8 @@ namespace AdamantiumVulkan.Core
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
             {
                 var shift = 1 << (int)i;
-                if ((typeFilter & shift) > 0 && memProperties.MemoryTypes[i].PropertyFlags == (uint)properties)
+                if ((typeFilter & shift) > 0 && 
+                    ((MemoryPropertyFlagBits)(memProperties.MemoryTypes[i].PropertyFlags)).HasFlag(properties))
                 {
                     return i;
                 }
