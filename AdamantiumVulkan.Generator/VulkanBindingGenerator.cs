@@ -35,7 +35,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.SPIRV.Cross", "Generated"));
             
             PathManager vulkanPathManager = new PathManager();
-            vulkanPathManager.AddFilePath(OSPlatform.Windows, @"M:\VulkanSDK\1.1.126.0\Include\vulkan\vulkan.h");
+            vulkanPathManager.AddFilePath(OSPlatform.Windows, @"O:\VulkanSDK\1.2.141.2\Include\vulkan\vulkan.h");
             vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan.h"));
 
             options.GenerateSequentialLayout = true;
@@ -182,6 +182,7 @@ namespace AdamantiumVulkan.Generator
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_EXTERNAL_KHR", CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_EXTERNAL", CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_FOREIGN_EXT", CreateApiVersion());
+            macroAction.SubstitutionList.Add("VK_HEADER_VERSION", CreateHeaderVersion());
             context.AddPreGeneratorPass(macroAction, ExecutionPassKind.PerTranslationUnit);
         }
 
@@ -1105,6 +1106,14 @@ namespace AdamantiumVulkan.Generator
             function.FunctionBody = $"return (uint)({paramName}>>22);";
             function.ReturnType = new BuiltinType(PrimitiveType.UInt32);
 
+            return function;
+        }
+
+        private MacroFunction CreateHeaderVersion()
+        {
+            var function = new MacroFunction();
+            function.ReturnType = new BuiltinType(PrimitiveType.Byte);
+            function.ApplyOnlyReturnType = true;
             return function;
         }
 

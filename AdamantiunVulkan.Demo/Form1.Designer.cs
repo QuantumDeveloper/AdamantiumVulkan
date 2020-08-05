@@ -1073,51 +1073,51 @@ namespace VulkanEngineTestCore
         {
             var img = Adamantium.Imaging.Image.Load(@"Textures\BaseAlbedoTexture_Text.png");
 
-            //Buffer stagingBuffer;
-            //DeviceMemory stagingBufferMemory;
-            //CreateBuffer((ulong)img.TotalSizeInBytes, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out var stagingBuffer, out var stagingBufferMemory);
-
-            //unsafe
-            //{
-            //    var data = logicalDevice.MapMemory(stagingBufferMemory, 0, (ulong) img.TotalSizeInBytes, 0);
-            //    System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data.ToPointer(), (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
-            //    logicalDevice.UnmapMemory(stagingBufferMemory);
-            //}
-
-            //var imageDescr = img.Description;
-            //img?.Dispose();
-
-            //ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
-            //CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Optimal, usage, MemoryPropertyFlagBits.DeviceLocalBit, out textureImage, out textureImageMemory);
-
-            //TransitionImageLayout(textureImage, imageDescr.Format, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
-            //CopyBufferToImage(stagingBuffer, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
-            //TransitionImageLayout(textureImage, imageDescr.Format,  ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
-
-            //logicalDevice.DestroyBuffer(stagingBuffer);
-            //logicalDevice.FreeMemory(stagingBufferMemory);
-
-            var imageDescr = img.Description;
-            ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
-            CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Linear, ImageUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out var stagingTextureImage, out var staingTextureImageMemory);
+            Buffer stagingBuffer;
+            DeviceMemory stagingBufferMemory;
+            CreateBuffer((ulong)img.TotalSizeInBytes, BufferUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out stagingBuffer, out stagingBufferMemory);
 
             unsafe
             {
-                var data = logicalDevice.MapMemory(staingTextureImageMemory, 0, (ulong)img.TotalSizeInBytes, 0);
+                var data = logicalDevice.MapMemory(stagingBufferMemory, 0, (ulong)img.TotalSizeInBytes, 0);
                 System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data.ToPointer(), (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
-                logicalDevice.UnmapMemory(staingTextureImageMemory);
-                img?.Dispose();
+                logicalDevice.UnmapMemory(stagingBufferMemory);
             }
 
+            var imageDescr = img.Description;
+            img?.Dispose();
+
+            ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
             CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Optimal, usage, MemoryPropertyFlagBits.DeviceLocalBit, out textureImage, out textureImageMemory);
 
-            TransitionImageLayout(stagingTextureImage, imageDescr.Format, ImageLayout.Preinitialized, ImageLayout.TransferSrcOptimal);
-            TransitionImageLayout(textureImage, imageDescr.Format, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
-            CopyImageToImage(stagingTextureImage, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
-            TransitionImageLayout(textureImage, imageDescr.Format, ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
+            TransitionImageLayout(textureImage, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
+            CopyBufferToImage(stagingBuffer, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
+            TransitionImageLayout(textureImage, ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
 
-            stagingTextureImage.Destroy(logicalDevice);
-            staingTextureImageMemory.FreeMemory(logicalDevice);
+            logicalDevice.DestroyBuffer(stagingBuffer);
+            logicalDevice.FreeMemory(stagingBufferMemory);
+
+            //var imageDescr = img.Description;
+            //ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
+            //CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Linear, ImageUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out var stagingTextureImage, out var staingTextureImageMemory);
+
+            //unsafe
+            //{
+            //    var data = logicalDevice.MapMemory(staingTextureImageMemory, 0, (ulong)img.TotalSizeInBytes, 0);
+            //    System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data.ToPointer(), (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
+            //    logicalDevice.UnmapMemory(staingTextureImageMemory);
+            //    img?.Dispose();
+            //}
+
+            //CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Linear, usage, MemoryPropertyFlagBits.DeviceLocalBit, out textureImage, out textureImageMemory);
+
+            //TransitionImageLayout(stagingTextureImage, ImageLayout.Preinitialized, ImageLayout.TransferSrcOptimal);
+            //TransitionImageLayout(textureImage, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
+            //CopyImageToImage(stagingTextureImage, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
+            //TransitionImageLayout(textureImage, ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
+
+            //stagingTextureImage.Destroy(logicalDevice);
+            //staingTextureImageMemory.FreeMemory(logicalDevice);
         }
 
         void CreateImage(uint width, uint height, Format format, ImageTiling tiling, ImageUsageFlagBits usage, MemoryPropertyFlagBits properties, out Image image, out DeviceMemory imageMemory)
@@ -1157,7 +1157,7 @@ namespace VulkanEngineTestCore
             logicalDevice.BindImageMemory(image, imageMemory, 0);
         }
 
-        void TransitionImageLayout(Image image, Format format, ImageLayout oldLayout, ImageLayout newLayout)
+        void TransitionImageLayout(Image image, ImageLayout oldLayout, ImageLayout newLayout)
         {
             CommandBuffer commandBuffer = logicalDevice.BeginSingleTimeCommand(commandPool);
 
