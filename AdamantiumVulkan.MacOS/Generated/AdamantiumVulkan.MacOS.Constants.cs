@@ -12,11 +12,11 @@ namespace AdamantiumVulkan.MacOS
 
     public static class Constants
     {
-        public static int VULKAN_MACOS_H_ => 1;
+        public static uint VULKAN_MACOS_H_ => 1;
 
-        public static int VK_MVK_macos_surface => 1;
+        public static uint VK_MVK_macos_surface => 1;
 
-        public static int VK_MVK_MACOS_SURFACE_SPEC_VERSION => 2;
+        public static uint VK_MVK_MACOS_SURFACE_SPEC_VERSION => 2;
 
         public static string VK_MVK_MACOS_SURFACE_EXTENSION_NAME => "VK_MVK_macos_surface";
 

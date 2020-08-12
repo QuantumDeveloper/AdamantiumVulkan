@@ -47,6 +47,11 @@ namespace AdamantiumVulkan.Shaders
         Vulkan11 = 4198400,
 
         ///<summary>
+        /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
+        ///</summary>
+        Vulkan12 = 4202496,
+
+        ///<summary>
         /// For OpenGL, use the number from #version in shaders. TODO(dneto): Currently no difference between OpenGL 4.5 and 4.6. See glslang/Standalone/Standalone.cpp TODO(dneto): Glslang doesn't accept a OpenGL client version of 460.
         ///</summary>
         Opengl45 = 450,
@@ -87,6 +92,11 @@ namespace AdamantiumVulkan.Shaders
         /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
         ///</summary>
         _4 = 66560,
+
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _5 = 66816,
 
     }
 
@@ -204,6 +214,86 @@ namespace AdamantiumVulkan.Shaders
         /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
         ///</summary>
         SpirvAssembly = 13,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        RaygenShader = 14,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        AnyhitShader = 15,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        ClosesthitShader = 16,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        MissShader = 17,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        IntersectionShader = 18,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        CallableShader = 19,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultRaygenShader = 20,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultAnyhitShader = 21,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultClosesthitShader = 22,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultMissShader = 23,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultIntersectionShader = 24,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultCallableShader = 25,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        TaskShader = 26,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        MeshShader = 27,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultTaskShader = 28,
+
+        ///<summary>
+        /// Default shader kinds. Compiler will fall back to compile the source code as the specified kind of shader when #pragma annotation is not found in the source code.
+        ///</summary>
+        GlslDefaultMeshShader = 29,
 
     }
 

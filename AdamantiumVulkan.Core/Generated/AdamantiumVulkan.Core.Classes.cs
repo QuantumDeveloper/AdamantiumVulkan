@@ -11,6 +11,68 @@ namespace AdamantiumVulkan.Core
     using System.Runtime.InteropServices;
     using AdamantiumVulkan.Core.Interop;
 
+    public partial class Buffer
+    {
+        internal VkBuffer_T __Instance;
+
+        public Buffer()
+        {
+        }
+
+        public Buffer(AdamantiumVulkan.Core.Interop.VkBuffer_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+        public System.IntPtr NativePointer
+        {
+            get => __Instance.pointer;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkBuffer_T(Buffer b)
+        {
+            return b?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkBuffer_T();
+        }
+
+        public static implicit operator Buffer(AdamantiumVulkan.Core.Interop.VkBuffer_T b)
+        {
+            return new Buffer(b);
+        }
+
+    }
+
+    public partial class Image
+    {
+        internal VkImage_T __Instance;
+
+        public Image()
+        {
+        }
+
+        public Image(AdamantiumVulkan.Core.Interop.VkImage_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+        public System.IntPtr NativePointer
+        {
+            get => __Instance.pointer;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkImage_T(Image i)
+        {
+            return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkImage_T();
+        }
+
+        public static implicit operator Image(AdamantiumVulkan.Core.Interop.VkImage_T i)
+        {
+            return new Image(i);
+        }
+
+    }
+
     public partial class Instance
     {
         internal VkInstance_T __Instance;
@@ -291,6 +353,18 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(uint queueFamilyIndex, ref uint pCounterCount, PerformanceCounterKHR pCounters, PerformanceCounterDescriptionKHR pCounterDescriptions)
+        {
+            var arg1 = ReferenceEquals(pCounters, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCounters.ToInternal());
+            var arg2 = ReferenceEquals(pCounterDescriptions, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCounterDescriptions.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg1, arg2);
+            pCounters?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pCounterDescriptions?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
+        }
+
         public Result GetDisplayModeProperties2KHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, DisplayModeProperties2KHR pProperties)
         {
             var arg1 = ReferenceEquals(display, null) ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
@@ -523,17 +597,6 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
-        public void GetPhysicalDeviceGeneratedCommandsPropertiesNVX(DeviceGeneratedCommandsFeaturesNVX pFeatures, DeviceGeneratedCommandsLimitsNVX pLimits)
-        {
-            var arg1 = ReferenceEquals(pFeatures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pFeatures.ToInternal());
-            var arg2 = ReferenceEquals(pLimits, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pLimits.ToInternal());
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX(this, arg1, arg2);
-            pFeatures?.Dispose();
-            Marshal.FreeHGlobal(arg1);
-            pLimits?.Dispose();
-            Marshal.FreeHGlobal(arg2);
-        }
-
         public Result GetPhysicalDeviceImageFormatProperties(Format format, ImageType type, ImageTiling tiling, uint usage, uint flags, ImageFormatProperties pImageFormatProperties)
         {
             var arg3 = ReferenceEquals(pImageFormatProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pImageFormatProperties.ToInternal());
@@ -624,6 +687,14 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProperties.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceProperties2KHR(this, arg1);
             pProperties?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
+        public void GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(in QueryPoolPerformanceCreateInfoKHR pPerformanceQueryCreateInfo, ref uint pNumPasses)
+        {
+            var arg1 = ReferenceEquals(pPerformanceQueryCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pPerformanceQueryCreateInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(this, arg1, ref pNumPasses);
+            pPerformanceQueryCreateInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
         }
 
@@ -819,6 +890,15 @@ namespace AdamantiumVulkan.Core
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceSupportKHR(this, queueFamilyIndex, arg1, ref pSupported);
         }
 
+        public Result GetPhysicalDeviceToolPropertiesEXT(ref uint pToolCount, PhysicalDeviceToolPropertiesEXT pToolProperties)
+        {
+            var arg1 = ReferenceEquals(pToolProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pToolProperties.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceToolPropertiesEXT(this, ref pToolCount, arg1);
+            pToolProperties?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public Result ReleaseDisplayEXT(AdamantiumVulkan.Core.DisplayKHR display)
         {
             var arg1 = ReferenceEquals(display, null) ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
@@ -881,6 +961,15 @@ namespace AdamantiumVulkan.Core
             pAcquireInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
             pConfiguration = new PerformanceConfigurationINTEL(arg2);
+            return result;
+        }
+
+        public Result AcquireProfilingLockKHR(in AcquireProfilingLockInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkAcquireProfilingLockKHR(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
             return result;
         }
 
@@ -960,7 +1049,16 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result BindAccelerationStructureMemoryNV(uint bindInfoCount, in BindAccelerationStructureMemoryInfoNV pBindInfos)
+        public Result BindAccelerationStructureMemoryKHR(uint bindInfoCount, in BindAccelerationStructureMemoryInfoKHR pBindInfos)
+        {
+            var arg1 = ReferenceEquals(pBindInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pBindInfos.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkBindAccelerationStructureMemoryKHR(this, bindInfoCount, arg1);
+            pBindInfos?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result BindAccelerationStructureMemoryNV(uint bindInfoCount, in BindAccelerationStructureMemoryInfoKHR pBindInfos)
         {
             var arg1 = ReferenceEquals(pBindInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pBindInfos.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkBindAccelerationStructureMemoryNV(this, bindInfoCount, arg1);
@@ -1029,7 +1127,7 @@ namespace AdamantiumVulkan.Core
         {
             var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            VkAccelerationStructureNV_T arg3;
+            VkAccelerationStructureKHR_T arg3;
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateAccelerationStructureNV(this, arg1, arg2, out arg3);
             pCreateInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
@@ -1249,31 +1347,17 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result CreateIndirectCommandsLayoutNVX(in IndirectCommandsLayoutCreateInfoNVX pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.IndirectCommandsLayoutNVX pIndirectCommandsLayout)
+        public Result CreateIndirectCommandsLayoutNV(in IndirectCommandsLayoutCreateInfoNV pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.IndirectCommandsLayoutNV pIndirectCommandsLayout)
         {
             var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            VkIndirectCommandsLayoutNVX_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateIndirectCommandsLayoutNVX(this, arg1, arg2, out arg3);
+            VkIndirectCommandsLayoutNV_T arg3;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateIndirectCommandsLayoutNV(this, arg1, arg2, out arg3);
             pCreateInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg2);
-            pIndirectCommandsLayout = new IndirectCommandsLayoutNVX(arg3);
-            return result;
-        }
-
-        public Result CreateObjectTableNVX(in ObjectTableCreateInfoNVX pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.ObjectTableNVX pObjectTable)
-        {
-            var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
-            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            VkObjectTableNVX_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateObjectTableNVX(this, arg1, arg2, out arg3);
-            pCreateInfo?.Dispose();
-            Marshal.FreeHGlobal(arg1);
-            pAllocator?.Dispose();
-            Marshal.FreeHGlobal(arg2);
-            pObjectTable = new ObjectTableNVX(arg3);
+            pIndirectCommandsLayout = new IndirectCommandsLayoutNV(arg3);
             return result;
         }
 
@@ -1302,6 +1386,20 @@ namespace AdamantiumVulkan.Core
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg2);
             pPipelineLayout = new PipelineLayout(arg3);
+            return result;
+        }
+
+        public Result CreatePrivateDataSlotEXT(in PrivateDataSlotCreateInfoEXT pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.PrivateDataSlotEXT pPrivateDataSlot)
+        {
+            var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkPrivateDataSlotEXT_T arg3;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreatePrivateDataSlotEXT(this, arg1, arg2, out arg3);
+            pCreateInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            pPrivateDataSlot = new PrivateDataSlotEXT(arg3);
             return result;
         }
 
@@ -1348,7 +1446,21 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result CreateRenderPass2KHR(in RenderPassCreateInfo2KHR pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.RenderPass pRenderPass)
+        public Result CreateRenderPass2(in RenderPassCreateInfo2 pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.RenderPass pRenderPass)
+        {
+            var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkRenderPass_T arg3;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateRenderPass2(this, arg1, arg2, out arg3);
+            pCreateInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            pRenderPass = new RenderPass(arg3);
+            return result;
+        }
+
+        public Result CreateRenderPass2KHR(in RenderPassCreateInfo2 pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.RenderPass pRenderPass)
         {
             var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
@@ -1492,9 +1604,18 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public void DestroyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureNV accelerationStructure, in AllocationCallbacks pAllocator = null)
+        public void DestroyAccelerationStructureKHR(AdamantiumVulkan.Core.AccelerationStructureKHR accelerationStructure, in AllocationCallbacks pAllocator)
         {
-            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)accelerationStructure;
+            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)accelerationStructure;
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyAccelerationStructureKHR(this, arg1, arg2);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public void DestroyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureKHR accelerationStructure, in AllocationCallbacks pAllocator = null)
+        {
+            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)accelerationStructure;
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyAccelerationStructureNV(this, arg1, arg2);
             pAllocator?.Dispose();
@@ -1617,20 +1738,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public void DestroyIndirectCommandsLayoutNVX(AdamantiumVulkan.Core.IndirectCommandsLayoutNVX indirectCommandsLayout, in AllocationCallbacks pAllocator = null)
+        public void DestroyIndirectCommandsLayoutNV(AdamantiumVulkan.Core.IndirectCommandsLayoutNV indirectCommandsLayout, in AllocationCallbacks pAllocator)
         {
-            var arg1 = ReferenceEquals(indirectCommandsLayout, null) ? new VkIndirectCommandsLayoutNVX_T() : (VkIndirectCommandsLayoutNVX_T)indirectCommandsLayout;
+            var arg1 = ReferenceEquals(indirectCommandsLayout, null) ? new VkIndirectCommandsLayoutNV_T() : (VkIndirectCommandsLayoutNV_T)indirectCommandsLayout;
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyIndirectCommandsLayoutNVX(this, arg1, arg2);
-            pAllocator?.Dispose();
-            Marshal.FreeHGlobal(arg2);
-        }
-
-        public void DestroyObjectTableNVX(AdamantiumVulkan.Core.ObjectTableNVX objectTable, in AllocationCallbacks pAllocator = null)
-        {
-            var arg1 = ReferenceEquals(objectTable, null) ? new VkObjectTableNVX_T() : (VkObjectTableNVX_T)objectTable;
-            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyObjectTableNVX(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyIndirectCommandsLayoutNV(this, arg1, arg2);
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg2);
         }
@@ -1658,6 +1770,15 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pipelineLayout, null) ? new VkPipelineLayout_T() : (VkPipelineLayout_T)pipelineLayout;
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyPipelineLayout(this, arg1, arg2);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public void DestroyPrivateDataSlotEXT(AdamantiumVulkan.Core.PrivateDataSlotEXT privateDataSlot, in AllocationCallbacks pAllocator)
+        {
+            var arg1 = ReferenceEquals(privateDataSlot, null) ? new VkPrivateDataSlotEXT_T() : (VkPrivateDataSlotEXT_T)privateDataSlot;
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyPrivateDataSlotEXT(this, arg1, arg2);
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg2);
         }
@@ -1808,9 +1929,9 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public Result GetAccelerationStructureHandleNV(AdamantiumVulkan.Core.AccelerationStructureNV accelerationStructure, ulong dataSize, ref System.IntPtr pData)
+        public Result GetAccelerationStructureHandleNV(AdamantiumVulkan.Core.AccelerationStructureKHR accelerationStructure, ulong dataSize, ref System.IntPtr pData)
         {
-            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)accelerationStructure;
+            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)accelerationStructure;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetAccelerationStructureHandleNV(this, arg1, dataSize, pData);
         }
 
@@ -1825,10 +1946,28 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public ulong GetBufferDeviceAddressEXT(in BufferDeviceAddressInfoEXT pInfo)
+        public ulong GetBufferDeviceAddress(in BufferDeviceAddressInfo pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferDeviceAddress(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public ulong GetBufferDeviceAddressEXT(in BufferDeviceAddressInfo pInfo)
         {
             var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferDeviceAddressEXT(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public ulong GetBufferDeviceAddressKHR(in BufferDeviceAddressInfo pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferDeviceAddressKHR(this, arg1);
             pInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
             return result;
@@ -1862,6 +2001,24 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
             pMemoryRequirements?.Dispose();
             Marshal.FreeHGlobal(arg2);
+        }
+
+        public ulong GetBufferOpaqueCaptureAddress(in BufferDeviceAddressInfo pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferOpaqueCaptureAddress(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public ulong GetBufferOpaqueCaptureAddressKHR(in BufferDeviceAddressInfo pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferOpaqueCaptureAddressKHR(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
         public Result GetCalibratedTimestampsEXT(uint timestampCount, in CalibratedTimestampInfoEXT pTimestampInfos, ref ulong pTimestamps, ref ulong pMaxDeviation)
@@ -1926,6 +2083,24 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceMemoryCommitment(this, arg1, ref pCommittedMemoryInBytes);
         }
 
+        public ulong GetDeviceMemoryOpaqueCaptureAddress(in DeviceMemoryOpaqueCaptureAddressInfo pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceMemoryOpaqueCaptureAddress(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public ulong GetDeviceMemoryOpaqueCaptureAddressKHR(in DeviceMemoryOpaqueCaptureAddressInfo pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceMemoryOpaqueCaptureAddressKHR(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public System.IntPtr GetDeviceProcAddr(string pName)
         {
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceProcAddr(this, pName);
@@ -1967,6 +2142,17 @@ namespace AdamantiumVulkan.Core
         {
             var arg1 = ReferenceEquals(fence, null) ? new VkFence_T() : (VkFence_T)fence;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetFenceStatus(this, arg1);
+        }
+
+        public void GetGeneratedCommandsMemoryRequirementsNV(in GeneratedCommandsMemoryRequirementsInfoNV pInfo, MemoryRequirements2 pMemoryRequirements)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var arg2 = ReferenceEquals(pMemoryRequirements, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pMemoryRequirements.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetGeneratedCommandsMemoryRequirementsNV(this, arg1, arg2);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pMemoryRequirements?.Dispose();
+            Marshal.FreeHGlobal(arg2);
         }
 
         public Result GetImageDrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Image image, ImageDrmFormatModifierPropertiesEXT pProperties)
@@ -2047,6 +2233,16 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageSubresourceLayout(this, arg1, arg2, arg3);
             Marshal.FreeHGlobal(arg2);
             Marshal.FreeHGlobal(arg3);
+        }
+
+        public Result GetImageViewAddressNVX(AdamantiumVulkan.Core.ImageView imageView, ImageViewAddressPropertiesNVX pProperties)
+        {
+            var arg1 = ReferenceEquals(imageView, null) ? new VkImageView_T() : (VkImageView_T)imageView;
+            var arg2 = ReferenceEquals(pProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProperties.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageViewAddressNVX(this, arg1, arg2);
+            pProperties?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
         }
 
         public uint GetImageViewHandleNVX(in ImageViewHandleInfoNVX pInfo)
@@ -2144,10 +2340,22 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public void GetPrivateDataEXT(ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.PrivateDataSlotEXT privateDataSlot, ref ulong pData)
+        {
+            var arg1 = ReferenceEquals(privateDataSlot, null) ? new VkPrivateDataSlotEXT_T() : (VkPrivateDataSlotEXT_T)privateDataSlot;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPrivateDataEXT(this, objectType, objectHandle, arg1, ref pData);
+        }
+
         public Result GetQueryPoolResults(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount, ulong dataSize, ref System.IntPtr pData, ulong stride, uint flags)
         {
             var arg1 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetQueryPoolResults(this, arg1, firstQuery, queryCount, dataSize, pData, stride, flags);
+        }
+
+        public Result GetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref System.IntPtr pData)
+        {
+            var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingShaderGroupHandlesKHR(this, arg1, firstGroup, groupCount, dataSize, pData);
         }
 
         public Result GetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref System.IntPtr pData)
@@ -2171,6 +2379,12 @@ namespace AdamantiumVulkan.Core
             var arg2 = ReferenceEquals(pGranularity, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGranularity.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRenderAreaGranularity(this, arg1, arg2);
             Marshal.FreeHGlobal(arg2);
+        }
+
+        public Result GetSemaphoreCounterValue(AdamantiumVulkan.Core.Semaphore semaphore, ref ulong pValue)
+        {
+            var arg1 = ReferenceEquals(semaphore, null) ? new VkSemaphore_T() : (VkSemaphore_T)semaphore;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetSemaphoreCounterValue(this, arg1, ref pValue);
         }
 
         public Result GetSemaphoreCounterValueKHR(AdamantiumVulkan.Core.Semaphore semaphore, ref ulong pValue)
@@ -2328,19 +2542,15 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result RegisterObjectsNVX(AdamantiumVulkan.Core.ObjectTableNVX objectTable, uint objectCount, in ObjectTableEntryNVX ppObjectTableEntries, in uint pObjectIndices)
-        {
-            var arg1 = ReferenceEquals(objectTable, null) ? new VkObjectTableNVX_T() : (VkObjectTableNVX_T)objectTable;
-            var arg2 = ReferenceEquals(ppObjectTableEntries, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(ppObjectTableEntries.ToInternal());
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkRegisterObjectsNVX(this, arg1, objectCount, arg2, pObjectIndices);
-            Marshal.FreeHGlobal(arg2);
-            return result;
-        }
-
         public Result ReleasePerformanceConfigurationINTEL(AdamantiumVulkan.Core.PerformanceConfigurationINTEL configuration)
         {
             var arg1 = ReferenceEquals(configuration, null) ? new VkPerformanceConfigurationINTEL_T() : (VkPerformanceConfigurationINTEL_T)configuration;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkReleasePerformanceConfigurationINTEL(this, arg1);
+        }
+
+        public void ReleaseProfilingLockKHR()
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkReleaseProfilingLockKHR(this);
         }
 
         public Result ResetCommandPool(AdamantiumVulkan.Core.CommandPool commandPool, uint flags)
@@ -2381,6 +2591,12 @@ namespace AdamantiumVulkan.Core
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkResetFences(this, fenceCount, arg1);
             Marshal.FreeHGlobal(arg1);
             return result;
+        }
+
+        public void ResetQueryPool(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount)
+        {
+            var arg1 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkResetQueryPool(this, arg1, firstQuery, queryCount);
         }
 
         public void ResetQueryPoolEXT(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount)
@@ -2429,7 +2645,22 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkSetLocalDimmingAMD(this, arg1, localDimmingEnable);
         }
 
-        public Result SignalSemaphoreKHR(in SemaphoreSignalInfoKHR pSignalInfo)
+        public Result SetPrivateDataEXT(ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.PrivateDataSlotEXT privateDataSlot, ulong data)
+        {
+            var arg1 = ReferenceEquals(privateDataSlot, null) ? new VkPrivateDataSlotEXT_T() : (VkPrivateDataSlotEXT_T)privateDataSlot;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkSetPrivateDataEXT(this, objectType, objectHandle, arg1, data);
+        }
+
+        public Result SignalSemaphore(in SemaphoreSignalInfo pSignalInfo)
+        {
+            var arg1 = ReferenceEquals(pSignalInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSignalInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkSignalSemaphore(this, arg1);
+            pSignalInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result SignalSemaphoreKHR(in SemaphoreSignalInfo pSignalInfo)
         {
             var arg1 = ReferenceEquals(pSignalInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSignalInfo.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkSignalSemaphoreKHR(this, arg1);
@@ -2459,15 +2690,6 @@ namespace AdamantiumVulkan.Core
         {
             var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkUnmapMemory(this, arg1);
-        }
-
-        public Result UnregisterObjectsNVX(AdamantiumVulkan.Core.ObjectTableNVX objectTable, uint objectCount, in ObjectEntryTypeNVX pObjectEntryTypes, in uint pObjectIndices)
-        {
-            var arg1 = ReferenceEquals(objectTable, null) ? new VkObjectTableNVX_T() : (VkObjectTableNVX_T)objectTable;
-            var arg2 = new GCHandleReference((uint)pObjectEntryTypes);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkUnregisterObjectsNVX(this, arg1, objectCount, arg2.Handle, pObjectIndices);
-            arg2?.Dispose();
-            return result;
         }
 
         public void UpdateDescriptorSets(uint descriptorWriteCount, in WriteDescriptorSet[] pDescriptorWrites, uint descriptorCopyCount, out CopyDescriptorSet[] pDescriptorCopies)
@@ -2551,7 +2773,16 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result WaitSemaphoresKHR(in SemaphoreWaitInfoKHR pWaitInfo, ulong timeout)
+        public Result WaitSemaphores(in SemaphoreWaitInfo pWaitInfo, ulong timeout)
+        {
+            var arg1 = ReferenceEquals(pWaitInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pWaitInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWaitSemaphores(this, arg1, timeout);
+            pWaitInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result WaitSemaphoresKHR(in SemaphoreWaitInfo pWaitInfo, ulong timeout)
         {
             var arg1 = ReferenceEquals(pWaitInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pWaitInfo.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWaitSemaphoresKHR(this, arg1, timeout);
@@ -2790,7 +3021,18 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
-        public void BeginRenderPass2KHR(in RenderPassBeginInfo pRenderPassBegin, in SubpassBeginInfoKHR pSubpassBeginInfo)
+        public void BeginRenderPass2(in RenderPassBeginInfo pRenderPassBegin, in SubpassBeginInfo pSubpassBeginInfo)
+        {
+            var arg1 = ReferenceEquals(pRenderPassBegin, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRenderPassBegin.ToInternal());
+            var arg2 = ReferenceEquals(pSubpassBeginInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassBeginInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBeginRenderPass2(this, arg1, arg2);
+            pRenderPassBegin?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pSubpassBeginInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public void BeginRenderPass2KHR(in RenderPassBeginInfo pRenderPassBegin, in SubpassBeginInfo pSubpassBeginInfo)
         {
             var arg1 = ReferenceEquals(pRenderPassBegin, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRenderPassBegin.ToInternal());
             var arg2 = ReferenceEquals(pSubpassBeginInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassBeginInfo.ToInternal());
@@ -2835,6 +3077,12 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindPipeline(this, pipelineBindPoint, arg1);
         }
 
+        public void BindPipelineShaderGroupNV(PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Pipeline pipeline, uint groupIndex)
+        {
+            var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindPipelineShaderGroupNV(this, pipelineBindPoint, arg1, groupIndex);
+        }
+
         public void BindShadingRateImageNV(AdamantiumVulkan.Core.ImageView imageView, ImageLayout imageLayout)
         {
             var arg1 = ReferenceEquals(imageView, null) ? new VkImageView_T() : (VkImageView_T)imageView;
@@ -2876,6 +3124,19 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void BindVertexBuffers2EXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, in ulong? pOffsets, in ulong? pSizes, in ulong? pStrides)
+        {
+            var arg1 = ReferenceEquals(pBuffers, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkBuffer_T)pBuffers);
+            var arg2 = ReferenceEquals(pOffsets, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pOffsets.Value);
+            var arg3 = ReferenceEquals(pSizes, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSizes.Value);
+            var arg4 = ReferenceEquals(pStrides, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pStrides.Value);
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindVertexBuffers2EXT(this, firstBinding, bindingCount, arg1, arg2, arg3, arg4);
+            Marshal.FreeHGlobal(arg1);
+            Marshal.FreeHGlobal(arg2);
+            Marshal.FreeHGlobal(arg3);
+            Marshal.FreeHGlobal(arg4);
+        }
+
         public void BlitImage(AdamantiumVulkan.Core.Image srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Image dstImage, ImageLayout dstImageLayout, uint regionCount, in ImageBlit pRegions, Filter filter)
         {
             var arg1 = ReferenceEquals(srcImage, null) ? new VkImage_T() : (VkImage_T)srcImage;
@@ -2885,12 +3146,12 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
-        public void BuildAccelerationStructureNV(in AccelerationStructureInfoNV pInfo, AdamantiumVulkan.Core.Buffer instanceData, ulong instanceOffset, bool update, AdamantiumVulkan.Core.AccelerationStructureNV dst, AdamantiumVulkan.Core.AccelerationStructureNV src, AdamantiumVulkan.Core.Buffer scratch, ulong scratchOffset)
+        public void BuildAccelerationStructureNV(in AccelerationStructureInfoNV pInfo, AdamantiumVulkan.Core.Buffer instanceData, ulong instanceOffset, bool update, AdamantiumVulkan.Core.AccelerationStructureKHR dst, AdamantiumVulkan.Core.AccelerationStructureKHR src, AdamantiumVulkan.Core.Buffer scratch, ulong scratchOffset)
         {
             var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
             var arg2 = ReferenceEquals(instanceData, null) ? new VkBuffer_T() : (VkBuffer_T)instanceData;
-            var arg5 = ReferenceEquals(dst, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)dst;
-            var arg6 = ReferenceEquals(src, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)src;
+            var arg5 = ReferenceEquals(dst, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)dst;
+            var arg6 = ReferenceEquals(src, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)src;
             var arg7 = ReferenceEquals(scratch, null) ? new VkBuffer_T() : (VkBuffer_T)scratch;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildAccelerationStructureNV(this, arg1, arg2, instanceOffset, update, arg5, arg6, arg7, scratchOffset);
             pInfo?.Dispose();
@@ -2926,10 +3187,10 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
-        public void CopyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureNV dst, AdamantiumVulkan.Core.AccelerationStructureNV src, CopyAccelerationStructureModeNV mode)
+        public void CopyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureKHR dst, AdamantiumVulkan.Core.AccelerationStructureKHR src, CopyAccelerationStructureModeKHR mode)
         {
-            var arg1 = ReferenceEquals(dst, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)dst;
-            var arg2 = ReferenceEquals(src, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)src;
+            var arg1 = ReferenceEquals(dst, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)dst;
+            var arg2 = ReferenceEquals(src, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)src;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyAccelerationStructureNV(this, arg1, arg2, mode);
         }
 
@@ -3050,6 +3311,13 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdDrawIndexedIndirect(this, arg1, offset, drawCount, stride);
         }
 
+        public void DrawIndexedIndirectCount(AdamantiumVulkan.Core.Buffer buffer, ulong offset, AdamantiumVulkan.Core.Buffer countBuffer, ulong countBufferOffset, uint maxDrawCount, uint stride)
+        {
+            var arg1 = ReferenceEquals(buffer, null) ? new VkBuffer_T() : (VkBuffer_T)buffer;
+            var arg3 = ReferenceEquals(countBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)countBuffer;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdDrawIndexedIndirectCount(this, arg1, offset, arg3, countBufferOffset, maxDrawCount, stride);
+        }
+
         public void DrawIndexedIndirectCountAMD(AdamantiumVulkan.Core.Buffer buffer, ulong offset, AdamantiumVulkan.Core.Buffer countBuffer, ulong countBufferOffset, uint maxDrawCount, uint stride)
         {
             var arg1 = ReferenceEquals(buffer, null) ? new VkBuffer_T() : (VkBuffer_T)buffer;
@@ -3074,6 +3342,13 @@ namespace AdamantiumVulkan.Core
         {
             var arg1 = ReferenceEquals(counterBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)counterBuffer;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdDrawIndirectByteCountEXT(this, instanceCount, firstInstance, arg1, counterBufferOffset, counterOffset, vertexStride);
+        }
+
+        public void DrawIndirectCount(AdamantiumVulkan.Core.Buffer buffer, ulong offset, AdamantiumVulkan.Core.Buffer countBuffer, ulong countBufferOffset, uint maxDrawCount, uint stride)
+        {
+            var arg1 = ReferenceEquals(buffer, null) ? new VkBuffer_T() : (VkBuffer_T)buffer;
+            var arg3 = ReferenceEquals(countBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)countBuffer;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdDrawIndirectCount(this, arg1, offset, arg3, countBufferOffset, maxDrawCount, stride);
         }
 
         public void DrawIndirectCountAMD(AdamantiumVulkan.Core.Buffer buffer, ulong offset, AdamantiumVulkan.Core.Buffer countBuffer, ulong countBufferOffset, uint maxDrawCount, uint stride)
@@ -3140,7 +3415,15 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdEndRenderPass(this);
         }
 
-        public void EndRenderPass2KHR(in SubpassEndInfoKHR pSubpassEndInfo)
+        public void EndRenderPass2(in SubpassEndInfo pSubpassEndInfo)
+        {
+            var arg1 = ReferenceEquals(pSubpassEndInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassEndInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdEndRenderPass2(this, arg1);
+            pSubpassEndInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
+        public void EndRenderPass2KHR(in SubpassEndInfo pSubpassEndInfo)
         {
             var arg1 = ReferenceEquals(pSubpassEndInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassEndInfo.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdEndRenderPass2KHR(this, arg1);
@@ -3169,6 +3452,14 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void ExecuteGeneratedCommandsNV(bool isPreprocessed, in GeneratedCommandsInfoNV pGeneratedCommandsInfo)
+        {
+            var arg2 = ReferenceEquals(pGeneratedCommandsInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGeneratedCommandsInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdExecuteGeneratedCommandsNV(this, isPreprocessed, arg2);
+            pGeneratedCommandsInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
         public void FillBuffer(AdamantiumVulkan.Core.Buffer dstBuffer, ulong dstOffset, ulong size, uint data)
         {
             var arg1 = ReferenceEquals(dstBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)dstBuffer;
@@ -3188,7 +3479,18 @@ namespace AdamantiumVulkan.Core
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdNextSubpass(this, contents);
         }
 
-        public void NextSubpass2KHR(in SubpassBeginInfoKHR pSubpassBeginInfo, in SubpassEndInfoKHR pSubpassEndInfo)
+        public void NextSubpass2(in SubpassBeginInfo pSubpassBeginInfo, in SubpassEndInfo pSubpassEndInfo)
+        {
+            var arg1 = ReferenceEquals(pSubpassBeginInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassBeginInfo.ToInternal());
+            var arg2 = ReferenceEquals(pSubpassEndInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassEndInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdNextSubpass2(this, arg1, arg2);
+            pSubpassBeginInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pSubpassEndInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public void NextSubpass2KHR(in SubpassBeginInfo pSubpassBeginInfo, in SubpassEndInfo pSubpassEndInfo)
         {
             var arg1 = ReferenceEquals(pSubpassBeginInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassBeginInfo.ToInternal());
             var arg2 = ReferenceEquals(pSubpassEndInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSubpassEndInfo.ToInternal());
@@ -3266,11 +3568,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg6);
         }
 
-        public void ProcessCommandsNVX(in ProcessCommandsInfoNVX pProcessCommandsInfo)
+        public void PreprocessGeneratedCommandsNV(in GeneratedCommandsInfoNV pGeneratedCommandsInfo)
         {
-            var arg1 = ReferenceEquals(pProcessCommandsInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pProcessCommandsInfo.ToInternal());
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdProcessCommandsNVX(this, arg1);
-            pProcessCommandsInfo?.Dispose();
+            var arg1 = ReferenceEquals(pGeneratedCommandsInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pGeneratedCommandsInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPreprocessGeneratedCommandsNV(this, arg1);
+            pGeneratedCommandsInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
         }
 
@@ -3294,14 +3596,6 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(descriptorUpdateTemplate, null) ? new VkDescriptorUpdateTemplate_T() : (VkDescriptorUpdateTemplate_T)descriptorUpdateTemplate;
             var arg2 = ReferenceEquals(layout, null) ? new VkPipelineLayout_T() : (VkPipelineLayout_T)layout;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSetWithTemplateKHR(this, arg1, arg2, set, pData);
-        }
-
-        public void ReserveSpaceForCommandsNVX(in ReserveSpaceForCommandsInfoNVX pReserveSpaceInfo)
-        {
-            var arg1 = ReferenceEquals(pReserveSpaceInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pReserveSpaceInfo.ToInternal());
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdReserveSpaceForCommandsNVX(this, arg1);
-            pReserveSpaceInfo?.Dispose();
-            Marshal.FreeHGlobal(arg1);
         }
 
         public Result ResetCommandBuffer(uint flags)
@@ -3352,6 +3646,11 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void SetCullModeEXT(uint cullMode)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetCullModeEXT(this, cullMode);
+        }
+
         public void SetDepthBias(float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor)
         {
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthBias(this, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
@@ -3360,6 +3659,26 @@ namespace AdamantiumVulkan.Core
         public void SetDepthBounds(float minDepthBounds, float maxDepthBounds)
         {
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthBounds(this, minDepthBounds, maxDepthBounds);
+        }
+
+        public void SetDepthBoundsTestEnableEXT(bool depthBoundsTestEnable)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthBoundsTestEnableEXT(this, depthBoundsTestEnable);
+        }
+
+        public void SetDepthCompareOpEXT(CompareOp depthCompareOp)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthCompareOpEXT(this, depthCompareOp);
+        }
+
+        public void SetDepthTestEnableEXT(bool depthTestEnable)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthTestEnableEXT(this, depthTestEnable);
+        }
+
+        public void SetDepthWriteEnableEXT(bool depthWriteEnable)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthWriteEnableEXT(this, depthWriteEnable);
         }
 
         public void SetDeviceMask(uint deviceMask)
@@ -3390,6 +3709,11 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pExclusiveScissors, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pExclusiveScissors.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetExclusiveScissorNV(this, firstExclusiveScissor, exclusiveScissorCount, arg1);
             Marshal.FreeHGlobal(arg1);
+        }
+
+        public void SetFrontFaceEXT(FrontFace frontFace)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetFrontFaceEXT(this, frontFace);
         }
 
         public void SetLineStippleEXT(uint lineStippleFactor, ushort lineStipplePattern)
@@ -3429,6 +3753,11 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public void SetPrimitiveTopologyEXT(PrimitiveTopology primitiveTopology)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetPrimitiveTopologyEXT(this, primitiveTopology);
+        }
+
         public void SetSampleLocationsEXT(in SampleLocationsInfoEXT pSampleLocationsInfo)
         {
             var arg1 = ReferenceEquals(pSampleLocationsInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSampleLocationsInfo.ToInternal());
@@ -3458,14 +3787,31 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void SetScissorWithCountEXT(uint scissorCount, in Rect2D pScissors)
+        {
+            var arg1 = ReferenceEquals(pScissors, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pScissors.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetScissorWithCountEXT(this, scissorCount, arg1);
+            Marshal.FreeHGlobal(arg1);
+        }
+
         public void SetStencilCompareMask(uint faceMask, uint compareMask)
         {
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetStencilCompareMask(this, faceMask, compareMask);
         }
 
+        public void SetStencilOpEXT(uint faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetStencilOpEXT(this, faceMask, failOp, passOp, depthFailOp, compareOp);
+        }
+
         public void SetStencilReference(uint faceMask, uint reference)
         {
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetStencilReference(this, faceMask, reference);
+        }
+
+        public void SetStencilTestEnableEXT(bool stencilTestEnable)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetStencilTestEnableEXT(this, stencilTestEnable);
         }
 
         public void SetStencilWriteMask(uint faceMask, uint writeMask)
@@ -3499,6 +3845,13 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pShadingRatePalettes, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pShadingRatePalettes.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetViewportShadingRatePaletteNV(this, firstViewport, viewportCount, arg1);
             pShadingRatePalettes?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
+        public void SetViewportWithCountEXT(uint viewportCount, in Viewport pViewports)
+        {
+            var arg1 = ReferenceEquals(pViewports, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pViewports.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetViewportWithCountEXT(this, viewportCount, arg1);
             Marshal.FreeHGlobal(arg1);
         }
 
@@ -3540,9 +3893,17 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg6);
         }
 
-        public void WriteAccelerationStructuresPropertiesNV(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureNV pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery)
+        public void WriteAccelerationStructuresPropertiesKHR(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery)
         {
-            var arg1 = ReferenceEquals(pAccelerationStructures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkAccelerationStructureNV_T)pAccelerationStructures);
+            var arg1 = ReferenceEquals(pAccelerationStructures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkAccelerationStructureKHR_T)pAccelerationStructures);
+            var arg2 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdWriteAccelerationStructuresPropertiesKHR(this, accelerationStructureCount, arg1, queryType, arg2, firstQuery);
+            Marshal.FreeHGlobal(arg1);
+        }
+
+        public void WriteAccelerationStructuresPropertiesNV(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery)
+        {
+            var arg1 = ReferenceEquals(pAccelerationStructures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkAccelerationStructureKHR_T)pAccelerationStructures);
             var arg2 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdWriteAccelerationStructuresPropertiesNV(this, accelerationStructureCount, arg1, queryType, arg2, firstQuery);
             Marshal.FreeHGlobal(arg1);
@@ -3631,68 +3992,6 @@ namespace AdamantiumVulkan.Core
         public static implicit operator DeviceMemory(AdamantiumVulkan.Core.Interop.VkDeviceMemory_T d)
         {
             return new DeviceMemory(d);
-        }
-
-    }
-
-    public partial class Buffer
-    {
-        internal VkBuffer_T __Instance;
-
-        public Buffer()
-        {
-        }
-
-        public Buffer(AdamantiumVulkan.Core.Interop.VkBuffer_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-        public System.IntPtr NativePointer
-        {
-            get => __Instance.pointer;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkBuffer_T(Buffer b)
-        {
-            return b?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkBuffer_T();
-        }
-
-        public static implicit operator Buffer(AdamantiumVulkan.Core.Interop.VkBuffer_T b)
-        {
-            return new Buffer(b);
-        }
-
-    }
-
-    public partial class Image
-    {
-        internal VkImage_T __Instance;
-
-        public Image()
-        {
-        }
-
-        public Image(AdamantiumVulkan.Core.Interop.VkImage_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-        public System.IntPtr NativePointer
-        {
-            get => __Instance.pointer;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkImage_T(Image i)
-        {
-            return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkImage_T();
-        }
-
-        public static implicit operator Image(AdamantiumVulkan.Core.Interop.VkImage_T i)
-        {
-            return new Image(i);
         }
 
     }
@@ -3914,37 +4213,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class RenderPass
-    {
-        internal VkRenderPass_T __Instance;
-
-        public RenderPass()
-        {
-        }
-
-        public RenderPass(AdamantiumVulkan.Core.Interop.VkRenderPass_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-        public System.IntPtr NativePointer
-        {
-            get => __Instance.pointer;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkRenderPass_T(RenderPass r)
-        {
-            return r?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkRenderPass_T();
-        }
-
-        public static implicit operator RenderPass(AdamantiumVulkan.Core.Interop.VkRenderPass_T r)
-        {
-            return new RenderPass(r);
-        }
-
-    }
-
     public partial class Pipeline
     {
         internal VkPipeline_T __Instance;
@@ -3972,6 +4240,37 @@ namespace AdamantiumVulkan.Core
         public static implicit operator Pipeline(AdamantiumVulkan.Core.Interop.VkPipeline_T p)
         {
             return new Pipeline(p);
+        }
+
+    }
+
+    public partial class RenderPass
+    {
+        internal VkRenderPass_T __Instance;
+
+        public RenderPass()
+        {
+        }
+
+        public RenderPass(AdamantiumVulkan.Core.Interop.VkRenderPass_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+        public System.IntPtr NativePointer
+        {
+            get => __Instance.pointer;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkRenderPass_T(RenderPass r)
+        {
+            return r?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkRenderPass_T();
+        }
+
+        public static implicit operator RenderPass(AdamantiumVulkan.Core.Interop.VkRenderPass_T r)
+        {
+            return new RenderPass(r);
         }
 
     }
@@ -4038,37 +4337,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class DescriptorPool
-    {
-        internal VkDescriptorPool_T __Instance;
-
-        public DescriptorPool()
-        {
-        }
-
-        public DescriptorPool(AdamantiumVulkan.Core.Interop.VkDescriptorPool_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-        public System.IntPtr NativePointer
-        {
-            get => __Instance.pointer;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorPool_T(DescriptorPool d)
-        {
-            return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorPool_T();
-        }
-
-        public static implicit operator DescriptorPool(AdamantiumVulkan.Core.Interop.VkDescriptorPool_T d)
-        {
-            return new DescriptorPool(d);
-        }
-
-    }
-
     public partial class DescriptorSet
     {
         internal VkDescriptorSet_T __Instance;
@@ -4096,6 +4364,37 @@ namespace AdamantiumVulkan.Core
         public static implicit operator DescriptorSet(AdamantiumVulkan.Core.Interop.VkDescriptorSet_T d)
         {
             return new DescriptorSet(d);
+        }
+
+    }
+
+    public partial class DescriptorPool
+    {
+        internal VkDescriptorPool_T __Instance;
+
+        public DescriptorPool()
+        {
+        }
+
+        public DescriptorPool(AdamantiumVulkan.Core.Interop.VkDescriptorPool_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+        public System.IntPtr NativePointer
+        {
+            get => __Instance.pointer;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkDescriptorPool_T(DescriptorPool d)
+        {
+            return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDescriptorPool_T();
+        }
+
+        public static implicit operator DescriptorPool(AdamantiumVulkan.Core.Interop.VkDescriptorPool_T d)
+        {
+            return new DescriptorPool(d);
         }
 
     }
@@ -4441,68 +4740,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class ObjectTableNVX
-    {
-        internal VkObjectTableNVX_T __Instance;
-
-        public ObjectTableNVX()
-        {
-        }
-
-        public ObjectTableNVX(AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-        public System.IntPtr NativePointer
-        {
-            get => __Instance.pointer;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T(ObjectTableNVX o)
-        {
-            return o?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T();
-        }
-
-        public static implicit operator ObjectTableNVX(AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T o)
-        {
-            return new ObjectTableNVX(o);
-        }
-
-    }
-
-    public partial class IndirectCommandsLayoutNVX
-    {
-        internal VkIndirectCommandsLayoutNVX_T __Instance;
-
-        public IndirectCommandsLayoutNVX()
-        {
-        }
-
-        public IndirectCommandsLayoutNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-        public System.IntPtr NativePointer
-        {
-            get => __Instance.pointer;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T(IndirectCommandsLayoutNVX i)
-        {
-            return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T();
-        }
-
-        public static implicit operator IndirectCommandsLayoutNVX(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T i)
-        {
-            return new IndirectCommandsLayoutNVX(i);
-        }
-
-    }
-
     public partial class DebugUtilsMessengerEXT
     {
         internal VkDebugUtilsMessengerEXT_T __Instance;
@@ -4565,15 +4802,41 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class AccelerationStructureKHR
+    {
+        internal VkAccelerationStructureKHR_T __Instance;
+
+        public AccelerationStructureKHR()
+        {
+        }
+
+        public AccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T(AccelerationStructureKHR a)
+        {
+            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T();
+        }
+
+        public static implicit operator AccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T a)
+        {
+            return new AccelerationStructureKHR(a);
+        }
+
+    }
+
     public partial class AccelerationStructureNV
     {
-        internal VkAccelerationStructureNV_T __Instance;
+        internal VkAccelerationStructureKHR_T __Instance;
 
         public AccelerationStructureNV()
         {
         }
 
-        public AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T __Instance)
+        public AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T __Instance)
         {
             this.__Instance = __Instance;
         }
@@ -4584,12 +4847,12 @@ namespace AdamantiumVulkan.Core
         }
 
 
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T(AccelerationStructureNV a)
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T(AccelerationStructureNV a)
         {
-            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T();
+            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T();
         }
 
-        public static implicit operator AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T a)
+        public static implicit operator AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T a)
         {
             return new AccelerationStructureNV(a);
         }
@@ -4618,6 +4881,58 @@ namespace AdamantiumVulkan.Core
         public static implicit operator PerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T p)
         {
             return new PerformanceConfigurationINTEL(p);
+        }
+
+    }
+
+    public partial class IndirectCommandsLayoutNV
+    {
+        internal VkIndirectCommandsLayoutNV_T __Instance;
+
+        public IndirectCommandsLayoutNV()
+        {
+        }
+
+        public IndirectCommandsLayoutNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T(IndirectCommandsLayoutNV i)
+        {
+            return i?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T();
+        }
+
+        public static implicit operator IndirectCommandsLayoutNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T i)
+        {
+            return new IndirectCommandsLayoutNV(i);
+        }
+
+    }
+
+    public partial class PrivateDataSlotEXT
+    {
+        internal VkPrivateDataSlotEXT_T __Instance;
+
+        public PrivateDataSlotEXT()
+        {
+        }
+
+        public PrivateDataSlotEXT(AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T(PrivateDataSlotEXT p)
+        {
+            return p?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T();
+        }
+
+        public static implicit operator PrivateDataSlotEXT(AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T p)
+        {
+            return new PrivateDataSlotEXT(p);
         }
 
     }
