@@ -15,13 +15,13 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate System.IntPtr PFN_vkAllocationFunction([In, Out] System.IntPtr pUserData, [In] ulong size, [In] ulong alignment, [In] SystemAllocationScope allocationScope);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate System.IntPtr PFN_vkReallocationFunction([In, Out] System.IntPtr pUserData, [In, Out] System.IntPtr pOriginal, [In] ulong size, [In] ulong alignment, [In] SystemAllocationScope allocationScope);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkFreeFunction([In, Out] System.IntPtr pUserData, [In, Out] System.IntPtr pMemory);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkInternalAllocationNotification([In, Out] System.IntPtr pUserData, [In] ulong size, [In] InternalAllocationType allocationType, [In] SystemAllocationScope allocationScope);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkInternalFreeNotification([In, Out] System.IntPtr pUserData, [In] ulong size, [In] InternalAllocationType allocationType, [In] SystemAllocationScope allocationScope);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate System.IntPtr PFN_vkReallocationFunction([In, Out] System.IntPtr pUserData, [In, Out] System.IntPtr pOriginal, [In] ulong size, [In] ulong alignment, [In] SystemAllocationScope allocationScope);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkVoidFunction();
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -355,6 +355,32 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkGetDescriptorSetLayoutSupport([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo pCreateInfo, [In] AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport pSupport);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdDrawIndirectCount([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdDrawIndexedIndirectCount([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkCreateRenderPass2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2 pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdBeginRenderPass2([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo pRenderPassBegin,  AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo pSubpassBeginInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdNextSubpass2([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo pSubpassBeginInfo,  AdamantiumVulkan.Core.Interop.VkSubpassEndInfo pSubpassEndInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdEndRenderPass2([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkSubpassEndInfo pSubpassEndInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkResetQueryPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkGetSemaphoreCounterValue([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong pValue);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkWaitSemaphores([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo pWaitInfo, [In] ulong timeout);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkSignalSemaphore([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo pSignalInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate ulong PFN_vkGetBufferDeviceAddress([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate ulong PFN_vkGetBufferOpaqueCaptureAddress([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate ulong PFN_vkGetDeviceMemoryOpaqueCaptureAddress([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkDestroySurfaceKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface,  System.IntPtr pAllocator);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPhysicalDeviceSurfaceSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref VkBool32 pSupported);
@@ -445,13 +471,13 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkUpdateDescriptorSetWithTemplateKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate,  System.IntPtr pData);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkCreateRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2KHR pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
+    public delegate Result PFN_vkCreateRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2 pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdBeginRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo pRenderPassBegin,  AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR pSubpassBeginInfo);
+    public delegate void PFN_vkCmdBeginRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo pRenderPassBegin,  AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo pSubpassBeginInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdNextSubpass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkSubpassBeginInfoKHR pSubpassBeginInfo,  AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR pSubpassEndInfo);
+    public delegate void PFN_vkCmdNextSubpass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo pSubpassBeginInfo,  AdamantiumVulkan.Core.Interop.VkSubpassEndInfo pSubpassEndInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdEndRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkSubpassEndInfoKHR pSubpassEndInfo);
+    public delegate void PFN_vkCmdEndRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkSubpassEndInfo pSubpassEndInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetSwapchainStatusKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -460,6 +486,14 @@ namespace AdamantiumVulkan.Core.Interop
     public delegate Result PFN_vkImportFenceFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR pImportFenceFdInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetFenceFdKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR pGetFdInfo, ref int pFd);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex, ref uint pCounterCount, [In] AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR pCounters, [In] AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR pCounterDescriptions);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice,  AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR pPerformanceQueryCreateInfo, ref uint pNumPasses);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkAcquireProfilingLockKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkReleaseProfilingLockKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice,  AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, [In] AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR pSurfaceCapabilities);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -495,9 +529,15 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetSemaphoreCounterValueKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong pValue);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkWaitSemaphoresKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfoKHR pWaitInfo, [In] ulong timeout);
+    public delegate Result PFN_vkWaitSemaphoresKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo pWaitInfo, [In] ulong timeout);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkSignalSemaphoreKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfoKHR pSignalInfo);
+    public delegate Result PFN_vkSignalSemaphoreKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo pSignalInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate ulong PFN_vkGetBufferDeviceAddressKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate ulong PFN_vkGetBufferOpaqueCaptureAddressKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate ulong PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo pInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPipelineExecutablePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR pPipelineInfo, ref uint pExecutableCount, [In] AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR pProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -537,6 +577,8 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate uint PFN_vkGetImageViewHandleNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX pInfo);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkGetImageViewAddressNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImageView_T imageView, [In] AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX pProperties);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdDrawIndirectCountAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdDrawIndexedIndirectCountAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
@@ -548,24 +590,6 @@ namespace AdamantiumVulkan.Core.Interop
     public delegate void PFN_vkCmdBeginConditionalRenderingEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT pConditionalRenderingBegin);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdEndConditionalRenderingEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdProcessCommandsNVX([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkCmdProcessCommandsInfoNVX pProcessCommandsInfo);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdReserveSpaceForCommandsNVX([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkCmdReserveSpaceForCommandsInfoNVX pReserveSpaceInfo);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkCreateIndirectCommandsLayoutNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T pIndirectCommandsLayout);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkDestroyIndirectCommandsLayoutNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T indirectCommandsLayout,  System.IntPtr pAllocator);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkCreateObjectTableNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkObjectTableCreateInfoNVX pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T pObjectTable);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkDestroyObjectTableNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable,  System.IntPtr pAllocator);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkRegisterObjectsNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, [In] uint objectCount,  AdamantiumVulkan.Core.Interop.VkObjectTableEntryNVX ppObjectTableEntries,  uint pObjectIndices);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkUnregisterObjectsNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, [In] uint objectCount,  ObjectEntryTypeNVX pObjectEntryTypes,  uint pObjectIndices);
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsFeaturesNVX pFeatures, [In] AdamantiumVulkan.Core.Interop.VkDeviceGeneratedCommandsLimitsNVX pLimits);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdSetViewportWScalingNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount,  AdamantiumVulkan.Core.Interop.VkViewportWScalingNV pViewportWScalings);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -633,27 +657,35 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdSetCoarseSampleOrderNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] CoarseSampleOrderTypeNV sampleOrderType, [In] uint customSampleOrderCount,  AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV pCustomSampleOrders);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkCreateAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructure);
+    public delegate Result PFN_vkCreateAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T pAccelerationStructure);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkDestroyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure,  System.IntPtr pAllocator);
+    public delegate void PFN_vkDestroyAccelerationStructureKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure,  System.IntPtr pAllocator);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkDestroyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure,  System.IntPtr pAllocator);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkGetAccelerationStructureMemoryRequirementsNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV pInfo, [In] AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 pMemoryRequirements);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkBindAccelerationStructureMemoryNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount,  AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV pBindInfos);
+    public delegate Result PFN_vkBindAccelerationStructureMemoryKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount,  AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoKHR pBindInfos);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdBuildAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV pInfo, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, [In] ulong instanceOffset, [In] bool update, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, [In] ulong scratchOffset);
+    public delegate Result PFN_vkBindAccelerationStructureMemoryNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount,  AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoKHR pBindInfos);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdCopyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, [In] CopyAccelerationStructureModeNV mode);
+    public delegate void PFN_vkCmdBuildAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV pInfo, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, [In] ulong instanceOffset, [In] bool update, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T src, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, [In] ulong scratchOffset);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdCopyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T src, [In] CopyAccelerationStructureModeKHR mode);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkCmdTraceRaysNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T raygenShaderBindingTableBuffer, [In] ulong raygenShaderBindingOffset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T missShaderBindingTableBuffer, [In] ulong missShaderBindingOffset, [In] ulong missShaderBindingStride, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T hitShaderBindingTableBuffer, [In] ulong hitShaderBindingOffset, [In] ulong hitShaderBindingStride, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T callableShaderBindingTableBuffer, [In] ulong callableShaderBindingOffset, [In] ulong callableShaderBindingStride, [In] uint width, [In] uint height, [In] uint depth);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateRayTracingPipelinesNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, [In] uint createInfoCount,  AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV pCreateInfos,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkGetRayTracingShaderGroupHandlesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint firstGroup, [In] uint groupCount, [In] ulong dataSize, [In, Out] System.IntPtr pData);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetRayTracingShaderGroupHandlesNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint firstGroup, [In] uint groupCount, [In] ulong dataSize, [In, Out] System.IntPtr pData);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate Result PFN_vkGetAccelerationStructureHandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, [In] ulong dataSize, [In, Out] System.IntPtr pData);
+    public delegate Result PFN_vkGetAccelerationStructureHandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure, [In] ulong dataSize, [In, Out] System.IntPtr pData);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate void PFN_vkCmdWriteAccelerationStructuresPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint accelerationStructureCount,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructures, [In] QueryType queryType, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery);
+    public delegate void PFN_vkCmdWriteAccelerationStructuresPropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint accelerationStructureCount,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T pAccelerationStructures, [In] QueryType queryType, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdWriteAccelerationStructuresPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint accelerationStructureCount,  AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T pAccelerationStructures, [In] QueryType queryType, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCompileDeferredNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint shader);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -697,7 +729,9 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkSetLocalDimmingAMD([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, [In] bool localDimmingEnable);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public delegate ulong PFN_vkGetBufferDeviceAddressEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfoEXT pInfo);
+    public delegate ulong PFN_vkGetBufferDeviceAddressEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo pInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkGetPhysicalDeviceToolPropertiesEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pToolCount, [In] AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolPropertiesEXT pToolProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, [In] AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV pProperties);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
@@ -708,6 +742,50 @@ namespace AdamantiumVulkan.Core.Interop
     public delegate void PFN_vkCmdSetLineStippleEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint lineStippleFactor, [In] ushort lineStipplePattern);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void PFN_vkResetQueryPoolEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetCullModeEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint cullMode);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetFrontFaceEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] FrontFace frontFace);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetPrimitiveTopologyEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PrimitiveTopology primitiveTopology);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetViewportWithCountEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint viewportCount,  AdamantiumVulkan.Core.Interop.VkViewport pViewports);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetScissorWithCountEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint scissorCount,  AdamantiumVulkan.Core.Interop.VkRect2D pScissors);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdBindVertexBuffers2EXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount,  AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffers,  VkDeviceSize pOffsets,  VkDeviceSize pSizes,  VkDeviceSize pStrides);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetDepthTestEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool depthTestEnable);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetDepthWriteEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool depthWriteEnable);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetDepthCompareOpEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] CompareOp depthCompareOp);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetDepthBoundsTestEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool depthBoundsTestEnable);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetStencilTestEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool stencilTestEnable);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdSetStencilOpEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] StencilOp failOp, [In] StencilOp passOp, [In] StencilOp depthFailOp, [In] CompareOp compareOp);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkGetGeneratedCommandsMemoryRequirementsNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV pInfo, [In] AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 pMemoryRequirements);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdPreprocessGeneratedCommandsNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV pGeneratedCommandsInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdExecuteGeneratedCommandsNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool isPreprocessed,  AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV pGeneratedCommandsInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdBindPipelineShaderGroupNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineBindPoint pipelineBindPoint, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint groupIndex);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkCreateIndirectCommandsLayoutNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkDestroyIndirectCommandsLayoutNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T indirectCommandsLayout,  System.IntPtr pAllocator);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkCreatePrivateDataSlotEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfoEXT pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T pPrivateDataSlot);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkDestroyPrivateDataSlotEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T privateDataSlot,  System.IntPtr pAllocator);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate Result PFN_vkSetPrivateDataEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ObjectType objectType, [In] ulong objectHandle, [In] AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T privateDataSlot, [In] ulong data);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkGetPrivateDataEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ObjectType objectType, [In] ulong objectHandle, [In] AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T privateDataSlot, ref ulong pData);
 
 }
 

@@ -35,7 +35,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.SPIRV.Cross", "Generated"));
             
             PathManager vulkanPathManager = new PathManager();
-            vulkanPathManager.AddFilePath(OSPlatform.Windows, @"O:\VulkanSDK\1.2.141.2\Include\vulkan\vulkan.h");
+            vulkanPathManager.AddFilePath(OSPlatform.Windows, @"C:\VulkanSDK\1.2.148.0\Include\vulkan\vulkan.h");
             vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan.h"));
 
             options.GenerateSequentialLayout = true;
@@ -65,7 +65,7 @@ namespace AdamantiumVulkan.Generator
 
             shaderModule = options.AddModule(shadercLibrary);
             shaderModule.Name = "Shaders";
-            shaderModule.Files.Add(@"M:\VulkanSDK\1.1.121.1\Include\shaderc\shaderc.h");
+            shaderModule.Files.Add(@"C:\VulkanSDK\1.2.141.2\Include\shaderc\shaderc.h");
             shaderModule.Defines.Add("SHADERC_SHAREDLIB");
             shaderModule.Defines.Add("_WIN32");
             shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
@@ -86,7 +86,7 @@ namespace AdamantiumVulkan.Generator
             spirvCrossSpecs &= ~GeneratorSpecializations.Constants;
             spivCrossModule = options.AddModule(spirvCrossLibrary);
             spivCrossModule.Name = "Spirv.Cross";
-            spivCrossModule.Files.Add(@"M:\GitHUB\ShadersVulkan\spirv-cross\include\spirv_cross_c.h");
+            spivCrossModule.Files.Add(@"C:\VulkanSDK\1.2.141.2\Include\spirv_cross");
             spivCrossModule.Defines.Add("SPVC_EXPORT_SYMBOLS");
             spivCrossModule.Defines.Add("_MSC_VER");
             spivCrossModule.ForceCallingConvention = true;

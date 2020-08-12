@@ -12,24 +12,6 @@ namespace AdamantiumVulkan.Core.Interop
     using AdamantiumVulkan.Core;
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkFlags(uint v)
-        {
-            return new VkFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBool32
     {
         public uint value;
@@ -43,6 +25,24 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkBool32(uint v)
         {
             return new VkBool32(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceAddress
+    {
+        public ulong value;
+
+
+        public static implicit operator ulong(VkDeviceAddress v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDeviceAddress(ulong v)
+        {
+            return new VkDeviceAddress(){value = v};
         }
 
     }
@@ -66,6 +66,24 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkFlags(uint v)
+        {
+            return new VkFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSampleMask
     {
         public uint value;
@@ -79,6 +97,30 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkSampleMask(uint v)
         {
             return new VkSampleMask(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBuffer_T
+    {
+        public System.IntPtr pointer;
+
+        public VkBuffer_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImage_T
+    {
+        public System.IntPtr pointer;
+
+        public VkImage_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
         }
 
     }
@@ -180,30 +222,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBuffer_T
-    {
-        public System.IntPtr pointer;
-
-        public VkBuffer_T(System.IntPtr pointer)
-        {
-            this.pointer = pointer;
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImage_T
-    {
-        public System.IntPtr pointer;
-
-        public VkImage_T(System.IntPtr pointer)
-        {
-            this.pointer = pointer;
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkEvent_T
     {
         public System.IntPtr pointer;
@@ -288,11 +306,11 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkRenderPass_T
+    public partial struct VkPipeline_T
     {
         public System.IntPtr pointer;
 
-        public VkRenderPass_T(System.IntPtr pointer)
+        public VkPipeline_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
         }
@@ -300,11 +318,11 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPipeline_T
+    public partial struct VkRenderPass_T
     {
         public System.IntPtr pointer;
 
-        public VkPipeline_T(System.IntPtr pointer)
+        public VkRenderPass_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
         }
@@ -336,11 +354,11 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorPool_T
+    public partial struct VkDescriptorSet_T
     {
         public System.IntPtr pointer;
 
-        public VkDescriptorPool_T(System.IntPtr pointer)
+        public VkDescriptorSet_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
         }
@@ -348,11 +366,11 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSet_T
+    public partial struct VkDescriptorPool_T
     {
         public System.IntPtr pointer;
 
-        public VkDescriptorSet_T(System.IntPtr pointer)
+        public VkDescriptorPool_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
         }
@@ -384,19 +402,37 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkInstanceCreateFlags
+    public partial struct VkAccessFlags
     {
         public uint value;
 
 
-        public static implicit operator uint(VkInstanceCreateFlags v)
+        public static implicit operator uint(VkAccessFlags v)
         {
             return v.value;
         }
 
-        public static implicit operator VkInstanceCreateFlags(uint v)
+        public static implicit operator VkAccessFlags(uint v)
         {
-            return new VkInstanceCreateFlags(){value = v};
+            return new VkAccessFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageAspectFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkImageAspectFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkImageAspectFlags(uint v)
+        {
+            return new VkImageAspectFlags(){value = v};
         }
 
     }
@@ -415,24 +451,6 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkFormatFeatureFlags(uint v)
         {
             return new VkFormatFeatureFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageUsageFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkImageUsageFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkImageUsageFlags(uint v)
-        {
-            return new VkImageUsageFlags(){value = v};
         }
 
     }
@@ -474,19 +492,55 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkQueueFlags
+    public partial struct VkImageUsageFlags
     {
         public uint value;
 
 
-        public static implicit operator uint(VkQueueFlags v)
+        public static implicit operator uint(VkImageUsageFlags v)
         {
             return v.value;
         }
 
-        public static implicit operator VkQueueFlags(uint v)
+        public static implicit operator VkImageUsageFlags(uint v)
         {
-            return new VkQueueFlags(){value = v};
+            return new VkImageUsageFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkInstanceCreateFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkInstanceCreateFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkInstanceCreateFlags(uint v)
+        {
+            return new VkInstanceCreateFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryHeapFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkMemoryHeapFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkMemoryHeapFlags(uint v)
+        {
+            return new VkMemoryHeapFlags(){value = v};
         }
 
     }
@@ -510,19 +564,19 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkMemoryHeapFlags
+    public partial struct VkQueueFlags
     {
         public uint value;
 
 
-        public static implicit operator uint(VkMemoryHeapFlags v)
+        public static implicit operator uint(VkQueueFlags v)
         {
             return v.value;
         }
 
-        public static implicit operator VkMemoryHeapFlags(uint v)
+        public static implicit operator VkQueueFlags(uint v)
         {
-            return new VkMemoryHeapFlags(){value = v};
+            return new VkQueueFlags(){value = v};
         }
 
     }
@@ -600,19 +654,19 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageAspectFlags
+    public partial struct VkSparseMemoryBindFlags
     {
         public uint value;
 
 
-        public static implicit operator uint(VkImageAspectFlags v)
+        public static implicit operator uint(VkSparseMemoryBindFlags v)
         {
             return v.value;
         }
 
-        public static implicit operator VkImageAspectFlags(uint v)
+        public static implicit operator VkSparseMemoryBindFlags(uint v)
         {
-            return new VkImageAspectFlags(){value = v};
+            return new VkSparseMemoryBindFlags(){value = v};
         }
 
     }
@@ -631,24 +685,6 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkSparseImageFormatFlags(uint v)
         {
             return new VkSparseImageFormatFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSparseMemoryBindFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkSparseMemoryBindFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkSparseMemoryBindFlags(uint v)
-        {
-            return new VkSparseMemoryBindFlags(){value = v};
         }
 
     }
@@ -708,24 +744,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkQueryPoolCreateFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkQueryPoolCreateFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkQueryPoolCreateFlags(uint v)
-        {
-            return new VkQueryPoolCreateFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkQueryPipelineStatisticFlags
     {
         public uint value;
@@ -739,6 +757,24 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkQueryPipelineStatisticFlags(uint v)
         {
             return new VkQueryPipelineStatisticFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkQueryPoolCreateFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkQueryPoolCreateFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkQueryPoolCreateFlags(uint v)
+        {
+            return new VkQueryPoolCreateFlags(){value = v};
         }
 
     }
@@ -870,6 +906,24 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkColorComponentFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkColorComponentFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkColorComponentFlags(uint v)
+        {
+            return new VkColorComponentFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineCreateFlags
     {
         public uint value;
@@ -901,6 +955,24 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkPipelineShaderStageCreateFlags(uint v)
         {
             return new VkPipelineShaderStageCreateFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCullModeFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkCullModeFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkCullModeFlags(uint v)
+        {
+            return new VkCullModeFlags(){value = v};
         }
 
     }
@@ -996,24 +1068,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkCullModeFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkCullModeFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkCullModeFlags(uint v)
-        {
-            return new VkCullModeFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPipelineMultisampleStateCreateFlags
     {
         public uint value;
@@ -1063,24 +1117,6 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkPipelineColorBlendStateCreateFlags(uint v)
         {
             return new VkPipelineColorBlendStateCreateFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkColorComponentFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkColorComponentFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkColorComponentFlags(uint v)
-        {
-            return new VkColorComponentFlags(){value = v};
         }
 
     }
@@ -1158,24 +1194,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSetLayoutCreateFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkDescriptorSetLayoutCreateFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkDescriptorSetLayoutCreateFlags(uint v)
-        {
-            return new VkDescriptorSetLayoutCreateFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDescriptorPoolCreateFlags
     {
         public uint value;
@@ -1207,6 +1225,60 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkDescriptorPoolResetFlags(uint v)
         {
             return new VkDescriptorPoolResetFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorSetLayoutCreateFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkDescriptorSetLayoutCreateFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDescriptorSetLayoutCreateFlags(uint v)
+        {
+            return new VkDescriptorSetLayoutCreateFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAttachmentDescriptionFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkAttachmentDescriptionFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkAttachmentDescriptionFlags(uint v)
+        {
+            return new VkAttachmentDescriptionFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDependencyFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkDependencyFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDependencyFlags(uint v)
+        {
+            return new VkDependencyFlags(){value = v};
         }
 
     }
@@ -1248,24 +1320,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAttachmentDescriptionFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkAttachmentDescriptionFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkAttachmentDescriptionFlags(uint v)
-        {
-            return new VkAttachmentDescriptionFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSubpassDescriptionFlags
     {
         public uint value;
@@ -1279,42 +1333,6 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkSubpassDescriptionFlags(uint v)
         {
             return new VkSubpassDescriptionFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAccessFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkAccessFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkAccessFlags(uint v)
-        {
-            return new VkAccessFlags(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDependencyFlags
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkDependencyFlags v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkDependencyFlags(uint v)
-        {
-            return new VkDependencyFlags(){value = v};
         }
 
     }
@@ -1428,6 +1446,205 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkExtent2D
+    {
+        public uint width;
+
+        public uint height;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkExtent3D
+    {
+        public uint width;
+
+        public uint height;
+
+        public uint depth;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkOffset2D
+    {
+        public int x;
+
+        public int y;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkOffset3D
+    {
+        public int x;
+
+        public int y;
+
+        public int z;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRect2D
+    {
+        public VkOffset2D offset;
+
+        public VkExtent2D extent;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBaseInStructure
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBaseOutStructure
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBufferMemoryBarrier
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint srcAccessMask;
+
+        public uint dstAccessMask;
+
+        public uint srcQueueFamilyIndex;
+
+        public uint dstQueueFamilyIndex;
+
+        public VkBuffer_T buffer;
+
+        public ulong offset;
+
+        public ulong size;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDispatchIndirectCommand
+    {
+        public uint x;
+
+        public uint y;
+
+        public uint z;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDrawIndexedIndirectCommand
+    {
+        public uint indexCount;
+
+        public uint instanceCount;
+
+        public uint firstIndex;
+
+        public int vertexOffset;
+
+        public uint firstInstance;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDrawIndirectCommand
+    {
+        public uint vertexCount;
+
+        public uint instanceCount;
+
+        public uint firstVertex;
+
+        public uint firstInstance;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageSubresourceRange
+    {
+        public uint aspectMask;
+
+        public uint baseMipLevel;
+
+        public uint levelCount;
+
+        public uint baseArrayLayer;
+
+        public uint layerCount;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageMemoryBarrier
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint srcAccessMask;
+
+        public uint dstAccessMask;
+
+        public uint oldLayout;
+
+        public uint newLayout;
+
+        public uint srcQueueFamilyIndex;
+
+        public uint dstQueueFamilyIndex;
+
+        public VkImage_T image;
+
+        public VkImageSubresourceRange subresourceRange;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryBarrier
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint srcAccessMask;
+
+        public uint dstAccessMask;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAllocationCallbacks
+    {
+        public System.IntPtr pUserData;
+
+        public System.IntPtr pfnAllocation;
+
+        public System.IntPtr pfnReallocation;
+
+        public System.IntPtr pfnFree;
+
+        public System.IntPtr pfnInternalAllocation;
+
+        public System.IntPtr pfnInternalFree;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkApplicationInfo
     {
         public uint sType;
@@ -1443,6 +1660,32 @@ namespace AdamantiumVulkan.Core.Interop
         public uint engineVersion;
 
         public uint apiVersion;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkFormatProperties
+    {
+        public uint linearTilingFeatures;
+
+        public uint optimalTilingFeatures;
+
+        public uint bufferFeatures;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageFormatProperties
+    {
+        public VkExtent3D maxExtent;
+
+        public uint maxMipLevels;
+
+        public uint maxArrayLayers;
+
+        public uint sampleCounts;
+
+        public ulong maxResourceSize;
 
     }
 
@@ -1468,19 +1711,20 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAllocationCallbacks
+    public partial struct VkMemoryHeap
     {
-        public System.IntPtr pUserData;
+        public ulong size;
 
-        public System.IntPtr pfnAllocation;
+        public uint flags;
 
-        public System.IntPtr pfnReallocation;
+    }
 
-        public System.IntPtr pfnFree;
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryType
+    {
+        public uint propertyFlags;
 
-        public System.IntPtr pfnInternalAllocation;
-
-        public System.IntPtr pfnInternalFree;
+        public uint heapIndex;
 
     }
 
@@ -1596,43 +1840,6 @@ namespace AdamantiumVulkan.Core.Interop
         public uint variableMultisampleRate;
 
         public uint inheritedQueries;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkFormatProperties
-    {
-        public uint linearTilingFeatures;
-
-        public uint optimalTilingFeatures;
-
-        public uint bufferFeatures;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkExtent3D
-    {
-        public uint width;
-
-        public uint height;
-
-        public uint depth;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageFormatProperties
-    {
-        public VkExtent3D maxExtent;
-
-        public uint maxMipLevels;
-
-        public uint maxArrayLayers;
-
-        public uint sampleCounts;
-
-        public ulong maxResourceSize;
 
     }
 
@@ -1854,6 +2061,21 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceMemoryProperties
+    {
+        public uint memoryTypeCount;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public VkMemoryType[] memoryTypes;
+
+        public uint memoryHeapCount;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public VkMemoryHeap[] memoryHeaps;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSparseProperties
     {
         public uint residencyStandard2DBlockShape;
@@ -1901,39 +2123,6 @@ namespace AdamantiumVulkan.Core.Interop
         public uint timestampValidBits;
 
         public VkExtent3D minImageTransferGranularity;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkMemoryType
-    {
-        public uint propertyFlags;
-
-        public uint heapIndex;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkMemoryHeap
-    {
-        public ulong size;
-
-        public uint flags;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceMemoryProperties
-    {
-        public uint memoryTypeCount;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
-        public VkMemoryType[] memoryTypes;
-
-        public uint memoryHeapCount;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public VkMemoryHeap[] memoryHeaps;
 
     }
 
@@ -2025,19 +2214,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkMemoryAllocateInfo
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public ulong allocationSize;
-
-        public uint memoryTypeIndex;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMappedMemoryRange
     {
         public uint sType;
@@ -2053,6 +2229,19 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryAllocateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong allocationSize;
+
+        public uint memoryTypeIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkMemoryRequirements
     {
         public ulong size;
@@ -2060,32 +2249,6 @@ namespace AdamantiumVulkan.Core.Interop
         public ulong alignment;
 
         public uint memoryTypeBits;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSparseImageFormatProperties
-    {
-        public uint aspectMask;
-
-        public VkExtent3D imageGranularity;
-
-        public uint flags;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSparseImageMemoryRequirements
-    {
-        public VkSparseImageFormatProperties formatProperties;
-
-        public uint imageMipTailFirstLod;
-
-        public ulong imageMipTailSize;
-
-        public ulong imageMipTailOffset;
-
-        public ulong imageMipTailStride;
 
     }
 
@@ -2134,17 +2297,6 @@ namespace AdamantiumVulkan.Core.Interop
         public uint mipLevel;
 
         public uint arrayLayer;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkOffset3D
-    {
-        public int x;
-
-        public int y;
-
-        public int z;
 
     }
 
@@ -2202,6 +2354,32 @@ namespace AdamantiumVulkan.Core.Interop
         public uint signalSemaphoreCount;
 
         public System.IntPtr pSignalSemaphores;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSparseImageFormatProperties
+    {
+        public uint aspectMask;
+
+        public VkExtent3D imageGranularity;
+
+        public uint flags;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSparseImageMemoryRequirements
+    {
+        public VkSparseImageFormatProperties formatProperties;
+
+        public uint imageMipTailFirstLod;
+
+        public ulong imageMipTailSize;
+
+        public ulong imageMipTailOffset;
+
+        public ulong imageMipTailStride;
 
     }
 
@@ -2359,21 +2537,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageSubresourceRange
-    {
-        public uint aspectMask;
-
-        public uint baseMipLevel;
-
-        public uint levelCount;
-
-        public uint baseArrayLayer;
-
-        public uint layerCount;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkImageViewCreateInfo
     {
         public uint sType;
@@ -2468,6 +2631,25 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkComputePipelineCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public VkPipelineShaderStageCreateInfo stage;
+
+        public VkPipelineLayout_T layout;
+
+        public VkPipeline_T basePipelineHandle;
+
+        public int basePipelineIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkVertexInputBindingDescription
     {
         public uint binding;
@@ -2552,33 +2734,6 @@ namespace AdamantiumVulkan.Core.Interop
         public float minDepth;
 
         public float maxDepth;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkOffset2D
-    {
-        public int x;
-
-        public int y;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkExtent2D
-    {
-        public uint width;
-
-        public uint height;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkRect2D
-    {
-        public VkOffset2D offset;
-
-        public VkExtent2D extent;
 
     }
 
@@ -2804,25 +2959,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkComputePipelineCreateInfo
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public VkPipelineShaderStageCreateInfo stage;
-
-        public VkPipelineLayout_T layout;
-
-        public VkPipeline_T basePipelineHandle;
-
-        public int basePipelineIndex;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPushConstantRange
     {
         public uint stageFlags;
@@ -2894,32 +3030,47 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSetLayoutBinding
-    {
-        public uint binding;
-
-        public uint descriptorType;
-
-        public uint descriptorCount;
-
-        public uint stageFlags;
-
-        public System.IntPtr pImmutableSamplers;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSetLayoutCreateInfo
+    public partial struct VkCopyDescriptorSet
     {
         public uint sType;
 
         public System.IntPtr pNext;
 
-        public uint flags;
+        public VkDescriptorSet_T srcSet;
 
-        public uint bindingCount;
+        public uint srcBinding;
 
-        public System.IntPtr pBindings;
+        public uint srcArrayElement;
+
+        public VkDescriptorSet_T dstSet;
+
+        public uint dstBinding;
+
+        public uint dstArrayElement;
+
+        public uint descriptorCount;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorBufferInfo
+    {
+        public VkBuffer_T buffer;
+
+        public ulong offset;
+
+        public ulong range;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorImageInfo
+    {
+        public VkSampler_T sampler;
+
+        public VkImageView_T imageView;
+
+        public uint imageLayout;
 
     }
 
@@ -2965,24 +3116,32 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorImageInfo
+    public partial struct VkDescriptorSetLayoutBinding
     {
-        public VkSampler_T sampler;
+        public uint binding;
 
-        public VkImageView_T imageView;
+        public uint descriptorType;
 
-        public uint imageLayout;
+        public uint descriptorCount;
+
+        public uint stageFlags;
+
+        public System.IntPtr pImmutableSamplers;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorBufferInfo
+    public partial struct VkDescriptorSetLayoutCreateInfo
     {
-        public VkBuffer_T buffer;
+        public uint sType;
 
-        public ulong offset;
+        public System.IntPtr pNext;
 
-        public ulong range;
+        public uint flags;
+
+        public uint bindingCount;
+
+        public System.IntPtr pBindings;
 
     }
 
@@ -3008,52 +3167,6 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pBufferInfo;
 
         public System.IntPtr pTexelBufferView;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkCopyDescriptorSet
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public VkDescriptorSet_T srcSet;
-
-        public uint srcBinding;
-
-        public uint srcArrayElement;
-
-        public VkDescriptorSet_T dstSet;
-
-        public uint dstBinding;
-
-        public uint dstArrayElement;
-
-        public uint descriptorCount;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkFramebufferCreateInfo
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public VkRenderPass_T renderPass;
-
-        public uint attachmentCount;
-
-        public System.IntPtr pAttachments;
-
-        public uint width;
-
-        public uint height;
-
-        public uint layers;
 
     }
 
@@ -3086,6 +3199,29 @@ namespace AdamantiumVulkan.Core.Interop
         public uint attachment;
 
         public uint layout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkFramebufferCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public VkRenderPass_T renderPass;
+
+        public uint attachmentCount;
+
+        public System.IntPtr pAttachments;
+
+        public uint width;
+
+        public uint height;
+
+        public uint layers;
 
     }
 
@@ -3243,36 +3379,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageCopy
-    {
-        public VkImageSubresourceLayers srcSubresource;
-
-        public VkOffset3D srcOffset;
-
-        public VkImageSubresourceLayers dstSubresource;
-
-        public VkOffset3D dstOffset;
-
-        public VkExtent3D extent;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageBlit
-    {
-        public VkImageSubresourceLayers srcSubresource;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public VkOffset3D[] srcOffsets;
-
-        public VkImageSubresourceLayers dstSubresource;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public VkOffset3D[] dstOffsets;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferImageCopy
     {
         public ulong bufferOffset;
@@ -3321,7 +3427,22 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageResolve
+    public partial struct VkImageBlit
+    {
+        public VkImageSubresourceLayers srcSubresource;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public VkOffset3D[] srcOffsets;
+
+        public VkImageSubresourceLayers dstSubresource;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public VkOffset3D[] dstOffsets;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageCopy
     {
         public VkImageSubresourceLayers srcSubresource;
 
@@ -3336,63 +3457,17 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkMemoryBarrier
+    public partial struct VkImageResolve
     {
-        public uint sType;
+        public VkImageSubresourceLayers srcSubresource;
 
-        public System.IntPtr pNext;
+        public VkOffset3D srcOffset;
 
-        public uint srcAccessMask;
+        public VkImageSubresourceLayers dstSubresource;
 
-        public uint dstAccessMask;
+        public VkOffset3D dstOffset;
 
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBufferMemoryBarrier
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint srcAccessMask;
-
-        public uint dstAccessMask;
-
-        public uint srcQueueFamilyIndex;
-
-        public uint dstQueueFamilyIndex;
-
-        public VkBuffer_T buffer;
-
-        public ulong offset;
-
-        public ulong size;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageMemoryBarrier
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint srcAccessMask;
-
-        public uint dstAccessMask;
-
-        public uint oldLayout;
-
-        public uint newLayout;
-
-        public uint srcQueueFamilyIndex;
-
-        public uint dstQueueFamilyIndex;
-
-        public VkImage_T image;
-
-        public VkImageSubresourceRange subresourceRange;
+        public VkExtent3D extent;
 
     }
 
@@ -3412,63 +3487,6 @@ namespace AdamantiumVulkan.Core.Interop
         public uint clearValueCount;
 
         public System.IntPtr pClearValues;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDispatchIndirectCommand
-    {
-        public uint x;
-
-        public uint y;
-
-        public uint z;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDrawIndexedIndirectCommand
-    {
-        public uint indexCount;
-
-        public uint instanceCount;
-
-        public uint firstIndex;
-
-        public int vertexOffset;
-
-        public uint firstInstance;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDrawIndirectCommand
-    {
-        public uint vertexCount;
-
-        public uint instanceCount;
-
-        public uint firstVertex;
-
-        public uint firstInstance;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBaseOutStructure
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBaseInStructure
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
 
     }
 
@@ -4632,6 +4650,1123 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkResolveModeFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkResolveModeFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkResolveModeFlags(uint v)
+        {
+            return new VkResolveModeFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorBindingFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkDescriptorBindingFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDescriptorBindingFlags(uint v)
+        {
+            return new VkDescriptorBindingFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreWaitFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkSemaphoreWaitFlags v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkSemaphoreWaitFlags(uint v)
+        {
+            return new VkSemaphoreWaitFlags(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceVulkan11Features
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint storageBuffer16BitAccess;
+
+        public uint uniformAndStorageBuffer16BitAccess;
+
+        public uint storagePushConstant16;
+
+        public uint storageInputOutput16;
+
+        public uint multiview;
+
+        public uint multiviewGeometryShader;
+
+        public uint multiviewTessellationShader;
+
+        public uint variablePointersStorageBuffer;
+
+        public uint variablePointers;
+
+        public uint protectedMemory;
+
+        public uint samplerYcbcrConversion;
+
+        public uint shaderDrawParameters;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceVulkan11Properties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public unsafe fixed byte deviceUUID[16];
+
+        public unsafe fixed byte driverUUID[16];
+
+        public unsafe fixed byte deviceLUID[8];
+
+        public uint deviceNodeMask;
+
+        public uint deviceLUIDValid;
+
+        public uint subgroupSize;
+
+        public uint subgroupSupportedStages;
+
+        public uint subgroupSupportedOperations;
+
+        public uint subgroupQuadOperationsInAllStages;
+
+        public uint pointClippingBehavior;
+
+        public uint maxMultiviewViewCount;
+
+        public uint maxMultiviewInstanceIndex;
+
+        public uint protectedNoFault;
+
+        public uint maxPerSetDescriptors;
+
+        public ulong maxMemoryAllocationSize;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceVulkan12Features
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint samplerMirrorClampToEdge;
+
+        public uint drawIndirectCount;
+
+        public uint storageBuffer8BitAccess;
+
+        public uint uniformAndStorageBuffer8BitAccess;
+
+        public uint storagePushConstant8;
+
+        public uint shaderBufferInt64Atomics;
+
+        public uint shaderSharedInt64Atomics;
+
+        public uint shaderFloat16;
+
+        public uint shaderInt8;
+
+        public uint descriptorIndexing;
+
+        public uint shaderInputAttachmentArrayDynamicIndexing;
+
+        public uint shaderUniformTexelBufferArrayDynamicIndexing;
+
+        public uint shaderStorageTexelBufferArrayDynamicIndexing;
+
+        public uint shaderUniformBufferArrayNonUniformIndexing;
+
+        public uint shaderSampledImageArrayNonUniformIndexing;
+
+        public uint shaderStorageBufferArrayNonUniformIndexing;
+
+        public uint shaderStorageImageArrayNonUniformIndexing;
+
+        public uint shaderInputAttachmentArrayNonUniformIndexing;
+
+        public uint shaderUniformTexelBufferArrayNonUniformIndexing;
+
+        public uint shaderStorageTexelBufferArrayNonUniformIndexing;
+
+        public uint descriptorBindingUniformBufferUpdateAfterBind;
+
+        public uint descriptorBindingSampledImageUpdateAfterBind;
+
+        public uint descriptorBindingStorageImageUpdateAfterBind;
+
+        public uint descriptorBindingStorageBufferUpdateAfterBind;
+
+        public uint descriptorBindingUniformTexelBufferUpdateAfterBind;
+
+        public uint descriptorBindingStorageTexelBufferUpdateAfterBind;
+
+        public uint descriptorBindingUpdateUnusedWhilePending;
+
+        public uint descriptorBindingPartiallyBound;
+
+        public uint descriptorBindingVariableDescriptorCount;
+
+        public uint runtimeDescriptorArray;
+
+        public uint samplerFilterMinmax;
+
+        public uint scalarBlockLayout;
+
+        public uint imagelessFramebuffer;
+
+        public uint uniformBufferStandardLayout;
+
+        public uint shaderSubgroupExtendedTypes;
+
+        public uint separateDepthStencilLayouts;
+
+        public uint hostQueryReset;
+
+        public uint timelineSemaphore;
+
+        public uint bufferDeviceAddress;
+
+        public uint bufferDeviceAddressCaptureReplay;
+
+        public uint bufferDeviceAddressMultiDevice;
+
+        public uint vulkanMemoryModel;
+
+        public uint vulkanMemoryModelDeviceScope;
+
+        public uint vulkanMemoryModelAvailabilityVisibilityChains;
+
+        public uint shaderOutputViewportIndex;
+
+        public uint shaderOutputLayer;
+
+        public uint subgroupBroadcastDynamicId;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkConformanceVersion
+    {
+        public byte major;
+
+        public byte minor;
+
+        public byte subminor;
+
+        public byte patch;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceVulkan12Properties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint driverID;
+
+        public unsafe fixed sbyte driverName[256];
+
+        public unsafe fixed sbyte driverInfo[256];
+
+        public VkConformanceVersion conformanceVersion;
+
+        public uint denormBehaviorIndependence;
+
+        public uint roundingModeIndependence;
+
+        public uint shaderSignedZeroInfNanPreserveFloat16;
+
+        public uint shaderSignedZeroInfNanPreserveFloat32;
+
+        public uint shaderSignedZeroInfNanPreserveFloat64;
+
+        public uint shaderDenormPreserveFloat16;
+
+        public uint shaderDenormPreserveFloat32;
+
+        public uint shaderDenormPreserveFloat64;
+
+        public uint shaderDenormFlushToZeroFloat16;
+
+        public uint shaderDenormFlushToZeroFloat32;
+
+        public uint shaderDenormFlushToZeroFloat64;
+
+        public uint shaderRoundingModeRTEFloat16;
+
+        public uint shaderRoundingModeRTEFloat32;
+
+        public uint shaderRoundingModeRTEFloat64;
+
+        public uint shaderRoundingModeRTZFloat16;
+
+        public uint shaderRoundingModeRTZFloat32;
+
+        public uint shaderRoundingModeRTZFloat64;
+
+        public uint maxUpdateAfterBindDescriptorsInAllPools;
+
+        public uint shaderUniformBufferArrayNonUniformIndexingNative;
+
+        public uint shaderSampledImageArrayNonUniformIndexingNative;
+
+        public uint shaderStorageBufferArrayNonUniformIndexingNative;
+
+        public uint shaderStorageImageArrayNonUniformIndexingNative;
+
+        public uint shaderInputAttachmentArrayNonUniformIndexingNative;
+
+        public uint robustBufferAccessUpdateAfterBind;
+
+        public uint quadDivergentImplicitLod;
+
+        public uint maxPerStageDescriptorUpdateAfterBindSamplers;
+
+        public uint maxPerStageDescriptorUpdateAfterBindUniformBuffers;
+
+        public uint maxPerStageDescriptorUpdateAfterBindStorageBuffers;
+
+        public uint maxPerStageDescriptorUpdateAfterBindSampledImages;
+
+        public uint maxPerStageDescriptorUpdateAfterBindStorageImages;
+
+        public uint maxPerStageDescriptorUpdateAfterBindInputAttachments;
+
+        public uint maxPerStageUpdateAfterBindResources;
+
+        public uint maxDescriptorSetUpdateAfterBindSamplers;
+
+        public uint maxDescriptorSetUpdateAfterBindUniformBuffers;
+
+        public uint maxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
+
+        public uint maxDescriptorSetUpdateAfterBindStorageBuffers;
+
+        public uint maxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
+
+        public uint maxDescriptorSetUpdateAfterBindSampledImages;
+
+        public uint maxDescriptorSetUpdateAfterBindStorageImages;
+
+        public uint maxDescriptorSetUpdateAfterBindInputAttachments;
+
+        public uint supportedDepthResolveModes;
+
+        public uint supportedStencilResolveModes;
+
+        public uint independentResolveNone;
+
+        public uint independentResolve;
+
+        public uint filterMinmaxSingleComponentFormats;
+
+        public uint filterMinmaxImageComponentMapping;
+
+        public ulong maxTimelineSemaphoreValueDifference;
+
+        public uint framebufferIntegerColorSampleCounts;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageFormatListCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint viewFormatCount;
+
+        public System.IntPtr pViewFormats;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAttachmentDescription2
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint format;
+
+        public uint samples;
+
+        public uint loadOp;
+
+        public uint storeOp;
+
+        public uint stencilLoadOp;
+
+        public uint stencilStoreOp;
+
+        public uint initialLayout;
+
+        public uint finalLayout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAttachmentReference2
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint attachment;
+
+        public uint layout;
+
+        public uint aspectMask;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSubpassDescription2
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint pipelineBindPoint;
+
+        public uint viewMask;
+
+        public uint inputAttachmentCount;
+
+        public System.IntPtr pInputAttachments;
+
+        public uint colorAttachmentCount;
+
+        public System.IntPtr pColorAttachments;
+
+        public System.IntPtr pResolveAttachments;
+
+        public System.IntPtr pDepthStencilAttachment;
+
+        public uint preserveAttachmentCount;
+
+        public System.IntPtr pPreserveAttachments;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSubpassDependency2
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint srcSubpass;
+
+        public uint dstSubpass;
+
+        public uint srcStageMask;
+
+        public uint dstStageMask;
+
+        public uint srcAccessMask;
+
+        public uint dstAccessMask;
+
+        public uint dependencyFlags;
+
+        public int viewOffset;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRenderPassCreateInfo2
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint attachmentCount;
+
+        public System.IntPtr pAttachments;
+
+        public uint subpassCount;
+
+        public System.IntPtr pSubpasses;
+
+        public uint dependencyCount;
+
+        public System.IntPtr pDependencies;
+
+        public uint correlatedViewMaskCount;
+
+        public System.IntPtr pCorrelatedViewMasks;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSubpassBeginInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint contents;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSubpassEndInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevice8BitStorageFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint storageBuffer8BitAccess;
+
+        public uint uniformAndStorageBuffer8BitAccess;
+
+        public uint storagePushConstant8;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDriverProperties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint driverID;
+
+        public unsafe fixed sbyte driverName[256];
+
+        public unsafe fixed sbyte driverInfo[256];
+
+        public VkConformanceVersion conformanceVersion;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderAtomicInt64Features
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderBufferInt64Atomics;
+
+        public uint shaderSharedInt64Atomics;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderFloat16Int8Features
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderFloat16;
+
+        public uint shaderInt8;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFloatControlsProperties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint denormBehaviorIndependence;
+
+        public uint roundingModeIndependence;
+
+        public uint shaderSignedZeroInfNanPreserveFloat16;
+
+        public uint shaderSignedZeroInfNanPreserveFloat32;
+
+        public uint shaderSignedZeroInfNanPreserveFloat64;
+
+        public uint shaderDenormPreserveFloat16;
+
+        public uint shaderDenormPreserveFloat32;
+
+        public uint shaderDenormPreserveFloat64;
+
+        public uint shaderDenormFlushToZeroFloat16;
+
+        public uint shaderDenormFlushToZeroFloat32;
+
+        public uint shaderDenormFlushToZeroFloat64;
+
+        public uint shaderRoundingModeRTEFloat16;
+
+        public uint shaderRoundingModeRTEFloat32;
+
+        public uint shaderRoundingModeRTEFloat64;
+
+        public uint shaderRoundingModeRTZFloat16;
+
+        public uint shaderRoundingModeRTZFloat32;
+
+        public uint shaderRoundingModeRTZFloat64;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorSetLayoutBindingFlagsCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint bindingCount;
+
+        public System.IntPtr pBindingFlags;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDescriptorIndexingFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderInputAttachmentArrayDynamicIndexing;
+
+        public uint shaderUniformTexelBufferArrayDynamicIndexing;
+
+        public uint shaderStorageTexelBufferArrayDynamicIndexing;
+
+        public uint shaderUniformBufferArrayNonUniformIndexing;
+
+        public uint shaderSampledImageArrayNonUniformIndexing;
+
+        public uint shaderStorageBufferArrayNonUniformIndexing;
+
+        public uint shaderStorageImageArrayNonUniformIndexing;
+
+        public uint shaderInputAttachmentArrayNonUniformIndexing;
+
+        public uint shaderUniformTexelBufferArrayNonUniformIndexing;
+
+        public uint shaderStorageTexelBufferArrayNonUniformIndexing;
+
+        public uint descriptorBindingUniformBufferUpdateAfterBind;
+
+        public uint descriptorBindingSampledImageUpdateAfterBind;
+
+        public uint descriptorBindingStorageImageUpdateAfterBind;
+
+        public uint descriptorBindingStorageBufferUpdateAfterBind;
+
+        public uint descriptorBindingUniformTexelBufferUpdateAfterBind;
+
+        public uint descriptorBindingStorageTexelBufferUpdateAfterBind;
+
+        public uint descriptorBindingUpdateUnusedWhilePending;
+
+        public uint descriptorBindingPartiallyBound;
+
+        public uint descriptorBindingVariableDescriptorCount;
+
+        public uint runtimeDescriptorArray;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDescriptorIndexingProperties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint maxUpdateAfterBindDescriptorsInAllPools;
+
+        public uint shaderUniformBufferArrayNonUniformIndexingNative;
+
+        public uint shaderSampledImageArrayNonUniformIndexingNative;
+
+        public uint shaderStorageBufferArrayNonUniformIndexingNative;
+
+        public uint shaderStorageImageArrayNonUniformIndexingNative;
+
+        public uint shaderInputAttachmentArrayNonUniformIndexingNative;
+
+        public uint robustBufferAccessUpdateAfterBind;
+
+        public uint quadDivergentImplicitLod;
+
+        public uint maxPerStageDescriptorUpdateAfterBindSamplers;
+
+        public uint maxPerStageDescriptorUpdateAfterBindUniformBuffers;
+
+        public uint maxPerStageDescriptorUpdateAfterBindStorageBuffers;
+
+        public uint maxPerStageDescriptorUpdateAfterBindSampledImages;
+
+        public uint maxPerStageDescriptorUpdateAfterBindStorageImages;
+
+        public uint maxPerStageDescriptorUpdateAfterBindInputAttachments;
+
+        public uint maxPerStageUpdateAfterBindResources;
+
+        public uint maxDescriptorSetUpdateAfterBindSamplers;
+
+        public uint maxDescriptorSetUpdateAfterBindUniformBuffers;
+
+        public uint maxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
+
+        public uint maxDescriptorSetUpdateAfterBindStorageBuffers;
+
+        public uint maxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
+
+        public uint maxDescriptorSetUpdateAfterBindSampledImages;
+
+        public uint maxDescriptorSetUpdateAfterBindStorageImages;
+
+        public uint maxDescriptorSetUpdateAfterBindInputAttachments;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorSetVariableDescriptorCountAllocateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint descriptorSetCount;
+
+        public System.IntPtr pDescriptorCounts;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDescriptorSetVariableDescriptorCountLayoutSupport
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint maxVariableDescriptorCount;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSubpassDescriptionDepthStencilResolve
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint depthResolveMode;
+
+        public uint stencilResolveMode;
+
+        public System.IntPtr pDepthStencilResolveAttachment;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDepthStencilResolveProperties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint supportedDepthResolveModes;
+
+        public uint supportedStencilResolveModes;
+
+        public uint independentResolveNone;
+
+        public uint independentResolve;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceScalarBlockLayoutFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint scalarBlockLayout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageStencilUsageCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint stencilUsage;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSamplerReductionModeCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint reductionMode;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceSamplerFilterMinmaxProperties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint filterMinmaxSingleComponentFormats;
+
+        public uint filterMinmaxImageComponentMapping;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceVulkanMemoryModelFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint vulkanMemoryModel;
+
+        public uint vulkanMemoryModelDeviceScope;
+
+        public uint vulkanMemoryModelAvailabilityVisibilityChains;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceImagelessFramebufferFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint imagelessFramebuffer;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkFramebufferAttachmentImageInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint usage;
+
+        public uint width;
+
+        public uint height;
+
+        public uint layerCount;
+
+        public uint viewFormatCount;
+
+        public System.IntPtr pViewFormats;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkFramebufferAttachmentsCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint attachmentImageInfoCount;
+
+        public System.IntPtr pAttachmentImageInfos;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRenderPassAttachmentBeginInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint attachmentCount;
+
+        public System.IntPtr pAttachments;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceUniformBufferStandardLayoutFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint uniformBufferStandardLayout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderSubgroupExtendedTypes;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint separateDepthStencilLayouts;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAttachmentReferenceStencilLayout
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint stencilLayout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAttachmentDescriptionStencilLayout
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint stencilInitialLayout;
+
+        public uint stencilFinalLayout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceHostQueryResetFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint hostQueryReset;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceTimelineSemaphoreFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint timelineSemaphore;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceTimelineSemaphoreProperties
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong maxTimelineSemaphoreValueDifference;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreTypeCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint semaphoreType;
+
+        public ulong initialValue;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkTimelineSemaphoreSubmitInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint waitSemaphoreValueCount;
+
+        public System.IntPtr pWaitSemaphoreValues;
+
+        public uint signalSemaphoreValueCount;
+
+        public System.IntPtr pSignalSemaphoreValues;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreWaitInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint semaphoreCount;
+
+        public System.IntPtr pSemaphores;
+
+        public System.IntPtr pValues;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSemaphoreSignalInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkSemaphore_T semaphore;
+
+        public ulong value;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceBufferDeviceAddressFeatures
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint bufferDeviceAddress;
+
+        public uint bufferDeviceAddressCaptureReplay;
+
+        public uint bufferDeviceAddressMultiDevice;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBufferDeviceAddressInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkBuffer_T buffer;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBufferOpaqueCaptureAddressCreateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong opaqueCaptureAddress;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryOpaqueCaptureAddressAllocateInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong opaqueCaptureAddress;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceMemoryOpaqueCaptureAddressInfo
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkDeviceMemory_T memory;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceKHR_T
     {
         public System.IntPtr pointer;
@@ -4639,24 +5774,6 @@ namespace AdamantiumVulkan.Core.Interop
         public VkSurfaceKHR_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSurfaceTransformFlagsKHR
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkSurfaceTransformFlagsKHR v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkSurfaceTransformFlagsKHR(uint v)
-        {
-            return new VkSurfaceTransformFlagsKHR(){value = v};
         }
 
     }
@@ -4675,6 +5792,24 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkCompositeAlphaFlagsKHR(uint v)
         {
             return new VkCompositeAlphaFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSurfaceTransformFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkSurfaceTransformFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkSurfaceTransformFlagsKHR(uint v)
+        {
+            return new VkSurfaceTransformFlagsKHR(){value = v};
         }
 
     }
@@ -4930,24 +6065,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDisplayPlaneAlphaFlagsKHR
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkDisplayPlaneAlphaFlagsKHR v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkDisplayPlaneAlphaFlagsKHR(uint v)
-        {
-            return new VkDisplayPlaneAlphaFlagsKHR(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayModeCreateFlagsKHR
     {
         public uint value;
@@ -4961,6 +6078,24 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkDisplayModeCreateFlagsKHR(uint v)
         {
             return new VkDisplayModeCreateFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDisplayPlaneAlphaFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkDisplayPlaneAlphaFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDisplayPlaneAlphaFlagsKHR(uint v)
+        {
+            return new VkDisplayPlaneAlphaFlagsKHR(){value = v};
         }
 
     }
@@ -4984,39 +6119,11 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDisplayPropertiesKHR
-    {
-        public VkDisplayKHR_T display;
-
-        public System.IntPtr displayName;
-
-        public VkExtent2D physicalDimensions;
-
-        public VkExtent2D physicalResolution;
-
-        public uint supportedTransforms;
-
-        public uint planeReorderPossible;
-
-        public uint persistentContent;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDisplayModeParametersKHR
     {
         public VkExtent2D visibleRegion;
 
         public uint refreshRate;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDisplayModePropertiesKHR
-    {
-        public VkDisplayModeKHR_T displayMode;
-
-        public VkDisplayModeParametersKHR parameters;
 
     }
 
@@ -5028,6 +6135,15 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pNext;
 
         public uint flags;
+
+        public VkDisplayModeParametersKHR parameters;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDisplayModePropertiesKHR
+    {
+        public VkDisplayModeKHR_T displayMode;
 
         public VkDisplayModeParametersKHR parameters;
 
@@ -5062,6 +6178,25 @@ namespace AdamantiumVulkan.Core.Interop
         public VkDisplayKHR_T currentDisplay;
 
         public uint currentStackIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDisplayPropertiesKHR
+    {
+        public VkDisplayKHR_T display;
+
+        public System.IntPtr displayName;
+
+        public VkExtent2D physicalDimensions;
+
+        public VkExtent2D physicalResolution;
+
+        public uint supportedTransforms;
+
+        public uint planeReorderPossible;
+
+        public uint persistentContent;
 
     }
 
@@ -5328,19 +6463,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceShaderFloat16Int8FeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint shaderFloat16;
-
-        public uint shaderInt8;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkRectLayerKHR
     {
         public VkOffset2D offset;
@@ -5388,211 +6510,6 @@ namespace AdamantiumVulkan.Core.Interop
         {
             return new VkDescriptorUpdateTemplateCreateFlagsKHR(){value = v};
         }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceImagelessFramebufferFeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint imagelessFramebuffer;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkFramebufferAttachmentImageInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public uint usage;
-
-        public uint width;
-
-        public uint height;
-
-        public uint layerCount;
-
-        public uint viewFormatCount;
-
-        public System.IntPtr pViewFormats;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkFramebufferAttachmentsCreateInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint attachmentImageInfoCount;
-
-        public System.IntPtr pAttachmentImageInfos;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkRenderPassAttachmentBeginInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint attachmentCount;
-
-        public System.IntPtr pAttachments;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAttachmentDescription2KHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public uint format;
-
-        public uint samples;
-
-        public uint loadOp;
-
-        public uint storeOp;
-
-        public uint stencilLoadOp;
-
-        public uint stencilStoreOp;
-
-        public uint initialLayout;
-
-        public uint finalLayout;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAttachmentReference2KHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint attachment;
-
-        public uint layout;
-
-        public uint aspectMask;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSubpassDescription2KHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public uint pipelineBindPoint;
-
-        public uint viewMask;
-
-        public uint inputAttachmentCount;
-
-        public System.IntPtr pInputAttachments;
-
-        public uint colorAttachmentCount;
-
-        public System.IntPtr pColorAttachments;
-
-        public System.IntPtr pResolveAttachments;
-
-        public System.IntPtr pDepthStencilAttachment;
-
-        public uint preserveAttachmentCount;
-
-        public System.IntPtr pPreserveAttachments;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSubpassDependency2KHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint srcSubpass;
-
-        public uint dstSubpass;
-
-        public uint srcStageMask;
-
-        public uint dstStageMask;
-
-        public uint srcAccessMask;
-
-        public uint dstAccessMask;
-
-        public uint dependencyFlags;
-
-        public int viewOffset;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkRenderPassCreateInfo2KHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public uint attachmentCount;
-
-        public System.IntPtr pAttachments;
-
-        public uint subpassCount;
-
-        public System.IntPtr pSubpasses;
-
-        public uint dependencyCount;
-
-        public System.IntPtr pDependencies;
-
-        public uint correlatedViewMaskCount;
-
-        public System.IntPtr pCorrelatedViewMasks;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSubpassBeginInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint contents;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSubpassEndInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
 
     }
 
@@ -5692,6 +6609,139 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPerformanceCounterDescriptionFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkPerformanceCounterDescriptionFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkPerformanceCounterDescriptionFlagsKHR(uint v)
+        {
+            return new VkPerformanceCounterDescriptionFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAcquireProfilingLockFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkAcquireProfilingLockFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkAcquireProfilingLockFlagsKHR(uint v)
+        {
+            return new VkAcquireProfilingLockFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevicePerformanceQueryFeaturesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint performanceCounterQueryPools;
+
+        public uint performanceCounterMultipleQueryPools;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevicePerformanceQueryPropertiesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint allowCommandBufferQueryCopies;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPerformanceCounterKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint unit;
+
+        public uint scope;
+
+        public uint storage;
+
+        public unsafe fixed byte uuid[16];
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPerformanceCounterDescriptionKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public unsafe fixed sbyte name[256];
+
+        public unsafe fixed sbyte category[256];
+
+        public unsafe fixed sbyte description[256];
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkQueryPoolPerformanceCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint queueFamilyIndex;
+
+        public uint counterIndexCount;
+
+        public System.IntPtr pCounterIndices;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAcquireProfilingLockInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public ulong timeout;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPerformanceQuerySubmitInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint counterPassIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSurfaceInfo2KHR
     {
         public uint sType;
@@ -5782,58 +6832,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageFormatListCreateInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint viewFormatCount;
-
-        public System.IntPtr pViewFormats;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint shaderSubgroupExtendedTypes;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDevice8BitStorageFeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint storageBuffer8BitAccess;
-
-        public uint uniformAndStorageBuffer8BitAccess;
-
-        public uint storagePushConstant8;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceShaderAtomicInt64FeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint shaderBufferInt64Atomics;
-
-        public uint shaderSharedInt64Atomics;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderClockFeaturesKHR
     {
         public uint sType;
@@ -5843,79 +6841,6 @@ namespace AdamantiumVulkan.Core.Interop
         public uint shaderSubgroupClock;
 
         public uint shaderDeviceClock;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkConformanceVersionKHR
-    {
-        public byte major;
-
-        public byte minor;
-
-        public byte subminor;
-
-        public byte patch;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceDriverPropertiesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint driverID;
-
-        public unsafe fixed sbyte driverName[256];
-
-        public unsafe fixed sbyte driverInfo[256];
-
-        public VkConformanceVersionKHR conformanceVersion;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceFloatControlsPropertiesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint denormBehaviorIndependence;
-
-        public uint roundingModeIndependence;
-
-        public uint shaderSignedZeroInfNanPreserveFloat16;
-
-        public uint shaderSignedZeroInfNanPreserveFloat32;
-
-        public uint shaderSignedZeroInfNanPreserveFloat64;
-
-        public uint shaderDenormPreserveFloat16;
-
-        public uint shaderDenormPreserveFloat32;
-
-        public uint shaderDenormPreserveFloat64;
-
-        public uint shaderDenormFlushToZeroFloat16;
-
-        public uint shaderDenormFlushToZeroFloat32;
-
-        public uint shaderDenormFlushToZeroFloat64;
-
-        public uint shaderRoundingModeRTEFloat16;
-
-        public uint shaderRoundingModeRTEFloat32;
-
-        public uint shaderRoundingModeRTEFloat64;
-
-        public uint shaderRoundingModeRTZFloat16;
-
-        public uint shaderRoundingModeRTZFloat32;
-
-        public uint shaderRoundingModeRTZFloat64;
 
     }
 
@@ -5938,38 +6863,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSubpassDescriptionDepthStencilResolveKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint depthResolveMode;
-
-        public uint stencilResolveMode;
-
-        public System.IntPtr pDepthStencilResolveAttachment;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceDepthStencilResolvePropertiesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint supportedDepthResolveModes;
-
-        public uint supportedStencilResolveModes;
-
-        public uint independentResolveNone;
-
-        public uint independentResolve;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSemaphoreWaitFlagsKHR
     {
         public uint value;
@@ -5988,103 +6881,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceTimelineSemaphoreFeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint timelineSemaphore;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceTimelineSemaphorePropertiesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public ulong maxTimelineSemaphoreValueDifference;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSemaphoreTypeCreateInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint semaphoreType;
-
-        public ulong initialValue;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkTimelineSemaphoreSubmitInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint waitSemaphoreValueCount;
-
-        public System.IntPtr pWaitSemaphoreValues;
-
-        public uint signalSemaphoreValueCount;
-
-        public System.IntPtr pSignalSemaphoreValues;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSemaphoreWaitInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint flags;
-
-        public uint semaphoreCount;
-
-        public System.IntPtr pSemaphores;
-
-        public System.IntPtr pValues;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSemaphoreSignalInfoKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public VkSemaphore_T semaphore;
-
-        public ulong value;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceVulkanMemoryModelFeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint vulkanMemoryModel;
-
-        public uint vulkanMemoryModelDeviceScope;
-
-        public uint vulkanMemoryModelAvailabilityVisibilityChains;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceProtectedCapabilitiesKHR
     {
         public uint sType;
@@ -6092,17 +6888,6 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pNext;
 
         public uint supportsProtected;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint uniformBufferStandardLayout;
 
     }
 
@@ -6421,6 +7206,19 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageViewAddressPropertiesNVX
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong deviceAddress;
+
+        public ulong size;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkTextureLODGatherFormatPropertiesAMD
     {
         public uint sType;
@@ -6647,278 +7445,6 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pNext;
 
         public uint conditionalRenderingEnable;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTableNVX_T
-    {
-        public System.IntPtr pointer;
-
-        public VkObjectTableNVX_T(System.IntPtr pointer)
-        {
-            this.pointer = pointer;
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkIndirectCommandsLayoutNVX_T
-    {
-        public System.IntPtr pointer;
-
-        public VkIndirectCommandsLayoutNVX_T(System.IntPtr pointer)
-        {
-            this.pointer = pointer;
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkIndirectCommandsLayoutUsageFlagsNVX
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkIndirectCommandsLayoutUsageFlagsNVX v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkIndirectCommandsLayoutUsageFlagsNVX(uint v)
-        {
-            return new VkIndirectCommandsLayoutUsageFlagsNVX(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectEntryUsageFlagsNVX
-    {
-        public uint value;
-
-
-        public static implicit operator uint(VkObjectEntryUsageFlagsNVX v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkObjectEntryUsageFlagsNVX(uint v)
-        {
-            return new VkObjectEntryUsageFlagsNVX(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDeviceGeneratedCommandsFeaturesNVX
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint computeBindingPointSupport;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDeviceGeneratedCommandsLimitsNVX
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint maxIndirectCommandsLayoutTokenCount;
-
-        public uint maxObjectEntryCounts;
-
-        public uint minSequenceCountBufferOffsetAlignment;
-
-        public uint minSequenceIndexBufferOffsetAlignment;
-
-        public uint minCommandsTokenBufferOffsetAlignment;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkIndirectCommandsTokenNVX
-    {
-        public uint tokenType;
-
-        public VkBuffer_T buffer;
-
-        public ulong offset;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkIndirectCommandsLayoutTokenNVX
-    {
-        public uint tokenType;
-
-        public uint bindingUnit;
-
-        public uint dynamicCount;
-
-        public uint divisor;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkIndirectCommandsLayoutCreateInfoNVX
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint pipelineBindPoint;
-
-        public uint flags;
-
-        public uint tokenCount;
-
-        public System.IntPtr pTokens;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkCmdProcessCommandsInfoNVX
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public VkObjectTableNVX_T objectTable;
-
-        public VkIndirectCommandsLayoutNVX_T indirectCommandsLayout;
-
-        public uint indirectCommandsTokenCount;
-
-        public System.IntPtr pIndirectCommandsTokens;
-
-        public uint maxSequencesCount;
-
-        public VkCommandBuffer_T targetCommandBuffer;
-
-        public VkBuffer_T sequencesCountBuffer;
-
-        public ulong sequencesCountOffset;
-
-        public VkBuffer_T sequencesIndexBuffer;
-
-        public ulong sequencesIndexOffset;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkCmdReserveSpaceForCommandsInfoNVX
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public VkObjectTableNVX_T objectTable;
-
-        public VkIndirectCommandsLayoutNVX_T indirectCommandsLayout;
-
-        public uint maxSequencesCount;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTableCreateInfoNVX
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint objectCount;
-
-        public System.IntPtr pObjectEntryTypes;
-
-        public System.IntPtr pObjectEntryCounts;
-
-        public System.IntPtr pObjectEntryUsageFlags;
-
-        public uint maxUniformBuffersPerDescriptor;
-
-        public uint maxStorageBuffersPerDescriptor;
-
-        public uint maxStorageImagesPerDescriptor;
-
-        public uint maxSampledImagesPerDescriptor;
-
-        public uint maxPipelineLayouts;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTableEntryNVX
-    {
-        public uint type;
-
-        public uint flags;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTablePipelineEntryNVX
-    {
-        public uint type;
-
-        public uint flags;
-
-        public VkPipeline_T pipeline;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTableDescriptorSetEntryNVX
-    {
-        public uint type;
-
-        public uint flags;
-
-        public VkPipelineLayout_T pipelineLayout;
-
-        public VkDescriptorSet_T descriptorSet;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTableVertexBufferEntryNVX
-    {
-        public uint type;
-
-        public uint flags;
-
-        public VkBuffer_T buffer;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTableIndexBufferEntryNVX
-    {
-        public uint type;
-
-        public uint flags;
-
-        public VkBuffer_T buffer;
-
-        public uint indexType;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkObjectTablePushConstantEntryNVX
-    {
-        public uint type;
-
-        public uint flags;
-
-        public VkPipelineLayout_T pipelineLayout;
-
-        public uint stageFlags;
 
     }
 
@@ -7353,19 +7879,19 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDebugUtilsMessengerCreateFlagsEXT
+    public partial struct VkDebugUtilsMessageTypeFlagsEXT
     {
         public uint value;
 
 
-        public static implicit operator uint(VkDebugUtilsMessengerCreateFlagsEXT v)
+        public static implicit operator uint(VkDebugUtilsMessageTypeFlagsEXT v)
         {
             return v.value;
         }
 
-        public static implicit operator VkDebugUtilsMessengerCreateFlagsEXT(uint v)
+        public static implicit operator VkDebugUtilsMessageTypeFlagsEXT(uint v)
         {
-            return new VkDebugUtilsMessengerCreateFlagsEXT(){value = v};
+            return new VkDebugUtilsMessageTypeFlagsEXT(){value = v};
         }
 
     }
@@ -7389,20 +7915,33 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDebugUtilsMessageTypeFlagsEXT
+    public partial struct VkDebugUtilsMessengerCreateFlagsEXT
     {
         public uint value;
 
 
-        public static implicit operator uint(VkDebugUtilsMessageTypeFlagsEXT v)
+        public static implicit operator uint(VkDebugUtilsMessengerCreateFlagsEXT v)
         {
             return v.value;
         }
 
-        public static implicit operator VkDebugUtilsMessageTypeFlagsEXT(uint v)
+        public static implicit operator VkDebugUtilsMessengerCreateFlagsEXT(uint v)
         {
-            return new VkDebugUtilsMessageTypeFlagsEXT(){value = v};
+            return new VkDebugUtilsMessengerCreateFlagsEXT(){value = v};
         }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDebugUtilsLabelEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public System.IntPtr pLabelName;
+
+        public unsafe fixed float color[4];
 
     }
 
@@ -7418,38 +7957,6 @@ namespace AdamantiumVulkan.Core.Interop
         public ulong objectHandle;
 
         public System.IntPtr pObjectName;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDebugUtilsObjectTagInfoEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint objectType;
-
-        public ulong objectHandle;
-
-        public ulong tagName;
-
-        public ulong tagSize;
-
-        public System.IntPtr pTag;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDebugUtilsLabelEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public System.IntPtr pLabelName;
-
-        public unsafe fixed float color[4];
 
     }
 
@@ -7502,26 +8009,21 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkSamplerReductionModeCreateInfoEXT
+    public partial struct VkDebugUtilsObjectTagInfoEXT
     {
         public uint sType;
 
         public System.IntPtr pNext;
 
-        public uint reductionMode;
+        public uint objectType;
 
-    }
+        public ulong objectHandle;
 
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT
-    {
-        public uint sType;
+        public ulong tagName;
 
-        public System.IntPtr pNext;
+        public ulong tagSize;
 
-        public uint filterMinmaxSingleComponentFormats;
-
-        public uint filterMinmaxImageComponentMapping;
+        public System.IntPtr pTag;
 
     }
 
@@ -7981,147 +8483,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSetLayoutBindingFlagsCreateInfoEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint bindingCount;
-
-        public System.IntPtr pBindingFlags;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceDescriptorIndexingFeaturesEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint shaderInputAttachmentArrayDynamicIndexing;
-
-        public uint shaderUniformTexelBufferArrayDynamicIndexing;
-
-        public uint shaderStorageTexelBufferArrayDynamicIndexing;
-
-        public uint shaderUniformBufferArrayNonUniformIndexing;
-
-        public uint shaderSampledImageArrayNonUniformIndexing;
-
-        public uint shaderStorageBufferArrayNonUniformIndexing;
-
-        public uint shaderStorageImageArrayNonUniformIndexing;
-
-        public uint shaderInputAttachmentArrayNonUniformIndexing;
-
-        public uint shaderUniformTexelBufferArrayNonUniformIndexing;
-
-        public uint shaderStorageTexelBufferArrayNonUniformIndexing;
-
-        public uint descriptorBindingUniformBufferUpdateAfterBind;
-
-        public uint descriptorBindingSampledImageUpdateAfterBind;
-
-        public uint descriptorBindingStorageImageUpdateAfterBind;
-
-        public uint descriptorBindingStorageBufferUpdateAfterBind;
-
-        public uint descriptorBindingUniformTexelBufferUpdateAfterBind;
-
-        public uint descriptorBindingStorageTexelBufferUpdateAfterBind;
-
-        public uint descriptorBindingUpdateUnusedWhilePending;
-
-        public uint descriptorBindingPartiallyBound;
-
-        public uint descriptorBindingVariableDescriptorCount;
-
-        public uint runtimeDescriptorArray;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceDescriptorIndexingPropertiesEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint maxUpdateAfterBindDescriptorsInAllPools;
-
-        public uint shaderUniformBufferArrayNonUniformIndexingNative;
-
-        public uint shaderSampledImageArrayNonUniformIndexingNative;
-
-        public uint shaderStorageBufferArrayNonUniformIndexingNative;
-
-        public uint shaderStorageImageArrayNonUniformIndexingNative;
-
-        public uint shaderInputAttachmentArrayNonUniformIndexingNative;
-
-        public uint robustBufferAccessUpdateAfterBind;
-
-        public uint quadDivergentImplicitLod;
-
-        public uint maxPerStageDescriptorUpdateAfterBindSamplers;
-
-        public uint maxPerStageDescriptorUpdateAfterBindUniformBuffers;
-
-        public uint maxPerStageDescriptorUpdateAfterBindStorageBuffers;
-
-        public uint maxPerStageDescriptorUpdateAfterBindSampledImages;
-
-        public uint maxPerStageDescriptorUpdateAfterBindStorageImages;
-
-        public uint maxPerStageDescriptorUpdateAfterBindInputAttachments;
-
-        public uint maxPerStageUpdateAfterBindResources;
-
-        public uint maxDescriptorSetUpdateAfterBindSamplers;
-
-        public uint maxDescriptorSetUpdateAfterBindUniformBuffers;
-
-        public uint maxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
-
-        public uint maxDescriptorSetUpdateAfterBindStorageBuffers;
-
-        public uint maxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
-
-        public uint maxDescriptorSetUpdateAfterBindSampledImages;
-
-        public uint maxDescriptorSetUpdateAfterBindStorageImages;
-
-        public uint maxDescriptorSetUpdateAfterBindInputAttachments;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSetVariableDescriptorCountAllocateInfoEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint descriptorSetCount;
-
-        public System.IntPtr pDescriptorCounts;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDescriptorSetVariableDescriptorCountLayoutSupportEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint maxVariableDescriptorCount;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkShadingRatePaletteNV
     {
         public uint shadingRatePaletteEntryCount;
@@ -8213,13 +8574,31 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAccelerationStructureNV_T
+    public partial struct VkAccelerationStructureKHR_T
     {
         public System.IntPtr pointer;
 
-        public VkAccelerationStructureNV_T(System.IntPtr pointer)
+        public VkAccelerationStructureKHR_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkGeometryFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkGeometryFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkGeometryFlagsKHR(uint v)
+        {
+            return new VkGeometryFlagsKHR(){value = v};
         }
 
     }
@@ -8243,6 +8622,24 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkGeometryInstanceFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkGeometryInstanceFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkGeometryInstanceFlagsKHR(uint v)
+        {
+            return new VkGeometryInstanceFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkGeometryInstanceFlagsNV
     {
         public uint value;
@@ -8256,6 +8653,24 @@ namespace AdamantiumVulkan.Core.Interop
         public static implicit operator VkGeometryInstanceFlagsNV(uint v)
         {
             return new VkGeometryInstanceFlagsNV(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBuildAccelerationStructureFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkBuildAccelerationStructureFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkBuildAccelerationStructureFlagsKHR(uint v)
+        {
+            return new VkBuildAccelerationStructureFlagsKHR(){value = v};
         }
 
     }
@@ -8429,13 +8844,13 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBindAccelerationStructureMemoryInfoNV
+    public partial struct VkBindAccelerationStructureMemoryInfoKHR
     {
         public uint sType;
 
         public System.IntPtr pNext;
 
-        public VkAccelerationStructureNV_T accelerationStructure;
+        public VkAccelerationStructureKHR_T accelerationStructure;
 
         public VkDeviceMemory_T memory;
 
@@ -8448,7 +8863,7 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkWriteDescriptorSetAccelerationStructureNV
+    public partial struct VkWriteDescriptorSetAccelerationStructureKHR
     {
         public uint sType;
 
@@ -8469,7 +8884,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint type;
 
-        public VkAccelerationStructureNV_T accelerationStructure;
+        public VkAccelerationStructureKHR_T accelerationStructure;
 
     }
 
@@ -8495,6 +8910,47 @@ namespace AdamantiumVulkan.Core.Interop
         public ulong maxTriangleCount;
 
         public uint maxDescriptorSetAccelerationStructures;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkTransformMatrixKHR
+    {
+        public unsafe fixed float matrix[12];
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAabbPositionsKHR
+    {
+        public float minX;
+
+        public float minY;
+
+        public float minZ;
+
+        public float maxX;
+
+        public float maxY;
+
+        public float maxZ;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureInstanceKHR
+    {
+        public VkTransformMatrixKHR transform;
+
+        public uint instanceCustomIndex;
+
+        public uint mask;
+
+        public uint instanceShaderBindingTableRecordOffset;
+
+        public uint flags;
+
+        public ulong accelerationStructureReference;
 
     }
 
@@ -8950,7 +9406,7 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkQueryPoolCreateInfoINTEL
+    public partial struct VkQueryPoolPerformanceQueryCreateInfoINTEL
     {
         public uint sType;
 
@@ -9089,17 +9545,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceScalarBlockLayoutFeaturesEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public uint scalarBlockLayout;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceSubgroupSizeControlFeaturesEXT
     {
         public uint sType;
@@ -9229,24 +9674,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkDeviceAddress
-    {
-        public ulong value;
-
-
-        public static implicit operator ulong(VkDeviceAddress v)
-        {
-            return v.value;
-        }
-
-        public static implicit operator VkDeviceAddress(ulong v)
-        {
-            return new VkDeviceAddress(){value = v};
-        }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceBufferDeviceAddressFeaturesEXT
     {
         public uint sType;
@@ -9262,17 +9689,6 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBufferDeviceAddressInfoEXT
-    {
-        public uint sType;
-
-        public System.IntPtr pNext;
-
-        public VkBuffer_T buffer;
-
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkBufferDeviceAddressCreateInfoEXT
     {
         public uint sType;
@@ -9284,13 +9700,39 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkImageStencilUsageCreateInfoEXT
+    public partial struct VkToolPurposeFlagsEXT
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkToolPurposeFlagsEXT v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkToolPurposeFlagsEXT(uint v)
+        {
+            return new VkToolPurposeFlagsEXT(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceToolPropertiesEXT
     {
         public uint sType;
 
         public System.IntPtr pNext;
 
-        public uint stencilUsage;
+        public unsafe fixed sbyte name[256];
+
+        public unsafe fixed sbyte version[256];
+
+        public uint purposes;
+
+        public unsafe fixed sbyte description[256];
+
+        public unsafe fixed sbyte layer[256];
 
     }
 
@@ -9524,13 +9966,35 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkPhysicalDeviceHostQueryResetFeaturesEXT
+    public partial struct VkPhysicalDeviceShaderAtomicFloatFeaturesEXT
     {
         public uint sType;
 
         public System.IntPtr pNext;
 
-        public uint hostQueryReset;
+        public uint shaderBufferFloat32Atomics;
+
+        public uint shaderBufferFloat32AtomicAdd;
+
+        public uint shaderBufferFloat64Atomics;
+
+        public uint shaderBufferFloat64AtomicAdd;
+
+        public uint shaderSharedFloat32Atomics;
+
+        public uint shaderSharedFloat32AtomicAdd;
+
+        public uint shaderSharedFloat64Atomics;
+
+        public uint shaderSharedFloat64AtomicAdd;
+
+        public uint shaderImageFloat32Atomics;
+
+        public uint shaderImageFloat32AtomicAdd;
+
+        public uint sparseImageFloat32Atomics;
+
+        public uint sparseImageFloat32AtomicAdd;
 
     }
 
@@ -9546,6 +10010,17 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceExtendedDynamicStateFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint extendedDynamicState;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT
     {
         public uint sType;
@@ -9553,6 +10028,279 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pNext;
 
         public uint shaderDemoteToHelperInvocation;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkIndirectCommandsLayoutNV_T
+    {
+        public System.IntPtr pointer;
+
+        public VkIndirectCommandsLayoutNV_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkIndirectStateFlagsNV
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkIndirectStateFlagsNV v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkIndirectStateFlagsNV(uint v)
+        {
+            return new VkIndirectStateFlagsNV(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkIndirectCommandsLayoutUsageFlagsNV
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkIndirectCommandsLayoutUsageFlagsNV v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkIndirectCommandsLayoutUsageFlagsNV(uint v)
+        {
+            return new VkIndirectCommandsLayoutUsageFlagsNV(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint maxGraphicsShaderGroupCount;
+
+        public uint maxIndirectSequenceCount;
+
+        public uint maxIndirectCommandsTokenCount;
+
+        public uint maxIndirectCommandsStreamCount;
+
+        public uint maxIndirectCommandsTokenOffset;
+
+        public uint maxIndirectCommandsStreamStride;
+
+        public uint minSequencesCountBufferOffsetAlignment;
+
+        public uint minSequencesIndexBufferOffsetAlignment;
+
+        public uint minIndirectCommandsBufferOffsetAlignment;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint deviceGeneratedCommands;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkGraphicsShaderGroupCreateInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint stageCount;
+
+        public System.IntPtr pStages;
+
+        public System.IntPtr pVertexInputState;
+
+        public System.IntPtr pTessellationState;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkGraphicsPipelineShaderGroupsCreateInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint groupCount;
+
+        public System.IntPtr pGroups;
+
+        public uint pipelineCount;
+
+        public System.IntPtr pPipelines;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBindShaderGroupIndirectCommandNV
+    {
+        public uint groupIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBindIndexBufferIndirectCommandNV
+    {
+        public ulong bufferAddress;
+
+        public uint size;
+
+        public uint indexType;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBindVertexBufferIndirectCommandNV
+    {
+        public ulong bufferAddress;
+
+        public uint size;
+
+        public uint stride;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSetStateFlagsIndirectCommandNV
+    {
+        public uint data;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkIndirectCommandsStreamNV
+    {
+        public VkBuffer_T buffer;
+
+        public ulong offset;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkIndirectCommandsLayoutTokenNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint tokenType;
+
+        public uint stream;
+
+        public uint offset;
+
+        public uint vertexBindingUnit;
+
+        public uint vertexDynamicStride;
+
+        public VkPipelineLayout_T pushconstantPipelineLayout;
+
+        public uint pushconstantShaderStageFlags;
+
+        public uint pushconstantOffset;
+
+        public uint pushconstantSize;
+
+        public uint indirectStateFlags;
+
+        public uint indexTypeCount;
+
+        public System.IntPtr pIndexTypes;
+
+        public System.IntPtr pIndexTypeValues;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkIndirectCommandsLayoutCreateInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint pipelineBindPoint;
+
+        public uint tokenCount;
+
+        public System.IntPtr pTokens;
+
+        public uint streamCount;
+
+        public System.IntPtr pStreamStrides;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkGeneratedCommandsInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint pipelineBindPoint;
+
+        public VkPipeline_T pipeline;
+
+        public VkIndirectCommandsLayoutNV_T indirectCommandsLayout;
+
+        public uint streamCount;
+
+        public System.IntPtr pStreams;
+
+        public uint sequencesCount;
+
+        public VkBuffer_T preprocessBuffer;
+
+        public ulong preprocessOffset;
+
+        public ulong preprocessSize;
+
+        public VkBuffer_T sequencesCountBuffer;
+
+        public ulong sequencesCountOffset;
+
+        public VkBuffer_T sequencesIndexBuffer;
+
+        public ulong sequencesIndexOffset;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkGeneratedCommandsMemoryRequirementsInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint pipelineBindPoint;
+
+        public VkPipeline_T pipeline;
+
+        public VkIndirectCommandsLayoutNV_T indirectCommandsLayout;
+
+        public uint maxSequencesCount;
 
     }
 
@@ -9581,6 +10329,248 @@ namespace AdamantiumVulkan.Core.Interop
         public ulong uniformTexelBufferOffsetAlignmentBytes;
 
         public uint uniformTexelBufferOffsetSingleTexelAlignment;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRenderPassTransformBeginInfoQCOM
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint transform;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCommandBufferInheritanceRenderPassTransformInfoQCOM
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint transform;
+
+        public VkRect2D renderArea;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceRobustness2FeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint robustBufferAccess2;
+
+        public uint robustImageAccess2;
+
+        public uint nullDescriptor;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceRobustness2PropertiesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong robustStorageBufferAccessSizeAlignment;
+
+        public ulong robustUniformBufferAccessSizeAlignment;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkSamplerCustomBorderColorCreateInfoEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkClearColorValue customBorderColor;
+
+        public uint format;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceCustomBorderColorPropertiesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint maxCustomBorderColorSamplers;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceCustomBorderColorFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint customBorderColors;
+
+        public uint customBorderColorWithoutFormat;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPrivateDataSlotEXT_T
+    {
+        public System.IntPtr pointer;
+
+        public VkPrivateDataSlotEXT_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPrivateDataSlotCreateFlagsEXT
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkPrivateDataSlotCreateFlagsEXT v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkPrivateDataSlotCreateFlagsEXT(uint v)
+        {
+            return new VkPrivateDataSlotCreateFlagsEXT(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevicePrivateDataFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint privateData;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDevicePrivateDataCreateInfoEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint privateDataSlotRequestCount;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPrivateDataSlotCreateInfoEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint pipelineCreationCacheControl;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceDiagnosticsConfigFlagsNV
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkDeviceDiagnosticsConfigFlagsNV v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDeviceDiagnosticsConfigFlagsNV(uint v)
+        {
+            return new VkDeviceDiagnosticsConfigFlagsNV(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDiagnosticsConfigFeaturesNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint diagnosticsConfig;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceDiagnosticsConfigCreateInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentDensityMap2FeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint fragmentDensityMapDeferred;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentDensityMap2PropertiesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint subsampledLoads;
+
+        public uint subsampledCoarseReconstructionEarlyAccess;
+
+        public uint maxSubsampledArrayLayers;
+
+        public uint maxDescriptorSetSubsampledSamplers;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceImageRobustnessFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint robustImageAccess;
 
     }
 

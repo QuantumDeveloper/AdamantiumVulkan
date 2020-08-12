@@ -12,7 +12,7 @@ namespace AdamantiumVulkan
 
     public static class Constants
     {
-        public static int VK_USE_PLATFORM_MACOS_MVK => 1;
+        public static uint VK_USE_PLATFORM_MACOS_MVK => 1;
 
     }
 

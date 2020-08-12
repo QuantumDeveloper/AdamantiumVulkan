@@ -25,6 +25,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkAcquirePerformanceConfigurationINTEL", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAcquirePerformanceConfigurationINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAcquireInfo, [Out] out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T pConfiguration);
 
+        [DllImport(LibraryPath, EntryPoint = "vkAcquireProfilingLockKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkAcquireProfilingLockKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkAllocateCommandBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkAllocateCommandBuffers([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pAllocateInfo, [In, Out] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[] pCommandBuffers);
 
@@ -42,6 +45,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkBeginCommandBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBeginCommandBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pBeginInfo);
+
+        [DllImport(LibraryPath, EntryPoint = "vkBindAccelerationStructureMemoryKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkBindAccelerationStructureMemoryKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
 
         [DllImport(LibraryPath, EntryPoint = "vkBindAccelerationStructureMemoryNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkBindAccelerationStructureMemoryNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint bindInfoCount, System.IntPtr pBindInfos);
@@ -79,6 +85,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginRenderPass([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pRenderPassBegin, [In] SubpassContents contents);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass2", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdBeginRenderPass2([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pRenderPassBegin, System.IntPtr pSubpassBeginInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBeginRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pRenderPassBegin, System.IntPtr pSubpassBeginInfo);
 
@@ -97,6 +106,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindPipeline", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindPipeline([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineBindPoint pipelineBindPoint, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdBindPipelineShaderGroupNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdBindPipelineShaderGroupNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PipelineBindPoint pipelineBindPoint, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint groupIndex);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindShadingRateImageNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindShadingRateImageNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImageView_T imageView, [In] ImageLayout imageLayout);
 
@@ -112,11 +124,14 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBindVertexBuffers([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount, [In] System.IntPtr pBuffers, ref ulong pOffsets);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers2EXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdBindVertexBuffers2EXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstBinding, [In] uint bindingCount, System.IntPtr pBuffers, System.IntPtr pOffsets, System.IntPtr pSizes, System.IntPtr pStrides);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBlitImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions, [In] Filter filter);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdBuildAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkCmdBuildAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pInfo, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, [In] ulong instanceOffset, [In] bool update, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, [In] ulong scratchOffset);
+        internal static extern void vkCmdBuildAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pInfo, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, [In] ulong instanceOffset, [In] bool update, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T src, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, [In] ulong scratchOffset);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdClearAttachments", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdClearAttachments([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint attachmentCount, System.IntPtr pAttachments, [In] uint rectCount, System.IntPtr pRects);
@@ -128,7 +143,7 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern void vkCmdClearDepthStencilImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [In] ImageLayout imageLayout, System.IntPtr pDepthStencil, [In] uint rangeCount, System.IntPtr pRanges);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkCmdCopyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, [In] CopyAccelerationStructureModeNV mode);
+        internal static extern void vkCmdCopyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T src, [In] CopyAccelerationStructureModeKHR mode);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, [In] AdamantiumVulkan.Core.Interop.VkBufferCopy[] pRegions);
@@ -178,6 +193,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirect", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndexedIndirect([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] uint drawCount, [In] uint stride);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCount", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdDrawIndexedIndirectCount([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCountAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndexedIndirectCountAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
@@ -189,6 +207,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectByteCountEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndirectByteCountEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint instanceCount, [In] uint firstInstance, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T counterBuffer, [In] ulong counterBufferOffset, [In] uint counterOffset, [In] uint vertexStride);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCount", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdDrawIndirectCount([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCountAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdDrawIndirectCountAMD([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [In] ulong offset, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, [In] ulong countBufferOffset, [In] uint maxDrawCount, [In] uint stride);
@@ -220,6 +241,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndRenderPass([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass2", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdEndRenderPass2([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSubpassEndInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdEndRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSubpassEndInfo);
 
@@ -232,6 +256,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdExecuteCommands", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdExecuteCommands([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint commandBufferCount, System.IntPtr pCommandBuffers);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdExecuteGeneratedCommandsNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdExecuteGeneratedCommandsNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool isPreprocessed, System.IntPtr pGeneratedCommandsInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdFillBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdFillBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] ulong dstOffset, [In] ulong size, [In] uint data);
 
@@ -240,6 +267,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdNextSubpass([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] SubpassContents contents);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass2", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdNextSubpass2([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSubpassBeginInfo, System.IntPtr pSubpassEndInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdNextSubpass2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSubpassBeginInfo, System.IntPtr pSubpassEndInfo);
@@ -250,8 +280,8 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPipelineBarrier([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint dependencyFlags, [In] uint memoryBarrierCount, [In] System.IntPtr pMemoryBarriers, [In] uint bufferMemoryBarrierCount, [In] System.IntPtr pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, [In] System.IntPtr pImageMemoryBarriers);
 
-        [DllImport(LibraryPath, EntryPoint = "vkCmdProcessCommandsNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkCmdProcessCommandsNVX([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pProcessCommandsInfo);
+        [DllImport(LibraryPath, EntryPoint = "vkCmdPreprocessGeneratedCommandsNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdPreprocessGeneratedCommandsNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pGeneratedCommandsInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdPushConstants", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPushConstants([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, [In] uint stageFlags, [In] uint offset, [In] uint size, System.IntPtr pValues);
@@ -261,9 +291,6 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplateKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdPushDescriptorSetWithTemplateKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, [In] uint set, System.IntPtr pData);
-
-        [DllImport(LibraryPath, EntryPoint = "vkCmdReserveSpaceForCommandsNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkCmdReserveSpaceForCommandsNVX([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pReserveSpaceInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdResetEvent", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdResetEvent([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkEvent_T @event, [In] uint stageMask);
@@ -283,11 +310,26 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoarseSampleOrderNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetCoarseSampleOrderNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] CoarseSampleOrderTypeNV sampleOrderType, [In] uint customSampleOrderCount, System.IntPtr pCustomSampleOrders);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetCullModeEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetCullModeEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint cullMode);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBias", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDepthBias([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] float depthBiasConstantFactor, [In] float depthBiasClamp, [In] float depthBiasSlopeFactor);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBounds", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDepthBounds([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] float minDepthBounds, [In] float maxDepthBounds);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBoundsTestEnableEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetDepthBoundsTestEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool depthBoundsTestEnable);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthCompareOpEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetDepthCompareOpEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] CompareOp depthCompareOp);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthTestEnableEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetDepthTestEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool depthTestEnable);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthWriteEnableEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetDepthWriteEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool depthWriteEnable);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetDeviceMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetDeviceMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint deviceMask);
@@ -304,6 +346,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetExclusiveScissorNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetExclusiveScissorNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstExclusiveScissor, [In] uint exclusiveScissorCount, System.IntPtr pExclusiveScissors);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetFrontFaceEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetFrontFaceEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] FrontFace frontFace);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineStippleEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetLineStippleEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint lineStippleFactor, [In] ushort lineStipplePattern);
 
@@ -319,6 +364,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceStreamMarkerINTEL", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCmdSetPerformanceStreamMarkerINTEL([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pMarkerInfo);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetPrimitiveTopologyEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetPrimitiveTopologyEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] PrimitiveTopology primitiveTopology);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetSampleLocationsEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetSampleLocationsEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pSampleLocationsInfo);
 
@@ -328,11 +376,20 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissor", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetScissor([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstScissor, [In] uint scissorCount, System.IntPtr pScissors);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissorWithCountEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetScissorWithCountEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint scissorCount, System.IntPtr pScissors);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilCompareMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilCompareMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint compareMask);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilOpEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetStencilOpEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] StencilOp failOp, [In] StencilOp passOp, [In] StencilOp depthFailOp, [In] CompareOp compareOp);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilReference", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilReference([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint reference);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilTestEnableEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetStencilTestEnableEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] bool stencilTestEnable);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilWriteMask", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetStencilWriteMask([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint faceMask, [In] uint writeMask);
@@ -346,6 +403,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportShadingRatePaletteNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetViewportShadingRatePaletteNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, System.IntPtr pShadingRatePalettes);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWithCountEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdSetViewportWithCountEXT([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint viewportCount, System.IntPtr pViewports);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWScalingNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetViewportWScalingNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint firstViewport, [In] uint viewportCount, System.IntPtr pViewportWScalings);
 
@@ -357,6 +417,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdWaitEvents", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdWaitEvents([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint eventCount, System.IntPtr pEvents, [In] uint srcStageMask, [In] uint dstStageMask, [In] uint memoryBarrierCount, System.IntPtr pMemoryBarriers, [In] uint bufferMemoryBarrierCount, System.IntPtr pBufferMemoryBarriers, [In] uint imageMemoryBarrierCount, System.IntPtr pImageMemoryBarriers);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdWriteAccelerationStructuresPropertiesKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdWriteAccelerationStructuresPropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint accelerationStructureCount, System.IntPtr pAccelerationStructures, [In] QueryType queryType, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdWriteAccelerationStructuresPropertiesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdWriteAccelerationStructuresPropertiesNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint accelerationStructureCount, System.IntPtr pAccelerationStructures, [In] QueryType queryType, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery);
@@ -371,7 +434,7 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern Result vkCompileDeferredNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint shader);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkCreateAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructure);
+        internal static extern Result vkCreateAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T pAccelerationStructure);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateBuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer);
@@ -433,20 +496,20 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCreateImageView", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateImageView([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkImageView_T pView);
 
-        [DllImport(LibraryPath, EntryPoint = "vkCreateIndirectCommandsLayoutNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkCreateIndirectCommandsLayoutNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T pIndirectCommandsLayout);
+        [DllImport(LibraryPath, EntryPoint = "vkCreateIndirectCommandsLayoutNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCreateIndirectCommandsLayoutNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateInstance", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateInstance(System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance);
-
-        [DllImport(LibraryPath, EntryPoint = "vkCreateObjectTableNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkCreateObjectTableNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T pObjectTable);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreatePipelineCache", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreatePipelineCache([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPipelineCache_T pPipelineCache);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreatePipelineLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreatePipelineLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pPipelineLayout);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCreatePrivateDataSlotEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCreatePrivateDataSlotEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T pPrivateDataSlot);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateQueryPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateQueryPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkQueryPool_T pQueryPool);
@@ -456,6 +519,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateRenderPass([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass2", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkCreateRenderPass2([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
 
         [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateRenderPass2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
@@ -493,8 +559,11 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkDebugReportMessageEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDebugReportMessageEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, [In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerPrefix, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pMessage);
 
+        [DllImport(LibraryPath, EntryPoint = "vkDestroyAccelerationStructureKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkDestroyAccelerationStructureKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure, System.IntPtr pAllocator);
+
         [DllImport(LibraryPath, EntryPoint = "vkDestroyAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkDestroyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, System.IntPtr pAllocator);
+        internal static extern void vkDestroyAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure, System.IntPtr pAllocator);
 
         [DllImport(LibraryPath, EntryPoint = "vkDestroyBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyBuffer([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, System.IntPtr pAllocator);
@@ -541,14 +610,11 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkDestroyImageView", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyImageView([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImageView_T imageView, System.IntPtr pAllocator);
 
-        [DllImport(LibraryPath, EntryPoint = "vkDestroyIndirectCommandsLayoutNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkDestroyIndirectCommandsLayoutNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNVX_T indirectCommandsLayout, System.IntPtr pAllocator);
+        [DllImport(LibraryPath, EntryPoint = "vkDestroyIndirectCommandsLayoutNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkDestroyIndirectCommandsLayoutNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T indirectCommandsLayout, System.IntPtr pAllocator);
 
         [DllImport(LibraryPath, EntryPoint = "vkDestroyInstance", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyInstance([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pAllocator);
-
-        [DllImport(LibraryPath, EntryPoint = "vkDestroyObjectTableNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkDestroyObjectTableNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, System.IntPtr pAllocator);
 
         [DllImport(LibraryPath, EntryPoint = "vkDestroyPipeline", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyPipeline([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, System.IntPtr pAllocator);
@@ -558,6 +624,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkDestroyPipelineLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyPipelineLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pipelineLayout, System.IntPtr pAllocator);
+
+        [DllImport(LibraryPath, EntryPoint = "vkDestroyPrivateDataSlotEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkDestroyPrivateDataSlotEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T privateDataSlot, System.IntPtr pAllocator);
 
         [DllImport(LibraryPath, EntryPoint = "vkDestroyQueryPool", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkDestroyQueryPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, System.IntPtr pAllocator);
@@ -631,6 +700,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceGroupsKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumeratePhysicalDeviceGroupsKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, [In] System.IntPtr pPhysicalDeviceGroupProperties);
 
+        [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex, ref uint pCounterCount, [In] System.IntPtr pCounters, [In] System.IntPtr pCounterDescriptions);
+
         [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDevices", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkEnumeratePhysicalDevices([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceCount, [In, Out] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T[] pPhysicalDevices);
 
@@ -653,13 +725,19 @@ namespace AdamantiumVulkan.Core.Interop
         internal static extern void vkFreeMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, System.IntPtr pAllocator);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureHandleNV", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkGetAccelerationStructureHandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, [In] ulong dataSize, [In, Out] System.IntPtr pData);
+        internal static extern Result vkGetAccelerationStructureHandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure, [In] ulong dataSize, [In, Out] System.IntPtr pData);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureMemoryRequirementsNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetAccelerationStructureMemoryRequirementsNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
 
+        [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddress", CallingConvention = CallingConvention.Winapi)]
+        internal static extern ulong vkGetBufferDeviceAddress([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddressEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern ulong vkGetBufferDeviceAddressEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddressKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern ulong vkGetBufferDeviceAddressKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetBufferMemoryRequirements([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, [Out] out VkMemoryRequirements pMemoryRequirements);
@@ -669,6 +747,12 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetBufferMemoryRequirements2KHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetBufferOpaqueCaptureAddress", CallingConvention = CallingConvention.Winapi)]
+        internal static extern ulong vkGetBufferOpaqueCaptureAddress([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetBufferOpaqueCaptureAddressKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern ulong vkGetBufferOpaqueCaptureAddressKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetCalibratedTimestampsEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetCalibratedTimestampsEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint timestampCount, System.IntPtr pTimestampInfos, ref ulong pTimestamps, ref ulong pMaxDeviation);
@@ -693,6 +777,12 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryCommitment", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetDeviceMemoryCommitment([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ref ulong pCommittedMemoryInBytes);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryOpaqueCaptureAddress", CallingConvention = CallingConvention.Winapi)]
+        internal static extern ulong vkGetDeviceMemoryOpaqueCaptureAddress([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryOpaqueCaptureAddressKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern ulong vkGetDeviceMemoryOpaqueCaptureAddressKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetDeviceProcAddr", CallingConvention = CallingConvention.Winapi)]
         internal static extern System.IntPtr vkGetDeviceProcAddr([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pName);
@@ -727,6 +817,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkGetFenceStatus", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetFenceStatus([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
+        [DllImport(LibraryPath, EntryPoint = "vkGetGeneratedCommandsMemoryRequirementsNV", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkGetGeneratedCommandsMemoryRequirementsNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo, [In] System.IntPtr pMemoryRequirements);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetImageDrmFormatModifierPropertiesEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetImageDrmFormatModifierPropertiesEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, [In] System.IntPtr pProperties);
 
@@ -750,6 +843,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkGetImageSubresourceLayout", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetImageSubresourceLayout([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImage_T image, System.IntPtr pSubresource, [In] System.IntPtr pLayout);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetImageViewAddressNVX", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetImageViewAddressNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkImageView_T imageView, [In] System.IntPtr pProperties);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetImageViewHandleNVX", CallingConvention = CallingConvention.Winapi)]
         internal static extern uint vkGetImageViewHandleNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pInfo);
@@ -829,9 +925,6 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceFormatProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] System.IntPtr pFormatProperties);
 
-        [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern void vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pFeatures, [In] System.IntPtr pLimits);
-
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceImageFormatProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] Format format, [In] ImageType type, [In] ImageTiling tiling, [In] uint usage, [In] uint flags, [In] System.IntPtr pImageFormatProperties);
 
@@ -864,6 +957,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties2KHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceProperties2KHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] System.IntPtr pProperties);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, System.IntPtr pPerformanceQueryCreateInfo, ref uint pNumPasses);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetPhysicalDeviceQueueFamilyProperties([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, [In, Out] AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties[] pQueueFamilyProperties);
@@ -919,6 +1015,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceSupportKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPhysicalDeviceSurfaceSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex, [In] AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref bool pSupported);
 
+        [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceToolPropertiesEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetPhysicalDeviceToolPropertiesEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pToolCount, [In] System.IntPtr pToolProperties);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetPipelineCacheData", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPipelineCacheData([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong pDataSize, [In, Out] System.IntPtr pData);
 
@@ -931,11 +1030,17 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableStatisticsKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetPipelineExecutableStatisticsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pExecutableInfo, ref uint pStatisticCount, [In] System.IntPtr pStatistics);
 
+        [DllImport(LibraryPath, EntryPoint = "vkGetPrivateDataEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkGetPrivateDataEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ObjectType objectType, [In] ulong objectHandle, [In] AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T privateDataSlot, ref ulong pData);
+
         [DllImport(LibraryPath, EntryPoint = "vkGetQueryPoolResults", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetQueryPoolResults([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount, [In] ulong dataSize, [In, Out] System.IntPtr pData, [In] ulong stride, [In] uint flags);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointDataNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetQueueCheckpointDataNV([In] AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint pCheckpointDataCount, [In] System.IntPtr pCheckpointData);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetRayTracingShaderGroupHandlesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint firstGroup, [In] uint groupCount, [In] ulong dataSize, [In, Out] System.IntPtr pData);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetRayTracingShaderGroupHandlesNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, [In] uint firstGroup, [In] uint groupCount, [In] ulong dataSize, [In, Out] System.IntPtr pData);
@@ -945,6 +1050,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkGetRenderAreaGranularity", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkGetRenderAreaGranularity([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, [In] System.IntPtr pGranularity);
+
+        [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreCounterValue", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkGetSemaphoreCounterValue([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong pValue);
 
         [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreCounterValueKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkGetSemaphoreCounterValueKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong pValue);
@@ -1024,14 +1132,14 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkRegisterDisplayEventEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkRegisterDisplayEventEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, System.IntPtr pDisplayEventInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-        [DllImport(LibraryPath, EntryPoint = "vkRegisterObjectsNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkRegisterObjectsNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, [In] uint objectCount, System.IntPtr ppObjectTableEntries, uint pObjectIndices);
-
         [DllImport(LibraryPath, EntryPoint = "vkReleaseDisplayEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkReleaseDisplayEXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
 
         [DllImport(LibraryPath, EntryPoint = "vkReleasePerformanceConfigurationINTEL", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkReleasePerformanceConfigurationINTEL([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T configuration);
+
+        [DllImport(LibraryPath, EntryPoint = "vkReleaseProfilingLockKHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkReleaseProfilingLockKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device);
 
         [DllImport(LibraryPath, EntryPoint = "vkResetCommandBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetCommandBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] uint flags);
@@ -1051,6 +1159,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkResetFences", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkResetFences([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint fenceCount, [In] System.IntPtr pFences);
 
+        [DllImport(LibraryPath, EntryPoint = "vkResetQueryPool", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkResetQueryPool([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount);
+
         [DllImport(LibraryPath, EntryPoint = "vkResetQueryPoolEXT", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkResetQueryPoolEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount);
 
@@ -1068,6 +1179,12 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkSetLocalDimmingAMD", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkSetLocalDimmingAMD([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, [In] bool localDimmingEnable);
+
+        [DllImport(LibraryPath, EntryPoint = "vkSetPrivateDataEXT", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkSetPrivateDataEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ObjectType objectType, [In] ulong objectHandle, [In] AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T privateDataSlot, [In] ulong data);
+
+        [DllImport(LibraryPath, EntryPoint = "vkSignalSemaphore", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkSignalSemaphore([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pSignalInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkSignalSemaphoreKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkSignalSemaphoreKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pSignalInfo);
@@ -1087,9 +1204,6 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkUnmapMemory", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkUnmapMemory([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory);
 
-        [DllImport(LibraryPath, EntryPoint = "vkUnregisterObjectsNVX", CallingConvention = CallingConvention.Winapi)]
-        internal static extern Result vkUnregisterObjectsNVX([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkObjectTableNVX_T objectTable, [In] uint objectCount, System.IntPtr pObjectEntryTypes, uint pObjectIndices);
-
         [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSets", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkUpdateDescriptorSets([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint descriptorWriteCount, VkWriteDescriptorSet[] pDescriptorWrites, [In] uint descriptorCopyCount, [In, Out] ref System.IntPtr pDescriptorCopies);
 
@@ -1107,6 +1221,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkWaitForFences", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkWaitForFences([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] uint fenceCount, [In] System.IntPtr pFences, [In] bool waitAll, [In] ulong timeout);
+
+        [DllImport(LibraryPath, EntryPoint = "vkWaitSemaphores", CallingConvention = CallingConvention.Winapi)]
+        internal static extern Result vkWaitSemaphores([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pWaitInfo, [In] ulong timeout);
 
         [DllImport(LibraryPath, EntryPoint = "vkWaitSemaphoresKHR", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkWaitSemaphoresKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, System.IntPtr pWaitInfo, [In] ulong timeout);

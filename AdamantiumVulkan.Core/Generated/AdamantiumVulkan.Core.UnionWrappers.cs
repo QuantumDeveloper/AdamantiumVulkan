@@ -153,6 +153,48 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class PerformanceCounterResultKHR
+    {
+        public PerformanceCounterResultKHR()
+        {
+        }
+
+        public PerformanceCounterResultKHR(AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR _internal)
+        {
+            Int32 = _internal.int32;
+            Int64 = _internal.int64;
+            Uint32 = _internal.uint32;
+            Uint64 = _internal.uint64;
+            Float32 = _internal.float32;
+            Float64 = _internal.float64;
+        }
+
+        public int Int32 { get; set; }
+        public long Int64 { get; set; }
+        public uint Uint32 { get; set; }
+        public ulong Uint64 { get; set; }
+        public float Float32 { get; set; }
+        public double Float64 { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR();
+            _internal.int32 = Int32;
+            _internal.int64 = Int64;
+            _internal.uint32 = Uint32;
+            _internal.uint64 = Uint64;
+            _internal.float32 = Float32;
+            _internal.float64 = Float64;
+            return _internal;
+        }
+
+        public static implicit operator PerformanceCounterResultKHR(AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR p)
+        {
+            return new PerformanceCounterResultKHR(p);
+        }
+
+    }
+
     public partial class PipelineExecutableStatisticValueKHR
     {
         public PipelineExecutableStatisticValueKHR()

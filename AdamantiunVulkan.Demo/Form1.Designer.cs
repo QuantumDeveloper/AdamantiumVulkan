@@ -131,7 +131,7 @@ namespace VulkanEngineTestCore
             }
         }
 
-        const int MAX_FRAMES_IN_FLIGHT = 2;
+        const int MAX_FRAMES_IN_FLIGHT = 3;
 
         Instance instance;
         PhysicalDevice physicalDevice;
@@ -186,13 +186,12 @@ namespace VulkanEngineTestCore
 
         private string[] validationLayers = new[]
         {
-          //"VK_LAYER_LUNARG_parameter_validation",
+          "VK_LAYER_KHRONOS_validation",
           //"VK_LAYER_LUNARG_core_validation",
-          //"VK_LAYER_LUNARG_standard_validation",
           //"VK_LAYER_LUNARG_object_tracker",
           //"VK_LAYER_LUNARG_monitor",
           //"VK_LAYER_LUNARG_assistant_layer",
-          "VK_LAYER_AMD_switchable_graphics"
+          //"VK_LAYER_AMD_switchable_graphics",
         };
 
         private string[] deviceExtensions = new[] { Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME };
@@ -399,7 +398,7 @@ namespace VulkanEngineTestCore
                 throw new Exception();
             }
 
-            renderPassInfos = new RenderPassBeginInfo[2];
+            renderPassInfos = new RenderPassBeginInfo[MAX_FRAMES_IN_FLIGHT];
 
             var renderPassInfo = new RenderPassBeginInfo();
             renderPassInfo.RenderPass = renderPass;
@@ -428,6 +427,18 @@ namespace VulkanEngineTestCore
             renderPassInfo.PClearValues = new ClearValue[] { clearValue };
 
             renderPassInfos[1] = renderPassInfo;
+
+            renderPassInfo = new RenderPassBeginInfo();
+            renderPassInfo.RenderPass = renderPass;
+            renderPassInfo.Framebuffer = swapchainFramebuffers[2];
+            renderPassInfo.RenderArea = new Rect2D();
+            renderPassInfo.RenderArea.Offset = new Offset2D();
+            renderPassInfo.RenderArea.Extent = swapChainExtent;
+
+            renderPassInfo.ClearValueCount = 1;
+            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+
+            renderPassInfos[2] = renderPassInfo;
 
             commandBuffer.SetViewport(0, 1, new Viewport() { X = 0, Y = 0, Width = this.ClientSize.Width, Height = this.ClientSize.Height, MinDepth = 0, MaxDepth = 1 });
 
@@ -497,7 +508,7 @@ namespace VulkanEngineTestCore
             presentInfo.PWaitSemaphores = signalSemaphores;
 
             SwapchainKHR[] swapchains = { swapchain };
-            presentInfo.SwapchainCount = 1;
+            presentInfo.SwapchainCount = (uint)swapchains.Length;
             presentInfo.PSwapchains = swapchains;
             presentInfo.PImageIndices = new uint[]{ imageIndex };
 
@@ -532,6 +543,7 @@ namespace VulkanEngineTestCore
 
             currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
         }
+
         private void CreateInstance()
         {
             var appInfo = new ApplicationInfo();
@@ -547,12 +559,12 @@ namespace VulkanEngineTestCore
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
             var extensions = Instance.EnumerateInstanceExtensionProperties();
 
-            //string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", /*"VK_EXT_headless_surface",*/ "VK_EXT_debug_utils" };
-            //createInfo.EnabledExtensionCount = (uint)ext.Length;
-            //createInfo.PpEnabledExtensionNames = ext;
-            createInfo.EnabledExtensionCount = (uint)extensions.Length;
-            createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
-            
+            string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", /*"VK_EXT_headless_surface",*/ "VK_EXT_debug_utils" };
+            createInfo.EnabledExtensionCount = (uint)ext.Length;
+            createInfo.PpEnabledExtensionNames = ext;
+            //createInfo.EnabledExtensionCount = (uint)extensions.Length;
+            //createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
+
 
             if (enableValidationLayers)
             {
@@ -748,22 +760,23 @@ namespace VulkanEngineTestCore
             PresentModeKHR presentMode = ChooseSwapPresentMode(swapChainSupport.PresentModes);
             Extent2D extent = ChooseSwapExtent(swapChainSupport.Capabilities);
 
-            uint imageCount = swapChainSupport.Capabilities.MinImageCount + 1;
-            if (swapChainSupport.Capabilities.MaxImageCount > 0 && imageCount > swapChainSupport.Capabilities.MaxImageCount)
-            {
-                imageCount = swapChainSupport.Capabilities.MaxImageCount;
-            }
+            //uint imageCount = swapChainSupport.Capabilities.MinImageCount + 1;
+            //if (swapChainSupport.Capabilities.MaxImageCount > 0 && imageCount > swapChainSupport.Capabilities.MaxImageCount)
+            //{
+            //    imageCount = swapChainSupport.Capabilities.MaxImageCount;
+            //}
 
             SwapchainCreateInfoKHR createInfo = new SwapchainCreateInfoKHR();
             createInfo.Surface = surface;
 
-            createInfo.MinImageCount = imageCount;
+            //createInfo.MinImageCount = imageCount;
+            createInfo.MinImageCount = MAX_FRAMES_IN_FLIGHT;
             createInfo.ImageFormat = surfaceFormat.Format;
             createInfo.ImageColorSpace = surfaceFormat.ColorSpace;
             createInfo.ImageExtent = extent;
             createInfo.ImageArrayLayers = 1;
             createInfo.ImageUsage = (uint)ImageUsageFlagBits.ColorAttachmentBit;
-            createInfo.Flags = (uint)SwapchainCreateFlagBitsKHR.SplitInstanceBindRegionsBitKhr;
+            createInfo.Flags = 0;
 
             QueueFamilyIndices indices = FindQueueFamilies(physicalDevice);
             var queueFamilyIndices = new uint[] { indices.graphicsFamily.Value, indices.presentFamily.Value };

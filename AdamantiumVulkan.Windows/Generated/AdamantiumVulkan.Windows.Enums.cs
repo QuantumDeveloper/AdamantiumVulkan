@@ -20,8 +20,6 @@ namespace AdamantiumVulkan.Windows
 
         ApplicationControlledExt = 3,
 
-        RangeSizeExt = 4,
-
         MaxEnumExt = 2147483647,
 
     }
