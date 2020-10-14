@@ -65,6 +65,7 @@ namespace AdamantiumVulkan.Generator
 
             shaderModule = options.AddModule(shadercLibrary);
             shaderModule.Name = "Shaders";
+            shaderModule.IncludeDirs.Add(@"C:\VulkanSDK\1.2.141.2\Include\shaderc");
             shaderModule.Files.Add(@"C:\VulkanSDK\1.2.141.2\Include\shaderc\shaderc.h");
             shaderModule.Defines.Add("SHADERC_SHAREDLIB");
             shaderModule.Defines.Add("_WIN32");

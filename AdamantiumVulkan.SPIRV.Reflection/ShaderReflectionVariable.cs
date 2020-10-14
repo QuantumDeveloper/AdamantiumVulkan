@@ -22,6 +22,8 @@ namespace AdamantiumVulkan.SPIRV.Reflection
         public uint DescriptorSet { get; internal set; }
 
         public SpvcResourceType Class { get; internal set; }
+        
+        public ShaderVariableClass VariableType { get; internal set; }
 
         public SpvcBasetype Type { get; internal set; }
 
@@ -34,6 +36,8 @@ namespace AdamantiumVulkan.SPIRV.Reflection
         public uint MatrixStride { get; internal set; }
 
         public uint RowCount { get; internal set; }
+        
+        public uint ColumnCount { get; internal set; }
 
         public uint ElementCount
         {
