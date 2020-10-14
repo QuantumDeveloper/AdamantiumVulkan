@@ -101,7 +101,8 @@ namespace VulkanEngineTestCore
             var result = SpirvReflection.CompileToSpirvBinary(vertexText, ShadercShaderKind.FragmentShader, "UIEffect.fx", "SolidColorPixelShader", opts);
 
             SpirvReflection reflection = new SpirvReflection(result.Bytecode, SpvcBackend.Hlsl);
-            var reflectionResult = reflection.Disassemble();
+            var lst = new List<ResourceBindingKey>();
+            var reflectionResult = reflection.Disassemble(lst);
             var buffer = reflectionResult.UniformBuffers[0];
             var member = buffer.GetVariable(0);
             var arraySize = member.GetArraySizeForDimension(0);

@@ -33,6 +33,11 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             };
         }
 
+        public byte[] GetByteCode()
+        {
+            return bytecode;
+        }
+
         public SpirvReflection(byte[] bytecode, SpvcBackend reflectionBackend = SpvcBackend.Hlsl)
         {
             if (bytecode == null || bytecode.Length == 0)
@@ -71,7 +76,7 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             return result;
         }
 
-        public SpirvReflectionResult Disassemble()
+        public SpirvReflectionResult Disassemble(List<ResourceBindingKey> resourceKeys)
         {
             lastResult = context.ParseSpirv(bytecode, (ulong)bytecode.Length / 4, out parsedIr);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
@@ -102,6 +107,32 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                     resourceDescription.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.DescriptorSet);
                     resourceDescription.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.Binding);
 
+                    var bindingKey = MakeResourceBindingKey(resourceDescription.SlotIndex,
+                        resourceDescription.DescriptorSet);
+                    
+                    if (resourceKeys.Contains(bindingKey))
+                    {
+                        bindingKey = FindNextAvailableId(bindingKey, resourceKeys);
+                        compiler.SetDecoration(shaderResources[i].Id, SpvDecoration.Binding, bindingKey.BindingId);
+                        resourceKeys.Add(bindingKey);
+                        resourceDescription.SlotIndex = bindingKey.BindingId;
+                        uint offset = 0;
+                        if (compiler.GetBinaryOffsetForDecoration(shaderResources[i].Id, SpvDecoration.Binding,
+                            ref offset))
+                        {
+                            var ids = BitConverter.GetBytes(bindingKey.BindingId);
+                            var byteOffset = offset * 4;
+                            foreach (var id in ids)
+                            {
+                                bytecode[byteOffset++] = id;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        resourceKeys.Add(bindingKey);
+                    }
+
                     ulong tmpSize = 0;
                     lastResult = compiler.GetDeclaredStructSize(spvcType, ref tmpSize);
                     resourceDescription.Size = tmpSize;
@@ -118,8 +149,9 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                     var membersCount = spvcType.GetNumMemberTypes();
                     for (uint k = 0; k < membersCount; ++k)
                     {
-                        var member = new ShaderReflectionVariable(SpvcResourceType.UniformBuffer);
                         var memberType = spvcType.GetMemberType(k);
+                        var member = new ShaderReflectionVariable(SpvcResourceType.UniformBuffer);
+
                         member.TypeId = memberType;
                         var memberTypeHandle = compiler.GetTypeHandle(memberType);
                         member.Type = memberTypeHandle.GetBasetype();
@@ -136,8 +168,39 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                         lastResult = compiler.TypeStructMemberMatrixStride(spvcType, k, ref stride);
                         member.MatrixStride = stride;
 
-                        member.RowCount = spvcType.GetColumns();
-                        member.ArrayDimensionsCount = spvcType.GetNumArrayDimensions();
+                        //Get the number of rows in the type
+                        member.RowCount = memberTypeHandle.GetVectorSize();
+                        //Get the number of columns in the type
+                        member.ColumnCount = memberTypeHandle.GetColumns();
+                        member.ArrayDimensionsCount = memberTypeHandle.GetNumArrayDimensions();
+
+                        if (member.RowCount == 1 && member.ColumnCount == 1)
+                        {
+                            member.VariableType = ShaderVariableClass.Scalar;
+                        }
+                        else if (member.RowCount > 1 && member.ColumnCount == 1)
+                        {
+                            member.VariableType = ShaderVariableClass.Vector;
+                        }
+                        else
+                        {
+                            if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset,
+                                SpvDecoration.RowMajor))
+                            {
+                                member.VariableType = ShaderVariableClass.MatrixRows;
+                            }
+                            else if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset,
+                                SpvDecoration.ColMajor))
+                            {
+                                member.VariableType = ShaderVariableClass.MatrixColumns;
+                            }
+                        }
+
+                        if (member.Type == SpvcBasetype.Struct)
+                        {
+                            member.VariableType = ShaderVariableClass.Struct;
+                        }
+                        
                         for (var x = 0u; x < member.ArrayDimensionsCount; ++x)
                         {
                             member.AddArraySizeForDimension(x, spvcType.GetArrayDimension(x));
@@ -153,6 +216,26 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             disassembleResult.Bytecode = bytecode;
 
             return disassembleResult;
+        }
+
+        private ResourceBindingKey MakeResourceBindingKey(uint bindingId, uint descriptorSet)
+        {
+            return new ResourceBindingKey() { BindingId = bindingId, DescriptorSet = descriptorSet};
+        }
+
+        private ResourceBindingKey FindNextAvailableId(ResourceBindingKey key, List<ResourceBindingKey> bindingKeys)
+        {
+            while (true)
+            {
+                if (bindingKeys.Contains(key))
+                {
+                    key.BindingId++;
+                }
+                else
+                {
+                    return key;
+                }
+            }
         }
 
         protected override void UnmanagedDisposeOverride()
