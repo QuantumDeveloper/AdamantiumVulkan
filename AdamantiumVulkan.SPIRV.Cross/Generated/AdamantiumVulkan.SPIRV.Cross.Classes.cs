@@ -245,9 +245,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_binary_offset_for_decoration(this, id, decoration, ref word_offset);
         }
 
-        public SpvcResult GetBufferBlockDecorations(uint id, in System.IntPtr decorations, ref ulong num_decorations)
+        public SpvcResult GetBufferBlockDecorations(uint id, in SpvDecoration decorations, ref ulong num_decorations)
         {
-            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_buffer_block_decorations(this, id, decorations, ref num_decorations);
+            var arg2 = new GCHandleReference((uint)decorations);
+            var result = AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_buffer_block_decorations(this, id, arg2.Handle, ref num_decorations);
+            arg2?.Dispose();
+            return result;
         }
 
         public string GetCleansedEntryPointName(string name, SpvExecutionModel model)
@@ -276,9 +279,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_current_id_bound(this);
         }
 
-        public SpvcResult GetDeclaredCapabilities(in System.IntPtr capabilities, ref ulong num_capabilities)
+        public SpvcResult GetDeclaredCapabilities(in SpvCapability capabilities, ref ulong num_capabilities)
         {
-            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_capabilities(this, capabilities, ref num_capabilities);
+            var arg1 = new GCHandleReference((uint)capabilities);
+            var result = AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_capabilities(this, arg1.Handle, ref num_capabilities);
+            arg1?.Dispose();
+            return result;
         }
 
         public SpvcResult GetDeclaredExtensions(in System.IntPtr extensions, ref ulong num_extensions)
@@ -344,9 +350,12 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_model(this);
         }
 
-        public SpvcResult GetExecutionModes(in System.IntPtr modes, ref ulong num_modes)
+        public SpvcResult GetExecutionModes(in SpvExecutionMode modes, ref ulong num_modes)
         {
-            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_modes(this, modes, ref num_modes);
+            var arg1 = new GCHandleReference((uint)modes);
+            var result = AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_modes(this, arg1.Handle, ref num_modes);
+            arg1?.Dispose();
+            return result;
         }
 
         public uint GetMemberDecoration(uint id, uint member_index, SpvDecoration decoration)
@@ -415,6 +424,14 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_member_decoration(this, id, member_index, decoration);
         }
 
+        public SpvcResult HlslAddResourceBinding(in SpvcHlslResourceBinding binding)
+        {
+            var arg1 = ReferenceEquals(binding, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(binding.ToInternal());
+            var result = AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_add_resource_binding(this, arg1);
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public SpvcResult HlslAddVertexAttributeRemap(in SpvcHlslVertexAttributeRemap remap, ulong remaps)
         {
             var arg1 = ReferenceEquals(remap, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(remap.ToInternal());
@@ -424,9 +441,19 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return result;
         }
 
+        public bool HlslIsResourceUsed(SpvExecutionModel model, uint set, uint binding)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_is_resource_used(this, model, set, binding);
+        }
+
         public uint HlslRemapNumWorkgroupsBuiltin()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_remap_num_workgroups_builtin(this);
+        }
+
+        public SpvcResult HlslSetResourceBindingFlags(uint flags)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_set_resource_binding_flags(this, flags);
         }
 
         ///<summary>
@@ -459,10 +486,23 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_dynamic_buffer(this, desc_set, binding, index);
         }
 
+        public SpvcResult MslAddInlineUniformBlock(uint desc_set, uint binding)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_inline_uniform_block(this, desc_set, binding);
+        }
+
         public SpvcResult MslAddResourceBinding(in SpvcMslResourceBinding binding)
         {
             var arg1 = ReferenceEquals(binding, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(binding.ToInternal());
             var result = AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_resource_binding(this, arg1);
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public SpvcResult MslAddShaderInput(in SpvcMslShaderInput input)
+        {
+            var arg1 = ReferenceEquals(input, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(input.ToInternal());
+            var result = AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_input(this, arg1);
             Marshal.FreeHGlobal(arg1);
             return result;
         }
@@ -498,6 +538,14 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_resource_used(this, model, set, binding);
         }
 
+        public bool MslIsShaderInputUsed(uint location)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_shader_input_used(this, location);
+        }
+
+        ///<summary>
+        /// Obsolete, use is_shader_input_used.
+        ///</summary>
         public bool MslIsVertexAttributeUsed(uint location)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_vertex_attribute_used(this, location);
@@ -570,6 +618,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
             Marshal.FreeHGlobal(arg2);
             Marshal.FreeHGlobal(arg3);
             return result;
+        }
+
+        public SpvcResult MslSetArgumentBufferDeviceAddressSpace(uint desc_set, bool device_address)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_set_argument_buffer_device_address_space(this, desc_set, device_address);
         }
 
         public SpvcResult MslSetFragmentOutputComponents(uint location, uint components)
@@ -672,6 +725,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public void UnsetMemberDecoration(uint id, uint member_index, SpvDecoration decoration)
         {
             AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_unset_member_decoration(this, id, member_index, decoration);
+        }
+
+        public bool VariableIsDepthOrCompare(uint id)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_variable_is_depth_or_compare(this, id);
         }
 
 
@@ -792,6 +850,14 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public SpvcBasetype GetBasetype()
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_basetype(this);
+        }
+
+        ///<summary>
+        /// Pulls out SPIRType::self. This effectively gives the type ID without array or pointer qualifiers. This is necessary when reflecting decoration/name information on members of a struct, which are placed in the base type, not the qualified type. This is similar to spvc_reflected_resource::base_type_id.
+        ///</summary>
+        public uint GetBaseTypeId()
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_type_get_base_type_id(this);
         }
 
         public uint GetBitWidth()

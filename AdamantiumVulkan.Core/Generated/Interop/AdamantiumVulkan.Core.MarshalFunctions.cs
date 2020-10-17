@@ -130,6 +130,9 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBlitImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions, [In] Filter filter);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage2KHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdBlitImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pBlitImageInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdBuildAccelerationStructureNV", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdBuildAccelerationStructureNV([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pInfo, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, [In] ulong instanceOffset, [In] bool update, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T dst, [In] AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T src, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, [In] ulong scratchOffset);
 
@@ -151,14 +154,26 @@ namespace AdamantiumVulkan.Core.Interop
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, [In] System.IntPtr pRegions);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer2KHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdCopyBuffer2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pCopyBufferInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBufferToImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyBufferToImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBufferToImage2KHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdCopyBufferToImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pCopyBufferToImageInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
 
+        [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImage2KHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdCopyImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pCopyImageInfo);
+
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImageToBuffer", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyImageToBuffer([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] uint regionCount, System.IntPtr pRegions);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImageToBuffer2KHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdCopyImageToBuffer2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pCopyImageToBufferInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdCopyQueryPoolResults", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdCopyQueryPoolResults([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, [In] uint firstQuery, [In] uint queryCount, [In] AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, [In] ulong dstOffset, [In] ulong stride, [In] uint flags);
@@ -300,6 +315,9 @@ namespace AdamantiumVulkan.Core.Interop
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdResolveImage", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdResolveImage([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, [In] AdamantiumVulkan.Core.Interop.VkImage_T srcImage, [In] ImageLayout srcImageLayout, [In] AdamantiumVulkan.Core.Interop.VkImage_T dstImage, [In] ImageLayout dstImageLayout, [In] uint regionCount, System.IntPtr pRegions);
+
+        [DllImport(LibraryPath, EntryPoint = "vkCmdResolveImage2KHR", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void vkCmdResolveImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, System.IntPtr pResolveImageInfo);
 
         [DllImport(LibraryPath, EntryPoint = "vkCmdSetBlendConstants", CallingConvention = CallingConvention.Winapi)]
         internal static extern void vkCmdSetBlendConstants([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float[] blendConstants);

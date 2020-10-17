@@ -545,6 +545,18 @@ namespace AdamantiumVulkan.Core.Interop
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPipelineExecutableInternalRepresentationsKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR pExecutableInfo, ref uint pInternalRepresentationCount, [In] AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR pInternalRepresentations);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdCopyBuffer2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2KHR pCopyBufferInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdCopyImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkCopyImageInfo2KHR pCopyImageInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdCopyBufferToImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2KHR pCopyBufferToImageInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdCopyImageToBuffer2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2KHR pCopyImageToBufferInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdBlitImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkBlitImageInfo2KHR pBlitImageInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public delegate void PFN_vkCmdResolveImage2KHR([In] AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer,  AdamantiumVulkan.Core.Interop.VkResolveImageInfo2KHR pResolveImageInfo);
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate uint PFN_vkDebugReportCallbackEXT([In] uint flags, [In] DebugReportObjectTypeEXT objectType, [In] ulong @object, [In] ulong location, [In] int messageCode, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pLayerPrefix, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string pMessage, [In, Out] System.IntPtr pUserData);
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateDebugReportCallbackEXT([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance,  AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback);

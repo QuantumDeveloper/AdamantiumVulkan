@@ -9,6 +9,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 {
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.SPIRV;
     using AdamantiumVulkan.SPIRV.Cross;
 
     [StructLayout(LayoutKind.Sequential)]
@@ -192,7 +193,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcEntryPoint
     {
-        public SpvExecutionModel execution_model;
+        public uint execution_model;
 
         public System.IntPtr name;
 
@@ -288,24 +289,52 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     }
 
     ///<summary>
-    /// Maps to C++ API.
+    /// Maps to C++ API. Deprecated; use spvc_msl_shader_input.
     ///</summary>
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcMslVertexAttribute
     {
         public uint location;
 
+        ///<summary>
+        /// Obsolete, do not use. Only lingers on for ABI compatibility.
+        ///</summary>
         public uint msl_buffer;
 
+        ///<summary>
+        /// Obsolete, do not use. Only lingers on for ABI compatibility.
+        ///</summary>
         public uint msl_offset;
 
+        ///<summary>
+        /// Obsolete, do not use. Only lingers on for ABI compatibility.
+        ///</summary>
         public uint msl_stride;
 
+        ///<summary>
+        /// Obsolete, do not use. Only lingers on for ABI compatibility.
+        ///</summary>
         public byte per_instance;
 
         public uint format;
 
-        public SpvBuiltIn builtin;
+        public uint builtin;
+
+    }
+
+    ///<summary>
+    /// Maps to C++ API.
+    ///</summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct SpvcMslShaderInput
+    {
+        public uint location;
+
+        public uint format;
+
+        public uint builtin;
+
+        public uint vecsize;
 
     }
 
@@ -315,7 +344,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     [StructLayout(LayoutKind.Sequential)]
     public partial struct SpvcMslResourceBinding
     {
-        public SpvExecutionModel stage;
+        public uint stage;
 
         public uint desc_set;
 
@@ -391,6 +420,55 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
         public uint ycbcr_range;
 
         public uint bpc;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct SpvcHlslBindingFlags
+    {
+        public uint value;
+
+
+        public static implicit operator uint(SpvcHlslBindingFlags s)
+        {
+            return s.value;
+        }
+
+        public static implicit operator SpvcHlslBindingFlags(uint s)
+        {
+            return new SpvcHlslBindingFlags(){value = s};
+        }
+
+    }
+
+    ///<summary>
+    /// Maps to C++ API.
+    ///</summary>
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct SpvcHlslResourceBindingMapping
+    {
+        public uint register_space;
+
+        public uint register_binding;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct SpvcHlslResourceBinding
+    {
+        public uint stage;
+
+        public uint desc_set;
+
+        public uint binding;
+
+        public SpvcHlslResourceBindingMapping cbv;
+
+        public SpvcHlslResourceBindingMapping uav;
+
+        public SpvcHlslResourceBindingMapping srv;
+
+        public SpvcHlslResourceBindingMapping sampler;
 
     }
 

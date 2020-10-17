@@ -14432,6 +14432,667 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class BufferCopy2KHR : QBDisposableObject
+    {
+        public BufferCopy2KHR()
+        {
+        }
+
+        public BufferCopy2KHR(AdamantiumVulkan.Core.Interop.VkBufferCopy2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcOffset = _internal.srcOffset;
+            DstOffset = _internal.dstOffset;
+            Size = _internal.size;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ulong SrcOffset { get; set; }
+        public ulong DstOffset { get; set; }
+        public ulong Size { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkBufferCopy2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkBufferCopy2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcOffset = SrcOffset;
+            _internal.dstOffset = DstOffset;
+            _internal.size = Size;
+            return _internal;
+        }
+
+        public static implicit operator BufferCopy2KHR(AdamantiumVulkan.Core.Interop.VkBufferCopy2KHR b)
+        {
+            return new BufferCopy2KHR(b);
+        }
+
+    }
+
+    public partial class CopyBufferInfo2KHR : QBDisposableObject
+    {
+        private StructReference refpRegions;
+
+        public CopyBufferInfo2KHR()
+        {
+        }
+
+        public CopyBufferInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcBuffer = new Buffer(_internal.srcBuffer);
+            DstBuffer = new Buffer(_internal.dstBuffer);
+            RegionCount = _internal.regionCount;
+            PRegions = new BufferCopy2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkBufferCopy2KHR>(_internal.pRegions));
+            Marshal.FreeHGlobal(_internal.pRegions);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Buffer SrcBuffer { get; set; }
+        public Buffer DstBuffer { get; set; }
+        public uint RegionCount { get; set; }
+        public BufferCopy2KHR PRegions { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcBuffer = SrcBuffer;
+            _internal.dstBuffer = DstBuffer;
+            _internal.regionCount = RegionCount;
+            refpRegions?.Dispose();
+            if (PRegions != null)
+            {
+                var struct0 = PRegions.ToInternal();
+                refpRegions = new StructReference(struct0);
+                _internal.pRegions = refpRegions.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+        }
+
+
+        public static implicit operator CopyBufferInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2KHR c)
+        {
+            return new CopyBufferInfo2KHR(c);
+        }
+
+    }
+
+    public partial class ImageCopy2KHR : QBDisposableObject
+    {
+        public ImageCopy2KHR()
+        {
+        }
+
+        public ImageCopy2KHR(AdamantiumVulkan.Core.Interop.VkImageCopy2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcSubresource = new ImageSubresourceLayers(_internal.srcSubresource);
+            SrcOffset = new Offset3D(_internal.srcOffset);
+            DstSubresource = new ImageSubresourceLayers(_internal.dstSubresource);
+            DstOffset = new Offset3D(_internal.dstOffset);
+            Extent = new Extent3D(_internal.extent);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ImageSubresourceLayers SrcSubresource { get; set; }
+        public Offset3D SrcOffset { get; set; }
+        public ImageSubresourceLayers DstSubresource { get; set; }
+        public Offset3D DstOffset { get; set; }
+        public Extent3D Extent { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkImageCopy2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkImageCopy2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (SrcSubresource != null)
+            {
+                _internal.srcSubresource = SrcSubresource.ToInternal();
+            }
+            if (SrcOffset != null)
+            {
+                _internal.srcOffset = SrcOffset.ToInternal();
+            }
+            if (DstSubresource != null)
+            {
+                _internal.dstSubresource = DstSubresource.ToInternal();
+            }
+            if (DstOffset != null)
+            {
+                _internal.dstOffset = DstOffset.ToInternal();
+            }
+            if (Extent != null)
+            {
+                _internal.extent = Extent.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator ImageCopy2KHR(AdamantiumVulkan.Core.Interop.VkImageCopy2KHR i)
+        {
+            return new ImageCopy2KHR(i);
+        }
+
+    }
+
+    public partial class CopyImageInfo2KHR : QBDisposableObject
+    {
+        private StructReference refpRegions;
+
+        public CopyImageInfo2KHR()
+        {
+        }
+
+        public CopyImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyImageInfo2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcImage = new Image(_internal.srcImage);
+            SrcImageLayout = (ImageLayout)_internal.srcImageLayout;
+            DstImage = new Image(_internal.dstImage);
+            DstImageLayout = (ImageLayout)_internal.dstImageLayout;
+            RegionCount = _internal.regionCount;
+            PRegions = new ImageCopy2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkImageCopy2KHR>(_internal.pRegions));
+            Marshal.FreeHGlobal(_internal.pRegions);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Image SrcImage { get; set; }
+        public ImageLayout SrcImageLayout { get; set; }
+        public Image DstImage { get; set; }
+        public ImageLayout DstImageLayout { get; set; }
+        public uint RegionCount { get; set; }
+        public ImageCopy2KHR PRegions { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyImageInfo2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyImageInfo2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcImage = SrcImage;
+            _internal.srcImageLayout = (uint)SrcImageLayout;
+            _internal.dstImage = DstImage;
+            _internal.dstImageLayout = (uint)DstImageLayout;
+            _internal.regionCount = RegionCount;
+            refpRegions?.Dispose();
+            if (PRegions != null)
+            {
+                var struct0 = PRegions.ToInternal();
+                refpRegions = new StructReference(struct0);
+                _internal.pRegions = refpRegions.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+        }
+
+
+        public static implicit operator CopyImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyImageInfo2KHR c)
+        {
+            return new CopyImageInfo2KHR(c);
+        }
+
+    }
+
+    public partial class BufferImageCopy2KHR : QBDisposableObject
+    {
+        public BufferImageCopy2KHR()
+        {
+        }
+
+        public BufferImageCopy2KHR(AdamantiumVulkan.Core.Interop.VkBufferImageCopy2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            BufferOffset = _internal.bufferOffset;
+            BufferRowLength = _internal.bufferRowLength;
+            BufferImageHeight = _internal.bufferImageHeight;
+            ImageSubresource = new ImageSubresourceLayers(_internal.imageSubresource);
+            ImageOffset = new Offset3D(_internal.imageOffset);
+            ImageExtent = new Extent3D(_internal.imageExtent);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ulong BufferOffset { get; set; }
+        public uint BufferRowLength { get; set; }
+        public uint BufferImageHeight { get; set; }
+        public ImageSubresourceLayers ImageSubresource { get; set; }
+        public Offset3D ImageOffset { get; set; }
+        public Extent3D ImageExtent { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkBufferImageCopy2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkBufferImageCopy2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.bufferOffset = BufferOffset;
+            _internal.bufferRowLength = BufferRowLength;
+            _internal.bufferImageHeight = BufferImageHeight;
+            if (ImageSubresource != null)
+            {
+                _internal.imageSubresource = ImageSubresource.ToInternal();
+            }
+            if (ImageOffset != null)
+            {
+                _internal.imageOffset = ImageOffset.ToInternal();
+            }
+            if (ImageExtent != null)
+            {
+                _internal.imageExtent = ImageExtent.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator BufferImageCopy2KHR(AdamantiumVulkan.Core.Interop.VkBufferImageCopy2KHR b)
+        {
+            return new BufferImageCopy2KHR(b);
+        }
+
+    }
+
+    public partial class CopyBufferToImageInfo2KHR : QBDisposableObject
+    {
+        private StructReference refpRegions;
+
+        public CopyBufferToImageInfo2KHR()
+        {
+        }
+
+        public CopyBufferToImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcBuffer = new Buffer(_internal.srcBuffer);
+            DstImage = new Image(_internal.dstImage);
+            DstImageLayout = (ImageLayout)_internal.dstImageLayout;
+            RegionCount = _internal.regionCount;
+            PRegions = new BufferImageCopy2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkBufferImageCopy2KHR>(_internal.pRegions));
+            Marshal.FreeHGlobal(_internal.pRegions);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Buffer SrcBuffer { get; set; }
+        public Image DstImage { get; set; }
+        public ImageLayout DstImageLayout { get; set; }
+        public uint RegionCount { get; set; }
+        public BufferImageCopy2KHR PRegions { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcBuffer = SrcBuffer;
+            _internal.dstImage = DstImage;
+            _internal.dstImageLayout = (uint)DstImageLayout;
+            _internal.regionCount = RegionCount;
+            refpRegions?.Dispose();
+            if (PRegions != null)
+            {
+                var struct0 = PRegions.ToInternal();
+                refpRegions = new StructReference(struct0);
+                _internal.pRegions = refpRegions.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+        }
+
+
+        public static implicit operator CopyBufferToImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2KHR c)
+        {
+            return new CopyBufferToImageInfo2KHR(c);
+        }
+
+    }
+
+    public partial class CopyImageToBufferInfo2KHR : QBDisposableObject
+    {
+        private StructReference refpRegions;
+
+        public CopyImageToBufferInfo2KHR()
+        {
+        }
+
+        public CopyImageToBufferInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcImage = new Image(_internal.srcImage);
+            SrcImageLayout = (ImageLayout)_internal.srcImageLayout;
+            DstBuffer = new Buffer(_internal.dstBuffer);
+            RegionCount = _internal.regionCount;
+            PRegions = new BufferImageCopy2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkBufferImageCopy2KHR>(_internal.pRegions));
+            Marshal.FreeHGlobal(_internal.pRegions);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Image SrcImage { get; set; }
+        public ImageLayout SrcImageLayout { get; set; }
+        public Buffer DstBuffer { get; set; }
+        public uint RegionCount { get; set; }
+        public BufferImageCopy2KHR PRegions { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcImage = SrcImage;
+            _internal.srcImageLayout = (uint)SrcImageLayout;
+            _internal.dstBuffer = DstBuffer;
+            _internal.regionCount = RegionCount;
+            refpRegions?.Dispose();
+            if (PRegions != null)
+            {
+                var struct0 = PRegions.ToInternal();
+                refpRegions = new StructReference(struct0);
+                _internal.pRegions = refpRegions.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+        }
+
+
+        public static implicit operator CopyImageToBufferInfo2KHR(AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2KHR c)
+        {
+            return new CopyImageToBufferInfo2KHR(c);
+        }
+
+    }
+
+    public partial class ImageBlit2KHR : QBDisposableObject
+    {
+        public ImageBlit2KHR()
+        {
+        }
+
+        public ImageBlit2KHR(AdamantiumVulkan.Core.Interop.VkImageBlit2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcSubresource = new ImageSubresourceLayers(_internal.srcSubresource);
+            SrcOffsets = new Offset3D[2];
+            for (int i = 0; i < 2; ++i)
+            {
+                SrcOffsets[i] = new Offset3D(_internal.srcOffsets[i]);
+            }
+            DstSubresource = new ImageSubresourceLayers(_internal.dstSubresource);
+            DstOffsets = new Offset3D[2];
+            for (int i = 0; i < 2; ++i)
+            {
+                DstOffsets[i] = new Offset3D(_internal.dstOffsets[i]);
+            }
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ImageSubresourceLayers SrcSubresource { get; set; }
+        public Offset3D[] SrcOffsets { get; set; }
+        public ImageSubresourceLayers DstSubresource { get; set; }
+        public Offset3D[] DstOffsets { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkImageBlit2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkImageBlit2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (SrcSubresource != null)
+            {
+                _internal.srcSubresource = SrcSubresource.ToInternal();
+            }
+            if(SrcOffsets != null)
+            {
+                if (SrcOffsets.Length > 2)
+                    throw new System.ArgumentOutOfRangeException(nameof(SrcOffsets), "Array is out of bounds. Size should not be more than 2");
+
+                _internal.srcOffsets = new VkOffset3D[2];
+                for (int i = 0; i < SrcOffsets.Length; ++i)
+                {
+                    _internal.srcOffsets[i] = SrcOffsets[i].ToInternal();
+                }
+            }
+            if (DstSubresource != null)
+            {
+                _internal.dstSubresource = DstSubresource.ToInternal();
+            }
+            if(DstOffsets != null)
+            {
+                if (DstOffsets.Length > 2)
+                    throw new System.ArgumentOutOfRangeException(nameof(DstOffsets), "Array is out of bounds. Size should not be more than 2");
+
+                _internal.dstOffsets = new VkOffset3D[2];
+                for (int i = 0; i < DstOffsets.Length; ++i)
+                {
+                    _internal.dstOffsets[i] = DstOffsets[i].ToInternal();
+                }
+            }
+            return _internal;
+        }
+
+        public static implicit operator ImageBlit2KHR(AdamantiumVulkan.Core.Interop.VkImageBlit2KHR i)
+        {
+            return new ImageBlit2KHR(i);
+        }
+
+    }
+
+    public partial class BlitImageInfo2KHR : QBDisposableObject
+    {
+        private StructReference refpRegions;
+
+        public BlitImageInfo2KHR()
+        {
+        }
+
+        public BlitImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkBlitImageInfo2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcImage = new Image(_internal.srcImage);
+            SrcImageLayout = (ImageLayout)_internal.srcImageLayout;
+            DstImage = new Image(_internal.dstImage);
+            DstImageLayout = (ImageLayout)_internal.dstImageLayout;
+            RegionCount = _internal.regionCount;
+            PRegions = new ImageBlit2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkImageBlit2KHR>(_internal.pRegions));
+            Marshal.FreeHGlobal(_internal.pRegions);
+            Filter = (Filter)_internal.filter;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Image SrcImage { get; set; }
+        public ImageLayout SrcImageLayout { get; set; }
+        public Image DstImage { get; set; }
+        public ImageLayout DstImageLayout { get; set; }
+        public uint RegionCount { get; set; }
+        public ImageBlit2KHR PRegions { get; set; }
+        public Filter Filter { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkBlitImageInfo2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkBlitImageInfo2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcImage = SrcImage;
+            _internal.srcImageLayout = (uint)SrcImageLayout;
+            _internal.dstImage = DstImage;
+            _internal.dstImageLayout = (uint)DstImageLayout;
+            _internal.regionCount = RegionCount;
+            refpRegions?.Dispose();
+            if (PRegions != null)
+            {
+                var struct0 = PRegions.ToInternal();
+                refpRegions = new StructReference(struct0);
+                _internal.pRegions = refpRegions.Handle;
+            }
+            _internal.filter = (uint)Filter;
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+        }
+
+
+        public static implicit operator BlitImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkBlitImageInfo2KHR b)
+        {
+            return new BlitImageInfo2KHR(b);
+        }
+
+    }
+
+    public partial class ImageResolve2KHR : QBDisposableObject
+    {
+        public ImageResolve2KHR()
+        {
+        }
+
+        public ImageResolve2KHR(AdamantiumVulkan.Core.Interop.VkImageResolve2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcSubresource = new ImageSubresourceLayers(_internal.srcSubresource);
+            SrcOffset = new Offset3D(_internal.srcOffset);
+            DstSubresource = new ImageSubresourceLayers(_internal.dstSubresource);
+            DstOffset = new Offset3D(_internal.dstOffset);
+            Extent = new Extent3D(_internal.extent);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ImageSubresourceLayers SrcSubresource { get; set; }
+        public Offset3D SrcOffset { get; set; }
+        public ImageSubresourceLayers DstSubresource { get; set; }
+        public Offset3D DstOffset { get; set; }
+        public Extent3D Extent { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkImageResolve2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkImageResolve2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (SrcSubresource != null)
+            {
+                _internal.srcSubresource = SrcSubresource.ToInternal();
+            }
+            if (SrcOffset != null)
+            {
+                _internal.srcOffset = SrcOffset.ToInternal();
+            }
+            if (DstSubresource != null)
+            {
+                _internal.dstSubresource = DstSubresource.ToInternal();
+            }
+            if (DstOffset != null)
+            {
+                _internal.dstOffset = DstOffset.ToInternal();
+            }
+            if (Extent != null)
+            {
+                _internal.extent = Extent.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator ImageResolve2KHR(AdamantiumVulkan.Core.Interop.VkImageResolve2KHR i)
+        {
+            return new ImageResolve2KHR(i);
+        }
+
+    }
+
+    public partial class ResolveImageInfo2KHR : QBDisposableObject
+    {
+        private StructReference refpRegions;
+
+        public ResolveImageInfo2KHR()
+        {
+        }
+
+        public ResolveImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkResolveImageInfo2KHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SrcImage = new Image(_internal.srcImage);
+            SrcImageLayout = (ImageLayout)_internal.srcImageLayout;
+            DstImage = new Image(_internal.dstImage);
+            DstImageLayout = (ImageLayout)_internal.dstImageLayout;
+            RegionCount = _internal.regionCount;
+            PRegions = new ImageResolve2KHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkImageResolve2KHR>(_internal.pRegions));
+            Marshal.FreeHGlobal(_internal.pRegions);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Image SrcImage { get; set; }
+        public ImageLayout SrcImageLayout { get; set; }
+        public Image DstImage { get; set; }
+        public ImageLayout DstImageLayout { get; set; }
+        public uint RegionCount { get; set; }
+        public ImageResolve2KHR PRegions { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkResolveImageInfo2KHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkResolveImageInfo2KHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.srcImage = SrcImage;
+            _internal.srcImageLayout = (uint)SrcImageLayout;
+            _internal.dstImage = DstImage;
+            _internal.dstImageLayout = (uint)DstImageLayout;
+            _internal.regionCount = RegionCount;
+            refpRegions?.Dispose();
+            if (PRegions != null)
+            {
+                var struct0 = PRegions.ToInternal();
+                refpRegions = new StructReference(struct0);
+                _internal.pRegions = refpRegions.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpRegions?.Dispose();
+        }
+
+
+        public static implicit operator ResolveImageInfo2KHR(AdamantiumVulkan.Core.Interop.VkResolveImageInfo2KHR r)
+        {
+            return new ResolveImageInfo2KHR(r);
+        }
+
+    }
+
     public partial class DebugReportCallbackCreateInfoEXT : QBDisposableObject
     {
         public DebugReportCallbackCreateInfoEXT()
@@ -23117,6 +23778,42 @@ namespace AdamantiumVulkan.Core
         public static implicit operator PhysicalDeviceImageRobustnessFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeaturesEXT p)
         {
             return new PhysicalDeviceImageRobustnessFeaturesEXT(p);
+        }
+
+    }
+
+    public partial class PhysicalDevice4444FormatsFeaturesEXT : QBDisposableObject
+    {
+        public PhysicalDevice4444FormatsFeaturesEXT()
+        {
+        }
+
+        public PhysicalDevice4444FormatsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            FormatA4R4G4B4 = System.Convert.ToBoolean(_internal.formatA4R4G4B4);
+            FormatA4B4G4R4 = System.Convert.ToBoolean(_internal.formatA4B4G4R4);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool FormatA4R4G4B4 { get; set; }
+        public bool FormatA4B4G4R4 { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.formatA4R4G4B4 = System.Convert.ToUInt32(FormatA4R4G4B4);
+            _internal.formatA4B4G4R4 = System.Convert.ToUInt32(FormatA4B4G4R4);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDevice4444FormatsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT p)
+        {
+            return new PhysicalDevice4444FormatsFeaturesEXT(p);
         }
 
     }
