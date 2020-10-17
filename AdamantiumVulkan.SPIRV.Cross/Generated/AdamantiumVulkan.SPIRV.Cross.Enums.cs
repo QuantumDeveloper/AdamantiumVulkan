@@ -131,6 +131,8 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
         AccelerationStructure = 12,
 
+        RayQuery = 13,
+
         IntMax = 2147483647,
 
     }
@@ -202,13 +204,37 @@ namespace AdamantiumVulkan.SPIRV.Cross
     /// Maps to C++ API.
     ///</summary>
     [Flags]
-    public enum SpvcMslVertexFormat : uint
+    public enum SpvcMslIndexType : uint
+    {
+        None = 0,
+
+        Uint16 = 1,
+
+        Uint32 = 2,
+
+        MaxInt = 2147483647,
+
+    }
+
+    ///<summary>
+    /// Maps to C++ API.
+    ///</summary>
+    public enum SpvcMslShaderInputFormat : uint
     {
         Other = 0,
 
         Uint8 = 1,
 
         Uint16 = 2,
+
+        Any16 = 3,
+
+        Any32 = 4,
+
+        ///<summary>
+        /// Deprecated names.
+        ///</summary>
+        IntMax = 2147483647,
 
     }
 
@@ -403,6 +429,28 @@ namespace AdamantiumVulkan.SPIRV.Cross
     }
 
     ///<summary>
+    /// Maps to C++ API.
+    ///</summary>
+    [Flags]
+    public enum SpvcHlslBindingFlagBits : uint
+    {
+        NoneBit = 0,
+
+        PushConstantBit = 1,
+
+        CbvBit = 2,
+
+        SrvBit = 4,
+
+        UavBit = 8,
+
+        SamplerBit = 16,
+
+        All = 2147483647,
+
+    }
+
+    ///<summary>
     /// Maps to the various spirv_cross::Compiler*::Option structures. See C++ API for defaults and details.
     ///</summary>
     public enum SpvcCompilerOption : uint
@@ -569,6 +617,131 @@ namespace AdamantiumVulkan.SPIRV.Cross
         /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
         ///</summary>
         MslDynamicOffsetsBufferIndex = 134217771,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslTexture1dAs2d = 134217772,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEnableBaseIndexZero = 134217773,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslIosFramebufferFetchSubpass = 134217774,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslInvariantFpMath = 134217775,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEmulateCubemapArray = 134217776,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEnableDecorationBinding = 134217777,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslForceActiveArgumentBufferResources = 134217778,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslForceNativeArrays = 134217779,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        EnableStorageImageQualifierDeduction = 16777268,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        HlslForceStorageBufferAsUav = 67108917,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        ForceZeroInitializedVariables = 16777270,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        HlslNonwritableUavTextureAsSrv = 67108919,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEnableFragOutputMask = 134217784,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEnableFragDepthBuiltin = 134217785,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEnableFragStencilRefBuiltin = 134217786,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslEnableClipDistanceUserVarying = 134217787,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        HlslEnable16bitTypes = 67108924,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslMultiPatchWorkgroup = 134217789,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslShaderInputBufferIndex = 134217790,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslShaderIndexBufferIndex = 134217791,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslVertexForTessellation = 134217792,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslVertexIndexType = 134217793,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        GlslForceFlattenedIoBlocks = 33554498,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslMultiviewLayeredRendering = 134217795,
+
+        ///<summary>
+        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        ///</summary>
+        MslArrayedSubpassInput = 134217796,
 
         ///<summary>
         /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.

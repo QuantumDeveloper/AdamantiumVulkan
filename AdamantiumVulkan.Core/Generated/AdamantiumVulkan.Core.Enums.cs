@@ -734,6 +734,10 @@ namespace AdamantiumVulkan.Core
 
         ShaderModuleValidationCacheCreateInfoExt = 1000160001,
 
+        PhysicalDevicePortabilitySubsetFeaturesKhr = 1000163000,
+
+        PhysicalDevicePortabilitySubsetPropertiesKhr = 1000163001,
+
         PipelineViewportShadingRateImageStateCreateInfoNv = 1000164000,
 
         PhysicalDeviceShadingRateImageFeaturesNv = 1000164001,
@@ -977,6 +981,30 @@ namespace AdamantiumVulkan.Core
         PhysicalDeviceFragmentDensityMap2PropertiesExt = 1000332001,
 
         PhysicalDeviceImageRobustnessFeaturesExt = 1000335000,
+
+        CopyBufferInfo2Khr = 1000337000,
+
+        CopyImageInfo2Khr = 1000337001,
+
+        CopyBufferToImageInfo2Khr = 1000337002,
+
+        CopyImageToBufferInfo2Khr = 1000337003,
+
+        BlitImageInfo2Khr = 1000337004,
+
+        ResolveImageInfo2Khr = 1000337005,
+
+        BufferCopy2Khr = 1000337006,
+
+        ImageCopy2Khr = 1000337007,
+
+        ImageBlit2Khr = 1000337008,
+
+        BufferImageCopy2Khr = 1000337009,
+
+        ImageResolve2Khr = 1000337010,
+
+        PhysicalDevice4444FormatsFeaturesExt = 1000340000,
 
         DirectfbSurfaceCreateInfoExt = 1000346000,
 
@@ -1647,6 +1675,10 @@ namespace AdamantiumVulkan.Core
         ASTC_12x10_SFLOAT_BLOCK_EXT = 1000066012,
 
         ASTC_12x12_SFLOAT_BLOCK_EXT = 1000066013,
+
+        A4R4G4B4_UNORM_PACK16_EXT = 1000340000,
+
+        A4B4G4R4_UNORM_PACK16_EXT = 1000340001,
 
         MAX_ENUM = 2147483647,
 
@@ -4273,6 +4305,8 @@ namespace AdamantiumVulkan.Core
         BestPracticesExt = 2,
 
         DebugPrintfExt = 3,
+
+        SynchronizationValidationExt = 4,
 
         MaxEnumExt = 2147483647,
 

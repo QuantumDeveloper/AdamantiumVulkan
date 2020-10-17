@@ -11,6 +11,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
     using System.Runtime.InteropServices;
     using AdamantiumVulkan.SPIRV.Cross;
     using AdamantiumVulkan.SPIRV.Cross.Interop;
+    using AdamantiumVulkan.SPIRV;
 
     public partial class SpvcReflectedResource : QBDisposableObject
     {
@@ -71,7 +72,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
         public SpvcEntryPoint(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcEntryPoint _internal)
         {
-            Execution_model = _internal.execution_model;
+            Execution_model = (SpvExecutionModel)_internal.execution_model;
             Name = Marshal.PtrToStringAnsi(_internal.name);
         }
 
@@ -81,7 +82,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcEntryPoint ToInternal()
         {
             var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcEntryPoint();
-            _internal.execution_model = Execution_model;
+            _internal.execution_model = (uint)Execution_model;
             refname?.Dispose();
             if (Name != null)
             {
@@ -292,8 +293,8 @@ namespace AdamantiumVulkan.SPIRV.Cross
             Msl_offset = _internal.msl_offset;
             Msl_stride = _internal.msl_stride;
             Per_instance = _internal.per_instance;
-            Format = (SpvcMslVertexFormat)_internal.format;
-            Builtin = _internal.builtin;
+            Format = (SpvcMslShaderInputFormat)_internal.format;
+            Builtin = (SpvBuiltIn)_internal.builtin;
         }
 
         public uint Location { get; set; }
@@ -301,7 +302,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public uint Msl_offset { get; set; }
         public uint Msl_stride { get; set; }
         public byte Per_instance { get; set; }
-        public SpvcMslVertexFormat Format { get; set; }
+        public SpvcMslShaderInputFormat Format { get; set; }
         public SpvBuiltIn Builtin { get; set; }
         ///<summary>
         /// Initializes the vertex attribute struct.
@@ -323,13 +324,59 @@ namespace AdamantiumVulkan.SPIRV.Cross
             _internal.msl_stride = Msl_stride;
             _internal.per_instance = Per_instance;
             _internal.format = (uint)Format;
-            _internal.builtin = Builtin;
+            _internal.builtin = (uint)Builtin;
             return _internal;
         }
 
         public static implicit operator SpvcMslVertexAttribute(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslVertexAttribute s)
         {
             return new SpvcMslVertexAttribute(s);
+        }
+
+    }
+
+    public partial class SpvcMslShaderInput
+    {
+        public SpvcMslShaderInput()
+        {
+        }
+
+        public SpvcMslShaderInput(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslShaderInput _internal)
+        {
+            Location = _internal.location;
+            Format = (SpvcMslShaderInputFormat)_internal.format;
+            Builtin = (SpvBuiltIn)_internal.builtin;
+            Vecsize = _internal.vecsize;
+        }
+
+        public uint Location { get; set; }
+        public SpvcMslShaderInputFormat Format { get; set; }
+        public SpvBuiltIn Builtin { get; set; }
+        public uint Vecsize { get; set; }
+        ///<summary>
+        /// Initializes the shader input struct.
+        ///</summary>
+        public void MslShaderInputInit()
+        {
+            var arg0 = MarshalUtils.MarshalStructToPtr(ToInternal());
+            AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_msl_shader_input_init(arg0);
+            Marshal.FreeHGlobal(arg0);
+        }
+
+
+        public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslShaderInput ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslShaderInput();
+            _internal.location = Location;
+            _internal.format = (uint)Format;
+            _internal.builtin = (uint)Builtin;
+            _internal.vecsize = Vecsize;
+            return _internal;
+        }
+
+        public static implicit operator SpvcMslShaderInput(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslShaderInput s)
+        {
+            return new SpvcMslShaderInput(s);
         }
 
     }
@@ -342,7 +389,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
 
         public SpvcMslResourceBinding(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslResourceBinding _internal)
         {
-            Stage = _internal.stage;
+            Stage = (SpvExecutionModel)_internal.stage;
             Desc_set = _internal.desc_set;
             Binding = _internal.binding;
             Msl_buffer = _internal.msl_buffer;
@@ -370,7 +417,7 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslResourceBinding ToInternal()
         {
             var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslResourceBinding();
-            _internal.stage = Stage;
+            _internal.stage = (uint)Stage;
             _internal.desc_set = Desc_set;
             _internal.binding = Binding;
             _internal.msl_buffer = Msl_buffer;
@@ -536,6 +583,103 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public static implicit operator SpvcMslSamplerYcbcrConversion(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcMslSamplerYcbcrConversion s)
         {
             return new SpvcMslSamplerYcbcrConversion(s);
+        }
+
+    }
+
+    public partial class SpvcHlslResourceBindingMapping
+    {
+        public SpvcHlslResourceBindingMapping()
+        {
+        }
+
+        public SpvcHlslResourceBindingMapping(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBindingMapping _internal)
+        {
+            Register_space = _internal.register_space;
+            Register_binding = _internal.register_binding;
+        }
+
+        public uint Register_space { get; set; }
+        public uint Register_binding { get; set; }
+
+        public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBindingMapping ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBindingMapping();
+            _internal.register_space = Register_space;
+            _internal.register_binding = Register_binding;
+            return _internal;
+        }
+
+        public static implicit operator SpvcHlslResourceBindingMapping(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBindingMapping s)
+        {
+            return new SpvcHlslResourceBindingMapping(s);
+        }
+
+    }
+
+    public partial class SpvcHlslResourceBinding
+    {
+        public SpvcHlslResourceBinding()
+        {
+        }
+
+        public SpvcHlslResourceBinding(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBinding _internal)
+        {
+            Stage = (SpvExecutionModel)_internal.stage;
+            Desc_set = _internal.desc_set;
+            Binding = _internal.binding;
+            Cbv = new SpvcHlslResourceBindingMapping(_internal.cbv);
+            Uav = new SpvcHlslResourceBindingMapping(_internal.uav);
+            Srv = new SpvcHlslResourceBindingMapping(_internal.srv);
+            Sampler = new SpvcHlslResourceBindingMapping(_internal.sampler);
+        }
+
+        public SpvExecutionModel Stage { get; set; }
+        public uint Desc_set { get; set; }
+        public uint Binding { get; set; }
+        public SpvcHlslResourceBindingMapping Cbv { get; set; }
+        public SpvcHlslResourceBindingMapping Uav { get; set; }
+        public SpvcHlslResourceBindingMapping Srv { get; set; }
+        public SpvcHlslResourceBindingMapping Sampler { get; set; }
+        ///<summary>
+        /// Initializes the resource binding struct. The defaults are non-zero.
+        ///</summary>
+        public void HlslResourceBindingInit()
+        {
+            var arg0 = MarshalUtils.MarshalStructToPtr(ToInternal());
+            AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_hlsl_resource_binding_init(arg0);
+            Marshal.FreeHGlobal(arg0);
+        }
+
+
+        public AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBinding ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBinding();
+            _internal.stage = (uint)Stage;
+            _internal.desc_set = Desc_set;
+            _internal.binding = Binding;
+            if (Cbv != null)
+            {
+                _internal.cbv = Cbv.ToInternal();
+            }
+            if (Uav != null)
+            {
+                _internal.uav = Uav.ToInternal();
+            }
+            if (Srv != null)
+            {
+                _internal.srv = Srv.ToInternal();
+            }
+            if (Sampler != null)
+            {
+                _internal.sampler = Sampler.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator SpvcHlslResourceBinding(AdamantiumVulkan.SPIRV.Cross.Interop.SpvcHlslResourceBinding s)
+        {
+            return new SpvcHlslResourceBinding(s);
         }
 
     }

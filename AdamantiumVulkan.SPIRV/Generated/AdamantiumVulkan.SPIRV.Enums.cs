@@ -48,17 +48,17 @@ namespace AdamantiumVulkan.SPIRV
 
         MeshNV = 5268,
 
-        RayGenerationNV = 5313,
+        RayGenerationKHR = 5313,
 
-        IntersectionNV = 5314,
+        IntersectionKHR = 5314,
 
-        AnyHitNV = 5315,
+        AnyHitKHR = 5315,
 
-        ClosestHitNV = 5316,
+        ClosestHitKHR = 5316,
 
-        MissNV = 5317,
+        MissKHR = 5317,
 
-        CallableNV = 5318,
+        CallableKHR = 5318,
 
         Max = 2147483647,
 
@@ -72,7 +72,7 @@ namespace AdamantiumVulkan.SPIRV
 
         Physical64 = 2,
 
-        PhysicalStorageBuffer64EXT = 5348,
+        PhysicalStorageBuffer64 = 5348,
 
         Max = 2147483647,
 
@@ -86,7 +86,7 @@ namespace AdamantiumVulkan.SPIRV
 
         OpenCL = 2,
 
-        VulkanKHR = 3,
+        Vulkan = 3,
 
         Max = 2147483647,
 
@@ -238,19 +238,19 @@ namespace AdamantiumVulkan.SPIRV
 
         StorageBuffer = 12,
 
-        CallableDataNV = 5328,
+        CallableDataKHR = 5328,
 
-        IncomingCallableDataNV = 5329,
+        IncomingCallableDataKHR = 5329,
 
-        RayPayloadNV = 5338,
+        RayPayloadKHR = 5338,
 
-        HitAttributeNV = 5339,
+        HitAttributeKHR = 5339,
 
-        IncomingRayPayloadNV = 5342,
+        IncomingRayPayloadKHR = 5342,
 
-        ShaderRecordBufferNV = 5343,
+        ShaderRecordBufferKHR = 5343,
 
-        PhysicalStorageBufferEXT = 5349,
+        PhysicalStorageBuffer = 5349,
 
         Max = 2147483647,
 
@@ -493,13 +493,13 @@ namespace AdamantiumVulkan.SPIRV
 
         MinLodShift = 7,
 
-        MakeTexelAvailableKHRShift = 8,
+        MakeTexelAvailableShift = 8,
 
-        MakeTexelVisibleKHRShift = 9,
+        MakeTexelVisibleShift = 9,
 
-        NonPrivateTexelKHRShift = 10,
+        NonPrivateTexelShift = 10,
 
-        VolatileTexelKHRShift = 11,
+        VolatileTexelShift = 11,
 
         SignExtendShift = 12,
 
@@ -530,13 +530,13 @@ namespace AdamantiumVulkan.SPIRV
 
         MinLodMask = 128,
 
-        MakeTexelAvailableKHRMask = 256,
+        MakeTexelAvailableMask = 256,
 
-        MakeTexelVisibleKHRMask = 512,
+        MakeTexelVisibleMask = 512,
 
-        NonPrivateTexelKHRMask = 1024,
+        NonPrivateTexelMask = 1024,
 
-        VolatileTexelKHRMask = 2048,
+        VolatileTexelMask = 2048,
 
         SignExtendMask = 4096,
 
@@ -755,11 +755,11 @@ namespace AdamantiumVulkan.SPIRV
 
         PerVertexNV = 5285,
 
-        NonUniformEXT = 5300,
+        NonUniform = 5300,
 
-        RestrictPointerEXT = 5355,
+        RestrictPointer = 5355,
 
-        AliasedPointerEXT = 5356,
+        AliasedPointer = 5356,
 
         CounterBuffer = 5634,
 
@@ -927,33 +927,35 @@ namespace AdamantiumVulkan.SPIRV
 
         FragInvocationCountEXT = 5293,
 
-        LaunchIdNV = 5319,
+        LaunchIdKHR = 5319,
 
-        LaunchSizeNV = 5320,
+        LaunchSizeKHR = 5320,
 
-        WorldRayOriginNV = 5321,
+        WorldRayOriginKHR = 5321,
 
-        WorldRayDirectionNV = 5322,
+        WorldRayDirectionKHR = 5322,
 
-        ObjectRayOriginNV = 5323,
+        ObjectRayOriginKHR = 5323,
 
-        ObjectRayDirectionNV = 5324,
+        ObjectRayDirectionKHR = 5324,
 
-        RayTminNV = 5325,
+        RayTminKHR = 5325,
 
-        RayTmaxNV = 5326,
+        RayTmaxKHR = 5326,
 
-        InstanceCustomIndexNV = 5327,
+        InstanceCustomIndexKHR = 5327,
 
-        ObjectToWorldNV = 5330,
+        ObjectToWorldKHR = 5330,
 
-        WorldToObjectNV = 5331,
+        WorldToObjectKHR = 5331,
 
-        HitTNV = 5332,
+        HitTKHR = 5332,
 
-        HitKindNV = 5333,
+        HitKindKHR = 5333,
 
-        IncomingRayFlagsNV = 5351,
+        IncomingRayFlagsKHR = 5351,
+
+        RayGeometryIndexKHR = 5352,
 
         WarpsPerSMNV = 5374,
 
@@ -1089,11 +1091,11 @@ namespace AdamantiumVulkan.SPIRV
 
         ImageMemoryShift = 11,
 
-        OutputMemoryKHRShift = 12,
+        OutputMemoryShift = 12,
 
-        MakeAvailableKHRShift = 13,
+        MakeAvailableShift = 13,
 
-        MakeVisibleKHRShift = 14,
+        MakeVisibleShift = 14,
 
         VolatileShift = 15,
 
@@ -1126,11 +1128,11 @@ namespace AdamantiumVulkan.SPIRV
 
         ImageMemoryMask = 2048,
 
-        OutputMemoryKHRMask = 4096,
+        OutputMemoryMask = 4096,
 
-        MakeAvailableKHRMask = 8192,
+        MakeAvailableMask = 8192,
 
-        MakeVisibleKHRMask = 16384,
+        MakeVisibleMask = 16384,
 
         VolatileMask = 32768,
 
@@ -1144,11 +1146,11 @@ namespace AdamantiumVulkan.SPIRV
 
         NontemporalShift = 2,
 
-        MakePointerAvailableKHRShift = 3,
+        MakePointerAvailableShift = 3,
 
-        MakePointerVisibleKHRShift = 4,
+        MakePointerVisibleShift = 4,
 
-        NonPrivatePointerKHRShift = 5,
+        NonPrivatePointerShift = 5,
 
         Max = 2147483647,
 
@@ -1165,11 +1167,11 @@ namespace AdamantiumVulkan.SPIRV
 
         NontemporalMask = 4,
 
-        MakePointerAvailableKHRMask = 8,
+        MakePointerAvailableMask = 8,
 
-        MakePointerVisibleKHRMask = 16,
+        MakePointerVisibleMask = 16,
 
-        NonPrivatePointerKHRMask = 32,
+        NonPrivatePointerMask = 32,
 
     }
 
@@ -1185,7 +1187,9 @@ namespace AdamantiumVulkan.SPIRV
 
         Invocation = 4,
 
-        QueueFamilyKHR = 5,
+        QueueFamily = 5,
+
+        ShaderCallKHR = 6,
 
         Max = 2147483647,
 
@@ -1378,6 +1382,10 @@ namespace AdamantiumVulkan.SPIRV
 
         GroupNonUniformQuad = 68,
 
+        ShaderLayer = 69,
+
+        ShaderViewportIndex = 70,
+
         SubgroupBallotKHR = 4423,
 
         DrawParameters = 4427,
@@ -1420,6 +1428,10 @@ namespace AdamantiumVulkan.SPIRV
 
         RoundingModeRTZ = 4468,
 
+        RayQueryProvisionalKHR = 4471,
+
+        RayTraversalPrimitiveCullingProvisionalKHR = 4478,
+
         Float16ImageAMD = 5008,
 
         ImageGatherBiasLodAMD = 5009,
@@ -1429,6 +1441,8 @@ namespace AdamantiumVulkan.SPIRV
         StencilExportEXT = 5013,
 
         ImageReadWriteLodAMD = 5015,
+
+        ShaderClockKHR = 5055,
 
         SampleMaskOverrideCoverageNV = 5249,
 
@@ -1456,39 +1470,41 @@ namespace AdamantiumVulkan.SPIRV
 
         GroupNonUniformPartitionedNV = 5297,
 
-        ShaderNonUniformEXT = 5301,
+        ShaderNonUniform = 5301,
 
-        RuntimeDescriptorArrayEXT = 5302,
+        RuntimeDescriptorArray = 5302,
 
-        InputAttachmentArrayDynamicIndexingEXT = 5303,
+        InputAttachmentArrayDynamicIndexing = 5303,
 
-        UniformTexelBufferArrayDynamicIndexingEXT = 5304,
+        UniformTexelBufferArrayDynamicIndexing = 5304,
 
-        StorageTexelBufferArrayDynamicIndexingEXT = 5305,
+        StorageTexelBufferArrayDynamicIndexing = 5305,
 
-        UniformBufferArrayNonUniformIndexingEXT = 5306,
+        UniformBufferArrayNonUniformIndexing = 5306,
 
-        SampledImageArrayNonUniformIndexingEXT = 5307,
+        SampledImageArrayNonUniformIndexing = 5307,
 
-        StorageBufferArrayNonUniformIndexingEXT = 5308,
+        StorageBufferArrayNonUniformIndexing = 5308,
 
-        StorageImageArrayNonUniformIndexingEXT = 5309,
+        StorageImageArrayNonUniformIndexing = 5309,
 
-        InputAttachmentArrayNonUniformIndexingEXT = 5310,
+        InputAttachmentArrayNonUniformIndexing = 5310,
 
-        UniformTexelBufferArrayNonUniformIndexingEXT = 5311,
+        UniformTexelBufferArrayNonUniformIndexing = 5311,
 
-        StorageTexelBufferArrayNonUniformIndexingEXT = 5312,
+        StorageTexelBufferArrayNonUniformIndexing = 5312,
 
         RayTracingNV = 5340,
 
-        VulkanMemoryModelKHR = 5345,
+        VulkanMemoryModel = 5345,
 
-        VulkanMemoryModelDeviceScopeKHR = 5346,
+        VulkanMemoryModelDeviceScope = 5346,
 
-        PhysicalStorageBufferAddressesEXT = 5347,
+        PhysicalStorageBufferAddresses = 5347,
 
         ComputeDerivativeGroupLinearNV = 5350,
+
+        RayTracingProvisionalKHR = 5353,
 
         CooperativeMatrixNV = 5357,
 
@@ -1517,6 +1533,94 @@ namespace AdamantiumVulkan.SPIRV
         SubgroupAvcMotionEstimationIntraINTEL = 5697,
 
         SubgroupAvcMotionEstimationChromaINTEL = 5698,
+
+        Max = 2147483647,
+
+    }
+
+    public enum SpvRayFlagsShift : uint
+    {
+        OpaqueKHRShift = 0,
+
+        NoOpaqueKHRShift = 1,
+
+        TerminateOnFirstHitKHRShift = 2,
+
+        SkipClosestHitShaderKHRShift = 3,
+
+        CullBackFacingTrianglesKHRShift = 4,
+
+        CullFrontFacingTrianglesKHRShift = 5,
+
+        CullOpaqueKHRShift = 6,
+
+        CullNoOpaqueKHRShift = 7,
+
+        SkipTrianglesKHRShift = 8,
+
+        SkipAABBsKHRShift = 9,
+
+        Max = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SpvRayFlagsMask : uint
+    {
+        MaskNone = 0,
+
+        OpaqueKHRMask = 1,
+
+        NoOpaqueKHRMask = 2,
+
+        TerminateOnFirstHitKHRMask = 4,
+
+        SkipClosestHitShaderKHRMask = 8,
+
+        CullBackFacingTrianglesKHRMask = 16,
+
+        CullFrontFacingTrianglesKHRMask = 32,
+
+        CullOpaqueKHRMask = 64,
+
+        CullNoOpaqueKHRMask = 128,
+
+        SkipTrianglesKHRMask = 256,
+
+        SkipAABBsKHRMask = 512,
+
+    }
+
+    [Flags]
+    public enum SpvRayQueryIntersection : uint
+    {
+        RayQueryCandidateIntersectionKHR = 0,
+
+        RayQueryCommittedIntersectionKHR = 1,
+
+        Max = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SpvRayQueryCommittedIntersectionType : uint
+    {
+        RayQueryCommittedIntersectionNoneKHR = 0,
+
+        RayQueryCommittedIntersectionTriangleKHR = 1,
+
+        RayQueryCommittedIntersectionGeneratedKHR = 2,
+
+        Max = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SpvRayQueryCandidateIntersectionType : uint
+    {
+        RayQueryCandidateIntersectionTriangleKHR = 0,
+
+        RayQueryCandidateIntersectionAABBKHR = 1,
 
         Max = 2147483647,
 
@@ -2224,6 +2328,20 @@ namespace AdamantiumVulkan.SPIRV
 
         SubgroupReadInvocationKHR = 4432,
 
+        TypeRayQueryProvisionalKHR = 4472,
+
+        RayQueryInitializeKHR = 4473,
+
+        RayQueryTerminateKHR = 4474,
+
+        RayQueryGenerateIntersectionKHR = 4475,
+
+        RayQueryConfirmIntersectionKHR = 4476,
+
+        RayQueryProceedKHR = 4477,
+
+        RayQueryGetIntersectionTypeKHR = 4479,
+
         GroupIAddNonUniformAMD = 5000,
 
         GroupFAddNonUniformAMD = 5001,
@@ -2244,23 +2362,25 @@ namespace AdamantiumVulkan.SPIRV
 
         FragmentFetchAMD = 5012,
 
+        ReadClockKHR = 5056,
+
         ImageSampleFootprintNV = 5283,
 
         GroupNonUniformPartitionNV = 5296,
 
         WritePackedPrimitiveIndices4x8NV = 5299,
 
-        ReportIntersectionNV = 5334,
+        ReportIntersectionKHR = 5334,
 
-        IgnoreIntersectionNV = 5335,
+        IgnoreIntersectionKHR = 5335,
 
-        TerminateRayNV = 5336,
+        TerminateRayKHR = 5336,
 
         TraceNV = 5337,
 
-        TypeAccelerationStructureNV = 5341,
+        TypeAccelerationStructureKHR = 5341,
 
-        ExecuteCallableNV = 5344,
+        ExecuteCallableKHR = 5344,
 
         TypeCooperativeMatrixNV = 5358,
 
@@ -2567,6 +2687,40 @@ namespace AdamantiumVulkan.SPIRV
         SubgroupAvcSicGetPackedSkcLumaSumThresholdINTEL = 5815,
 
         SubgroupAvcSicGetInterRawSadsINTEL = 5816,
+
+        RayQueryGetRayTMinKHR = 6016,
+
+        RayQueryGetRayFlagsKHR = 6017,
+
+        RayQueryGetIntersectionTKHR = 6018,
+
+        RayQueryGetIntersectionInstanceCustomIndexKHR = 6019,
+
+        RayQueryGetIntersectionInstanceIdKHR = 6020,
+
+        RayQueryGetIntersectionInstanceShaderBindingTableRecordOffsetKHR = 6021,
+
+        RayQueryGetIntersectionGeometryIndexKHR = 6022,
+
+        RayQueryGetIntersectionPrimitiveIndexKHR = 6023,
+
+        RayQueryGetIntersectionBarycentricsKHR = 6024,
+
+        RayQueryGetIntersectionFrontFaceKHR = 6025,
+
+        RayQueryGetIntersectionCandidateAABBOpaqueKHR = 6026,
+
+        RayQueryGetIntersectionObjectRayDirectionKHR = 6027,
+
+        RayQueryGetIntersectionObjectRayOriginKHR = 6028,
+
+        RayQueryGetWorldRayDirectionKHR = 6029,
+
+        RayQueryGetWorldRayOriginKHR = 6030,
+
+        RayQueryGetIntersectionObjectToWorldKHR = 6031,
+
+        RayQueryGetIntersectionWorldToObjectKHR = 6032,
 
         Max = 2147483647,
 

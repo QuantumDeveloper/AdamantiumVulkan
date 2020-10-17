@@ -22,7 +22,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_API_VERSION_1_0 => VK_MAKE_VERSION(1,0,0);
 
-        public static byte VK_HEADER_VERSION => 148;
+        public static byte VK_HEADER_VERSION => 154;
 
         public static uint VK_HEADER_VERSION_COMPLETE => VK_MAKE_VERSION(1,2,VK_HEADER_VERSION);
 
@@ -452,6 +452,12 @@ namespace AdamantiumVulkan.Core
         public static uint VK_KHR_SHADER_NON_SEMANTIC_INFO_SPEC_VERSION => 1;
 
         public static string VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME => "VK_KHR_shader_non_semantic_info";
+
+        public static uint VK_KHR_copy_commands2 => 1;
+
+        public static uint VK_KHR_COPY_COMMANDS_2_SPEC_VERSION => 1;
+
+        public static string VK_KHR_COPY_COMMANDS_2_EXTENSION_NAME => "VK_KHR_copy_commands2";
 
         public static uint VK_EXT_debug_report => 1;
 
@@ -1073,7 +1079,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_EXT_validation_features => 1;
 
-        public static uint VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 3;
+        public static uint VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 4;
 
         public static string VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME => "VK_EXT_validation_features";
 
@@ -1214,6 +1220,12 @@ namespace AdamantiumVulkan.Core
         public static uint VK_EXT_IMAGE_ROBUSTNESS_SPEC_VERSION => 1;
 
         public static string VK_EXT_IMAGE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_image_robustness";
+
+        public static uint VK_EXT_4444_formats => 1;
+
+        public static uint VK_EXT_4444_FORMATS_SPEC_VERSION => 1;
+
+        public static string VK_EXT_4444_FORMATS_EXTENSION_NAME => "VK_EXT_4444_formats";
 
     }
 

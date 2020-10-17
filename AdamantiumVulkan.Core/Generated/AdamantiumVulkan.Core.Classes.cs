@@ -3146,6 +3146,14 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
+        public void BlitImage2KHR(in BlitImageInfo2KHR pBlitImageInfo)
+        {
+            var arg1 = ReferenceEquals(pBlitImageInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pBlitImageInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBlitImage2KHR(this, arg1);
+            pBlitImageInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
         public void BuildAccelerationStructureNV(in AccelerationStructureInfoNV pInfo, AdamantiumVulkan.Core.Buffer instanceData, ulong instanceOffset, bool update, AdamantiumVulkan.Core.AccelerationStructureKHR dst, AdamantiumVulkan.Core.AccelerationStructureKHR src, AdamantiumVulkan.Core.Buffer scratch, ulong scratchOffset)
         {
             var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
@@ -3219,6 +3227,14 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
+        public void CopyBuffer2KHR(in CopyBufferInfo2KHR pCopyBufferInfo)
+        {
+            var arg1 = ReferenceEquals(pCopyBufferInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCopyBufferInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyBuffer2KHR(this, arg1);
+            pCopyBufferInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
         public void CopyBufferToImage(AdamantiumVulkan.Core.Buffer srcBuffer, AdamantiumVulkan.Core.Image dstImage, ImageLayout dstImageLayout, uint regionCount, in BufferImageCopy pRegions)
         {
             var arg1 = ReferenceEquals(srcBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)srcBuffer;
@@ -3226,6 +3242,14 @@ namespace AdamantiumVulkan.Core
             var arg3 = ReferenceEquals(pRegions, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRegions.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyBufferToImage(this, arg1, arg2, dstImageLayout, regionCount, arg3);
             Marshal.FreeHGlobal(arg3);
+        }
+
+        public void CopyBufferToImage2KHR(in CopyBufferToImageInfo2KHR pCopyBufferToImageInfo)
+        {
+            var arg1 = ReferenceEquals(pCopyBufferToImageInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCopyBufferToImageInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyBufferToImage2KHR(this, arg1);
+            pCopyBufferToImageInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
         }
 
         public void CopyImage(AdamantiumVulkan.Core.Image srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Image dstImage, ImageLayout dstImageLayout, uint regionCount, in ImageCopy pRegions)
@@ -3237,6 +3261,14 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
+        public void CopyImage2KHR(in CopyImageInfo2KHR pCopyImageInfo)
+        {
+            var arg1 = ReferenceEquals(pCopyImageInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCopyImageInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyImage2KHR(this, arg1);
+            pCopyImageInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
         public void CopyImageToBuffer(AdamantiumVulkan.Core.Image srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Buffer dstBuffer, uint regionCount, in BufferImageCopy pRegions)
         {
             var arg1 = ReferenceEquals(srcImage, null) ? new VkImage_T() : (VkImage_T)srcImage;
@@ -3244,6 +3276,14 @@ namespace AdamantiumVulkan.Core
             var arg3 = ReferenceEquals(pRegions, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRegions.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyImageToBuffer(this, arg1, srcImageLayout, arg2, regionCount, arg3);
             Marshal.FreeHGlobal(arg3);
+        }
+
+        public void CopyImageToBuffer2KHR(in CopyImageToBufferInfo2KHR pCopyImageToBufferInfo)
+        {
+            var arg1 = ReferenceEquals(pCopyImageToBufferInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCopyImageToBufferInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyImageToBuffer2KHR(this, arg1);
+            pCopyImageToBufferInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
         }
 
         public void CopyQueryPoolResults(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount, AdamantiumVulkan.Core.Buffer dstBuffer, ulong dstOffset, ulong stride, uint flags)
@@ -3622,6 +3662,14 @@ namespace AdamantiumVulkan.Core
             var arg3 = ReferenceEquals(pRegions, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRegions.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdResolveImage(this, arg1, srcImageLayout, arg2, dstImageLayout, regionCount, arg3);
             Marshal.FreeHGlobal(arg3);
+        }
+
+        public void ResolveImage2KHR(in ResolveImageInfo2KHR pResolveImageInfo)
+        {
+            var arg1 = ReferenceEquals(pResolveImageInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pResolveImageInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdResolveImage2KHR(this, arg1);
+            pResolveImageInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
         }
 
         public void SetBlendConstants(in float[] blendConstants)

@@ -6980,6 +6980,219 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBufferCopy2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong srcOffset;
+
+        public ulong dstOffset;
+
+        public ulong size;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyBufferInfo2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkBuffer_T srcBuffer;
+
+        public VkBuffer_T dstBuffer;
+
+        public uint regionCount;
+
+        public System.IntPtr pRegions;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageCopy2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImageSubresourceLayers srcSubresource;
+
+        public VkOffset3D srcOffset;
+
+        public VkImageSubresourceLayers dstSubresource;
+
+        public VkOffset3D dstOffset;
+
+        public VkExtent3D extent;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyImageInfo2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImage_T srcImage;
+
+        public uint srcImageLayout;
+
+        public VkImage_T dstImage;
+
+        public uint dstImageLayout;
+
+        public uint regionCount;
+
+        public System.IntPtr pRegions;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBufferImageCopy2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong bufferOffset;
+
+        public uint bufferRowLength;
+
+        public uint bufferImageHeight;
+
+        public VkImageSubresourceLayers imageSubresource;
+
+        public VkOffset3D imageOffset;
+
+        public VkExtent3D imageExtent;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyBufferToImageInfo2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkBuffer_T srcBuffer;
+
+        public VkImage_T dstImage;
+
+        public uint dstImageLayout;
+
+        public uint regionCount;
+
+        public System.IntPtr pRegions;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyImageToBufferInfo2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImage_T srcImage;
+
+        public uint srcImageLayout;
+
+        public VkBuffer_T dstBuffer;
+
+        public uint regionCount;
+
+        public System.IntPtr pRegions;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageBlit2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImageSubresourceLayers srcSubresource;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public VkOffset3D[] srcOffsets;
+
+        public VkImageSubresourceLayers dstSubresource;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public VkOffset3D[] dstOffsets;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkBlitImageInfo2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImage_T srcImage;
+
+        public uint srcImageLayout;
+
+        public VkImage_T dstImage;
+
+        public uint dstImageLayout;
+
+        public uint regionCount;
+
+        public System.IntPtr pRegions;
+
+        public uint filter;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkImageResolve2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImageSubresourceLayers srcSubresource;
+
+        public VkOffset3D srcOffset;
+
+        public VkImageSubresourceLayers dstSubresource;
+
+        public VkOffset3D dstOffset;
+
+        public VkExtent3D extent;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkResolveImageInfo2KHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkImage_T srcImage;
+
+        public uint srcImageLayout;
+
+        public VkImage_T dstImage;
+
+        public uint dstImageLayout;
+
+        public uint regionCount;
+
+        public System.IntPtr pRegions;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkDebugReportCallbackEXT_T
     {
         public System.IntPtr pointer;
@@ -10571,6 +10784,19 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pNext;
 
         public uint robustImageAccess;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevice4444FormatsFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint formatA4R4G4B4;
+
+        public uint formatA4B4G4R4;
 
     }
 
