@@ -1664,18 +1664,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.deviceName;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.deviceName[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             DeviceName = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[16];
             unsafe
             {
-                for (int i = 0; i < 16; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.pipelineCacheUUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = _internal.pipelineCacheUUID[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             PipelineCacheUUID = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -1963,9 +1967,11 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.extensionName;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.extensionName[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             ExtensionName = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
@@ -2017,9 +2023,11 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.layerName;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.layerName[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             LayerName = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
@@ -2028,9 +2036,11 @@ namespace AdamantiumVulkan.Core
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.description;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.description[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -8553,27 +8563,33 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[16];
             unsafe
             {
-                for (int i = 0; i < 16; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.deviceUUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = _internal.deviceUUID[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             DeviceUUID = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[16];
             unsafe
             {
-                for (int i = 0; i < 16; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.driverUUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = _internal.driverUUID[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             DriverUUID = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
             var tmpArr2 = new byte[8];
             unsafe
             {
-                for (int i = 0; i < 8; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.deviceLUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr2[i] = _internal.deviceLUID[i];
+                    tmpArr2[index++] = *counter;
                 }
             }
             DeviceLUID = System.Text.Encoding.ASCII.GetString(tmpArr2).Replace("\0", string.Empty);
@@ -9135,27 +9151,33 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[16];
             unsafe
             {
-                for (int i = 0; i < 16; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.deviceUUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = _internal.deviceUUID[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             DeviceUUID = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[16];
             unsafe
             {
-                for (int i = 0; i < 16; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.driverUUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = _internal.driverUUID[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             DriverUUID = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
             var tmpArr2 = new byte[8];
             unsafe
             {
-                for (int i = 0; i < 8; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.deviceLUID;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr2[i] = _internal.deviceLUID[i];
+                    tmpArr2[index++] = *counter;
                 }
             }
             DeviceLUID = System.Text.Encoding.ASCII.GetString(tmpArr2).Replace("\0", string.Empty);
@@ -9490,18 +9512,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.driverName;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.driverName[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             DriverName = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.driverInfo;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.driverInfo[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             DriverInfo = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -10252,18 +10278,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.driverName;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.driverName[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             DriverName = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.driverInfo;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.driverInfo[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             DriverInfo = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -13419,9 +13449,11 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[16];
             unsafe
             {
-                for (int i = 0; i < 16; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.uuid;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = _internal.uuid[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             Uuid = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
@@ -13483,27 +13515,33 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.name;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.name[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             Name = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.category;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.category[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             Category = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
             var tmpArr2 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.description;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr2[i] = (byte)_internal.description[i];
+                    tmpArr2[index++] = *counter;
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr2).Replace("\0", string.Empty);
@@ -14134,18 +14172,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.name;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.name[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             Name = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.description;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.description[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -14259,18 +14301,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.name;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.name[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             Name = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.description;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.description[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -14352,18 +14398,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.name;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.name[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             Name = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.description;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.description[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -21630,18 +21680,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr0 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.name;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr0[i] = (byte)_internal.name[i];
+                    tmpArr0[index++] = *counter;
                 }
             }
             Name = System.Text.Encoding.ASCII.GetString(tmpArr0).Replace("\0", string.Empty);
             var tmpArr1 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.version;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr1[i] = (byte)_internal.version[i];
+                    tmpArr1[index++] = *counter;
                 }
             }
             Version = System.Text.Encoding.ASCII.GetString(tmpArr1).Replace("\0", string.Empty);
@@ -21649,18 +21703,22 @@ namespace AdamantiumVulkan.Core
             var tmpArr2 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.description;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr2[i] = (byte)_internal.description[i];
+                    tmpArr2[index++] = *counter;
                 }
             }
             Description = System.Text.Encoding.ASCII.GetString(tmpArr2).Replace("\0", string.Empty);
             var tmpArr3 = new byte[256];
             unsafe
             {
-                for (int i = 0; i < 256; ++i)
+                int index = 0;
+                byte* ptr = (byte*)_internal.layer;
+                for (byte* counter = ptr; *counter != 0; counter++)
                 {
-                    tmpArr3[i] = (byte)_internal.layer[i];
+                    tmpArr3[index++] = *counter;
                 }
             }
             Layer = System.Text.Encoding.ASCII.GetString(tmpArr3).Replace("\0", string.Empty);
