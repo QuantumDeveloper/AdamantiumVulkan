@@ -100,6 +100,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDeviceFeatures GetPhysicalDeviceFeatures()
         {
             GetPhysicalDeviceFeatures(out var deviceFeatures);
+            ClearPhysicalDeviceFeatures(deviceFeatures);
             return deviceFeatures;
         }
 
@@ -166,6 +167,65 @@ namespace AdamantiumVulkan.Core
             }
 
             throw new Exception("failed to find suitable memory type!");
+        }
+
+        private void ClearPhysicalDeviceFeatures(PhysicalDeviceFeatures deviceFeatures)
+        {
+            deviceFeatures.RobustBufferAccess = false;
+            deviceFeatures.FullDrawIndexUint32 = false;                    
+            deviceFeatures.ImageCubeArray = false;                         
+            deviceFeatures.IndependentBlend = false;                       
+            deviceFeatures.GeometryShader = false;                         
+            deviceFeatures.TessellationShader = false;                     
+            deviceFeatures.SampleRateShading = false;                      
+            deviceFeatures.DualSrcBlend = false;                           
+            deviceFeatures.LogicOp = false;                                
+            deviceFeatures.MultiDrawIndirect = false;                      
+            deviceFeatures.DrawIndirectFirstInstance = false;              
+            deviceFeatures.DepthClamp = false;                             
+            deviceFeatures.DepthBiasClamp = false;                         
+            deviceFeatures.FillModeNonSolid = false;                       
+            deviceFeatures.DepthBounds = false;                            
+            deviceFeatures.WideLines = false;                              
+            deviceFeatures.LargePoints = false;                            
+            deviceFeatures.AlphaToOne = false;                             
+            deviceFeatures.MultiViewport = false;                          
+            deviceFeatures.SamplerAnisotropy = false;                      
+            deviceFeatures.TextureCompressionETC2 = false;                 
+            deviceFeatures.TextureCompressionASTC_LDR = false;             
+            deviceFeatures.TextureCompressionBC = false;                   
+            deviceFeatures.OcclusionQueryPrecise = false;                  
+            deviceFeatures.PipelineStatisticsQuery = false;                
+            deviceFeatures.VertexPipelineStoresAndAtomics = false;         
+            deviceFeatures.FragmentStoresAndAtomics = false;              
+            deviceFeatures.ShaderTessellationAndGeometryPointSize = false; 
+            deviceFeatures.ShaderImageGatherExtended = false;              
+            deviceFeatures.ShaderStorageImageExtendedFormats = false;     
+            deviceFeatures.ShaderStorageImageMultisample = false;      
+            deviceFeatures.ShaderStorageImageReadWithoutFormat = false;
+            deviceFeatures.ShaderStorageImageWriteWithoutFormat = false;
+            deviceFeatures.ShaderUniformBufferArrayDynamicIndexing = false;
+            deviceFeatures.ShaderSampledImageArrayDynamicIndexing = false;
+            deviceFeatures.ShaderStorageBufferArrayDynamicIndexing = false;
+            deviceFeatures.ShaderStorageImageArrayDynamicIndexing = false;
+            deviceFeatures.ShaderClipDistance = false;               
+            deviceFeatures.ShaderCullDistance = false;
+            deviceFeatures.ShaderFloat64 = false;                          
+            deviceFeatures.ShaderInt64 = false;
+            deviceFeatures.ShaderInt16 = false;                            
+            deviceFeatures.ShaderResourceResidency = false;                
+            deviceFeatures.ShaderResourceMinLod = false;                   
+            deviceFeatures.SparseBinding = false;                        
+            deviceFeatures.SparseResidencyBuffer = false;                  
+            deviceFeatures.SparseResidencyImage2D = false;                 
+            deviceFeatures.SparseResidencyImage3D = false;                 
+            deviceFeatures.SparseResidency2Samples = false;               
+            deviceFeatures.SparseResidency4Samples = false;               
+            deviceFeatures.SparseResidency8Samples = false;               
+            deviceFeatures.SparseResidency16Samples = false;               
+            deviceFeatures.SparseResidencyAliased = false;                 
+            deviceFeatures.VariableMultisampleRate = false;                
+            deviceFeatures.InheritedQueries = false;                     
         }
     }
 
