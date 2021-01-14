@@ -1,6 +1,7 @@
 ﻿using System;
 using AdamantiumVulkan.SPIRV.Cross;
 using System.Collections.Generic;
+using System.Linq;
 using AdamantiumVulkan.Shaders;
 
 namespace AdamantiumVulkan.SPIRV.Reflection
@@ -107,10 +108,13 @@ namespace AdamantiumVulkan.SPIRV.Reflection
                     resourceDescription.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.DescriptorSet);
                     resourceDescription.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.Binding);
 
-                    var bindingKey = MakeResourceBindingKey(resourceDescription.SlotIndex,
+                    var bindingKey = MakeResourceBindingKey(
+                        resourceDescription.Name,
+                        resourceDescription.TypeId,
+                        resourceDescription.SlotIndex,
                         resourceDescription.DescriptorSet);
                     
-                    if (resourceKeys.Contains(bindingKey))
+                    if (IsSameResourceIdPresent(resourceKeys, bindingKey))
                     {
                         bindingKey = FindNextAvailableId(bindingKey, resourceKeys);
                         compiler.SetDecoration(shaderResources[i].Id, SpvDecoration.Binding, bindingKey.BindingId);
@@ -218,24 +222,35 @@ namespace AdamantiumVulkan.SPIRV.Reflection
             return disassembleResult;
         }
 
-        private ResourceBindingKey MakeResourceBindingKey(uint bindingId, uint descriptorSet)
+        private bool IsSameResourceIdPresent(List<ResourceBindingKey> resourceKeys, ResourceBindingKey current)
         {
-            return new ResourceBindingKey() { BindingId = bindingId, DescriptorSet = descriptorSet};
+            // We are looking for resource with same Binding Id, but different name
+            // If names are the same and Binding Id also the same, it means that this resource is sharing
+            // between several shaders
+            
+            foreach (var bindingKey in resourceKeys)
+            {
+                if (bindingKey.Name != current.Name &&
+                    bindingKey.BindingId == current.BindingId)
+                {
+                    return true;
+                }
+                
+            }
+
+            return false;
+        }
+
+        private ResourceBindingKey MakeResourceBindingKey(string name, uint typeId, uint bindingId, uint descriptorSet)
+        {
+            return new ResourceBindingKey() { Name = name, TypeId = typeId, BindingId = bindingId, DescriptorSet = descriptorSet};
         }
 
         private ResourceBindingKey FindNextAvailableId(ResourceBindingKey key, List<ResourceBindingKey> bindingKeys)
         {
-            while (true)
-            {
-                if (bindingKeys.Contains(key))
-                {
-                    key.BindingId++;
-                }
-                else
-                {
-                    return key;
-                }
-            }
+            var maxId = bindingKeys.Max(x => x.BindingId);
+            key.BindingId = maxId + 1;
+            return key;
         }
 
         protected override void UnmanagedDisposeOverride()

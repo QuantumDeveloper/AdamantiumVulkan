@@ -8,9 +8,16 @@ namespace AdamantiumVulkan.SPIRV.Reflection
 
         public uint DescriptorSet;
 
+        public string Name;
+
+        public uint TypeId;
+
         public bool Equals(ResourceBindingKey other)
         {
-            return BindingId == other.BindingId && DescriptorSet == other.DescriptorSet;
+            return BindingId == other.BindingId && 
+                   DescriptorSet == other.DescriptorSet && 
+                   Name == other.Name &&
+                   TypeId == other.TypeId;
         }
 
         public override bool Equals(object obj)
@@ -20,7 +27,7 @@ namespace AdamantiumVulkan.SPIRV.Reflection
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(BindingId, DescriptorSet);
+            return HashCode.Combine(BindingId, DescriptorSet, Name, TypeId);
         }
     }
 }
