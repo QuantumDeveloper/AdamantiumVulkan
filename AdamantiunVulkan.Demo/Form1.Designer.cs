@@ -581,7 +581,6 @@ namespace VulkanEngineTestCore
         Result CreateDebugUtilsMessengerEXT(Instance instance, DebugUtilsMessengerCreateInfoEXT pCreateInfo, AllocationCallbacks pAllocator, out DebugUtilsMessengerEXT pDebugMessenger)
         {
             pDebugMessenger = null;
-            //(PFN_vkCreateDebugUtilsMessengerEXT)
             var ptr = instance.GetInstanceProcAddr("vkCreateDebugUtilsMessengerEXT");
             var func = Marshal.GetDelegateForFunctionPointer<CoreInterop.PFN_vkCreateDebugUtilsMessengerEXT>(ptr);
             if (func != null)

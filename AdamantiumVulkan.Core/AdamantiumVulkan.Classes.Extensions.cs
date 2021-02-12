@@ -97,6 +97,17 @@ namespace AdamantiumVulkan.Core
             return deviceProperties;
         }
 
+        public QueueFamilyProperties[] GetQueueFamilyProperties()
+        {
+            uint queueFamilyCount = 0;
+            GetPhysicalDeviceQueueFamilyProperties(ref queueFamilyCount, null);
+
+            var queueFamilies = new QueueFamilyProperties[queueFamilyCount];
+            GetPhysicalDeviceQueueFamilyProperties(ref queueFamilyCount, queueFamilies);
+
+            return queueFamilies;
+        }
+
         public PhysicalDeviceFeatures GetPhysicalDeviceFeatures()
         {
             GetPhysicalDeviceFeatures(out var deviceFeatures);
