@@ -525,6 +525,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_get_automatic_resource_binding_secondary(this, id);
         }
 
+        public string MslGetCombinedSamplerSuffix()
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_get_combined_sampler_suffix(this);
+        }
+
         ///<summary>
         /// MSL specifics. Maps to C++ API.
         ///</summary>
@@ -623,6 +628,11 @@ namespace AdamantiumVulkan.SPIRV.Cross
         public SpvcResult MslSetArgumentBufferDeviceAddressSpace(uint desc_set, bool device_address)
         {
             return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_set_argument_buffer_device_address_space(this, desc_set, device_address);
+        }
+
+        public SpvcResult MslSetCombinedSamplerSuffix(string suffix)
+        {
+            return AdamantiumVulkan.SPIRV.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_set_combined_sampler_suffix(this, suffix);
         }
 
         public SpvcResult MslSetFragmentOutputComponents(uint location, uint components)

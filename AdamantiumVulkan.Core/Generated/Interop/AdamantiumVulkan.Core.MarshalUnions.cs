@@ -95,6 +95,42 @@ namespace AdamantiumVulkan.Core.Interop
 
     }
 
+    [StructLayout(LayoutKind.Explicit)]
+    public partial struct VkDeviceOrHostAddressKHR
+    {
+        [FieldOffset(0)]
+        public ulong deviceAddress;
+
+        [FieldOffset(0)]
+        public System.IntPtr hostAddress;
+
+    }
+
+    [StructLayout(LayoutKind.Explicit)]
+    public partial struct VkDeviceOrHostAddressConstKHR
+    {
+        [FieldOffset(0)]
+        public ulong deviceAddress;
+
+        [FieldOffset(0)]
+        public System.IntPtr hostAddress;
+
+    }
+
+    [StructLayout(LayoutKind.Explicit)]
+    public partial struct VkAccelerationStructureGeometryDataKHR
+    {
+        [FieldOffset(0)]
+        public VkAccelerationStructureGeometryTrianglesDataKHR triangles;
+
+        [FieldOffset(0)]
+        public VkAccelerationStructureGeometryAabbsDataKHR aabbs;
+
+        [FieldOffset(0)]
+        public VkAccelerationStructureGeometryInstancesDataKHR instances;
+
+    }
+
 
 }
 

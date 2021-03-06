@@ -13,30 +13,43 @@ namespace AdamantiumVulkan.Windows.Interop
     using AdamantiumVulkan.Core;
     using AdamantiumVulkan.Core.Interop;
 
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateWin32SurfaceKHR([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance,  AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate uint PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, [In] uint queueFamilyIndex);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetMemoryWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, [In, Out] System.IntPtr pHandle);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetMemoryWin32HandlePropertiesKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] ExternalMemoryHandleTypeFlagBits handleType, [In] System.IntPtr handle, [In] AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkImportSemaphoreWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetSemaphoreWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, [In, Out] System.IntPtr pHandle);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkImportFenceWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetFenceWin32HandleKHR([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR pGetWin32HandleInfo, [In, Out] System.IntPtr pHandle);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetMemoryWin32HandleNV([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, [In] uint handleType, [In, Out] System.IntPtr pHandle);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT([In] AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice,  AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref uint pPresentModeCount, ref PresentModeKHR pPresentModes);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkAcquireFullScreenExclusiveModeEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkReleaseFullScreenExclusiveModeEXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device, [In] AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkGetDeviceGroupSurfacePresentModes2EXT([In] AdamantiumVulkan.Core.Interop.VkDevice_T device,  AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref VkDeviceGroupPresentModeFlagsKHR pModes);
 

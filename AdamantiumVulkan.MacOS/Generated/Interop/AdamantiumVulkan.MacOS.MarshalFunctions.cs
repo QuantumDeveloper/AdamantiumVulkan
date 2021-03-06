@@ -17,6 +17,7 @@ namespace AdamantiumVulkan.MacOS.Interop
     {
         public const string LibraryPath = "vulkan-1";
 
+        [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "vkCreateMacOSSurfaceMVK", CallingConvention = CallingConvention.Winapi)]
         internal static extern Result vkCreateMacOSSurfaceMVK([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance, System.IntPtr pCreateInfo, System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 

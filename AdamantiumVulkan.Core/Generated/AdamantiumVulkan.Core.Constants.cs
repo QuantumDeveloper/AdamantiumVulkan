@@ -22,7 +22,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_API_VERSION_1_0 => VK_MAKE_VERSION(1,0,0);
 
-        public static byte VK_HEADER_VERSION => 154;
+        public static byte VK_HEADER_VERSION => 162;
 
         public static uint VK_HEADER_VERSION_COMPLETE => VK_MAKE_VERSION(1,2,VK_HEADER_VERSION);
 
@@ -411,6 +411,18 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_VULKAN_MEMORY_MODEL_EXTENSION_NAME => "VK_KHR_vulkan_memory_model";
 
+        public static uint VK_KHR_shader_terminate_invocation => 1;
+
+        public static uint VK_KHR_SHADER_TERMINATE_INVOCATION_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SHADER_TERMINATE_INVOCATION_EXTENSION_NAME => "VK_KHR_shader_terminate_invocation";
+
+        public static uint VK_KHR_fragment_shading_rate => 1;
+
+        public static uint VK_KHR_FRAGMENT_SHADING_RATE_SPEC_VERSION => 1;
+
+        public static string VK_KHR_FRAGMENT_SHADING_RATE_EXTENSION_NAME => "VK_KHR_fragment_shading_rate";
+
         public static uint VK_KHR_spirv_1_4 => 1;
 
         public static uint VK_KHR_SPIRV_1_4_SPEC_VERSION => 1;
@@ -441,11 +453,23 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_KHR_buffer_device_address";
 
+        public static uint VK_KHR_deferred_host_operations => 1;
+
+        public static uint VK_KHR_DEFERRED_HOST_OPERATIONS_SPEC_VERSION => 4;
+
+        public static string VK_KHR_DEFERRED_HOST_OPERATIONS_EXTENSION_NAME => "VK_KHR_deferred_host_operations";
+
         public static uint VK_KHR_pipeline_executable_properties => 1;
 
         public static uint VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_SPEC_VERSION => 1;
 
         public static string VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NAME => "VK_KHR_pipeline_executable_properties";
+
+        public static uint VK_KHR_pipeline_library => 1;
+
+        public static uint VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION => 1;
+
+        public static string VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_KHR_pipeline_library";
 
         public static uint VK_KHR_shader_non_semantic_info => 1;
 
@@ -1041,6 +1065,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_AMD_DEVICE_COHERENT_MEMORY_EXTENSION_NAME => "VK_AMD_device_coherent_memory";
 
+        public static uint VK_EXT_shader_image_atomic_int64 => 1;
+
+        public static uint VK_EXT_SHADER_IMAGE_ATOMIC_INT64_SPEC_VERSION => 1;
+
+        public static string VK_EXT_SHADER_IMAGE_ATOMIC_INT64_EXTENSION_NAME => "VK_EXT_shader_image_atomic_int64";
+
         public static uint VK_EXT_memory_budget => 1;
 
         public static uint VK_EXT_MEMORY_BUDGET_SPEC_VERSION => 1;
@@ -1167,6 +1197,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME => "VK_QCOM_render_pass_transform";
 
+        public static uint VK_EXT_device_memory_report => 1;
+
+        public static uint VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION => 1;
+
+        public static string VK_EXT_DEVICE_MEMORY_REPORT_EXTENSION_NAME => "VK_EXT_device_memory_report";
+
         public static uint VK_EXT_robustness2 => 1;
 
         public static uint VK_EXT_ROBUSTNESS_2_SPEC_VERSION => 1;
@@ -1209,11 +1245,23 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_QCOM_render_pass_store_ops_EXTENSION_NAME => "VK_QCOM_render_pass_store_ops";
 
+        public static uint VK_NV_fragment_shading_rate_enums => 1;
+
+        public static uint VK_NV_FRAGMENT_SHADING_RATE_ENUMS_SPEC_VERSION => 1;
+
+        public static string VK_NV_FRAGMENT_SHADING_RATE_ENUMS_EXTENSION_NAME => "VK_NV_fragment_shading_rate_enums";
+
         public static uint VK_EXT_fragment_density_map2 => 1;
 
         public static uint VK_EXT_FRAGMENT_DENSITY_MAP_2_SPEC_VERSION => 1;
 
         public static string VK_EXT_FRAGMENT_DENSITY_MAP_2_EXTENSION_NAME => "VK_EXT_fragment_density_map2";
+
+        public static uint VK_QCOM_rotated_copy_commands => 1;
+
+        public static uint VK_QCOM_rotated_copy_commands_SPEC_VERSION => 0;
+
+        public static string VK_QCOM_rotated_copy_commands_EXTENSION_NAME => "VK_QCOM_rotated_copy_commands";
 
         public static uint VK_EXT_image_robustness => 1;
 
@@ -1226,6 +1274,24 @@ namespace AdamantiumVulkan.Core
         public static uint VK_EXT_4444_FORMATS_SPEC_VERSION => 1;
 
         public static string VK_EXT_4444_FORMATS_EXTENSION_NAME => "VK_EXT_4444_formats";
+
+        public static uint VK_KHR_acceleration_structure => 1;
+
+        public static uint VK_KHR_ACCELERATION_STRUCTURE_SPEC_VERSION => 11;
+
+        public static string VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_KHR_acceleration_structure";
+
+        public static uint VK_KHR_ray_tracing_pipeline => 1;
+
+        public static uint VK_KHR_RAY_TRACING_PIPELINE_SPEC_VERSION => 1;
+
+        public static string VK_KHR_RAY_TRACING_PIPELINE_EXTENSION_NAME => "VK_KHR_ray_tracing_pipeline";
+
+        public static uint VK_KHR_ray_query => 1;
+
+        public static uint VK_KHR_RAY_QUERY_SPEC_VERSION => 1;
+
+        public static string VK_KHR_RAY_QUERY_EXTENSION_NAME => "VK_KHR_ray_query";
 
     }
 

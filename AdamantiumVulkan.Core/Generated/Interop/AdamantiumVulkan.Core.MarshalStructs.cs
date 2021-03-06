@@ -6881,6 +6881,115 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderTerminateInvocation;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkFragmentShadingRateAttachmentInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public System.IntPtr pFragmentShadingRateAttachment;
+
+        public VkExtent2D shadingRateAttachmentTexelSize;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPipelineFragmentShadingRateStateCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkExtent2D fragmentSize;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public uint[] combinerOps;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentShadingRateFeaturesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint pipelineFragmentShadingRate;
+
+        public uint primitiveFragmentShadingRate;
+
+        public uint attachmentFragmentShadingRate;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentShadingRatePropertiesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkExtent2D minFragmentShadingRateAttachmentTexelSize;
+
+        public VkExtent2D maxFragmentShadingRateAttachmentTexelSize;
+
+        public uint maxFragmentShadingRateAttachmentTexelSizeAspectRatio;
+
+        public uint primitiveFragmentShadingRateWithMultipleViewports;
+
+        public uint layeredShadingRateAttachments;
+
+        public uint fragmentShadingRateNonTrivialCombinerOps;
+
+        public VkExtent2D maxFragmentSize;
+
+        public uint maxFragmentSizeAspectRatio;
+
+        public uint maxFragmentShadingRateCoverageSamples;
+
+        public uint maxFragmentShadingRateRasterizationSamples;
+
+        public uint fragmentShadingRateWithShaderDepthStencilWrites;
+
+        public uint fragmentShadingRateWithSampleMask;
+
+        public uint fragmentShadingRateWithShaderSampleMask;
+
+        public uint fragmentShadingRateWithConservativeRasterization;
+
+        public uint fragmentShadingRateWithFragmentShaderInterlock;
+
+        public uint fragmentShadingRateWithCustomSampleLocations;
+
+        public uint fragmentShadingRateStrictMultiplyCombiner;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentShadingRateKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint sampleCounts;
+
+        public VkExtent2D fragmentSize;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkSurfaceProtectedCapabilitiesKHR
     {
         public uint sType;
@@ -6888,6 +6997,18 @@ namespace AdamantiumVulkan.Core.Interop
         public System.IntPtr pNext;
 
         public uint supportsProtected;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeferredOperationKHR_T
+    {
+        public System.IntPtr pointer;
+
+        public VkDeferredOperationKHR_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
 
     }
 
@@ -6976,6 +7097,19 @@ namespace AdamantiumVulkan.Core.Interop
         public ulong dataSize;
 
         public System.IntPtr pData;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPipelineLibraryCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint libraryCount;
+
+        public System.IntPtr pLibraries;
 
     }
 
@@ -8787,11 +8921,11 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkAccelerationStructureKHR_T
+    public partial struct VkAccelerationStructureNV_T
     {
         public System.IntPtr pointer;
 
-        public VkAccelerationStructureKHR_T(System.IntPtr pointer)
+        public VkAccelerationStructureNV_T(System.IntPtr pointer)
         {
             this.pointer = pointer;
         }
@@ -9057,13 +9191,13 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkBindAccelerationStructureMemoryInfoKHR
+    public partial struct VkBindAccelerationStructureMemoryInfoNV
     {
         public uint sType;
 
         public System.IntPtr pNext;
 
-        public VkAccelerationStructureKHR_T accelerationStructure;
+        public VkAccelerationStructureNV_T accelerationStructure;
 
         public VkDeviceMemory_T memory;
 
@@ -9076,7 +9210,7 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public partial struct VkWriteDescriptorSetAccelerationStructureKHR
+    public partial struct VkWriteDescriptorSetAccelerationStructureNV
     {
         public uint sType;
 
@@ -9097,7 +9231,7 @@ namespace AdamantiumVulkan.Core.Interop
 
         public uint type;
 
-        public VkAccelerationStructureKHR_T accelerationStructure;
+        public VkAccelerationStructureNV_T accelerationStructure;
 
     }
 
@@ -9841,6 +9975,19 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderImageInt64Atomics;
+
+        public uint sparseImageInt64Atomics;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceMemoryBudgetPropertiesEXT
     {
         public uint sType;
@@ -10570,6 +10717,73 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceMemoryReportFlagsEXT
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkDeviceMemoryReportFlagsEXT v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkDeviceMemoryReportFlagsEXT(uint v)
+        {
+            return new VkDeviceMemoryReportFlagsEXT(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceDeviceMemoryReportFeaturesEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint deviceMemoryReport;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceMemoryReportCallbackDataEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint type;
+
+        public ulong memoryObjectId;
+
+        public ulong size;
+
+        public uint objectType;
+
+        public ulong objectHandle;
+
+        public uint heapIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkDeviceDeviceMemoryReportCreateInfoEXT
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public System.IntPtr pfnUserCallback;
+
+        public System.IntPtr pUserData;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceRobustness2FeaturesEXT
     {
         public uint sType;
@@ -10749,6 +10963,48 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint fragmentShadingRateEnums;
+
+        public uint supersampleFragmentShadingRates;
+
+        public uint noInvocationFragmentShadingRates;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint maxFragmentShadingRateInvocationCount;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPipelineFragmentShadingRateEnumStateCreateInfoNV
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shadingRateType;
+
+        public uint shadingRate;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public uint[] combinerOps;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceFragmentDensityMap2FeaturesEXT
     {
         public uint sType;
@@ -10777,6 +11033,17 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyCommandTransformInfoQCOM
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint transform;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public partial struct VkPhysicalDeviceImageRobustnessFeaturesEXT
     {
         public uint sType;
@@ -10797,6 +11064,444 @@ namespace AdamantiumVulkan.Core.Interop
         public uint formatA4R4G4B4;
 
         public uint formatA4B4G4R4;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureKHR_T
+    {
+        public System.IntPtr pointer;
+
+        public VkAccelerationStructureKHR_T(System.IntPtr pointer)
+        {
+            this.pointer = pointer;
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureCreateFlagsKHR
+    {
+        public uint value;
+
+
+        public static implicit operator uint(VkAccelerationStructureCreateFlagsKHR v)
+        {
+            return v.value;
+        }
+
+        public static implicit operator VkAccelerationStructureCreateFlagsKHR(uint v)
+        {
+            return new VkAccelerationStructureCreateFlagsKHR(){value = v};
+        }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureBuildRangeInfoKHR
+    {
+        public uint primitiveCount;
+
+        public uint primitiveOffset;
+
+        public uint firstVertex;
+
+        public uint transformOffset;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureGeometryTrianglesDataKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint vertexFormat;
+
+        public VkDeviceOrHostAddressConstKHR vertexData;
+
+        public ulong vertexStride;
+
+        public uint maxVertex;
+
+        public uint indexType;
+
+        public VkDeviceOrHostAddressConstKHR indexData;
+
+        public VkDeviceOrHostAddressConstKHR transformData;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureGeometryAabbsDataKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkDeviceOrHostAddressConstKHR data;
+
+        public ulong stride;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureGeometryInstancesDataKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint arrayOfPointers;
+
+        public VkDeviceOrHostAddressConstKHR data;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureGeometryKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint geometryType;
+
+        public VkAccelerationStructureGeometryDataKHR geometry;
+
+        public uint flags;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureBuildGeometryInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint type;
+
+        public uint flags;
+
+        public uint mode;
+
+        public VkAccelerationStructureKHR_T srcAccelerationStructure;
+
+        public VkAccelerationStructureKHR_T dstAccelerationStructure;
+
+        public uint geometryCount;
+
+        public System.IntPtr pGeometries;
+
+        public System.IntPtr ppGeometries;
+
+        public VkDeviceOrHostAddressKHR scratchData;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint createFlags;
+
+        public VkBuffer_T buffer;
+
+        public ulong offset;
+
+        public ulong size;
+
+        public uint type;
+
+        public ulong deviceAddress;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkWriteDescriptorSetAccelerationStructureKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint accelerationStructureCount;
+
+        public System.IntPtr pAccelerationStructures;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceAccelerationStructureFeaturesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint accelerationStructure;
+
+        public uint accelerationStructureCaptureReplay;
+
+        public uint accelerationStructureIndirectBuild;
+
+        public uint accelerationStructureHostCommands;
+
+        public uint descriptorBindingAccelerationStructureUpdateAfterBind;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceAccelerationStructurePropertiesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong maxGeometryCount;
+
+        public ulong maxInstanceCount;
+
+        public ulong maxPrimitiveCount;
+
+        public uint maxPerStageDescriptorAccelerationStructures;
+
+        public uint maxPerStageDescriptorUpdateAfterBindAccelerationStructures;
+
+        public uint maxDescriptorSetAccelerationStructures;
+
+        public uint maxDescriptorSetUpdateAfterBindAccelerationStructures;
+
+        public uint minAccelerationStructureScratchOffsetAlignment;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureDeviceAddressInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkAccelerationStructureKHR_T accelerationStructure;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureVersionInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public System.IntPtr pVersionData;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyAccelerationStructureToMemoryInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkAccelerationStructureKHR_T src;
+
+        public VkDeviceOrHostAddressKHR dst;
+
+        public uint mode;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyMemoryToAccelerationStructureInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkDeviceOrHostAddressConstKHR src;
+
+        public VkAccelerationStructureKHR_T dst;
+
+        public uint mode;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkCopyAccelerationStructureInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public VkAccelerationStructureKHR_T src;
+
+        public VkAccelerationStructureKHR_T dst;
+
+        public uint mode;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkAccelerationStructureBuildSizesInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public ulong accelerationStructureSize;
+
+        public ulong updateScratchSize;
+
+        public ulong buildScratchSize;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRayTracingShaderGroupCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint type;
+
+        public uint generalShader;
+
+        public uint closestHitShader;
+
+        public uint anyHitShader;
+
+        public uint intersectionShader;
+
+        public System.IntPtr pShaderGroupCaptureReplayHandle;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRayTracingPipelineInterfaceCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint maxPipelineRayPayloadSize;
+
+        public uint maxPipelineRayHitAttributeSize;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkRayTracingPipelineCreateInfoKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint flags;
+
+        public uint stageCount;
+
+        public System.IntPtr pStages;
+
+        public uint groupCount;
+
+        public System.IntPtr pGroups;
+
+        public uint maxPipelineRayRecursionDepth;
+
+        public System.IntPtr pLibraryInfo;
+
+        public System.IntPtr pLibraryInterface;
+
+        public System.IntPtr pDynamicState;
+
+        public VkPipelineLayout_T layout;
+
+        public VkPipeline_T basePipelineHandle;
+
+        public int basePipelineIndex;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceRayTracingPipelineFeaturesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint rayTracingPipeline;
+
+        public uint rayTracingPipelineShaderGroupHandleCaptureReplay;
+
+        public uint rayTracingPipelineShaderGroupHandleCaptureReplayMixed;
+
+        public uint rayTracingPipelineTraceRaysIndirect;
+
+        public uint rayTraversalPrimitiveCulling;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceRayTracingPipelinePropertiesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint shaderGroupHandleSize;
+
+        public uint maxRayRecursionDepth;
+
+        public uint maxShaderGroupStride;
+
+        public uint shaderGroupBaseAlignment;
+
+        public uint shaderGroupHandleCaptureReplaySize;
+
+        public uint maxRayDispatchInvocationCount;
+
+        public uint shaderGroupHandleAlignment;
+
+        public uint maxRayHitAttributeSize;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkStridedDeviceAddressRegionKHR
+    {
+        public ulong deviceAddress;
+
+        public ulong stride;
+
+        public ulong size;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkTraceRaysIndirectCommandKHR
+    {
+        public uint width;
+
+        public uint height;
+
+        public uint depth;
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDeviceRayQueryFeaturesKHR
+    {
+        public uint sType;
+
+        public System.IntPtr pNext;
+
+        public uint rayQuery;
 
     }
 

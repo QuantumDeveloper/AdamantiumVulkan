@@ -629,122 +629,157 @@ namespace AdamantiumVulkan.SPIRV.Cross
         MslEnableBaseIndexZero = 134217773,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslIosFramebufferFetchSubpass = 134217774,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslInvariantFpMath = 134217775,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslEmulateCubemapArray = 134217776,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslEnableDecorationBinding = 134217777,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslForceActiveArgumentBufferResources = 134217778,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslForceNativeArrays = 134217779,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         EnableStorageImageQualifierDeduction = 16777268,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         HlslForceStorageBufferAsUav = 67108917,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         ForceZeroInitializedVariables = 16777270,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         HlslNonwritableUavTextureAsSrv = 67108919,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslEnableFragOutputMask = 134217784,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslEnableFragDepthBuiltin = 134217785,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslEnableFragStencilRefBuiltin = 134217786,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslEnableClipDistanceUserVarying = 134217787,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         HlslEnable16bitTypes = 67108924,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslMultiPatchWorkgroup = 134217789,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslShaderInputBufferIndex = 134217790,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslShaderIndexBufferIndex = 134217791,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslVertexForTessellation = 134217792,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslVertexIndexType = 134217793,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         GlslForceFlattenedIoBlocks = 33554498,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslMultiviewLayeredRendering = 134217795,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslArrayedSubpassInput = 134217796,
 
         ///<summary>
-        /// Obsolete, use SWIZZLE_BUFFER_INDEX instead.
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslR32uiLinearTextureAlignment = 134217797,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslR32uiAlignmentConstantId = 134217798,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        HlslFlattenMatrixVertexInputSemantics = 67108935,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslIosUseSimdgroupFunctions = 134217800,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslEmulateSubgroups = 134217801,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslFixedSubgroupSize = 134217802,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslForceSampleRateShading = 134217803,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         IntMax = 2147483647,
 
