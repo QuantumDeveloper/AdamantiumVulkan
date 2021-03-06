@@ -72,8 +72,6 @@ namespace AdamantiumVulkan.Core
 
         ErrorInvalidShaderNv = -1000012000,
 
-        ErrorIncompatibleVersionKhr = -1000150000,
-
         ErrorInvalidDrmFormatModifierPlaneLayoutExt = -1000158000,
 
         ErrorNotPermittedExt = -1000174001,
@@ -672,13 +670,9 @@ namespace AdamantiumVulkan.Core
 
         PipelineCoverageToColorStateCreateInfoNv = 1000149000,
 
-        BindAccelerationStructureMemoryInfoKhr = 1000165006,
-
-        WriteDescriptorSetAccelerationStructureKhr = 1000165007,
+        WriteDescriptorSetAccelerationStructureKhr = 1000150007,
 
         AccelerationStructureBuildGeometryInfoKhr = 1000150000,
-
-        AccelerationStructureCreateGeometryTypeInfoKhr = 1000150001,
 
         AccelerationStructureDeviceAddressInfoKhr = 1000150002,
 
@@ -690,9 +684,7 @@ namespace AdamantiumVulkan.Core
 
         AccelerationStructureGeometryKhr = 1000150006,
 
-        AccelerationStructureMemoryRequirementsInfoKhr = 1000150008,
-
-        AccelerationStructureVersionKhr = 1000150009,
+        AccelerationStructureVersionInfoKhr = 1000150009,
 
         CopyAccelerationStructureInfoKhr = 1000150010,
 
@@ -700,17 +692,25 @@ namespace AdamantiumVulkan.Core
 
         CopyMemoryToAccelerationStructureInfoKhr = 1000150012,
 
-        PhysicalDeviceRayTracingFeaturesKhr = 1000150013,
+        PhysicalDeviceAccelerationStructureFeaturesKhr = 1000150013,
 
-        PhysicalDeviceRayTracingPropertiesKhr = 1000150014,
+        PhysicalDeviceAccelerationStructurePropertiesKhr = 1000150014,
+
+        AccelerationStructureCreateInfoKhr = 1000150017,
+
+        AccelerationStructureBuildSizesInfoKhr = 1000150020,
+
+        PhysicalDeviceRayTracingPipelineFeaturesKhr = 1000347000,
+
+        PhysicalDeviceRayTracingPipelinePropertiesKhr = 1000347001,
 
         RayTracingPipelineCreateInfoKhr = 1000150015,
 
         RayTracingShaderGroupCreateInfoKhr = 1000150016,
 
-        AccelerationStructureCreateInfoKhr = 1000150017,
-
         RayTracingPipelineInterfaceCreateInfoKhr = 1000150018,
+
+        PhysicalDeviceRayQueryFeaturesKhr = 1000348013,
 
         PipelineCoverageModulationStateCreateInfoNv = 1000152000,
 
@@ -719,8 +719,6 @@ namespace AdamantiumVulkan.Core
         PhysicalDeviceShaderSmBuiltinsPropertiesNv = 1000154001,
 
         DrmFormatModifierPropertiesListExt = 1000158000,
-
-        DrmFormatModifierPropertiesExt = 1000158001,
 
         PhysicalDeviceImageDrmFormatModifierInfoExt = 1000158002,
 
@@ -755,6 +753,10 @@ namespace AdamantiumVulkan.Core
         GeometryTrianglesNv = 1000165004,
 
         GeometryAabbNv = 1000165005,
+
+        BindAccelerationStructureMemoryInfoNv = 1000165006,
+
+        WriteDescriptorSetAccelerationStructureNv = 1000165007,
 
         AccelerationStructureMemoryRequirementsInfoNv = 1000165008,
 
@@ -840,6 +842,8 @@ namespace AdamantiumVulkan.Core
 
         ImagepipeSurfaceCreateInfoFuchsia = 1000214000,
 
+        PhysicalDeviceShaderTerminateInvocationFeaturesKhr = 1000215000,
+
         MetalSurfaceCreateInfoExt = 1000217000,
 
         PhysicalDeviceFragmentDensityMapFeaturesExt = 1000218000,
@@ -854,9 +858,21 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceSubgroupSizeControlFeaturesExt = 1000225002,
 
+        FragmentShadingRateAttachmentInfoKhr = 1000226000,
+
+        PipelineFragmentShadingRateStateCreateInfoKhr = 1000226001,
+
+        PhysicalDeviceFragmentShadingRatePropertiesKhr = 1000226002,
+
+        PhysicalDeviceFragmentShadingRateFeaturesKhr = 1000226003,
+
+        PhysicalDeviceFragmentShadingRateKhr = 1000226004,
+
         PhysicalDeviceShaderCoreProperties2Amd = 1000227000,
 
         PhysicalDeviceCoherentMemoryFeaturesAmd = 1000229000,
+
+        PhysicalDeviceShaderImageAtomicInt64FeaturesExt = 1000234000,
 
         PhysicalDeviceMemoryBudgetPropertiesExt = 1000237000,
 
@@ -912,8 +928,6 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceExtendedDynamicStateFeaturesExt = 1000267000,
 
-        DeferredOperationInfoKhr = 1000268000,
-
         PhysicalDevicePipelineExecutablePropertiesFeaturesKhr = 1000269000,
 
         PipelineInfoKhr = 1000269001,
@@ -952,6 +966,12 @@ namespace AdamantiumVulkan.Core
 
         RenderPassTransformBeginInfoQcom = 1000282001,
 
+        PhysicalDeviceDeviceMemoryReportFeaturesExt = 1000284000,
+
+        DeviceDeviceMemoryReportCreateInfoExt = 1000284001,
+
+        DeviceMemoryReportCallbackDataExt = 1000284002,
+
         PhysicalDeviceRobustness2FeaturesExt = 1000286000,
 
         PhysicalDeviceRobustness2PropertiesExt = 1000286001,
@@ -976,9 +996,17 @@ namespace AdamantiumVulkan.Core
 
         DeviceDiagnosticsConfigCreateInfoNv = 1000300001,
 
+        PhysicalDeviceFragmentShadingRateEnumsPropertiesNv = 1000326000,
+
+        PhysicalDeviceFragmentShadingRateEnumsFeaturesNv = 1000326001,
+
+        PipelineFragmentShadingRateEnumStateCreateInfoNv = 1000326002,
+
         PhysicalDeviceFragmentDensityMap2FeaturesExt = 1000332000,
 
         PhysicalDeviceFragmentDensityMap2PropertiesExt = 1000332001,
+
+        CopyCommandTransformInfoQcom = 1000333000,
 
         PhysicalDeviceImageRobustnessFeaturesExt = 1000335000,
 
@@ -1126,9 +1154,11 @@ namespace AdamantiumVulkan.Core
 
         DebugUtilsMessengerExt = 1000128000,
 
-        AccelerationStructureKhr = 1000165000,
+        AccelerationStructureKhr = 1000150000,
 
         ValidationCacheExt = 1000160000,
+
+        AccelerationStructureNv = 1000165000,
 
         PerformanceConfigurationIntel = 1000210000,
 
@@ -1737,9 +1767,11 @@ namespace AdamantiumVulkan.Core
 
         PerformanceQueryKhr = 1000116000,
 
-        AccelerationStructureCompactedSizeKhr = 1000165000,
+        AccelerationStructureCompactedSizeKhr = 1000150000,
 
-        AccelerationStructureSerializationSizeKhr = 1000150000,
+        AccelerationStructureSerializationSizeKhr = 1000150001,
+
+        AccelerationStructureCompactedSizeNv = 1000165000,
 
         PerformanceQueryIntel = 1000210000,
 
@@ -1998,11 +2030,15 @@ namespace AdamantiumVulkan.Core
 
         SampleLocationsExt = 1000143000,
 
+        RayTracingPipelineStackSizeKhr = 1000347000,
+
         ViewportShadingRatePaletteNv = 1000164004,
 
         ViewportCoarseSampleOrderNv = 1000164006,
 
         ExclusiveScissorNv = 1000205001,
+
+        FragmentShadingRateKhr = 1000226000,
 
         LineStippleExt = 1000259000,
 
@@ -2245,7 +2281,9 @@ namespace AdamantiumVulkan.Core
 
         InlineUniformBlockExt = 1000138000,
 
-        AccelerationStructureKhr = 1000165000,
+        AccelerationStructureKhr = 1000150000,
+
+        AccelerationStructureNv = 1000165000,
 
         MaxEnum = 2147483647,
 
@@ -2471,6 +2509,8 @@ namespace AdamantiumVulkan.Core
 
         FragmentDensityMapBitExt = 16777216,
 
+        FragmentShadingRateAttachmentBitKhr = 1073741824,
+
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -2661,9 +2701,9 @@ namespace AdamantiumVulkan.Core
 
         ConditionalRenderingBitExt = 262144,
 
-        RayTracingShaderBitKhr = 2097152,
-
         AccelerationStructureBuildBitKhr = 33554432,
+
+        RayTracingShaderBitKhr = 2097152,
 
         ShadingRateImageBitNv = 4194304,
 
@@ -2800,7 +2840,11 @@ namespace AdamantiumVulkan.Core
 
         ConditionalRenderingBitExt = 512,
 
-        RayTracingBitKhr = 1024,
+        AccelerationStructureBuildInputReadOnlyBitKhr = 524288,
+
+        AccelerationStructureStorageBitKhr = 1048576,
+
+        ShaderBindingTableBitKhr = 1024,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2872,6 +2916,8 @@ namespace AdamantiumVulkan.Core
         RayTracingSkipTrianglesBitKhr = 4096,
 
         RayTracingSkipAabbsBitKhr = 8192,
+
+        RayTracingShaderGroupHandleCaptureReplayBitKhr = 524288,
 
         DeferCompileBitNv = 32,
 
@@ -3656,9 +3702,9 @@ namespace AdamantiumVulkan.Core
     [Flags]
     public enum PerformanceCounterDescriptionFlagBitsKHR : uint
     {
-        PerformanceImpactingKhr = 1,
+        PerformanceImpactingBitKhr = 1,
 
-        ConcurrentlyImpactedKhr = 2,
+        ConcurrentlyImpactedBitKhr = 2,
 
         FlagBitsMaxEnumKhr = 2147483647,
 
@@ -3668,6 +3714,22 @@ namespace AdamantiumVulkan.Core
     public enum AcquireProfilingLockFlagBitsKHR : uint
     {
         VkAcquireProfilingLockFlagBitsMaxEnumKhr = 2147483647,
+
+    }
+
+    public enum FragmentShadingRateCombinerOpKHR : uint
+    {
+        KeepKhr = 0,
+
+        ReplaceKhr = 1,
+
+        MinKhr = 2,
+
+        MaxKhr = 3,
+
+        MulKhr = 4,
+
+        MaxEnumKhr = 2147483647,
 
     }
 
@@ -3755,7 +3817,9 @@ namespace AdamantiumVulkan.Core
 
         DescriptorUpdateTemplateExt = 1000085000,
 
-        AccelerationStructureKhrExt = 1000165000,
+        AccelerationStructureKhrExt = 1000150000,
+
+        AccelerationStructureNvExt = 1000165000,
 
         MaxEnumExt = 2147483647,
 
@@ -3853,7 +3917,7 @@ namespace AdamantiumVulkan.Core
     [Flags]
     public enum SurfaceCounterFlagBitsEXT : uint
     {
-        VblankExt = 1,
+        VblankBitExt = 1,
 
         FlagBitsMaxEnumExt = 2147483647,
 
@@ -4057,13 +4121,14 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    [Flags]
     public enum GeometryTypeKHR : uint
     {
         TrianglesKhr = 0,
 
         AabbsKhr = 1,
 
-        InstancesKhr = 1000150000,
+        InstancesKhr = 2,
 
         MaxEnumKhr = 2147483647,
 
@@ -4075,6 +4140,8 @@ namespace AdamantiumVulkan.Core
         TopLevelKhr = 0,
 
         BottomLevelKhr = 1,
+
+        GenericKhr = 2,
 
         MaxEnumKhr = 2147483647,
 
@@ -4095,15 +4162,15 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum AccelerationStructureMemoryRequirementsTypeKHR : uint
+    public enum AccelerationStructureMemoryRequirementsTypeNV : uint
     {
-        ObjectKhr = 0,
+        ObjectNv = 0,
 
-        BuildScratchKhr = 1,
+        BuildScratchNv = 1,
 
-        UpdateScratchKhr = 2,
+        UpdateScratchNv = 2,
 
-        MaxEnumKhr = 2147483647,
+        MaxEnumNv = 2147483647,
 
     }
 
@@ -4443,6 +4510,22 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public enum DeviceMemoryReportEventTypeEXT : uint
+    {
+        AllocateExt = 0,
+
+        FreeExt = 1,
+
+        ImportExt = 2,
+
+        UnimportExt = 3,
+
+        AllocationFailedExt = 4,
+
+        MaxEnumExt = 2147483647,
+
+    }
+
     [Flags]
     public enum PrivateDataSlotCreateFlagBitsEXT : uint
     {
@@ -4460,6 +4543,105 @@ namespace AdamantiumVulkan.Core
         EnableAutomaticCheckpointsBitNv = 4,
 
         FlagBitsMaxEnumNv = 2147483647,
+
+    }
+
+    [Flags]
+    public enum FragmentShadingRateTypeNV : uint
+    {
+        FragmentSizeNv = 0,
+
+        EnumsNv = 1,
+
+        MaxEnumNv = 2147483647,
+
+    }
+
+    public enum FragmentShadingRateNV : uint
+    {
+        _1InvocationPerPixelNv = 0,
+
+        _1InvocationPer1x2PixelsNv = 1,
+
+        _1InvocationPer2x1PixelsNv = 4,
+
+        _1InvocationPer2x2PixelsNv = 5,
+
+        _1InvocationPer2x4PixelsNv = 6,
+
+        _1InvocationPer4x2PixelsNv = 9,
+
+        _1InvocationPer4x4PixelsNv = 10,
+
+        _2InvocationsPerPixelNv = 11,
+
+        _4InvocationsPerPixelNv = 12,
+
+        _8InvocationsPerPixelNv = 13,
+
+        _16InvocationsPerPixelNv = 14,
+
+        NoInvocationsNv = 15,
+
+        MaxEnumNv = 2147483647,
+
+    }
+
+    [Flags]
+    public enum BuildAccelerationStructureModeKHR : uint
+    {
+        BuildKhr = 0,
+
+        UpdateKhr = 1,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
+    [Flags]
+    public enum AccelerationStructureBuildTypeKHR : uint
+    {
+        HostKhr = 0,
+
+        DeviceKhr = 1,
+
+        HostOrDeviceKhr = 2,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
+    [Flags]
+    public enum AccelerationStructureCompatibilityKHR : uint
+    {
+        CompatibleKhr = 0,
+
+        IncompatibleKhr = 1,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
+    [Flags]
+    public enum AccelerationStructureCreateFlagBitsKHR : uint
+    {
+        DeviceAddressCaptureReplayBitKhr = 1,
+
+        FlagBitsMaxEnumKhr = 2147483647,
+
+    }
+
+    public enum ShaderGroupShaderKHR : uint
+    {
+        GeneralKhr = 0,
+
+        ClosestHitKhr = 1,
+
+        AnyHitKhr = 2,
+
+        IntersectionKhr = 3,
+
+        MaxEnumKhr = 2147483647,
 
     }
 

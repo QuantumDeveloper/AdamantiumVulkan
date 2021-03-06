@@ -9752,13 +9752,20 @@ namespace AdamantiumVulkan.Core
             SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             ViewFormatCount = _internal.viewFormatCount;
-            PViewFormats = (AdamantiumVulkan.Core.Format)Marshal.PtrToStructure<uint>(_internal.pViewFormats);
+            var tmppViewFormats = new uint[_internal.viewFormatCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pViewFormats, tmppViewFormats);
+            Marshal.FreeHGlobal(_internal.pViewFormats);
+            PViewFormats = new AdamantiumVulkan.Core.Format[_internal.viewFormatCount];
+            for (int i = 0; i < tmppViewFormats.Length; ++i)
+            {
+                PViewFormats[i] = (AdamantiumVulkan.Core.Format)tmppViewFormats[i];
+            }
         }
 
         public StructureType SType { get; set; }
         public System.IntPtr PNext { get; set; }
         public uint ViewFormatCount { get; set; }
-        public Format PViewFormats { get; set; }
+        public Format[] PViewFormats { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo ToInternal()
         {
@@ -9769,7 +9776,12 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
             if (PViewFormats != null)
             {
-                refpViewFormats = new GCHandleReference(PViewFormats);
+                var tmpArray0 = new uint[PViewFormats.Length];
+                for (int i = 0; i < PViewFormats.Length; ++i)
+                {
+                    tmpArray0[i] = (uint)PViewFormats[i];
+                }
+                refpViewFormats = new GCHandleReference(tmpArray0);
                 _internal.pViewFormats = refpViewFormats.Handle;
             }
             return _internal;
@@ -11163,7 +11175,14 @@ namespace AdamantiumVulkan.Core
             Height = _internal.height;
             LayerCount = _internal.layerCount;
             ViewFormatCount = _internal.viewFormatCount;
-            PViewFormats = (AdamantiumVulkan.Core.Format)Marshal.PtrToStructure<uint>(_internal.pViewFormats);
+            var tmppViewFormats = new uint[_internal.viewFormatCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pViewFormats, tmppViewFormats);
+            Marshal.FreeHGlobal(_internal.pViewFormats);
+            PViewFormats = new AdamantiumVulkan.Core.Format[_internal.viewFormatCount];
+            for (int i = 0; i < tmppViewFormats.Length; ++i)
+            {
+                PViewFormats[i] = (AdamantiumVulkan.Core.Format)tmppViewFormats[i];
+            }
         }
 
         public StructureType SType { get; set; }
@@ -11174,7 +11193,7 @@ namespace AdamantiumVulkan.Core
         public uint Height { get; set; }
         public uint LayerCount { get; set; }
         public uint ViewFormatCount { get; set; }
-        public Format PViewFormats { get; set; }
+        public Format[] PViewFormats { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo ToInternal()
         {
@@ -11190,7 +11209,12 @@ namespace AdamantiumVulkan.Core
             refpViewFormats?.Dispose();
             if (PViewFormats != null)
             {
-                refpViewFormats = new GCHandleReference(PViewFormats);
+                var tmpArray0 = new uint[PViewFormats.Length];
+                for (int i = 0; i < PViewFormats.Length; ++i)
+                {
+                    tmpArray0[i] = (uint)PViewFormats[i];
+                }
+                refpViewFormats = new GCHandleReference(tmpArray0);
                 _internal.pViewFormats = refpViewFormats.Handle;
             }
             return _internal;
@@ -14059,6 +14083,314 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class PhysicalDeviceShaderTerminateInvocationFeaturesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceShaderTerminateInvocationFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceShaderTerminateInvocationFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ShaderTerminateInvocation = System.Convert.ToBoolean(_internal.shaderTerminateInvocation);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderTerminateInvocation { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.shaderTerminateInvocation = System.Convert.ToUInt32(ShaderTerminateInvocation);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceShaderTerminateInvocationFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR p)
+        {
+            return new PhysicalDeviceShaderTerminateInvocationFeaturesKHR(p);
+        }
+
+    }
+
+    public partial class FragmentShadingRateAttachmentInfoKHR : QBDisposableObject
+    {
+        private StructReference refpFragmentShadingRateAttachment;
+
+        public FragmentShadingRateAttachmentInfoKHR()
+        {
+        }
+
+        public FragmentShadingRateAttachmentInfoKHR(AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            PFragmentShadingRateAttachment = new AttachmentReference2(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(_internal.pFragmentShadingRateAttachment));
+            Marshal.FreeHGlobal(_internal.pFragmentShadingRateAttachment);
+            ShadingRateAttachmentTexelSize = new Extent2D(_internal.shadingRateAttachmentTexelSize);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public AttachmentReference2 PFragmentShadingRateAttachment { get; set; }
+        public Extent2D ShadingRateAttachmentTexelSize { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            refpFragmentShadingRateAttachment?.Dispose();
+            if (PFragmentShadingRateAttachment != null)
+            {
+                var struct0 = PFragmentShadingRateAttachment.ToInternal();
+                refpFragmentShadingRateAttachment = new StructReference(struct0);
+                _internal.pFragmentShadingRateAttachment = refpFragmentShadingRateAttachment.Handle;
+            }
+            if (ShadingRateAttachmentTexelSize != null)
+            {
+                _internal.shadingRateAttachmentTexelSize = ShadingRateAttachmentTexelSize.ToInternal();
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpFragmentShadingRateAttachment?.Dispose();
+        }
+
+
+        public static implicit operator FragmentShadingRateAttachmentInfoKHR(AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR f)
+        {
+            return new FragmentShadingRateAttachmentInfoKHR(f);
+        }
+
+    }
+
+    public partial class PipelineFragmentShadingRateStateCreateInfoKHR : QBDisposableObject
+    {
+        public PipelineFragmentShadingRateStateCreateInfoKHR()
+        {
+        }
+
+        public PipelineFragmentShadingRateStateCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            FragmentSize = new Extent2D(_internal.fragmentSize);
+            CombinerOps = new FragmentShadingRateCombinerOpKHR[2];
+            for (int i = 0; i < 2; ++i)
+            {
+                CombinerOps[i] = (FragmentShadingRateCombinerOpKHR)(_internal.combinerOps[i]);
+            }
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Extent2D FragmentSize { get; set; }
+        public FragmentShadingRateCombinerOpKHR[] CombinerOps { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (FragmentSize != null)
+            {
+                _internal.fragmentSize = FragmentSize.ToInternal();
+            }
+            if(CombinerOps != null)
+            {
+                if (CombinerOps.Length > 2)
+                    throw new System.ArgumentOutOfRangeException(nameof(CombinerOps), "Array is out of bounds. Size should not be more than 2");
+
+                _internal.combinerOps = new uint[2];
+                for (int i = 0; i < CombinerOps.Length; ++i)
+                {
+                    _internal.combinerOps[i] = (uint)CombinerOps[i];
+                }
+            }
+            return _internal;
+        }
+
+        public static implicit operator PipelineFragmentShadingRateStateCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR p)
+        {
+            return new PipelineFragmentShadingRateStateCreateInfoKHR(p);
+        }
+
+    }
+
+    public partial class PhysicalDeviceFragmentShadingRateFeaturesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceFragmentShadingRateFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceFragmentShadingRateFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            PipelineFragmentShadingRate = System.Convert.ToBoolean(_internal.pipelineFragmentShadingRate);
+            PrimitiveFragmentShadingRate = System.Convert.ToBoolean(_internal.primitiveFragmentShadingRate);
+            AttachmentFragmentShadingRate = System.Convert.ToBoolean(_internal.attachmentFragmentShadingRate);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool PipelineFragmentShadingRate { get; set; }
+        public bool PrimitiveFragmentShadingRate { get; set; }
+        public bool AttachmentFragmentShadingRate { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.pipelineFragmentShadingRate = System.Convert.ToUInt32(PipelineFragmentShadingRate);
+            _internal.primitiveFragmentShadingRate = System.Convert.ToUInt32(PrimitiveFragmentShadingRate);
+            _internal.attachmentFragmentShadingRate = System.Convert.ToUInt32(AttachmentFragmentShadingRate);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceFragmentShadingRateFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR p)
+        {
+            return new PhysicalDeviceFragmentShadingRateFeaturesKHR(p);
+        }
+
+    }
+
+    public partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceFragmentShadingRatePropertiesKHR()
+        {
+        }
+
+        public PhysicalDeviceFragmentShadingRatePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            MinFragmentShadingRateAttachmentTexelSize = new Extent2D(_internal.minFragmentShadingRateAttachmentTexelSize);
+            MaxFragmentShadingRateAttachmentTexelSize = new Extent2D(_internal.maxFragmentShadingRateAttachmentTexelSize);
+            MaxFragmentShadingRateAttachmentTexelSizeAspectRatio = _internal.maxFragmentShadingRateAttachmentTexelSizeAspectRatio;
+            PrimitiveFragmentShadingRateWithMultipleViewports = System.Convert.ToBoolean(_internal.primitiveFragmentShadingRateWithMultipleViewports);
+            LayeredShadingRateAttachments = System.Convert.ToBoolean(_internal.layeredShadingRateAttachments);
+            FragmentShadingRateNonTrivialCombinerOps = System.Convert.ToBoolean(_internal.fragmentShadingRateNonTrivialCombinerOps);
+            MaxFragmentSize = new Extent2D(_internal.maxFragmentSize);
+            MaxFragmentSizeAspectRatio = _internal.maxFragmentSizeAspectRatio;
+            MaxFragmentShadingRateCoverageSamples = _internal.maxFragmentShadingRateCoverageSamples;
+            MaxFragmentShadingRateRasterizationSamples = (SampleCountFlagBits)_internal.maxFragmentShadingRateRasterizationSamples;
+            FragmentShadingRateWithShaderDepthStencilWrites = System.Convert.ToBoolean(_internal.fragmentShadingRateWithShaderDepthStencilWrites);
+            FragmentShadingRateWithSampleMask = System.Convert.ToBoolean(_internal.fragmentShadingRateWithSampleMask);
+            FragmentShadingRateWithShaderSampleMask = System.Convert.ToBoolean(_internal.fragmentShadingRateWithShaderSampleMask);
+            FragmentShadingRateWithConservativeRasterization = System.Convert.ToBoolean(_internal.fragmentShadingRateWithConservativeRasterization);
+            FragmentShadingRateWithFragmentShaderInterlock = System.Convert.ToBoolean(_internal.fragmentShadingRateWithFragmentShaderInterlock);
+            FragmentShadingRateWithCustomSampleLocations = System.Convert.ToBoolean(_internal.fragmentShadingRateWithCustomSampleLocations);
+            FragmentShadingRateStrictMultiplyCombiner = System.Convert.ToBoolean(_internal.fragmentShadingRateStrictMultiplyCombiner);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Extent2D MinFragmentShadingRateAttachmentTexelSize { get; set; }
+        public Extent2D MaxFragmentShadingRateAttachmentTexelSize { get; set; }
+        public uint MaxFragmentShadingRateAttachmentTexelSizeAspectRatio { get; set; }
+        public bool PrimitiveFragmentShadingRateWithMultipleViewports { get; set; }
+        public bool LayeredShadingRateAttachments { get; set; }
+        public bool FragmentShadingRateNonTrivialCombinerOps { get; set; }
+        public Extent2D MaxFragmentSize { get; set; }
+        public uint MaxFragmentSizeAspectRatio { get; set; }
+        public uint MaxFragmentShadingRateCoverageSamples { get; set; }
+        public SampleCountFlagBits MaxFragmentShadingRateRasterizationSamples { get; set; }
+        public bool FragmentShadingRateWithShaderDepthStencilWrites { get; set; }
+        public bool FragmentShadingRateWithSampleMask { get; set; }
+        public bool FragmentShadingRateWithShaderSampleMask { get; set; }
+        public bool FragmentShadingRateWithConservativeRasterization { get; set; }
+        public bool FragmentShadingRateWithFragmentShaderInterlock { get; set; }
+        public bool FragmentShadingRateWithCustomSampleLocations { get; set; }
+        public bool FragmentShadingRateStrictMultiplyCombiner { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (MinFragmentShadingRateAttachmentTexelSize != null)
+            {
+                _internal.minFragmentShadingRateAttachmentTexelSize = MinFragmentShadingRateAttachmentTexelSize.ToInternal();
+            }
+            if (MaxFragmentShadingRateAttachmentTexelSize != null)
+            {
+                _internal.maxFragmentShadingRateAttachmentTexelSize = MaxFragmentShadingRateAttachmentTexelSize.ToInternal();
+            }
+            _internal.maxFragmentShadingRateAttachmentTexelSizeAspectRatio = MaxFragmentShadingRateAttachmentTexelSizeAspectRatio;
+            _internal.primitiveFragmentShadingRateWithMultipleViewports = System.Convert.ToUInt32(PrimitiveFragmentShadingRateWithMultipleViewports);
+            _internal.layeredShadingRateAttachments = System.Convert.ToUInt32(LayeredShadingRateAttachments);
+            _internal.fragmentShadingRateNonTrivialCombinerOps = System.Convert.ToUInt32(FragmentShadingRateNonTrivialCombinerOps);
+            if (MaxFragmentSize != null)
+            {
+                _internal.maxFragmentSize = MaxFragmentSize.ToInternal();
+            }
+            _internal.maxFragmentSizeAspectRatio = MaxFragmentSizeAspectRatio;
+            _internal.maxFragmentShadingRateCoverageSamples = MaxFragmentShadingRateCoverageSamples;
+            _internal.maxFragmentShadingRateRasterizationSamples = (uint)MaxFragmentShadingRateRasterizationSamples;
+            _internal.fragmentShadingRateWithShaderDepthStencilWrites = System.Convert.ToUInt32(FragmentShadingRateWithShaderDepthStencilWrites);
+            _internal.fragmentShadingRateWithSampleMask = System.Convert.ToUInt32(FragmentShadingRateWithSampleMask);
+            _internal.fragmentShadingRateWithShaderSampleMask = System.Convert.ToUInt32(FragmentShadingRateWithShaderSampleMask);
+            _internal.fragmentShadingRateWithConservativeRasterization = System.Convert.ToUInt32(FragmentShadingRateWithConservativeRasterization);
+            _internal.fragmentShadingRateWithFragmentShaderInterlock = System.Convert.ToUInt32(FragmentShadingRateWithFragmentShaderInterlock);
+            _internal.fragmentShadingRateWithCustomSampleLocations = System.Convert.ToUInt32(FragmentShadingRateWithCustomSampleLocations);
+            _internal.fragmentShadingRateStrictMultiplyCombiner = System.Convert.ToUInt32(FragmentShadingRateStrictMultiplyCombiner);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceFragmentShadingRatePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR p)
+        {
+            return new PhysicalDeviceFragmentShadingRatePropertiesKHR(p);
+        }
+
+    }
+
+    public partial class PhysicalDeviceFragmentShadingRateKHR : QBDisposableObject
+    {
+        public PhysicalDeviceFragmentShadingRateKHR()
+        {
+        }
+
+        public PhysicalDeviceFragmentShadingRateKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            SampleCounts = _internal.sampleCounts;
+            FragmentSize = new Extent2D(_internal.fragmentSize);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint SampleCounts { get; set; }
+        public Extent2D FragmentSize { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.sampleCounts = SampleCounts;
+            if (FragmentSize != null)
+            {
+                _internal.fragmentSize = FragmentSize.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceFragmentShadingRateKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR p)
+        {
+            return new PhysicalDeviceFragmentShadingRateKHR(p);
+        }
+
+    }
+
     public partial class SurfaceProtectedCapabilitiesKHR : QBDisposableObject
     {
         public SurfaceProtectedCapabilitiesKHR()
@@ -14478,6 +14810,57 @@ namespace AdamantiumVulkan.Core
         public static implicit operator PipelineExecutableInternalRepresentationKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR p)
         {
             return new PipelineExecutableInternalRepresentationKHR(p);
+        }
+
+    }
+
+    public partial class PipelineLibraryCreateInfoKHR : QBDisposableObject
+    {
+        private StructReference refpLibraries;
+
+        public PipelineLibraryCreateInfoKHR()
+        {
+        }
+
+        public PipelineLibraryCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            LibraryCount = _internal.libraryCount;
+            PLibraries = new Pipeline(Marshal.PtrToStructure<Pipeline>(_internal.pLibraries));
+            Marshal.FreeHGlobal(_internal.pLibraries);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint LibraryCount { get; set; }
+        public Pipeline PLibraries { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.libraryCount = LibraryCount;
+            refpLibraries?.Dispose();
+            if (PLibraries != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkPipeline_T struct0 = PLibraries;
+                refpLibraries = new StructReference(struct0);
+                _internal.pLibraries = refpLibraries.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpLibraries?.Dispose();
+        }
+
+
+        public static implicit operator PipelineLibraryCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR p)
+        {
+            return new PipelineLibraryCreateInfoKHR(p);
         }
 
     }
@@ -19305,19 +19688,18 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class BindAccelerationStructureMemoryInfoKHR : QBDisposableObject
+    public partial class BindAccelerationStructureMemoryInfoNV : QBDisposableObject
     {
         private StructReference refpDeviceIndices;
 
-        public BindAccelerationStructureMemoryInfoKHR()
+        public BindAccelerationStructureMemoryInfoNV()
         {
         }
 
-        public BindAccelerationStructureMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoKHR _internal)
+        public BindAccelerationStructureMemoryInfoNV(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV _internal)
         {
-            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
-            AccelerationStructure = new AccelerationStructureKHR(_internal.accelerationStructure);
+            AccelerationStructure = new AccelerationStructureNV(_internal.accelerationStructure);
             Memory = new DeviceMemory(_internal.memory);
             MemoryOffset = _internal.memoryOffset;
             DeviceIndexCount = _internal.deviceIndexCount;
@@ -19328,17 +19710,17 @@ namespace AdamantiumVulkan.Core
             }
         }
 
-        public StructureType SType { get; set; }
+        public StructureType SType => StructureType.BindAccelerationStructureMemoryInfoNv;
         public System.IntPtr PNext { get; set; }
-        public AccelerationStructureKHR AccelerationStructure { get; set; }
+        public AccelerationStructureNV AccelerationStructure { get; set; }
         public DeviceMemory Memory { get; set; }
         public ulong MemoryOffset { get; set; }
         public uint DeviceIndexCount { get; set; }
         public uint? PDeviceIndices { get; set; }
 
-        public AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoKHR ToInternal()
+        public AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV ToInternal()
         {
-            var _internal = new AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoKHR();
+            var _internal = new AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV();
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.accelerationStructure = AccelerationStructure;
@@ -19360,45 +19742,44 @@ namespace AdamantiumVulkan.Core
         }
 
 
-        public static implicit operator BindAccelerationStructureMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoKHR b)
+        public static implicit operator BindAccelerationStructureMemoryInfoNV(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV b)
         {
-            return new BindAccelerationStructureMemoryInfoKHR(b);
+            return new BindAccelerationStructureMemoryInfoNV(b);
         }
 
     }
 
-    public partial class WriteDescriptorSetAccelerationStructureKHR : QBDisposableObject
+    public partial class WriteDescriptorSetAccelerationStructureNV : QBDisposableObject
     {
         private StructReference refpAccelerationStructures;
 
-        public WriteDescriptorSetAccelerationStructureKHR()
+        public WriteDescriptorSetAccelerationStructureNV()
         {
         }
 
-        public WriteDescriptorSetAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR _internal)
+        public WriteDescriptorSetAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV _internal)
         {
-            SType = (StructureType)_internal.sType;
             PNext = _internal.pNext;
             AccelerationStructureCount = _internal.accelerationStructureCount;
-            PAccelerationStructures = new AccelerationStructureKHR(Marshal.PtrToStructure<AccelerationStructureKHR>(_internal.pAccelerationStructures));
+            PAccelerationStructures = new AccelerationStructureNV(Marshal.PtrToStructure<AccelerationStructureNV>(_internal.pAccelerationStructures));
             Marshal.FreeHGlobal(_internal.pAccelerationStructures);
         }
 
-        public StructureType SType { get; set; }
+        public StructureType SType => StructureType.WriteDescriptorSetAccelerationStructureNv;
         public System.IntPtr PNext { get; set; }
         public uint AccelerationStructureCount { get; set; }
-        public AccelerationStructureKHR PAccelerationStructures { get; set; }
+        public AccelerationStructureNV PAccelerationStructures { get; set; }
 
-        public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR ToInternal()
+        public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV ToInternal()
         {
-            var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR();
+            var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV();
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.accelerationStructureCount = AccelerationStructureCount;
             refpAccelerationStructures?.Dispose();
             if (PAccelerationStructures != null)
             {
-                AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T struct0 = PAccelerationStructures;
+                AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T struct0 = PAccelerationStructures;
                 refpAccelerationStructures = new StructReference(struct0);
                 _internal.pAccelerationStructures = refpAccelerationStructures.Handle;
             }
@@ -19411,9 +19792,9 @@ namespace AdamantiumVulkan.Core
         }
 
 
-        public static implicit operator WriteDescriptorSetAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR w)
+        public static implicit operator WriteDescriptorSetAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV w)
         {
-            return new WriteDescriptorSetAccelerationStructureKHR(w);
+            return new WriteDescriptorSetAccelerationStructureNV(w);
         }
 
     }
@@ -19427,13 +19808,13 @@ namespace AdamantiumVulkan.Core
         public AccelerationStructureMemoryRequirementsInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV _internal)
         {
             PNext = _internal.pNext;
-            Type = (AccelerationStructureMemoryRequirementsTypeKHR)_internal.type;
+            Type = (AccelerationStructureMemoryRequirementsTypeNV)_internal.type;
             AccelerationStructure = new AccelerationStructureNV(_internal.accelerationStructure);
         }
 
         public StructureType SType => StructureType.AccelerationStructureMemoryRequirementsInfoNv;
         public System.IntPtr PNext { get; set; }
-        public AccelerationStructureMemoryRequirementsTypeKHR Type { get; set; }
+        public AccelerationStructureMemoryRequirementsTypeNV Type { get; set; }
         public AccelerationStructureNV AccelerationStructure { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV ToInternal()
@@ -21418,6 +21799,42 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class PhysicalDeviceShaderImageAtomicInt64FeaturesEXT : QBDisposableObject
+    {
+        public PhysicalDeviceShaderImageAtomicInt64FeaturesEXT()
+        {
+        }
+
+        public PhysicalDeviceShaderImageAtomicInt64FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ShaderImageInt64Atomics = System.Convert.ToBoolean(_internal.shaderImageInt64Atomics);
+            SparseImageInt64Atomics = System.Convert.ToBoolean(_internal.sparseImageInt64Atomics);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool ShaderImageInt64Atomics { get; set; }
+        public bool SparseImageInt64Atomics { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.shaderImageInt64Atomics = System.Convert.ToUInt32(ShaderImageInt64Atomics);
+            _internal.sparseImageInt64Atomics = System.Convert.ToUInt32(SparseImageInt64Atomics);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceShaderImageAtomicInt64FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT p)
+        {
+            return new PhysicalDeviceShaderImageAtomicInt64FeaturesEXT(p);
+        }
+
+    }
+
     public partial class PhysicalDeviceMemoryBudgetPropertiesEXT : QBDisposableObject
     {
         public PhysicalDeviceMemoryBudgetPropertiesEXT()
@@ -22913,7 +23330,7 @@ namespace AdamantiumVulkan.Core
     {
         private GCHandleReference refpIndexTypes;
 
-        private StructReference refpIndexTypeValues;
+        private GCHandleReference refpIndexTypeValues;
 
         public IndirectCommandsLayoutTokenNV()
         {
@@ -22934,12 +23351,17 @@ namespace AdamantiumVulkan.Core
             PushconstantSize = _internal.pushconstantSize;
             IndirectStateFlags = _internal.indirectStateFlags;
             IndexTypeCount = _internal.indexTypeCount;
-            PIndexTypes = (AdamantiumVulkan.Core.IndexType)Marshal.PtrToStructure<uint>(_internal.pIndexTypes);
-            if(_internal.pIndexTypeValues != System.IntPtr.Zero)
+            var tmppIndexTypes = new uint[_internal.indexTypeCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pIndexTypes, tmppIndexTypes);
+            Marshal.FreeHGlobal(_internal.pIndexTypes);
+            PIndexTypes = new AdamantiumVulkan.Core.IndexType[_internal.indexTypeCount];
+            for (int i = 0; i < tmppIndexTypes.Length; ++i)
             {
-                PIndexTypeValues = (uint?)_internal.pIndexTypeValues;
-                Marshal.FreeHGlobal(_internal.pIndexTypeValues);
+                PIndexTypes[i] = (AdamantiumVulkan.Core.IndexType)tmppIndexTypes[i];
             }
+            PIndexTypeValues = new uint[_internal.indexTypeCount];
+            MarshalUtils.IntPtrToManagedArray<uint>(_internal.pIndexTypeValues, PIndexTypeValues);
+            Marshal.FreeHGlobal(_internal.pIndexTypeValues);
         }
 
         public StructureType SType { get; set; }
@@ -22955,8 +23377,8 @@ namespace AdamantiumVulkan.Core
         public uint PushconstantSize { get; set; }
         public uint IndirectStateFlags { get; set; }
         public uint IndexTypeCount { get; set; }
-        public IndexType PIndexTypes { get; set; }
-        public uint? PIndexTypeValues { get; set; }
+        public IndexType[] PIndexTypes { get; set; }
+        public uint[] PIndexTypeValues { get; set; }
 
         public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV ToInternal()
         {
@@ -22977,13 +23399,23 @@ namespace AdamantiumVulkan.Core
             refpIndexTypes?.Dispose();
             if (PIndexTypes != null)
             {
-                refpIndexTypes = new GCHandleReference(PIndexTypes);
+                var tmpArray0 = new uint[PIndexTypes.Length];
+                for (int i = 0; i < PIndexTypes.Length; ++i)
+                {
+                    tmpArray0[i] = (uint)PIndexTypes[i];
+                }
+                refpIndexTypes = new GCHandleReference(tmpArray0);
                 _internal.pIndexTypes = refpIndexTypes.Handle;
             }
             refpIndexTypeValues?.Dispose();
             if (PIndexTypeValues != null)
             {
-                refpIndexTypeValues = new StructReference(PIndexTypeValues);
+                var tmpArray1 = new uint[PIndexTypeValues.Length];
+                for (int i = 0; i < PIndexTypeValues.Length; ++i)
+                {
+                    tmpArray1[i] = PIndexTypeValues[i];
+                }
+                refpIndexTypeValues = new GCHandleReference(tmpArray1);
                 _internal.pIndexTypeValues = refpIndexTypeValues.Handle;
             }
             return _internal;
@@ -23347,6 +23779,129 @@ namespace AdamantiumVulkan.Core
         public static implicit operator CommandBufferInheritanceRenderPassTransformInfoQCOM(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderPassTransformInfoQCOM c)
         {
             return new CommandBufferInheritanceRenderPassTransformInfoQCOM(c);
+        }
+
+    }
+
+    public partial class PhysicalDeviceDeviceMemoryReportFeaturesEXT : QBDisposableObject
+    {
+        public PhysicalDeviceDeviceMemoryReportFeaturesEXT()
+        {
+        }
+
+        public PhysicalDeviceDeviceMemoryReportFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            DeviceMemoryReport = System.Convert.ToBoolean(_internal.deviceMemoryReport);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool DeviceMemoryReport { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.deviceMemoryReport = System.Convert.ToUInt32(DeviceMemoryReport);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceDeviceMemoryReportFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT p)
+        {
+            return new PhysicalDeviceDeviceMemoryReportFeaturesEXT(p);
+        }
+
+    }
+
+    public partial class DeviceMemoryReportCallbackDataEXT : QBDisposableObject
+    {
+        public DeviceMemoryReportCallbackDataEXT()
+        {
+        }
+
+        public DeviceMemoryReportCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Flags = _internal.flags;
+            Type = (DeviceMemoryReportEventTypeEXT)_internal.type;
+            MemoryObjectId = _internal.memoryObjectId;
+            Size = _internal.size;
+            ObjectType = (ObjectType)_internal.objectType;
+            ObjectHandle = _internal.objectHandle;
+            HeapIndex = _internal.heapIndex;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public DeviceMemoryReportEventTypeEXT Type { get; set; }
+        public ulong MemoryObjectId { get; set; }
+        public ulong Size { get; set; }
+        public ObjectType ObjectType { get; set; }
+        public ulong ObjectHandle { get; set; }
+        public uint HeapIndex { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.flags = Flags;
+            _internal.type = (uint)Type;
+            _internal.memoryObjectId = MemoryObjectId;
+            _internal.size = Size;
+            _internal.objectType = (uint)ObjectType;
+            _internal.objectHandle = ObjectHandle;
+            _internal.heapIndex = HeapIndex;
+            return _internal;
+        }
+
+        public static implicit operator DeviceMemoryReportCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT d)
+        {
+            return new DeviceMemoryReportCallbackDataEXT(d);
+        }
+
+    }
+
+    public partial class DeviceDeviceMemoryReportCreateInfoEXT : QBDisposableObject
+    {
+        public DeviceDeviceMemoryReportCreateInfoEXT()
+        {
+        }
+
+        public DeviceDeviceMemoryReportCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Flags = _internal.flags;
+            PfnUserCallback = _internal.pfnUserCallback;
+            PUserData = _internal.pUserData;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public System.IntPtr PfnUserCallback { get; set; }
+        public System.IntPtr PUserData { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.flags = Flags;
+            _internal.pfnUserCallback = PfnUserCallback;
+            _internal.pUserData = PUserData;
+            return _internal;
+        }
+
+        public static implicit operator DeviceDeviceMemoryReportCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT d)
+        {
+            return new DeviceDeviceMemoryReportCreateInfoEXT(d);
         }
 
     }
@@ -23732,6 +24287,131 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class PhysicalDeviceFragmentShadingRateEnumsFeaturesNV : QBDisposableObject
+    {
+        public PhysicalDeviceFragmentShadingRateEnumsFeaturesNV()
+        {
+        }
+
+        public PhysicalDeviceFragmentShadingRateEnumsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            FragmentShadingRateEnums = System.Convert.ToBoolean(_internal.fragmentShadingRateEnums);
+            SupersampleFragmentShadingRates = System.Convert.ToBoolean(_internal.supersampleFragmentShadingRates);
+            NoInvocationFragmentShadingRates = System.Convert.ToBoolean(_internal.noInvocationFragmentShadingRates);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool FragmentShadingRateEnums { get; set; }
+        public bool SupersampleFragmentShadingRates { get; set; }
+        public bool NoInvocationFragmentShadingRates { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.fragmentShadingRateEnums = System.Convert.ToUInt32(FragmentShadingRateEnums);
+            _internal.supersampleFragmentShadingRates = System.Convert.ToUInt32(SupersampleFragmentShadingRates);
+            _internal.noInvocationFragmentShadingRates = System.Convert.ToUInt32(NoInvocationFragmentShadingRates);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceFragmentShadingRateEnumsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV p)
+        {
+            return new PhysicalDeviceFragmentShadingRateEnumsFeaturesNV(p);
+        }
+
+    }
+
+    public partial class PhysicalDeviceFragmentShadingRateEnumsPropertiesNV : QBDisposableObject
+    {
+        public PhysicalDeviceFragmentShadingRateEnumsPropertiesNV()
+        {
+        }
+
+        public PhysicalDeviceFragmentShadingRateEnumsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            MaxFragmentShadingRateInvocationCount = (SampleCountFlagBits)_internal.maxFragmentShadingRateInvocationCount;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public SampleCountFlagBits MaxFragmentShadingRateInvocationCount { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.maxFragmentShadingRateInvocationCount = (uint)MaxFragmentShadingRateInvocationCount;
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceFragmentShadingRateEnumsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV p)
+        {
+            return new PhysicalDeviceFragmentShadingRateEnumsPropertiesNV(p);
+        }
+
+    }
+
+    public partial class PipelineFragmentShadingRateEnumStateCreateInfoNV : QBDisposableObject
+    {
+        public PipelineFragmentShadingRateEnumStateCreateInfoNV()
+        {
+        }
+
+        public PipelineFragmentShadingRateEnumStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ShadingRateType = (FragmentShadingRateTypeNV)_internal.shadingRateType;
+            ShadingRate = (FragmentShadingRateNV)_internal.shadingRate;
+            CombinerOps = new FragmentShadingRateCombinerOpKHR[2];
+            for (int i = 0; i < 2; ++i)
+            {
+                CombinerOps[i] = (FragmentShadingRateCombinerOpKHR)(_internal.combinerOps[i]);
+            }
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public FragmentShadingRateTypeNV ShadingRateType { get; set; }
+        public FragmentShadingRateNV ShadingRate { get; set; }
+        public FragmentShadingRateCombinerOpKHR[] CombinerOps { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.shadingRateType = (uint)ShadingRateType;
+            _internal.shadingRate = (uint)ShadingRate;
+            if(CombinerOps != null)
+            {
+                if (CombinerOps.Length > 2)
+                    throw new System.ArgumentOutOfRangeException(nameof(CombinerOps), "Array is out of bounds. Size should not be more than 2");
+
+                _internal.combinerOps = new uint[2];
+                for (int i = 0; i < CombinerOps.Length; ++i)
+                {
+                    _internal.combinerOps[i] = (uint)CombinerOps[i];
+                }
+            }
+            return _internal;
+        }
+
+        public static implicit operator PipelineFragmentShadingRateEnumStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV p)
+        {
+            return new PipelineFragmentShadingRateEnumStateCreateInfoNV(p);
+        }
+
+    }
+
     public partial class PhysicalDeviceFragmentDensityMap2FeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceFragmentDensityMap2FeaturesEXT()
@@ -23807,6 +24487,39 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class CopyCommandTransformInfoQCOM : QBDisposableObject
+    {
+        public CopyCommandTransformInfoQCOM()
+        {
+        }
+
+        public CopyCommandTransformInfoQCOM(AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Transform = (SurfaceTransformFlagBitsKHR)_internal.transform;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public SurfaceTransformFlagBitsKHR Transform { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.transform = (uint)Transform;
+            return _internal;
+        }
+
+        public static implicit operator CopyCommandTransformInfoQCOM(AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM c)
+        {
+            return new CopyCommandTransformInfoQCOM(c);
+        }
+
+    }
+
     public partial class PhysicalDeviceImageRobustnessFeaturesEXT : QBDisposableObject
     {
         public PhysicalDeviceImageRobustnessFeaturesEXT()
@@ -23872,6 +24585,1173 @@ namespace AdamantiumVulkan.Core
         public static implicit operator PhysicalDevice4444FormatsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT p)
         {
             return new PhysicalDevice4444FormatsFeaturesEXT(p);
+        }
+
+    }
+
+    public partial class AccelerationStructureBuildRangeInfoKHR
+    {
+        public AccelerationStructureBuildRangeInfoKHR()
+        {
+        }
+
+        public AccelerationStructureBuildRangeInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR _internal)
+        {
+            PrimitiveCount = _internal.primitiveCount;
+            PrimitiveOffset = _internal.primitiveOffset;
+            FirstVertex = _internal.firstVertex;
+            TransformOffset = _internal.transformOffset;
+        }
+
+        public uint PrimitiveCount { get; set; }
+        public uint PrimitiveOffset { get; set; }
+        public uint FirstVertex { get; set; }
+        public uint TransformOffset { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR();
+            _internal.primitiveCount = PrimitiveCount;
+            _internal.primitiveOffset = PrimitiveOffset;
+            _internal.firstVertex = FirstVertex;
+            _internal.transformOffset = TransformOffset;
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureBuildRangeInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR a)
+        {
+            return new AccelerationStructureBuildRangeInfoKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureGeometryTrianglesDataKHR : QBDisposableObject
+    {
+        public AccelerationStructureGeometryTrianglesDataKHR()
+        {
+        }
+
+        public AccelerationStructureGeometryTrianglesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            VertexFormat = (Format)_internal.vertexFormat;
+            VertexData = new DeviceOrHostAddressConstKHR(_internal.vertexData);
+            VertexStride = _internal.vertexStride;
+            MaxVertex = _internal.maxVertex;
+            IndexType = (IndexType)_internal.indexType;
+            IndexData = new DeviceOrHostAddressConstKHR(_internal.indexData);
+            TransformData = new DeviceOrHostAddressConstKHR(_internal.transformData);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public Format VertexFormat { get; set; }
+        public DeviceOrHostAddressConstKHR VertexData { get; set; }
+        public ulong VertexStride { get; set; }
+        public uint MaxVertex { get; set; }
+        public IndexType IndexType { get; set; }
+        public DeviceOrHostAddressConstKHR IndexData { get; set; }
+        public DeviceOrHostAddressConstKHR TransformData { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.vertexFormat = (uint)VertexFormat;
+            if (VertexData != null)
+            {
+                _internal.vertexData = VertexData.ToInternal();
+            }
+            _internal.vertexStride = VertexStride;
+            _internal.maxVertex = MaxVertex;
+            _internal.indexType = (uint)IndexType;
+            if (IndexData != null)
+            {
+                _internal.indexData = IndexData.ToInternal();
+            }
+            if (TransformData != null)
+            {
+                _internal.transformData = TransformData.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureGeometryTrianglesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR a)
+        {
+            return new AccelerationStructureGeometryTrianglesDataKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureGeometryAabbsDataKHR : QBDisposableObject
+    {
+        public AccelerationStructureGeometryAabbsDataKHR()
+        {
+        }
+
+        public AccelerationStructureGeometryAabbsDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryAabbsDataKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Data = new DeviceOrHostAddressConstKHR(_internal.data);
+            Stride = _internal.stride;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public DeviceOrHostAddressConstKHR Data { get; set; }
+        public ulong Stride { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryAabbsDataKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryAabbsDataKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (Data != null)
+            {
+                _internal.data = Data.ToInternal();
+            }
+            _internal.stride = Stride;
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureGeometryAabbsDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryAabbsDataKHR a)
+        {
+            return new AccelerationStructureGeometryAabbsDataKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureGeometryInstancesDataKHR : QBDisposableObject
+    {
+        public AccelerationStructureGeometryInstancesDataKHR()
+        {
+        }
+
+        public AccelerationStructureGeometryInstancesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ArrayOfPointers = System.Convert.ToBoolean(_internal.arrayOfPointers);
+            Data = new DeviceOrHostAddressConstKHR(_internal.data);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool ArrayOfPointers { get; set; }
+        public DeviceOrHostAddressConstKHR Data { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.arrayOfPointers = System.Convert.ToUInt32(ArrayOfPointers);
+            if (Data != null)
+            {
+                _internal.data = Data.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureGeometryInstancesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR a)
+        {
+            return new AccelerationStructureGeometryInstancesDataKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureGeometryKHR : QBDisposableObject
+    {
+        public AccelerationStructureGeometryKHR()
+        {
+        }
+
+        public AccelerationStructureGeometryKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            GeometryType = (GeometryTypeKHR)_internal.geometryType;
+            Geometry = new AccelerationStructureGeometryDataKHR(_internal.geometry);
+            Flags = _internal.flags;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public GeometryTypeKHR GeometryType { get; set; }
+        public AccelerationStructureGeometryDataKHR Geometry { get; set; }
+        public uint Flags { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.geometryType = (uint)GeometryType;
+            if (Geometry != null)
+            {
+                _internal.geometry = Geometry.ToInternal();
+            }
+            _internal.flags = Flags;
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureGeometryKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR a)
+        {
+            return new AccelerationStructureGeometryKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureBuildGeometryInfoKHR : QBDisposableObject
+    {
+        private GCHandleReference refpGeometries;
+
+        private GCHandleReference refppGeometries;
+
+        public AccelerationStructureBuildGeometryInfoKHR()
+        {
+        }
+
+        public AccelerationStructureBuildGeometryInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Type = (AccelerationStructureTypeKHR)_internal.type;
+            Flags = _internal.flags;
+            Mode = (BuildAccelerationStructureModeKHR)_internal.mode;
+            SrcAccelerationStructure = new AccelerationStructureKHR(_internal.srcAccelerationStructure);
+            DstAccelerationStructure = new AccelerationStructureKHR(_internal.dstAccelerationStructure);
+            GeometryCount = _internal.geometryCount;
+            PGeometries = new AccelerationStructureGeometryKHR[_internal.geometryCount];
+            var nativeTmpArray0 = new VkAccelerationStructureGeometryKHR[_internal.geometryCount];
+            MarshalUtils.IntPtrToManagedArray<VkAccelerationStructureGeometryKHR>(_internal.pGeometries, nativeTmpArray0);
+            for (int i = 0; i < nativeTmpArray0.Length; ++i)
+            {
+                PGeometries[i] = new AccelerationStructureGeometryKHR(nativeTmpArray0[i]);
+            }
+            Marshal.FreeHGlobal(_internal.pGeometries);
+            PpGeometries = new AccelerationStructureGeometryKHR[_internal.geometryCount];
+            var nativeTmpArray1 = new VkAccelerationStructureGeometryKHR[_internal.geometryCount];
+            MarshalUtils.IntPtrToManagedArray<VkAccelerationStructureGeometryKHR>(_internal.ppGeometries, nativeTmpArray1);
+            for (int i = 0; i < nativeTmpArray1.Length; ++i)
+            {
+                PpGeometries[i] = new AccelerationStructureGeometryKHR(nativeTmpArray1[i]);
+            }
+            Marshal.FreeHGlobal(_internal.ppGeometries);
+            ScratchData = new DeviceOrHostAddressKHR(_internal.scratchData);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureTypeKHR Type { get; set; }
+        public uint Flags { get; set; }
+        public BuildAccelerationStructureModeKHR Mode { get; set; }
+        public AccelerationStructureKHR SrcAccelerationStructure { get; set; }
+        public AccelerationStructureKHR DstAccelerationStructure { get; set; }
+        public uint GeometryCount { get; set; }
+        public AccelerationStructureGeometryKHR[] PGeometries { get; set; }
+        public AccelerationStructureGeometryKHR[] PpGeometries { get; set; }
+        public DeviceOrHostAddressKHR ScratchData { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.type = (uint)Type;
+            _internal.flags = Flags;
+            _internal.mode = (uint)Mode;
+            _internal.srcAccelerationStructure = SrcAccelerationStructure;
+            _internal.dstAccelerationStructure = DstAccelerationStructure;
+            _internal.geometryCount = GeometryCount;
+            refpGeometries?.Dispose();
+            if (PGeometries != null)
+            {
+                var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR[PGeometries.Length];
+                for (int i = 0; i < PGeometries.Length; ++i)
+                {
+                    tmpArray0[i] = PGeometries[i].ToInternal();
+                }
+                refpGeometries = new GCHandleReference(tmpArray0);
+                _internal.pGeometries = refpGeometries.Handle;
+            }
+            refppGeometries?.Dispose();
+            if (PpGeometries != null)
+            {
+                var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR[PpGeometries.Length];
+                for (int i = 0; i < PpGeometries.Length; ++i)
+                {
+                    tmpArray1[i] = PpGeometries[i].ToInternal();
+                }
+                refppGeometries = new GCHandleReference(tmpArray1);
+                _internal.ppGeometries = refppGeometries.Handle;
+            }
+            if (ScratchData != null)
+            {
+                _internal.scratchData = ScratchData.ToInternal();
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpGeometries?.Dispose();
+            refppGeometries?.Dispose();
+        }
+
+
+        public static implicit operator AccelerationStructureBuildGeometryInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR a)
+        {
+            return new AccelerationStructureBuildGeometryInfoKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureCreateInfoKHR : QBDisposableObject
+    {
+        public AccelerationStructureCreateInfoKHR()
+        {
+        }
+
+        public AccelerationStructureCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            CreateFlags = _internal.createFlags;
+            Buffer = new Buffer(_internal.buffer);
+            Offset = _internal.offset;
+            Size = _internal.size;
+            Type = (AccelerationStructureTypeKHR)_internal.type;
+            DeviceAddress = _internal.deviceAddress;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint CreateFlags { get; set; }
+        public Buffer Buffer { get; set; }
+        public ulong Offset { get; set; }
+        public ulong Size { get; set; }
+        public AccelerationStructureTypeKHR Type { get; set; }
+        public ulong DeviceAddress { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.createFlags = CreateFlags;
+            _internal.buffer = Buffer;
+            _internal.offset = Offset;
+            _internal.size = Size;
+            _internal.type = (uint)Type;
+            _internal.deviceAddress = DeviceAddress;
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR a)
+        {
+            return new AccelerationStructureCreateInfoKHR(a);
+        }
+
+    }
+
+    public partial class WriteDescriptorSetAccelerationStructureKHR : QBDisposableObject
+    {
+        private StructReference refpAccelerationStructures;
+
+        public WriteDescriptorSetAccelerationStructureKHR()
+        {
+        }
+
+        public WriteDescriptorSetAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            AccelerationStructureCount = _internal.accelerationStructureCount;
+            PAccelerationStructures = new AccelerationStructureKHR(Marshal.PtrToStructure<AccelerationStructureKHR>(_internal.pAccelerationStructures));
+            Marshal.FreeHGlobal(_internal.pAccelerationStructures);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint AccelerationStructureCount { get; set; }
+        public AccelerationStructureKHR PAccelerationStructures { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.accelerationStructureCount = AccelerationStructureCount;
+            refpAccelerationStructures?.Dispose();
+            if (PAccelerationStructures != null)
+            {
+                AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T struct0 = PAccelerationStructures;
+                refpAccelerationStructures = new StructReference(struct0);
+                _internal.pAccelerationStructures = refpAccelerationStructures.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpAccelerationStructures?.Dispose();
+        }
+
+
+        public static implicit operator WriteDescriptorSetAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR w)
+        {
+            return new WriteDescriptorSetAccelerationStructureKHR(w);
+        }
+
+    }
+
+    public partial class PhysicalDeviceAccelerationStructureFeaturesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceAccelerationStructureFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceAccelerationStructureFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            AccelerationStructure = System.Convert.ToBoolean(_internal.accelerationStructure);
+            AccelerationStructureCaptureReplay = System.Convert.ToBoolean(_internal.accelerationStructureCaptureReplay);
+            AccelerationStructureIndirectBuild = System.Convert.ToBoolean(_internal.accelerationStructureIndirectBuild);
+            AccelerationStructureHostCommands = System.Convert.ToBoolean(_internal.accelerationStructureHostCommands);
+            DescriptorBindingAccelerationStructureUpdateAfterBind = System.Convert.ToBoolean(_internal.descriptorBindingAccelerationStructureUpdateAfterBind);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool AccelerationStructure { get; set; }
+        public bool AccelerationStructureCaptureReplay { get; set; }
+        public bool AccelerationStructureIndirectBuild { get; set; }
+        public bool AccelerationStructureHostCommands { get; set; }
+        public bool DescriptorBindingAccelerationStructureUpdateAfterBind { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.accelerationStructure = System.Convert.ToUInt32(AccelerationStructure);
+            _internal.accelerationStructureCaptureReplay = System.Convert.ToUInt32(AccelerationStructureCaptureReplay);
+            _internal.accelerationStructureIndirectBuild = System.Convert.ToUInt32(AccelerationStructureIndirectBuild);
+            _internal.accelerationStructureHostCommands = System.Convert.ToUInt32(AccelerationStructureHostCommands);
+            _internal.descriptorBindingAccelerationStructureUpdateAfterBind = System.Convert.ToUInt32(DescriptorBindingAccelerationStructureUpdateAfterBind);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceAccelerationStructureFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR p)
+        {
+            return new PhysicalDeviceAccelerationStructureFeaturesKHR(p);
+        }
+
+    }
+
+    public partial class PhysicalDeviceAccelerationStructurePropertiesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceAccelerationStructurePropertiesKHR()
+        {
+        }
+
+        public PhysicalDeviceAccelerationStructurePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            MaxGeometryCount = _internal.maxGeometryCount;
+            MaxInstanceCount = _internal.maxInstanceCount;
+            MaxPrimitiveCount = _internal.maxPrimitiveCount;
+            MaxPerStageDescriptorAccelerationStructures = _internal.maxPerStageDescriptorAccelerationStructures;
+            MaxPerStageDescriptorUpdateAfterBindAccelerationStructures = _internal.maxPerStageDescriptorUpdateAfterBindAccelerationStructures;
+            MaxDescriptorSetAccelerationStructures = _internal.maxDescriptorSetAccelerationStructures;
+            MaxDescriptorSetUpdateAfterBindAccelerationStructures = _internal.maxDescriptorSetUpdateAfterBindAccelerationStructures;
+            MinAccelerationStructureScratchOffsetAlignment = _internal.minAccelerationStructureScratchOffsetAlignment;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ulong MaxGeometryCount { get; set; }
+        public ulong MaxInstanceCount { get; set; }
+        public ulong MaxPrimitiveCount { get; set; }
+        public uint MaxPerStageDescriptorAccelerationStructures { get; set; }
+        public uint MaxPerStageDescriptorUpdateAfterBindAccelerationStructures { get; set; }
+        public uint MaxDescriptorSetAccelerationStructures { get; set; }
+        public uint MaxDescriptorSetUpdateAfterBindAccelerationStructures { get; set; }
+        public uint MinAccelerationStructureScratchOffsetAlignment { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.maxGeometryCount = MaxGeometryCount;
+            _internal.maxInstanceCount = MaxInstanceCount;
+            _internal.maxPrimitiveCount = MaxPrimitiveCount;
+            _internal.maxPerStageDescriptorAccelerationStructures = MaxPerStageDescriptorAccelerationStructures;
+            _internal.maxPerStageDescriptorUpdateAfterBindAccelerationStructures = MaxPerStageDescriptorUpdateAfterBindAccelerationStructures;
+            _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
+            _internal.maxDescriptorSetUpdateAfterBindAccelerationStructures = MaxDescriptorSetUpdateAfterBindAccelerationStructures;
+            _internal.minAccelerationStructureScratchOffsetAlignment = MinAccelerationStructureScratchOffsetAlignment;
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceAccelerationStructurePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR p)
+        {
+            return new PhysicalDeviceAccelerationStructurePropertiesKHR(p);
+        }
+
+    }
+
+    public partial class AccelerationStructureDeviceAddressInfoKHR : QBDisposableObject
+    {
+        public AccelerationStructureDeviceAddressInfoKHR()
+        {
+        }
+
+        public AccelerationStructureDeviceAddressInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            AccelerationStructure = new AccelerationStructureKHR(_internal.accelerationStructure);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureKHR AccelerationStructure { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.accelerationStructure = AccelerationStructure;
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureDeviceAddressInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR a)
+        {
+            return new AccelerationStructureDeviceAddressInfoKHR(a);
+        }
+
+    }
+
+    public partial class AccelerationStructureVersionInfoKHR : QBDisposableObject
+    {
+        private StructReference refpVersionData;
+
+        public AccelerationStructureVersionInfoKHR()
+        {
+        }
+
+        public AccelerationStructureVersionInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            if(_internal.pVersionData != System.IntPtr.Zero)
+            {
+                PVersionData = (byte?)_internal.pVersionData;
+                Marshal.FreeHGlobal(_internal.pVersionData);
+            }
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public byte? PVersionData { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            refpVersionData?.Dispose();
+            if (PVersionData != null)
+            {
+                refpVersionData = new StructReference(PVersionData);
+                _internal.pVersionData = refpVersionData.Handle;
+            }
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpVersionData?.Dispose();
+        }
+
+
+        public static implicit operator AccelerationStructureVersionInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR a)
+        {
+            return new AccelerationStructureVersionInfoKHR(a);
+        }
+
+    }
+
+    public partial class CopyAccelerationStructureToMemoryInfoKHR : QBDisposableObject
+    {
+        public CopyAccelerationStructureToMemoryInfoKHR()
+        {
+        }
+
+        public CopyAccelerationStructureToMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Src = new AccelerationStructureKHR(_internal.src);
+            Dst = new DeviceOrHostAddressKHR(_internal.dst);
+            Mode = (CopyAccelerationStructureModeKHR)_internal.mode;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureKHR Src { get; set; }
+        public DeviceOrHostAddressKHR Dst { get; set; }
+        public CopyAccelerationStructureModeKHR Mode { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.src = Src;
+            if (Dst != null)
+            {
+                _internal.dst = Dst.ToInternal();
+            }
+            _internal.mode = (uint)Mode;
+            return _internal;
+        }
+
+        public static implicit operator CopyAccelerationStructureToMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR c)
+        {
+            return new CopyAccelerationStructureToMemoryInfoKHR(c);
+        }
+
+    }
+
+    public partial class CopyMemoryToAccelerationStructureInfoKHR : QBDisposableObject
+    {
+        public CopyMemoryToAccelerationStructureInfoKHR()
+        {
+        }
+
+        public CopyMemoryToAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Src = new DeviceOrHostAddressConstKHR(_internal.src);
+            Dst = new AccelerationStructureKHR(_internal.dst);
+            Mode = (CopyAccelerationStructureModeKHR)_internal.mode;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public DeviceOrHostAddressConstKHR Src { get; set; }
+        public AccelerationStructureKHR Dst { get; set; }
+        public CopyAccelerationStructureModeKHR Mode { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            if (Src != null)
+            {
+                _internal.src = Src.ToInternal();
+            }
+            _internal.dst = Dst;
+            _internal.mode = (uint)Mode;
+            return _internal;
+        }
+
+        public static implicit operator CopyMemoryToAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR c)
+        {
+            return new CopyMemoryToAccelerationStructureInfoKHR(c);
+        }
+
+    }
+
+    public partial class CopyAccelerationStructureInfoKHR : QBDisposableObject
+    {
+        public CopyAccelerationStructureInfoKHR()
+        {
+        }
+
+        public CopyAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Src = new AccelerationStructureKHR(_internal.src);
+            Dst = new AccelerationStructureKHR(_internal.dst);
+            Mode = (CopyAccelerationStructureModeKHR)_internal.mode;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public AccelerationStructureKHR Src { get; set; }
+        public AccelerationStructureKHR Dst { get; set; }
+        public CopyAccelerationStructureModeKHR Mode { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.src = Src;
+            _internal.dst = Dst;
+            _internal.mode = (uint)Mode;
+            return _internal;
+        }
+
+        public static implicit operator CopyAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR c)
+        {
+            return new CopyAccelerationStructureInfoKHR(c);
+        }
+
+    }
+
+    public partial class AccelerationStructureBuildSizesInfoKHR : QBDisposableObject
+    {
+        public AccelerationStructureBuildSizesInfoKHR()
+        {
+        }
+
+        public AccelerationStructureBuildSizesInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            AccelerationStructureSize = _internal.accelerationStructureSize;
+            UpdateScratchSize = _internal.updateScratchSize;
+            BuildScratchSize = _internal.buildScratchSize;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public ulong AccelerationStructureSize { get; set; }
+        public ulong UpdateScratchSize { get; set; }
+        public ulong BuildScratchSize { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.accelerationStructureSize = AccelerationStructureSize;
+            _internal.updateScratchSize = UpdateScratchSize;
+            _internal.buildScratchSize = BuildScratchSize;
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureBuildSizesInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR a)
+        {
+            return new AccelerationStructureBuildSizesInfoKHR(a);
+        }
+
+    }
+
+    public partial class RayTracingShaderGroupCreateInfoKHR : QBDisposableObject
+    {
+        public RayTracingShaderGroupCreateInfoKHR()
+        {
+        }
+
+        public RayTracingShaderGroupCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Type = (RayTracingShaderGroupTypeKHR)_internal.type;
+            GeneralShader = _internal.generalShader;
+            ClosestHitShader = _internal.closestHitShader;
+            AnyHitShader = _internal.anyHitShader;
+            IntersectionShader = _internal.intersectionShader;
+            PShaderGroupCaptureReplayHandle = _internal.pShaderGroupCaptureReplayHandle;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public RayTracingShaderGroupTypeKHR Type { get; set; }
+        public uint GeneralShader { get; set; }
+        public uint ClosestHitShader { get; set; }
+        public uint AnyHitShader { get; set; }
+        public uint IntersectionShader { get; set; }
+        public System.IntPtr PShaderGroupCaptureReplayHandle { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.type = (uint)Type;
+            _internal.generalShader = GeneralShader;
+            _internal.closestHitShader = ClosestHitShader;
+            _internal.anyHitShader = AnyHitShader;
+            _internal.intersectionShader = IntersectionShader;
+            _internal.pShaderGroupCaptureReplayHandle = PShaderGroupCaptureReplayHandle;
+            return _internal;
+        }
+
+        public static implicit operator RayTracingShaderGroupCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR r)
+        {
+            return new RayTracingShaderGroupCreateInfoKHR(r);
+        }
+
+    }
+
+    public partial class RayTracingPipelineInterfaceCreateInfoKHR : QBDisposableObject
+    {
+        public RayTracingPipelineInterfaceCreateInfoKHR()
+        {
+        }
+
+        public RayTracingPipelineInterfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            MaxPipelineRayPayloadSize = _internal.maxPipelineRayPayloadSize;
+            MaxPipelineRayHitAttributeSize = _internal.maxPipelineRayHitAttributeSize;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint MaxPipelineRayPayloadSize { get; set; }
+        public uint MaxPipelineRayHitAttributeSize { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.maxPipelineRayPayloadSize = MaxPipelineRayPayloadSize;
+            _internal.maxPipelineRayHitAttributeSize = MaxPipelineRayHitAttributeSize;
+            return _internal;
+        }
+
+        public static implicit operator RayTracingPipelineInterfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR r)
+        {
+            return new RayTracingPipelineInterfaceCreateInfoKHR(r);
+        }
+
+    }
+
+    public partial class RayTracingPipelineCreateInfoKHR : QBDisposableObject
+    {
+        private StructReference refpStages;
+
+        private StructReference refpGroups;
+
+        private StructReference refpLibraryInfo;
+
+        private StructReference refpLibraryInterface;
+
+        private StructReference refpDynamicState;
+
+        public RayTracingPipelineCreateInfoKHR()
+        {
+        }
+
+        public RayTracingPipelineCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            Flags = _internal.flags;
+            StageCount = _internal.stageCount;
+            PStages = new PipelineShaderStageCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(_internal.pStages));
+            Marshal.FreeHGlobal(_internal.pStages);
+            GroupCount = _internal.groupCount;
+            PGroups = new RayTracingShaderGroupCreateInfoKHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(_internal.pGroups));
+            Marshal.FreeHGlobal(_internal.pGroups);
+            MaxPipelineRayRecursionDepth = _internal.maxPipelineRayRecursionDepth;
+            PLibraryInfo = new PipelineLibraryCreateInfoKHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR>(_internal.pLibraryInfo));
+            Marshal.FreeHGlobal(_internal.pLibraryInfo);
+            PLibraryInterface = new RayTracingPipelineInterfaceCreateInfoKHR(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR>(_internal.pLibraryInterface));
+            Marshal.FreeHGlobal(_internal.pLibraryInterface);
+            PDynamicState = new PipelineDynamicStateCreateInfo(Marshal.PtrToStructure<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(_internal.pDynamicState));
+            Marshal.FreeHGlobal(_internal.pDynamicState);
+            Layout = new PipelineLayout(_internal.layout);
+            BasePipelineHandle = new Pipeline(_internal.basePipelineHandle);
+            BasePipelineIndex = _internal.basePipelineIndex;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint Flags { get; set; }
+        public uint StageCount { get; set; }
+        public PipelineShaderStageCreateInfo PStages { get; set; }
+        public uint GroupCount { get; set; }
+        public RayTracingShaderGroupCreateInfoKHR PGroups { get; set; }
+        public uint MaxPipelineRayRecursionDepth { get; set; }
+        public PipelineLibraryCreateInfoKHR PLibraryInfo { get; set; }
+        public RayTracingPipelineInterfaceCreateInfoKHR PLibraryInterface { get; set; }
+        public PipelineDynamicStateCreateInfo PDynamicState { get; set; }
+        public PipelineLayout Layout { get; set; }
+        public Pipeline BasePipelineHandle { get; set; }
+        public int BasePipelineIndex { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.flags = Flags;
+            _internal.stageCount = StageCount;
+            refpStages?.Dispose();
+            if (PStages != null)
+            {
+                var struct0 = PStages.ToInternal();
+                refpStages = new StructReference(struct0);
+                _internal.pStages = refpStages.Handle;
+            }
+            _internal.groupCount = GroupCount;
+            refpGroups?.Dispose();
+            if (PGroups != null)
+            {
+                var struct1 = PGroups.ToInternal();
+                refpGroups = new StructReference(struct1);
+                _internal.pGroups = refpGroups.Handle;
+            }
+            _internal.maxPipelineRayRecursionDepth = MaxPipelineRayRecursionDepth;
+            refpLibraryInfo?.Dispose();
+            if (PLibraryInfo != null)
+            {
+                var struct2 = PLibraryInfo.ToInternal();
+                refpLibraryInfo = new StructReference(struct2);
+                _internal.pLibraryInfo = refpLibraryInfo.Handle;
+            }
+            refpLibraryInterface?.Dispose();
+            if (PLibraryInterface != null)
+            {
+                var struct3 = PLibraryInterface.ToInternal();
+                refpLibraryInterface = new StructReference(struct3);
+                _internal.pLibraryInterface = refpLibraryInterface.Handle;
+            }
+            refpDynamicState?.Dispose();
+            if (PDynamicState != null)
+            {
+                var struct4 = PDynamicState.ToInternal();
+                refpDynamicState = new StructReference(struct4);
+                _internal.pDynamicState = refpDynamicState.Handle;
+            }
+            _internal.layout = Layout;
+            _internal.basePipelineHandle = BasePipelineHandle;
+            _internal.basePipelineIndex = BasePipelineIndex;
+            return _internal;
+        }
+
+        protected override void UnmanagedDisposeOverride()
+        {
+            refpStages?.Dispose();
+            refpGroups?.Dispose();
+            refpLibraryInfo?.Dispose();
+            refpLibraryInterface?.Dispose();
+            refpDynamicState?.Dispose();
+        }
+
+
+        public static implicit operator RayTracingPipelineCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR r)
+        {
+            return new RayTracingPipelineCreateInfoKHR(r);
+        }
+
+    }
+
+    public partial class PhysicalDeviceRayTracingPipelineFeaturesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceRayTracingPipelineFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceRayTracingPipelineFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            RayTracingPipeline = System.Convert.ToBoolean(_internal.rayTracingPipeline);
+            RayTracingPipelineShaderGroupHandleCaptureReplay = System.Convert.ToBoolean(_internal.rayTracingPipelineShaderGroupHandleCaptureReplay);
+            RayTracingPipelineShaderGroupHandleCaptureReplayMixed = System.Convert.ToBoolean(_internal.rayTracingPipelineShaderGroupHandleCaptureReplayMixed);
+            RayTracingPipelineTraceRaysIndirect = System.Convert.ToBoolean(_internal.rayTracingPipelineTraceRaysIndirect);
+            RayTraversalPrimitiveCulling = System.Convert.ToBoolean(_internal.rayTraversalPrimitiveCulling);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool RayTracingPipeline { get; set; }
+        public bool RayTracingPipelineShaderGroupHandleCaptureReplay { get; set; }
+        public bool RayTracingPipelineShaderGroupHandleCaptureReplayMixed { get; set; }
+        public bool RayTracingPipelineTraceRaysIndirect { get; set; }
+        public bool RayTraversalPrimitiveCulling { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.rayTracingPipeline = System.Convert.ToUInt32(RayTracingPipeline);
+            _internal.rayTracingPipelineShaderGroupHandleCaptureReplay = System.Convert.ToUInt32(RayTracingPipelineShaderGroupHandleCaptureReplay);
+            _internal.rayTracingPipelineShaderGroupHandleCaptureReplayMixed = System.Convert.ToUInt32(RayTracingPipelineShaderGroupHandleCaptureReplayMixed);
+            _internal.rayTracingPipelineTraceRaysIndirect = System.Convert.ToUInt32(RayTracingPipelineTraceRaysIndirect);
+            _internal.rayTraversalPrimitiveCulling = System.Convert.ToUInt32(RayTraversalPrimitiveCulling);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceRayTracingPipelineFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR p)
+        {
+            return new PhysicalDeviceRayTracingPipelineFeaturesKHR(p);
+        }
+
+    }
+
+    public partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceRayTracingPipelinePropertiesKHR()
+        {
+        }
+
+        public PhysicalDeviceRayTracingPipelinePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            ShaderGroupHandleSize = _internal.shaderGroupHandleSize;
+            MaxRayRecursionDepth = _internal.maxRayRecursionDepth;
+            MaxShaderGroupStride = _internal.maxShaderGroupStride;
+            ShaderGroupBaseAlignment = _internal.shaderGroupBaseAlignment;
+            ShaderGroupHandleCaptureReplaySize = _internal.shaderGroupHandleCaptureReplaySize;
+            MaxRayDispatchInvocationCount = _internal.maxRayDispatchInvocationCount;
+            ShaderGroupHandleAlignment = _internal.shaderGroupHandleAlignment;
+            MaxRayHitAttributeSize = _internal.maxRayHitAttributeSize;
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public uint ShaderGroupHandleSize { get; set; }
+        public uint MaxRayRecursionDepth { get; set; }
+        public uint MaxShaderGroupStride { get; set; }
+        public uint ShaderGroupBaseAlignment { get; set; }
+        public uint ShaderGroupHandleCaptureReplaySize { get; set; }
+        public uint MaxRayDispatchInvocationCount { get; set; }
+        public uint ShaderGroupHandleAlignment { get; set; }
+        public uint MaxRayHitAttributeSize { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.shaderGroupHandleSize = ShaderGroupHandleSize;
+            _internal.maxRayRecursionDepth = MaxRayRecursionDepth;
+            _internal.maxShaderGroupStride = MaxShaderGroupStride;
+            _internal.shaderGroupBaseAlignment = ShaderGroupBaseAlignment;
+            _internal.shaderGroupHandleCaptureReplaySize = ShaderGroupHandleCaptureReplaySize;
+            _internal.maxRayDispatchInvocationCount = MaxRayDispatchInvocationCount;
+            _internal.shaderGroupHandleAlignment = ShaderGroupHandleAlignment;
+            _internal.maxRayHitAttributeSize = MaxRayHitAttributeSize;
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceRayTracingPipelinePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR p)
+        {
+            return new PhysicalDeviceRayTracingPipelinePropertiesKHR(p);
+        }
+
+    }
+
+    public partial class StridedDeviceAddressRegionKHR
+    {
+        public StridedDeviceAddressRegionKHR()
+        {
+        }
+
+        public StridedDeviceAddressRegionKHR(AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR _internal)
+        {
+            DeviceAddress = _internal.deviceAddress;
+            Stride = _internal.stride;
+            Size = _internal.size;
+        }
+
+        public ulong DeviceAddress { get; set; }
+        public ulong Stride { get; set; }
+        public ulong Size { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR();
+            _internal.deviceAddress = DeviceAddress;
+            _internal.stride = Stride;
+            _internal.size = Size;
+            return _internal;
+        }
+
+        public static implicit operator StridedDeviceAddressRegionKHR(AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR s)
+        {
+            return new StridedDeviceAddressRegionKHR(s);
+        }
+
+    }
+
+    public partial class TraceRaysIndirectCommandKHR
+    {
+        public TraceRaysIndirectCommandKHR()
+        {
+        }
+
+        public TraceRaysIndirectCommandKHR(AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommandKHR _internal)
+        {
+            Width = _internal.width;
+            Height = _internal.height;
+            Depth = _internal.depth;
+        }
+
+        public uint Width { get; set; }
+        public uint Height { get; set; }
+        public uint Depth { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommandKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommandKHR();
+            _internal.width = Width;
+            _internal.height = Height;
+            _internal.depth = Depth;
+            return _internal;
+        }
+
+        public static implicit operator TraceRaysIndirectCommandKHR(AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommandKHR t)
+        {
+            return new TraceRaysIndirectCommandKHR(t);
+        }
+
+    }
+
+    public partial class PhysicalDeviceRayQueryFeaturesKHR : QBDisposableObject
+    {
+        public PhysicalDeviceRayQueryFeaturesKHR()
+        {
+        }
+
+        public PhysicalDeviceRayQueryFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR _internal)
+        {
+            SType = (StructureType)_internal.sType;
+            PNext = _internal.pNext;
+            RayQuery = System.Convert.ToBoolean(_internal.rayQuery);
+        }
+
+        public StructureType SType { get; set; }
+        public System.IntPtr PNext { get; set; }
+        public bool RayQuery { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR();
+            _internal.sType = (uint)SType;
+            _internal.pNext = PNext;
+            _internal.rayQuery = System.Convert.ToUInt32(RayQuery);
+            return _internal;
+        }
+
+        public static implicit operator PhysicalDeviceRayQueryFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR p)
+        {
+            return new PhysicalDeviceRayQueryFeaturesKHR(p);
         }
 
     }

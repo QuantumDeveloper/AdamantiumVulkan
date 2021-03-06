@@ -230,6 +230,10 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_automatic_resource_binding_secondary", CallingConvention = CallingConvention.Winapi)]
         internal static extern uint spvc_compiler_msl_get_automatic_resource_binding_secondary([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
+        [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_combined_sampler_suffix", CallingConvention = CallingConvention.Winapi)]
+        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
+        internal static extern string spvc_compiler_msl_get_combined_sampler_suffix([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler);
+
         ///<summary>
         /// MSL specifics. Maps to C++ API.
         ///</summary>
@@ -283,6 +287,9 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_argument_buffer_device_address_space", CallingConvention = CallingConvention.Winapi)]
         internal static extern SpvcResult spvc_compiler_msl_set_argument_buffer_device_address_space([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint desc_set, [In] bool device_address);
+
+        [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_combined_sampler_suffix", CallingConvention = CallingConvention.Winapi)]
+        internal static extern SpvcResult spvc_compiler_msl_set_combined_sampler_suffix([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] string suffix);
 
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_fragment_output_components", CallingConvention = CallingConvention.Winapi)]
         internal static extern SpvcResult spvc_compiler_msl_set_fragment_output_components([In] AdamantiumVulkan.SPIRV.Cross.Interop.SpvcCompilerS compiler, [In] uint location, [In] uint components);

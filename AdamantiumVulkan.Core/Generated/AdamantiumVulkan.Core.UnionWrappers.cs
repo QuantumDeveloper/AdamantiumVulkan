@@ -283,5 +283,107 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class DeviceOrHostAddressKHR : QBDisposableObject
+    {
+        public DeviceOrHostAddressKHR()
+        {
+        }
+
+        public DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR _internal)
+        {
+            DeviceAddress = _internal.deviceAddress;
+            HostAddress = _internal.hostAddress;
+        }
+
+        public ulong DeviceAddress { get; set; }
+        public System.IntPtr HostAddress { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR();
+            _internal.deviceAddress = DeviceAddress;
+            _internal.hostAddress = HostAddress;
+            return _internal;
+        }
+
+        public static implicit operator DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR d)
+        {
+            return new DeviceOrHostAddressKHR(d);
+        }
+
+    }
+
+    public partial class DeviceOrHostAddressConstKHR : QBDisposableObject
+    {
+        public DeviceOrHostAddressConstKHR()
+        {
+        }
+
+        public DeviceOrHostAddressConstKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR _internal)
+        {
+            DeviceAddress = _internal.deviceAddress;
+            HostAddress = _internal.hostAddress;
+        }
+
+        public ulong DeviceAddress { get; set; }
+        public System.IntPtr HostAddress { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR();
+            _internal.deviceAddress = DeviceAddress;
+            _internal.hostAddress = HostAddress;
+            return _internal;
+        }
+
+        public static implicit operator DeviceOrHostAddressConstKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR d)
+        {
+            return new DeviceOrHostAddressConstKHR(d);
+        }
+
+    }
+
+    public partial class AccelerationStructureGeometryDataKHR
+    {
+        public AccelerationStructureGeometryDataKHR()
+        {
+        }
+
+        public AccelerationStructureGeometryDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR _internal)
+        {
+            Triangles = new AccelerationStructureGeometryTrianglesDataKHR(_internal.triangles);
+            Aabbs = new AccelerationStructureGeometryAabbsDataKHR(_internal.aabbs);
+            Instances = new AccelerationStructureGeometryInstancesDataKHR(_internal.instances);
+        }
+
+        public AccelerationStructureGeometryTrianglesDataKHR Triangles { get; set; }
+        public AccelerationStructureGeometryAabbsDataKHR Aabbs { get; set; }
+        public AccelerationStructureGeometryInstancesDataKHR Instances { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR();
+            if (Triangles != null)
+            {
+                _internal.triangles = Triangles.ToInternal();
+            }
+            if (Aabbs != null)
+            {
+                _internal.aabbs = Aabbs.ToInternal();
+            }
+            if (Instances != null)
+            {
+                _internal.instances = Instances.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureGeometryDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR a)
+        {
+            return new AccelerationStructureGeometryDataKHR(a);
+        }
+
+    }
+
 
 }

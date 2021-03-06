@@ -597,6 +597,15 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public Result GetPhysicalDeviceFragmentShadingRatesKHR(ref uint pFragmentShadingRateCount, PhysicalDeviceFragmentShadingRateKHR pFragmentShadingRates)
+        {
+            var arg1 = ReferenceEquals(pFragmentShadingRates, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pFragmentShadingRates.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, ref pFragmentShadingRateCount, arg1);
+            pFragmentShadingRates?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
         public Result GetPhysicalDeviceImageFormatProperties(Format format, ImageType type, ImageTiling tiling, uint usage, uint flags, ImageFormatProperties pImageFormatProperties)
         {
             var arg3 = ReferenceEquals(pImageFormatProperties, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pImageFormatProperties.ToInternal());
@@ -1049,16 +1058,7 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
-        public Result BindAccelerationStructureMemoryKHR(uint bindInfoCount, in BindAccelerationStructureMemoryInfoKHR pBindInfos)
-        {
-            var arg1 = ReferenceEquals(pBindInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pBindInfos.ToInternal());
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkBindAccelerationStructureMemoryKHR(this, bindInfoCount, arg1);
-            pBindInfos?.Dispose();
-            Marshal.FreeHGlobal(arg1);
-            return result;
-        }
-
-        public Result BindAccelerationStructureMemoryNV(uint bindInfoCount, in BindAccelerationStructureMemoryInfoKHR pBindInfos)
+        public Result BindAccelerationStructureMemoryNV(uint bindInfoCount, in BindAccelerationStructureMemoryInfoNV pBindInfos)
         {
             var arg1 = ReferenceEquals(pBindInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pBindInfos.ToInternal());
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkBindAccelerationStructureMemoryNV(this, bindInfoCount, arg1);
@@ -1117,17 +1117,73 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result BuildAccelerationStructuresKHR(AdamantiumVulkan.Core.DeferredOperationKHR deferredOperation, uint infoCount, in AccelerationStructureBuildGeometryInfoKHR pInfos, in AccelerationStructureBuildRangeInfoKHR ppBuildRangeInfos)
+        {
+            var arg1 = ReferenceEquals(deferredOperation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)deferredOperation;
+            var arg2 = ReferenceEquals(pInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfos.ToInternal());
+            var arg3 = ReferenceEquals(ppBuildRangeInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(ppBuildRangeInfos.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkBuildAccelerationStructuresKHR(this, arg1, infoCount, arg2, arg3);
+            pInfos?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            Marshal.FreeHGlobal(arg3);
+            return result;
+        }
+
         public Result CompileDeferredNV(AdamantiumVulkan.Core.Pipeline pipeline, uint shader)
         {
             var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkCompileDeferredNV(this, arg1, shader);
         }
 
-        public Result CreateAccelerationStructureNV(in AccelerationStructureCreateInfoNV pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.AccelerationStructureNV pAccelerationStructure)
+        public Result CopyAccelerationStructureKHR(AdamantiumVulkan.Core.DeferredOperationKHR deferredOperation, in CopyAccelerationStructureInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(deferredOperation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)deferredOperation;
+            var arg2 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyAccelerationStructureKHR(this, arg1, arg2);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
+        }
+
+        public Result CopyAccelerationStructureToMemoryKHR(AdamantiumVulkan.Core.DeferredOperationKHR deferredOperation, in CopyAccelerationStructureToMemoryInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(deferredOperation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)deferredOperation;
+            var arg2 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyAccelerationStructureToMemoryKHR(this, arg1, arg2);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
+        }
+
+        public Result CopyMemoryToAccelerationStructureKHR(AdamantiumVulkan.Core.DeferredOperationKHR deferredOperation, in CopyMemoryToAccelerationStructureInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(deferredOperation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)deferredOperation;
+            var arg2 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyMemoryToAccelerationStructureKHR(this, arg1, arg2);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            return result;
+        }
+
+        public Result CreateAccelerationStructureKHR(in AccelerationStructureCreateInfoKHR pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructure)
         {
             var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             VkAccelerationStructureKHR_T arg3;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateAccelerationStructureKHR(this, arg1, arg2, out arg3);
+            pCreateInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+            pAccelerationStructure = new AccelerationStructureKHR(arg3);
+            return result;
+        }
+
+        public Result CreateAccelerationStructureNV(in AccelerationStructureCreateInfoNV pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.AccelerationStructureNV pAccelerationStructure)
+        {
+            var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkAccelerationStructureNV_T arg3;
             var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateAccelerationStructureNV(this, arg1, arg2, out arg3);
             pCreateInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
@@ -1197,6 +1253,17 @@ namespace AdamantiumVulkan.Core
             {
                 pPipelines[i] = new Pipeline(_pPipelines[i]);
             }
+            return result;
+        }
+
+        public Result CreateDeferredOperationKHR(in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.DeferredOperationKHR pDeferredOperation)
+        {
+            var arg1 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkDeferredOperationKHR_T arg2;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDeferredOperationKHR(this, arg1, out arg2);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pDeferredOperation = new DeferredOperationKHR(arg2);
             return result;
         }
 
@@ -1417,6 +1484,22 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result CreateRayTracingPipelinesKHR(AdamantiumVulkan.Core.DeferredOperationKHR deferredOperation, AdamantiumVulkan.Core.PipelineCache pipelineCache, uint createInfoCount, in RayTracingPipelineCreateInfoKHR pCreateInfos, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.Pipeline pPipelines)
+        {
+            var arg1 = ReferenceEquals(deferredOperation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)deferredOperation;
+            var arg2 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
+            var arg3 = ReferenceEquals(pCreateInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfos.ToInternal());
+            var arg4 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            VkPipeline_T arg5;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateRayTracingPipelinesKHR(this, arg1, arg2, createInfoCount, arg3, arg4, out arg5);
+            pCreateInfos?.Dispose();
+            Marshal.FreeHGlobal(arg3);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg4);
+            pPipelines = new Pipeline(arg5);
+            return result;
+        }
+
         public Result CreateRayTracingPipelinesNV(AdamantiumVulkan.Core.PipelineCache pipelineCache, uint createInfoCount, in RayTracingPipelineCreateInfoNV pCreateInfos, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.Pipeline pPipelines)
         {
             var arg1 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
@@ -1604,6 +1687,12 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result DeferredOperationJoinKHR(AdamantiumVulkan.Core.DeferredOperationKHR operation)
+        {
+            var arg1 = ReferenceEquals(operation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)operation;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkDeferredOperationJoinKHR(this, arg1);
+        }
+
         public void DestroyAccelerationStructureKHR(AdamantiumVulkan.Core.AccelerationStructureKHR accelerationStructure, in AllocationCallbacks pAllocator)
         {
             var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)accelerationStructure;
@@ -1613,9 +1702,9 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public void DestroyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureKHR accelerationStructure, in AllocationCallbacks pAllocator = null)
+        public void DestroyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureNV accelerationStructure, in AllocationCallbacks pAllocator = null)
         {
-            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)accelerationStructure;
+            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)accelerationStructure;
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyAccelerationStructureNV(this, arg1, arg2);
             pAllocator?.Dispose();
@@ -1645,6 +1734,15 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(commandPool, null) ? new VkCommandPool_T() : (VkCommandPool_T)commandPool;
             var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyCommandPool(this, arg1, arg2);
+            pAllocator?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public void DestroyDeferredOperationKHR(AdamantiumVulkan.Core.DeferredOperationKHR operation, in AllocationCallbacks pAllocator)
+        {
+            var arg1 = ReferenceEquals(operation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)operation;
+            var arg2 = ReferenceEquals(pAllocator, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pAllocator.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyDeferredOperationKHR(this, arg1, arg2);
             pAllocator?.Dispose();
             Marshal.FreeHGlobal(arg2);
         }
@@ -1929,9 +2027,29 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg2);
         }
 
-        public Result GetAccelerationStructureHandleNV(AdamantiumVulkan.Core.AccelerationStructureKHR accelerationStructure, ulong dataSize, ref System.IntPtr pData)
+        public void GetAccelerationStructureBuildSizesKHR(AccelerationStructureBuildTypeKHR buildType, in AccelerationStructureBuildGeometryInfoKHR pBuildInfo, in uint pMaxPrimitiveCounts, AccelerationStructureBuildSizesInfoKHR pSizeInfo)
         {
-            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)accelerationStructure;
+            var arg1 = ReferenceEquals(pBuildInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pBuildInfo.ToInternal());
+            var arg2 = ReferenceEquals(pSizeInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pSizeInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetAccelerationStructureBuildSizesKHR(this, buildType, arg1, pMaxPrimitiveCounts, arg2);
+            pBuildInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pSizeInfo?.Dispose();
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public ulong GetAccelerationStructureDeviceAddressKHR(in AccelerationStructureDeviceAddressInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetAccelerationStructureDeviceAddressKHR(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
+        public Result GetAccelerationStructureHandleNV(AdamantiumVulkan.Core.AccelerationStructureNV accelerationStructure, ulong dataSize, ref System.IntPtr pData)
+        {
+            var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)accelerationStructure;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetAccelerationStructureHandleNV(this, arg1, dataSize, pData);
         }
 
@@ -2030,6 +2148,18 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public uint GetDeferredOperationMaxConcurrencyKHR(AdamantiumVulkan.Core.DeferredOperationKHR operation)
+        {
+            var arg1 = ReferenceEquals(operation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)operation;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeferredOperationMaxConcurrencyKHR(this, arg1);
+        }
+
+        public Result GetDeferredOperationResultKHR(AdamantiumVulkan.Core.DeferredOperationKHR operation)
+        {
+            var arg1 = ReferenceEquals(operation, null) ? new VkDeferredOperationKHR_T() : (VkDeferredOperationKHR_T)operation;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeferredOperationResultKHR(this, arg1);
+        }
+
         public void GetDescriptorSetLayoutSupport(in DescriptorSetLayoutCreateInfo pCreateInfo, DescriptorSetLayoutSupport pSupport)
         {
             var arg1 = ReferenceEquals(pCreateInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCreateInfo.ToInternal());
@@ -2050,6 +2180,16 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
             pSupport?.Dispose();
             Marshal.FreeHGlobal(arg2);
+        }
+
+        public void GetDeviceAccelerationStructureCompatibilityKHR(in AccelerationStructureVersionInfoKHR pVersionInfo, ref AccelerationStructureCompatibilityKHR pCompatibility)
+        {
+            var arg1 = ReferenceEquals(pVersionInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pVersionInfo.ToInternal());
+            var arg2 = (uint)pCompatibility;
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceAccelerationStructureCompatibilityKHR(this, arg1, ref arg2);
+            pVersionInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            pCompatibility = (AccelerationStructureCompatibilityKHR)arg2;
         }
 
         public void GetDeviceGroupPeerMemoryFeatures(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref uint pPeerMemoryFeatures)
@@ -2352,6 +2492,12 @@ namespace AdamantiumVulkan.Core
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetQueryPoolResults(this, arg1, firstQuery, queryCount, dataSize, pData, stride, flags);
         }
 
+        public Result GetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref System.IntPtr pData)
+        {
+            var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(this, arg1, firstGroup, groupCount, dataSize, pData);
+        }
+
         public Result GetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref System.IntPtr pData)
         {
             var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
@@ -2362,6 +2508,12 @@ namespace AdamantiumVulkan.Core
         {
             var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
             return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingShaderGroupHandlesNV(this, arg1, firstGroup, groupCount, dataSize, pData);
+        }
+
+        public ulong GetRayTracingShaderGroupStackSizeKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint group, ShaderGroupShaderKHR groupShader)
+        {
+            var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
+            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingShaderGroupStackSizeKHR(this, arg1, group, groupShader);
         }
 
         public Result GetRefreshCycleDurationGOOGLE(AdamantiumVulkan.Core.SwapchainKHR swapchain, RefreshCycleDurationGOOGLE pDisplayTimingProperties)
@@ -2791,6 +2943,14 @@ namespace AdamantiumVulkan.Core
             return result;
         }
 
+        public Result WriteAccelerationStructuresPropertiesKHR(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructures, QueryType queryType, ulong dataSize, ref System.IntPtr pData, ulong stride)
+        {
+            var arg1 = ReferenceEquals(pAccelerationStructures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkAccelerationStructureKHR_T)pAccelerationStructures);
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWriteAccelerationStructuresPropertiesKHR(this, accelerationStructureCount, arg1, queryType, dataSize, pData, stride);
+            Marshal.FreeHGlobal(arg1);
+            return result;
+        }
+
 
         public static implicit operator AdamantiumVulkan.Core.Interop.VkDevice_T(Device d)
         {
@@ -3154,16 +3314,36 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
-        public void BuildAccelerationStructureNV(in AccelerationStructureInfoNV pInfo, AdamantiumVulkan.Core.Buffer instanceData, ulong instanceOffset, bool update, AdamantiumVulkan.Core.AccelerationStructureKHR dst, AdamantiumVulkan.Core.AccelerationStructureKHR src, AdamantiumVulkan.Core.Buffer scratch, ulong scratchOffset)
+        public void BuildAccelerationStructureNV(in AccelerationStructureInfoNV pInfo, AdamantiumVulkan.Core.Buffer instanceData, ulong instanceOffset, bool update, AdamantiumVulkan.Core.AccelerationStructureNV dst, AdamantiumVulkan.Core.AccelerationStructureNV src, AdamantiumVulkan.Core.Buffer scratch, ulong scratchOffset)
         {
             var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
             var arg2 = ReferenceEquals(instanceData, null) ? new VkBuffer_T() : (VkBuffer_T)instanceData;
-            var arg5 = ReferenceEquals(dst, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)dst;
-            var arg6 = ReferenceEquals(src, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)src;
+            var arg5 = ReferenceEquals(dst, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)dst;
+            var arg6 = ReferenceEquals(src, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)src;
             var arg7 = ReferenceEquals(scratch, null) ? new VkBuffer_T() : (VkBuffer_T)scratch;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildAccelerationStructureNV(this, arg1, arg2, instanceOffset, update, arg5, arg6, arg7, scratchOffset);
             pInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
+        }
+
+        public void BuildAccelerationStructuresIndirectKHR(uint infoCount, in AccelerationStructureBuildGeometryInfoKHR pInfos, in ulong? pIndirectDeviceAddresses, in uint pIndirectStrides, in System.IntPtr ppMaxPrimitiveCounts)
+        {
+            var arg1 = ReferenceEquals(pInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfos.ToInternal());
+            var arg2 = ReferenceEquals(pIndirectDeviceAddresses, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pIndirectDeviceAddresses.Value);
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildAccelerationStructuresIndirectKHR(this, infoCount, arg1, arg2, pIndirectStrides, ppMaxPrimitiveCounts);
+            pInfos?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            Marshal.FreeHGlobal(arg2);
+        }
+
+        public void BuildAccelerationStructuresKHR(uint infoCount, in AccelerationStructureBuildGeometryInfoKHR pInfos, in AccelerationStructureBuildRangeInfoKHR ppBuildRangeInfos)
+        {
+            var arg1 = ReferenceEquals(pInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfos.ToInternal());
+            var arg2 = ReferenceEquals(ppBuildRangeInfos, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(ppBuildRangeInfos.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildAccelerationStructuresKHR(this, infoCount, arg1, arg2);
+            pInfos?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+            Marshal.FreeHGlobal(arg2);
         }
 
         public void ClearAttachments(uint attachmentCount, in ClearAttachment pAttachments, uint rectCount, in ClearRect pRects)
@@ -3195,11 +3375,27 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg3);
         }
 
-        public void CopyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureKHR dst, AdamantiumVulkan.Core.AccelerationStructureKHR src, CopyAccelerationStructureModeKHR mode)
+        public void CopyAccelerationStructureKHR(in CopyAccelerationStructureInfoKHR pInfo)
         {
-            var arg1 = ReferenceEquals(dst, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)dst;
-            var arg2 = ReferenceEquals(src, null) ? new VkAccelerationStructureKHR_T() : (VkAccelerationStructureKHR_T)src;
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyAccelerationStructureKHR(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
+        public void CopyAccelerationStructureNV(AdamantiumVulkan.Core.AccelerationStructureNV dst, AdamantiumVulkan.Core.AccelerationStructureNV src, CopyAccelerationStructureModeKHR mode)
+        {
+            var arg1 = ReferenceEquals(dst, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)dst;
+            var arg2 = ReferenceEquals(src, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)src;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyAccelerationStructureNV(this, arg1, arg2, mode);
+        }
+
+        public void CopyAccelerationStructureToMemoryKHR(in CopyAccelerationStructureToMemoryInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyAccelerationStructureToMemoryKHR(this, arg1);
+            pInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
         }
 
         public void CopyBuffer(AdamantiumVulkan.Core.Buffer srcBuffer, AdamantiumVulkan.Core.Buffer dstBuffer, uint regionCount, BufferCopy[] pRegions)
@@ -3283,6 +3479,14 @@ namespace AdamantiumVulkan.Core
             var arg1 = ReferenceEquals(pCopyImageToBufferInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCopyImageToBufferInfo.ToInternal());
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyImageToBuffer2KHR(this, arg1);
             pCopyImageToBufferInfo?.Dispose();
+            Marshal.FreeHGlobal(arg1);
+        }
+
+        public void CopyMemoryToAccelerationStructureKHR(in CopyMemoryToAccelerationStructureInfoKHR pInfo)
+        {
+            var arg1 = ReferenceEquals(pInfo, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pInfo.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdCopyMemoryToAccelerationStructureKHR(this, arg1);
+            pInfo?.Dispose();
             Marshal.FreeHGlobal(arg1);
         }
 
@@ -3759,6 +3963,26 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void SetFragmentShadingRateEnumNV(FragmentShadingRateNV shadingRate, in FragmentShadingRateCombinerOpKHR[] combinerOps)
+        {
+            if (combinerOps == null || combinerOps.Length != 2)
+            {
+                throw new ArgumentOutOfRangeException("combinerOps", "The dimensions of the provided array don't match the required size. Size should be = 2");
+            }
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetFragmentShadingRateEnumNV(this, shadingRate, combinerOps);
+        }
+
+        public void SetFragmentShadingRateKHR(in Extent2D pFragmentSize, in FragmentShadingRateCombinerOpKHR[] combinerOps)
+        {
+            var arg1 = ReferenceEquals(pFragmentSize, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pFragmentSize.ToInternal());
+            if (combinerOps == null || combinerOps.Length != 2)
+            {
+                throw new ArgumentOutOfRangeException("combinerOps", "The dimensions of the provided array don't match the required size. Size should be = 2");
+            }
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetFragmentShadingRateKHR(this, arg1, combinerOps);
+            Marshal.FreeHGlobal(arg1);
+        }
+
         public void SetFrontFaceEXT(FrontFace frontFace)
         {
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetFrontFaceEXT(this, frontFace);
@@ -3804,6 +4028,11 @@ namespace AdamantiumVulkan.Core
         public void SetPrimitiveTopologyEXT(PrimitiveTopology primitiveTopology)
         {
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetPrimitiveTopologyEXT(this, primitiveTopology);
+        }
+
+        public void SetRayTracingPipelineStackSizeKHR(uint pipelineStackSize)
+        {
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetRayTracingPipelineStackSizeKHR(this, pipelineStackSize);
         }
 
         public void SetSampleLocationsEXT(in SampleLocationsInfoEXT pSampleLocationsInfo)
@@ -3910,6 +4139,32 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
+        public void TraceRaysIndirectKHR(in StridedDeviceAddressRegionKHR pRaygenShaderBindingTable, in StridedDeviceAddressRegionKHR pMissShaderBindingTable, in StridedDeviceAddressRegionKHR pHitShaderBindingTable, in StridedDeviceAddressRegionKHR pCallableShaderBindingTable, ulong indirectDeviceAddress)
+        {
+            var arg1 = ReferenceEquals(pRaygenShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRaygenShaderBindingTable.ToInternal());
+            var arg2 = ReferenceEquals(pMissShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pMissShaderBindingTable.ToInternal());
+            var arg3 = ReferenceEquals(pHitShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pHitShaderBindingTable.ToInternal());
+            var arg4 = ReferenceEquals(pCallableShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCallableShaderBindingTable.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdTraceRaysIndirectKHR(this, arg1, arg2, arg3, arg4, indirectDeviceAddress);
+            Marshal.FreeHGlobal(arg1);
+            Marshal.FreeHGlobal(arg2);
+            Marshal.FreeHGlobal(arg3);
+            Marshal.FreeHGlobal(arg4);
+        }
+
+        public void TraceRaysKHR(in StridedDeviceAddressRegionKHR pRaygenShaderBindingTable, in StridedDeviceAddressRegionKHR pMissShaderBindingTable, in StridedDeviceAddressRegionKHR pHitShaderBindingTable, in StridedDeviceAddressRegionKHR pCallableShaderBindingTable, uint width, uint height, uint depth)
+        {
+            var arg1 = ReferenceEquals(pRaygenShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pRaygenShaderBindingTable.ToInternal());
+            var arg2 = ReferenceEquals(pMissShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pMissShaderBindingTable.ToInternal());
+            var arg3 = ReferenceEquals(pHitShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pHitShaderBindingTable.ToInternal());
+            var arg4 = ReferenceEquals(pCallableShaderBindingTable, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(pCallableShaderBindingTable.ToInternal());
+            AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdTraceRaysKHR(this, arg1, arg2, arg3, arg4, width, height, depth);
+            Marshal.FreeHGlobal(arg1);
+            Marshal.FreeHGlobal(arg2);
+            Marshal.FreeHGlobal(arg3);
+            Marshal.FreeHGlobal(arg4);
+        }
+
         public void TraceRaysNV(AdamantiumVulkan.Core.Buffer raygenShaderBindingTableBuffer, ulong raygenShaderBindingOffset, AdamantiumVulkan.Core.Buffer missShaderBindingTableBuffer, ulong missShaderBindingOffset, ulong missShaderBindingStride, AdamantiumVulkan.Core.Buffer hitShaderBindingTableBuffer, ulong hitShaderBindingOffset, ulong hitShaderBindingStride, AdamantiumVulkan.Core.Buffer callableShaderBindingTableBuffer, ulong callableShaderBindingOffset, ulong callableShaderBindingStride, uint width, uint height, uint depth)
         {
             var arg1 = ReferenceEquals(raygenShaderBindingTableBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)raygenShaderBindingTableBuffer;
@@ -3949,9 +4204,9 @@ namespace AdamantiumVulkan.Core
             Marshal.FreeHGlobal(arg1);
         }
 
-        public void WriteAccelerationStructuresPropertiesNV(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery)
+        public void WriteAccelerationStructuresPropertiesNV(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureNV pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery)
         {
-            var arg1 = ReferenceEquals(pAccelerationStructures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkAccelerationStructureKHR_T)pAccelerationStructures);
+            var arg1 = ReferenceEquals(pAccelerationStructures, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr((VkAccelerationStructureNV_T)pAccelerationStructures);
             var arg2 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
             AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdWriteAccelerationStructuresPropertiesNV(this, accelerationStructureCount, arg1, queryType, arg2, firstQuery);
             Marshal.FreeHGlobal(arg1);
@@ -4757,6 +5012,32 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    public partial class DeferredOperationKHR
+    {
+        internal VkDeferredOperationKHR_T __Instance;
+
+        public DeferredOperationKHR()
+        {
+        }
+
+        public DeferredOperationKHR(AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T(DeferredOperationKHR d)
+        {
+            return d?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T();
+        }
+
+        public static implicit operator DeferredOperationKHR(AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T d)
+        {
+            return new DeferredOperationKHR(d);
+        }
+
+    }
+
     public partial class DebugReportCallbackEXT
     {
         internal VkDebugReportCallbackEXT_T __Instance;
@@ -4850,41 +5131,15 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    public partial class AccelerationStructureKHR
-    {
-        internal VkAccelerationStructureKHR_T __Instance;
-
-        public AccelerationStructureKHR()
-        {
-        }
-
-        public AccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T __Instance)
-        {
-            this.__Instance = __Instance;
-        }
-
-
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T(AccelerationStructureKHR a)
-        {
-            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T();
-        }
-
-        public static implicit operator AccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T a)
-        {
-            return new AccelerationStructureKHR(a);
-        }
-
-    }
-
     public partial class AccelerationStructureNV
     {
-        internal VkAccelerationStructureKHR_T __Instance;
+        internal VkAccelerationStructureNV_T __Instance;
 
         public AccelerationStructureNV()
         {
         }
 
-        public AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T __Instance)
+        public AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T __Instance)
         {
             this.__Instance = __Instance;
         }
@@ -4895,12 +5150,12 @@ namespace AdamantiumVulkan.Core
         }
 
 
-        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T(AccelerationStructureNV a)
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T(AccelerationStructureNV a)
         {
-            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T();
+            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T();
         }
 
-        public static implicit operator AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T a)
+        public static implicit operator AccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T a)
         {
             return new AccelerationStructureNV(a);
         }
@@ -4981,6 +5236,32 @@ namespace AdamantiumVulkan.Core
         public static implicit operator PrivateDataSlotEXT(AdamantiumVulkan.Core.Interop.VkPrivateDataSlotEXT_T p)
         {
             return new PrivateDataSlotEXT(p);
+        }
+
+    }
+
+    public partial class AccelerationStructureKHR
+    {
+        internal VkAccelerationStructureKHR_T __Instance;
+
+        public AccelerationStructureKHR()
+        {
+        }
+
+        public AccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T __Instance)
+        {
+            this.__Instance = __Instance;
+        }
+
+
+        public static implicit operator AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T(AccelerationStructureKHR a)
+        {
+            return a?.__Instance ?? new AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T();
+        }
+
+        public static implicit operator AccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T a)
+        {
+            return new AccelerationStructureKHR(a);
         }
 
     }

@@ -13,6 +13,7 @@ namespace AdamantiumVulkan.MacOS.Interop
     using AdamantiumVulkan.Core;
     using AdamantiumVulkan.Core.Interop;
 
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate Result PFN_vkCreateMacOSSurfaceMVK([In] AdamantiumVulkan.Core.Interop.VkInstance_T instance,  AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK pCreateInfo,  System.IntPtr pAllocator, [Out] out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 
