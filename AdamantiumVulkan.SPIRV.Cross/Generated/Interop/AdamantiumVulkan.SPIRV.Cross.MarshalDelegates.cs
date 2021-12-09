@@ -14,6 +14,7 @@ namespace AdamantiumVulkan.SPIRV.Cross.Interop
     ///<summary>
     /// Get notified in a callback when an error triggers. Useful for debugging.
     ///</summary>
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public delegate void SpvcErrorCallback([In, Out] System.IntPtr userdata, [Out] [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))] out string error);
 

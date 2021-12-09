@@ -56,14 +56,13 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.InteropClassName = "VulkanInterop";
             vkMainModule.OutputFileName = mainNamespace;
             vkMainModule.OutputNamespace = mainNamespace;
-            vkMainModule.SuppressUnmanagedCodeSecurity = false;
+            vkMainModule.SuppressUnmanagedCodeSecurity = true;
             vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
             vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
             vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
             vkMainModule.WrapInteropObjects = true;
             vkMainModule.GenerateOverloadsForArrayParams = true;
             vkMainModule.OutputPath = mainPath;
-            vkMainModule.SuppressUnmanagedCodeSecurity = true;
 
             shaderModule = options.AddModule(shadercLibrary);
             shaderModule.Name = "Shaders";
@@ -81,7 +80,7 @@ namespace AdamantiumVulkan.Generator
             shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
             shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
             shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
-            shaderModule.SuppressUnmanagedCodeSecurity = false;
+            shaderModule.SuppressUnmanagedCodeSecurity = true;
             shaderModule.WrapInteropObjects = true;
             shaderModule.GenerateOverloadsForArrayParams = true;
             shaderModule.OutputPath = shadersPath;
@@ -101,7 +100,7 @@ namespace AdamantiumVulkan.Generator
             spivCrossModule.GeneratorSpecializations = spirvCrossSpecs;
             spivCrossModule.OutputFileName = "AdamantiumVulkan.SPIRV.Cross";
             spivCrossModule.OutputNamespace = "AdamantiumVulkan.SPIRV.Cross";
-            spivCrossModule.SuppressUnmanagedCodeSecurity = false;
+            spivCrossModule.SuppressUnmanagedCodeSecurity = true;
             spivCrossModule.AddNamespaceMapping("spirv", "AdamantiumVulkan.SPIRV", spirvPath, true);
             spivCrossModule.WrapInteropObjects = true;
             spivCrossModule.CharAsBoolForMethods = true;
