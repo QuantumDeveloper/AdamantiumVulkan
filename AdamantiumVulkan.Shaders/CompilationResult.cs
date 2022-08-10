@@ -54,7 +54,7 @@ namespace AdamantiumVulkan.Shaders
 
         private void ParseMessageString(string message)
         {
-            var messages = message.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            var messages = message.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
             bool lastMessageIsError = false;
             List<string> errors = new List<string>();
             List<string> warnings = new List<string>();

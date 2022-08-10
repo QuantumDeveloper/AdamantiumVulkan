@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>x64</Platforms>
     <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,7 @@ namespace AdamantiumVulkan.Shaders.Interop
     using System.Security;
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
 
     ///<summary>
     /// An includer callback type for mapping an #include request to an include result. The user_data parameter specifies the client context. The requested_source parameter specifies the name of the source being requested. The type parameter specifies the kind of inclusion request being made. The requesting_source parameter specifies the name of the source containing the #include request. The includer owns the result object and its contents, and both must remain valid until the release callback is called on the result object.

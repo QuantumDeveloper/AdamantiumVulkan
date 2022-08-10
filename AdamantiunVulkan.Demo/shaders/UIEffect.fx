@@ -73,8 +73,6 @@ PixelInputType LightVertexShader(VertexInputType input)
 
    output.position = mul(input.position, wvp);
    
-   //output.position.z = log(zNear*output.position.z + 1) / log(zNear*zFar + 1) * output.position.w;
-
    output.color = input.color;
 
    return output;

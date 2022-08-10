@@ -10,6 +10,7 @@ namespace AdamantiumVulkan.Core.Interop
     using System.Security;
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
     using AdamantiumVulkan.Core;
 
     [SuppressUnmanagedCodeSecurity]

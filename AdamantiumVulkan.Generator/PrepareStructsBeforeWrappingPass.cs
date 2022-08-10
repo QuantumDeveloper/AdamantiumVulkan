@@ -6,19 +6,19 @@ using QuantumBinding.Generator.Processors;
 
 namespace AdamantiumVulkan.Generator
 {
-    public class PredefinedValues
+    public class StructurePredefinedInput
     {
-        public PredefinedValues()
+        public StructurePredefinedInput()
         {
-            FieldValues = new Dictionary<string, PredefinedItem>();
+            FieldValues = new Dictionary<string, PredefinedFieldInput>();
         }
 
         public string StructType { get; set; }
 
-        public Dictionary<string, PredefinedItem> FieldValues { get; set; }
+        public Dictionary<string, PredefinedFieldInput> FieldValues { get; set; }
     }
 
-    public class PredefinedItem
+    public class PredefinedFieldInput
     {
         public bool IsReadOnly { get; set; }
 
@@ -27,8 +27,8 @@ namespace AdamantiumVulkan.Generator
 
     public class PrepareStructsBeforeWrappingPass : PreGeneratorPass
     {
-        private Dictionary<string, PredefinedValues> predefinedValues;
-        public PrepareStructsBeforeWrappingPass(List<PredefinedValues> predefinedValues)
+        private Dictionary<string, StructurePredefinedInput> predefinedValues;
+        public PrepareStructsBeforeWrappingPass(List<StructurePredefinedInput> predefinedValues)
         {
             Options.VisitClasses = true;
             this.predefinedValues = predefinedValues.ToDictionary(x=>x.StructType);

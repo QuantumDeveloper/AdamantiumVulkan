@@ -10,6 +10,7 @@ namespace AdamantiumVulkan.Shaders.Interop
     using System.Security;
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
     using AdamantiumVulkan.Shaders;
 
     public static class VulkanShadersInterop

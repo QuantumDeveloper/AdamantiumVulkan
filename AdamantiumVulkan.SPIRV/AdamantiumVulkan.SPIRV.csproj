@@ -1,10 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>x64</Platforms>
     <Configurations>Debug;Release</Configurations>
     <LangVersion>latestmajor</LangVersion>
+    <AssemblyName>AdamantiumVulkan.Spirv</AssemblyName>
+    <RootNamespace>AdamantiumVulkan.Spirv</RootNamespace>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>AdamantiumVulkan.Spirv</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Den</Authors>
+    <Company>Adamantium studio</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="libspirv-cross-c-shared.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="libspirv-cross-c-shared.so.0.49.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="spirv-cross-c-shared.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+  </ItemGroup>
 
 </Project>

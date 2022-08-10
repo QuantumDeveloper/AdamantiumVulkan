@@ -16,11 +16,12 @@ using AdamantiumVulkan.Windows;
 using Constants = AdamantiumVulkan.Core.Constants;
 using System.IO;
 using Adamantium.Mathematics;
-using AdamantiumVulkan.SPIRV.Cross;
 using AdamantiumVulkan;
 using AdamantiumVulkan.Shaders;
-using AdamantiumVulkan.SPIRV.Reflection;
-using AdamantiumVulkan.Core.Interop;
+using AdamantiumVulkan.Common;
+using AdamantiumVulkan.Spirv;
+using AdamantiumVulkan.Spirv.Cross;
+using AdamantiumVulkan.Spirv.Reflection;
 
 namespace VulkanEngineTestCore
 {
@@ -76,7 +77,7 @@ namespace VulkanEngineTestCore
             _pauseEvent = new AutoResetEvent(false);
             debugCallback = DebugCallback;
 
-            SpvcMslSamplerYcbcrConversion test = new SpvcMslSamplerYcbcrConversion();
+            var test = new SpvcMslSamplerYcbcrConversion();
             test.Swizzle = new SpvcMslComponentSwizzle[4];
             test.Swizzle[0] = SpvcMslComponentSwizzle.R;
             var intern = test.ToInternal();

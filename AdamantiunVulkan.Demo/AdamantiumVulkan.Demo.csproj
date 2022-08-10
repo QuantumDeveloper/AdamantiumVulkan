@@ -85,8 +85,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Shaders\AdamantiumVulkan.Shaders.csproj" />
-    <ProjectReference Include="..\AdamantiumVulkan.SPIRV.Cross\AdamantiumVulkan.SPIRV.Cross.csproj" />
-    <ProjectReference Include="..\AdamantiumVulkan.SPIRV.Reflection\AdamantiumVulkan.SPIRV.Reflection.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan.SPIRV\AdamantiumVulkan.SPIRV.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Windows\AdamantiumVulkan.Windows.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />
   </ItemGroup>

@@ -9,6 +9,7 @@ namespace AdamantiumVulkan.Core
 {
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
 
     public partial class Instance : QBDisposableObject
     {
