@@ -10,6 +10,7 @@ namespace AdamantiumVulkan.MacOS.Interop
     using System.Security;
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
     using AdamantiumVulkan.Core;
     using AdamantiumVulkan.Core.Interop;
 

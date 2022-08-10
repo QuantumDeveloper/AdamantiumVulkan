@@ -1,5 +1,6 @@
 ﻿using AdamantiumVulkan.Shaders.Interop;
 using System;
+using AdamantiumVulkan.Common;
 
 namespace AdamantiumVulkan.Shaders
 {

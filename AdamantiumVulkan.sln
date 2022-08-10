@@ -21,11 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantumBinding.Clang", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.MacOS", "AdamantiumVulkan.MacOS\AdamantiumVulkan.MacOS.csproj", "{C526A5BF-554D-4227-8EAC-22D634C81BCC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.SPIRV.Cross", "AdamantiumVulkan.SPIRV.Cross\AdamantiumVulkan.SPIRV.Cross.csproj", "{1E17063E-388E-4C9B-8E26-84726A812A8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Spirv", "AdamantiumVulkan.Spirv\AdamantiumVulkan.Spirv.csproj", "{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.SPIRV", "AdamantiumVulkan.SPIRV\AdamantiumVulkan.SPIRV.csproj", "{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdamantiumVulkan.SPIRV.Reflection", "AdamantiumVulkan.SPIRV.Reflection\AdamantiumVulkan.SPIRV.Reflection.csproj", "{196C6B28-7D42-4E9F-92C0-DFB1375ED13D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdamantiumVulkan.Common", "AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj", "{7DE83A91-5851-4A65-B07E-C99BB842167F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,18 +67,12 @@ Global
 		{C526A5BF-554D-4227-8EAC-22D634C81BCC}.Debug|x64.Build.0 = Debug|x64
 		{C526A5BF-554D-4227-8EAC-22D634C81BCC}.Release|x64.ActiveCfg = Release|x64
 		{C526A5BF-554D-4227-8EAC-22D634C81BCC}.Release|x64.Build.0 = Release|x64
-		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Debug|x64.ActiveCfg = Debug|x64
-		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Debug|x64.Build.0 = Debug|x64
-		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Release|x64.ActiveCfg = Release|x64
-		{1E17063E-388E-4C9B-8E26-84726A812A8B}.Release|x64.Build.0 = Release|x64
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|x64.ActiveCfg = Debug|x64
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|x64.Build.0 = Debug|x64
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.ActiveCfg = Release|x64
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.Build.0 = Release|x64
-		{196C6B28-7D42-4E9F-92C0-DFB1375ED13D}.Debug|x64.ActiveCfg = Debug|x64
-		{196C6B28-7D42-4E9F-92C0-DFB1375ED13D}.Debug|x64.Build.0 = Debug|x64
-		{196C6B28-7D42-4E9F-92C0-DFB1375ED13D}.Release|x64.ActiveCfg = Release|x64
-		{196C6B28-7D42-4E9F-92C0-DFB1375ED13D}.Release|x64.Build.0 = Release|x64
+		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Debug|x64.ActiveCfg = Debug|x64
+		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,6 +9,7 @@ namespace AdamantiumVulkan.Windows
 {
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
     using AdamantiumVulkan.Core;
     using AdamantiumVulkan.Windows.Interop;
     using AdamantiumVulkan.Core.Interop;

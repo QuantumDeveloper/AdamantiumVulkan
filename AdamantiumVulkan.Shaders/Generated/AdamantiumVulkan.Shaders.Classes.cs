@@ -9,6 +9,7 @@ namespace AdamantiumVulkan.Shaders
 {
     using System;
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
     using AdamantiumVulkan.Shaders.Interop;
 
     ///<summary>

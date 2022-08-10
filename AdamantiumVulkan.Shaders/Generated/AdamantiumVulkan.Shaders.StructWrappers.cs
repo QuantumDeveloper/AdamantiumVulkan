@@ -9,6 +9,7 @@
 namespace AdamantiumVulkan.Shaders
 {
     using System.Runtime.InteropServices;
+    using AdamantiumVulkan.Common;
     using AdamantiumVulkan.Shaders;
 
     public partial class ShadercIncludeResult : QBDisposableObject
