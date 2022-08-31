@@ -123,6 +123,13 @@ namespace AdamantiumVulkan.Shaders.Interop
         internal static extern void shaderc_compile_options_set_generate_debug_info([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options);
 
         ///<summary>
+        /// Sets whether 16-bit types are supported in HLSL or not.
+        ///</summary>
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_hlsl_16bit_types", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void shaderc_compile_options_set_hlsl_16bit_types([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] bool enable);
+
+        ///<summary>
         /// Sets whether the compiler should enable extension SPV_GOOGLE_hlsl_functionality1.
         ///</summary>
         [SuppressUnmanagedCodeSecurity]

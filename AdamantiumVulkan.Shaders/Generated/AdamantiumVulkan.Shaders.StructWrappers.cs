@@ -14,9 +14,9 @@ namespace AdamantiumVulkan.Shaders
 
     public partial class ShadercIncludeResult : QBDisposableObject
     {
-        private StringReference refsource_name;
+        private StringReference source_name;
 
-        private StringReference refcontent;
+        private StringReference content;
 
         public ShadercIncludeResult()
         {
@@ -40,18 +40,18 @@ namespace AdamantiumVulkan.Shaders
         public AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult ToInternal()
         {
             var _internal = new AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult();
-            refsource_name?.Dispose();
+            source_name?.Dispose();
             if (Source_name != null)
             {
-                refsource_name = new StringReference(Source_name, false);
-                _internal.source_name = refsource_name.Handle;
+                source_name = new StringReference(Source_name, false);
+                _internal.source_name = source_name.Handle;
             }
             _internal.source_name_length = Source_name_length;
-            refcontent?.Dispose();
+            content?.Dispose();
             if (Content != null)
             {
-                refcontent = new StringReference(Content, false);
-                _internal.content = refcontent.Handle;
+                content = new StringReference(Content, false);
+                _internal.content = content.Handle;
             }
             _internal.content_length = Content_length;
             _internal.user_data = User_data;
@@ -60,8 +60,8 @@ namespace AdamantiumVulkan.Shaders
 
         protected override void UnmanagedDisposeOverride()
         {
-            refsource_name?.Dispose();
-            refcontent?.Dispose();
+            source_name?.Dispose();
+            content?.Dispose();
         }
 
 
