@@ -198,6 +198,14 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
+        /// Sets whether 16-bit types are supported in HLSL or not.
+        ///</summary>
+        public void SetHlsl16bitTypes(bool enable)
+        {
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_16bit_types(this, enable);
+        }
+
+        ///<summary>
         /// Sets whether the compiler should enable extension SPV_GOOGLE_hlsl_functionality1.
         ///</summary>
         public void SetHlslFunctionality1(bool enable)
