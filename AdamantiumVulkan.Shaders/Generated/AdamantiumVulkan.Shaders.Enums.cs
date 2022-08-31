@@ -28,7 +28,7 @@ namespace AdamantiumVulkan.Shaders
         OpenglCompat = 2,
 
         ///<summary>
-        /// SPIR-V under WebGPU semantics
+        /// Deprecated, SPIR-V under WebGPU semantics
         ///</summary>
         Webgpu = 3,
 
@@ -52,12 +52,17 @@ namespace AdamantiumVulkan.Shaders
         Vulkan12 = 4202496,
 
         ///<summary>
+        /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
+        ///</summary>
+        Vulkan13 = 4206592,
+
+        ///<summary>
         /// For OpenGL, use the number from #version in shaders. TODO(dneto): Currently no difference between OpenGL 4.5 and 4.6. See glslang/Standalone/Standalone.cpp TODO(dneto): Glslang doesn't accept a OpenGL client version of 460.
         ///</summary>
         Opengl45 = 450,
 
         ///<summary>
-        /// Currently WebGPU doesn't have versioning, since it isn't finalized. This will have to be updated once the spec is finished.
+        /// Deprecated, WebGPU env never defined versions
         ///</summary>
         Webgpu = 451,
 
@@ -97,6 +102,11 @@ namespace AdamantiumVulkan.Shaders
         /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
         ///</summary>
         _5 = 66816,
+
+        ///<summary>
+        /// Use the values used for word 1 of a SPIR-V binary: - bits 24 to 31: zero - bits 16 to 23: major version number - bits 8 to 15: minor version number - bits 0 to 7: zero
+        ///</summary>
+        _6 = 67072,
 
     }
 
@@ -306,6 +316,9 @@ namespace AdamantiumVulkan.Shaders
 
         Core = 1,
 
+        ///<summary>
+        /// Disabled. This generates an error
+        ///</summary>
         Compatibility = 2,
 
         Es = 3,

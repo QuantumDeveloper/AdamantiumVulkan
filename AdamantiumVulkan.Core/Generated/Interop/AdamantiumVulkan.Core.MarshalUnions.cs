@@ -96,7 +96,7 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    public partial struct VkDeviceOrHostAddressKHR
+    public partial struct VkDeviceOrHostAddressConstKHR
     {
         [FieldOffset(0)]
         public ulong deviceAddress;
@@ -107,7 +107,21 @@ namespace AdamantiumVulkan.Core.Interop
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    public partial struct VkDeviceOrHostAddressConstKHR
+    public partial struct VkAccelerationStructureMotionInstanceDataNV
+    {
+        [FieldOffset(0)]
+        public VkAccelerationStructureInstanceKHR staticInstance;
+
+        [FieldOffset(0)]
+        public VkAccelerationStructureMatrixMotionInstanceNV matrixMotionInstance;
+
+        [FieldOffset(0)]
+        public VkAccelerationStructureSRTMotionInstanceNV srtMotionInstance;
+
+    }
+
+    [StructLayout(LayoutKind.Explicit)]
+    public partial struct VkDeviceOrHostAddressKHR
     {
         [FieldOffset(0)]
         public ulong deviceAddress;

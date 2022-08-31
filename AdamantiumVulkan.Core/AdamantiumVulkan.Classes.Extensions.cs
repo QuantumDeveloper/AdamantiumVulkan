@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using AdamantiumVulkan.Core.Interop;
@@ -8,7 +9,7 @@ namespace AdamantiumVulkan.Core
 {
     public partial class Instance 
     {
-        public static LayerProperties[] EnumerateInstanceLayerProperties()
+        public static unsafe LayerProperties[] EnumerateInstanceLayerProperties()
         {
             uint layersCount = 0;
             var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, null);

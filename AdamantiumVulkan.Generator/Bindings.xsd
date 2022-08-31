@@ -6,18 +6,18 @@
 >
   <xs:simpleType name="ClassTypeMap">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Struct"></xs:enumeration>
-      <xs:enumeration value="Class"></xs:enumeration>
-      <xs:enumeration value="Union"></xs:enumeration>
+      <xs:enumeration value="Struct"/>
+      <xs:enumeration value="Class"/>
+      <xs:enumeration value="Union"/>
     </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="AccessSpecifier">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Public"></xs:enumeration>
-      <xs:enumeration value="Private"></xs:enumeration>
-      <xs:enumeration value="Internal"></xs:enumeration>
-      <xs:enumeration value="Protected"></xs:enumeration>
+      <xs:enumeration value="Public"/>
+      <xs:enumeration value="Private"/>
+      <xs:enumeration value="Internal"/>
+      <xs:enumeration value="Protected"/>
     </xs:restriction>
   </xs:simpleType>
 

@@ -94,7 +94,7 @@ namespace AdamantiumVulkan.Windows
 
     public partial class ExportMemoryWin32HandleInfoKHR : QBDisposableObject
     {
-        private StructReference refpAttributes;
+        private StructReference pAttributes;
 
         public ExportMemoryWin32HandleInfoKHR()
         {
@@ -120,11 +120,11 @@ namespace AdamantiumVulkan.Windows
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR();
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
             if (PAttributes != null)
             {
-                refpAttributes = new StructReference(PAttributes);
-                _internal.pAttributes = refpAttributes.Handle;
+                pAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = pAttributes.Handle;
             }
             _internal.dwAccess = DwAccess;
             _internal.name = Name;
@@ -133,7 +133,7 @@ namespace AdamantiumVulkan.Windows
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
         }
 
 
@@ -215,15 +215,15 @@ namespace AdamantiumVulkan.Windows
 
     public partial class Win32KeyedMutexAcquireReleaseInfoKHR : QBDisposableObject
     {
-        private StructReference refpAcquireSyncs;
+        private StructReference pAcquireSyncs;
 
-        private StructReference refpAcquireKeys;
+        private StructReference pAcquireKeys;
 
-        private StructReference refpAcquireTimeouts;
+        private StructReference pAcquireTimeouts;
 
-        private StructReference refpReleaseSyncs;
+        private StructReference pReleaseSyncs;
 
-        private StructReference refpReleaseKeys;
+        private StructReference pReleaseKeys;
 
         public Win32KeyedMutexAcquireReleaseInfoKHR()
         {
@@ -272,49 +272,49 @@ namespace AdamantiumVulkan.Windows
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.acquireCount = AcquireCount;
-            refpAcquireSyncs?.Dispose();
+            pAcquireSyncs?.Dispose();
             if (PAcquireSyncs != null)
             {
                 AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = PAcquireSyncs;
-                refpAcquireSyncs = new StructReference(struct0);
-                _internal.pAcquireSyncs = refpAcquireSyncs.Handle;
+                pAcquireSyncs = new StructReference(struct0);
+                _internal.pAcquireSyncs = pAcquireSyncs.Handle;
             }
-            refpAcquireKeys?.Dispose();
+            pAcquireKeys?.Dispose();
             if (PAcquireKeys != null)
             {
-                refpAcquireKeys = new StructReference(PAcquireKeys);
-                _internal.pAcquireKeys = refpAcquireKeys.Handle;
+                pAcquireKeys = new StructReference(PAcquireKeys);
+                _internal.pAcquireKeys = pAcquireKeys.Handle;
             }
-            refpAcquireTimeouts?.Dispose();
+            pAcquireTimeouts?.Dispose();
             if (PAcquireTimeouts != null)
             {
-                refpAcquireTimeouts = new StructReference(PAcquireTimeouts);
-                _internal.pAcquireTimeouts = refpAcquireTimeouts.Handle;
+                pAcquireTimeouts = new StructReference(PAcquireTimeouts);
+                _internal.pAcquireTimeouts = pAcquireTimeouts.Handle;
             }
             _internal.releaseCount = ReleaseCount;
-            refpReleaseSyncs?.Dispose();
+            pReleaseSyncs?.Dispose();
             if (PReleaseSyncs != null)
             {
                 AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct3 = PReleaseSyncs;
-                refpReleaseSyncs = new StructReference(struct3);
-                _internal.pReleaseSyncs = refpReleaseSyncs.Handle;
+                pReleaseSyncs = new StructReference(struct3);
+                _internal.pReleaseSyncs = pReleaseSyncs.Handle;
             }
-            refpReleaseKeys?.Dispose();
+            pReleaseKeys?.Dispose();
             if (PReleaseKeys != null)
             {
-                refpReleaseKeys = new StructReference(PReleaseKeys);
-                _internal.pReleaseKeys = refpReleaseKeys.Handle;
+                pReleaseKeys = new StructReference(PReleaseKeys);
+                _internal.pReleaseKeys = pReleaseKeys.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpAcquireSyncs?.Dispose();
-            refpAcquireKeys?.Dispose();
-            refpAcquireTimeouts?.Dispose();
-            refpReleaseSyncs?.Dispose();
-            refpReleaseKeys?.Dispose();
+            pAcquireSyncs?.Dispose();
+            pAcquireKeys?.Dispose();
+            pAcquireTimeouts?.Dispose();
+            pReleaseSyncs?.Dispose();
+            pReleaseKeys?.Dispose();
         }
 
 
@@ -372,7 +372,7 @@ namespace AdamantiumVulkan.Windows
 
     public partial class ExportSemaphoreWin32HandleInfoKHR : QBDisposableObject
     {
-        private StructReference refpAttributes;
+        private StructReference pAttributes;
 
         public ExportSemaphoreWin32HandleInfoKHR()
         {
@@ -398,11 +398,11 @@ namespace AdamantiumVulkan.Windows
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR();
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
             if (PAttributes != null)
             {
-                refpAttributes = new StructReference(PAttributes);
-                _internal.pAttributes = refpAttributes.Handle;
+                pAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = pAttributes.Handle;
             }
             _internal.dwAccess = DwAccess;
             _internal.name = Name;
@@ -411,7 +411,7 @@ namespace AdamantiumVulkan.Windows
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
         }
 
 
@@ -424,9 +424,9 @@ namespace AdamantiumVulkan.Windows
 
     public partial class D3D12FenceSubmitInfoKHR : QBDisposableObject
     {
-        private StructReference refpWaitSemaphoreValues;
+        private StructReference pWaitSemaphoreValues;
 
-        private StructReference refpSignalSemaphoreValues;
+        private StructReference pSignalSemaphoreValues;
 
         public D3D12FenceSubmitInfoKHR()
         {
@@ -463,26 +463,26 @@ namespace AdamantiumVulkan.Windows
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.waitSemaphoreValuesCount = WaitSemaphoreValuesCount;
-            refpWaitSemaphoreValues?.Dispose();
+            pWaitSemaphoreValues?.Dispose();
             if (PWaitSemaphoreValues != null)
             {
-                refpWaitSemaphoreValues = new StructReference(PWaitSemaphoreValues);
-                _internal.pWaitSemaphoreValues = refpWaitSemaphoreValues.Handle;
+                pWaitSemaphoreValues = new StructReference(PWaitSemaphoreValues);
+                _internal.pWaitSemaphoreValues = pWaitSemaphoreValues.Handle;
             }
             _internal.signalSemaphoreValuesCount = SignalSemaphoreValuesCount;
-            refpSignalSemaphoreValues?.Dispose();
+            pSignalSemaphoreValues?.Dispose();
             if (PSignalSemaphoreValues != null)
             {
-                refpSignalSemaphoreValues = new StructReference(PSignalSemaphoreValues);
-                _internal.pSignalSemaphoreValues = refpSignalSemaphoreValues.Handle;
+                pSignalSemaphoreValues = new StructReference(PSignalSemaphoreValues);
+                _internal.pSignalSemaphoreValues = pSignalSemaphoreValues.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpWaitSemaphoreValues?.Dispose();
-            refpSignalSemaphoreValues?.Dispose();
+            pWaitSemaphoreValues?.Dispose();
+            pSignalSemaphoreValues?.Dispose();
         }
 
 
@@ -576,7 +576,7 @@ namespace AdamantiumVulkan.Windows
 
     public partial class ExportFenceWin32HandleInfoKHR : QBDisposableObject
     {
-        private StructReference refpAttributes;
+        private StructReference pAttributes;
 
         public ExportFenceWin32HandleInfoKHR()
         {
@@ -602,11 +602,11 @@ namespace AdamantiumVulkan.Windows
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR();
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
             if (PAttributes != null)
             {
-                refpAttributes = new StructReference(PAttributes);
-                _internal.pAttributes = refpAttributes.Handle;
+                pAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = pAttributes.Handle;
             }
             _internal.dwAccess = DwAccess;
             _internal.name = Name;
@@ -615,7 +615,7 @@ namespace AdamantiumVulkan.Windows
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
         }
 
 
@@ -700,7 +700,7 @@ namespace AdamantiumVulkan.Windows
 
     public partial class ExportMemoryWin32HandleInfoNV : QBDisposableObject
     {
-        private StructReference refpAttributes;
+        private StructReference pAttributes;
 
         public ExportMemoryWin32HandleInfoNV()
         {
@@ -724,11 +724,11 @@ namespace AdamantiumVulkan.Windows
             var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV();
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
             if (PAttributes != null)
             {
-                refpAttributes = new StructReference(PAttributes);
-                _internal.pAttributes = refpAttributes.Handle;
+                pAttributes = new StructReference(PAttributes);
+                _internal.pAttributes = pAttributes.Handle;
             }
             _internal.dwAccess = DwAccess;
             return _internal;
@@ -736,7 +736,7 @@ namespace AdamantiumVulkan.Windows
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpAttributes?.Dispose();
+            pAttributes?.Dispose();
         }
 
 
@@ -749,15 +749,15 @@ namespace AdamantiumVulkan.Windows
 
     public partial class Win32KeyedMutexAcquireReleaseInfoNV : QBDisposableObject
     {
-        private StructReference refpAcquireSyncs;
+        private StructReference pAcquireSyncs;
 
-        private StructReference refpAcquireKeys;
+        private StructReference pAcquireKeys;
 
-        private StructReference refpAcquireTimeoutMilliseconds;
+        private StructReference pAcquireTimeoutMilliseconds;
 
-        private StructReference refpReleaseSyncs;
+        private StructReference pReleaseSyncs;
 
-        private StructReference refpReleaseKeys;
+        private StructReference pReleaseKeys;
 
         public Win32KeyedMutexAcquireReleaseInfoNV()
         {
@@ -806,49 +806,49 @@ namespace AdamantiumVulkan.Windows
             _internal.sType = (uint)SType;
             _internal.pNext = PNext;
             _internal.acquireCount = AcquireCount;
-            refpAcquireSyncs?.Dispose();
+            pAcquireSyncs?.Dispose();
             if (PAcquireSyncs != null)
             {
                 AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = PAcquireSyncs;
-                refpAcquireSyncs = new StructReference(struct0);
-                _internal.pAcquireSyncs = refpAcquireSyncs.Handle;
+                pAcquireSyncs = new StructReference(struct0);
+                _internal.pAcquireSyncs = pAcquireSyncs.Handle;
             }
-            refpAcquireKeys?.Dispose();
+            pAcquireKeys?.Dispose();
             if (PAcquireKeys != null)
             {
-                refpAcquireKeys = new StructReference(PAcquireKeys);
-                _internal.pAcquireKeys = refpAcquireKeys.Handle;
+                pAcquireKeys = new StructReference(PAcquireKeys);
+                _internal.pAcquireKeys = pAcquireKeys.Handle;
             }
-            refpAcquireTimeoutMilliseconds?.Dispose();
+            pAcquireTimeoutMilliseconds?.Dispose();
             if (PAcquireTimeoutMilliseconds != null)
             {
-                refpAcquireTimeoutMilliseconds = new StructReference(PAcquireTimeoutMilliseconds);
-                _internal.pAcquireTimeoutMilliseconds = refpAcquireTimeoutMilliseconds.Handle;
+                pAcquireTimeoutMilliseconds = new StructReference(PAcquireTimeoutMilliseconds);
+                _internal.pAcquireTimeoutMilliseconds = pAcquireTimeoutMilliseconds.Handle;
             }
             _internal.releaseCount = ReleaseCount;
-            refpReleaseSyncs?.Dispose();
+            pReleaseSyncs?.Dispose();
             if (PReleaseSyncs != null)
             {
                 AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct3 = PReleaseSyncs;
-                refpReleaseSyncs = new StructReference(struct3);
-                _internal.pReleaseSyncs = refpReleaseSyncs.Handle;
+                pReleaseSyncs = new StructReference(struct3);
+                _internal.pReleaseSyncs = pReleaseSyncs.Handle;
             }
-            refpReleaseKeys?.Dispose();
+            pReleaseKeys?.Dispose();
             if (PReleaseKeys != null)
             {
-                refpReleaseKeys = new StructReference(PReleaseKeys);
-                _internal.pReleaseKeys = refpReleaseKeys.Handle;
+                pReleaseKeys = new StructReference(PReleaseKeys);
+                _internal.pReleaseKeys = pReleaseKeys.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refpAcquireSyncs?.Dispose();
-            refpAcquireKeys?.Dispose();
-            refpAcquireTimeoutMilliseconds?.Dispose();
-            refpReleaseSyncs?.Dispose();
-            refpReleaseKeys?.Dispose();
+            pAcquireSyncs?.Dispose();
+            pAcquireKeys?.Dispose();
+            pAcquireTimeoutMilliseconds?.Dispose();
+            pReleaseSyncs?.Dispose();
+            pReleaseKeys?.Dispose();
         }
 
 

@@ -58,6 +58,8 @@ namespace AdamantiumVulkan.Core
 
         ErrorInvalidOpaqueCaptureAddress = -1000257000,
 
+        PipelineCompileRequired = 1000297000,
+
         ErrorSurfaceLostKhr = -1000000000,
 
         ErrorNativeWindowInUseKhr = -1000000001,
@@ -74,7 +76,7 @@ namespace AdamantiumVulkan.Core
 
         ErrorInvalidDrmFormatModifierPlaneLayoutExt = -1000158000,
 
-        ErrorNotPermittedExt = -1000174001,
+        ErrorNotPermittedKhr = -1000174001,
 
         ErrorFullScreenExclusiveModeLostExt = -1000255000,
 
@@ -86,7 +88,7 @@ namespace AdamantiumVulkan.Core
 
         OperationNotDeferredKhr = 1000268003,
 
-        PipelineCompileRequiredExt = 1000297000,
+        ErrorCompressionExhaustedExt = -1000338000,
 
         ResultMaxEnum = 2147483647,
 
@@ -422,6 +424,110 @@ namespace AdamantiumVulkan.Core
 
         DeviceMemoryOpaqueCaptureAddressInfo = 1000257004,
 
+        PhysicalDeviceVulkan13Features = 53,
+
+        PhysicalDeviceVulkan13Properties = 54,
+
+        PipelineCreationFeedbackCreateInfo = 1000192000,
+
+        PhysicalDeviceShaderTerminateInvocationFeatures = 1000215000,
+
+        PhysicalDeviceToolProperties = 1000245000,
+
+        PhysicalDeviceShaderDemoteToHelperInvocationFeatures = 1000276000,
+
+        PhysicalDevicePrivateDataFeatures = 1000295000,
+
+        DevicePrivateDataCreateInfo = 1000295001,
+
+        PrivateDataSlotCreateInfo = 1000295002,
+
+        PhysicalDevicePipelineCreationCacheControlFeatures = 1000297000,
+
+        MemoryBarrier2 = 1000314000,
+
+        BufferMemoryBarrier2 = 1000314001,
+
+        ImageMemoryBarrier2 = 1000314002,
+
+        DependencyInfo = 1000314003,
+
+        SubmitInfo2 = 1000314004,
+
+        SemaphoreSubmitInfo = 1000314005,
+
+        CommandBufferSubmitInfo = 1000314006,
+
+        PhysicalDeviceSynchronization2Features = 1000314007,
+
+        PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures = 1000325000,
+
+        PhysicalDeviceImageRobustnessFeatures = 1000335000,
+
+        CopyBufferInfo2 = 1000337000,
+
+        CopyImageInfo2 = 1000337001,
+
+        CopyBufferToImageInfo2 = 1000337002,
+
+        CopyImageToBufferInfo2 = 1000337003,
+
+        BlitImageInfo2 = 1000337004,
+
+        ResolveImageInfo2 = 1000337005,
+
+        BufferCopy2 = 1000337006,
+
+        ImageCopy2 = 1000337007,
+
+        ImageBlit2 = 1000337008,
+
+        BufferImageCopy2 = 1000337009,
+
+        ImageResolve2 = 1000337010,
+
+        PhysicalDeviceSubgroupSizeControlProperties = 1000225000,
+
+        PipelineShaderStageRequiredSubgroupSizeCreateInfo = 1000225001,
+
+        PhysicalDeviceSubgroupSizeControlFeatures = 1000225002,
+
+        PhysicalDeviceInlineUniformBlockFeatures = 1000138000,
+
+        PhysicalDeviceInlineUniformBlockProperties = 1000138001,
+
+        WriteDescriptorSetInlineUniformBlock = 1000138002,
+
+        DescriptorPoolInlineUniformBlockCreateInfo = 1000138003,
+
+        PhysicalDeviceTextureCompressionAstcHdrFeatures = 1000066000,
+
+        RenderingInfo = 1000044000,
+
+        RenderingAttachmentInfo = 1000044001,
+
+        PipelineRenderingCreateInfo = 1000044002,
+
+        PhysicalDeviceDynamicRenderingFeatures = 1000044003,
+
+        CommandBufferInheritanceRenderingInfo = 1000044004,
+
+        PhysicalDeviceShaderIntegerDotProductFeatures = 1000280000,
+
+        PhysicalDeviceShaderIntegerDotProductProperties = 1000280001,
+
+        PhysicalDeviceTexelBufferAlignmentProperties = 1000281001,
+
+        FormatProperties3 = 1000360000,
+
+        PhysicalDeviceMaintenance4Features = 1000413000,
+
+        PhysicalDeviceMaintenance4Properties = 1000413001,
+
+        DeviceBufferMemoryRequirements = 1000413002,
+
+        DeviceImageMemoryRequirements = 1000413003,
+
         SwapchainCreateInfoKhr = 1000001000,
 
         PresentInfoKhr = 1000001001,
@@ -476,11 +582,25 @@ namespace AdamantiumVulkan.Core
 
         PipelineRasterizationStateStreamCreateInfoExt = 1000028002,
 
+        CuModuleCreateInfoNvx = 1000029000,
+
+        CuFunctionCreateInfoNvx = 1000029001,
+
+        CuLaunchInfoNvx = 1000029002,
+
         ImageViewHandleInfoNvx = 1000030000,
 
         ImageViewAddressPropertiesNvx = 1000030001,
 
         TextureLodGatherFormatPropertiesAmd = 1000041000,
+
+        RenderingFragmentShadingRateAttachmentInfoKhr = 1000044006,
+
+        RenderingFragmentDensityMapAttachmentInfoExt = 1000044007,
+
+        AttachmentSampleCountInfoAmd = 1000044008,
+
+        MultiviewPerViewAttributesInfoNvx = 1000044009,
 
         StreamDescriptorSurfaceCreateInfoGgp = 1000049000,
 
@@ -500,11 +620,15 @@ namespace AdamantiumVulkan.Core
 
         ViSurfaceCreateInfoNn = 1000062000,
 
-        PhysicalDeviceTextureCompressionAstcHdrFeaturesExt = 1000066000,
-
         ImageViewAstcDecodeModeExt = 1000067000,
 
         PhysicalDeviceAstcDecodeFeaturesExt = 1000067001,
+
+        PipelineRobustnessCreateInfoExt = 1000068000,
+
+        PhysicalDevicePipelineRobustnessFeaturesExt = 1000068001,
+
+        PhysicalDevicePipelineRobustnessPropertiesExt = 1000068002,
 
         ImportMemoryWin32HandleInfoKhr = 1000073000,
 
@@ -644,13 +768,7 @@ namespace AdamantiumVulkan.Core
 
         ExternalFormatAndroid = 1000129005,
 
-        PhysicalDeviceInlineUniformBlockFeaturesExt = 1000138000,
-
-        PhysicalDeviceInlineUniformBlockPropertiesExt = 1000138001,
-
-        WriteDescriptorSetInlineUniformBlockExt = 1000138002,
-
-        DescriptorPoolInlineUniformBlockCreateInfoExt = 1000138003,
+        AndroidHardwareBufferFormatProperties2Android = 1000129006,
 
         SampleLocationsInfoExt = 1000143000,
 
@@ -728,13 +846,11 @@ namespace AdamantiumVulkan.Core
 
         ImageDrmFormatModifierPropertiesExt = 1000158005,
 
+        DrmFormatModifierPropertiesList2Ext = 1000158006,
+
         ValidationCacheCreateInfoExt = 1000160000,
 
         ShaderModuleValidationCacheCreateInfoExt = 1000160001,
-
-        PhysicalDevicePortabilitySubsetFeaturesKhr = 1000163000,
-
-        PhysicalDevicePortabilitySubsetPropertiesKhr = 1000163001,
 
         PipelineViewportShadingRateImageStateCreateInfoNv = 1000164000,
 
@@ -774,8 +890,6 @@ namespace AdamantiumVulkan.Core
 
         FilterCubicImageViewImageFormatPropertiesExt = 1000170001,
 
-        DeviceQueueGlobalPriorityCreateInfoExt = 1000174000,
-
         ImportMemoryHostPointerInfoExt = 1000178000,
 
         MemoryHostPointerPropertiesExt = 1000178001,
@@ -790,6 +904,12 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceShaderCorePropertiesAmd = 1000185000,
 
+        DeviceQueueGlobalPriorityCreateInfoKhr = 1000174000,
+
+        PhysicalDeviceGlobalPriorityQueryFeaturesKhr = 1000388000,
+
+        QueueFamilyGlobalPriorityPropertiesKhr = 1000388001,
+
         DeviceMemoryOverallocationCreateInfoAmd = 1000189000,
 
         PhysicalDeviceVertexAttributeDivisorPropertiesExt = 1000190000,
@@ -800,15 +920,11 @@ namespace AdamantiumVulkan.Core
 
         PresentFrameTokenGgp = 1000191000,
 
-        PipelineCreationFeedbackCreateInfoExt = 1000192000,
-
         PhysicalDeviceComputeShaderDerivativesFeaturesNv = 1000201000,
 
         PhysicalDeviceMeshShaderFeaturesNv = 1000202000,
 
         PhysicalDeviceMeshShaderPropertiesNv = 1000202001,
-
-        PhysicalDeviceFragmentShaderBarycentricFeaturesNv = 1000203000,
 
         PhysicalDeviceShaderImageFootprintFeaturesNv = 1000204000,
 
@@ -842,8 +958,6 @@ namespace AdamantiumVulkan.Core
 
         ImagepipeSurfaceCreateInfoFuchsia = 1000214000,
 
-        PhysicalDeviceShaderTerminateInvocationFeaturesKhr = 1000215000,
-
         MetalSurfaceCreateInfoExt = 1000217000,
 
         PhysicalDeviceFragmentDensityMapFeaturesExt = 1000218000,
@@ -851,12 +965,6 @@ namespace AdamantiumVulkan.Core
         PhysicalDeviceFragmentDensityMapPropertiesExt = 1000218001,
 
         RenderPassFragmentDensityMapCreateInfoExt = 1000218002,
-
-        PhysicalDeviceSubgroupSizeControlPropertiesExt = 1000225000,
-
-        PipelineShaderStageRequiredSubgroupSizeCreateInfoExt = 1000225001,
-
-        PhysicalDeviceSubgroupSizeControlFeaturesExt = 1000225002,
 
         FragmentShadingRateAttachmentInfoKhr = 1000226000,
 
@@ -888,9 +996,9 @@ namespace AdamantiumVulkan.Core
 
         BufferDeviceAddressCreateInfoExt = 1000244002,
 
-        PhysicalDeviceToolPropertiesExt = 1000245000,
-
         ValidationFeaturesExt = 1000247000,
+
+        PhysicalDevicePresentWaitFeaturesKhr = 1000248000,
 
         PhysicalDeviceCooperativeMatrixFeaturesNv = 1000249000,
 
@@ -907,6 +1015,12 @@ namespace AdamantiumVulkan.Core
         PhysicalDeviceFragmentShaderInterlockFeaturesExt = 1000251000,
 
         PhysicalDeviceYcbcrImageArraysFeaturesExt = 1000252000,
+
+        PhysicalDeviceProvokingVertexFeaturesExt = 1000254000,
+
+        PipelineRasterizationProvokingVertexStateCreateInfoExt = 1000254001,
+
+        PhysicalDeviceProvokingVertexPropertiesExt = 1000254002,
 
         SurfaceFullScreenExclusiveInfoExt = 1000255000,
 
@@ -940,7 +1054,7 @@ namespace AdamantiumVulkan.Core
 
         PipelineExecutableInternalRepresentationKhr = 1000269005,
 
-        PhysicalDeviceShaderDemoteToHelperInvocationFeaturesExt = 1000276000,
+        PhysicalDeviceShaderAtomicFloat2FeaturesExt = 1000273000,
 
         PhysicalDeviceDeviceGeneratedCommandsPropertiesNv = 1000277000,
 
@@ -958,9 +1072,11 @@ namespace AdamantiumVulkan.Core
 
         PhysicalDeviceDeviceGeneratedCommandsFeaturesNv = 1000277007,
 
-        PhysicalDeviceTexelBufferAlignmentFeaturesExt = 1000281000,
+        PhysicalDeviceInheritedViewportScissorFeaturesNv = 1000278000,
 
-        PhysicalDeviceTexelBufferAlignmentPropertiesExt = 1000281001,
+        CommandBufferInheritanceViewportScissorInfoNv = 1000278001,
+
+        PhysicalDeviceTexelBufferAlignmentFeaturesExt = 1000281000,
 
         CommandBufferInheritanceRenderPassTransformInfoQcom = 1000282000,
 
@@ -984,17 +1100,55 @@ namespace AdamantiumVulkan.Core
 
         PipelineLibraryCreateInfoKhr = 1000290000,
 
-        PhysicalDevicePrivateDataFeaturesExt = 1000295000,
+        PresentIdKhr = 1000294000,
 
-        DevicePrivateDataCreateInfoExt = 1000295001,
-
-        PrivateDataSlotCreateInfoExt = 1000295002,
-
-        PhysicalDevicePipelineCreationCacheControlFeaturesExt = 1000297000,
+        PhysicalDevicePresentIdFeaturesKhr = 1000294001,
 
         PhysicalDeviceDiagnosticsConfigFeaturesNv = 1000300000,
 
         DeviceDiagnosticsConfigCreateInfoNv = 1000300001,
+
+        ExportMetalObjectCreateInfoExt = 1000311000,
+
+        ExportMetalObjectsInfoExt = 1000311001,
+
+        ExportMetalDeviceInfoExt = 1000311002,
+
+        ExportMetalCommandQueueInfoExt = 1000311003,
+
+        ExportMetalBufferInfoExt = 1000311004,
+
+        ImportMetalBufferInfoExt = 1000311005,
+
+        ExportMetalTextureInfoExt = 1000311006,
+
+        ImportMetalTextureInfoExt = 1000311007,
+
+        ExportMetalIoSurfaceInfoExt = 1000311008,
+
+        ImportMetalIoSurfaceInfoExt = 1000311009,
+
+        ExportMetalSharedEventInfoExt = 1000311010,
+
+        ImportMetalSharedEventInfoExt = 1000311011,
+
+        QueueFamilyCheckpointProperties2Nv = 1000314008,
+
+        CheckpointData2Nv = 1000314009,
+
+        PhysicalDeviceGraphicsPipelineLibraryFeaturesExt = 1000320000,
+
+        PhysicalDeviceGraphicsPipelineLibraryPropertiesExt = 1000320001,
+
+        GraphicsPipelineLibraryCreateInfoExt = 1000320002,
+
+        PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAmd = 1000321000,
+
+        PhysicalDeviceFragmentShaderBarycentricFeaturesKhr = 1000203000,
+
+        PhysicalDeviceFragmentShaderBarycentricPropertiesKhr = 1000322000,
+
+        PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKhr = 1000323000,
 
         PhysicalDeviceFragmentShadingRateEnumsPropertiesNv = 1000326000,
 
@@ -1002,39 +1156,196 @@ namespace AdamantiumVulkan.Core
 
         PipelineFragmentShadingRateEnumStateCreateInfoNv = 1000326002,
 
+        AccelerationStructureGeometryMotionTrianglesDataNv = 1000327000,
+
+        PhysicalDeviceRayTracingMotionBlurFeaturesNv = 1000327001,
+
+        AccelerationStructureMotionInfoNv = 1000327002,
+
+        PhysicalDeviceYcbcr2Plane444FormatsFeaturesExt = 1000330000,
+
         PhysicalDeviceFragmentDensityMap2FeaturesExt = 1000332000,
 
         PhysicalDeviceFragmentDensityMap2PropertiesExt = 1000332001,
 
         CopyCommandTransformInfoQcom = 1000333000,
 
-        PhysicalDeviceImageRobustnessFeaturesExt = 1000335000,
+        PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKhr = 1000336000,
 
-        CopyBufferInfo2Khr = 1000337000,
+        PhysicalDeviceImageCompressionControlFeaturesExt = 1000338000,
 
-        CopyImageInfo2Khr = 1000337001,
+        ImageCompressionControlExt = 1000338001,
 
-        CopyBufferToImageInfo2Khr = 1000337002,
+        SubresourceLayout2Ext = 1000338002,
 
-        CopyImageToBufferInfo2Khr = 1000337003,
+        ImageSubresource2Ext = 1000338003,
 
-        BlitImageInfo2Khr = 1000337004,
+        ImageCompressionPropertiesExt = 1000338004,
 
-        ResolveImageInfo2Khr = 1000337005,
-
-        BufferCopy2Khr = 1000337006,
-
-        ImageCopy2Khr = 1000337007,
-
-        ImageBlit2Khr = 1000337008,
-
-        BufferImageCopy2Khr = 1000337009,
-
-        ImageResolve2Khr = 1000337010,
+        PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesExt = 1000339000,
 
         PhysicalDevice4444FormatsFeaturesExt = 1000340000,
 
+        PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesArm = 1000342000,
+
+        PhysicalDeviceRgba10x6FormatsFeaturesExt = 1000344000,
+
         DirectfbSurfaceCreateInfoExt = 1000346000,
+
+        PhysicalDeviceMutableDescriptorTypeFeaturesValve = 1000351000,
+
+        MutableDescriptorTypeCreateInfoValve = 1000351002,
+
+        PhysicalDeviceVertexInputDynamicStateFeaturesExt = 1000352000,
+
+        VertexInputBindingDescription2Ext = 1000352001,
+
+        VertexInputAttributeDescription2Ext = 1000352002,
+
+        PhysicalDeviceDrmPropertiesExt = 1000353000,
+
+        PhysicalDeviceDepthClipControlFeaturesExt = 1000355000,
+
+        PipelineViewportDepthClipControlCreateInfoExt = 1000355001,
+
+        PhysicalDevicePrimitiveTopologyListRestartFeaturesExt = 1000356000,
+
+        ImportMemoryZirconHandleInfoFuchsia = 1000364000,
+
+        MemoryZirconHandlePropertiesFuchsia = 1000364001,
+
+        MemoryGetZirconHandleInfoFuchsia = 1000364002,
+
+        ImportSemaphoreZirconHandleInfoFuchsia = 1000365000,
+
+        SemaphoreGetZirconHandleInfoFuchsia = 1000365001,
+
+        BufferCollectionCreateInfoFuchsia = 1000366000,
+
+        ImportMemoryBufferCollectionFuchsia = 1000366001,
+
+        BufferCollectionImageCreateInfoFuchsia = 1000366002,
+
+        BufferCollectionPropertiesFuchsia = 1000366003,
+
+        BufferConstraintsInfoFuchsia = 1000366004,
+
+        BufferCollectionBufferCreateInfoFuchsia = 1000366005,
+
+        ImageConstraintsInfoFuchsia = 1000366006,
+
+        ImageFormatConstraintsInfoFuchsia = 1000366007,
+
+        SysmemColorSpaceFuchsia = 1000366008,
+
+        BufferCollectionConstraintsInfoFuchsia = 1000366009,
+
+        SubpassShadingPipelineCreateInfoHuawei = 1000369000,
+
+        PhysicalDeviceSubpassShadingFeaturesHuawei = 1000369001,
+
+        PhysicalDeviceSubpassShadingPropertiesHuawei = 1000369002,
+
+        PhysicalDeviceInvocationMaskFeaturesHuawei = 1000370000,
+
+        MemoryGetRemoteAddressInfoNv = 1000371000,
+
+        PhysicalDeviceExternalMemoryRdmaFeaturesNv = 1000371001,
+
+        PipelinePropertiesIdentifierExt = 1000372000,
+
+        PhysicalDevicePipelinePropertiesFeaturesExt = 1000372001,
+
+        PhysicalDeviceMultisampledRenderToSingleSampledFeaturesExt = 1000376000,
+
+        SubpassResolvePerformanceQueryExt = 1000376001,
+
+        MultisampledRenderToSingleSampledInfoExt = 1000376002,
+
+        PhysicalDeviceExtendedDynamicState2FeaturesExt = 1000377000,
+
+        ScreenSurfaceCreateInfoQnx = 1000378000,
+
+        PhysicalDeviceColorWriteEnableFeaturesExt = 1000381000,
+
+        PipelineColorWriteCreateInfoExt = 1000381001,
+
+        PhysicalDevicePrimitivesGeneratedQueryFeaturesExt = 1000382000,
+
+        PhysicalDeviceRayTracingMaintenance1FeaturesKhr = 1000386000,
+
+        PhysicalDeviceImageViewMinLodFeaturesExt = 1000391000,
+
+        ImageViewMinLodCreateInfoExt = 1000391001,
+
+        PhysicalDeviceMultiDrawFeaturesExt = 1000392000,
+
+        PhysicalDeviceMultiDrawPropertiesExt = 1000392001,
+
+        PhysicalDeviceImage2dViewOf3dFeaturesExt = 1000393000,
+
+        PhysicalDeviceBorderColorSwizzleFeaturesExt = 1000411000,
+
+        SamplerBorderColorComponentMappingCreateInfoExt = 1000411001,
+
+        PhysicalDevicePageableDeviceLocalMemoryFeaturesExt = 1000412000,
+
+        PhysicalDeviceDescriptorSetHostMappingFeaturesValve = 1000420000,
+
+        DescriptorSetBindingReferenceValve = 1000420001,
+
+        DescriptorSetLayoutHostMappingInfoValve = 1000420002,
+
+        PhysicalDeviceNonSeamlessCubeMapFeaturesExt = 1000422000,
+
+        PhysicalDeviceFragmentDensityMapOffsetFeaturesQcom = 1000425000,
+
+        PhysicalDeviceFragmentDensityMapOffsetPropertiesQcom = 1000425001,
+
+        SubpassFragmentDensityMapOffsetEndInfoQcom = 1000425002,
+
+        PhysicalDeviceLinearColorAttachmentFeaturesNv = 1000430000,
+
+        PhysicalDeviceImageCompressionControlSwapchainFeaturesExt = 1000437000,
+
+        PhysicalDeviceImageProcessingFeaturesQcom = 1000440000,
+
+        PhysicalDeviceImageProcessingPropertiesQcom = 1000440001,
+
+        ImageViewSampleWeightCreateInfoQcom = 1000440002,
+
+        PhysicalDeviceSubpassMergeFeedbackFeaturesExt = 1000458000,
+
+        RenderPassCreationControlExt = 1000458001,
+
+        RenderPassCreationFeedbackCreateInfoExt = 1000458002,
+
+        RenderPassSubpassFeedbackCreateInfoExt = 1000458003,
+
+        PhysicalDeviceShaderModuleIdentifierFeaturesExt = 1000462000,
+
+        PhysicalDeviceShaderModuleIdentifierPropertiesExt = 1000462001,
+
+        PipelineShaderStageModuleIdentifierCreateInfoExt = 1000462002,
+
+        ShaderModuleIdentifierExt = 1000462003,
+
+        PhysicalDeviceTilePropertiesFeaturesQcom = 1000484000,
+
+        TilePropertiesQcom = 1000484001,
+
+        PhysicalDeviceAmigoProfilingFeaturesSec = 1000485000,
+
+        AmigoProfilingSubmitInfoSec = 1000485001,
+
+        MaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PipelineCacheHeaderVersion : uint
+    {
+        One = 1,
 
         MaxEnum = 2147483647,
 
@@ -1072,13 +1383,19 @@ namespace AdamantiumVulkan.Core
 
         StencilReadOnlyOptimal = 1000241003,
 
+        ReadOnlyOptimal = 1000314000,
+
+        AttachmentOptimal = 1000314001,
+
         PresentSrcKhr = 1000001002,
 
         SharedPresentKhr = 1000111000,
 
-        ShadingRateOptimalNv = 1000164003,
-
         FragmentDensityMapOptimalExt = 1000218000,
+
+        FragmentShadingRateAttachmentOptimalKhr = 1000164003,
+
+        AttachmentFeedbackLoopOptimalExt = 1000339000,
 
         MaxEnum = 2147483647,
 
@@ -1142,6 +1459,8 @@ namespace AdamantiumVulkan.Core
 
         DescriptorUpdateTemplate = 1000085000,
 
+        PrivateDataSlot = 1000295000,
+
         SurfaceKhr = 1000000000,
 
         SwapchainKhr = 1000001000,
@@ -1151,6 +1470,10 @@ namespace AdamantiumVulkan.Core
         DisplayModeKhr = 1000002001,
 
         DebugReportCallbackExt = 1000011000,
+
+        CuModuleNvx = 1000029000,
+
+        CuFunctionNvx = 1000029001,
 
         DebugUtilsMessengerExt = 1000128000,
 
@@ -1166,7 +1489,7 @@ namespace AdamantiumVulkan.Core
 
         IndirectCommandsLayoutNv = 1000277000,
 
-        PrivateDataSlotExt = 1000295000,
+        BufferCollectionFuchsia = 1000366000,
 
         MaxEnum = 2147483647,
 
@@ -1184,14 +1507,7 @@ namespace AdamantiumVulkan.Core
 
         Mesa = 65541,
 
-        MaxEnum = 2147483647,
-
-    }
-
-    [Flags]
-    public enum PipelineCacheHeaderVersion : uint
-    {
-        One = 1,
+        Pocl = 65542,
 
         MaxEnum = 2147483647,
 
@@ -1662,6 +1978,46 @@ namespace AdamantiumVulkan.Core
 
         G16_B16_R16_3PLANE_444_UNORM = 1000156033,
 
+        G8_B8R8_2PLANE_444_UNORM = 1000330000,
+
+        G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16 = 1000330001,
+
+        G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16 = 1000330002,
+
+        G16_B16R16_2PLANE_444_UNORM = 1000330003,
+
+        A4R4G4B4_UNORM_PACK16 = 1000340000,
+
+        A4B4G4R4_UNORM_PACK16 = 1000340001,
+
+        ASTC_4x4_SFLOAT_BLOCK = 1000066000,
+
+        ASTC_5x4_SFLOAT_BLOCK = 1000066001,
+
+        ASTC_5x5_SFLOAT_BLOCK = 1000066002,
+
+        ASTC_6x5_SFLOAT_BLOCK = 1000066003,
+
+        ASTC_6x6_SFLOAT_BLOCK = 1000066004,
+
+        ASTC_8x5_SFLOAT_BLOCK = 1000066005,
+
+        ASTC_8x6_SFLOAT_BLOCK = 1000066006,
+
+        ASTC_8x8_SFLOAT_BLOCK = 1000066007,
+
+        ASTC_10x5_SFLOAT_BLOCK = 1000066008,
+
+        ASTC_10x6_SFLOAT_BLOCK = 1000066009,
+
+        ASTC_10x8_SFLOAT_BLOCK = 1000066010,
+
+        ASTC_10x10_SFLOAT_BLOCK = 1000066011,
+
+        ASTC_12x10_SFLOAT_BLOCK = 1000066012,
+
+        ASTC_12x12_SFLOAT_BLOCK = 1000066013,
+
         PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
 
         PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,
@@ -1677,38 +2033,6 @@ namespace AdamantiumVulkan.Core
         PVRTC2_2BPP_SRGB_BLOCK_IMG = 1000054006,
 
         PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
-
-        ASTC_4x4_SFLOAT_BLOCK_EXT = 1000066000,
-
-        ASTC_5x4_SFLOAT_BLOCK_EXT = 1000066001,
-
-        ASTC_5x5_SFLOAT_BLOCK_EXT = 1000066002,
-
-        ASTC_6x5_SFLOAT_BLOCK_EXT = 1000066003,
-
-        ASTC_6x6_SFLOAT_BLOCK_EXT = 1000066004,
-
-        ASTC_8x5_SFLOAT_BLOCK_EXT = 1000066005,
-
-        ASTC_8x6_SFLOAT_BLOCK_EXT = 1000066006,
-
-        ASTC_8x8_SFLOAT_BLOCK_EXT = 1000066007,
-
-        ASTC_10x5_SFLOAT_BLOCK_EXT = 1000066008,
-
-        ASTC_10x6_SFLOAT_BLOCK_EXT = 1000066009,
-
-        ASTC_10x8_SFLOAT_BLOCK_EXT = 1000066010,
-
-        ASTC_10x10_SFLOAT_BLOCK_EXT = 1000066011,
-
-        ASTC_12x10_SFLOAT_BLOCK_EXT = 1000066012,
-
-        ASTC_12x12_SFLOAT_BLOCK_EXT = 1000066013,
-
-        A4R4G4B4_UNORM_PACK16_EXT = 1000340000,
-
-        A4B4G4R4_UNORM_PACK16_EXT = 1000340001,
 
         MAX_ENUM = 2147483647,
 
@@ -1774,6 +2098,12 @@ namespace AdamantiumVulkan.Core
         AccelerationStructureCompactedSizeNv = 1000165000,
 
         PerformanceQueryIntel = 1000210000,
+
+        PrimitivesGeneratedExt = 1000382000,
+
+        AccelerationStructureSerializationBottomLevelPointersKhr = 1000386000,
+
+        AccelerationStructureSizeKhr = 1000386001,
 
         MaxEnum = 2147483647,
 
@@ -2024,6 +2354,36 @@ namespace AdamantiumVulkan.Core
 
         StencilReference = 8,
 
+        CullMode = 1000267000,
+
+        FrontFace = 1000267001,
+
+        PrimitiveTopology = 1000267002,
+
+        ViewportWithCount = 1000267003,
+
+        ScissorWithCount = 1000267004,
+
+        VertexInputBindingStride = 1000267005,
+
+        DepthTestEnable = 1000267006,
+
+        DepthWriteEnable = 1000267007,
+
+        DepthCompareOp = 1000267008,
+
+        DepthBoundsTestEnable = 1000267009,
+
+        StencilTestEnable = 1000267010,
+
+        StencilOp = 1000267011,
+
+        RasterizerDiscardEnable = 1000377001,
+
+        DepthBiasEnable = 1000377002,
+
+        PrimitiveRestartEnable = 1000377004,
+
         ViewportWScalingNv = 1000087000,
 
         DiscardRectangleExt = 1000099000,
@@ -2042,29 +2402,13 @@ namespace AdamantiumVulkan.Core
 
         LineStippleExt = 1000259000,
 
-        CullModeExt = 1000267000,
+        VertexInputExt = 1000352000,
 
-        FrontFaceExt = 1000267001,
+        PatchControlPointsExt = 1000377000,
 
-        PrimitiveTopologyExt = 1000267002,
+        LogicOpExt = 1000377003,
 
-        ViewportWithCountExt = 1000267003,
-
-        ScissorWithCountExt = 1000267004,
-
-        VertexInputBindingStrideExt = 1000267005,
-
-        DepthTestEnableExt = 1000267006,
-
-        DepthWriteEnableExt = 1000267007,
-
-        DepthCompareOpExt = 1000267008,
-
-        DepthBoundsTestEnableExt = 1000267009,
-
-        StencilTestEnableExt = 1000267010,
-
-        StencilOpExt = 1000267011,
+        ColorWriteEnableExt = 1000381000,
 
         MaxEnum = 2147483647,
 
@@ -2222,7 +2566,7 @@ namespace AdamantiumVulkan.Core
 
         Linear = 1,
 
-        CubicImg = 1000015000,
+        CubicExt = 1000015000,
 
         MaxEnum = 2147483647,
 
@@ -2279,17 +2623,22 @@ namespace AdamantiumVulkan.Core
 
         InputAttachment = 10,
 
-        InlineUniformBlockExt = 1000138000,
+        InlineUniformBlock = 1000138000,
 
         AccelerationStructureKhr = 1000150000,
 
         AccelerationStructureNv = 1000165000,
 
+        MutableValve = 1000351000,
+
+        SampleWeightImageQcom = 1000440000,
+
+        BlockMatchImageQcom = 1000440001,
+
         MaxEnum = 2147483647,
 
     }
 
-    [Flags]
     public enum AttachmentLoadOp : uint
     {
         Load = 0,
@@ -2297,6 +2646,8 @@ namespace AdamantiumVulkan.Core
         Clear = 1,
 
         DontCare = 2,
+
+        NoneExt = 1000400000,
 
         MaxEnum = 2147483647,
 
@@ -2308,7 +2659,7 @@ namespace AdamantiumVulkan.Core
 
         DontCare = 1,
 
-        NoneQcom = 1000301000,
+        None = 1000301000,
 
         MaxEnum = 2147483647,
 
@@ -2321,6 +2672,8 @@ namespace AdamantiumVulkan.Core
         Compute = 1,
 
         RayTracingKhr = 1000165000,
+
+        SubpassShadingHuawei = 1000369003,
 
         MaxEnum = 2147483647,
 
@@ -2399,6 +2752,8 @@ namespace AdamantiumVulkan.Core
 
         MemoryWriteBit = 65536,
 
+        None = 0,
+
         TransformFeedbackWriteBitExt = 33554432,
 
         TransformFeedbackCounterReadBitExt = 67108864,
@@ -2413,9 +2768,9 @@ namespace AdamantiumVulkan.Core
 
         AccelerationStructureWriteBitKhr = 4194304,
 
-        ShadingRateImageReadBitNv = 8388608,
-
         FragmentDensityMapReadBitExt = 16777216,
+
+        FragmentShadingRateAttachmentReadBitKhr = 8388608,
 
         CommandPreprocessReadBitNv = 131072,
 
@@ -2441,6 +2796,8 @@ namespace AdamantiumVulkan.Core
         Plane1Bit = 32,
 
         Plane2Bit = 64,
+
+        None = 0,
 
         MemoryPlane0BitExt = 128,
 
@@ -2503,9 +2860,9 @@ namespace AdamantiumVulkan.Core
 
         SampledImageFilterMinmaxBit = 65536,
 
-        SampledImageFilterCubicBitImg = 8192,
-
         AccelerationStructureVertexBufferBitKhr = 536870912,
+
+        SampledImageFilterCubicBitExt = 8192,
 
         FragmentDensityMapBitExt = 16777216,
 
@@ -2547,6 +2904,12 @@ namespace AdamantiumVulkan.Core
         SampleLocationsCompatibleDepthBitExt = 4096,
 
         SubsampledBitExt = 16384,
+
+        MultisampledRenderToSingleSampledBitExt = 262144,
+
+        _2dViewCompatibleBitExt = 131072,
+
+        FragmentDensityMapOffsetBitQcom = 32768,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2592,9 +2955,26 @@ namespace AdamantiumVulkan.Core
 
         InputAttachmentBit = 128,
 
-        ShadingRateImageBitNv = 256,
-
         FragmentDensityMapBitExt = 512,
+
+        FragmentShadingRateAttachmentBitKhr = 256,
+
+        AttachmentFeedbackLoopBitExt = 524288,
+
+        InvocationMaskBitHuawei = 262144,
+
+        SampleWeightBitQcom = 1048576,
+
+        SampleBlockMatchBitQcom = 2097152,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum InstanceCreateFlagBits : uint
+    {
+        EnumeratePortabilityBitKhr = 1,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2629,6 +3009,8 @@ namespace AdamantiumVulkan.Core
         DeviceCoherentBitAmd = 64,
 
         DeviceUncachedBitAmd = 128,
+
+        RdmaCapableBitNv = 256,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2697,6 +3079,8 @@ namespace AdamantiumVulkan.Core
 
         AllCommandsBit = 65536,
 
+        None = 0,
+
         TransformFeedbackBitExt = 16777216,
 
         ConditionalRenderingBitExt = 262144,
@@ -2705,13 +3089,13 @@ namespace AdamantiumVulkan.Core
 
         RayTracingShaderBitKhr = 2097152,
 
-        ShadingRateImageBitNv = 4194304,
-
         TaskShaderBitNv = 524288,
 
         MeshShaderBitNv = 1048576,
 
         FragmentDensityProcessBitExt = 8388608,
+
+        FragmentShadingRateAttachmentBitKhr = 4194304,
 
         CommandPreprocessBitNv = 131072,
 
@@ -2745,6 +3129,15 @@ namespace AdamantiumVulkan.Core
     public enum FenceCreateFlagBits : uint
     {
         SignaledBit = 1,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum EventCreateFlagBits : uint
+    {
+        DeviceOnlyBit = 1,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2862,16 +3255,9 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum ShaderModuleCreateFlagBits : uint
-    {
-        VkShaderModuleCreateFlagBitsMaxEnum = 2147483647,
-
-    }
-
-    [Flags]
     public enum PipelineCacheCreateFlagBits : uint
     {
-        ExternallySynchronizedBitExt = 1,
+        ExternallySynchronizedBit = 1,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2905,6 +3291,14 @@ namespace AdamantiumVulkan.Core
 
         DispatchBaseBit = 16,
 
+        FailOnPipelineCompileRequiredBit = 256,
+
+        EarlyReturnOnFailureBit = 512,
+
+        RenderingFragmentShadingRateAttachmentBitKhr = 2097152,
+
+        RenderingFragmentDensityMapAttachmentBitExt = 4194304,
+
         RayTracingNoNullAnyHitShadersBitKhr = 16384,
 
         RayTracingNoNullClosestHitShadersBitKhr = 32768,
@@ -2929,9 +3323,15 @@ namespace AdamantiumVulkan.Core
 
         LibraryBitKhr = 2048,
 
-        FailOnPipelineCompileRequiredBitExt = 256,
+        RetainLinkTimeOptimizationInfoBitExt = 8388608,
 
-        EarlyReturnOnFailureBitExt = 512,
+        LinkTimeOptimizationBitExt = 1024,
+
+        RayTracingAllowMotionBitNv = 1048576,
+
+        ColorAttachmentFeedbackLoopBitExt = 33554432,
+
+        DepthStencilAttachmentFeedbackLoopBitExt = 67108864,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2940,9 +3340,9 @@ namespace AdamantiumVulkan.Core
     [Flags]
     public enum PipelineShaderStageCreateFlagBits : uint
     {
-        AllowVaryingSubgroupSizeBitExt = 1,
+        AllowVaryingSubgroupSizeBit = 1,
 
-        RequireFullSubgroupsBitExt = 2,
+        RequireFullSubgroupsBit = 2,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -2982,6 +3382,8 @@ namespace AdamantiumVulkan.Core
 
         MeshBitNv = 128,
 
+        SubpassShadingBitHuawei = 16384,
+
     }
 
     public enum CullModeFlagBits : uint
@@ -2999,11 +3401,44 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
+    public enum PipelineDepthStencilStateCreateFlagBits : uint
+    {
+        RasterizationOrderAttachmentDepthAccessBitArm = 1,
+
+        RasterizationOrderAttachmentStencilAccessBitArm = 2,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PipelineColorBlendStateCreateFlagBits : uint
+    {
+        RasterizationOrderAttachmentAccessBitArm = 1,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PipelineLayoutCreateFlagBits : uint
+    {
+        IndependentSetsBitExt = 2,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
     public enum SamplerCreateFlagBits : uint
     {
         SubsampledBitExt = 1,
 
         SubsampledCoarseReconstructionBitExt = 2,
+
+        NonSeamlessCubeMapBitExt = 4,
+
+        ImageProcessingBitQcom = 16,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3016,6 +3451,8 @@ namespace AdamantiumVulkan.Core
 
         UpdateAfterBindBit = 2,
 
+        HostOnlyBitValve = 4,
+
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3026,6 +3463,8 @@ namespace AdamantiumVulkan.Core
         UpdateAfterBindPoolBit = 2,
 
         PushDescriptorBitKhr = 1,
+
+        HostOnlyPoolBitValve = 4,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3048,6 +3487,8 @@ namespace AdamantiumVulkan.Core
         DeviceGroupBit = 4,
 
         ViewLocalBit = 2,
+
+        FeedbackLoopBitExt = 8,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3081,6 +3522,12 @@ namespace AdamantiumVulkan.Core
         FragmentRegionBitQcom = 4,
 
         ShaderResolveBitQcom = 8,
+
+        RasterizationOrderAttachmentColorAccessBitArm = 16,
+
+        RasterizationOrderAttachmentDepthAccessBitArm = 32,
+
+        RasterizationOrderAttachmentStencilAccessBitArm = 64,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3300,6 +3747,10 @@ namespace AdamantiumVulkan.Core
 
         HostMappedForeignMemoryBitExt = 256,
 
+        ZirconVmoBitFuchsia = 2048,
+
+        RdmaAddressBitNv = 4096,
+
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3374,6 +3825,8 @@ namespace AdamantiumVulkan.Core
 
         SyncFdBit = 16,
 
+        ZirconEventBitFuchsia = 128,
+
         FlagBitsMaxEnum = 2147483647,
 
     }
@@ -3418,6 +3871,24 @@ namespace AdamantiumVulkan.Core
         MesaLlvmpipe = 13,
 
         Moltenvk = 14,
+
+        CoreaviProprietary = 15,
+
+        JuiceProprietary = 16,
+
+        VerisiliconProprietary = 17,
+
+        MesaTurnip = 18,
+
+        MesaV3dv = 19,
+
+        MesaPanvk = 20,
+
+        SamsungProprietary = 21,
+
+        MesaVenus = 22,
+
+        MesaDozen = 23,
 
         MaxEnum = 2147483647,
 
@@ -3496,6 +3967,62 @@ namespace AdamantiumVulkan.Core
     public enum SemaphoreWaitFlagBits : uint
     {
         AnyBit = 1,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum PipelineCreationFeedbackFlagBits : uint
+    {
+        ValidBit = 1,
+
+        ApplicationPipelineCacheHitBit = 2,
+
+        BasePipelineAccelerationBit = 4,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum ToolPurposeFlagBits : uint
+    {
+        ValidationBit = 1,
+
+        ProfilingBit = 2,
+
+        TracingBit = 4,
+
+        AdditionalFeaturesBit = 8,
+
+        ModifyingFeaturesBit = 16,
+
+        DebugReportingBitExt = 32,
+
+        DebugMarkersBitExt = 64,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SubmitFlagBits : uint
+    {
+        ProtectedBit = 1,
+
+        FlagBitsMaxEnum = 2147483647,
+
+    }
+
+    [Flags]
+    public enum RenderingFlagBits : uint
+    {
+        ContentsSecondaryCommandBuffersBit = 1,
+
+        SuspendingBit = 2,
+
+        ResumingBit = 4,
 
         FlagBitsMaxEnum = 2147483647,
 
@@ -3717,6 +4244,21 @@ namespace AdamantiumVulkan.Core
 
     }
 
+    [Flags]
+    public enum QueueGlobalPriorityKHR : uint
+    {
+        LowKhr = 128,
+
+        MediumKhr = 256,
+
+        HighKhr = 512,
+
+        RealtimeKhr = 1024,
+
+        MaxEnumKhr = 2147483647,
+
+    }
+
     public enum FragmentShadingRateCombinerOpKHR : uint
     {
         KeepKhr = 0,
@@ -3817,9 +4359,15 @@ namespace AdamantiumVulkan.Core
 
         DescriptorUpdateTemplateExt = 1000085000,
 
+        CuModuleNvxExt = 1000029000,
+
+        CuFunctionNvxExt = 1000029001,
+
         AccelerationStructureKhrExt = 1000150000,
 
         AccelerationStructureNvExt = 1000165000,
+
+        BufferCollectionFuchsiaExt = 1000366000,
 
         MaxEnumExt = 2147483647,
 
@@ -3900,6 +4448,34 @@ namespace AdamantiumVulkan.Core
         AllExt = 0,
 
         ShadersExt = 1,
+
+        MaxEnumExt = 2147483647,
+
+    }
+
+    public enum PipelineRobustnessBufferBehaviorEXT : uint
+    {
+        DeviceDefaultExt = 0,
+
+        DisabledExt = 1,
+
+        RobustBufferAccessExt = 2,
+
+        RobustBufferAccess2Ext = 3,
+
+        MaxEnumExt = 2147483647,
+
+    }
+
+    public enum PipelineRobustnessImageBehaviorEXT : uint
+    {
+        DeviceDefaultExt = 0,
+
+        DisabledExt = 1,
+
+        RobustImageAccessExt = 2,
+
+        RobustImageAccess2Ext = 3,
 
         MaxEnumExt = 2147483647,
 
@@ -4190,7 +4766,7 @@ namespace AdamantiumVulkan.Core
     {
         TriangleFacingCullDisableBitKhr = 1,
 
-        TriangleFrontCounterclockwiseBitKhr = 2,
+        TriangleFlipFacingBitKhr = 2,
 
         ForceOpaqueBitKhr = 4,
 
@@ -4213,22 +4789,9 @@ namespace AdamantiumVulkan.Core
 
         LowMemoryBitKhr = 16,
 
+        MotionBitNv = 32,
+
         FlagBitsMaxEnumKhr = 2147483647,
-
-    }
-
-    [Flags]
-    public enum QueueGlobalPriorityEXT : uint
-    {
-        LowExt = 128,
-
-        MediumExt = 256,
-
-        HighExt = 512,
-
-        RealtimeExt = 1024,
-
-        MaxEnumExt = 2147483647,
 
     }
 
@@ -4263,19 +4826,6 @@ namespace AdamantiumVulkan.Core
         DisallowedAmd = 2,
 
         MaxEnumAmd = 2147483647,
-
-    }
-
-    [Flags]
-    public enum PipelineCreationFeedbackFlagBitsEXT : uint
-    {
-        ValidBitExt = 1,
-
-        ApplicationPipelineCacheHitBitExt = 2,
-
-        BasePipelineAccelerationBitExt = 4,
-
-        FlagBitsMaxEnumExt = 2147483647,
 
     }
 
@@ -4342,27 +4892,6 @@ namespace AdamantiumVulkan.Core
 
     }
 
-    [Flags]
-    public enum ToolPurposeFlagBitsEXT : uint
-    {
-        ValidationBitExt = 1,
-
-        ProfilingBitExt = 2,
-
-        TracingBitExt = 4,
-
-        AdditionalFeaturesBitExt = 8,
-
-        ModifyingFeaturesBitExt = 16,
-
-        DebugReportingBitExt = 32,
-
-        DebugMarkersBitExt = 64,
-
-        FlagBitsMaxEnumExt = 2147483647,
-
-    }
-
     public enum ValidationFeatureEnableEXT : uint
     {
         GpuAssistedExt = 0,
@@ -4394,6 +4923,8 @@ namespace AdamantiumVulkan.Core
         CoreChecksExt = 5,
 
         UniqueHandlesExt = 6,
+
+        ShaderValidationCacheExt = 7,
 
         MaxEnumExt = 2147483647,
 
@@ -4449,6 +4980,17 @@ namespace AdamantiumVulkan.Core
         TruncateNv = 1,
 
         MaxEnumNv = 2147483647,
+
+    }
+
+    [Flags]
+    public enum ProvokingVertexModeEXT : uint
+    {
+        FirstVertexExt = 0,
+
+        LastVertexExt = 1,
+
+        MaxEnumExt = 2147483647,
 
     }
 
@@ -4527,13 +5069,6 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
-    public enum PrivateDataSlotCreateFlagBitsEXT : uint
-    {
-        VkPrivateDataSlotCreateFlagBitsMaxEnumExt = 2147483647,
-
-    }
-
-    [Flags]
     public enum DeviceDiagnosticsConfigFlagBitsNV : uint
     {
         EnableShaderDebugInfoBitNv = 1,
@@ -4542,7 +5077,24 @@ namespace AdamantiumVulkan.Core
 
         EnableAutomaticCheckpointsBitNv = 4,
 
+        EnableShaderErrorReportingBitNv = 8,
+
         FlagBitsMaxEnumNv = 2147483647,
+
+    }
+
+    [Flags]
+    public enum GraphicsPipelineLibraryFlagBitsEXT : uint
+    {
+        VertexInputInterfaceBitExt = 1,
+
+        PreRasterizationShadersBitExt = 2,
+
+        FragmentShaderBitExt = 4,
+
+        FragmentOutputInterfaceBitExt = 8,
+
+        FlagBitsMaxEnumExt = 2147483647,
 
     }
 
@@ -4588,6 +5140,125 @@ namespace AdamantiumVulkan.Core
     }
 
     [Flags]
+    public enum AccelerationStructureMotionInstanceTypeNV : uint
+    {
+        StaticNv = 0,
+
+        MatrixMotionNv = 1,
+
+        SrtMotionNv = 2,
+
+        MaxEnumNv = 2147483647,
+
+    }
+
+    [Flags]
+    public enum ImageCompressionFlagBitsEXT : uint
+    {
+        DefaultExt = 0,
+
+        FixedRateDefaultExt = 1,
+
+        FixedRateExplicitExt = 2,
+
+        DisabledExt = 4,
+
+        FlagBitsMaxEnumExt = 2147483647,
+
+    }
+
+    [Flags]
+    public enum ImageCompressionFixedRateFlagBitsEXT : uint
+    {
+        NoneExt = 0,
+
+        _1bpcBitExt = 1,
+
+        _2bpcBitExt = 2,
+
+        _3bpcBitExt = 4,
+
+        _4bpcBitExt = 8,
+
+        _5bpcBitExt = 16,
+
+        _6bpcBitExt = 32,
+
+        _7bpcBitExt = 64,
+
+        _8bpcBitExt = 128,
+
+        _9bpcBitExt = 256,
+
+        _10bpcBitExt = 512,
+
+        _11bpcBitExt = 1024,
+
+        _12bpcBitExt = 2048,
+
+        _13bpcBitExt = 4096,
+
+        _14bpcBitExt = 8192,
+
+        _15bpcBitExt = 16384,
+
+        _16bpcBitExt = 32768,
+
+        _17bpcBitExt = 65536,
+
+        _18bpcBitExt = 131072,
+
+        _19bpcBitExt = 262144,
+
+        _20bpcBitExt = 524288,
+
+        _21bpcBitExt = 1048576,
+
+        _22bpcBitExt = 2097152,
+
+        _23bpcBitExt = 4194304,
+
+        _24bpcBitExt = 8388608,
+
+        FlagBitsMaxEnumExt = 2147483647,
+
+    }
+
+    public enum SubpassMergeStatusEXT : uint
+    {
+        MergedExt = 0,
+
+        DisallowedExt = 1,
+
+        NotMergedSideEffectsExt = 2,
+
+        NotMergedSamplesMismatchExt = 3,
+
+        NotMergedViewsMismatchExt = 4,
+
+        NotMergedAliasingExt = 5,
+
+        NotMergedDependenciesExt = 6,
+
+        NotMergedIncompatibleInputAttachmentExt = 7,
+
+        NotMergedTooManyAttachmentsExt = 8,
+
+        NotMergedInsufficientStorageExt = 9,
+
+        NotMergedDepthStencilCountExt = 10,
+
+        NotMergedResolveAttachmentReuseExt = 11,
+
+        NotMergedSingleSubpassExt = 12,
+
+        NotMergedUnspecifiedExt = 13,
+
+        MaxEnumExt = 2147483647,
+
+    }
+
+    [Flags]
     public enum BuildAccelerationStructureModeKHR : uint
     {
         BuildKhr = 0,
@@ -4626,6 +5297,8 @@ namespace AdamantiumVulkan.Core
     public enum AccelerationStructureCreateFlagBitsKHR : uint
     {
         DeviceAddressCaptureReplayBitKhr = 1,
+
+        MotionBitNv = 4,
 
         FlagBitsMaxEnumKhr = 2147483647,
 

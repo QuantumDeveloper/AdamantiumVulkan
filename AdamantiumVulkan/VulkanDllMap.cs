@@ -53,7 +53,7 @@ namespace AdamantiumVulkan
             }
         }
 
-        // The callback: which loads the mapped libray in place of the original
+        // The callback: which loads the mapped library in place of the original
         private static IntPtr MapAndLoad(string libraryName, Assembly assembly, DllImportSearchPath? dllImportSearchPath)
         {
             string mappedName = libraryName;

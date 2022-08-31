@@ -213,6 +213,10 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop
         internal static extern uint spvc_compiler_get_work_group_size_specialization_constants([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] System.IntPtr x, [In] System.IntPtr y, [In] System.IntPtr z);
 
         [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_active_builtin", CallingConvention = CallingConvention.Winapi)]
+        internal static extern bool spvc_compiler_has_active_builtin([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] SpvBuiltIn builtin, [In] SpvStorageClass storage);
+
+        [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_decoration", CallingConvention = CallingConvention.Winapi)]
         internal static extern bool spvc_compiler_has_decoration([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] SpvDecoration decoration);
 
@@ -253,6 +257,14 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop
         [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_install_compiler_options", CallingConvention = CallingConvention.Winapi)]
         internal static extern SpvcResult spvc_compiler_install_compiler_options([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS options);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "spvc_compiler_mask_stage_output_by_builtin", CallingConvention = CallingConvention.Winapi)]
+        internal static extern SpvcResult spvc_compiler_mask_stage_output_by_builtin([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] SpvBuiltIn builtin);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "spvc_compiler_mask_stage_output_by_location", CallingConvention = CallingConvention.Winapi)]
+        internal static extern SpvcResult spvc_compiler_mask_stage_output_by_location([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] uint location, [In] uint component);
 
         [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_discrete_descriptor_set", CallingConvention = CallingConvention.Winapi)]
@@ -455,6 +467,10 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop
         internal static extern void spvc_compiler_unset_member_decoration([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] uint id, [In] uint member_index, [In] SpvDecoration decoration);
 
         [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "spvc_compiler_update_active_builtins", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void spvc_compiler_update_active_builtins([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
+
+        [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "spvc_compiler_variable_is_depth_or_compare", CallingConvention = CallingConvention.Winapi)]
         internal static extern bool spvc_compiler_variable_is_depth_or_compare([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, [In] uint id);
 
@@ -615,6 +631,10 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop
         [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "spvc_msl_vertex_attribute_init", CallingConvention = CallingConvention.Winapi)]
         internal static extern void spvc_msl_vertex_attribute_init([In] System.IntPtr attr);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "spvc_resources_get_builtin_resource_list_for_type", CallingConvention = CallingConvention.Winapi)]
+        internal static extern SpvcResult spvc_resources_get_builtin_resource_list_for_type([In] AdamantiumVulkan.Spirv.Cross.Interop.SpvcResourcesS resources, [In] SpvcBuiltinResourceType type, System.IntPtr resource_list, ref ulong resource_size);
 
         [SuppressUnmanagedCodeSecurity]
         [DllImport(LibraryPath, EntryPoint = "spvc_resources_get_resource_list_for_type", CallingConvention = CallingConvention.Winapi)]

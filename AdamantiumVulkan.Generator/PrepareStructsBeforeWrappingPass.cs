@@ -40,6 +40,11 @@ namespace AdamantiumVulkan.Generator
             {
                 return false;
             }
+            
+            if (@class.Name == "VkCuLaunchInfoNVX")
+            {
+                int bug = 0;
+            }
 
             if (predefinedValues == null) return false;
 

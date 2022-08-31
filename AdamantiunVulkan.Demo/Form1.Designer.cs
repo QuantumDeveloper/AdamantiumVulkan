@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using AdamantiumVulkan.Windows;
 using Constants = AdamantiumVulkan.Core.Constants;
 using System.IO;
+using Adamantium.DXC;
 using Adamantium.Mathematics;
 using AdamantiumVulkan;
 using AdamantiumVulkan.Shaders;
@@ -84,22 +85,31 @@ namespace VulkanEngineTestCore
             var ptr = MarshalUtils.MarshalStructToPtr(intern);
 
             var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
-            var compiler = ShaderCompiler.New();
-            var opts = CompileOptions.New();
-            opts.EnableHlslFunctionality = true;
-            opts.UseHlslIoMapping = true;
-            opts.UseHlslOffsets = true;
-            opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
-            AdamantiumVulkan.Shaders.Interop.ShadercIncludeResolveFn resolverDelegate = ResolveInclude;
-            AdamantiumVulkan.Shaders.Interop.ShadercIncludeResultReleaseFn releaserDelegate = ReleaseInclude;
-            var resolver = Marshal.GetFunctionPointerForDelegate(resolverDelegate);
-            var releaser = Marshal.GetFunctionPointerForDelegate(releaserDelegate);
-            IntPtr userData = IntPtr.Zero;
-            opts.SetIncludeCallbacks(resolver, releaser, ref userData);
-            opts.SetAutoBindUniforms = true;
-            opts.SetAutoMapLocations = true;
+            // var compiler = ShaderCompiler.New();
+            // var opts = CompileOptions.New();
+            // opts.EnableHlslFunctionality = true;
+            // opts.UseHlslIoMapping = true;
+            // opts.UseHlslOffsets = true;
+            // opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
+            // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResolveFn resolverDelegate = ResolveInclude;
+            // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResultReleaseFn releaserDelegate = ReleaseInclude;
+            // var resolver = Marshal.GetFunctionPointerForDelegate(resolverDelegate);
+            // var releaser = Marshal.GetFunctionPointerForDelegate(releaserDelegate);
+            // IntPtr userData = IntPtr.Zero;
+            // opts.SetIncludeCallbacks(resolver, releaser, ref userData);
+            // opts.SetAutoBindUniforms = true;
+            // opts.SetAutoMapLocations = true;
+            
+            var compilerOptions = new CompilerOptions();
+            compilerOptions.Add(CompilerArguments.AllResourcesBound);
+            compilerOptions.Add(CompilerArguments.SpvUseDxLayout);
+            compilerOptions.Add($"{CompilerArguments.SpvTargetEnv}vulkan1.1");
+            compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_hlsl_functionality1");
+            compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_user_type");
+            compilerOptions.Add(CompilerArguments.SpvReflect);
 
-            var result = SpirvReflection.CompileToSpirvBinary(vertexText, ShadercShaderKind.FragmentShader, "UIEffect.fx", "SolidColorPixelShader", opts);
+            var dxcCompiler = DxcCompiler.Create();
+            var result = dxcCompiler.CompileIntoSpirvFromText(vertexText, "UIEffect.fx", "SolidColorPixelShader", "ps_5_1", compilerOptions);
 
             SpirvReflection reflection = new SpirvReflection(result.Bytecode, SpvcBackend.Hlsl);
             var lst = new List<ResourceBindingKey>();
@@ -448,7 +458,6 @@ namespace VulkanEngineTestCore
 
             commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
 
-            //Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
             ulong offset = 0;
             commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, ref offset);
 
@@ -458,7 +467,6 @@ namespace VulkanEngineTestCore
 
             commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
 
-            //Buffer[] vertexBuffers2 = new Buffer[] { vertexBuffer2 };
             commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, ref offset);
 
             commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
@@ -466,7 +474,6 @@ namespace VulkanEngineTestCore
             commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
 
             commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
-
 
             commandBuffer.EndRenderPass();
 
@@ -545,16 +552,16 @@ namespace VulkanEngineTestCore
 
             currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
         }
-
+        
         private void CreateInstance()
         {
             var appInfo = new ApplicationInfo();
             appInfo.PApplicationName = "Hello Triangle";
-            appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_VERSION(1, 0, 0);
+            appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_API_VERSION(1, 0, 0, 0);
             appInfo.PEngineName = "Adamantium Engine";
-            appInfo.EngineVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
-            appInfo.ApiVersion = Constants.VK_MAKE_VERSION(1, 0, 0);
-
+            appInfo.EngineVersion = Constants.VK_MAKE_API_VERSION(1, 0, 0, 0);
+            appInfo.ApiVersion = Constants.VK_MAKE_API_VERSION(1, 3, 224, 0);
+            
             var createInfo = new InstanceCreateInfo();
             createInfo.PApplicationInfo = appInfo;
 

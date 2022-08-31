@@ -14,38 +14,45 @@ namespace AdamantiumVulkan.Core
     {
         public static uint VK_VERSION_1_0 => 1;
 
-        public static uint VK_MAKE_VERSION( byte major,  byte minor,  byte patch)
+        public static uint VK_USE_64_BIT_PTR_DEFINES => 1;
+
+        public static uint VK_MAKE_API_VERSION(byte variant, byte major, byte minor, byte patch)
         {
-            var version = major << 22 | minor << 12 | patch;
-            return (uint)version ;
+            var version = variant << 29 | major << 22 | minor << 12 | patch;
+            return (uint)version;
         }
 
-        public static uint VK_API_VERSION_1_0 => VK_MAKE_VERSION(1,0,0);
+        public static uint VK_API_VERSION_1_0 => VK_MAKE_API_VERSION(0,1,0,0);
 
-        public static byte VK_HEADER_VERSION => 162;
+        public static byte VK_HEADER_VERSION => 224;
 
-        public static uint VK_HEADER_VERSION_COMPLETE => VK_MAKE_VERSION(1,2,VK_HEADER_VERSION);
+        public static uint VK_HEADER_VERSION_COMPLETE => VK_MAKE_API_VERSION(0,1,3,VK_HEADER_VERSION);
 
-        public static uint VK_VERSION_MAJOR( byte major)
+        public static uint VK_API_VERSION_VARIANT(byte variant)
+        {
+            return (uint)(variant>>22);
+        }
+
+        public static uint VK_API_VERSION_MAJOR(byte major)
         {
             return (uint)(major>>22);
         }
 
-        public static uint VK_VERSION_MINOR( byte minor)
+        public static uint VK_API_VERSION_MINOR(byte minor)
         {
             return (uint)(minor>>22);
         }
 
-        public static uint VK_VERSION_PATCH( byte patch)
+        public static uint VK_API_VERSION_PATCH(byte patch)
         {
             return (uint)(patch>>22);
         }
 
         public static uint VK_ATTACHMENT_UNUSED => ~0U;
 
-        public static uint VK_FALSE => 0;
+        public static uint VK_FALSE => 0U;
 
-        public static float VK_LOD_CLAMP_NONE => 1000.0f;
+        public static float VK_LOD_CLAMP_NONE => 1000.0F;
 
         public static uint VK_QUEUE_FAMILY_IGNORED => ~0U;
 
@@ -55,39 +62,43 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_SUBPASS_EXTERNAL => ~0U;
 
-        public static uint VK_TRUE => 1;
+        public static uint VK_TRUE => 1U;
 
         public static ulong VK_WHOLE_SIZE => ~0UL;
 
-        public static uint VK_MAX_MEMORY_TYPES => 32;
+        public static uint VK_MAX_MEMORY_TYPES => 32U;
 
-        public static uint VK_MAX_MEMORY_HEAPS => 16;
+        public static uint VK_MAX_PHYSICAL_DEVICE_NAME_SIZE => 256U;
 
-        public static uint VK_MAX_PHYSICAL_DEVICE_NAME_SIZE => 256;
+        public static uint VK_UUID_SIZE => 16U;
 
-        public static uint VK_UUID_SIZE => 16;
+        public static uint VK_MAX_EXTENSION_NAME_SIZE => 256U;
 
-        public static uint VK_MAX_EXTENSION_NAME_SIZE => 256;
+        public static uint VK_MAX_DESCRIPTION_SIZE => 256U;
 
-        public static uint VK_MAX_DESCRIPTION_SIZE => 256;
+        public static uint VK_MAX_MEMORY_HEAPS => 16U;
 
         public static uint VK_VERSION_1_1 => 1;
 
-        public static uint VK_API_VERSION_1_1 => VK_MAKE_VERSION(1,1,0);
+        public static uint VK_API_VERSION_1_1 => VK_MAKE_API_VERSION(0,1,1,0);
 
-        public static uint VK_MAX_DEVICE_GROUP_SIZE => 32;
+        public static uint VK_MAX_DEVICE_GROUP_SIZE => 32U;
 
-        public static uint VK_LUID_SIZE => 8;
+        public static uint VK_LUID_SIZE => 8U;
 
-        public static uint VK_QUEUE_FAMILY_EXTERNAL => ~0U-1;
+        public static uint VK_QUEUE_FAMILY_EXTERNAL => ~1U;
 
         public static uint VK_VERSION_1_2 => 1;
 
-        public static uint VK_API_VERSION_1_2 => VK_MAKE_VERSION(1,2,0);
+        public static uint VK_API_VERSION_1_2 => VK_MAKE_API_VERSION(0,1,2,0);
 
-        public static uint VK_MAX_DRIVER_NAME_SIZE => 256;
+        public static uint VK_MAX_DRIVER_NAME_SIZE => 256U;
 
-        public static uint VK_MAX_DRIVER_INFO_SIZE => 256;
+        public static uint VK_MAX_DRIVER_INFO_SIZE => 256U;
+
+        public static uint VK_VERSION_1_3 => 1;
+
+        public static uint VK_API_VERSION_1_3 => VK_MAKE_API_VERSION(0,1,3,0);
 
         public static uint VK_KHR_surface => 1;
 
@@ -119,6 +130,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME => "VK_KHR_sampler_mirror_clamp_to_edge";
 
+        public static uint VK_KHR_dynamic_rendering => 1;
+
+        public static uint VK_KHR_DYNAMIC_RENDERING_SPEC_VERSION => 1;
+
+        public static string VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME => "VK_KHR_dynamic_rendering";
+
         public static uint VK_KHR_multiview => 1;
 
         public static uint VK_KHR_MULTIVIEW_SPEC_VERSION => 1;
@@ -145,9 +162,13 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_KHR_maintenance1 => 1;
 
-        public static uint VK_KHR_MAINTENANCE1_SPEC_VERSION => 2;
+        public static uint VK_KHR_MAINTENANCE_1_SPEC_VERSION => 2;
 
-        public static string VK_KHR_MAINTENANCE1_EXTENSION_NAME => "VK_KHR_maintenance1";
+        public static string VK_KHR_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_maintenance1";
+
+        public static uint VK_KHR_MAINTENANCE1_SPEC_VERSION => VK_KHR_MAINTENANCE_1_SPEC_VERSION;
+
+        public static string VK_KHR_MAINTENANCE1_EXTENSION_NAME => VK_KHR_MAINTENANCE_1_EXTENSION_NAME;
 
         public static uint VK_KHR_device_group_creation => 1;
 
@@ -217,7 +238,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_KHR_incremental_present => 1;
 
-        public static uint VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION => 1;
+        public static uint VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION => 2;
 
         public static string VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME => "VK_KHR_incremental_present";
 
@@ -271,9 +292,13 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_KHR_maintenance2 => 1;
 
-        public static uint VK_KHR_MAINTENANCE2_SPEC_VERSION => 1;
+        public static uint VK_KHR_MAINTENANCE_2_SPEC_VERSION => 1;
 
-        public static string VK_KHR_MAINTENANCE2_EXTENSION_NAME => "VK_KHR_maintenance2";
+        public static string VK_KHR_MAINTENANCE_2_EXTENSION_NAME => "VK_KHR_maintenance2";
+
+        public static uint VK_KHR_MAINTENANCE2_SPEC_VERSION => VK_KHR_MAINTENANCE_2_SPEC_VERSION;
+
+        public static string VK_KHR_MAINTENANCE2_EXTENSION_NAME => VK_KHR_MAINTENANCE_2_EXTENSION_NAME;
 
         public static uint VK_KHR_get_surface_capabilities2 => 1;
 
@@ -337,9 +362,13 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_KHR_maintenance3 => 1;
 
-        public static uint VK_KHR_MAINTENANCE3_SPEC_VERSION => 1;
+        public static uint VK_KHR_MAINTENANCE_3_SPEC_VERSION => 1;
 
-        public static string VK_KHR_MAINTENANCE3_EXTENSION_NAME => "VK_KHR_maintenance3";
+        public static string VK_KHR_MAINTENANCE_3_EXTENSION_NAME => "VK_KHR_maintenance3";
+
+        public static uint VK_KHR_MAINTENANCE3_SPEC_VERSION => VK_KHR_MAINTENANCE_3_SPEC_VERSION;
+
+        public static string VK_KHR_MAINTENANCE3_EXTENSION_NAME => VK_KHR_MAINTENANCE_3_EXTENSION_NAME;
 
         public static uint VK_KHR_draw_indirect_count => 1;
 
@@ -370,6 +399,14 @@ namespace AdamantiumVulkan.Core
         public static uint VK_KHR_SHADER_CLOCK_SPEC_VERSION => 1;
 
         public static string VK_KHR_SHADER_CLOCK_EXTENSION_NAME => "VK_KHR_shader_clock";
+
+        public static uint VK_KHR_global_priority => 1;
+
+        public static uint VK_MAX_GLOBAL_PRIORITY_SIZE_KHR => 16U;
+
+        public static uint VK_KHR_GLOBAL_PRIORITY_SPEC_VERSION => 1;
+
+        public static string VK_KHR_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_KHR_global_priority";
 
         public static uint VK_KHR_driver_properties => 1;
 
@@ -419,7 +456,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_KHR_fragment_shading_rate => 1;
 
-        public static uint VK_KHR_FRAGMENT_SHADING_RATE_SPEC_VERSION => 1;
+        public static uint VK_KHR_FRAGMENT_SHADING_RATE_SPEC_VERSION => 2;
 
         public static string VK_KHR_FRAGMENT_SHADING_RATE_EXTENSION_NAME => "VK_KHR_fragment_shading_rate";
 
@@ -440,6 +477,12 @@ namespace AdamantiumVulkan.Core
         public static uint VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_SPEC_VERSION => 1;
 
         public static string VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_EXTENSION_NAME => "VK_KHR_separate_depth_stencil_layouts";
+
+        public static uint VK_KHR_present_wait => 1;
+
+        public static uint VK_KHR_PRESENT_WAIT_SPEC_VERSION => 1;
+
+        public static string VK_KHR_PRESENT_WAIT_EXTENSION_NAME => "VK_KHR_present_wait";
 
         public static uint VK_KHR_uniform_buffer_standard_layout => 1;
 
@@ -465,6 +508,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NAME => "VK_KHR_pipeline_executable_properties";
 
+        public static uint VK_KHR_shader_integer_dot_product => 1;
+
+        public static uint VK_KHR_SHADER_INTEGER_DOT_PRODUCT_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SHADER_INTEGER_DOT_PRODUCT_EXTENSION_NAME => "VK_KHR_shader_integer_dot_product";
+
         public static uint VK_KHR_pipeline_library => 1;
 
         public static uint VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION => 1;
@@ -477,15 +526,75 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME => "VK_KHR_shader_non_semantic_info";
 
+        public static uint VK_KHR_present_id => 1;
+
+        public static uint VK_KHR_PRESENT_ID_SPEC_VERSION => 1;
+
+        public static string VK_KHR_PRESENT_ID_EXTENSION_NAME => "VK_KHR_present_id";
+
+        public static uint VK_KHR_synchronization2 => 1;
+
+        public static uint VK_KHR_SYNCHRONIZATION_2_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SYNCHRONIZATION_2_EXTENSION_NAME => "VK_KHR_synchronization2";
+
+        public static uint VK_KHR_fragment_shader_barycentric => 1;
+
+        public static uint VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
+
+        public static string VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_KHR_fragment_shader_barycentric";
+
+        public static uint VK_KHR_shader_subgroup_uniform_control_flow => 1;
+
+        public static uint VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_SPEC_VERSION => 1;
+
+        public static string VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_EXTENSION_NAME => "VK_KHR_shader_subgroup_uniform_control_flow";
+
+        public static uint VK_KHR_zero_initialize_workgroup_memory => 1;
+
+        public static uint VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_SPEC_VERSION => 1;
+
+        public static string VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_EXTENSION_NAME => "VK_KHR_zero_initialize_workgroup_memory";
+
+        public static uint VK_KHR_workgroup_memory_explicit_layout => 1;
+
+        public static uint VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_SPEC_VERSION => 1;
+
+        public static string VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_EXTENSION_NAME => "VK_KHR_workgroup_memory_explicit_layout";
+
         public static uint VK_KHR_copy_commands2 => 1;
 
         public static uint VK_KHR_COPY_COMMANDS_2_SPEC_VERSION => 1;
 
         public static string VK_KHR_COPY_COMMANDS_2_EXTENSION_NAME => "VK_KHR_copy_commands2";
 
+        public static uint VK_KHR_format_feature_flags2 => 1;
+
+        public static uint VK_KHR_FORMAT_FEATURE_FLAGS_2_SPEC_VERSION => 1;
+
+        public static string VK_KHR_FORMAT_FEATURE_FLAGS_2_EXTENSION_NAME => "VK_KHR_format_feature_flags2";
+
+        public static uint VK_KHR_ray_tracing_maintenance1 => 1;
+
+        public static uint VK_KHR_RAY_TRACING_MAINTENANCE_1_SPEC_VERSION => 1;
+
+        public static string VK_KHR_RAY_TRACING_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_ray_tracing_maintenance1";
+
+        public static uint VK_KHR_portability_enumeration => 1;
+
+        public static uint VK_KHR_PORTABILITY_ENUMERATION_SPEC_VERSION => 1;
+
+        public static string VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME => "VK_KHR_portability_enumeration";
+
+        public static uint VK_KHR_maintenance4 => 1;
+
+        public static uint VK_KHR_MAINTENANCE_4_SPEC_VERSION => 2;
+
+        public static string VK_KHR_MAINTENANCE_4_EXTENSION_NAME => "VK_KHR_maintenance4";
+
         public static uint VK_EXT_debug_report => 1;
 
-        public static uint VK_EXT_DEBUG_REPORT_SPEC_VERSION => 9;
+        public static uint VK_EXT_DEBUG_REPORT_SPEC_VERSION => 10;
 
         public static string VK_EXT_DEBUG_REPORT_EXTENSION_NAME => "VK_EXT_debug_report";
 
@@ -548,6 +657,12 @@ namespace AdamantiumVulkan.Core
         public static uint VK_EXT_TRANSFORM_FEEDBACK_SPEC_VERSION => 1;
 
         public static string VK_EXT_TRANSFORM_FEEDBACK_EXTENSION_NAME => "VK_EXT_transform_feedback";
+
+        public static uint VK_NVX_binary_import => 1;
+
+        public static uint VK_NVX_BINARY_IMPORT_SPEC_VERSION => 1;
+
+        public static string VK_NVX_BINARY_IMPORT_EXTENSION_NAME => "VK_NVX_binary_import";
 
         public static uint VK_NVX_image_view_handle => 1;
 
@@ -651,6 +766,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_EXT_ASTC_DECODE_MODE_EXTENSION_NAME => "VK_EXT_astc_decode_mode";
 
+        public static uint VK_EXT_pipeline_robustness => 1;
+
+        public static uint VK_EXT_PIPELINE_ROBUSTNESS_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PIPELINE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_pipeline_robustness";
+
         public static uint VK_EXT_conditional_rendering => 1;
 
         public static uint VK_EXT_CONDITIONAL_RENDERING_SPEC_VERSION => 2;
@@ -701,9 +822,13 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_NV_viewport_array2 => 1;
 
-        public static uint VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION => 1;
+        public static uint VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION => 1;
 
-        public static string VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME => "VK_NV_viewport_array2";
+        public static string VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME => "VK_NV_viewport_array2";
+
+        public static uint VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION => VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION;
+
+        public static string VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME => VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME;
 
         public static uint VK_NVX_multiview_per_view_attributes => 1;
 
@@ -759,7 +884,7 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_EXT_QUEUE_FAMILY_FOREIGN_EXTENSION_NAME => "VK_EXT_queue_family_foreign";
 
-        public static uint VK_QUEUE_FAMILY_FOREIGN_EXT => ~0U-2;
+        public static uint VK_QUEUE_FAMILY_FOREIGN_EXT => ~2U;
 
         public static uint VK_EXT_debug_utils => 1;
 
@@ -847,7 +972,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_EXT_image_drm_format_modifier => 1;
 
-        public static uint VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION => 1;
+        public static uint VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION => 2;
 
         public static string VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME => "VK_EXT_image_drm_format_modifier";
 
@@ -929,7 +1054,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_EXT_calibrated_timestamps => 1;
 
-        public static uint VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 1;
+        public static uint VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 2;
 
         public static string VK_EXT_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_EXT_calibrated_timestamps";
 
@@ -1025,7 +1150,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_EXT_fragment_density_map => 1;
 
-        public static uint VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION => 1;
+        public static uint VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION => 2;
 
         public static string VK_EXT_FRAGMENT_DENSITY_MAP_EXTENSION_NAME => "VK_EXT_fragment_density_map";
 
@@ -1037,9 +1162,13 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_GOOGLE_hlsl_functionality1 => 1;
 
-        public static uint VK_GOOGLE_HLSL_FUNCTIONALITY1_SPEC_VERSION => 1;
+        public static uint VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION => 1;
 
-        public static string VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME => "VK_GOOGLE_hlsl_functionality1";
+        public static string VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME => "VK_GOOGLE_hlsl_functionality1";
+
+        public static uint VK_GOOGLE_HLSL_FUNCTIONALITY1_SPEC_VERSION => VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION;
+
+        public static string VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME => VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME;
 
         public static uint VK_GOOGLE_decorate_string => 1;
 
@@ -1109,7 +1238,7 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_EXT_validation_features => 1;
 
-        public static uint VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 4;
+        public static uint VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 5;
 
         public static string VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME => "VK_EXT_validation_features";
 
@@ -1136,6 +1265,12 @@ namespace AdamantiumVulkan.Core
         public static uint VK_EXT_YCBCR_IMAGE_ARRAYS_SPEC_VERSION => 1;
 
         public static string VK_EXT_YCBCR_IMAGE_ARRAYS_EXTENSION_NAME => "VK_EXT_ycbcr_image_arrays";
+
+        public static uint VK_EXT_provoking_vertex => 1;
+
+        public static uint VK_EXT_PROVOKING_VERTEX_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PROVOKING_VERTEX_EXTENSION_NAME => "VK_EXT_provoking_vertex";
 
         public static uint VK_EXT_headless_surface => 1;
 
@@ -1173,6 +1308,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_EXT_EXTENDED_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_extended_dynamic_state";
 
+        public static uint VK_EXT_shader_atomic_float2 => 1;
+
+        public static uint VK_EXT_SHADER_ATOMIC_FLOAT_2_SPEC_VERSION => 1;
+
+        public static string VK_EXT_SHADER_ATOMIC_FLOAT_2_EXTENSION_NAME => "VK_EXT_shader_atomic_float2";
+
         public static uint VK_EXT_shader_demote_to_helper_invocation => 1;
 
         public static uint VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_SPEC_VERSION => 1;
@@ -1185,6 +1326,12 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_NV_device_generated_commands";
 
+        public static uint VK_NV_inherited_viewport_scissor => 1;
+
+        public static uint VK_NV_INHERITED_VIEWPORT_SCISSOR_SPEC_VERSION => 1;
+
+        public static string VK_NV_INHERITED_VIEWPORT_SCISSOR_EXTENSION_NAME => "VK_NV_inherited_viewport_scissor";
+
         public static uint VK_EXT_texel_buffer_alignment => 1;
 
         public static uint VK_EXT_TEXEL_BUFFER_ALIGNMENT_SPEC_VERSION => 1;
@@ -1193,15 +1340,21 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_QCOM_render_pass_transform => 1;
 
-        public static uint VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION => 1;
+        public static uint VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION => 3;
 
         public static string VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME => "VK_QCOM_render_pass_transform";
 
         public static uint VK_EXT_device_memory_report => 1;
 
-        public static uint VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION => 1;
+        public static uint VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION => 2;
 
         public static string VK_EXT_DEVICE_MEMORY_REPORT_EXTENSION_NAME => "VK_EXT_device_memory_report";
+
+        public static uint VK_EXT_acquire_drm_display => 1;
+
+        public static uint VK_EXT_ACQUIRE_DRM_DISPLAY_SPEC_VERSION => 1;
+
+        public static string VK_EXT_ACQUIRE_DRM_DISPLAY_EXTENSION_NAME => "VK_EXT_acquire_drm_display";
 
         public static uint VK_EXT_robustness2 => 1;
 
@@ -1235,21 +1388,45 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_NV_device_diagnostics_config => 1;
 
-        public static uint VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION => 1;
+        public static uint VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION => 2;
 
         public static string VK_NV_DEVICE_DIAGNOSTICS_CONFIG_EXTENSION_NAME => "VK_NV_device_diagnostics_config";
 
         public static uint VK_QCOM_render_pass_store_ops => 1;
 
-        public static uint VK_QCOM_render_pass_store_ops_SPEC_VERSION => 2;
+        public static uint VK_QCOM_RENDER_PASS_STORE_OPS_SPEC_VERSION => 2;
 
-        public static string VK_QCOM_render_pass_store_ops_EXTENSION_NAME => "VK_QCOM_render_pass_store_ops";
+        public static string VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME => "VK_QCOM_render_pass_store_ops";
+
+        public static uint VK_EXT_graphics_pipeline_library => 1;
+
+        public static uint VK_EXT_GRAPHICS_PIPELINE_LIBRARY_SPEC_VERSION => 1;
+
+        public static string VK_EXT_GRAPHICS_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_EXT_graphics_pipeline_library";
+
+        public static uint VK_AMD_shader_early_and_late_fragment_tests => 1;
+
+        public static uint VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_SPEC_VERSION => 1;
+
+        public static string VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_EXTENSION_NAME => "VK_AMD_shader_early_and_late_fragment_tests";
 
         public static uint VK_NV_fragment_shading_rate_enums => 1;
 
         public static uint VK_NV_FRAGMENT_SHADING_RATE_ENUMS_SPEC_VERSION => 1;
 
         public static string VK_NV_FRAGMENT_SHADING_RATE_ENUMS_EXTENSION_NAME => "VK_NV_fragment_shading_rate_enums";
+
+        public static uint VK_NV_ray_tracing_motion_blur => 1;
+
+        public static uint VK_NV_RAY_TRACING_MOTION_BLUR_SPEC_VERSION => 1;
+
+        public static string VK_NV_RAY_TRACING_MOTION_BLUR_EXTENSION_NAME => "VK_NV_ray_tracing_motion_blur";
+
+        public static uint VK_EXT_ycbcr_2plane_444_formats => 1;
+
+        public static uint VK_EXT_YCBCR_2PLANE_444_FORMATS_SPEC_VERSION => 1;
+
+        public static string VK_EXT_YCBCR_2PLANE_444_FORMATS_EXTENSION_NAME => "VK_EXT_ycbcr_2plane_444_formats";
 
         public static uint VK_EXT_fragment_density_map2 => 1;
 
@@ -1259,9 +1436,9 @@ namespace AdamantiumVulkan.Core
 
         public static uint VK_QCOM_rotated_copy_commands => 1;
 
-        public static uint VK_QCOM_rotated_copy_commands_SPEC_VERSION => 0;
+        public static uint VK_QCOM_ROTATED_COPY_COMMANDS_SPEC_VERSION => 1;
 
-        public static string VK_QCOM_rotated_copy_commands_EXTENSION_NAME => "VK_QCOM_rotated_copy_commands";
+        public static string VK_QCOM_ROTATED_COPY_COMMANDS_EXTENSION_NAME => "VK_QCOM_rotated_copy_commands";
 
         public static uint VK_EXT_image_robustness => 1;
 
@@ -1269,15 +1446,235 @@ namespace AdamantiumVulkan.Core
 
         public static string VK_EXT_IMAGE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_image_robustness";
 
+        public static uint VK_EXT_image_compression_control => 1;
+
+        public static uint VK_EXT_IMAGE_COMPRESSION_CONTROL_SPEC_VERSION => 1;
+
+        public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_EXTENSION_NAME => "VK_EXT_image_compression_control";
+
+        public static uint VK_EXT_attachment_feedback_loop_layout => 1;
+
+        public static uint VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_SPEC_VERSION => 2;
+
+        public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_layout";
+
         public static uint VK_EXT_4444_formats => 1;
 
         public static uint VK_EXT_4444_FORMATS_SPEC_VERSION => 1;
 
         public static string VK_EXT_4444_FORMATS_EXTENSION_NAME => "VK_EXT_4444_formats";
 
+        public static uint VK_ARM_rasterization_order_attachment_access => 1;
+
+        public static uint VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
+
+        public static string VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_ARM_rasterization_order_attachment_access";
+
+        public static uint VK_EXT_rgba10x6_formats => 1;
+
+        public static uint VK_EXT_RGBA10X6_FORMATS_SPEC_VERSION => 1;
+
+        public static string VK_EXT_RGBA10X6_FORMATS_EXTENSION_NAME => "VK_EXT_rgba10x6_formats";
+
+        public static uint VK_NV_acquire_winrt_display => 1;
+
+        public static uint VK_NV_ACQUIRE_WINRT_DISPLAY_SPEC_VERSION => 1;
+
+        public static string VK_NV_ACQUIRE_WINRT_DISPLAY_EXTENSION_NAME => "VK_NV_acquire_winrt_display";
+
+        public static uint VK_VALVE_mutable_descriptor_type => 1;
+
+        public static uint VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
+
+        public static string VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_VALVE_mutable_descriptor_type";
+
+        public static uint VK_EXT_vertex_input_dynamic_state => 1;
+
+        public static uint VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_SPEC_VERSION => 2;
+
+        public static string VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_vertex_input_dynamic_state";
+
+        public static uint VK_EXT_physical_device_drm => 1;
+
+        public static uint VK_EXT_PHYSICAL_DEVICE_DRM_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PHYSICAL_DEVICE_DRM_EXTENSION_NAME => "VK_EXT_physical_device_drm";
+
+        public static uint VK_EXT_depth_clip_control => 1;
+
+        public static uint VK_EXT_DEPTH_CLIP_CONTROL_SPEC_VERSION => 1;
+
+        public static string VK_EXT_DEPTH_CLIP_CONTROL_EXTENSION_NAME => "VK_EXT_depth_clip_control";
+
+        public static uint VK_EXT_primitive_topology_list_restart => 1;
+
+        public static uint VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_EXTENSION_NAME => "VK_EXT_primitive_topology_list_restart";
+
+        public static uint VK_HUAWEI_subpass_shading => 1;
+
+        public static uint VK_HUAWEI_SUBPASS_SHADING_SPEC_VERSION => 2;
+
+        public static string VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME => "VK_HUAWEI_subpass_shading";
+
+        public static uint VK_HUAWEI_invocation_mask => 1;
+
+        public static uint VK_HUAWEI_INVOCATION_MASK_SPEC_VERSION => 1;
+
+        public static string VK_HUAWEI_INVOCATION_MASK_EXTENSION_NAME => "VK_HUAWEI_invocation_mask";
+
+        public static uint VK_NV_external_memory_rdma => 1;
+
+        public static uint VK_NV_EXTERNAL_MEMORY_RDMA_SPEC_VERSION => 1;
+
+        public static string VK_NV_EXTERNAL_MEMORY_RDMA_EXTENSION_NAME => "VK_NV_external_memory_rdma";
+
+        public static uint VK_EXT_pipeline_properties => 1;
+
+        public static uint VK_EXT_PIPELINE_PROPERTIES_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PIPELINE_PROPERTIES_EXTENSION_NAME => "VK_EXT_pipeline_properties";
+
+        public static uint VK_EXT_multisampled_render_to_single_sampled => 1;
+
+        public static uint VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_SPEC_VERSION => 1;
+
+        public static string VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_EXTENSION_NAME => "VK_EXT_multisampled_render_to_single_sampled";
+
+        public static uint VK_EXT_extended_dynamic_state2 => 1;
+
+        public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_2_SPEC_VERSION => 1;
+
+        public static string VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME => "VK_EXT_extended_dynamic_state2";
+
+        public static uint VK_EXT_color_write_enable => 1;
+
+        public static uint VK_EXT_COLOR_WRITE_ENABLE_SPEC_VERSION => 1;
+
+        public static string VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME => "VK_EXT_color_write_enable";
+
+        public static uint VK_EXT_primitives_generated_query => 1;
+
+        public static uint VK_EXT_PRIMITIVES_GENERATED_QUERY_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PRIMITIVES_GENERATED_QUERY_EXTENSION_NAME => "VK_EXT_primitives_generated_query";
+
+        public static uint VK_EXT_global_priority_query => 1;
+
+        public static uint VK_EXT_GLOBAL_PRIORITY_QUERY_SPEC_VERSION => 1;
+
+        public static string VK_EXT_GLOBAL_PRIORITY_QUERY_EXTENSION_NAME => "VK_EXT_global_priority_query";
+
+        public static uint VK_MAX_GLOBAL_PRIORITY_SIZE_EXT => VK_MAX_GLOBAL_PRIORITY_SIZE_KHR;
+
+        public static uint VK_EXT_image_view_min_lod => 1;
+
+        public static uint VK_EXT_IMAGE_VIEW_MIN_LOD_SPEC_VERSION => 1;
+
+        public static string VK_EXT_IMAGE_VIEW_MIN_LOD_EXTENSION_NAME => "VK_EXT_image_view_min_lod";
+
+        public static uint VK_EXT_multi_draw => 1;
+
+        public static uint VK_EXT_MULTI_DRAW_SPEC_VERSION => 1;
+
+        public static string VK_EXT_MULTI_DRAW_EXTENSION_NAME => "VK_EXT_multi_draw";
+
+        public static uint VK_EXT_image_2d_view_of_3d => 1;
+
+        public static uint VK_EXT_IMAGE_2D_VIEW_OF_3D_SPEC_VERSION => 1;
+
+        public static string VK_EXT_IMAGE_2D_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_2d_view_of_3d";
+
+        public static uint VK_EXT_load_store_op_none => 1;
+
+        public static uint VK_EXT_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
+
+        public static string VK_EXT_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_EXT_load_store_op_none";
+
+        public static uint VK_EXT_border_color_swizzle => 1;
+
+        public static uint VK_EXT_BORDER_COLOR_SWIZZLE_SPEC_VERSION => 1;
+
+        public static string VK_EXT_BORDER_COLOR_SWIZZLE_EXTENSION_NAME => "VK_EXT_border_color_swizzle";
+
+        public static uint VK_EXT_pageable_device_local_memory => 1;
+
+        public static uint VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_SPEC_VERSION => 1;
+
+        public static string VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_EXTENSION_NAME => "VK_EXT_pageable_device_local_memory";
+
+        public static uint VK_VALVE_descriptor_set_host_mapping => 1;
+
+        public static uint VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_SPEC_VERSION => 1;
+
+        public static string VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_EXTENSION_NAME => "VK_VALVE_descriptor_set_host_mapping";
+
+        public static uint VK_EXT_non_seamless_cube_map => 1;
+
+        public static uint VK_EXT_NON_SEAMLESS_CUBE_MAP_SPEC_VERSION => 1;
+
+        public static string VK_EXT_NON_SEAMLESS_CUBE_MAP_EXTENSION_NAME => "VK_EXT_non_seamless_cube_map";
+
+        public static uint VK_QCOM_fragment_density_map_offset => 1;
+
+        public static uint VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION => 1;
+
+        public static string VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_EXTENSION_NAME => "VK_QCOM_fragment_density_map_offset";
+
+        public static uint VK_NV_linear_color_attachment => 1;
+
+        public static uint VK_NV_LINEAR_COLOR_ATTACHMENT_SPEC_VERSION => 1;
+
+        public static string VK_NV_LINEAR_COLOR_ATTACHMENT_EXTENSION_NAME => "VK_NV_linear_color_attachment";
+
+        public static uint VK_GOOGLE_surfaceless_query => 1;
+
+        public static uint VK_GOOGLE_SURFACELESS_QUERY_SPEC_VERSION => 1;
+
+        public static string VK_GOOGLE_SURFACELESS_QUERY_EXTENSION_NAME => "VK_GOOGLE_surfaceless_query";
+
+        public static uint VK_EXT_image_compression_control_swapchain => 1;
+
+        public static uint VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_SPEC_VERSION => 1;
+
+        public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_EXTENSION_NAME => "VK_EXT_image_compression_control_swapchain";
+
+        public static uint VK_QCOM_image_processing => 1;
+
+        public static uint VK_QCOM_IMAGE_PROCESSING_SPEC_VERSION => 1;
+
+        public static string VK_QCOM_IMAGE_PROCESSING_EXTENSION_NAME => "VK_QCOM_image_processing";
+
+        public static uint VK_EXT_subpass_merge_feedback => 1;
+
+        public static uint VK_EXT_SUBPASS_MERGE_FEEDBACK_SPEC_VERSION => 2;
+
+        public static string VK_EXT_SUBPASS_MERGE_FEEDBACK_EXTENSION_NAME => "VK_EXT_subpass_merge_feedback";
+
+        public static uint VK_EXT_shader_module_identifier => 1;
+
+        public static uint VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT => 32U;
+
+        public static uint VK_EXT_SHADER_MODULE_IDENTIFIER_SPEC_VERSION => 1;
+
+        public static string VK_EXT_SHADER_MODULE_IDENTIFIER_EXTENSION_NAME => "VK_EXT_shader_module_identifier";
+
+        public static uint VK_QCOM_tile_properties => 1;
+
+        public static uint VK_QCOM_TILE_PROPERTIES_SPEC_VERSION => 1;
+
+        public static string VK_QCOM_TILE_PROPERTIES_EXTENSION_NAME => "VK_QCOM_tile_properties";
+
+        public static uint VK_SEC_amigo_profiling => 1;
+
+        public static uint VK_SEC_AMIGO_PROFILING_SPEC_VERSION => 1;
+
+        public static string VK_SEC_AMIGO_PROFILING_EXTENSION_NAME => "VK_SEC_amigo_profiling";
+
         public static uint VK_KHR_acceleration_structure => 1;
 
-        public static uint VK_KHR_ACCELERATION_STRUCTURE_SPEC_VERSION => 11;
+        public static uint VK_KHR_ACCELERATION_STRUCTURE_SPEC_VERSION => 13;
 
         public static string VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_KHR_acceleration_structure";
 
