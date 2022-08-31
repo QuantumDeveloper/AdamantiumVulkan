@@ -16,7 +16,7 @@ namespace AdamantiumVulkan.Spirv.Cross
 
     public partial class SpvcReflectedResource : QBDisposableObject
     {
-        private StringReference refname;
+        private StringReference name;
 
         public SpvcReflectedResource()
         {
@@ -41,18 +41,18 @@ namespace AdamantiumVulkan.Spirv.Cross
             _internal.id = Id;
             _internal.base_type_id = Base_type_id;
             _internal.type_id = Type_id;
-            refname?.Dispose();
+            name?.Dispose();
             if (Name != null)
             {
-                refname = new StringReference(Name, false);
-                _internal.name = refname.Handle;
+                name = new StringReference(Name, false);
+                _internal.name = name.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refname?.Dispose();
+            name?.Dispose();
         }
 
 
@@ -101,7 +101,7 @@ namespace AdamantiumVulkan.Spirv.Cross
 
     public partial class SpvcEntryPoint : QBDisposableObject
     {
-        private StringReference refname;
+        private StringReference name;
 
         public SpvcEntryPoint()
         {
@@ -120,18 +120,18 @@ namespace AdamantiumVulkan.Spirv.Cross
         {
             var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint();
             _internal.execution_model = (uint)Execution_model;
-            refname?.Dispose();
+            name?.Dispose();
             if (Name != null)
             {
-                refname = new StringReference(Name, false);
-                _internal.name = refname.Handle;
+                name = new StringReference(Name, false);
+                _internal.name = name.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refname?.Dispose();
+            name?.Dispose();
         }
 
 
@@ -276,7 +276,7 @@ namespace AdamantiumVulkan.Spirv.Cross
 
     public partial class SpvcHlslVertexAttributeRemap : QBDisposableObject
     {
-        private StringReference refsemantic;
+        private StringReference semantic;
 
         public SpvcHlslVertexAttributeRemap()
         {
@@ -295,18 +295,18 @@ namespace AdamantiumVulkan.Spirv.Cross
         {
             var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap();
             _internal.location = Location;
-            refsemantic?.Dispose();
+            semantic?.Dispose();
             if (Semantic != null)
             {
-                refsemantic = new StringReference(Semantic, false);
-                _internal.semantic = refsemantic.Handle;
+                semantic = new StringReference(Semantic, false);
+                _internal.semantic = semantic.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refsemantic?.Dispose();
+            semantic?.Dispose();
         }
 
 
