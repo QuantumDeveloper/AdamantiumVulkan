@@ -63,6 +63,42 @@ namespace AdamantiumVulkan.Spirv.Cross
 
     }
 
+    public partial class SpvcReflectedBuiltinResource
+    {
+        public SpvcReflectedBuiltinResource()
+        {
+        }
+
+        public SpvcReflectedBuiltinResource(AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource _internal)
+        {
+            Builtin = (SpvBuiltIn)_internal.builtin;
+            Value_type_id = _internal.value_type_id;
+            Resource = new SpvcReflectedResource(_internal.resource);
+        }
+
+        public SpvBuiltIn Builtin { get; set; }
+        public uint Value_type_id { get; set; }
+        public SpvcReflectedResource Resource { get; set; }
+
+        public AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource();
+            _internal.builtin = (uint)Builtin;
+            _internal.value_type_id = Value_type_id;
+            if (Resource != null)
+            {
+                _internal.resource = Resource.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator SpvcReflectedBuiltinResource(AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource s)
+        {
+            return new SpvcReflectedBuiltinResource(s);
+        }
+
+    }
+
     public partial class SpvcEntryPoint : QBDisposableObject
     {
         private StringReference refname;

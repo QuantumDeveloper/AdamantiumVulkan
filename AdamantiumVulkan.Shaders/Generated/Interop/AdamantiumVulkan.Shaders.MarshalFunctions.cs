@@ -81,6 +81,13 @@ namespace AdamantiumVulkan.Shaders.Interop
         internal static extern void shaderc_compile_options_set_auto_bind_uniforms([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] bool auto_bind);
 
         ///<summary>
+        /// Sets whether the compiler should automatically remove sampler variables and convert image variables to combined image-sampler variables.
+        ///</summary>
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_auto_combined_image_sampler", CallingConvention = CallingConvention.Winapi)]
+        internal static extern void shaderc_compile_options_set_auto_combined_image_sampler([In] AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, [In] bool upgrade);
+
+        ///<summary>
         /// Sets whether the compiler should automatically assign locations to uniform variables that don't have explicit locations in the shader source.
         ///</summary>
         [SuppressUnmanagedCodeSecurity]

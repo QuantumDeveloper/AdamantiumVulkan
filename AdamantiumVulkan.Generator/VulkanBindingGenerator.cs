@@ -4,7 +4,6 @@ using QuantumBinding.Generator.BindingsMapping;
 using QuantumBinding.Generator.CodeGeneration;
 using QuantumBinding.Generator.ProcessingFluentApi;
 using QuantumBinding.Generator.Processors;
-using QuantumBinding.Generator.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +24,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string mainNamespace = "AdamantiumVulkan";
             string commonNamespace = "AdamantiumVulkan.Common";
-            string vulkanBasePath = @"C:\VulkanSDK\1.2.162.1\Include";
+            string vulkanBasePath = @"C:\VulkanSDK\1.3.224.0\Include";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
             string commonPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Common", "Generated"));
@@ -34,59 +33,58 @@ namespace AdamantiumVulkan.Generator
             string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.MacOS", "Generated"));
             string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Shaders", "Generated"));
             string spirvPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Spirv", "Generated"));
-            string spirvCrossPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Spirv.Cross", "Generated"));
             
             PathManager vulkanPathManager = new PathManager();
-            vulkanPathManager.AddFilePath(OSPlatform.Windows, @"C:\VulkanSDK\1.2.162.1\Include\vulkan\vulkan.h");
+            vulkanPathManager.AddFilePath(OSPlatform.Windows, Path.Combine(vulkanBasePath, "vulkan", "vulkan.h"));
             vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan.h"));
 
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = true;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
 
-            // vkMainModule = options.AddModule(vkMainLibrary);
-            // vkMainModule.Name = "Core";
-            // vkMainModule.Defines.Add("_WIN32");
-            // vkMainModule.Defines.Add("_MSC_VER");
-            // vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
-            // vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            // vkMainModule.Files.AddRange(vulkanPathManager.Files);
-            // vkMainModule.ForceCallingConvention = true;
-            // vkMainModule.CallingConvention = CallingConvention.Winapi;
-            // vkMainModule.AllowConvertStructToClass = true;
-            // vkMainModule.MethodClassName = "VulkanNative";
-            // vkMainModule.InteropClassName = "VulkanInterop";
-            // vkMainModule.OutputFileName = mainNamespace;
-            // vkMainModule.OutputNamespace = mainNamespace;
-            // vkMainModule.SuppressUnmanagedCodeSecurity = true;
-            // vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
-            // vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
-            // vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
-            // vkMainModule.WrapInteropObjects = true;
-            // vkMainModule.GenerateOverloadsForArrayParams = true;
-            // vkMainModule.OutputPath = corePath;
+            vkMainModule = options.AddModule(vkMainLibrary);
+            vkMainModule.Name = "Core";
+            vkMainModule.Defines.Add("_WIN32");
+            vkMainModule.Defines.Add("_MSC_VER");
+            vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
+            vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
+            vkMainModule.Files.AddRange(vulkanPathManager.Files);
+            vkMainModule.ForceCallingConvention = true;
+            vkMainModule.CallingConvention = CallingConvention.Winapi;
+            vkMainModule.AllowConvertStructToClass = true;
+            vkMainModule.MethodClassName = "VulkanNative";
+            vkMainModule.InteropClassName = "VulkanInterop";
+            vkMainModule.OutputFileName = mainNamespace;
+            vkMainModule.OutputNamespace = mainNamespace;
+            vkMainModule.SuppressUnmanagedCodeSecurity = true;
+            vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
+            vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
+            vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
+            vkMainModule.WrapInteropObjects = true;
+            vkMainModule.GenerateOverloadsForArrayParams = true;
+            vkMainModule.OutputPath = corePath;
 
-            // shaderModule = options.AddModule(shadercLibrary);
-            // shaderModule.Name = "Shaders";
-            // shaderModule.IncludeDirs.Add(vulkanBasePath);
-            // shaderModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "shaderc"));
-            // shaderModule.Files.Add(Path.Combine(vulkanBasePath, "shaderc", "shaderc.h"));
-            // shaderModule.Defines.Add("SHADERC_SHAREDLIB");
-            // shaderModule.Defines.Add("_WIN32");
-            // shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
-            // shaderModule.ForceCallingConvention = true;
-            // shaderModule.CallingConvention = CallingConvention.Winapi;
-            // shaderModule.AllowConvertStructToClass = true;
-            // shaderModule.MethodClassName = "VulkanShadersNative";
-            // shaderModule.InteropClassName = "VulkanShadersInterop";
-            // shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
-            // shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
-            // shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
-            // shaderModule.SuppressUnmanagedCodeSecurity = true;
-            // shaderModule.WrapInteropObjects = true;
-            // shaderModule.GenerateOverloadsForArrayParams = true;
-            // shaderModule.OutputPath = shadersPath;
-
+            shaderModule = options.AddModule(shadercLibrary);
+            shaderModule.Name = "Shaders";
+            shaderModule.IncludeDirs.Add(vulkanBasePath);
+            shaderModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "shaderc"));
+            shaderModule.Files.Add(Path.Combine(vulkanBasePath, "shaderc", "shaderc.h"));
+            shaderModule.Defines.Add("SHADERC_SHAREDLIB");
+            shaderModule.Defines.Add("_WIN32");
+            shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
+            shaderModule.ForceCallingConvention = true;
+            shaderModule.CallingConvention = CallingConvention.Winapi;
+            shaderModule.AllowConvertStructToClass = true;
+            shaderModule.MethodClassName = "VulkanShadersNative";
+            shaderModule.InteropClassName = "VulkanShadersInterop";
+            shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
+            shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
+            shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
+            shaderModule.SuppressUnmanagedCodeSecurity = true;
+            shaderModule.WrapInteropObjects = true;
+            shaderModule.GenerateOverloadsForArrayParams = true;
+            shaderModule.OutputPath = shadersPath;
+            
             var spirvCrossSpecs = GeneratorSpecializations.All;
             spirvCrossSpecs &= ~GeneratorSpecializations.Constants;
             spivCrossModule = options.AddModule(spirvCrossLibrary);
@@ -177,17 +175,30 @@ namespace AdamantiumVulkan.Generator
             macroAction.IgnoreList.Add("SHADERC_EXPORT");
             macroAction.IgnoreList.Add("SHADERC_IMPLEMENTATION");
             macroAction.IgnoreList.Add("SHADERC_SHAREDLIB");
+            macroAction.IgnoreList.Add("VK_MAKE_VERSION");
+            macroAction.IgnoreList.Add("VK_VERSION_MAJOR");
+            macroAction.IgnoreList.Add("VK_VERSION_MINOR");
+            macroAction.IgnoreList.Add("VK_VERSION_PATCH");
 
-            macroAction.SubstitutionList.Add("VK_MAKE_VERSION", VulkanBindings.CreateMakeVersionFunction());
-            macroAction.SubstitutionList.Add("VK_VERSION_MAJOR", VulkanBindings.CreateVersionFor("major"));
-            macroAction.SubstitutionList.Add("VK_VERSION_MINOR", VulkanBindings.CreateVersionFor("minor"));
-            macroAction.SubstitutionList.Add("VK_VERSION_PATCH", VulkanBindings.CreateVersionFor("patch"));
+            macroAction.SubstitutionList.Add("VK_MAKE_API_VERSION", VulkanBindings.CreateMakeApiVersionFunction());
+            macroAction.SubstitutionList.Add("VK_API_VERSION_VARIANT", VulkanBindings.CreateApiVersionFor("variant"));
+            macroAction.SubstitutionList.Add("VK_API_VERSION_MAJOR", VulkanBindings.CreateApiVersionFor("major"));
+            macroAction.SubstitutionList.Add("VK_API_VERSION_MINOR", VulkanBindings.CreateApiVersionFor("minor"));
+            macroAction.SubstitutionList.Add("VK_API_VERSION_PATCH", VulkanBindings.CreateApiVersionFor("patch"));
             macroAction.SubstitutionList.Add("VK_API_VERSION_1_0", VulkanBindings.CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_API_VERSION_1_1", VulkanBindings.CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_EXTERNAL_KHR", VulkanBindings.CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_EXTERNAL", VulkanBindings.CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_QUEUE_FAMILY_FOREIGN_EXT", VulkanBindings.CreateApiVersion());
             macroAction.SubstitutionList.Add("VK_HEADER_VERSION", VulkanBindings.CreateHeaderVersion());
+            macroAction.SubstitutionList.Add("VK_LOD_CLAMP_NONE", VulkanBindings.CreateLodClampNone());
+            macroAction.SubstitutionList.Add("VK_KHR_MAINTENANCE1_EXTENSION_NAME", VulkanBindings.CreateStringReturnMacro());
+            macroAction.SubstitutionList.Add("VK_KHR_MAINTENANCE2_EXTENSION_NAME", VulkanBindings.CreateStringReturnMacro());
+            macroAction.SubstitutionList.Add("VK_KHR_MAINTENANCE3_EXTENSION_NAME", VulkanBindings.CreateStringReturnMacro());
+            macroAction.SubstitutionList.Add("VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME", VulkanBindings.CreateStringReturnMacro());
+            macroAction.SubstitutionList.Add("VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME", VulkanBindings.CreateStringReturnMacro());
+            
+            
             context.AddPreGeneratorPass(macroAction, ExecutionPassKind.PerTranslationUnit);
         }
 

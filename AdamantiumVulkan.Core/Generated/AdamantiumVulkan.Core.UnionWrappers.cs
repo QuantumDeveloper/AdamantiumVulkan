@@ -234,7 +234,7 @@ namespace AdamantiumVulkan.Core
 
     public partial class PerformanceValueDataINTEL : QBDisposableObject
     {
-        private StringReference refvalueString;
+        private StringReference valueString;
 
         public PerformanceValueDataINTEL()
         {
@@ -262,54 +262,24 @@ namespace AdamantiumVulkan.Core
             _internal.value64 = Value64;
             _internal.valueFloat = ValueFloat;
             _internal.valueBool = System.Convert.ToUInt32(ValueBool);
-            refvalueString?.Dispose();
+            valueString?.Dispose();
             if (ValueString != null)
             {
-                refvalueString = new StringReference(ValueString, false);
-                _internal.valueString = refvalueString.Handle;
+                valueString = new StringReference(ValueString, false);
+                _internal.valueString = valueString.Handle;
             }
             return _internal;
         }
 
         protected override void UnmanagedDisposeOverride()
         {
-            refvalueString?.Dispose();
+            valueString?.Dispose();
         }
 
 
         public static implicit operator PerformanceValueDataINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL p)
         {
             return new PerformanceValueDataINTEL(p);
-        }
-
-    }
-
-    public partial class DeviceOrHostAddressKHR : QBDisposableObject
-    {
-        public DeviceOrHostAddressKHR()
-        {
-        }
-
-        public DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR _internal)
-        {
-            DeviceAddress = _internal.deviceAddress;
-            HostAddress = _internal.hostAddress;
-        }
-
-        public ulong DeviceAddress { get; set; }
-        public System.IntPtr HostAddress { get; set; }
-
-        public AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR ToInternal()
-        {
-            var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR();
-            _internal.deviceAddress = DeviceAddress;
-            _internal.hostAddress = HostAddress;
-            return _internal;
-        }
-
-        public static implicit operator DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR d)
-        {
-            return new DeviceOrHostAddressKHR(d);
         }
 
     }
@@ -340,6 +310,78 @@ namespace AdamantiumVulkan.Core
         public static implicit operator DeviceOrHostAddressConstKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR d)
         {
             return new DeviceOrHostAddressConstKHR(d);
+        }
+
+    }
+
+    public partial class AccelerationStructureMotionInstanceDataNV
+    {
+        public AccelerationStructureMotionInstanceDataNV()
+        {
+        }
+
+        public AccelerationStructureMotionInstanceDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV _internal)
+        {
+            StaticInstance = new AccelerationStructureInstanceKHR(_internal.staticInstance);
+            MatrixMotionInstance = new AccelerationStructureMatrixMotionInstanceNV(_internal.matrixMotionInstance);
+            SrtMotionInstance = new AccelerationStructureSRTMotionInstanceNV(_internal.srtMotionInstance);
+        }
+
+        public AccelerationStructureInstanceKHR StaticInstance { get; set; }
+        public AccelerationStructureMatrixMotionInstanceNV MatrixMotionInstance { get; set; }
+        public AccelerationStructureSRTMotionInstanceNV SrtMotionInstance { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV();
+            if (StaticInstance != null)
+            {
+                _internal.staticInstance = StaticInstance.ToInternal();
+            }
+            if (MatrixMotionInstance != null)
+            {
+                _internal.matrixMotionInstance = MatrixMotionInstance.ToInternal();
+            }
+            if (SrtMotionInstance != null)
+            {
+                _internal.srtMotionInstance = SrtMotionInstance.ToInternal();
+            }
+            return _internal;
+        }
+
+        public static implicit operator AccelerationStructureMotionInstanceDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV a)
+        {
+            return new AccelerationStructureMotionInstanceDataNV(a);
+        }
+
+    }
+
+    public partial class DeviceOrHostAddressKHR : QBDisposableObject
+    {
+        public DeviceOrHostAddressKHR()
+        {
+        }
+
+        public DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR _internal)
+        {
+            DeviceAddress = _internal.deviceAddress;
+            HostAddress = _internal.hostAddress;
+        }
+
+        public ulong DeviceAddress { get; set; }
+        public System.IntPtr HostAddress { get; set; }
+
+        public AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR ToInternal()
+        {
+            var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR();
+            _internal.deviceAddress = DeviceAddress;
+            _internal.hostAddress = HostAddress;
+            return _internal;
+        }
+
+        public static implicit operator DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR d)
+        {
+            return new DeviceOrHostAddressKHR(d);
         }
 
     }

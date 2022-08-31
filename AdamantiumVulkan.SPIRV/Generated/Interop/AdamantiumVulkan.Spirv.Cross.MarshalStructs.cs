@@ -187,6 +187,17 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop
 
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct SpvcReflectedBuiltinResource
+    {
+        public uint builtin;
+
+        public uint value_type_id;
+
+        public SpvcReflectedResource resource;
+
+    }
+
     ///<summary>
     /// See C++ API.
     ///</summary>

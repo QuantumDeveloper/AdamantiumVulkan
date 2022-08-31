@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Generator", "AdamantiumVulkan.Generator\AdamantiumVulkan.Generator.csproj", "{ACB79C1E-031F-451E-8683-9F80726B7CD5}"
 EndProject
@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.MacOS", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Spirv", "AdamantiumVulkan.Spirv\AdamantiumVulkan.Spirv.csproj", "{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdamantiumVulkan.Common", "AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj", "{7DE83A91-5851-4A65-B07E-C99BB842167F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Common", "AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj", "{7DE83A91-5851-4A65-B07E-C99BB842167F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +73,8 @@ Global
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.Build.0 = Release|x64
 		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Debug|x64.ActiveCfg = Debug|x64
 		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Debug|x64.Build.0 = Debug|x64
+		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Release|x64.ActiveCfg = Release|x64
+		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

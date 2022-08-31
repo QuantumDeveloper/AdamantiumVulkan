@@ -1174,21 +1174,25 @@ public class VulkanBindings
 
         return predefinedValues;
     }
-    public static MacroFunction CreateMakeVersionFunction()
+   
+    public static MacroFunction CreateMakeApiVersionFunction()
     {
         var function = new MacroFunction();
-        var major = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "major" };
-        var minor = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "minor" };
-        var patch = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "patch" };
+        var variant = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "variant", ParameterKind = ParameterKind.In };
+        var major = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "major", ParameterKind = ParameterKind.In};
+        var minor = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "minor", ParameterKind = ParameterKind.In };
+        var patch = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = "patch", ParameterKind = ParameterKind.In };
+        function.Parameters.Add(variant);
         function.Parameters.Add(major);
         function.Parameters.Add(minor);
         function.Parameters.Add(patch);
         function.FunctionBody =
-            $"var version = major << 22 | minor << 12 | patch;{Environment.NewLine}return (uint)version ;";
+            $"var version = variant << 29 | major << 22 | minor << 12 | patch;{Environment.NewLine}return (uint)version;";
         function.ReturnType = new BuiltinType(PrimitiveType.UInt32);
 
         return function;
     }
+    
     public static MacroFunction CreateApiVersion()
     {
         var function = new MacroFunction();
@@ -1196,16 +1200,33 @@ public class VulkanBindings
         function.ApplyOnlyReturnType = true;
         return function;
     }
-    public static MacroFunction CreateVersionFor(string paramName)
+
+    public static MacroFunction CreateApiVersionFor(string paramName)
     {
         var function = new MacroFunction();
         var param = new Parameter() { Type = new BuiltinType(PrimitiveType.Byte), Name = paramName };
         function.Parameters.Add(param);
+        switch (paramName)
+        {
+            case "variant":
+                function.FunctionBody = $"return (uint)({paramName}>>29);";
+                break;
+            case "major":
+                function.FunctionBody = $"return ((uint)({paramName}>>22) & 0x7FU);";
+                break;
+            case "minor":
+                function.FunctionBody = $"return ((uint)({paramName}>>12) & 0x3FFU);";
+                break;
+            case "patch":
+                function.FunctionBody = $"return (uint)({paramName} & 0xFFFU);";
+                break;
+        }
         function.FunctionBody = $"return (uint)({paramName}>>22);";
         function.ReturnType = new BuiltinType(PrimitiveType.UInt32);
 
         return function;
     }
+    
     public static MacroFunction CreateHeaderVersion()
     {
         var function = new MacroFunction();
@@ -1213,6 +1234,24 @@ public class VulkanBindings
         function.ApplyOnlyReturnType = true;
         return function;
     }
+
+    public static MacroFunction CreateLodClampNone()
+    {
+        var function = new MacroFunction();
+        function.ReturnType = new BuiltinType(PrimitiveType.Float);
+        function.ApplyOnlyReturnType = true;
+        return function;
+    }
+
+    //public static MacroFunction CreateMaintenanceExtensionName()
+    public static MacroFunction CreateStringReturnMacro()
+    {
+        var func = new MacroFunction();
+        func.ReturnType = new BuiltinType(PrimitiveType.String);
+        func.ApplyOnlyReturnType = true;
+        return func;
+    }
+    
     public static void ProvideFunctionsForParametersFix(ProcessingContext ctx)
     {
         PostProcessingApi api = new PostProcessingApi();
@@ -1528,6 +1567,16 @@ public class VulkanBindings
             .WithField("pIndexTypeValues")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "indexTypeCount");
 
+        api.Class("VkCuLaunchInfoNVX")
+            .WithField("pParams")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "paramCount")
+            .WithField("pExtras")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "extraCount");
+
+        api.Class("VkPipelineColorWriteCreateInfoEXT")
+            .WithField("pColorWriteEnables")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Bool32), arraySizeSource: "attachmentCount");
+        
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").
         //    TreatAsIs().

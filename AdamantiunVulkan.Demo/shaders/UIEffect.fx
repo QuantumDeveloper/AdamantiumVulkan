@@ -14,8 +14,8 @@ float transparency2 = 1;
 double isThisOneByte;
 
 
-const int permutationTableSize = 1024;
-const int gradientSetSize = 26;
+#define permutationTableSize 1024
+#define gradientSetSize 26
 
 
 cbuffer PerlinParams

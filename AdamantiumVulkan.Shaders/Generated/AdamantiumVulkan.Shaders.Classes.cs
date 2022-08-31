@@ -150,6 +150,14 @@ namespace AdamantiumVulkan.Shaders
         }
 
         ///<summary>
+        /// Sets whether the compiler should automatically remove sampler variables and convert image variables to combined image-sampler variables.
+        ///</summary>
+        public void SetAutoCombinedImageSampler(bool upgrade)
+        {
+            AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_auto_combined_image_sampler(this, upgrade);
+        }
+
+        ///<summary>
         /// Sets whether the compiler should automatically assign locations to uniform variables that don't have explicit locations in the shader source.
         ///</summary>
         public void SetAutoMapLocations(bool auto_map)

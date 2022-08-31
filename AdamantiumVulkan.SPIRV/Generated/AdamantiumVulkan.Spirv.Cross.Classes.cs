@@ -415,6 +415,11 @@ namespace AdamantiumVulkan.Spirv.Cross
             return result;
         }
 
+        public bool HasActiveBuiltin(SpvBuiltIn builtin, SpvStorageClass storage)
+        {
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_active_builtin(this, builtin, storage);
+        }
+
         public bool HasDecoration(uint id, SpvDecoration decoration)
         {
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_decoration(this, id, decoration);
@@ -475,6 +480,16 @@ namespace AdamantiumVulkan.Spirv.Cross
         {
             var arg1 = ReferenceEquals(options, null) ? new SpvcCompilerOptionsS() : (SpvcCompilerOptionsS)options;
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_install_compiler_options(this, arg1);
+        }
+
+        public SpvcResult MaskStageOutputByBuiltin(SpvBuiltIn builtin)
+        {
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_mask_stage_output_by_builtin(this, builtin);
+        }
+
+        public SpvcResult MaskStageOutputByLocation(uint location, uint component)
+        {
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_mask_stage_output_by_location(this, location, component);
         }
 
         public SpvcResult MslAddDiscreteDescriptorSet(uint desc_set)
@@ -738,6 +753,11 @@ namespace AdamantiumVulkan.Spirv.Cross
             AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_unset_member_decoration(this, id, member_index, decoration);
         }
 
+        public void UpdateActiveBuiltins()
+        {
+            AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_update_active_builtins(this);
+        }
+
         public bool VariableIsDepthOrCompare(uint id)
         {
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_variable_is_depth_or_compare(this, id);
@@ -806,6 +826,14 @@ namespace AdamantiumVulkan.Spirv.Cross
         public SpvcResources(AdamantiumVulkan.Spirv.Cross.Interop.SpvcResourcesS __Instance)
         {
             this.__Instance = __Instance;
+        }
+
+        public SpvcResult GetBuiltinResourceListForType(SpvcBuiltinResourceType type, in SpvcReflectedBuiltinResource resource_list, ref ulong resource_size)
+        {
+            var arg1 = ReferenceEquals(resource_list, null) ? System.IntPtr.Zero : MarshalUtils.MarshalStructToPtr(resource_list.ToInternal());
+            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_builtin_resource_list_for_type(this, type, arg1, ref resource_size);
+            Marshal.FreeHGlobal(arg1);
+            return result;
         }
 
         public SpvcResult GetResourceListForType(SpvcResourceType type, out SpvcReflectedResource[] resource_list, ref ulong resource_size)

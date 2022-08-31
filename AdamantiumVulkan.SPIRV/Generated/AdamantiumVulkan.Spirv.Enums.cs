@@ -24,6 +24,10 @@ namespace AdamantiumVulkan.Spirv
 
         Hlsl = 5,
 
+        CppForOpencl = 6,
+
+        Sycl = 7,
+
         Max = 2147483647,
 
     }
@@ -170,6 +174,8 @@ namespace AdamantiumVulkan.Spirv
 
         LocalSizeHintId = 39,
 
+        SubgroupUniformControlFlowKHR = 4421,
+
         PostDepthCoverage = 4446,
 
         DenormPreserve = 4459,
@@ -205,6 +211,28 @@ namespace AdamantiumVulkan.Spirv
         ShadingRateInterlockOrderedEXT = 5370,
 
         ShadingRateInterlockUnorderedEXT = 5371,
+
+        SharedLocalMemorySizeINTEL = 5618,
+
+        RoundingModeRTPINTEL = 5620,
+
+        RoundingModeRTNINTEL = 5621,
+
+        FloatingPointModeALTINTEL = 5622,
+
+        FloatingPointModeIEEEINTEL = 5623,
+
+        MaxWorkgroupSizeINTEL = 5893,
+
+        MaxWorkDimINTEL = 5894,
+
+        NoGlobalOffsetINTEL = 5895,
+
+        NumSIMDWorkitemsINTEL = 5896,
+
+        SchedulerTargetFmaxMhzINTEL = 5903,
+
+        NamedBarrierCountINTEL = 6417,
 
         Max = 2147483647,
 
@@ -251,6 +279,12 @@ namespace AdamantiumVulkan.Spirv
         ShaderRecordBufferKHR = 5343,
 
         PhysicalStorageBuffer = 5349,
+
+        CodeSectionINTEL = 5605,
+
+        DeviceOnlyINTEL = 5936,
+
+        HostOnlyINTEL = 5937,
 
         Max = 2147483647,
 
@@ -385,6 +419,10 @@ namespace AdamantiumVulkan.Spirv
 
         R8ui = 39,
 
+        R64ui = 40,
+
+        R64i = 41,
+
         Max = 2147483647,
 
     }
@@ -505,6 +543,10 @@ namespace AdamantiumVulkan.Spirv
 
         ZeroExtendShift = 13,
 
+        NontemporalShift = 14,
+
+        OffsetsShift = 16,
+
         Max = 2147483647,
 
     }
@@ -542,6 +584,10 @@ namespace AdamantiumVulkan.Spirv
 
         ZeroExtendMask = 8192,
 
+        NontemporalMask = 16384,
+
+        OffsetsMask = 65536,
+
     }
 
     public enum SpvFPFastMathModeShift : uint
@@ -555,6 +601,10 @@ namespace AdamantiumVulkan.Spirv
         AllowRecipShift = 3,
 
         FastShift = 4,
+
+        AllowContractFastINTELShift = 16,
+
+        AllowReassocINTELShift = 17,
 
         Max = 2147483647,
 
@@ -574,6 +624,10 @@ namespace AdamantiumVulkan.Spirv
         AllowRecipMask = 8,
 
         FastMask = 16,
+
+        AllowContractFastINTELMask = 65536,
+
+        AllowReassocINTELMask = 131072,
 
     }
 
@@ -597,6 +651,8 @@ namespace AdamantiumVulkan.Spirv
         Export = 0,
 
         Import = 1,
+
+        LinkOnceODR = 2,
 
         Max = 2147483647,
 
@@ -753,7 +809,7 @@ namespace AdamantiumVulkan.Spirv
 
         PerTaskNV = 5273,
 
-        PerVertexNV = 5285,
+        PerVertexKHR = 5285,
 
         NonUniform = 5300,
 
@@ -761,11 +817,93 @@ namespace AdamantiumVulkan.Spirv
 
         AliasedPointer = 5356,
 
+        BindlessSamplerNV = 5398,
+
+        BindlessImageNV = 5399,
+
+        BoundSamplerNV = 5400,
+
+        BoundImageNV = 5401,
+
+        SIMTCallINTEL = 5599,
+
+        ReferencedIndirectlyINTEL = 5602,
+
+        ClobberINTEL = 5607,
+
+        SideEffectsINTEL = 5608,
+
+        VectorComputeVariableINTEL = 5624,
+
+        FuncParamIOKindINTEL = 5625,
+
+        VectorComputeFunctionINTEL = 5626,
+
+        StackCallINTEL = 5627,
+
+        GlobalVariableOffsetINTEL = 5628,
+
         CounterBuffer = 5634,
 
         HlslSemanticGOOGLE = 5635,
 
         UserTypeGOOGLE = 5636,
+
+        FunctionRoundingModeINTEL = 5822,
+
+        FunctionDenormModeINTEL = 5823,
+
+        RegisterINTEL = 5825,
+
+        MemoryINTEL = 5826,
+
+        NumbanksINTEL = 5827,
+
+        BankwidthINTEL = 5828,
+
+        MaxPrivateCopiesINTEL = 5829,
+
+        SinglepumpINTEL = 5830,
+
+        DoublepumpINTEL = 5831,
+
+        MaxReplicatesINTEL = 5832,
+
+        SimpleDualPortINTEL = 5833,
+
+        MergeINTEL = 5834,
+
+        BankBitsINTEL = 5835,
+
+        ForcePow2DepthINTEL = 5836,
+
+        BurstCoalesceINTEL = 5899,
+
+        CacheSizeINTEL = 5900,
+
+        DontStaticallyCoalesceINTEL = 5901,
+
+        PrefetchINTEL = 5902,
+
+        StallEnableINTEL = 5905,
+
+        FuseLoopsInFunctionINTEL = 5907,
+
+        AliasScopeINTEL = 5914,
+
+        NoAliasINTEL = 5915,
+
+        BufferLocationINTEL = 5921,
+
+        IOPipeStorageINTEL = 5944,
+
+        FunctionFloatingPointModeINTEL = 6080,
+
+        SingleElementVectorINTEL = 6085,
+
+        VectorComputeCallableFunctionINTEL = 6087,
+
+        MediaBlockIOINTEL = 6140,
 
         Max = 2147483647,
 
@@ -871,9 +1009,13 @@ namespace AdamantiumVulkan.Spirv
 
         DrawIndex = 4426,
 
+        PrimitiveShadingRateKHR = 4432,
+
         DeviceIndex = 4438,
 
         ViewIndex = 4440,
+
+        ShadingRateKHR = 4444,
 
         BaryCoordNoPerspAMD = 4992,
 
@@ -919,9 +1061,9 @@ namespace AdamantiumVulkan.Spirv
 
         MeshViewIndicesNV = 5281,
 
-        BaryCoordNV = 5286,
+        BaryCoordKHR = 5286,
 
-        BaryCoordNoPerspNV = 5287,
+        BaryCoordNoPerspKHR = 5287,
 
         FragSizeEXT = 5292,
 
@@ -949,9 +1091,11 @@ namespace AdamantiumVulkan.Spirv
 
         WorldToObjectKHR = 5331,
 
-        HitTKHR = 5332,
+        HitTNV = 5332,
 
         HitKindKHR = 5333,
+
+        CurrentRayTimeNV = 5334,
 
         IncomingRayFlagsKHR = 5351,
 
@@ -964,6 +1108,8 @@ namespace AdamantiumVulkan.Spirv
         WarpIDNV = 5376,
 
         Smidnv = 5377,
+
+        CullMaskKHR = 6021,
 
         Max = 2147483647,
 
@@ -1011,6 +1157,22 @@ namespace AdamantiumVulkan.Spirv
 
         PartialCountShift = 8,
 
+        InitiationIntervalINTELShift = 16,
+
+        MaxConcurrencyINTELShift = 17,
+
+        DependencyArrayINTELShift = 18,
+
+        PipelineEnableINTELShift = 19,
+
+        LoopCoalesceINTELShift = 20,
+
+        MaxInterleavingINTELShift = 21,
+
+        SpeculatedIterationsINTELShift = 22,
+
+        NoFusionINTELShift = 23,
+
         Max = 2147483647,
 
     }
@@ -1038,6 +1200,22 @@ namespace AdamantiumVulkan.Spirv
 
         PartialCountMask = 256,
 
+        InitiationIntervalINTELMask = 65536,
+
+        MaxConcurrencyINTELMask = 131072,
+
+        DependencyArrayINTELMask = 262144,
+
+        PipelineEnableINTELMask = 524288,
+
+        LoopCoalesceINTELMask = 1048576,
+
+        MaxInterleavingINTELMask = 2097152,
+
+        SpeculatedIterationsINTELMask = 4194304,
+
+        NoFusionINTELMask = 8388608,
+
     }
 
     public enum SpvFunctionControlShift : uint
@@ -1049,6 +1227,8 @@ namespace AdamantiumVulkan.Spirv
         PureShift = 2,
 
         ConstShift = 3,
+
+        OptNoneINTELShift = 16,
 
         Max = 2147483647,
 
@@ -1066,6 +1246,8 @@ namespace AdamantiumVulkan.Spirv
         PureMask = 4,
 
         ConstMask = 8,
+
+        OptNoneINTELMask = 65536,
 
     }
 
@@ -1152,6 +1334,10 @@ namespace AdamantiumVulkan.Spirv
 
         NonPrivatePointerShift = 5,
 
+        AliasScopeINTELMaskShift = 16,
+
+        NoAliasINTELMaskShift = 17,
+
         Max = 2147483647,
 
     }
@@ -1172,6 +1358,10 @@ namespace AdamantiumVulkan.Spirv
         MakePointerVisibleMask = 16,
 
         NonPrivatePointerMask = 32,
+
+        AliasScopeINTELMaskMask = 65536,
+
+        NoAliasINTELMaskMask = 131072,
 
     }
 
@@ -1386,9 +1576,19 @@ namespace AdamantiumVulkan.Spirv
 
         ShaderViewportIndex = 70,
 
+        UniformDecoration = 71,
+
+        FragmentShadingRateKHR = 4422,
+
         SubgroupBallotKHR = 4423,
 
         DrawParameters = 4427,
+
+        WorkgroupMemoryExplicitLayoutKHR = 4428,
+
+        WorkgroupMemoryExplicitLayout8BitAccessKHR = 4429,
+
+        WorkgroupMemoryExplicitLayout16BitAccessKHR = 4430,
 
         SubgroupVoteKHR = 4431,
 
@@ -1430,7 +1630,11 @@ namespace AdamantiumVulkan.Spirv
 
         RayQueryProvisionalKHR = 4471,
 
-        RayTraversalPrimitiveCullingProvisionalKHR = 4478,
+        RayQueryKHR = 4472,
+
+        RayTraversalPrimitiveCullingKHR = 4478,
+
+        RayTracingKHR = 4479,
 
         Float16ImageAMD = 5008,
 
@@ -1441,6 +1645,8 @@ namespace AdamantiumVulkan.Spirv
         StencilExportEXT = 5013,
 
         ImageReadWriteLodAMD = 5015,
+
+        Int64ImageEXT = 5016,
 
         ShaderClockKHR = 5055,
 
@@ -1462,7 +1668,7 @@ namespace AdamantiumVulkan.Spirv
 
         ImageFootprintNV = 5282,
 
-        FragmentBarycentricNV = 5284,
+        FragmentBarycentricKHR = 5284,
 
         ComputeDerivativeGroupQuadsNV = 5288,
 
@@ -1496,6 +1702,8 @@ namespace AdamantiumVulkan.Spirv
 
         RayTracingNV = 5340,
 
+        RayTracingMotionBlurNV = 5341,
+
         VulkanMemoryModel = 5345,
 
         VulkanMemoryModelDeviceScope = 5346,
@@ -1516,7 +1724,9 @@ namespace AdamantiumVulkan.Spirv
 
         FragmentShaderPixelInterlockEXT = 5378,
 
-        DemoteToHelperInvocationEXT = 5379,
+        DemoteToHelperInvocation = 5379,
+
+        BindlessTextureNV = 5390,
 
         SubgroupShuffleINTEL = 5568,
 
@@ -1526,13 +1736,105 @@ namespace AdamantiumVulkan.Spirv
 
         SubgroupImageMediaBlockIOINTEL = 5579,
 
+        RoundToInfinityINTEL = 5582,
+
+        FloatingPointModeINTEL = 5583,
+
         IntegerFunctions2INTEL = 5584,
+
+        FunctionPointersINTEL = 5603,
+
+        IndirectReferencesINTEL = 5604,
+
+        AsmINTEL = 5606,
+
+        AtomicFloat32MinMaxEXT = 5612,
+
+        AtomicFloat64MinMaxEXT = 5613,
+
+        AtomicFloat16MinMaxEXT = 5616,
+
+        VectorComputeINTEL = 5617,
+
+        VectorAnyINTEL = 5619,
+
+        ExpectAssumeKHR = 5629,
 
         SubgroupAvcMotionEstimationINTEL = 5696,
 
         SubgroupAvcMotionEstimationIntraINTEL = 5697,
 
         SubgroupAvcMotionEstimationChromaINTEL = 5698,
+
+        VariableLengthArrayINTEL = 5817,
+
+        FunctionFloatControlINTEL = 5821,
+
+        FPGAMemoryAttributesINTEL = 5824,
+
+        FPFastMathModeINTEL = 5837,
+
+        ArbitraryPrecisionIntegersINTEL = 5844,
+
+        ArbitraryPrecisionFloatingPointINTEL = 5845,
+
+        UnstructuredLoopControlsINTEL = 5886,
+
+        FPGALoopControlsINTEL = 5888,
+
+        KernelAttributesINTEL = 5892,
+
+        FPGAKernelAttributesINTEL = 5897,
+
+        FPGAMemoryAccessesINTEL = 5898,
+
+        FPGAClusterAttributesINTEL = 5904,
+
+        LoopFuseINTEL = 5906,
+
+        MemoryAccessAliasingINTEL = 5910,
+
+        FPGABufferLocationINTEL = 5920,
+
+        ArbitraryPrecisionFixedPointINTEL = 5922,
+
+        USMStorageClassesINTEL = 5935,
+
+        IOPipesINTEL = 5943,
+
+        BlockingPipesINTEL = 5945,
+
+        FPGARegINTEL = 5948,
+
+        DotProductInputAll = 6016,
+
+        DotProductInput4x8Bit = 6017,
+
+        DotProductInput4x8BitPacked = 6018,
+
+        DotProduct = 6019,
+
+        RayCullMaskKHR = 6020,
+
+        BitInstructions = 6025,
+
+        GroupNonUniformRotateKHR = 6026,
+
+        AtomicFloat32AddEXT = 6033,
+
+        AtomicFloat64AddEXT = 6034,
+
+        LongConstantCompositeINTEL = 6089,
+
+        OptNoneINTEL = 6094,
+
+        AtomicFloat16AddEXT = 6095,
+
+        DebugInfoModuleINTEL = 6114,
+
+        SplitBarrierINTEL = 6141,
+
+        GroupUniformArithmeticKHR = 6400,
 
         Max = 2147483647,
 
@@ -1621,6 +1923,102 @@ namespace AdamantiumVulkan.Spirv
         RayQueryCandidateIntersectionTriangleKHR = 0,
 
         RayQueryCandidateIntersectionAABBKHR = 1,
+
+        Max = 2147483647,
+
+    }
+
+    public enum SpvFragmentShadingRateShift : uint
+    {
+        Vertical2PixelsShift = 0,
+
+        Vertical4PixelsShift = 1,
+
+        Horizontal2PixelsShift = 2,
+
+        Horizontal4PixelsShift = 3,
+
+        Max = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SpvFragmentShadingRateMask : uint
+    {
+        MaskNone = 0,
+
+        Vertical2PixelsMask = 1,
+
+        Vertical4PixelsMask = 2,
+
+        Horizontal2PixelsMask = 4,
+
+        Horizontal4PixelsMask = 8,
+
+    }
+
+    [Flags]
+    public enum SpvFPDenormMode : uint
+    {
+        Preserve = 0,
+
+        FlushToZero = 1,
+
+        Max = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SpvFPOperationMode : uint
+    {
+        Ieee = 0,
+
+        Alt = 1,
+
+        Max = 2147483647,
+
+    }
+
+    public enum SpvQuantizationModes : uint
+    {
+        Trn = 0,
+
+        TrnZero = 1,
+
+        Rnd = 2,
+
+        RndZero = 3,
+
+        RndInf = 4,
+
+        RndMinInf = 5,
+
+        RndConv = 6,
+
+        RndConvOdd = 7,
+
+        Max = 2147483647,
+
+    }
+
+    public enum SpvOverflowModes : uint
+    {
+        Wrap = 0,
+
+        Sat = 1,
+
+        SatZero = 2,
+
+        SatSym = 3,
+
+        Max = 2147483647,
+
+    }
+
+    [Flags]
+    public enum SpvPackedVectorFormat : uint
+    {
+        PackedVectorFormat4x8Bit = 0,
 
         Max = 2147483647,
 
@@ -2316,6 +2714,8 @@ namespace AdamantiumVulkan.Spirv
 
         PtrDiff = 403,
 
+        TerminateInvocation = 4416,
+
         SubgroupBallotKHR = 4421,
 
         SubgroupFirstInvocationKHR = 4422,
@@ -2326,9 +2726,33 @@ namespace AdamantiumVulkan.Spirv
 
         SubgroupAllEqualKHR = 4430,
 
+        GroupNonUniformRotateKHR = 4431,
+
         SubgroupReadInvocationKHR = 4432,
 
-        TypeRayQueryProvisionalKHR = 4472,
+        TraceRayKHR = 4445,
+
+        ExecuteCallableKHR = 4446,
+
+        ConvertUToAccelerationStructureKHR = 4447,
+
+        IgnoreIntersectionKHR = 4448,
+
+        TerminateRayKHR = 4449,
+
+        SDot = 4450,
+
+        UDot = 4451,
+
+        SUDot = 4452,
+
+        SDotAccSat = 4453,
+
+        UDotAccSat = 4454,
+
+        SUDotAccSat = 4455,
+
+        TypeRayQueryKHR = 4472,
 
         RayQueryInitializeKHR = 4473,
 
@@ -2372,15 +2796,19 @@ namespace AdamantiumVulkan.Spirv
 
         ReportIntersectionKHR = 5334,
 
-        IgnoreIntersectionKHR = 5335,
+        IgnoreIntersectionNV = 5335,
 
-        TerminateRayKHR = 5336,
+        TerminateRayNV = 5336,
 
         TraceNV = 5337,
 
+        TraceMotionNV = 5338,
+
+        TraceRayMotionNV = 5339,
+
         TypeAccelerationStructureKHR = 5341,
 
-        ExecuteCallableKHR = 5344,
+        ExecuteCallableNV = 5344,
 
         TypeCooperativeMatrixNV = 5358,
 
@@ -2396,9 +2824,23 @@ namespace AdamantiumVulkan.Spirv
 
         EndInvocationInterlockEXT = 5365,
 
-        DemoteToHelperInvocationEXT = 5380,
+        DemoteToHelperInvocation = 5380,
 
         IsHelperInvocationEXT = 5381,
+
+        ConvertUToImageNV = 5391,
+
+        ConvertUToSamplerNV = 5392,
+
+        ConvertImageToUNV = 5393,
+
+        ConvertSamplerToUNV = 5394,
+
+        ConvertUToSampledImageNV = 5395,
+
+        ConvertSampledImageToUNV = 5396,
+
+        SamplerImageAddressingModeNV = 5397,
 
         SubgroupShuffleINTEL = 5571,
 
@@ -2447,6 +2889,24 @@ namespace AdamantiumVulkan.Spirv
         IMul32x16INTEL = 5597,
 
         UMul32x16INTEL = 5598,
+
+        ConstantFunctionPointerINTEL = 5600,
+
+        FunctionPointerCallINTEL = 5601,
+
+        AsmTargetINTEL = 5609,
+
+        AsmINTEL = 5610,
+
+        AsmCallINTEL = 5611,
+
+        AtomicFMinEXT = 5614,
+
+        AtomicFMaxEXT = 5615,
+
+        AssumeTrueKHR = 5630,
+
+        ExpectKHR = 5631,
 
         DecorateString = 5632,
 
@@ -2688,6 +3148,134 @@ namespace AdamantiumVulkan.Spirv
 
         SubgroupAvcSicGetInterRawSadsINTEL = 5816,
 
+        VariableLengthArrayINTEL = 5818,
+
+        SaveMemoryINTEL = 5819,
+
+        RestoreMemoryINTEL = 5820,
+
+        ArbitraryFloatSinCosPiINTEL = 5840,
+
+        ArbitraryFloatCastINTEL = 5841,
+
+        ArbitraryFloatCastFromIntINTEL = 5842,
+
+        ArbitraryFloatCastToIntINTEL = 5843,
+
+        ArbitraryFloatAddINTEL = 5846,
+
+        ArbitraryFloatSubINTEL = 5847,
+
+        ArbitraryFloatMulINTEL = 5848,
+
+        ArbitraryFloatDivINTEL = 5849,
+
+        ArbitraryFloatGTINTEL = 5850,
+
+        ArbitraryFloatGEINTEL = 5851,
+
+        ArbitraryFloatLTINTEL = 5852,
+
+        ArbitraryFloatLEINTEL = 5853,
+
+        ArbitraryFloatEQINTEL = 5854,
+
+        ArbitraryFloatRecipINTEL = 5855,
+
+        ArbitraryFloatRSqrtINTEL = 5856,
+
+        ArbitraryFloatCbrtINTEL = 5857,
+
+        ArbitraryFloatHypotINTEL = 5858,
+
+        ArbitraryFloatSqrtINTEL = 5859,
+
+        ArbitraryFloatLogINTEL = 5860,
+
+        ArbitraryFloatLog2INTEL = 5861,
+
+        ArbitraryFloatLog10INTEL = 5862,
+
+        ArbitraryFloatLog1pINTEL = 5863,
+
+        ArbitraryFloatExpINTEL = 5864,
+
+        ArbitraryFloatExp2INTEL = 5865,
+
+        ArbitraryFloatExp10INTEL = 5866,
+
+        ArbitraryFloatExpm1INTEL = 5867,
+
+        ArbitraryFloatSinINTEL = 5868,
+
+        ArbitraryFloatCosINTEL = 5869,
+
+        ArbitraryFloatSinCosINTEL = 5870,
+
+        ArbitraryFloatSinPiINTEL = 5871,
+
+        ArbitraryFloatCosPiINTEL = 5872,
+
+        ArbitraryFloatASinINTEL = 5873,
+
+        ArbitraryFloatASinPiINTEL = 5874,
+
+        ArbitraryFloatACosINTEL = 5875,
+
+        ArbitraryFloatACosPiINTEL = 5876,
+
+        ArbitraryFloatATanINTEL = 5877,
+
+        ArbitraryFloatATanPiINTEL = 5878,
+
+        ArbitraryFloatATan2INTEL = 5879,
+
+        ArbitraryFloatPowINTEL = 5880,
+
+        ArbitraryFloatPowRINTEL = 5881,
+
+        ArbitraryFloatPowNINTEL = 5882,
+
+        LoopControlINTEL = 5887,
+
+        AliasDomainDeclINTEL = 5911,
+
+        AliasScopeDeclINTEL = 5912,
+
+        AliasScopeListDeclINTEL = 5913,
+
+        FixedSqrtINTEL = 5923,
+
+        FixedRecipINTEL = 5924,
+
+        FixedRsqrtINTEL = 5925,
+
+        FixedSinINTEL = 5926,
+
+        FixedCosINTEL = 5927,
+
+        FixedSinCosINTEL = 5928,
+
+        FixedSinPiINTEL = 5929,
+
+        FixedCosPiINTEL = 5930,
+
+        FixedSinCosPiINTEL = 5931,
+
+        FixedLogINTEL = 5932,
+
+        FixedExpINTEL = 5933,
+
+        PtrCastToCrossWorkgroupINTEL = 5934,
+
+        CrossWorkgroupCastToPtrINTEL = 5938,
+
+        ReadPipeBlockingINTEL = 5946,
+
+        WritePipeBlockingINTEL = 5947,
+
+        FPGARegINTEL = 5949,
+
         RayQueryGetRayTMinKHR = 6016,
 
         RayQueryGetRayFlagsKHR = 6017,
@@ -2721,6 +3309,36 @@ namespace AdamantiumVulkan.Spirv
         RayQueryGetIntersectionObjectToWorldKHR = 6031,
 
         RayQueryGetIntersectionWorldToObjectKHR = 6032,
+
+        AtomicFAddEXT = 6035,
+
+        TypeBufferSurfaceINTEL = 6086,
+
+        TypeStructContinuedINTEL = 6090,
+
+        ConstantCompositeContinuedINTEL = 6091,
+
+        SpecConstantCompositeContinuedINTEL = 6092,
+
+        ControlBarrierArriveINTEL = 6142,
+
+        ControlBarrierWaitINTEL = 6143,
+
+        GroupIMulKHR = 6401,
+
+        GroupFMulKHR = 6402,
+
+        GroupBitwiseAndKHR = 6403,
+
+        GroupBitwiseOrKHR = 6404,
+
+        GroupBitwiseXorKHR = 6405,
+
+        GroupLogicalAndKHR = 6406,
+
+        GroupLogicalOrKHR = 6407,
+
+        GroupLogicalXorKHR = 6408,
 
         Max = 2147483647,
 

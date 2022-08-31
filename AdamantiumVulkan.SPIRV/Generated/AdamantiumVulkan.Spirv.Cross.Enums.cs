@@ -137,6 +137,19 @@ namespace AdamantiumVulkan.Spirv.Cross
 
     }
 
+    [Flags]
+    public enum SpvcBuiltinResourceType : uint
+    {
+        Unknown = 0,
+
+        StageInput = 1,
+
+        StageOutput = 2,
+
+        IntMax = 2147483647,
+
+    }
+
     ///<summary>
     /// Maps to spirv_cross::SPIRType::BaseType.
     ///</summary>
@@ -777,6 +790,21 @@ namespace AdamantiumVulkan.Spirv.Cross
         /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
         ///</summary>
         MslForceSampleRateShading = 134217803,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        MslIosSupportBaseVertexInstance = 134217804,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        GlslOvrMultiviewViewCount = 33554509,
+
+        ///<summary>
+        /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+        ///</summary>
+        RelaxNanChecks = 16777294,
 
         ///<summary>
         /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
