@@ -219,7 +219,8 @@ namespace VulkanEngineTestCore
             { Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME, 
               Constants.VK_KHR_MAINTENANCE_4_EXTENSION_NAME,
               Constants.VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME,
-              Constants.VK_GOOGLE_USER_TYPE_EXTENSION_NAME
+              Constants.VK_GOOGLE_USER_TYPE_EXTENSION_NAME,
+              Constants.VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME
             };
 
         private bool stopRendering;
