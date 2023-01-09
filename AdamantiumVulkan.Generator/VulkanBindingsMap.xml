@@ -715,21 +715,21 @@
         <Parameter Name="pMemoryBarriers" ParameterKind="In">
           <Type xsi:type="PointerTypeMap">
             <Pointee xsi:type="ArrayTypeMap">
-              <ElementType xsi:type="CustomTypeMap" Name="vkMemoryBarrier"/>
+              <ElementType xsi:type="CustomTypeMap" Name="VkMemoryBarrier"/>
             </Pointee>
           </Type>
         </Parameter>
         <Parameter Name="pBufferMemoryBarriers" ParameterKind="In">
           <Type xsi:type="PointerTypeMap">
             <Pointee xsi:type="ArrayTypeMap">
-              <ElementType xsi:type="CustomTypeMap" Name="vkBufferMemoryBarrier"/>
+              <ElementType xsi:type="CustomTypeMap" Name="VkBufferMemoryBarrier"/>
             </Pointee>
           </Type>
         </Parameter>
         <Parameter Name="pImageMemoryBarriers" ParameterKind="In">
           <Type xsi:type="PointerTypeMap">
             <Pointee xsi:type="ArrayTypeMap">
-              <ElementType xsi:type="CustomTypeMap" Name="vkImageMemoryBarrier"/>
+              <ElementType xsi:type="CustomTypeMap" Name="VkImageMemoryBarrier"/>
             </Pointee>
           </Type>
         </Parameter>

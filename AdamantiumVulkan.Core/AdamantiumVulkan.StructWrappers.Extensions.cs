@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core
 {
@@ -12,7 +13,7 @@ namespace AdamantiumVulkan.Core
             state.RasterizerDiscardEnable = false;
             state.PolygonMode = PolygonMode.Fill;
             state.LineWidth = 1.0f;
-            state.CullMode = (uint)CullModeFlagBits.BackBit;
+            state.CullMode = CullModeFlagBits.BackBit;
             state.FrontFace = FrontFace.Clockwise;
             state.DepthBiasEnable = false;
 

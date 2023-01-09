@@ -8,25 +8,31 @@ using System.Threading;
 using System.Windows.Forms;
 using Buffer = AdamantiumVulkan.Core.Buffer;
 using Image = AdamantiumVulkan.Core.Image;
-using ImageLayout = AdamantiumVulkan.Core.ImageLayout;
 using Semaphore = AdamantiumVulkan.Core.Semaphore;
 using CoreInterop = AdamantiumVulkan.Core.Interop;
 using System.Collections.Generic;
 using AdamantiumVulkan.Windows;
 using Constants = AdamantiumVulkan.Core.Constants;
 using System.IO;
+using System.Runtime.CompilerServices;
 using Adamantium.DXC;
 using Adamantium.Mathematics;
 using AdamantiumVulkan;
+using AdamantiumVulkan.Core.Interop;
 using AdamantiumVulkan.Shaders;
-using AdamantiumVulkan.Common;
+using AdamantiumVulkan.Shaders.Interop;
 using AdamantiumVulkan.Spirv;
 using AdamantiumVulkan.Spirv.Cross;
+using AdamantiumVulkan.Spirv.Cross.Interop;
 using AdamantiumVulkan.Spirv.Reflection;
+using QuantumBinding.Utils;
+using ImageLayout = AdamantiumVulkan.Core.ImageLayout;
+using Result = AdamantiumVulkan.Core.Result;
+using ShadercIncludeResult = AdamantiumVulkan.Shaders.ShadercIncludeResult;
 
 namespace VulkanEngineTestCore
 {
-    partial class Form1
+    unsafe partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -46,22 +52,24 @@ namespace VulkanEngineTestCore
             base.Dispose(disposing);
         }
 
-        private IntPtr ResolveInclude (System.IntPtr user_data, string requested_source, int type, string requesting_source, ulong include_depth)
+        [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvStdcall) })]
+        private static AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult* ResolveInclude(void* user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
         {
-            var content = File.ReadAllText(Path.Combine("shaders\\TerrainGenShaders\\", requested_source));
+            var content = File.ReadAllText(Path.Combine("shaders\\TerrainGenShaders\\", new string(requested_source)));
             ShadercIncludeResult result = new ShadercIncludeResult();
             result.Content = content;
             result.Content_length = (uint)result.Content.Length;
             result.User_data = user_data;
             //result.Source_name = Marshal.PtrToStringAnsi(requesting_source);
-            result.Source_name = requesting_source;
+            result.Source_name = new string(requesting_source);
             result.Source_name_length = (uint)result.Source_name.Length;
 
-            var resPtr = MarshalUtils.MarshalStructToPtr(result.ToInternal());
+            var resPtr = NativeUtils.StructOrEnumToPointer(result.ToNative());
             return resPtr;
         }
 
-        void ReleaseInclude(System.IntPtr user_data, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult include_result)
+        [UnmanagedCallersOnly]
+        private static void ReleaseInclude(System.IntPtr user_data, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult include_result)
         {
             ShadercIncludeResult result = new ShadercIncludeResult(include_result);
         }
@@ -76,13 +84,7 @@ namespace VulkanEngineTestCore
             this.ClientSize = new System.Drawing.Size(800, 600);
             enableValidationLayers = true;
             _pauseEvent = new AutoResetEvent(false);
-            debugCallback = DebugCallback;
-
-            var test = new SpvcMslSamplerYcbcrConversion();
-            test.Swizzle = new SpvcMslComponentSwizzle[4];
-            test.Swizzle[0] = SpvcMslComponentSwizzle.R;
-            var intern = test.ToInternal();
-            var ptr = MarshalUtils.MarshalStructToPtr(intern);
+            //debugCallback = DebugCallback;
 
             var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
             // var compiler = ShaderCompiler.New();
@@ -91,11 +93,13 @@ namespace VulkanEngineTestCore
             // opts.UseHlslIoMapping = true;
             // opts.UseHlslOffsets = true;
             // opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
-            // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResolveFn resolverDelegate = ResolveInclude;
-            // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResultReleaseFn releaserDelegate = ReleaseInclude;
-            // var resolver = Marshal.GetFunctionPointerForDelegate(resolverDelegate);
-            // var releaser = Marshal.GetFunctionPointerForDelegate(releaserDelegate);
+            // // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResolveFn resolverDelegate = ResolveInclude;
+            // // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResultReleaseFn releaserDelegate = ReleaseInclude;
+            //
             // IntPtr userData = IntPtr.Zero;
+            // ShadercIncludeResolveFn includeResolveFn = new ShadercIncludeResolveFn();
+            // includeResolveFn.InvokeStdcall = &ResolveInclude;
+            //
             // opts.SetIncludeCallbacks(resolver, releaser, ref userData);
             // opts.SetAutoBindUniforms = true;
             // opts.SetAutoMapLocations = true;
@@ -111,12 +115,14 @@ namespace VulkanEngineTestCore
             var dxcCompiler = DxcCompiler.Create();
             var result = dxcCompiler.CompileIntoSpirvFromText(vertexText, "UIEffect.fx", "SolidColorPixelShader", "ps_5_1", compilerOptions);
 
-            SpirvReflection reflection = new SpirvReflection(result.Bytecode, SpvcBackend.Hlsl);
+            /*
+            SpirvReflection reflection = new SpirvReflection(result.Bytecode, Backend.Hlsl);
             var lst = new List<ResourceBindingKey>();
             var reflectionResult = reflection.Disassemble(lst);
             var buffer = reflectionResult.UniformBuffers[0];
             var member = buffer.GetVariable(0);
             var arraySize = member.GetArraySizeForDimension(0);
+            */
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
@@ -192,8 +198,11 @@ namespace VulkanEngineTestCore
         private DescriptorPool descriptorPool;
         private DescriptorSet[] descriptorSets;
 
-        private CoreInterop.PFN_vkDebugUtilsMessengerCallbackEXT debugCallback;
+        //private PFN_vkDebugUtilsMessengerCallbackEXT debugCallback;
 
+        private delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, VkDebugUtilsMessengerCallbackDataEXT*,
+            void*, uint> debugCallback;
+        
         private bool enableValidationLayers;
 
         private string[] validationLayers = new[]
@@ -206,7 +215,12 @@ namespace VulkanEngineTestCore
           //"VK_LAYER_AMD_switchable_graphics",
         };
 
-        private string[] deviceExtensions = new[] { Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME };
+        private string[] deviceExtensions = new[]
+            { Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME, 
+              Constants.VK_KHR_MAINTENANCE_4_EXTENSION_NAME,
+              Constants.VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME,
+              Constants.VK_GOOGLE_USER_TYPE_EXTENSION_NAME
+            };
 
         private bool stopRendering;
         private Thread thread;
@@ -371,8 +385,9 @@ namespace VulkanEngineTestCore
         CommandBuffer[] renderCommandBuffers = new CommandBuffer[1];
         CommandBufferBeginInfo beginInfo;
         RenderPassBeginInfo[] renderPassInfos;
+        //VkRenderPassBeginInfo[] renderPassInfos;
         UInt64[] offsets = new UInt64[0];
-        private void Render()
+        private unsafe void Render()
         {
             if (WindowState == FormWindowState.Minimized)
             {
@@ -400,7 +415,7 @@ namespace VulkanEngineTestCore
             var commandBuffer = commandBuffers[imageIndex];
 
             beginInfo = new CommandBufferBeginInfo();
-            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
+            beginInfo.Flags = CommandBufferUsageFlagBits.SimultaneousUseBit;
 
             var res = commandBuffer.ResetCommandBuffer(0);
             res = commandBuffer.BeginCommandBuffer(beginInfo);
@@ -411,45 +426,45 @@ namespace VulkanEngineTestCore
             }
 
             renderPassInfos = new RenderPassBeginInfo[MAX_FRAMES_IN_FLIGHT];
-
+            
             var renderPassInfo = new RenderPassBeginInfo();
             renderPassInfo.RenderPass = renderPass;
             renderPassInfo.Framebuffer = swapchainFramebuffers[0];
             renderPassInfo.RenderArea = new Rect2D();
             renderPassInfo.RenderArea.Offset = new Offset2D();
             renderPassInfo.RenderArea.Extent = swapChainExtent;
-
+            
             ClearValue clearValue = new ClearValue();
             clearValue.Color = new ClearColorValue();
             clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
-
+            
             renderPassInfo.ClearValueCount = 1;
             renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-
+            
             renderPassInfos[0] = renderPassInfo;
-
+            
             renderPassInfo = new RenderPassBeginInfo();
             renderPassInfo.RenderPass = renderPass;
             renderPassInfo.Framebuffer = swapchainFramebuffers[1];
             renderPassInfo.RenderArea = new Rect2D();
             renderPassInfo.RenderArea.Offset = new Offset2D();
             renderPassInfo.RenderArea.Extent = swapChainExtent;
-
+            
             renderPassInfo.ClearValueCount = 1;
             renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-
+            
             renderPassInfos[1] = renderPassInfo;
-
+            
             renderPassInfo = new RenderPassBeginInfo();
             renderPassInfo.RenderPass = renderPass;
             renderPassInfo.Framebuffer = swapchainFramebuffers[2];
             renderPassInfo.RenderArea = new Rect2D();
             renderPassInfo.RenderArea.Offset = new Offset2D();
             renderPassInfo.RenderArea.Extent = swapChainExtent;
-
+            
             renderPassInfo.ClearValueCount = 1;
             renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-
+            
             renderPassInfos[2] = renderPassInfo;
 
             commandBuffer.SetViewport(0, 1, new Viewport() { X = 0, Y = 0, Width = this.ClientSize.Width, Height = this.ClientSize.Height, MinDepth = 0, MaxDepth = 1 });
@@ -459,6 +474,7 @@ namespace VulkanEngineTestCore
             commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
 
             ulong offset = 0;
+
             commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, ref offset);
 
             commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
@@ -476,7 +492,7 @@ namespace VulkanEngineTestCore
             commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
 
             commandBuffer.EndRenderPass();
-
+            
             res = commandBuffer.EndCommandBuffer();
             if (res != Result.Success)
             {
@@ -500,11 +516,11 @@ namespace VulkanEngineTestCore
             submitInfo.SignalSemaphoreCount = 1;
             submitInfo.PSignalSemaphores = signalSemaphores;
 
-            submitInfos[0] = submitInfo;
+            //submitInfos[0] = submitInfo;
 
             result = logicalDevice.ResetFences(1, renderFence);
 
-            result = graphicsQueue.QueueSubmit(1, submitInfos, inFlightFences[currentFrame]);
+            result = graphicsQueue.QueueSubmit(1, submitInfo, inFlightFences[currentFrame]);
             if (result != Result.Success)
             {
                 MessageBox.Show($"failed to submit draw command buffer! Result was {result}");
@@ -555,76 +571,77 @@ namespace VulkanEngineTestCore
         
         private void CreateInstance()
         {
+            //enableValidationLayers = false;
+            
             var appInfo = new ApplicationInfo();
             appInfo.PApplicationName = "Hello Triangle";
-            appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_API_VERSION(1, 0, 0, 0);
+            appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_API_VERSION(0, 1, 0, 0);
             appInfo.PEngineName = "Adamantium Engine";
-            appInfo.EngineVersion = Constants.VK_MAKE_API_VERSION(1, 0, 0, 0);
-            appInfo.ApiVersion = Constants.VK_MAKE_API_VERSION(1, 3, 224, 0);
+            appInfo.EngineVersion = Constants.VK_MAKE_API_VERSION(0, 1, 0, 0);
+            appInfo.ApiVersion = Constants.VK_API_VERSION_1_3;
+
+            var size = sizeof(VkApplicationInfo);
             
             var createInfo = new InstanceCreateInfo();
             createInfo.PApplicationInfo = appInfo;
+            //createInfo.Flags = InstanceCreateFlagBits.EnumeratePortabilityBitKhr;
 
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
             var extensions = Instance.EnumerateInstanceExtensionProperties();
 
-            string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", /*"VK_EXT_headless_surface",*/ "VK_EXT_debug_utils" };
+            string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", "VK_EXT_debug_utils" };
+            
             createInfo.EnabledExtensionCount = (uint)ext.Length;
-            createInfo.PpEnabledExtensionNames = ext;
+            createInfo.PEnabledExtensionNames = ext;
             //createInfo.EnabledExtensionCount = (uint)extensions.Length;
             //createInfo.PpEnabledExtensionNames = extensions.Select(x => x.ExtensionName).ToArray();
-
 
             if (enableValidationLayers)
             {
                 createInfo.EnabledLayerCount = (uint)validationLayers.Length;
-                createInfo.PpEnabledLayerNames = validationLayers;
+                createInfo.PEnabledLayerNames = validationLayers;
             }
+            
+
+            var size2 = sizeof(VkInstanceCreateInfo);
 
             instance = Instance.Create(createInfo);
-
-            createInfo.Dispose();
         }
 
-        Result CreateDebugUtilsMessengerEXT(Instance instance, DebugUtilsMessengerCreateInfoEXT pCreateInfo, AllocationCallbacks pAllocator, out DebugUtilsMessengerEXT pDebugMessenger)
+        unsafe Result CreateDebugUtilsMessengerEXT(Instance instance, DebugUtilsMessengerCreateInfoEXT pCreateInfo, AllocationCallbacks pAllocator, out DebugUtilsMessengerEXT pDebugMessenger)
         {
             pDebugMessenger = null;
+            
             var ptr = instance.GetInstanceProcAddr("vkCreateDebugUtilsMessengerEXT");
-            var func = Marshal.GetDelegateForFunctionPointer<CoreInterop.PFN_vkCreateDebugUtilsMessengerEXT>(ptr);
-            if (func != null)
-            {
-                var result = func(instance, pCreateInfo.ToInternal(), IntPtr.Zero, out var pDebugMessenger_t);
-                pCreateInfo.Dispose();
-                pDebugMessenger = pDebugMessenger_t;
-                return result;
-            }
-            else
-            {
-                return Result.ErrorExtensionNotPresent;
-            }
+            var createInfoPointer = NativeUtils.StructOrEnumToPointer(pCreateInfo.ToNative());
+            var result = PFN_vkCreateDebugUtilsMessengerEXT.Invoke(ptr, instance, createInfoPointer, null,
+                out VkDebugUtilsMessengerEXT_T pDebugMessenger_t);
+            NativeUtils.Free(createInfoPointer);
+            pDebugMessenger = new DebugUtilsMessengerEXT(pDebugMessenger_t);
+
+            return result;
+
         }
 
         void DestroyDebugUtilsMessengerEXT(Instance instance, DebugUtilsMessengerEXT debugMessenger, AllocationCallbacks pAllocator = null)
         {
             var ptr = instance.GetInstanceProcAddr("vkDestroyDebugUtilsMessengerEXT");
-            var func = Marshal.GetDelegateForFunctionPointer<CoreInterop.PFN_vkDestroyDebugUtilsMessengerEXT>(ptr);
-            if (func != null)
-            {
-                func(instance, debugMessenger, IntPtr.Zero);
-            }
+            PFN_vkDestroyDebugUtilsMessengerEXT.Invoke(ptr, instance, debugMessenger, null);
         }
 
-        private void SetupDebugMessenger()
+        private unsafe void SetupDebugMessenger()
         {
             if (!enableValidationLayers)
             {
                 return;
             }
 
+            debugCallback = &DebugCallback;
+            
             DebugUtilsMessengerCreateInfoEXT debugInfo = new DebugUtilsMessengerCreateInfoEXT();
-            debugInfo.MessageSeverity = (uint)(DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt);
-            debugInfo.MessageType = (uint)(DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt);
-            debugInfo.PfnUserCallback = Marshal.GetFunctionPointerForDelegate(debugCallback);
+            debugInfo.MessageSeverity = DebugUtilsMessageSeverityFlagBitsEXT.VerboseBitExt | DebugUtilsMessageSeverityFlagBitsEXT.WarningBitExt | DebugUtilsMessageSeverityFlagBitsEXT.ErrorBitExt;
+            debugInfo.MessageType = DebugUtilsMessageTypeFlagBitsEXT.GeneralBitExt | DebugUtilsMessageTypeFlagBitsEXT.ValidationBitExt | DebugUtilsMessageTypeFlagBitsEXT.PerformanceBitExt;
+            debugInfo.PfnUserCallback = debugCallback;
 
             var result = CreateDebugUtilsMessengerEXT(instance, debugInfo, null, out debugMessenger);
 
@@ -635,10 +652,12 @@ namespace VulkanEngineTestCore
             }
         }
 
-        private uint DebugCallback(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, uint messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT pCallbackData, IntPtr pUserData)
+        [UnmanagedCallersOnly]
+        private static unsafe uint DebugCallback(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
         {
-            Console.WriteLine(Marshal.PtrToStringAnsi(pCallbackData.pMessage));
-            return 1;
+            var data = *pCallbackData;
+            Console.WriteLine(new string(data.pMessage));
+            return 0;
         }
 
         private void PickPhysicalDevice()
@@ -676,12 +695,12 @@ namespace VulkanEngineTestCore
             createInfo.PQueueCreateInfos = queueInfos.ToArray();
             createInfo.PEnabledFeatures = deviceFeatures;
             createInfo.EnabledExtensionCount = (uint)deviceExtensions.Length;
-            createInfo.PpEnabledExtensionNames = deviceExtensions;
+            createInfo.PEnabledExtensionNames = deviceExtensions;
 
             if (enableValidationLayers)
             {
                 createInfo.EnabledLayerCount = (uint)validationLayers.Length;
-                createInfo.PpEnabledLayerNames = validationLayers;
+                createInfo.PEnabledLayerNames = validationLayers;
             }
 
             logicalDevice = physicalDevice.CreateDevice(createInfo);
@@ -729,11 +748,9 @@ namespace VulkanEngineTestCore
                 if ((queueFamily.QueueFlags & (uint)QueueFlagBits.GraphicsBit) > 0)
                 {
                     indices.graphicsFamily = i;
-
                 }
 
-                bool presentSupport = false;
-                device.GetPhysicalDeviceSurfaceSupportKHR(i, surface, ref presentSupport);
+                device.GetPhysicalDeviceSurfaceSupportKHR(i, surface, out var presentSupport);
 
                 if (queueFamily.QueueCount > 0 && presentSupport)
                 {
@@ -902,8 +919,21 @@ namespace VulkanEngineTestCore
 
         private void CreateGraphicsPipeline()
         {
-            var vertexContent = File.ReadAllBytes(@"shaders\vert.spv");
-            var fragmentContent = File.ReadAllBytes(@"shaders\frag.spv");
+            var compilerOptions = new CompilerOptions();
+            compilerOptions.Add(CompilerArguments.AllResourcesBound);
+            compilerOptions.Add(CompilerArguments.SpvUseDxLayout);
+            compilerOptions.Add($"{CompilerArguments.SpvTargetEnv}vulkan1.1");
+            compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_hlsl_functionality1");
+            compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_user_type");
+            compilerOptions.Add(CompilerArguments.SpvReflect);
+            var compiler = DxcCompiler.Create();
+            var vertexContent = compiler.CompileIntoSpirvFromFile(@"shaders\BasicShader.hlsl", "VertexMain", "vs_6_0", compilerOptions);
+            var fragmentContent = compiler.CompileIntoSpirvFromFile(@"shaders\BasicShader.hlsl", "FragmentMain", "ps_6_0", compilerOptions);
+            
+            compiler.Dispose();
+        
+            //var vertexContent = File.ReadAllBytes(@"shaders\vert.spv");
+            //var fragmentContent = File.ReadAllBytes(@"shaders\frag.spv");
 
             var vertexShaderModule = CreateShaderModule(vertexContent);
             var fragmentShaderModule = CreateShaderModule(fragmentContent);
@@ -911,12 +941,12 @@ namespace VulkanEngineTestCore
             var vertShaderStageInfo = new PipelineShaderStageCreateInfo();
             vertShaderStageInfo.Stage = ShaderStageFlagBits.VertexBit;
             vertShaderStageInfo.Module = vertexShaderModule;
-            vertShaderStageInfo.PName = "main";
+            vertShaderStageInfo.PName = "VertexMain";
 
             var fragShaderStageInfo = new PipelineShaderStageCreateInfo();
             fragShaderStageInfo.Stage = ShaderStageFlagBits.FragmentBit;
             fragShaderStageInfo.Module = fragmentShaderModule;
-            fragShaderStageInfo.PName = "main";
+            fragShaderStageInfo.PName = "FragmentMain";
 
             PipelineShaderStageCreateInfo[] shaderStages = new[] { vertShaderStageInfo, fragShaderStageInfo };
 
@@ -956,7 +986,7 @@ namespace VulkanEngineTestCore
             rasterizer.RasterizerDiscardEnable = false;
             rasterizer.PolygonMode = PolygonMode.Fill;
             rasterizer.LineWidth = 1.0f;
-            rasterizer.CullMode = (uint)CullModeFlagBits.BackBit;
+            rasterizer.CullMode = (uint)CullModeFlagBits.None;
             rasterizer.FrontFace = FrontFace.Clockwise;
             rasterizer.DepthBiasEnable = false;
 
@@ -1038,7 +1068,7 @@ namespace VulkanEngineTestCore
 
             var poolInfo = new CommandPoolCreateInfo();
             poolInfo.QueueFamilyIndex = queueFamilyIndices.graphicsFamily.Value;
-            poolInfo.Flags = (uint)CommandPoolCreateFlagBits.ResetCommandBufferBit;
+            poolInfo.Flags = CommandPoolCreateFlagBits.ResetCommandBufferBit;
             commandPool = logicalDevice.CreateCommandPool(poolInfo);
         }
 
@@ -1101,7 +1131,7 @@ namespace VulkanEngineTestCore
             unsafe
             {
                 var data = logicalDevice.MapMemory(stagingBufferMemory, 0, (ulong)img.TotalSizeInBytes, 0);
-                System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data.ToPointer(), (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
+                System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data, (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
                 logicalDevice.UnmapMemory(stagingBufferMemory);
             }
 
@@ -1154,7 +1184,7 @@ namespace VulkanEngineTestCore
             imageInfo.Format = format;
             imageInfo.Tiling = tiling;
             imageInfo.InitialLayout = ImageLayout.Preinitialized;
-            imageInfo.Usage = (uint)usage;
+            imageInfo.Usage = usage;
             imageInfo.Samples = SampleCountFlagBits._1Bit;
             imageInfo.SharingMode = SharingMode.Exclusive;
             
@@ -1303,7 +1333,7 @@ namespace VulkanEngineTestCore
             {
                 var sourcePtr = GCHandle.Alloc(vertices, GCHandleType.Pinned);
                 var handle = sourcePtr.AddrOfPinnedObject();
-                System.Buffer.MemoryCopy(handle.ToPointer(), data.ToPointer(), (long)bufferSize, (long)bufferSize);
+                System.Buffer.MemoryCopy(handle.ToPointer(), data, (long)bufferSize, (long)bufferSize);
                 sourcePtr.Free();
             }
 
@@ -1330,7 +1360,7 @@ namespace VulkanEngineTestCore
             {
                 var sourcePtr = GCHandle.Alloc(vertices, GCHandleType.Pinned);
                 var handle = sourcePtr.AddrOfPinnedObject();
-                System.Buffer.MemoryCopy(handle.ToPointer(), data.ToPointer(), (long)bufferSize, (long)bufferSize);
+                System.Buffer.MemoryCopy(handle.ToPointer(), data, (long)bufferSize, (long)bufferSize);
                 sourcePtr.Free();
             }
 
@@ -1358,7 +1388,7 @@ namespace VulkanEngineTestCore
             {
                 var sourcePtr = GCHandle.Alloc(indices, GCHandleType.Pinned);
                 var handle = sourcePtr.AddrOfPinnedObject();
-                System.Buffer.MemoryCopy(handle.ToPointer(), data.ToPointer(), (long)bufferSize, (long)bufferSize);
+                System.Buffer.MemoryCopy(handle.ToPointer(), data, (long)bufferSize, (long)bufferSize);
                 sourcePtr.Free();
             }
 
@@ -1376,7 +1406,7 @@ namespace VulkanEngineTestCore
         {
             BufferCreateInfo bufferInfo = new BufferCreateInfo();
             bufferInfo.Size = size;
-            bufferInfo.Usage = (uint)usage;
+            bufferInfo.Usage = usage;
             bufferInfo.SharingMode = SharingMode.Exclusive;
 
             buffer = logicalDevice.CreateBuffer(bufferInfo);
@@ -1390,7 +1420,7 @@ namespace VulkanEngineTestCore
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
             {
                 if (((memoryRequirements.MemoryTypeBits >> (int)i) & 1) == 1
-                    && memProperties.MemoryTypes[i].PropertyFlags == (uint)memoryProperties)
+                    && memProperties.MemoryTypes[i].PropertyFlags == memoryProperties)
                 {
                     allocInfo.MemoryTypeIndex = i;
                     break;
@@ -1421,7 +1451,7 @@ namespace VulkanEngineTestCore
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
             {
                 var shift = (int)1 << (int)i;
-                if ((typeFilter & shift) > 0 && memProperties.MemoryTypes[i].PropertyFlags == (uint)properties)
+                if ((typeFilter & shift) > 0 && memProperties.MemoryTypes[i].PropertyFlags == properties)
                 {
                     return i;
                 }
@@ -1438,7 +1468,7 @@ namespace VulkanEngineTestCore
 
             DescriptorPoolCreateInfo poolInfo = new DescriptorPoolCreateInfo();
             poolInfo.PoolSizeCount = 1;
-            poolInfo.PPoolSizes = new[] { pool };
+            poolInfo.PoolSizes = new[] { pool };
             poolInfo.MaxSets = (uint)swapchainImages.Length;
 
             descriptorPool = logicalDevice.CreateDescriptorPool(poolInfo);
@@ -1493,85 +1523,47 @@ namespace VulkanEngineTestCore
 
             commandBuffers = logicalDevice.AllocateCommandBuffers(allocInfo);
 
-            renderPassInfos = new RenderPassBeginInfo[2];
-
+            renderPassInfos = new RenderPassBeginInfo[MAX_FRAMES_IN_FLIGHT];
+            
             var renderPassInfo = new RenderPassBeginInfo();
             renderPassInfo.RenderPass = renderPass;
             renderPassInfo.Framebuffer = swapchainFramebuffers[0];
             renderPassInfo.RenderArea = new Rect2D();
             renderPassInfo.RenderArea.Offset = new Offset2D();
             renderPassInfo.RenderArea.Extent = swapChainExtent;
-
+            
             ClearValue clearValue = new ClearValue();
             clearValue.Color = new ClearColorValue();
             clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
-
+            
             renderPassInfo.ClearValueCount = 1;
             renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-
+            
             renderPassInfos[0] = renderPassInfo;
-
+            
             renderPassInfo = new RenderPassBeginInfo();
             renderPassInfo.RenderPass = renderPass;
             renderPassInfo.Framebuffer = swapchainFramebuffers[1];
             renderPassInfo.RenderArea = new Rect2D();
             renderPassInfo.RenderArea.Offset = new Offset2D();
             renderPassInfo.RenderArea.Extent = swapChainExtent;
-
+            
             renderPassInfo.ClearValueCount = 1;
             renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-
+            
             renderPassInfos[1] = renderPassInfo;
-
-            //for (int i = 0; i < commandBuffers.Length; i++)
-            //{
-            //    var commandBuffer = commandBuffers[i];
-            //    var beginInfo = new CommandBufferBeginInfo();
-            //    beginInfo.Flags = (uint)CommandBufferUsageFlagBits.SimultaneousUseBit;
-
-            //    var result = commandBuffer.BeginCommandBuffer(beginInfo);
-            //    if (result != Result.Success)
-            //    {
-            //        MessageBox.Show("failed to begin recording command buffer!");
-            //        throw new Exception();
-            //    }
-
-            //    var renderPassInfo = new RenderPassBeginInfo();
-            //    renderPassInfo.RenderPass = renderPass;
-            //    renderPassInfo.Framebuffer = swapchainFramebuffers[i];
-            //    renderPassInfo.RenderArea = new Rect2D();
-            //    renderPassInfo.RenderArea.Offset = new Offset2D();
-            //    renderPassInfo.RenderArea.Extent = swapChainExtent;
-
-            //    ClearValue clearValue = new ClearValue();
-            //    clearValue.Color = new ClearColorValue();
-            //    clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
-
-            //    renderPassInfo.ClearValueCount = 1;
-            //    renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-            //    commandBuffer.CmdBeginRenderPass(renderPassInfo, SubpassContents.Inline);
-
-            //    commandBuffer.CmdBindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
-
-            //    UInt64[] offsets = new UInt64[0];
-            //    Buffer[] vertexBuffers = new Buffer[] { vertexBuffer };
-            //    commandBuffer.CmdBindVertexBuffers(0, 1, vertexBuffers, offsets);
-
-            //    commandBuffer.CmdBindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
-
-            //    commandBuffer.CmdBindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[i], 0, 0);
-
-            //    commandBuffer.CmdDrawIndexed((uint)indices.Length, 1, 0, 0, 0);
-
-            //    commandBuffer.CmdEndRenderPass();
-
-            //    result = commandBuffer.EndCommandBuffer();
-            //    if (result != Result.Success)
-            //    {
-            //        MessageBox.Show("failed to record command buffer!");
-            //        throw new Exception();
-            //    }
-            //}
+            
+            renderPassInfo = new RenderPassBeginInfo();
+            renderPassInfo.RenderPass = renderPass;
+            renderPassInfo.Framebuffer = swapchainFramebuffers[2];
+            renderPassInfo.RenderArea = new Rect2D();
+            renderPassInfo.RenderArea.Offset = new Offset2D();
+            renderPassInfo.RenderArea.Extent = swapChainExtent;
+            
+            renderPassInfo.ClearValueCount = 1;
+            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+            
+            renderPassInfos[2] = renderPassInfo;
         }
 
         private void CreateSyncObjects()

@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
 using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core
 {
-    public partial class Instance 
+    public unsafe partial class Instance 
     {
-        public static unsafe LayerProperties[] EnumerateInstanceLayerProperties()
+        public static LayerProperties[] EnumerateInstanceLayerProperties()
         {
             uint layersCount = 0;
-            var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, null);
+            var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, (LayerProperties)null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceLayerProperties));
 
             LayerProperties[] layers = new LayerProperties[layersCount];
@@ -24,7 +20,7 @@ namespace AdamantiumVulkan.Core
         public static ExtensionProperties[] EnumerateInstanceExtensionProperties(string layerName)
         {
             uint propertyCount = 0;
-            var result = VulkanNative.EnumerateInstanceExtensionProperties(layerName, ref propertyCount, null);
+            var result = VulkanNative.EnumerateInstanceExtensionProperties(layerName, ref propertyCount, (ExtensionProperties)null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceExtensionProperties));
 
             ExtensionProperties[] properties = new ExtensionProperties[propertyCount];
@@ -36,7 +32,7 @@ namespace AdamantiumVulkan.Core
         public static ExtensionProperties[] EnumerateInstanceExtensionProperties()
         {
             uint extensionsCount = 0;
-            var result = VulkanNative.EnumerateInstanceExtensionProperties(null, ref extensionsCount, null);
+            var result = VulkanNative.EnumerateInstanceExtensionProperties(null, ref extensionsCount, (ExtensionProperties)null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceExtensionProperties));
 
             ExtensionProperties[] properties = new ExtensionProperties[extensionsCount];
@@ -161,7 +157,7 @@ namespace AdamantiumVulkan.Core
                 return presentModes;
             }
 
-            return new PresentModeKHR[0];
+            return Array.Empty<PresentModeKHR>();
         }
 
         public uint FindCorrespondingMemoryType(uint typeFilter, MemoryPropertyFlagBits properties)
@@ -172,7 +168,7 @@ namespace AdamantiumVulkan.Core
             {
                 var shift = 1 << (int)i;
                 if ((typeFilter & shift) > 0 && 
-                    ((MemoryPropertyFlagBits)(memProperties.MemoryTypes[i].PropertyFlags)).HasFlag(properties))
+                    (memProperties.MemoryTypes[i].PropertyFlags).HasFlag(properties))
                 {
                     return i;
                 }
@@ -239,9 +235,16 @@ namespace AdamantiumVulkan.Core
             deviceFeatures.VariableMultisampleRate = false;                
             deviceFeatures.InheritedQueries = false;                     
         }
+
+        public Result GetPhysicalDeviceSurfaceSupport(uint queueFamilyIndex, AdamantiumVulkan.Core.SurfaceKHR surface, out bool pSupported)
+        {
+            var result = GetPhysicalDeviceSurfaceSupportKHR(queueFamilyIndex, surface, out var supported);
+            pSupported = supported;
+            return result;
+        }
     }
 
-    public partial class Device
+    public unsafe partial class Device
     {
         public Queue GetDeviceQueue(uint queueFamilyIndex, uint queueIndex)
         {
@@ -344,11 +347,12 @@ namespace AdamantiumVulkan.Core
             return deviceMemory;
         }
 
-        public IntPtr MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
+        public void* MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
         {
-            var result = MapMemory(memory, offset, size, flags, out IntPtr ppData);
+            //void** data = default;
+            var result = MapMemory(memory, offset, size, flags, out var data);
             ResultHelper.CheckResult(result, nameof(MapMemory));
-            return ppData;
+            return data;
         }
 
         public CommandBuffer[] AllocateCommandBuffers(CommandBufferAllocateInfo allocateInfo)
@@ -422,7 +426,7 @@ namespace AdamantiumVulkan.Core
             var commandBuffers = AllocateCommandBuffers(allocInfo);
 
             var beginInfo = new CommandBufferBeginInfo();
-            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.OneTimeSubmitBit;
+            beginInfo.Flags = CommandBufferUsageFlagBits.OneTimeSubmitBit;
 
             var commandBuffer = commandBuffers[0];
             commandBuffer.BeginCommandBuffer(beginInfo);
@@ -461,115 +465,123 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class Framebuffer
+    public unsafe partial class Framebuffer
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyFramebuffer(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class Image
+    public unsafe partial class Image
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyImage(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class ImageView
+    public unsafe partial class ImageView
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyImageView(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class Pipeline
+    public unsafe partial class Pipeline
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipeline(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class SwapchainKHR
+    public unsafe partial class SwapchainKHR
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroySwapchainKHR(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class DeviceMemory
+    public unsafe partial class DeviceMemory
     {
         public void FreeMemory(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.FreeMemory(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class Buffer
+    public unsafe partial class Buffer
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyBuffer(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class BufferView
+    public unsafe partial class BufferView
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyBufferView(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class DescriptorSetLayout
+    public unsafe partial class DescriptorSetLayout
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyDescriptorSetLayout(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
 
         }
     }
 
-    public partial class PipelineLayout
+    public unsafe partial class PipelineLayout
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipelineLayout(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
 
+        }
+    }
+
+    public unsafe partial class ExtensionProperties
+    {
+        public override string ToString()
+        {
+            return $"{ExtensionName} : {SpecVersion}";
         }
     }
 }

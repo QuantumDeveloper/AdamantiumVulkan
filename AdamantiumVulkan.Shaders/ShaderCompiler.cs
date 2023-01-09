@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AdamantiumVulkan.Common;
+﻿using AdamantiumVulkan.Shaders.Interop;
+using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Shaders
 {
-    public class ShaderCompiler : QBDisposableObject
+    public unsafe class ShaderCompiler : QBDisposableObject
     {
         private ShadercCompilerT compiler;
 
@@ -17,8 +15,7 @@ namespace AdamantiumVulkan.Shaders
         private CompilationResult GetCompilationResult(ShadercCompilationResultT result, string name, string entryPoint, ShadercShaderKind shaderKind, bool isTextOutput)
         {
             var status = result.GetCompilationStatus();
-            var bytecode = new byte[result.GetLength()];
-            MarshalUtils.IntPtrToManagedArray(result.GetBytes(), bytecode);
+            var bytecode = NativeUtils.PointerToManagedArray((byte*)result.GetBytes(), (long)result.GetLength());
             var messages = result.GetErrorMessage();
             return new CompilationResult(name, entryPoint, bytecode, shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
         }

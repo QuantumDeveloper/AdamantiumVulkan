@@ -1,10 +1,9 @@
 ﻿using AdamantiumVulkan.Shaders.Interop;
-using System;
-using AdamantiumVulkan.Common;
+using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Shaders
 {
-    public class CompileOptions : QBDisposableObject
+    public unsafe class CompileOptions : QBDisposableObject
     {
         private ShadercCompileOptionsT compileOptions;
         private bool setAutoBindUniforms;
@@ -186,9 +185,9 @@ namespace AdamantiumVulkan.Shaders
         ///<summary>
         /// Sets includer callback functions.
         ///</summary>
-        public void SetIncludeCallbacks(IntPtr resolver, IntPtr resultReleaser, ref IntPtr userData)
+        public void SetIncludeCallbacks(void* resolver, void* resultReleaser, void* userData)
         {
-            compileOptions.SetIncludeCallbacks(resolver, resultReleaser, ref userData);
+            compileOptions.SetIncludeCallbacks(resolver, resultReleaser, userData);
         }
 
         ///<summary>

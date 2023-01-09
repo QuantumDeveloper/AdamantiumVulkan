@@ -6,25 +6,6 @@ using QuantumBinding.Generator.Processors;
 
 namespace AdamantiumVulkan.Generator
 {
-    public class StructurePredefinedInput
-    {
-        public StructurePredefinedInput()
-        {
-            FieldValues = new Dictionary<string, PredefinedFieldInput>();
-        }
-
-        public string StructType { get; set; }
-
-        public Dictionary<string, PredefinedFieldInput> FieldValues { get; set; }
-    }
-
-    public class PredefinedFieldInput
-    {
-        public bool IsReadOnly { get; set; }
-
-        public string Value { get; set; }
-    }
-
     public class PrepareStructsBeforeWrappingPass : PreGeneratorPass
     {
         private Dictionary<string, StructurePredefinedInput> predefinedValues;
@@ -39,11 +20,6 @@ namespace AdamantiumVulkan.Generator
             if (IsVisited(@class) || @class.ClassType != ClassType.Struct)
             {
                 return false;
-            }
-            
-            if (@class.Name == "VkCuLaunchInfoNVX")
-            {
-                int bug = 0;
             }
 
             if (predefinedValues == null) return false;
