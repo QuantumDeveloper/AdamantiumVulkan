@@ -74,7 +74,7 @@ namespace AdamantiumVulkan.Core
         public static PipelineColorBlendStateCreateInfo Default()
         {
             var colorBlendAttachment = new PipelineColorBlendAttachmentState();
-            colorBlendAttachment.ColorWriteMask = (uint)(ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
+            colorBlendAttachment.ColorWriteMask = (ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
             colorBlendAttachment.BlendEnable = false;
 
             var state = new PipelineColorBlendStateCreateInfo();
