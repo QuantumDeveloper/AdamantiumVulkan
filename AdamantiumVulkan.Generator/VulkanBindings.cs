@@ -52,6 +52,14 @@ public static partial class VulkanBindings
             .WithField("pTexelBufferView")
             .InterpretAsPointerToArray(new CustomType("VkBufferView"), true, "descriptorCount");
 
+        api.Class("VkPipelineRenderingCreateInfo")
+            .WithField("pColorAttachmentFormats")
+            .InterpretAsPointerToArray(new CustomType("VkFormat"), arraySizeSource: "colorAttachmentCount");
+
+        api.Class("VkRenderingInfo")
+            .WithField("pColorAttachments")
+            .InterpretAsPointerToArray(new CustomType("VkRenderingAttachmentInfo"), arraySizeSource: "colorAttachmentCount");
+
         
 
         api.Function("vkUpdateDescriptorSets")
@@ -98,6 +106,16 @@ public static partial class VulkanBindings
             .WithParameterName("pHandle")
             .InterpretAsPointerType(new BuiltinType(PrimitiveType.IntPtr))
             .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("vkGetPhysicalDeviceFeatures2KHR").
+            WithParameterName("pFeatures").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Out);
+        
+        api.Function("vkGetPhysicalDeviceFeatures2").
+            WithParameterName("pFeatures").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Out);
         
         api.Function("vkGetInstanceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});
         api.Function("vkGetDeviceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});

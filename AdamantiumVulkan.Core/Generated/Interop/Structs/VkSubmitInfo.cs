@@ -19,7 +19,7 @@ public unsafe partial struct VkSubmitInfo
     public void* pNext;
     public uint waitSemaphoreCount;
     public VkSemaphore_T* pWaitSemaphores;
-    public uint* pWaitDstStageMask;
+    public PipelineStageFlagBits* pWaitDstStageMask;
     public uint commandBufferCount;
     public VkCommandBuffer_T* pCommandBuffers;
     public uint signalSemaphoreCount;

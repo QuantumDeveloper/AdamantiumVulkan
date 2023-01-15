@@ -8,13 +8,14 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImageSubresourceRange
 {
-    public VkImageAspectFlags aspectMask;
+    public ImageAspectFlagBits aspectMask;
     public uint baseMipLevel;
     public uint levelCount;
     public uint baseArrayLayer;

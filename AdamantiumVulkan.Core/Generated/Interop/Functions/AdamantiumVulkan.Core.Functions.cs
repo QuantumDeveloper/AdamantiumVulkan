@@ -1360,10 +1360,10 @@ internal static unsafe partial class VulkanInterop
     internal static extern void vkGetPhysicalDeviceFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures pFeatures);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2* pFeatures);
+    internal static extern void vkGetPhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 pFeatures);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2KHR", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceFeatures2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2* pFeatures);
+    internal static extern void vkGetPhysicalDeviceFeatures2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 pFeatures);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, AdamantiumVulkan.Core.Interop.VkFormatProperties* pFormatProperties);

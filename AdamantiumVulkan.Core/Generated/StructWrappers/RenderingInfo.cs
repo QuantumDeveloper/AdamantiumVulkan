@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderingInfo : QBDisposableObject
 {
-    private NativeStruct<VkRenderingAttachmentInfo> pColorAttachments;
+    private NativeStructArray<VkRenderingAttachmentInfo> pColorAttachments;
 
     private NativeStruct<VkRenderingAttachmentInfo> pDepthAttachment;
 
@@ -32,7 +32,12 @@ public unsafe partial class RenderingInfo : QBDisposableObject
         LayerCount = _internal.layerCount;
         ViewMask = _internal.viewMask;
         ColorAttachmentCount = _internal.colorAttachmentCount;
-        PColorAttachments = new RenderingAttachmentInfo(*_internal.pColorAttachments);
+        PColorAttachments = new RenderingAttachmentInfo[_internal.colorAttachmentCount];
+        var nativeTmpArray0 = NativeUtils.PointerToManagedArray(_internal.pColorAttachments, _internal.colorAttachmentCount);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            PColorAttachments[i] = new RenderingAttachmentInfo(nativeTmpArray0[i]);
+        }
         NativeUtils.Free(_internal.pColorAttachments);
         PDepthAttachment = new RenderingAttachmentInfo(*_internal.pDepthAttachment);
         NativeUtils.Free(_internal.pDepthAttachment);
@@ -47,7 +52,7 @@ public unsafe partial class RenderingInfo : QBDisposableObject
     public uint LayerCount { get; set; }
     public uint ViewMask { get; set; }
     public uint ColorAttachmentCount { get; set; }
-    public RenderingAttachmentInfo PColorAttachments { get; set; }
+    public RenderingAttachmentInfo[] PColorAttachments { get; set; }
     public RenderingAttachmentInfo PDepthAttachment { get; set; }
     public RenderingAttachmentInfo PStencilAttachment { get; set; }
 
@@ -67,22 +72,26 @@ public unsafe partial class RenderingInfo : QBDisposableObject
         pColorAttachments.Dispose();
         if (PColorAttachments != null)
         {
-            var struct0 = PColorAttachments.ToNative();
-            pColorAttachments = new NativeStruct<VkRenderingAttachmentInfo>(struct0);
+            var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo[PColorAttachments.Length];
+            for (int i = 0; i < PColorAttachments.Length; ++i)
+            {
+                tmpArray0[i] = PColorAttachments[i].ToNative();
+            }
+            pColorAttachments = new NativeStructArray<VkRenderingAttachmentInfo>(tmpArray0);
             _internal.pColorAttachments = pColorAttachments.Handle;
         }
         pDepthAttachment.Dispose();
         if (PDepthAttachment != null)
         {
-            var struct1 = PDepthAttachment.ToNative();
-            pDepthAttachment = new NativeStruct<VkRenderingAttachmentInfo>(struct1);
+            var struct0 = PDepthAttachment.ToNative();
+            pDepthAttachment = new NativeStruct<VkRenderingAttachmentInfo>(struct0);
             _internal.pDepthAttachment = pDepthAttachment.Handle;
         }
         pStencilAttachment.Dispose();
         if (PStencilAttachment != null)
         {
-            var struct2 = PStencilAttachment.ToNative();
-            pStencilAttachment = new NativeStruct<VkRenderingAttachmentInfo>(struct2);
+            var struct1 = PStencilAttachment.ToNative();
+            pStencilAttachment = new NativeStruct<VkRenderingAttachmentInfo>(struct1);
             _internal.pStencilAttachment = pStencilAttachment.Handle;
         }
         return _internal;

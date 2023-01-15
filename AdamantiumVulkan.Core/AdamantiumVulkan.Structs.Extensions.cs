@@ -16,4 +16,14 @@ public unsafe partial struct VkBool32
     {
         return new VkBool32(value);
     }
+
+    public static bool IsTrue(VkBool32 vkBool)
+    {
+        return vkBool.value != 0;
+    }
+
+    public override string ToString()
+    {
+        return $"{IsTrue(this)}";
+    }
 }

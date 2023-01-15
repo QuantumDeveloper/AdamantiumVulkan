@@ -360,20 +360,18 @@ public unsafe partial class PhysicalDevice
         pFeatures = new PhysicalDeviceFeatures(arg1);
     }
 
-    public void GetPhysicalDeviceFeatures2(PhysicalDeviceFeatures2 pFeatures)
+    public void GetPhysicalDeviceFeatures2(out PhysicalDeviceFeatures2 pFeatures)
     {
-        var arg1 = ReferenceEquals(pFeatures, null) ? null : NativeUtils.StructOrEnumToPointer(pFeatures.ToNative());
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures2(this, arg1);
-        pFeatures?.Dispose();
-        NativeUtils.Free(arg1);
+        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 arg1;
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures2(this, out arg1);
+        pFeatures = new PhysicalDeviceFeatures2(arg1);
     }
 
-    public void GetPhysicalDeviceFeatures2KHR(PhysicalDeviceFeatures2 pFeatures)
+    public void GetPhysicalDeviceFeatures2KHR(out PhysicalDeviceFeatures2 pFeatures)
     {
-        var arg1 = ReferenceEquals(pFeatures, null) ? null : NativeUtils.StructOrEnumToPointer(pFeatures.ToNative());
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures2KHR(this, arg1);
-        pFeatures?.Dispose();
-        NativeUtils.Free(arg1);
+        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 arg1;
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures2KHR(this, out arg1);
+        pFeatures = new PhysicalDeviceFeatures2(arg1);
     }
 
     public void GetPhysicalDeviceFormatProperties(Format format, FormatProperties pFormatProperties)

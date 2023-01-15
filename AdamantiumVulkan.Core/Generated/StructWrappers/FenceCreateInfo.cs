@@ -25,7 +25,7 @@ public unsafe partial class FenceCreateInfo : QBDisposableObject
 
     public StructureType SType => StructureType.FenceCreateInfo;
     public void* PNext { get; set; }
-    public VkFenceCreateFlags Flags { get; set; }
+    public FenceCreateFlagBits Flags { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkFenceCreateInfo ToNative()
     {

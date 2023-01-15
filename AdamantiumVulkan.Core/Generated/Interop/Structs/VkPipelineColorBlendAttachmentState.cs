@@ -22,7 +22,7 @@ public unsafe partial struct VkPipelineColorBlendAttachmentState
     public BlendFactor srcAlphaBlendFactor;
     public BlendFactor dstAlphaBlendFactor;
     public BlendOp alphaBlendOp;
-    public VkColorComponentFlags colorWriteMask;
+    public ColorComponentFlagBits colorWriteMask;
 }
 
 

@@ -15,7 +15,7 @@ public unsafe partial class SubmitInfo : QBDisposableObject
 {
     private NativeStructArray<VkSemaphore_T> pWaitSemaphores;
 
-    private NativeStructArray<uint> pWaitDstStageMask;
+    private NativeStructArray<PipelineStageFlagBits> pWaitDstStageMask;
 
     private NativeStructArray<VkCommandBuffer_T> pCommandBuffers;
 
@@ -36,20 +36,21 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             PWaitSemaphores[i] = new Semaphore(nativeTmpArray0[i]);
         }
         NativeUtils.Free(_internal.pWaitSemaphores);
+        PWaitDstStageMask = NativeUtils.PointerToManagedArray(_internal.pWaitDstStageMask, _internal.waitSemaphoreCount);
         CommandBufferCount = _internal.commandBufferCount;
         PCommandBuffers = new CommandBuffer[_internal.commandBufferCount];
-        var nativeTmpArray2 = NativeUtils.PointerToManagedArray(_internal.pCommandBuffers, _internal.commandBufferCount);
-        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        var nativeTmpArray1 = NativeUtils.PointerToManagedArray(_internal.pCommandBuffers, _internal.commandBufferCount);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
-            PCommandBuffers[i] = new CommandBuffer(nativeTmpArray2[i]);
+            PCommandBuffers[i] = new CommandBuffer(nativeTmpArray1[i]);
         }
         NativeUtils.Free(_internal.pCommandBuffers);
         SignalSemaphoreCount = _internal.signalSemaphoreCount;
         PSignalSemaphores = new Semaphore[_internal.signalSemaphoreCount];
-        var nativeTmpArray3 = NativeUtils.PointerToManagedArray(_internal.pSignalSemaphores, _internal.signalSemaphoreCount);
-        for (int i = 0; i < nativeTmpArray3.Length; ++i)
+        var nativeTmpArray2 = NativeUtils.PointerToManagedArray(_internal.pSignalSemaphores, _internal.signalSemaphoreCount);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
         {
-            PSignalSemaphores[i] = new Semaphore(nativeTmpArray3[i]);
+            PSignalSemaphores[i] = new Semaphore(nativeTmpArray2[i]);
         }
         NativeUtils.Free(_internal.pSignalSemaphores);
     }
@@ -58,7 +59,7 @@ public unsafe partial class SubmitInfo : QBDisposableObject
     public void* PNext { get; set; }
     public uint WaitSemaphoreCount { get; set; }
     public Semaphore[] PWaitSemaphores { get; set; }
-    public uint[] PWaitDstStageMask { get; set; }
+    public PipelineStageFlagBits[] PWaitDstStageMask { get; set; }
     public uint CommandBufferCount { get; set; }
     public CommandBuffer[] PCommandBuffers { get; set; }
     public uint SignalSemaphoreCount { get; set; }
@@ -84,36 +85,31 @@ public unsafe partial class SubmitInfo : QBDisposableObject
         pWaitDstStageMask.Dispose();
         if (PWaitDstStageMask != null)
         {
-            var tmpArray1 = new uint[PWaitDstStageMask.Length];
-            for (int i = 0; i < PWaitDstStageMask.Length; ++i)
-            {
-                tmpArray1[i] = PWaitDstStageMask[i];
-            }
-            pWaitDstStageMask = new NativeStructArray<uint>(tmpArray1);
+            pWaitDstStageMask = new NativeStructArray<PipelineStageFlagBits>(PWaitDstStageMask);
             _internal.pWaitDstStageMask = pWaitDstStageMask.Handle;
         }
         _internal.commandBufferCount = CommandBufferCount;
         pCommandBuffers.Dispose();
         if (PCommandBuffers != null)
         {
-            var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[PCommandBuffers.Length];
+            var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[PCommandBuffers.Length];
             for (int i = 0; i < PCommandBuffers.Length; ++i)
             {
-                tmpArray2[i] = PCommandBuffers[i];
+                tmpArray1[i] = PCommandBuffers[i];
             }
-            pCommandBuffers = new NativeStructArray<VkCommandBuffer_T>(tmpArray2);
+            pCommandBuffers = new NativeStructArray<VkCommandBuffer_T>(tmpArray1);
             _internal.pCommandBuffers = pCommandBuffers.Handle;
         }
         _internal.signalSemaphoreCount = SignalSemaphoreCount;
         pSignalSemaphores.Dispose();
         if (PSignalSemaphores != null)
         {
-            var tmpArray3 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PSignalSemaphores.Length];
+            var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PSignalSemaphores.Length];
             for (int i = 0; i < PSignalSemaphores.Length; ++i)
             {
-                tmpArray3[i] = PSignalSemaphores[i];
+                tmpArray2[i] = PSignalSemaphores[i];
             }
-            pSignalSemaphores = new NativeStructArray<VkSemaphore_T>(tmpArray3);
+            pSignalSemaphores = new NativeStructArray<VkSemaphore_T>(tmpArray2);
             _internal.pSignalSemaphores = pSignalSemaphores.Handle;
         }
         return _internal;

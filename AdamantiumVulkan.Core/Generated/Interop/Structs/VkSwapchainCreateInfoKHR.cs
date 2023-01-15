@@ -24,7 +24,7 @@ public unsafe partial struct VkSwapchainCreateInfoKHR
     public ColorSpaceKHR imageColorSpace;
     public VkExtent2D imageExtent;
     public uint imageArrayLayers;
-    public VkImageUsageFlags imageUsage;
+    public ImageUsageFlagBits imageUsage;
     public SharingMode imageSharingMode;
     public uint queueFamilyIndexCount;
     public uint* pQueueFamilyIndices;

@@ -107,9 +107,9 @@ namespace VulkanEngineTestCore
             var compilerOptions = new CompilerOptions();
             compilerOptions.Add(CompilerArguments.AllResourcesBound);
             compilerOptions.Add(CompilerArguments.SpvUseDxLayout);
-            compilerOptions.Add($"{CompilerArguments.SpvTargetEnv}vulkan1.1");
-            compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_hlsl_functionality1");
-            compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_user_type");
+            compilerOptions.Add(CompilerArguments.SpvTargetEnvVulkan1_1);
+            compilerOptions.Add(CompilerArguments.SpvcExtensionGoogleHlslFunctionality1);
+            compilerOptions.Add(CompilerArguments.SpvcExtensionGoogleUserType);
             compilerOptions.Add(CompilerArguments.SpvReflect);
 
             var dxcCompiler = DxcCompiler.Create();
@@ -151,6 +151,8 @@ namespace VulkanEngineTestCore
 
         const int MAX_FRAMES_IN_FLIGHT = 3;
 
+        private bool enableDynamicRendering = true;
+
         Instance instance;
         PhysicalDevice physicalDevice;
         Device logicalDevice;
@@ -165,6 +167,9 @@ namespace VulkanEngineTestCore
         Format swapChainImageFormat;
         Extent2D swapChainExtent;
         ImageView textureImageView;
+        private Image depthImage;
+        private DeviceMemory depthImageMemory;
+        private ImageView depthStencilImageView;
         private Sampler textureSampler;
 
         RenderPass renderPass;
@@ -220,7 +225,7 @@ namespace VulkanEngineTestCore
               Constants.VK_KHR_MAINTENANCE_4_EXTENSION_NAME,
               Constants.VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME,
               Constants.VK_GOOGLE_USER_TYPE_EXTENSION_NAME,
-              Constants.VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME
+              Constants.VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME,
             };
 
         private bool stopRendering;
@@ -258,7 +263,7 @@ namespace VulkanEngineTestCore
         bool IsApplicationIdle()
         {
             NativeMessage result;
-            return PeekMessage(out result, IntPtr.Zero, (uint)0, (uint)0, (uint)0) == 0;
+            return PeekMessage(out result, IntPtr.Zero, 0, 0, 0) == 0;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -294,6 +299,7 @@ namespace VulkanEngineTestCore
             CreateCommandPool();
             CreateTextureImage();
             СreateTextureImageView();
+            CreateDepthStencilView();
             CreateTextureSampler();
             CreateVertexBuffer();
             CreateVertexBuffer2();
@@ -317,6 +323,7 @@ namespace VulkanEngineTestCore
 
             CreateSwapchain();
             CreateImageViews();
+            CreateDepthStencilView();
             CreateGraphicsPipeline();
             CreateFramebuffers();
         }
@@ -378,6 +385,8 @@ namespace VulkanEngineTestCore
 
             swapchain.Destroy(logicalDevice);
             graphicsPipeline.Destroy(logicalDevice);
+            depthImage?.Destroy(logicalDevice);
+            depthImageMemory?.FreeMemory(logicalDevice);
         }
 
         Stopwatch timer;
@@ -386,7 +395,6 @@ namespace VulkanEngineTestCore
         CommandBuffer[] renderCommandBuffers = new CommandBuffer[1];
         CommandBufferBeginInfo beginInfo;
         RenderPassBeginInfo[] renderPassInfos;
-        //VkRenderPassBeginInfo[] renderPassInfos;
         UInt64[] offsets = new UInt64[0];
         private unsafe void Render()
         {
@@ -425,74 +433,148 @@ namespace VulkanEngineTestCore
                 MessageBox.Show("failed to begin recording command buffer!");
                 throw new Exception();
             }
-
-            renderPassInfos = new RenderPassBeginInfo[MAX_FRAMES_IN_FLIGHT];
-            
-            var renderPassInfo = new RenderPassBeginInfo();
-            renderPassInfo.RenderPass = renderPass;
-            renderPassInfo.Framebuffer = swapchainFramebuffers[0];
-            renderPassInfo.RenderArea = new Rect2D();
-            renderPassInfo.RenderArea.Offset = new Offset2D();
-            renderPassInfo.RenderArea.Extent = swapChainExtent;
             
             ClearValue clearValue = new ClearValue();
             clearValue.Color = new ClearColorValue();
             clearValue.Color.Float32 = new float[4] { 0.5f, 0.7f, 1.0f, 0.0f };
             
-            renderPassInfo.ClearValueCount = 1;
-            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-            
-            renderPassInfos[0] = renderPassInfo;
-            
-            renderPassInfo = new RenderPassBeginInfo();
-            renderPassInfo.RenderPass = renderPass;
-            renderPassInfo.Framebuffer = swapchainFramebuffers[1];
-            renderPassInfo.RenderArea = new Rect2D();
-            renderPassInfo.RenderArea.Offset = new Offset2D();
-            renderPassInfo.RenderArea.Extent = swapChainExtent;
-            
-            renderPassInfo.ClearValueCount = 1;
-            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-            
-            renderPassInfos[1] = renderPassInfo;
-            
-            renderPassInfo = new RenderPassBeginInfo();
-            renderPassInfo.RenderPass = renderPass;
-            renderPassInfo.Framebuffer = swapchainFramebuffers[2];
-            renderPassInfo.RenderArea = new Rect2D();
-            renderPassInfo.RenderArea.Offset = new Offset2D();
-            renderPassInfo.RenderArea.Extent = swapChainExtent;
-            
-            renderPassInfo.ClearValueCount = 1;
-            renderPassInfo.PClearValues = new ClearValue[] { clearValue };
-            
-            renderPassInfos[2] = renderPassInfo;
+            commandBuffer.SetViewport(0, 1,
+                new Viewport()
+                {
+                    X = 0, Y = 0, Width = this.ClientSize.Width, Height = this.ClientSize.Height, MinDepth = 0,
+                    MaxDepth = 1
+                });
 
-            commandBuffer.SetViewport(0, 1, new Viewport() { X = 0, Y = 0, Width = this.ClientSize.Width, Height = this.ClientSize.Height, MinDepth = 0, MaxDepth = 1 });
+            if (enableDynamicRendering)
+            {
+                var colorAttachmentInfo = new RenderingAttachmentInfo();
+                colorAttachmentInfo.SType = StructureType.RenderingAttachmentInfo;
+                colorAttachmentInfo.ImageView = swapchainImageViews[imageIndex];
+                colorAttachmentInfo.ImageLayout = ImageLayout.ColorAttachmentOptimal;
+                colorAttachmentInfo.ResolveMode = ResolveModeFlagBits.None;
+                colorAttachmentInfo.LoadOp = AttachmentLoadOp.Clear;
+                colorAttachmentInfo.StoreOp = AttachmentStoreOp.Store;
+                colorAttachmentInfo.ClearValue = clearValue;
 
-            commandBuffer.BeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
+                var depthAttachmentInfo = new RenderingAttachmentInfo();
+                depthAttachmentInfo.SType = StructureType.RenderingAttachmentInfo;
+                depthAttachmentInfo.ImageView = depthStencilImageView;
+                depthAttachmentInfo.ImageLayout = ImageLayout.DepthStencilAttachmentOptimal;
+                depthAttachmentInfo.ResolveMode = ResolveModeFlagBits.None;
+                depthAttachmentInfo.LoadOp = AttachmentLoadOp.Clear;
+                depthAttachmentInfo.StoreOp = AttachmentStoreOp.DontCare;
+                depthAttachmentInfo.ClearValue = new ClearValue()
+                    { DepthStencil = new ClearDepthStencilValue() { Depth = 0.0f, Stencil = 0 } };
 
-            commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
+                var renderingInfo = new RenderingInfo();
+                renderingInfo.SType = StructureType.RenderingInfo;
+                renderingInfo.RenderArea = new Rect2D();
+                renderingInfo.RenderArea.Extent = swapChainExtent;
+                renderingInfo.RenderArea.Offset = new Offset2D();
+                renderingInfo.PColorAttachments = new[] { colorAttachmentInfo };
+                renderingInfo.ColorAttachmentCount = 1U;
+                renderingInfo.PDepthAttachment = depthAttachmentInfo;
+                renderingInfo.PStencilAttachment = depthAttachmentInfo;
+                renderingInfo.LayerCount = 1;
 
-            ulong offset = 0;
+                ImageSubresourceRange range = new ImageSubresourceRange();
+                range.AspectMask = ImageAspectFlagBits.ColorBit;
+                range.BaseMipLevel = 0;
+                range.LevelCount = (~0U);
+                range.BaseArrayLayer = 0;
+                range.LayerCount = (~0U);
 
-            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, ref offset);
+                ImageSubresourceRange depth_range = new ImageSubresourceRange();
+                depth_range.AspectMask = ImageAspectFlagBits.DepthBit | ImageAspectFlagBits.StencilBit;
+                depth_range.BaseMipLevel = 0;
+                depth_range.LevelCount = (~0U);
+                depth_range.BaseArrayLayer = 0;
+                depth_range.LayerCount = (~0U);
 
-            commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+                InsertImageMemoryBarrier(commandBuffer,
+                    swapchainImages[imageIndex],
+                    0,
+                    AccessFlagBits.ColorAttachmentWriteBit,
+                    ImageLayout.Undefined,
+                    ImageLayout.ColorAttachmentOptimal,
+                    PipelineStageFlagBits.TopOfPipeBit,
+                    PipelineStageFlagBits.ColorAttachmentOutputBit,
+                    range
+                );
 
-            commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+                InsertImageMemoryBarrier(commandBuffer,
+                    depthImage,
+                    0,
+                    AccessFlagBits.DepthStencilAttachmentWriteBit,
+                    ImageLayout.Undefined,
+                    ImageLayout.DepthStencilAttachmentOptimal,
+                    PipelineStageFlagBits.EarlyFragmentTestsBit | PipelineStageFlagBits.LateFragmentTestsBit,
+                    PipelineStageFlagBits.EarlyFragmentTestsBit | PipelineStageFlagBits.LateFragmentTestsBit,
+                    depth_range
+                );
 
-            commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+                commandBuffer.BeginRendering(renderingInfo);
 
-            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, ref offset);
+                RenderInternal(commandBuffer, imageIndex);
 
-            commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+                commandBuffer.EndRendering();
 
-            commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+                InsertImageMemoryBarrier(commandBuffer,
+                    swapchainImages[imageIndex],
+                    AccessFlagBits.ColorAttachmentWriteBit,
+                    0,
+                    ImageLayout.ColorAttachmentOptimal,
+                    ImageLayout.PresentSrcKhr,
+                    PipelineStageFlagBits.ColorAttachmentOutputBit,
+                    PipelineStageFlagBits.BottomOfPipeBit,
+                    range);
+            }
+            else
+            {
+                renderPassInfos = new RenderPassBeginInfo[MAX_FRAMES_IN_FLIGHT];
+                
+                var renderPassInfo = new RenderPassBeginInfo();
+                renderPassInfo.RenderPass = renderPass;
+                renderPassInfo.Framebuffer = swapchainFramebuffers[0];
+                renderPassInfo.RenderArea = new Rect2D();
+                renderPassInfo.RenderArea.Offset = new Offset2D();
+                renderPassInfo.RenderArea.Extent = swapChainExtent;
+                
+                renderPassInfo.ClearValueCount = 1;
+                renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+                
+                renderPassInfos[0] = renderPassInfo;
+                
+                renderPassInfo = new RenderPassBeginInfo();
+                renderPassInfo.RenderPass = renderPass;
+                renderPassInfo.Framebuffer = swapchainFramebuffers[1];
+                renderPassInfo.RenderArea = new Rect2D();
+                renderPassInfo.RenderArea.Offset = new Offset2D();
+                renderPassInfo.RenderArea.Extent = swapChainExtent;
+                
+                renderPassInfo.ClearValueCount = 1;
+                renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+                
+                renderPassInfos[1] = renderPassInfo;
+                
+                renderPassInfo = new RenderPassBeginInfo();
+                renderPassInfo.RenderPass = renderPass;
+                renderPassInfo.Framebuffer = swapchainFramebuffers[2];
+                renderPassInfo.RenderArea = new Rect2D();
+                renderPassInfo.RenderArea.Offset = new Offset2D();
+                renderPassInfo.RenderArea.Extent = swapChainExtent;
+                
+                renderPassInfo.ClearValueCount = 1;
+                renderPassInfo.PClearValues = new ClearValue[] { clearValue };
+                
+                renderPassInfos[2] = renderPassInfo;
+                
+                commandBuffer.BeginRenderPass(renderPassInfos[imageIndex], SubpassContents.Inline);
 
-            commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+                RenderInternal(commandBuffer, imageIndex);
 
-            commandBuffer.EndRenderPass();
+                commandBuffer.EndRenderPass();
+            }
             
             res = commandBuffer.EndCommandBuffer();
             if (res != Result.Success)
@@ -504,7 +586,7 @@ namespace VulkanEngineTestCore
             var submitInfo = new SubmitInfo();
 
             Semaphore[] waitSemaphores = new[] { imageAvailableSemaphores[currentFrame] };
-            uint[] waitStages = new[] { (uint)PipelineStageFlagBits.ColorAttachmentOutputBit };
+            var waitStages = new[] { PipelineStageFlagBits.ColorAttachmentOutputBit };
             submitInfo.WaitSemaphoreCount = 1;
             submitInfo.PWaitSemaphores = waitSemaphores;
             submitInfo.PWaitDstStageMask = waitStages;
@@ -569,10 +651,65 @@ namespace VulkanEngineTestCore
 
             currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
         }
-        
+
+        private void RenderInternal(CommandBuffer commandBuffer, uint imageIndex)
+        {
+            commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
+
+            ulong offset = 0;
+
+            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, ref offset);
+
+            commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+
+            commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+
+            commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+
+            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, ref offset);
+
+            commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
+
+            commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
+
+            commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+        }
+
+        private void InsertImageMemoryBarrier(CommandBuffer commandBuffer,
+            Image image,
+            AccessFlagBits sourceAccessMask,
+            AccessFlagBits destinationAccessMask,
+            ImageLayout oldLayout,
+            ImageLayout newLayout,
+            PipelineStageFlagBits sourceStageMask,
+            PipelineStageFlagBits destinationStageMask,
+            ImageSubresourceRange subresourceRange)
+        {
+            ImageMemoryBarrier barrier = new ImageMemoryBarrier();
+            barrier.SrcQueueFamilyIndex = (~0U);
+            barrier.DstQueueFamilyIndex = (~0U);
+            barrier.SrcAccessMask = sourceAccessMask;
+            barrier.DstAccessMask = destinationAccessMask;
+            barrier.OldLayout = oldLayout;
+            barrier.NewLayout = newLayout;
+            barrier.Image = image;
+            barrier.SubresourceRange = subresourceRange;
+
+            commandBuffer.PipelineBarrier(
+                (uint)sourceStageMask,
+                (uint)destinationStageMask,
+                0,
+                0,
+                null,
+                0,
+                null,
+                1,
+                barrier);
+        }
+
         private void CreateInstance()
         {
-            //enableValidationLayers = false;
+            enableValidationLayers = false;
             
             var appInfo = new ApplicationInfo();
             appInfo.PApplicationName = "Hello Triangle";
@@ -581,8 +718,6 @@ namespace VulkanEngineTestCore
             appInfo.EngineVersion = Constants.VK_MAKE_API_VERSION(0, 1, 0, 0);
             appInfo.ApiVersion = Constants.VK_API_VERSION_1_3;
 
-            var size = sizeof(VkApplicationInfo);
-            
             var createInfo = new InstanceCreateInfo();
             createInfo.PApplicationInfo = appInfo;
             //createInfo.Flags = InstanceCreateFlagBits.EnumeratePortabilityBitKhr;
@@ -590,7 +725,13 @@ namespace VulkanEngineTestCore
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
             var extensions = Instance.EnumerateInstanceExtensionProperties();
 
-            string[] ext = new[] { "VK_KHR_surface", "VK_KHR_win32_surface", "VK_EXT_debug_utils" };
+            string[] ext = new[]
+            {
+                Constants.VK_KHR_SURFACE_EXTENSION_NAME, 
+                AdamantiumVulkan.Windows.Constants.VK_KHR_WIN32_SURFACE_EXTENSION_NAME,
+                Constants.VK_EXT_DEBUG_UTILS_EXTENSION_NAME,
+                Constants.VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME,
+            };
             
             createInfo.EnabledExtensionCount = (uint)ext.Length;
             createInfo.PEnabledExtensionNames = ext;
@@ -603,9 +744,6 @@ namespace VulkanEngineTestCore
                 createInfo.PEnabledLayerNames = validationLayers;
             }
             
-
-            var size2 = sizeof(VkInstanceCreateInfo);
-
             instance = Instance.Create(createInfo);
         }
 
@@ -687,17 +825,44 @@ namespace VulkanEngineTestCore
                 queueCreateInfo.PQueuePriorities = queuePriority;
                 queueInfos.Add(queueCreateInfo);
             }
-
-            var deviceFeatures = physicalDevice.GetPhysicalDeviceFeatures();
-            deviceFeatures.SamplerAnisotropy = true;
-
+            
+            // var deviceFeatures = physicalDevice.GetPhysicalDeviceFeatures();
+            // deviceFeatures.SamplerAnisotropy = true;
+            
             var createInfo = new DeviceCreateInfo();
             createInfo.QueueCreateInfoCount = (uint)queueInfos.Count;
             createInfo.PQueueCreateInfos = queueInfos.ToArray();
-            createInfo.PEnabledFeatures = deviceFeatures;
+            //createInfo.PEnabledFeatures = deviceFeatures;
             createInfo.EnabledExtensionCount = (uint)deviceExtensions.Length;
             createInfo.PEnabledExtensionNames = deviceExtensions;
 
+            if (enableDynamicRendering)
+            {
+                var dynamicRendering = new PhysicalDeviceDynamicRenderingFeatures();
+                dynamicRendering.SType = StructureType.PhysicalDeviceDynamicRenderingFeatures;
+                dynamicRendering.DynamicRendering = true;
+
+                var vulkan12Features = new PhysicalDeviceVulkan12Features();
+                vulkan12Features.SType = StructureType.PhysicalDeviceVulkan12Features;
+                var dynamicRenderingPtr = NativeUtils.StructOrEnumToPointer(dynamicRendering.ToNative());
+                vulkan12Features.PNext = dynamicRenderingPtr;
+                
+                var vulkan11Features = new PhysicalDeviceVulkan11Features();
+                vulkan11Features.SType = StructureType.PhysicalDeviceVulkan11Features;
+                var vulkan12FeaturesPtr = NativeUtils.StructOrEnumToPointer(vulkan12Features.ToNative());
+                vulkan11Features.PNext = vulkan12FeaturesPtr;
+
+                var features2 = new PhysicalDeviceFeatures2();
+                features2.Features = new PhysicalDeviceFeatures();
+                features2.Features.SamplerAnisotropy = true;
+                var vulkan11FeaturesPtr = NativeUtils.StructOrEnumToPointer(vulkan11Features.ToNative());
+                features2.PNext = vulkan11FeaturesPtr;
+
+                var features2Ptr = NativeUtils.StructOrEnumToPointer(features2.ToNative());
+                createInfo.PNext = features2Ptr;
+            }
+            
+            
             if (enableValidationLayers)
             {
                 createInfo.EnabledLayerCount = (uint)validationLayers.Length;
@@ -801,7 +966,7 @@ namespace VulkanEngineTestCore
             createInfo.ImageColorSpace = surfaceFormat.ColorSpace;
             createInfo.ImageExtent = extent;
             createInfo.ImageArrayLayers = 1;
-            createInfo.ImageUsage = (uint)ImageUsageFlagBits.ColorAttachmentBit;
+            createInfo.ImageUsage = ImageUsageFlagBits.ColorAttachmentBit;
             createInfo.Flags = 0;
 
             QueueFamilyIndices indices = FindQueueFamilies(physicalDevice);
@@ -850,7 +1015,7 @@ namespace VulkanEngineTestCore
                 componentMapping.A = ComponentSwizzle.Identity;
                 createInfo.Components = componentMapping;
                 ImageSubresourceRange subresourceRange = new ImageSubresourceRange();
-                subresourceRange.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
+                subresourceRange.AspectMask = ImageAspectFlagBits.ColorBit;
                 subresourceRange.BaseMipLevel = 0;
                 subresourceRange.LevelCount = 1;
                 subresourceRange.BaseArrayLayer = 0;
@@ -907,7 +1072,7 @@ namespace VulkanEngineTestCore
             samplerLayoutBinding.DescriptorCount = 1;
             samplerLayoutBinding.DescriptorType = DescriptorType.CombinedImageSampler;
             samplerLayoutBinding.PImmutableSamplers = null;
-            samplerLayoutBinding.StageFlags = (uint)ShaderStageFlagBits.FragmentBit;
+            samplerLayoutBinding.StageFlags = ShaderStageFlagBits.FragmentBit;
 
             bindings.Add(samplerLayoutBinding);
 
@@ -987,7 +1152,7 @@ namespace VulkanEngineTestCore
             rasterizer.RasterizerDiscardEnable = false;
             rasterizer.PolygonMode = PolygonMode.Fill;
             rasterizer.LineWidth = 1.0f;
-            rasterizer.CullMode = (uint)CullModeFlagBits.None;
+            rasterizer.CullMode = CullModeFlagBits.None;
             rasterizer.FrontFace = FrontFace.Clockwise;
             rasterizer.DepthBiasEnable = false;
 
@@ -996,7 +1161,7 @@ namespace VulkanEngineTestCore
             multisampling.RasterizationSamples = SampleCountFlagBits._1Bit;
 
             var colorBlendAttachment = new PipelineColorBlendAttachmentState();
-            colorBlendAttachment.ColorWriteMask = (uint)(ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
+            colorBlendAttachment.ColorWriteMask = (ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
             colorBlendAttachment.BlendEnable = false;
 
             var colorBlending = new PipelineColorBlendStateCreateInfo();
@@ -1020,7 +1185,24 @@ namespace VulkanEngineTestCore
             dynamicState.PDynamicStates = new[] { DynamicState.Viewport };
             dynamicState.DynamicStateCount = 1;
 
+            var renderingCreateInfo = new PipelineRenderingCreateInfo();
+            renderingCreateInfo.SType = StructureType.PipelineRenderingCreateInfo;
+            renderingCreateInfo.ColorAttachmentCount = 1U;
+            renderingCreateInfo.PColorAttachmentFormats = new Format[] { swapChainImageFormat};
+            renderingCreateInfo.DepthAttachmentFormat = Format.D32_SFLOAT_S8_UINT;
+            renderingCreateInfo.StencilAttachmentFormat = Format.D32_SFLOAT_S8_UINT;
+            var nativeInfo = renderingCreateInfo.ToNative();
+
+            var info = new PipelineRenderingCreateInfo(nativeInfo);
+
+            var depthStencilState = new PipelineDepthStencilStateCreateInfo();
+            depthStencilState.DepthWriteEnable = false;
+            depthStencilState.DepthTestEnable = false;
+            depthStencilState.DepthCompareOp = CompareOp.Greater;
+            
+            
             var pipelineInfo = new GraphicsPipelineCreateInfo();
+            pipelineInfo.PNext = NativeUtils.StructOrEnumToPointer(nativeInfo);
             pipelineInfo.StageCount = 2;
             pipelineInfo.PStages = shaderStages;
             pipelineInfo.PVertexInputState = vertexInputInfo;
@@ -1030,9 +1212,16 @@ namespace VulkanEngineTestCore
             pipelineInfo.PMultisampleState = multisampling;
             pipelineInfo.PColorBlendState = colorBlending;
             pipelineInfo.Layout = pipelineLayout;
-            pipelineInfo.RenderPass = renderPass;
+            pipelineInfo.RenderPass = null;
             pipelineInfo.Subpass = 0;
             pipelineInfo.PDynamicState = dynamicState;
+            pipelineInfo.PDepthStencilState = depthStencilState; 
+
+            if (!enableDynamicRendering)
+            {
+                pipelineInfo.PNext = null;
+                pipelineInfo.RenderPass = renderPass;
+            }
 
             var pipelines = logicalDevice.CreateGraphicsPipelines(null, 1, pipelineInfo);
             graphicsPipeline = pipelines[0];
@@ -1075,7 +1264,22 @@ namespace VulkanEngineTestCore
 
         void СreateTextureImageView()
         {
-            textureImageView = СreateImageView(textureImage, Format.R8G8B8A8_UNORM);
+            textureImageView = СreateImageView(textureImage, Format.R8G8B8A8_UNORM, ImageAspectFlagBits.ColorBit);
+        }
+
+        void CreateDepthStencilView()
+        {
+            CreateImage(swapChainExtent.Width, 
+                swapChainExtent.Height, 
+                Format.D32_SFLOAT_S8_UINT, 
+                ImageTiling.Optimal, 
+                ImageUsageFlagBits.DepthStencilAttachmentBit,
+                MemoryPropertyFlagBits.DeviceLocalBit,
+                out depthImage,
+                out depthImageMemory);
+            depthStencilImageView = СreateImageView(depthImage, Format.D32_SFLOAT_S8_UINT, ImageAspectFlagBits.DepthBit | ImageAspectFlagBits.StencilBit);
+            
+            TransitionImageLayout(depthImage, ImageLayout.Undefined, ImageLayout.DepthStencilAttachmentOptimal, ImageAspectFlagBits.DepthBit | ImageAspectFlagBits.StencilBit);
         }
 
         void CreateTextureSampler()
@@ -1100,14 +1304,14 @@ namespace VulkanEngineTestCore
             }
         }
 
-        ImageView СreateImageView(Image image, Format format)
+        ImageView СreateImageView(Image image, Format format, ImageAspectFlagBits aspectFlags)
         {
             ImageViewCreateInfo viewInfo = new ImageViewCreateInfo();
             viewInfo.Image = image;
             viewInfo.ViewType = ImageViewType._2d;
             viewInfo.Format = format;
             viewInfo.SubresourceRange = new ImageSubresourceRange();
-            viewInfo.SubresourceRange.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
+            viewInfo.SubresourceRange.AspectMask = aspectFlags;
             viewInfo.SubresourceRange.BaseMipLevel = 0;
             viewInfo.SubresourceRange.LevelCount = 1;
             viewInfo.SubresourceRange.BaseArrayLayer = 0;
@@ -1142,34 +1346,12 @@ namespace VulkanEngineTestCore
             ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
             CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Optimal, usage, MemoryPropertyFlagBits.DeviceLocalBit, out textureImage, out textureImageMemory);
 
-            TransitionImageLayout(textureImage, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
+            TransitionImageLayout(textureImage, ImageLayout.Undefined, ImageLayout.TransferDstOptimal, ImageAspectFlagBits.ColorBit);
             CopyBufferToImage(stagingBuffer, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
-            TransitionImageLayout(textureImage, ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
+            TransitionImageLayout(textureImage, ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal, ImageAspectFlagBits.ColorBit);
 
             logicalDevice.DestroyBuffer(stagingBuffer);
             logicalDevice.FreeMemory(stagingBufferMemory);
-
-            //var imageDescr = img.Description;
-            //ImageUsageFlagBits usage = ImageUsageFlagBits.TransferDstBit | ImageUsageFlagBits.SampledBit;
-            //CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Linear, ImageUsageFlagBits.TransferSrcBit, MemoryPropertyFlagBits.HostVisibleBit | MemoryPropertyFlagBits.HostCoherentBit, out var stagingTextureImage, out var staingTextureImageMemory);
-
-            //unsafe
-            //{
-            //    var data = logicalDevice.MapMemory(staingTextureImageMemory, 0, (ulong)img.TotalSizeInBytes, 0);
-            //    System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data.ToPointer(), (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
-            //    logicalDevice.UnmapMemory(staingTextureImageMemory);
-            //    img?.Dispose();
-            //}
-
-            //CreateImage((uint)imageDescr.Width, (uint)imageDescr.Height, imageDescr.Format, ImageTiling.Linear, usage, MemoryPropertyFlagBits.DeviceLocalBit, out textureImage, out textureImageMemory);
-
-            //TransitionImageLayout(stagingTextureImage, ImageLayout.Preinitialized, ImageLayout.TransferSrcOptimal);
-            //TransitionImageLayout(textureImage, ImageLayout.Undefined, ImageLayout.TransferDstOptimal);
-            //CopyImageToImage(stagingTextureImage, textureImage, (uint)imageDescr.Width, (uint)imageDescr.Height);
-            //TransitionImageLayout(textureImage, ImageLayout.TransferDstOptimal, ImageLayout.ShaderReadOnlyOptimal);
-
-            //stagingTextureImage.Destroy(logicalDevice);
-            //staingTextureImageMemory.FreeMemory(logicalDevice);
         }
 
         void CreateImage(uint width, uint height, Format format, ImageTiling tiling, ImageUsageFlagBits usage, MemoryPropertyFlagBits properties, out Image image, out DeviceMemory imageMemory)
@@ -1209,7 +1391,7 @@ namespace VulkanEngineTestCore
             logicalDevice.BindImageMemory(image, imageMemory, 0);
         }
 
-        void TransitionImageLayout(Image image, ImageLayout oldLayout, ImageLayout newLayout)
+        void TransitionImageLayout(Image image, ImageLayout oldLayout, ImageLayout newLayout, ImageAspectFlagBits aspectFlags)
         {
             CommandBuffer commandBuffer = logicalDevice.BeginSingleTimeCommand(commandPool);
 
@@ -1220,7 +1402,7 @@ namespace VulkanEngineTestCore
             barrier.DstQueueFamilyIndex = (~0U);
             barrier.Image = image;
             barrier.SubresourceRange = new ImageSubresourceRange();
-            barrier.SubresourceRange.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
+            barrier.SubresourceRange.AspectMask = aspectFlags;
             barrier.SubresourceRange.BaseMipLevel = 0;
             barrier.SubresourceRange.LevelCount = 1;
             barrier.SubresourceRange.BaseArrayLayer = 0;
@@ -1232,7 +1414,7 @@ namespace VulkanEngineTestCore
             if ((oldLayout == ImageLayout.Undefined || oldLayout == ImageLayout.Preinitialized) && newLayout == ImageLayout.TransferDstOptimal)
             {
                 barrier.SrcAccessMask = 0;
-                barrier.DstAccessMask = (uint)AccessFlagBits.TransferWriteBit;
+                barrier.DstAccessMask = AccessFlagBits.TransferWriteBit;
 
                 sourceStage = PipelineStageFlagBits.TopOfPipeBit;
                 destinationStage = PipelineStageFlagBits.TransferBit;
@@ -1240,26 +1422,35 @@ namespace VulkanEngineTestCore
             else if ((oldLayout == ImageLayout.Undefined || oldLayout == ImageLayout.Preinitialized) && newLayout == ImageLayout.TransferSrcOptimal)
             {
                 barrier.SrcAccessMask = 0;
-                barrier.DstAccessMask = (uint)AccessFlagBits.TransferWriteBit;
+                barrier.DstAccessMask = AccessFlagBits.TransferWriteBit;
 
                 sourceStage = PipelineStageFlagBits.TopOfPipeBit;
                 destinationStage = PipelineStageFlagBits.TransferBit;
             }
             else if (oldLayout == ImageLayout.TransferSrcOptimal && newLayout == ImageLayout.ShaderReadOnlyOptimal)
             {
-                barrier.SrcAccessMask = (uint)AccessFlagBits.TransferWriteBit;
-                barrier.DstAccessMask = (uint)AccessFlagBits.ShaderReadBit;
+                barrier.SrcAccessMask = AccessFlagBits.TransferWriteBit;
+                barrier.DstAccessMask = AccessFlagBits.ShaderReadBit;
 
                 sourceStage = PipelineStageFlagBits.TransferBit;
                 destinationStage = PipelineStageFlagBits.FragmentShaderBit;
             }
             else if (oldLayout == ImageLayout.TransferDstOptimal && newLayout == ImageLayout.ShaderReadOnlyOptimal)
             {
-                barrier.SrcAccessMask = (uint)AccessFlagBits.TransferWriteBit;
-                barrier.DstAccessMask = (uint)AccessFlagBits.ShaderReadBit;
+                barrier.SrcAccessMask = AccessFlagBits.TransferWriteBit;
+                barrier.DstAccessMask = AccessFlagBits.ShaderReadBit;
 
                 sourceStage = PipelineStageFlagBits.TransferBit;
                 destinationStage = PipelineStageFlagBits.FragmentShaderBit;
+            }
+            else if (oldLayout == ImageLayout.Undefined && newLayout == ImageLayout.DepthStencilAttachmentOptimal)
+            {
+                barrier.SrcAccessMask = 0;
+                barrier.DstAccessMask = (AccessFlagBits.DepthStencilAttachmentReadBit |
+                                               AccessFlagBits.DepthStencilAttachmentWriteBit);
+
+                sourceStage = PipelineStageFlagBits.TopOfPipeBit;
+                destinationStage = PipelineStageFlagBits.EarlyFragmentTestsBit;
             }
             else
             {
@@ -1289,7 +1480,7 @@ namespace VulkanEngineTestCore
             region.BufferRowLength = 0;
             region.BufferImageHeight = 0;
             region.ImageSubresource = new ImageSubresourceLayers();
-            region.ImageSubresource.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
+            region.ImageSubresource.AspectMask = ImageAspectFlagBits.ColorBit;
             region.ImageSubresource.MipLevel = 0;
             region.ImageSubresource.BaseArrayLayer = 0;
             region.ImageSubresource.LayerCount = 1;
@@ -1298,8 +1489,6 @@ namespace VulkanEngineTestCore
             
             commandBuffer.CopyBufferToImage(buffer, image, ImageLayout.TransferDstOptimal, 1, region);
             logicalDevice.EndSingleTimeCommands(graphicsQueue, commandPool, commandBuffer);
-
-            
         }
 
         void CopyImageToImage(Image source, Image destination, uint width, uint height)
@@ -1312,9 +1501,9 @@ namespace VulkanEngineTestCore
             region.SrcSubresource = new ImageSubresourceLayers();
             region.DstSubresource = new ImageSubresourceLayers();
             region.SrcSubresource.LayerCount = 1;
-            region.SrcSubresource.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
+            region.SrcSubresource.AspectMask = ImageAspectFlagBits.ColorBit;
             region.DstSubresource.LayerCount = 1;
-            region.DstSubresource.AspectMask = (uint)ImageAspectFlagBits.ColorBit;
+            region.DstSubresource.AspectMask = ImageAspectFlagBits.ColorBit;
             region.Extent = new Extent3D() { Width = width, Height = height, Depth = 1 };
 
             commandBuffer.CopyImage(source, ImageLayout.TransferSrcOptimal, destination, ImageLayout.TransferDstOptimal, 1, region);
@@ -1421,7 +1610,7 @@ namespace VulkanEngineTestCore
             for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
             {
                 if (((memoryRequirements.MemoryTypeBits >> (int)i) & 1) == 1
-                    && memProperties.MemoryTypes[i].PropertyFlags == memoryProperties)
+                    && memProperties.MemoryTypes[i].PropertyFlags.HasFlag(memoryProperties))
                 {
                     allocInfo.MemoryTypeIndex = i;
                     break;
@@ -1572,7 +1761,7 @@ namespace VulkanEngineTestCore
             var semaphoreInfo = new SemaphoreCreateInfo();
 
             var fenceInfo = new FenceCreateInfo();
-            fenceInfo.Flags = (uint)FenceCreateFlagBits.SignaledBit;
+            fenceInfo.Flags = FenceCreateFlagBits.SignaledBit;
 
             imageAvailableSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
             renderFinishedSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);

@@ -116,7 +116,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Adamantium.DXC" Version="1.0.5" />
+    <PackageReference Include="Adamantium.DXC" Version="1.0.7" />
   </ItemGroup>
 
   <ItemGroup>

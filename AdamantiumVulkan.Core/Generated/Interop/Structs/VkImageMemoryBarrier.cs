@@ -17,8 +17,8 @@ public unsafe partial struct VkImageMemoryBarrier
 {
     public StructureType sType;
     public void* pNext;
-    public VkAccessFlags srcAccessMask;
-    public VkAccessFlags dstAccessMask;
+    public AccessFlagBits srcAccessMask;
+    public AccessFlagBits dstAccessMask;
     public ImageLayout oldLayout;
     public ImageLayout newLayout;
     public uint srcQueueFamilyIndex;

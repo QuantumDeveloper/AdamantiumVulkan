@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
 {
-    private NativeStruct<Format> pColorAttachmentFormats;
+    private NativeStructArray<Format> pColorAttachmentFormats;
 
     public PipelineRenderingCreateInfo()
     {
@@ -25,7 +25,7 @@ public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
         PNext = _internal.pNext;
         ViewMask = _internal.viewMask;
         ColorAttachmentCount = _internal.colorAttachmentCount;
-        PColorAttachmentFormats = *_internal.pColorAttachmentFormats;
+        PColorAttachmentFormats = NativeUtils.PointerToManagedArray(_internal.pColorAttachmentFormats, _internal.colorAttachmentCount);
         DepthAttachmentFormat = _internal.depthAttachmentFormat;
         StencilAttachmentFormat = _internal.stencilAttachmentFormat;
     }
@@ -34,7 +34,7 @@ public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
     public void* PNext { get; set; }
     public uint ViewMask { get; set; }
     public uint ColorAttachmentCount { get; set; }
-    public Format? PColorAttachmentFormats { get; set; }
+    public Format[] PColorAttachmentFormats { get; set; }
     public Format DepthAttachmentFormat { get; set; }
     public Format StencilAttachmentFormat { get; set; }
 
@@ -46,9 +46,9 @@ public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
         _internal.viewMask = ViewMask;
         _internal.colorAttachmentCount = ColorAttachmentCount;
         pColorAttachmentFormats.Dispose();
-        if (PColorAttachmentFormats.HasValue)
+        if (PColorAttachmentFormats != null)
         {
-            pColorAttachmentFormats = new NativeStruct<Format>(PColorAttachmentFormats.Value);
+            pColorAttachmentFormats = new NativeStructArray<Format>(PColorAttachmentFormats);
             _internal.pColorAttachmentFormats = pColorAttachmentFormats.Handle;
         }
         _internal.depthAttachmentFormat = DepthAttachmentFormat;

@@ -18,7 +18,7 @@ public unsafe partial struct VkDescriptorSetLayoutBinding
     public uint binding;
     public DescriptorType descriptorType;
     public uint descriptorCount;
-    public VkShaderStageFlags stageFlags;
+    public ShaderStageFlagBits stageFlags;
     public VkSampler_T* pImmutableSamplers;
 }
 

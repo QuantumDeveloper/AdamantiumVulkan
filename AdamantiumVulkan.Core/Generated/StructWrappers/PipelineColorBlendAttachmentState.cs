@@ -36,7 +36,7 @@ public unsafe partial class PipelineColorBlendAttachmentState
     public BlendFactor SrcAlphaBlendFactor { get; set; }
     public BlendFactor DstAlphaBlendFactor { get; set; }
     public BlendOp AlphaBlendOp { get; set; }
-    public VkColorComponentFlags ColorWriteMask { get; set; }
+    public ColorComponentFlagBits ColorWriteMask { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState ToNative()
     {

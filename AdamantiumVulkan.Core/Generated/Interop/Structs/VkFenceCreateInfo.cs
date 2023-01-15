@@ -17,7 +17,7 @@ public unsafe partial struct VkFenceCreateInfo
 {
     public StructureType sType;
     public void* pNext;
-    public VkFenceCreateFlags flags;
+    public FenceCreateFlagBits flags;
 }
 
 

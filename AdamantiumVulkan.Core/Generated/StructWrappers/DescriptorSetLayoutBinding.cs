@@ -32,7 +32,7 @@ public unsafe partial class DescriptorSetLayoutBinding : QBDisposableObject
     public uint Binding { get; set; }
     public DescriptorType DescriptorType { get; set; }
     public uint DescriptorCount { get; set; }
-    public VkShaderStageFlags StageFlags { get; set; }
+    public ShaderStageFlagBits StageFlags { get; set; }
     public Sampler PImmutableSamplers { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding ToNative()

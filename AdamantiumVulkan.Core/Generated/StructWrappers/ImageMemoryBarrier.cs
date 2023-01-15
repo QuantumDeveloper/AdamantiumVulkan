@@ -32,8 +32,8 @@ public unsafe partial class ImageMemoryBarrier : QBDisposableObject
 
     public StructureType SType => StructureType.ImageMemoryBarrier;
     public void* PNext { get; set; }
-    public VkAccessFlags SrcAccessMask { get; set; }
-    public VkAccessFlags DstAccessMask { get; set; }
+    public AccessFlagBits SrcAccessMask { get; set; }
+    public AccessFlagBits DstAccessMask { get; set; }
     public ImageLayout OldLayout { get; set; }
     public ImageLayout NewLayout { get; set; }
     public uint SrcQueueFamilyIndex { get; set; }

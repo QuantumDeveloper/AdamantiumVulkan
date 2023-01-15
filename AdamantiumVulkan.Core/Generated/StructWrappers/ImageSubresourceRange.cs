@@ -26,7 +26,7 @@ public unsafe partial class ImageSubresourceRange
         LayerCount = _internal.layerCount;
     }
 
-    public VkImageAspectFlags AspectMask { get; set; }
+    public ImageAspectFlagBits AspectMask { get; set; }
     public uint BaseMipLevel { get; set; }
     public uint LevelCount { get; set; }
     public uint BaseArrayLayer { get; set; }

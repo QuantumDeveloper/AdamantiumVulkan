@@ -51,7 +51,7 @@ public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
     public ColorSpaceKHR ImageColorSpace { get; set; }
     public Extent2D ImageExtent { get; set; }
     public uint ImageArrayLayers { get; set; }
-    public VkImageUsageFlags ImageUsage { get; set; }
+    public ImageUsageFlagBits ImageUsage { get; set; }
     public SharingMode ImageSharingMode { get; set; }
     public uint QueueFamilyIndexCount { get; set; }
     public uint[] PQueueFamilyIndices { get; set; }
