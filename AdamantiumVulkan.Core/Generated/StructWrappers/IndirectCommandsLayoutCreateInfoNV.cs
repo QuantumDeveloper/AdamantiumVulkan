@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class IndirectCommandsLayoutCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkIndirectCommandsLayoutTokenNV> pTokens;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV> pTokens;
 
     private NativeStruct<uint> pStreamStrides;
 
@@ -59,7 +59,7 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : QBDisposableObj
         if (PTokens != null)
         {
             var struct0 = PTokens.ToNative();
-            pTokens = new NativeStruct<VkIndirectCommandsLayoutTokenNV>(struct0);
+            pTokens = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(struct0);
             _internal.pTokens = pTokens.Handle;
         }
         _internal.streamCount = StreamCount;

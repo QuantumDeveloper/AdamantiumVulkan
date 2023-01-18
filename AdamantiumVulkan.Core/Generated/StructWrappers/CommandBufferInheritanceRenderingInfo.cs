@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CommandBufferInheritanceRenderingInfo : QBDisposableObject
 {
-    private NativeStruct<Format> pColorAttachmentFormats;
+    private NativeStruct<AdamantiumVulkan.Core.Format> pColorAttachmentFormats;
 
     public CommandBufferInheritanceRenderingInfo()
     {
@@ -53,7 +53,7 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : QBDisposable
         pColorAttachmentFormats.Dispose();
         if (PColorAttachmentFormats.HasValue)
         {
-            pColorAttachmentFormats = new NativeStruct<Format>(PColorAttachmentFormats.Value);
+            pColorAttachmentFormats = new NativeStruct<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats.Value);
             _internal.pColorAttachmentFormats = pColorAttachmentFormats.Handle;
         }
         _internal.depthAttachmentFormat = DepthAttachmentFormat;

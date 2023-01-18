@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ImageFormatListCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<Format> pViewFormats;
+    private NativeStructArray<AdamantiumVulkan.Core.Format> pViewFormats;
 
     public ImageFormatListCreateInfo()
     {
@@ -41,7 +41,7 @@ public unsafe partial class ImageFormatListCreateInfo : QBDisposableObject
         pViewFormats.Dispose();
         if (PViewFormats != null)
         {
-            pViewFormats = new NativeStructArray<Format>(PViewFormats);
+            pViewFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PViewFormats);
             _internal.pViewFormats = pViewFormats.Handle;
         }
         return _internal;

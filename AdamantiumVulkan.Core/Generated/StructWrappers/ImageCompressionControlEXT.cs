@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ImageCompressionControlEXT : QBDisposableObject
 {
-    private NativeStruct<VkImageCompressionFixedRateFlagsEXT> pFixedRateFlags;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCompressionFixedRateFlagsEXT> pFixedRateFlags;
 
     public ImageCompressionControlEXT()
     {
@@ -48,7 +48,7 @@ public unsafe partial class ImageCompressionControlEXT : QBDisposableObject
         pFixedRateFlags.Dispose();
         if (PFixedRateFlags.HasValue)
         {
-            pFixedRateFlags = new NativeStruct<VkImageCompressionFixedRateFlagsEXT>(PFixedRateFlags.Value);
+            pFixedRateFlags = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCompressionFixedRateFlagsEXT>(PFixedRateFlags.Value);
             _internal.pFixedRateFlags = pFixedRateFlags.Handle;
         }
         return _internal;

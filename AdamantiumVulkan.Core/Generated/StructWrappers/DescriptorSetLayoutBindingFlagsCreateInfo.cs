@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkDescriptorBindingFlags> pBindingFlags;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorBindingFlags> pBindingFlags;
 
     public DescriptorSetLayoutBindingFlagsCreateInfo()
     {
@@ -45,7 +45,7 @@ public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : QBDispos
         pBindingFlags.Dispose();
         if (PBindingFlags.HasValue)
         {
-            pBindingFlags = new NativeStruct<VkDescriptorBindingFlags>(PBindingFlags.Value);
+            pBindingFlags = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorBindingFlags>(PBindingFlags.Value);
             _internal.pBindingFlags = pBindingFlags.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FragmentShadingRateAttachmentInfoKHR : QBDisposableObject
 {
-    private NativeStruct<VkAttachmentReference2> pFragmentShadingRateAttachment;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2> pFragmentShadingRateAttachment;
 
     public FragmentShadingRateAttachmentInfoKHR()
     {
@@ -42,7 +42,7 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : QBDisposableO
         if (PFragmentShadingRateAttachment != null)
         {
             var struct0 = PFragmentShadingRateAttachment.ToNative();
-            pFragmentShadingRateAttachment = new NativeStruct<VkAttachmentReference2>(struct0);
+            pFragmentShadingRateAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);
             _internal.pFragmentShadingRateAttachment = pFragmentShadingRateAttachment.Handle;
         }
         if (ShadingRateAttachmentTexelSize != null)

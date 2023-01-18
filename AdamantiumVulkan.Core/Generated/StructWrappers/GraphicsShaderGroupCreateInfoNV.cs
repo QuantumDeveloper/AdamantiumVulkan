@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class GraphicsShaderGroupCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkPipelineShaderStageCreateInfo> pStages;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> pStages;
 
-    private NativeStruct<VkPipelineVertexInputStateCreateInfo> pVertexInputState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo> pVertexInputState;
 
-    private NativeStruct<VkPipelineTessellationStateCreateInfo> pTessellationState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo> pTessellationState;
 
     public GraphicsShaderGroupCreateInfoNV()
     {
@@ -53,21 +53,21 @@ public unsafe partial class GraphicsShaderGroupCreateInfoNV : QBDisposableObject
         if (PStages != null)
         {
             var struct0 = PStages.ToNative();
-            pStages = new NativeStruct<VkPipelineShaderStageCreateInfo>(struct0);
+            pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
             _internal.pStages = pStages.Handle;
         }
         pVertexInputState.Dispose();
         if (PVertexInputState != null)
         {
             var struct1 = PVertexInputState.ToNative();
-            pVertexInputState = new NativeStruct<VkPipelineVertexInputStateCreateInfo>(struct1);
+            pVertexInputState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>(struct1);
             _internal.pVertexInputState = pVertexInputState.Handle;
         }
         pTessellationState.Dispose();
         if (PTessellationState != null)
         {
             var struct2 = PTessellationState.ToNative();
-            pTessellationState = new NativeStruct<VkPipelineTessellationStateCreateInfo>(struct2);
+            pTessellationState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo>(struct2);
             _internal.pTessellationState = pTessellationState.Handle;
         }
         return _internal;

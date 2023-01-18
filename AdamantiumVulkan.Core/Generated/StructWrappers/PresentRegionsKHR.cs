@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PresentRegionsKHR : QBDisposableObject
 {
-    private NativeStruct<VkPresentRegionKHR> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR> pRegions;
 
     public PresentRegionsKHR()
     {
@@ -42,7 +42,7 @@ public unsafe partial class PresentRegionsKHR : QBDisposableObject
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<VkPresentRegionKHR>(struct0);
+            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(struct0);
             _internal.pRegions = pRegions.Handle;
         }
         return _internal;

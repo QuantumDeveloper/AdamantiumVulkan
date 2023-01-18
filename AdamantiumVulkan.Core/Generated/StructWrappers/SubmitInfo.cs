@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubmitInfo : QBDisposableObject
 {
-    private NativeStructArray<VkSemaphore_T> pWaitSemaphores;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pWaitSemaphores;
 
-    private NativeStructArray<PipelineStageFlagBits> pWaitDstStageMask;
+    private NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits> pWaitDstStageMask;
 
-    private NativeStructArray<VkCommandBuffer_T> pCommandBuffers;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T> pCommandBuffers;
 
-    private NativeStructArray<VkSemaphore_T> pSignalSemaphores;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pSignalSemaphores;
 
     public SubmitInfo()
     {
@@ -79,13 +79,13 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             {
                 tmpArray0[i] = PWaitSemaphores[i];
             }
-            pWaitSemaphores = new NativeStructArray<VkSemaphore_T>(tmpArray0);
+            pWaitSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray0);
             _internal.pWaitSemaphores = pWaitSemaphores.Handle;
         }
         pWaitDstStageMask.Dispose();
         if (PWaitDstStageMask != null)
         {
-            pWaitDstStageMask = new NativeStructArray<PipelineStageFlagBits>(PWaitDstStageMask);
+            pWaitDstStageMask = new NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits>(PWaitDstStageMask);
             _internal.pWaitDstStageMask = pWaitDstStageMask.Handle;
         }
         _internal.commandBufferCount = CommandBufferCount;
@@ -97,7 +97,7 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             {
                 tmpArray1[i] = PCommandBuffers[i];
             }
-            pCommandBuffers = new NativeStructArray<VkCommandBuffer_T>(tmpArray1);
+            pCommandBuffers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>(tmpArray1);
             _internal.pCommandBuffers = pCommandBuffers.Handle;
         }
         _internal.signalSemaphoreCount = SignalSemaphoreCount;
@@ -109,7 +109,7 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             {
                 tmpArray2[i] = PSignalSemaphores[i];
             }
-            pSignalSemaphores = new NativeStructArray<VkSemaphore_T>(tmpArray2);
+            pSignalSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray2);
             _internal.pSignalSemaphores = pSignalSemaphores.Handle;
         }
         return _internal;

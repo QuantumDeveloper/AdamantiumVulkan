@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDisposableObject
 {
-    private NativeStructArray<VkAccelerationStructureGeometryKHR> pGeometries;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR> pGeometries;
 
-    private NativeStructArray<VkAccelerationStructureGeometryKHR> ppGeometries;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR> ppGeometries;
 
     public AccelerationStructureBuildGeometryInfoKHR()
     {
@@ -71,7 +71,7 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
             {
                 tmpArray0[i] = PGeometries[i].ToNative();
             }
-            pGeometries = new NativeStructArray<VkAccelerationStructureGeometryKHR>(tmpArray0);
+            pGeometries = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR>(tmpArray0);
             _internal.pGeometries = pGeometries.Handle;
         }
         if (ScratchData != null)

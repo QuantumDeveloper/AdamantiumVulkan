@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineCreationFeedbackCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkPipelineCreationFeedback> pPipelineCreationFeedback;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback> pPipelineCreationFeedback;
 
-    private NativeStruct<VkPipelineCreationFeedback> pPipelineStageCreationFeedbacks;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback> pPipelineStageCreationFeedbacks;
 
     public PipelineCreationFeedbackCreateInfo()
     {
@@ -47,7 +47,7 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : QBDisposableObj
         if (PipelineCreationFeedback != null)
         {
             var struct0 = PipelineCreationFeedback.ToNative();
-            pPipelineCreationFeedback = new NativeStruct<VkPipelineCreationFeedback>(struct0);
+            pPipelineCreationFeedback = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>(struct0);
             _internal.pPipelineCreationFeedback = pPipelineCreationFeedback.Handle;
         }
         _internal.pipelineStageCreationFeedbackCount = PipelineStageCreationFeedbackCount;
@@ -55,7 +55,7 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : QBDisposableObj
         if (PipelineStageCreationFeedbacks != null)
         {
             var struct1 = PipelineStageCreationFeedbacks.ToNative();
-            pPipelineStageCreationFeedbacks = new NativeStruct<VkPipelineCreationFeedback>(struct1);
+            pPipelineStageCreationFeedbacks = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>(struct1);
             _internal.pPipelineStageCreationFeedbacks = pPipelineStageCreationFeedbacks.Handle;
         }
         return _internal;

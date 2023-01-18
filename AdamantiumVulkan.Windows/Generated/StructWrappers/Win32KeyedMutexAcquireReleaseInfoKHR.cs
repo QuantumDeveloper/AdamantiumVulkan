@@ -15,13 +15,13 @@ namespace AdamantiumVulkan.Windows;
 
 public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : QBDisposableObject
 {
-    private NativeStruct<VkDeviceMemory_T> pAcquireSyncs;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T> pAcquireSyncs;
 
     private NativeStruct<ulong> pAcquireKeys;
 
     private NativeStruct<uint> pAcquireTimeouts;
 
-    private NativeStruct<VkDeviceMemory_T> pReleaseSyncs;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T> pReleaseSyncs;
 
     private NativeStruct<ulong> pReleaseKeys;
 
@@ -76,7 +76,7 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : QBDisposableO
         if (PAcquireSyncs != null)
         {
             AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = PAcquireSyncs;
-            pAcquireSyncs = new NativeStruct<VkDeviceMemory_T>(struct0);
+            pAcquireSyncs = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(struct0);
             _internal.pAcquireSyncs = pAcquireSyncs.Handle;
         }
         pAcquireKeys.Dispose();
@@ -96,7 +96,7 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : QBDisposableO
         if (PReleaseSyncs != null)
         {
             AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct3 = PReleaseSyncs;
-            pReleaseSyncs = new NativeStruct<VkDeviceMemory_T>(struct3);
+            pReleaseSyncs = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(struct3);
             _internal.pReleaseSyncs = pReleaseSyncs.Handle;
         }
         pReleaseKeys.Dispose();

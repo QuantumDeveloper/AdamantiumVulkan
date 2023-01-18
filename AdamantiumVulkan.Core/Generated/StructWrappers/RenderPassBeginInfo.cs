@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassBeginInfo : QBDisposableObject
 {
-    private NativeStructArray<VkClearValue> pClearValues;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkClearValue> pClearValues;
 
     public RenderPassBeginInfo()
     {
@@ -63,7 +63,7 @@ public unsafe partial class RenderPassBeginInfo : QBDisposableObject
             {
                 tmpArray0[i] = PClearValues[i].ToNative();
             }
-            pClearValues = new NativeStructArray<VkClearValue>(tmpArray0);
+            pClearValues = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkClearValue>(tmpArray0);
             _internal.pClearValues = pClearValues.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkGeometryNV> pGeometries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV> pGeometries;
 
     public AccelerationStructureInfoNV()
     {
@@ -51,7 +51,7 @@ public unsafe partial class AccelerationStructureInfoNV : QBDisposableObject
         if (PGeometries != null)
         {
             var struct0 = PGeometries.ToNative();
-            pGeometries = new NativeStruct<VkGeometryNV>(struct0);
+            pGeometries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV>(struct0);
             _internal.pGeometries = pGeometries.Handle;
         }
         return _internal;

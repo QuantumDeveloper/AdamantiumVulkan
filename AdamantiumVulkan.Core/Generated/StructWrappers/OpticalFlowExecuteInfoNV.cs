@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class OpticalFlowExecuteInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkRect2D> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pRegions;
 
     public OpticalFlowExecuteInfoNV()
     {
@@ -46,7 +46,7 @@ public unsafe partial class OpticalFlowExecuteInfoNV : QBDisposableObject
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<VkRect2D>(struct0);
+            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
             _internal.pRegions = pRegions.Handle;
         }
         return _internal;

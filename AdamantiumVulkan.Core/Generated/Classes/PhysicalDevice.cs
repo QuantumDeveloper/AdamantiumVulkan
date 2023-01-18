@@ -39,7 +39,6 @@ public unsafe partial class PhysicalDevice
         var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
         VkDevice_T arg3;
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDevice(this, arg1, arg2, out arg3);
-        pCreateInfo?.Dispose();
         NativeUtils.Free(arg1);
         pAllocator?.Dispose();
         NativeUtils.Free(arg2);

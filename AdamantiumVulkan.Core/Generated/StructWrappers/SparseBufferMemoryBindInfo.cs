@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SparseBufferMemoryBindInfo : QBDisposableObject
 {
-    private NativeStruct<VkSparseMemoryBind> pBinds;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind> pBinds;
 
     public SparseBufferMemoryBindInfo()
     {
@@ -40,7 +40,7 @@ public unsafe partial class SparseBufferMemoryBindInfo : QBDisposableObject
         if (PBinds != null)
         {
             var struct0 = PBinds.ToNative();
-            pBinds = new NativeStruct<VkSparseMemoryBind>(struct0);
+            pBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>(struct0);
             _internal.pBinds = pBinds.Handle;
         }
         return _internal;

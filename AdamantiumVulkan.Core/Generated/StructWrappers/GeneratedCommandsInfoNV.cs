@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class GeneratedCommandsInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkIndirectCommandsStreamNV> pStreams;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV> pStreams;
 
     public GeneratedCommandsInfoNV()
     {
@@ -68,7 +68,7 @@ public unsafe partial class GeneratedCommandsInfoNV : QBDisposableObject
         if (PStreams != null)
         {
             var struct0 = PStreams.ToNative();
-            pStreams = new NativeStruct<VkIndirectCommandsStreamNV>(struct0);
+            pStreams = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>(struct0);
             _internal.pStreams = pStreams.Handle;
         }
         _internal.sequencesCount = SequencesCount;

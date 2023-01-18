@@ -13,15 +13,15 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class BindSparseInfo : QBDisposableObject
 {
-    private NativeStruct<VkSemaphore_T> pWaitSemaphores;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pWaitSemaphores;
 
-    private NativeStruct<VkSparseBufferMemoryBindInfo> pBufferBinds;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo> pBufferBinds;
 
-    private NativeStruct<VkSparseImageOpaqueMemoryBindInfo> pImageOpaqueBinds;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo> pImageOpaqueBinds;
 
-    private NativeStruct<VkSparseImageMemoryBindInfo> pImageBinds;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo> pImageBinds;
 
-    private NativeStruct<VkSemaphore_T> pSignalSemaphores;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pSignalSemaphores;
 
     public BindSparseInfo()
     {
@@ -70,7 +70,7 @@ public unsafe partial class BindSparseInfo : QBDisposableObject
         if (PWaitSemaphores != null)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = PWaitSemaphores;
-            pWaitSemaphores = new NativeStruct<VkSemaphore_T>(struct0);
+            pWaitSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct0);
             _internal.pWaitSemaphores = pWaitSemaphores.Handle;
         }
         _internal.bufferBindCount = BufferBindCount;
@@ -78,7 +78,7 @@ public unsafe partial class BindSparseInfo : QBDisposableObject
         if (PBufferBinds != null)
         {
             var struct1 = PBufferBinds.ToNative();
-            pBufferBinds = new NativeStruct<VkSparseBufferMemoryBindInfo>(struct1);
+            pBufferBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo>(struct1);
             _internal.pBufferBinds = pBufferBinds.Handle;
         }
         _internal.imageOpaqueBindCount = ImageOpaqueBindCount;
@@ -86,7 +86,7 @@ public unsafe partial class BindSparseInfo : QBDisposableObject
         if (PImageOpaqueBinds != null)
         {
             var struct2 = PImageOpaqueBinds.ToNative();
-            pImageOpaqueBinds = new NativeStruct<VkSparseImageOpaqueMemoryBindInfo>(struct2);
+            pImageOpaqueBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(struct2);
             _internal.pImageOpaqueBinds = pImageOpaqueBinds.Handle;
         }
         _internal.imageBindCount = ImageBindCount;
@@ -94,7 +94,7 @@ public unsafe partial class BindSparseInfo : QBDisposableObject
         if (PImageBinds != null)
         {
             var struct3 = PImageBinds.ToNative();
-            pImageBinds = new NativeStruct<VkSparseImageMemoryBindInfo>(struct3);
+            pImageBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo>(struct3);
             _internal.pImageBinds = pImageBinds.Handle;
         }
         _internal.signalSemaphoreCount = SignalSemaphoreCount;
@@ -102,7 +102,7 @@ public unsafe partial class BindSparseInfo : QBDisposableObject
         if (PSignalSemaphores != null)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct4 = PSignalSemaphores;
-            pSignalSemaphores = new NativeStruct<VkSemaphore_T>(struct4);
+            pSignalSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct4);
             _internal.pSignalSemaphores = pSignalSemaphores.Handle;
         }
         return _internal;

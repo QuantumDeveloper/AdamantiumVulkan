@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FramebufferCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkImageView_T> pAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T> pAttachments;
 
     public FramebufferCreateInfo()
     {
@@ -63,7 +63,7 @@ public unsafe partial class FramebufferCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PAttachments[i];
             }
-            pAttachments = new NativeStructArray<VkImageView_T>(tmpArray0);
+            pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T>(tmpArray0);
             _internal.pAttachments = pAttachments.Handle;
         }
         _internal.width = Width;

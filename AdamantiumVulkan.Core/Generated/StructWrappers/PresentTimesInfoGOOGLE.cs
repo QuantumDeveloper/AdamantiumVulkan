@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PresentTimesInfoGOOGLE : QBDisposableObject
 {
-    private NativeStruct<VkPresentTimeGOOGLE> pTimes;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE> pTimes;
 
     public PresentTimesInfoGOOGLE()
     {
@@ -42,7 +42,7 @@ public unsafe partial class PresentTimesInfoGOOGLE : QBDisposableObject
         if (PTimes != null)
         {
             var struct0 = PTimes.ToNative();
-            pTimes = new NativeStruct<VkPresentTimeGOOGLE>(struct0);
+            pTimes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(struct0);
             _internal.pTimes = pTimes.Handle;
         }
         return _internal;

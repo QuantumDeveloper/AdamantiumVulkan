@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkDeviceQueueCreateInfo> pQueueCreateInfos;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo> pQueueCreateInfos;
 
     private MarshaledStringArray ppEnabledLayerNames;
 
     private MarshaledStringArray ppEnabledExtensionNames;
 
-    private NativeStruct<VkPhysicalDeviceFeatures> pEnabledFeatures;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures> pEnabledFeatures;
 
     public DeviceCreateInfo()
     {
@@ -71,7 +71,7 @@ public unsafe partial class DeviceCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PQueueCreateInfos[i].ToNative();
             }
-            pQueueCreateInfos = new NativeStructArray<VkDeviceQueueCreateInfo>(tmpArray0);
+            pQueueCreateInfos = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo>(tmpArray0);
             _internal.pQueueCreateInfos = pQueueCreateInfos.Handle;
         }
         _internal.enabledLayerCount = EnabledLayerCount;
@@ -94,7 +94,7 @@ public unsafe partial class DeviceCreateInfo : QBDisposableObject
         if (PEnabledFeatures != null)
         {
             var struct0 = PEnabledFeatures.ToNative();
-            pEnabledFeatures = new NativeStruct<VkPhysicalDeviceFeatures>(struct0);
+            pEnabledFeatures = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures>(struct0);
             _internal.pEnabledFeatures = pEnabledFeatures.Handle;
         }
         return _internal;

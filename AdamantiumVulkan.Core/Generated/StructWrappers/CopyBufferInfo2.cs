@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CopyBufferInfo2 : QBDisposableObject
 {
-    private NativeStruct<VkBufferCopy2> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCopy2> pRegions;
 
     public CopyBufferInfo2()
     {
@@ -49,7 +49,7 @@ public unsafe partial class CopyBufferInfo2 : QBDisposableObject
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<VkBufferCopy2>(struct0);
+            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCopy2>(struct0);
             _internal.pRegions = pRegions.Handle;
         }
         return _internal;

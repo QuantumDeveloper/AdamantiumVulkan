@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorPoolCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkDescriptorPoolSize> pPoolSizes;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize> pPoolSizes;
 
     public DescriptorPoolCreateInfo()
     {
@@ -57,7 +57,7 @@ public unsafe partial class DescriptorPoolCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PoolSizes[i].ToNative();
             }
-            pPoolSizes = new NativeStructArray<VkDescriptorPoolSize>(tmpArray0);
+            pPoolSizes = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize>(tmpArray0);
             _internal.pPoolSizes = pPoolSizes.Handle;
         }
         return _internal;

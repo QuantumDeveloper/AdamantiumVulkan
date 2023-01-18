@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
 {
-    private NativeStructArray<uint> pColorWriteEnables;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.uint> pColorWriteEnables;
 
     public PipelineColorWriteCreateInfoEXT()
     {
@@ -52,7 +52,7 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
             {
                 tmpArray0[i] = System.Convert.ToUInt32(PColorWriteEnables[i]);
             }
-            pColorWriteEnables = new NativeStructArray<uint>(tmpArray0);
+            pColorWriteEnables = new NativeStructArray<AdamantiumVulkan.Core.Interop.uint>(tmpArray0);
             _internal.pColorWriteEnables = pColorWriteEnables.Handle;
         }
         return _internal;

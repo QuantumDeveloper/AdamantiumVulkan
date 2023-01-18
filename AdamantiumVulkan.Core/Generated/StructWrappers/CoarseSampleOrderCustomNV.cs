@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CoarseSampleOrderCustomNV : QBDisposableObject
 {
-    private NativeStruct<VkCoarseSampleLocationNV> pSampleLocations;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV> pSampleLocations;
 
     public CoarseSampleOrderCustomNV()
     {
@@ -43,7 +43,7 @@ public unsafe partial class CoarseSampleOrderCustomNV : QBDisposableObject
         if (PSampleLocations != null)
         {
             var struct0 = PSampleLocations.ToNative();
-            pSampleLocations = new NativeStruct<VkCoarseSampleLocationNV>(struct0);
+            pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(struct0);
             _internal.pSampleLocations = pSampleLocations.Handle;
         }
         return _internal;

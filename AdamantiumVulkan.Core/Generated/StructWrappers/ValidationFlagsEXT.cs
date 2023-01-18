@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ValidationFlagsEXT : QBDisposableObject
 {
-    private NativeStructArray<ValidationCheckEXT> pDisabledValidationChecks;
+    private NativeStructArray<AdamantiumVulkan.Core.ValidationCheckEXT> pDisabledValidationChecks;
 
     public ValidationFlagsEXT()
     {
@@ -40,7 +40,7 @@ public unsafe partial class ValidationFlagsEXT : QBDisposableObject
         pDisabledValidationChecks.Dispose();
         if (PDisabledValidationChecks != null)
         {
-            pDisabledValidationChecks = new NativeStructArray<ValidationCheckEXT>(PDisabledValidationChecks);
+            pDisabledValidationChecks = new NativeStructArray<AdamantiumVulkan.Core.ValidationCheckEXT>(PDisabledValidationChecks);
             _internal.pDisabledValidationChecks = pDisabledValidationChecks.Handle;
         }
         return _internal;

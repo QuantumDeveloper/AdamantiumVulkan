@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
 {
-    private NativeStruct<VkRect2D> pDeviceRenderAreas;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pDeviceRenderAreas;
 
     public DeviceGroupRenderPassBeginInfo()
     {
@@ -45,7 +45,7 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
         if (PDeviceRenderAreas != null)
         {
             var struct0 = PDeviceRenderAreas.ToNative();
-            pDeviceRenderAreas = new NativeStruct<VkRect2D>(struct0);
+            pDeviceRenderAreas = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
             _internal.pDeviceRenderAreas = pDeviceRenderAreas.Handle;
         }
         return _internal;

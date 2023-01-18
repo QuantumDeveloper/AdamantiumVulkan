@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DrmFormatModifierPropertiesListEXT : QBDisposableObject
 {
-    private NativeStruct<VkDrmFormatModifierPropertiesEXT> pDrmFormatModifierProperties;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT> pDrmFormatModifierProperties;
 
     public DrmFormatModifierPropertiesListEXT()
     {
@@ -42,7 +42,7 @@ public unsafe partial class DrmFormatModifierPropertiesListEXT : QBDisposableObj
         if (PDrmFormatModifierProperties != null)
         {
             var struct0 = PDrmFormatModifierProperties.ToNative();
-            pDrmFormatModifierProperties = new NativeStruct<VkDrmFormatModifierPropertiesEXT>(struct0);
+            pDrmFormatModifierProperties = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT>(struct0);
             _internal.pDrmFormatModifierProperties = pDrmFormatModifierProperties.Handle;
         }
         return _internal;

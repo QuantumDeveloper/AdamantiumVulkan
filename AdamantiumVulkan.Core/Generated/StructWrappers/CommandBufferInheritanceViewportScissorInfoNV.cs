@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkViewport> pViewportDepths;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport> pViewportDepths;
 
     public CommandBufferInheritanceViewportScissorInfoNV()
     {
@@ -46,7 +46,7 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : QBDi
         if (PViewportDepths != null)
         {
             var struct0 = PViewportDepths.ToNative();
-            pViewportDepths = new NativeStruct<VkViewport>(struct0);
+            pViewportDepths = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport>(struct0);
             _internal.pViewportDepths = pViewportDepths.Handle;
         }
         return _internal;

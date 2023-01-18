@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SpecializationInfo : QBDisposableObject
 {
-    private NativeStruct<VkSpecializationMapEntry> pMapEntries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry> pMapEntries;
 
     public SpecializationInfo()
     {
@@ -41,7 +41,7 @@ public unsafe partial class SpecializationInfo : QBDisposableObject
         if (PMapEntries != null)
         {
             var struct0 = PMapEntries.ToNative();
-            pMapEntries = new NativeStruct<VkSpecializationMapEntry>(struct0);
+            pMapEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry>(struct0);
             _internal.pMapEntries = pMapEntries.Handle;
         }
         _internal.dataSize = DataSize;

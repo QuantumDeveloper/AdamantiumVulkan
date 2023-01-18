@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SampleLocationsInfoEXT : QBDisposableObject
 {
-    private NativeStruct<VkSampleLocationEXT> pSampleLocations;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT> pSampleLocations;
 
     public SampleLocationsInfoEXT()
     {
@@ -51,7 +51,7 @@ public unsafe partial class SampleLocationsInfoEXT : QBDisposableObject
         if (PSampleLocations != null)
         {
             var struct0 = PSampleLocations.ToNative();
-            pSampleLocations = new NativeStruct<VkSampleLocationEXT>(struct0);
+            pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(struct0);
             _internal.pSampleLocations = pSampleLocations.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class InstanceCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkApplicationInfo> pApplicationInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo> pApplicationInfo;
 
     private MarshaledStringArray ppEnabledLayerNames;
 
@@ -54,7 +54,7 @@ public unsafe partial class InstanceCreateInfo : QBDisposableObject
         if (PApplicationInfo != null)
         {
             var struct0 = PApplicationInfo.ToNative();
-            pApplicationInfo = new NativeStruct<VkApplicationInfo>(struct0);
+            pApplicationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo>(struct0);
             _internal.pApplicationInfo = pApplicationInfo.Handle;
         }
         _internal.enabledLayerCount = EnabledLayerCount;

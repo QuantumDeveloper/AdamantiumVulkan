@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : QBDisposableObject
 {
-    private NativeStruct<VkMicromapUsageEXT> pUsageCounts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> pUsageCounts;
 
-    private NativeStruct<VkMicromapUsageEXT> ppUsageCounts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> ppUsageCounts;
 
     public AccelerationStructureTrianglesOpacityMicromapEXT()
     {
@@ -62,7 +62,7 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : Q
         if (PUsageCounts != null)
         {
             var struct0 = PUsageCounts.ToNative();
-            pUsageCounts = new NativeStruct<VkMicromapUsageEXT>(struct0);
+            pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
             _internal.pUsageCounts = pUsageCounts.Handle;
         }
         _internal.micromap = Micromap;

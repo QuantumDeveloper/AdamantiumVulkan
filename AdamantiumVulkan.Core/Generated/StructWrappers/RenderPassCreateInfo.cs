@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkAttachmentDescription> pAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription> pAttachments;
 
-    private NativeStructArray<VkSubpassDescription> pSubpasses;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription> pSubpasses;
 
-    private NativeStructArray<VkSubpassDependency> pDependencies;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDependency> pDependencies;
 
     public RenderPassCreateInfo()
     {
@@ -78,7 +78,7 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PAttachments[i].ToNative();
             }
-            pAttachments = new NativeStructArray<VkAttachmentDescription>(tmpArray0);
+            pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription>(tmpArray0);
             _internal.pAttachments = pAttachments.Handle;
         }
         _internal.subpassCount = SubpassCount;
@@ -90,7 +90,7 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             {
                 tmpArray1[i] = PSubpasses[i].ToNative();
             }
-            pSubpasses = new NativeStructArray<VkSubpassDescription>(tmpArray1);
+            pSubpasses = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription>(tmpArray1);
             _internal.pSubpasses = pSubpasses.Handle;
         }
         _internal.dependencyCount = DependencyCount;
@@ -102,7 +102,7 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             {
                 tmpArray2[i] = PDependencies[i].ToNative();
             }
-            pDependencies = new NativeStructArray<VkSubpassDependency>(tmpArray2);
+            pDependencies = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDependency>(tmpArray2);
             _internal.pDependencies = pDependencies.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkPhysicalDevice_T> pPhysicalDevices;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T> pPhysicalDevices;
 
     public DeviceGroupDeviceCreateInfo()
     {
@@ -42,7 +42,7 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
         if (PhysicalDevices != null)
         {
             AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T struct0 = PhysicalDevices;
-            pPhysicalDevices = new NativeStruct<VkPhysicalDevice_T>(struct0);
+            pPhysicalDevices = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>(struct0);
             _internal.pPhysicalDevices = pPhysicalDevices.Handle;
         }
         return _internal;

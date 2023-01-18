@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FramebufferAttachmentImageInfo : QBDisposableObject
 {
-    private NativeStructArray<Format> pViewFormats;
+    private NativeStructArray<AdamantiumVulkan.Core.Format> pViewFormats;
 
     public FramebufferAttachmentImageInfo()
     {
@@ -56,7 +56,7 @@ public unsafe partial class FramebufferAttachmentImageInfo : QBDisposableObject
         pViewFormats.Dispose();
         if (PViewFormats != null)
         {
-            pViewFormats = new NativeStructArray<Format>(PViewFormats);
+            pViewFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PViewFormats);
             _internal.pViewFormats = pViewFormats.Handle;
         }
         return _internal;

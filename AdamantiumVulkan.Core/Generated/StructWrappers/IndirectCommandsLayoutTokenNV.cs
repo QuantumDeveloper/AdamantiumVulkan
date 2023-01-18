@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
 {
-    private NativeStructArray<IndexType> pIndexTypes;
+    private NativeStructArray<AdamantiumVulkan.Core.IndexType> pIndexTypes;
 
     private NativeStructArray<uint> pIndexTypeValues;
 
@@ -77,7 +77,7 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
         pIndexTypes.Dispose();
         if (PIndexTypes != null)
         {
-            pIndexTypes = new NativeStructArray<IndexType>(PIndexTypes);
+            pIndexTypes = new NativeStructArray<AdamantiumVulkan.Core.IndexType>(PIndexTypes);
             _internal.pIndexTypes = pIndexTypes.Handle;
         }
         pIndexTypeValues.Dispose();

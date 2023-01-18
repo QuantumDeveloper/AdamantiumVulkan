@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Spirv", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumBinding.Utils", "..\QuantumBinding\QuantumBinding.Utils\QuantumBinding.Utils.csproj", "{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdamantiumVulkan.Profiles", "AdamantiumVulkan.Profiles\AdamantiumVulkan.Profiles.csproj", "{E1D8BE46-A83C-4335-971C-DFE5D007DB55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,6 +77,10 @@ Global
 		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Debug|x64.Build.0 = Debug|Any CPU
 		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Release|x64.ActiveCfg = Release|Any CPU
 		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Release|x64.Build.0 = Release|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

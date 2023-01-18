@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkViewport> pViewports;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport> pViewports;
 
-    private NativeStructArray<VkRect2D> pScissors;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkRect2D> pScissors;
 
     public PipelineViewportStateCreateInfo()
     {
@@ -66,7 +66,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PViewports[i].ToNative();
             }
-            pViewports = new NativeStructArray<VkViewport>(tmpArray0);
+            pViewports = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport>(tmpArray0);
             _internal.pViewports = pViewports.Handle;
         }
         _internal.scissorCount = ScissorCount;
@@ -78,7 +78,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
             {
                 tmpArray1[i] = PScissors[i].ToNative();
             }
-            pScissors = new NativeStructArray<VkRect2D>(tmpArray1);
+            pScissors = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkRect2D>(tmpArray1);
             _internal.pScissors = pScissors.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkPipelineColorBlendAttachmentState> pAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState> pAttachments;
 
     public PipelineColorBlendStateCreateInfo()
     {
@@ -62,7 +62,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObje
             {
                 tmpArray0[i] = PAttachments[i].ToNative();
             }
-            pAttachments = new NativeStructArray<VkPipelineColorBlendAttachmentState>(tmpArray0);
+            pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState>(tmpArray0);
             _internal.pAttachments = pAttachments.Handle;
         }
         if(BlendConstants != null)

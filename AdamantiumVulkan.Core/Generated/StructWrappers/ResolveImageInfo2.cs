@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ResolveImageInfo2 : QBDisposableObject
 {
-    private NativeStruct<VkImageResolve2> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageResolve2> pRegions;
 
     public ResolveImageInfo2()
     {
@@ -55,7 +55,7 @@ public unsafe partial class ResolveImageInfo2 : QBDisposableObject
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<VkImageResolve2>(struct0);
+            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageResolve2>(struct0);
             _internal.pRegions = pRegions.Handle;
         }
         return _internal;

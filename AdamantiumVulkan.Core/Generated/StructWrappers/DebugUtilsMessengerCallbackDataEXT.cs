@@ -17,11 +17,11 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObj
 
     private MarshaledString pMessage;
 
-    private NativeStruct<VkDebugUtilsLabelEXT> pQueueLabels;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT> pQueueLabels;
 
-    private NativeStruct<VkDebugUtilsLabelEXT> pCmdBufLabels;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT> pCmdBufLabels;
 
-    private NativeStruct<VkDebugUtilsObjectNameInfoEXT> pObjects;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT> pObjects;
 
     public DebugUtilsMessengerCallbackDataEXT()
     {
@@ -82,7 +82,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObj
         if (PQueueLabels != null)
         {
             var struct0 = PQueueLabels.ToNative();
-            pQueueLabels = new NativeStruct<VkDebugUtilsLabelEXT>(struct0);
+            pQueueLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct0);
             _internal.pQueueLabels = pQueueLabels.Handle;
         }
         _internal.cmdBufLabelCount = CmdBufLabelCount;
@@ -90,7 +90,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObj
         if (PCmdBufLabels != null)
         {
             var struct1 = PCmdBufLabels.ToNative();
-            pCmdBufLabels = new NativeStruct<VkDebugUtilsLabelEXT>(struct1);
+            pCmdBufLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct1);
             _internal.pCmdBufLabels = pCmdBufLabels.Handle;
         }
         _internal.objectCount = ObjectCount;
@@ -98,7 +98,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObj
         if (PObjects != null)
         {
             var struct2 = PObjects.ToNative();
-            pObjects = new NativeStruct<VkDebugUtilsObjectNameInfoEXT>(struct2);
+            pObjects = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(struct2);
             _internal.pObjects = pObjects.Handle;
         }
         return _internal;

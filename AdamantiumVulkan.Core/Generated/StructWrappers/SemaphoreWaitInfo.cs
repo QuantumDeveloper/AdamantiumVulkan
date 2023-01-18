@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SemaphoreWaitInfo : QBDisposableObject
 {
-    private NativeStruct<VkSemaphore_T> pSemaphores;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pSemaphores;
 
     private NativeStruct<ulong> pValues;
 
@@ -54,7 +54,7 @@ public unsafe partial class SemaphoreWaitInfo : QBDisposableObject
         if (PSemaphores != null)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = PSemaphores;
-            pSemaphores = new NativeStruct<VkSemaphore_T>(struct0);
+            pSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct0);
             _internal.pSemaphores = pSemaphores.Handle;
         }
         pValues.Dispose();

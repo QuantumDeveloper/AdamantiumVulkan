@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceBufferMemoryRequirements : QBDisposableObject
 {
-    private NativeStruct<VkBufferCreateInfo> pCreateInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo> pCreateInfo;
 
     public DeviceBufferMemoryRequirements()
     {
@@ -40,7 +40,7 @@ public unsafe partial class DeviceBufferMemoryRequirements : QBDisposableObject
         if (PCreateInfo != null)
         {
             var struct0 = PCreateInfo.ToNative();
-            pCreateInfo = new NativeStruct<VkBufferCreateInfo>(struct0);
+            pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo>(struct0);
             _internal.pCreateInfo = pCreateInfo.Handle;
         }
         return _internal;

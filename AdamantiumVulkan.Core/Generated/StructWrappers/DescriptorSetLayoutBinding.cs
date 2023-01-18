@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetLayoutBinding : QBDisposableObject
 {
-    private NativeStruct<VkSampler_T> pImmutableSamplers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T> pImmutableSamplers;
 
     public DescriptorSetLayoutBinding()
     {
@@ -46,7 +46,7 @@ public unsafe partial class DescriptorSetLayoutBinding : QBDisposableObject
         if (PImmutableSamplers != null)
         {
             AdamantiumVulkan.Core.Interop.VkSampler_T struct0 = PImmutableSamplers;
-            pImmutableSamplers = new NativeStruct<VkSampler_T>(struct0);
+            pImmutableSamplers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T>(struct0);
             _internal.pImmutableSamplers = pImmutableSamplers.Handle;
         }
         return _internal;

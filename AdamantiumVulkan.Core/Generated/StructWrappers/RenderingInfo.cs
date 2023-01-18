@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderingInfo : QBDisposableObject
 {
-    private NativeStructArray<VkRenderingAttachmentInfo> pColorAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo> pColorAttachments;
 
-    private NativeStruct<VkRenderingAttachmentInfo> pDepthAttachment;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo> pDepthAttachment;
 
-    private NativeStruct<VkRenderingAttachmentInfo> pStencilAttachment;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo> pStencilAttachment;
 
     public RenderingInfo()
     {
@@ -77,21 +77,21 @@ public unsafe partial class RenderingInfo : QBDisposableObject
             {
                 tmpArray0[i] = PColorAttachments[i].ToNative();
             }
-            pColorAttachments = new NativeStructArray<VkRenderingAttachmentInfo>(tmpArray0);
+            pColorAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(tmpArray0);
             _internal.pColorAttachments = pColorAttachments.Handle;
         }
         pDepthAttachment.Dispose();
         if (PDepthAttachment != null)
         {
             var struct0 = PDepthAttachment.ToNative();
-            pDepthAttachment = new NativeStruct<VkRenderingAttachmentInfo>(struct0);
+            pDepthAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(struct0);
             _internal.pDepthAttachment = pDepthAttachment.Handle;
         }
         pStencilAttachment.Dispose();
         if (PStencilAttachment != null)
         {
             var struct1 = PStencilAttachment.ToNative();
-            pStencilAttachment = new NativeStruct<VkRenderingAttachmentInfo>(struct1);
+            pStencilAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(struct1);
             _internal.pStencilAttachment = pStencilAttachment.Handle;
         }
         return _internal;

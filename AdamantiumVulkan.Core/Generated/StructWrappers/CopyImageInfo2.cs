@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CopyImageInfo2 : QBDisposableObject
 {
-    private NativeStruct<VkImageCopy2> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCopy2> pRegions;
 
     public CopyImageInfo2()
     {
@@ -55,7 +55,7 @@ public unsafe partial class CopyImageInfo2 : QBDisposableObject
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<VkImageCopy2>(struct0);
+            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCopy2>(struct0);
             _internal.pRegions = pRegions.Handle;
         }
         return _internal;

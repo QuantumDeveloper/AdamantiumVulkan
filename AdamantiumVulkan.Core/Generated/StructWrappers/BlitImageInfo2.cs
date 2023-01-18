@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class BlitImageInfo2 : QBDisposableObject
 {
-    private NativeStruct<VkImageBlit2> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageBlit2> pRegions;
 
     public BlitImageInfo2()
     {
@@ -57,7 +57,7 @@ public unsafe partial class BlitImageInfo2 : QBDisposableObject
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<VkImageBlit2>(struct0);
+            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageBlit2>(struct0);
             _internal.pRegions = pRegions.Handle;
         }
         _internal.filter = Filter;

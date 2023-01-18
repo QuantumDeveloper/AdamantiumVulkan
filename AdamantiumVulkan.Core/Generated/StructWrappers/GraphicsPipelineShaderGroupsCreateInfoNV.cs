@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkGraphicsShaderGroupCreateInfoNV> pGroups;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV> pGroups;
 
-    private NativeStruct<VkPipeline_T> pPipelines;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T> pPipelines;
 
     public GraphicsPipelineShaderGroupsCreateInfoNV()
     {
@@ -50,7 +50,7 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : QBDisposa
         if (PGroups != null)
         {
             var struct0 = PGroups.ToNative();
-            pGroups = new NativeStruct<VkGraphicsShaderGroupCreateInfoNV>(struct0);
+            pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>(struct0);
             _internal.pGroups = pGroups.Handle;
         }
         _internal.pipelineCount = PipelineCount;
@@ -58,7 +58,7 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : QBDisposa
         if (Pipelines != null)
         {
             AdamantiumVulkan.Core.Interop.VkPipeline_T struct1 = Pipelines;
-            pPipelines = new NativeStruct<VkPipeline_T>(struct1);
+            pPipelines = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct1);
             _internal.pPipelines = pPipelines.Handle;
         }
         return _internal;

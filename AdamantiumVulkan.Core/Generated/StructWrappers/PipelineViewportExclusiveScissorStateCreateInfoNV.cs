@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkRect2D> pExclusiveScissors;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pExclusiveScissors;
 
     public PipelineViewportExclusiveScissorStateCreateInfoNV()
     {
@@ -42,7 +42,7 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
         if (PExclusiveScissors != null)
         {
             var struct0 = PExclusiveScissors.ToNative();
-            pExclusiveScissors = new NativeStruct<VkRect2D>(struct0);
+            pExclusiveScissors = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
             _internal.pExclusiveScissors = pExclusiveScissors.Handle;
         }
         return _internal;

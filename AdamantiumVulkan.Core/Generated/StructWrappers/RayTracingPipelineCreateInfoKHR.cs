@@ -13,15 +13,15 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RayTracingPipelineCreateInfoKHR : QBDisposableObject
 {
-    private NativeStruct<VkPipelineShaderStageCreateInfo> pStages;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> pStages;
 
-    private NativeStruct<VkRayTracingShaderGroupCreateInfoKHR> pGroups;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR> pGroups;
 
-    private NativeStruct<VkPipelineLibraryCreateInfoKHR> pLibraryInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR> pLibraryInfo;
 
-    private NativeStruct<VkRayTracingPipelineInterfaceCreateInfoKHR> pLibraryInterface;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR> pLibraryInterface;
 
-    private NativeStruct<VkPipelineDynamicStateCreateInfo> pDynamicState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo> pDynamicState;
 
     public RayTracingPipelineCreateInfoKHR()
     {
@@ -76,7 +76,7 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : QBDisposableObject
         if (PStages != null)
         {
             var struct0 = PStages.ToNative();
-            pStages = new NativeStruct<VkPipelineShaderStageCreateInfo>(struct0);
+            pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
             _internal.pStages = pStages.Handle;
         }
         _internal.groupCount = GroupCount;
@@ -84,7 +84,7 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : QBDisposableObject
         if (PGroups != null)
         {
             var struct1 = PGroups.ToNative();
-            pGroups = new NativeStruct<VkRayTracingShaderGroupCreateInfoKHR>(struct1);
+            pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(struct1);
             _internal.pGroups = pGroups.Handle;
         }
         _internal.maxPipelineRayRecursionDepth = MaxPipelineRayRecursionDepth;
@@ -92,21 +92,21 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : QBDisposableObject
         if (PLibraryInfo != null)
         {
             var struct2 = PLibraryInfo.ToNative();
-            pLibraryInfo = new NativeStruct<VkPipelineLibraryCreateInfoKHR>(struct2);
+            pLibraryInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR>(struct2);
             _internal.pLibraryInfo = pLibraryInfo.Handle;
         }
         pLibraryInterface.Dispose();
         if (PLibraryInterface != null)
         {
             var struct3 = PLibraryInterface.ToNative();
-            pLibraryInterface = new NativeStruct<VkRayTracingPipelineInterfaceCreateInfoKHR>(struct3);
+            pLibraryInterface = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR>(struct3);
             _internal.pLibraryInterface = pLibraryInterface.Handle;
         }
         pDynamicState.Dispose();
         if (PDynamicState != null)
         {
             var struct4 = PDynamicState.ToNative();
-            pDynamicState = new NativeStruct<VkPipelineDynamicStateCreateInfo>(struct4);
+            pDynamicState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(struct4);
             _internal.pDynamicState = pDynamicState.Handle;
         }
         _internal.layout = Layout;

@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkPipelineShaderStageCreateInfo> pStages;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> pStages;
 
-    private NativeStruct<VkRayTracingShaderGroupCreateInfoNV> pGroups;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV> pGroups;
 
     public RayTracingPipelineCreateInfoNV()
     {
@@ -60,7 +60,7 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
         if (PStages != null)
         {
             var struct0 = PStages.ToNative();
-            pStages = new NativeStruct<VkPipelineShaderStageCreateInfo>(struct0);
+            pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
             _internal.pStages = pStages.Handle;
         }
         _internal.groupCount = GroupCount;
@@ -68,7 +68,7 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
         if (PGroups != null)
         {
             var struct1 = PGroups.ToNative();
-            pGroups = new NativeStruct<VkRayTracingShaderGroupCreateInfoNV>(struct1);
+            pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>(struct1);
             _internal.pGroups = pGroups.Handle;
         }
         _internal.maxRecursionDepth = MaxRecursionDepth;

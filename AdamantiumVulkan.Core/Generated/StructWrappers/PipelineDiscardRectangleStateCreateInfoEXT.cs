@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<VkRect2D> pDiscardRectangles;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pDiscardRectangles;
 
     public PipelineDiscardRectangleStateCreateInfoEXT()
     {
@@ -48,7 +48,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : QBDispo
         if (PDiscardRectangles != null)
         {
             var struct0 = PDiscardRectangles.ToNative();
-            pDiscardRectangles = new NativeStruct<VkRect2D>(struct0);
+            pDiscardRectangles = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
             _internal.pDiscardRectangles = pDiscardRectangles.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkDescriptorUpdateTemplateEntry> pDescriptorUpdateEntries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry> pDescriptorUpdateEntries;
 
     public DescriptorUpdateTemplateCreateInfo()
     {
@@ -55,7 +55,7 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObj
         if (PDescriptorUpdateEntries != null)
         {
             var struct0 = PDescriptorUpdateEntries.ToNative();
-            pDescriptorUpdateEntries = new NativeStruct<VkDescriptorUpdateTemplateEntry>(struct0);
+            pDescriptorUpdateEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(struct0);
             _internal.pDescriptorUpdateEntries = pDescriptorUpdateEntries.Handle;
         }
         _internal.templateType = TemplateType;

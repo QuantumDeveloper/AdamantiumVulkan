@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkViewportSwizzleNV> pViewportSwizzles;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV> pViewportSwizzles;
 
     public PipelineViewportSwizzleStateCreateInfoNV()
     {
@@ -45,7 +45,7 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : QBDisposa
         if (PViewportSwizzles != null)
         {
             var struct0 = PViewportSwizzles.ToNative();
-            pViewportSwizzles = new NativeStruct<VkViewportSwizzleNV>(struct0);
+            pViewportSwizzles = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV>(struct0);
             _internal.pViewportSwizzles = pViewportSwizzles.Handle;
         }
         return _internal;

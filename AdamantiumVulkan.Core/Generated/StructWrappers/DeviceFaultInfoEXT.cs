@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
 {
-    private NativeStruct<VkDeviceFaultAddressInfoEXT> pAddressInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT> pAddressInfos;
 
-    private NativeStruct<VkDeviceFaultVendorInfoEXT> pVendorInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT> pVendorInfos;
 
     public DeviceFaultInfoEXT()
     {
@@ -56,14 +56,14 @@ public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
         if (PAddressInfos != null)
         {
             var struct0 = PAddressInfos.ToNative();
-            pAddressInfos = new NativeStruct<VkDeviceFaultAddressInfoEXT>(struct0);
+            pAddressInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT>(struct0);
             _internal.pAddressInfos = pAddressInfos.Handle;
         }
         pVendorInfos.Dispose();
         if (PVendorInfos != null)
         {
             var struct1 = PVendorInfos.ToNative();
-            pVendorInfos = new NativeStruct<VkDeviceFaultVendorInfoEXT>(struct1);
+            pVendorInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT>(struct1);
             _internal.pVendorInfos = pVendorInfos.Handle;
         }
         _internal.pVendorBinaryData = PVendorBinaryData;

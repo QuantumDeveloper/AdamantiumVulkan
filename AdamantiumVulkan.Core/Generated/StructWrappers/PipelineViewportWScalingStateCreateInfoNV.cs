@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkViewportWScalingNV> pViewportWScalings;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV> pViewportWScalings;
 
     public PipelineViewportWScalingStateCreateInfoNV()
     {
@@ -45,7 +45,7 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : QBDispos
         if (PViewportWScalings != null)
         {
             var struct0 = PViewportWScalings.ToNative();
-            pViewportWScalings = new NativeStruct<VkViewportWScalingNV>(struct0);
+            pViewportWScalings = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(struct0);
             _internal.pViewportWScalings = pViewportWScalings.Handle;
         }
         return _internal;

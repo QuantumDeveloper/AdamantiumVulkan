@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FramebufferAttachmentsCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkFramebufferAttachmentImageInfo> pAttachmentImageInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo> pAttachmentImageInfos;
 
     public FramebufferAttachmentsCreateInfo()
     {
@@ -43,7 +43,7 @@ public unsafe partial class FramebufferAttachmentsCreateInfo : QBDisposableObjec
         if (PAttachmentImageInfos != null)
         {
             var struct0 = PAttachmentImageInfos.ToNative();
-            pAttachmentImageInfos = new NativeStruct<VkFramebufferAttachmentImageInfo>(struct0);
+            pAttachmentImageInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo>(struct0);
             _internal.pAttachmentImageInfos = pAttachmentImageInfos.Handle;
         }
         return _internal;

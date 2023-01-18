@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
 {
-    private NativeStruct<VkAttachmentDescription2> pAttachments;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2> pAttachments;
 
-    private NativeStruct<VkSubpassDescription2> pSubpasses;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2> pSubpasses;
 
-    private NativeStruct<VkSubpassDependency2> pDependencies;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2> pDependencies;
 
     private NativeStruct<uint> pCorrelatedViewMasks;
 
@@ -70,7 +70,7 @@ public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
         if (PAttachments != null)
         {
             var struct0 = PAttachments.ToNative();
-            pAttachments = new NativeStruct<VkAttachmentDescription2>(struct0);
+            pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>(struct0);
             _internal.pAttachments = pAttachments.Handle;
         }
         _internal.subpassCount = SubpassCount;
@@ -78,7 +78,7 @@ public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
         if (PSubpasses != null)
         {
             var struct1 = PSubpasses.ToNative();
-            pSubpasses = new NativeStruct<VkSubpassDescription2>(struct1);
+            pSubpasses = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2>(struct1);
             _internal.pSubpasses = pSubpasses.Handle;
         }
         _internal.dependencyCount = DependencyCount;
@@ -86,7 +86,7 @@ public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
         if (PDependencies != null)
         {
             var struct2 = PDependencies.ToNative();
-            pDependencies = new NativeStruct<VkSubpassDependency2>(struct2);
+            pDependencies = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(struct2);
             _internal.pDependencies = pDependencies.Handle;
         }
         _internal.correlatedViewMaskCount = CorrelatedViewMaskCount;

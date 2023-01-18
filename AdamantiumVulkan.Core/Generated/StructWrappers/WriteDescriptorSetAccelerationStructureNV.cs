@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class WriteDescriptorSetAccelerationStructureNV : QBDisposableObject
 {
-    private NativeStruct<VkAccelerationStructureNV_T> pAccelerationStructures;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T> pAccelerationStructures;
 
     public WriteDescriptorSetAccelerationStructureNV()
     {
@@ -42,7 +42,7 @@ public unsafe partial class WriteDescriptorSetAccelerationStructureNV : QBDispos
         if (PAccelerationStructures != null)
         {
             AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T struct0 = PAccelerationStructures;
-            pAccelerationStructures = new NativeStruct<VkAccelerationStructureNV_T>(struct0);
+            pAccelerationStructures = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T>(struct0);
             _internal.pAccelerationStructures = pAccelerationStructures.Handle;
         }
         return _internal;

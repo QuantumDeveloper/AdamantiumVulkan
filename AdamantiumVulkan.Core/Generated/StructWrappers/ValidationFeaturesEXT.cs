@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ValidationFeaturesEXT : QBDisposableObject
 {
-    private NativeStructArray<ValidationFeatureEnableEXT> pEnabledValidationFeatures;
+    private NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT> pEnabledValidationFeatures;
 
-    private NativeStructArray<ValidationFeatureDisableEXT> pDisabledValidationFeatures;
+    private NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureDisableEXT> pDisabledValidationFeatures;
 
     public ValidationFeaturesEXT()
     {
@@ -46,14 +46,14 @@ public unsafe partial class ValidationFeaturesEXT : QBDisposableObject
         pEnabledValidationFeatures.Dispose();
         if (PEnabledValidationFeatures != null)
         {
-            pEnabledValidationFeatures = new NativeStructArray<ValidationFeatureEnableEXT>(PEnabledValidationFeatures);
+            pEnabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT>(PEnabledValidationFeatures);
             _internal.pEnabledValidationFeatures = pEnabledValidationFeatures.Handle;
         }
         _internal.disabledValidationFeatureCount = DisabledValidationFeatureCount;
         pDisabledValidationFeatures.Dispose();
         if (PDisabledValidationFeatures != null)
         {
-            pDisabledValidationFeatures = new NativeStructArray<ValidationFeatureDisableEXT>(PDisabledValidationFeatures);
+            pDisabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureDisableEXT>(PDisabledValidationFeatures);
             _internal.pDisabledValidationFeatures = pDisabledValidationFeatures.Handle;
         }
         return _internal;

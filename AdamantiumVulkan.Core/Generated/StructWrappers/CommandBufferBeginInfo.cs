@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CommandBufferBeginInfo : QBDisposableObject
 {
-    private NativeStruct<VkCommandBufferInheritanceInfo> pInheritanceInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo> pInheritanceInfo;
 
     public CommandBufferBeginInfo()
     {
@@ -42,7 +42,7 @@ public unsafe partial class CommandBufferBeginInfo : QBDisposableObject
         if (PInheritanceInfo != null)
         {
             var struct0 = PInheritanceInfo.ToNative();
-            pInheritanceInfo = new NativeStruct<VkCommandBufferInheritanceInfo>(struct0);
+            pInheritanceInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(struct0);
             _internal.pInheritanceInfo = pInheritanceInfo.Handle;
         }
         return _internal;

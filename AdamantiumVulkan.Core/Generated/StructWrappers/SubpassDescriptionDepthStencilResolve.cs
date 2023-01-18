@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubpassDescriptionDepthStencilResolve : QBDisposableObject
 {
-    private NativeStruct<VkAttachmentReference2> pDepthStencilResolveAttachment;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2> pDepthStencilResolveAttachment;
 
     public SubpassDescriptionDepthStencilResolve()
     {
@@ -46,7 +46,7 @@ public unsafe partial class SubpassDescriptionDepthStencilResolve : QBDisposable
         if (PDepthStencilResolveAttachment != null)
         {
             var struct0 = PDepthStencilResolveAttachment.ToNative();
-            pDepthStencilResolveAttachment = new NativeStruct<VkAttachmentReference2>(struct0);
+            pDepthStencilResolveAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);
             _internal.pDepthStencilResolveAttachment = pDepthStencilResolveAttachment.Handle;
         }
         return _internal;

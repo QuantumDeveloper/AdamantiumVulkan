@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineLibraryCreateInfoKHR : QBDisposableObject
 {
-    private NativeStruct<VkPipeline_T> pLibraries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T> pLibraries;
 
     public PipelineLibraryCreateInfoKHR()
     {
@@ -43,7 +43,7 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : QBDisposableObject
         if (PLibraries != null)
         {
             AdamantiumVulkan.Core.Interop.VkPipeline_T struct0 = PLibraries;
-            pLibraries = new NativeStruct<VkPipeline_T>(struct0);
+            pLibraries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct0);
             _internal.pLibraries = pLibraries.Handle;
         }
         return _internal;

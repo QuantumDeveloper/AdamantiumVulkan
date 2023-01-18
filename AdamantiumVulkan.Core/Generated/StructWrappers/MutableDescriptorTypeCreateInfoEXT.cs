@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class MutableDescriptorTypeCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<VkMutableDescriptorTypeListEXT> pMutableDescriptorTypeLists;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT> pMutableDescriptorTypeLists;
 
     public MutableDescriptorTypeCreateInfoEXT()
     {
@@ -43,7 +43,7 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : QBDisposableObj
         if (PMutableDescriptorTypeLists != null)
         {
             var struct0 = PMutableDescriptorTypeLists.ToNative();
-            pMutableDescriptorTypeLists = new NativeStruct<VkMutableDescriptorTypeListEXT>(struct0);
+            pMutableDescriptorTypeLists = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>(struct0);
             _internal.pMutableDescriptorTypeLists = pMutableDescriptorTypeLists.Handle;
         }
         return _internal;

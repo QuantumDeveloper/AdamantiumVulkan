@@ -15,7 +15,7 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : QBDisposableObject
 {
     private NativeStruct<uint> pDeviceIndices;
 
-    private NativeStruct<VkRect2D> pSplitInstanceBindRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pSplitInstanceBindRegions;
 
     public BindImageMemoryDeviceGroupInfo()
     {
@@ -59,7 +59,7 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : QBDisposableObject
         if (PSplitInstanceBindRegions != null)
         {
             var struct1 = PSplitInstanceBindRegions.ToNative();
-            pSplitInstanceBindRegions = new NativeStruct<VkRect2D>(struct1);
+            pSplitInstanceBindRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct1);
             _internal.pSplitInstanceBindRegions = pSplitInstanceBindRegions.Handle;
         }
         return _internal;

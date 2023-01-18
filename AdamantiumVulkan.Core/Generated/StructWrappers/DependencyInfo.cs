@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DependencyInfo : QBDisposableObject
 {
-    private NativeStruct<VkMemoryBarrier2> pMemoryBarriers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMemoryBarrier2> pMemoryBarriers;
 
-    private NativeStruct<VkBufferMemoryBarrier2> pBufferMemoryBarriers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2> pBufferMemoryBarriers;
 
-    private NativeStruct<VkImageMemoryBarrier2> pImageMemoryBarriers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2> pImageMemoryBarriers;
 
     public DependencyInfo()
     {
@@ -60,7 +60,7 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         if (PMemoryBarriers != null)
         {
             var struct0 = PMemoryBarriers.ToNative();
-            pMemoryBarriers = new NativeStruct<VkMemoryBarrier2>(struct0);
+            pMemoryBarriers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMemoryBarrier2>(struct0);
             _internal.pMemoryBarriers = pMemoryBarriers.Handle;
         }
         _internal.bufferMemoryBarrierCount = BufferMemoryBarrierCount;
@@ -68,7 +68,7 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         if (PBufferMemoryBarriers != null)
         {
             var struct1 = PBufferMemoryBarriers.ToNative();
-            pBufferMemoryBarriers = new NativeStruct<VkBufferMemoryBarrier2>(struct1);
+            pBufferMemoryBarriers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2>(struct1);
             _internal.pBufferMemoryBarriers = pBufferMemoryBarriers.Handle;
         }
         _internal.imageMemoryBarrierCount = ImageMemoryBarrierCount;
@@ -76,7 +76,7 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         if (PImageMemoryBarriers != null)
         {
             var struct2 = PImageMemoryBarriers.ToNative();
-            pImageMemoryBarriers = new NativeStruct<VkImageMemoryBarrier2>(struct2);
+            pImageMemoryBarriers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2>(struct2);
             _internal.pImageMemoryBarriers = pImageMemoryBarriers.Handle;
         }
         return _internal;

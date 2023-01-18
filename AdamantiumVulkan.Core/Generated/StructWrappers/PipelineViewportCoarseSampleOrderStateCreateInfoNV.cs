@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<VkCoarseSampleOrderCustomNV> pCustomSampleOrders;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV> pCustomSampleOrders;
 
     public PipelineViewportCoarseSampleOrderStateCreateInfoNV()
     {
@@ -45,7 +45,7 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
         if (PCustomSampleOrders != null)
         {
             var struct0 = PCustomSampleOrders.ToNative();
-            pCustomSampleOrders = new NativeStruct<VkCoarseSampleOrderCustomNV>(struct0);
+            pCustomSampleOrders = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(struct0);
             _internal.pCustomSampleOrders = pCustomSampleOrders.Handle;
         }
         return _internal;

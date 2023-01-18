@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkVertexInputBindingDescription> pVertexBindingDescriptions;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription> pVertexBindingDescriptions;
 
-    private NativeStructArray<VkVertexInputAttributeDescription> pVertexAttributeDescriptions;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription> pVertexAttributeDescriptions;
 
     public PipelineVertexInputStateCreateInfo()
     {
@@ -66,7 +66,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
             {
                 tmpArray0[i] = PVertexBindingDescriptions[i].ToNative();
             }
-            pVertexBindingDescriptions = new NativeStructArray<VkVertexInputBindingDescription>(tmpArray0);
+            pVertexBindingDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription>(tmpArray0);
             _internal.pVertexBindingDescriptions = pVertexBindingDescriptions.Handle;
         }
         _internal.vertexAttributeDescriptionCount = VertexAttributeDescriptionCount;
@@ -78,7 +78,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
             {
                 tmpArray1[i] = PVertexAttributeDescriptions[i].ToNative();
             }
-            pVertexAttributeDescriptions = new NativeStructArray<VkVertexInputAttributeDescription>(tmpArray1);
+            pVertexAttributeDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription>(tmpArray1);
             _internal.pVertexAttributeDescriptions = pVertexAttributeDescriptions.Handle;
         }
         return _internal;

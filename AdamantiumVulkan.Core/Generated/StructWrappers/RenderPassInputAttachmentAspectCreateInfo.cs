@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : QBDisposableObject
 {
-    private NativeStruct<VkInputAttachmentAspectReference> pAspectReferences;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference> pAspectReferences;
 
     public RenderPassInputAttachmentAspectCreateInfo()
     {
@@ -42,7 +42,7 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : QBDispos
         if (PAspectReferences != null)
         {
             var struct0 = PAspectReferences.ToNative();
-            pAspectReferences = new NativeStruct<VkInputAttachmentAspectReference>(struct0);
+            pAspectReferences = new NativeStruct<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(struct0);
             _internal.pAspectReferences = pAspectReferences.Handle;
         }
         return _internal;

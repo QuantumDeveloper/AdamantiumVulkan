@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkDescriptorSetLayout_T> pSetLayouts;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T> pSetLayouts;
 
-    private NativeStruct<VkPushConstantRange> pPushConstantRanges;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange> pPushConstantRanges;
 
     public PipelineLayoutCreateInfo()
     {
@@ -61,7 +61,7 @@ public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PSetLayouts[i];
             }
-            pSetLayouts = new NativeStructArray<VkDescriptorSetLayout_T>(tmpArray0);
+            pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
             _internal.pSetLayouts = pSetLayouts.Handle;
         }
         _internal.pushConstantRangeCount = PushConstantRangeCount;
@@ -69,7 +69,7 @@ public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
         if (PushConstantRanges != null)
         {
             var struct0 = PushConstantRanges.ToNative();
-            pPushConstantRanges = new NativeStruct<VkPushConstantRange>(struct0);
+            pPushConstantRanges = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange>(struct0);
             _internal.pPushConstantRanges = pPushConstantRanges.Handle;
         }
         return _internal;

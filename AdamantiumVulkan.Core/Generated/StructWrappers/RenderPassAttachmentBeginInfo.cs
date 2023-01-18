@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassAttachmentBeginInfo : QBDisposableObject
 {
-    private NativeStruct<VkImageView_T> pAttachments;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T> pAttachments;
 
     public RenderPassAttachmentBeginInfo()
     {
@@ -43,7 +43,7 @@ public unsafe partial class RenderPassAttachmentBeginInfo : QBDisposableObject
         if (PAttachments != null)
         {
             AdamantiumVulkan.Core.Interop.VkImageView_T struct0 = PAttachments;
-            pAttachments = new NativeStruct<VkImageView_T>(struct0);
+            pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T>(struct0);
             _internal.pAttachments = pAttachments.Handle;
         }
         return _internal;

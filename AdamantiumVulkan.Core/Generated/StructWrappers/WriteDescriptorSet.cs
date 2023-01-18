@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class WriteDescriptorSet : QBDisposableObject
 {
-    private NativeStructArray<VkDescriptorImageInfo> pImageInfo;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> pImageInfo;
 
-    private NativeStructArray<VkDescriptorBufferInfo> pBufferInfo;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo> pBufferInfo;
 
-    private NativeStructArray<VkBufferView_T> pTexelBufferView;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferView_T> pTexelBufferView;
 
     public WriteDescriptorSet()
     {
@@ -83,7 +83,7 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             {
                 tmpArray0[i] = PImageInfo[i].ToNative();
             }
-            pImageInfo = new NativeStructArray<VkDescriptorImageInfo>(tmpArray0);
+            pImageInfo = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(tmpArray0);
             _internal.pImageInfo = pImageInfo.Handle;
         }
         pBufferInfo.Dispose();
@@ -94,7 +94,7 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             {
                 tmpArray1[i] = PBufferInfo[i].ToNative();
             }
-            pBufferInfo = new NativeStructArray<VkDescriptorBufferInfo>(tmpArray1);
+            pBufferInfo = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo>(tmpArray1);
             _internal.pBufferInfo = pBufferInfo.Handle;
         }
         pTexelBufferView.Dispose();
@@ -105,7 +105,7 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             {
                 tmpArray2[i] = PTexelBufferView[i];
             }
-            pTexelBufferView = new NativeStructArray<VkBufferView_T>(tmpArray2);
+            pTexelBufferView = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferView_T>(tmpArray2);
             _internal.pTexelBufferView = pTexelBufferView.Handle;
         }
         return _internal;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineDynamicStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<DynamicState> pDynamicStates;
+    private NativeStructArray<AdamantiumVulkan.Core.DynamicState> pDynamicStates;
 
     public PipelineDynamicStateCreateInfo()
     {
@@ -43,7 +43,7 @@ public unsafe partial class PipelineDynamicStateCreateInfo : QBDisposableObject
         pDynamicStates.Dispose();
         if (PDynamicStates != null)
         {
-            pDynamicStates = new NativeStructArray<DynamicState>(PDynamicStates);
+            pDynamicStates = new NativeStructArray<AdamantiumVulkan.Core.DynamicState>(PDynamicStates);
             _internal.pDynamicStates = pDynamicStates.Handle;
         }
         return _internal;

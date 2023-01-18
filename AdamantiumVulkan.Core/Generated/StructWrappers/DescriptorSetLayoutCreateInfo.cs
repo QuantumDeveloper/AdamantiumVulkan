@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkDescriptorSetLayoutBinding> pBindings;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding> pBindings;
 
     public DescriptorSetLayoutCreateInfo()
     {
@@ -54,7 +54,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PBindings[i].ToNative();
             }
-            pBindings = new NativeStructArray<VkDescriptorSetLayoutBinding>(tmpArray0);
+            pBindings = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding>(tmpArray0);
             _internal.pBindings = pBindings.Handle;
         }
         return _internal;

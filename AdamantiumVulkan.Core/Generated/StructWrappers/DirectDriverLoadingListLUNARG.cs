@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DirectDriverLoadingListLUNARG : QBDisposableObject
 {
-    private NativeStruct<VkDirectDriverLoadingInfoLUNARG> pDrivers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG> pDrivers;
 
     public DirectDriverLoadingListLUNARG()
     {
@@ -46,7 +46,7 @@ public unsafe partial class DirectDriverLoadingListLUNARG : QBDisposableObject
         if (PDrivers != null)
         {
             var struct0 = PDrivers.ToNative();
-            pDrivers = new NativeStruct<VkDirectDriverLoadingInfoLUNARG>(struct0);
+            pDrivers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>(struct0);
             _internal.pDrivers = pDrivers.Handle;
         }
         return _internal;

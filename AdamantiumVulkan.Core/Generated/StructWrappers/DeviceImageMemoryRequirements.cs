@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceImageMemoryRequirements : QBDisposableObject
 {
-    private NativeStruct<VkImageCreateInfo> pCreateInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo> pCreateInfo;
 
     public DeviceImageMemoryRequirements()
     {
@@ -42,7 +42,7 @@ public unsafe partial class DeviceImageMemoryRequirements : QBDisposableObject
         if (PCreateInfo != null)
         {
             var struct0 = PCreateInfo.ToNative();
-            pCreateInfo = new NativeStruct<VkImageCreateInfo>(struct0);
+            pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(struct0);
             _internal.pCreateInfo = pCreateInfo.Handle;
         }
         _internal.planeAspect = PlaneAspect;

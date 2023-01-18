@@ -15,7 +15,7 @@ public unsafe partial class PipelineShaderStageCreateInfo : QBDisposableObject
 {
     private MarshaledString pName;
 
-    private NativeStruct<VkSpecializationInfo> pSpecializationInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo> pSpecializationInfo;
 
     public PipelineShaderStageCreateInfo()
     {
@@ -58,7 +58,7 @@ public unsafe partial class PipelineShaderStageCreateInfo : QBDisposableObject
         if (PSpecializationInfo != null)
         {
             var struct0 = PSpecializationInfo.ToNative();
-            pSpecializationInfo = new NativeStruct<VkSpecializationInfo>(struct0);
+            pSpecializationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(struct0);
             _internal.pSpecializationInfo = pSpecializationInfo.Handle;
         }
         return _internal;

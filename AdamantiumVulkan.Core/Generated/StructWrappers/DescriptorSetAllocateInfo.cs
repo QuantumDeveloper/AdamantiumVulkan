@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetAllocateInfo : QBDisposableObject
 {
-    private NativeStructArray<VkDescriptorSetLayout_T> pSetLayouts;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T> pSetLayouts;
 
     public DescriptorSetAllocateInfo()
     {
@@ -54,7 +54,7 @@ public unsafe partial class DescriptorSetAllocateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PSetLayouts[i];
             }
-            pSetLayouts = new NativeStructArray<VkDescriptorSetLayout_T>(tmpArray0);
+            pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
             _internal.pSetLayouts = pSetLayouts.Handle;
         }
         return _internal;
