@@ -13,10 +13,6 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CuLaunchInfoNVX : QBDisposableObject
 {
-    private NativeStructArray<uint> pParams;
-
-    private NativeStructArray<uint> pExtras;
-
     public CuLaunchInfoNVX()
     {
     }
@@ -34,13 +30,9 @@ public unsafe partial class CuLaunchInfoNVX : QBDisposableObject
         BlockDimZ = _internal.blockDimZ;
         SharedMemBytes = _internal.sharedMemBytes;
         ParamCount = _internal.paramCount;
-        Params = new uint[_internal.paramCount];
-        Params = NativeUtils.PointerToManagedArray(_internal.pParams, (long)_internal.paramCount);
-        NativeUtils.Free(_internal.pParams);
+        Params = _internal.pParams;
         ExtraCount = _internal.extraCount;
-        PExtras = new uint[_internal.extraCount];
-        PExtras = NativeUtils.PointerToManagedArray(_internal.pExtras, (long)_internal.extraCount);
-        NativeUtils.Free(_internal.pExtras);
+        PExtras = _internal.pExtras;
     }
 
     public StructureType SType { get; set; }
@@ -54,9 +46,9 @@ public unsafe partial class CuLaunchInfoNVX : QBDisposableObject
     public uint BlockDimZ { get; set; }
     public uint SharedMemBytes { get; set; }
     public ulong ParamCount { get; set; }
-    public uint[] Params { get; set; }
+    public void** Params { get; set; }
     public ulong ExtraCount { get; set; }
-    public uint[] PExtras { get; set; }
+    public void** PExtras { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX ToNative()
     {
@@ -72,38 +64,11 @@ public unsafe partial class CuLaunchInfoNVX : QBDisposableObject
         _internal.blockDimZ = BlockDimZ;
         _internal.sharedMemBytes = SharedMemBytes;
         _internal.paramCount = ParamCount;
-        pParams.Dispose();
-        if (Params != null)
-        {
-            var tmpArray0 = new uint[Params.Length];
-            for (int i = 0; i < Params.Length; ++i)
-            {
-                tmpArray0[i] = Params[i];
-            }
-            pParams = new NativeStructArray<uint>(tmpArray0);
-            _internal.pParams = pParams.Handle;
-        }
+        _internal.pParams = Params;
         _internal.extraCount = ExtraCount;
-        pExtras.Dispose();
-        if (PExtras != null)
-        {
-            var tmpArray1 = new uint[PExtras.Length];
-            for (int i = 0; i < PExtras.Length; ++i)
-            {
-                tmpArray1[i] = PExtras[i];
-            }
-            pExtras = new NativeStructArray<uint>(tmpArray1);
-            _internal.pExtras = pExtras.Handle;
-        }
+        _internal.pExtras = PExtras;
         return _internal;
     }
-
-    protected override void UnmanagedDisposeOverride()
-    {
-        pParams.Dispose();
-        pExtras.Dispose();
-    }
-
 
     public static implicit operator CuLaunchInfoNVX(AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX c)
     {

@@ -1,6 +1,4 @@
 ﻿using QuantumBinding.Generator;
-using QuantumBinding.Generator.AST;
-using QuantumBinding.Generator.BindingsMapping;
 using QuantumBinding.Generator.CodeGeneration;
 using QuantumBinding.Generator.ProcessingFluentApi;
 using QuantumBinding.Generator.Processors;
@@ -243,6 +241,9 @@ namespace AdamantiumVulkan.Generator
             macroAction.SubstitutionList.Add("VK_KHR_MAINTENANCE3_EXTENSION_NAME", VulkanBindings.MacroFunctions.CreateStringReturnMacro());
             macroAction.SubstitutionList.Add("VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME", VulkanBindings.MacroFunctions.CreateStringReturnMacro());
             macroAction.SubstitutionList.Add("VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME", VulkanBindings.MacroFunctions.CreateStringReturnMacro());
+            
+            macroAction.SubstitutionList.Add("VP_KHR_ROADMAP_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 3, 204));
+            macroAction.SubstitutionList.Add("VP_LUNARG_DESKTOP_BASELINE_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 1, 139));
             
             
             // Soirv constansta part

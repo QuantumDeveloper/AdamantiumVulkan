@@ -21,7 +21,7 @@ public static class Constants
 
     public static uint VP_KHR_ROADMAP_2022_SPEC_VERSION => 1;
 
-    public static uint VP_KHR_ROADMAP_2022_MIN_API_VERSION => VK_MAKE_VERSION(1,3,204);
+    public static uint VP_KHR_ROADMAP_2022_MIN_API_VERSION => (1 << 22 | 3 << 12 | 204);
 
     public static uint VP_LUNARG_desktop_baseline_2022 => 1;
 
@@ -29,7 +29,7 @@ public static class Constants
 
     public static uint VP_LUNARG_DESKTOP_BASELINE_2022_SPEC_VERSION => 1;
 
-    public static uint VP_LUNARG_DESKTOP_BASELINE_2022_MIN_API_VERSION => VK_MAKE_VERSION(1,1,139);
+    public static uint VP_LUNARG_DESKTOP_BASELINE_2022_MIN_API_VERSION => (1 << 22 | 1 << 12 | 139);
 
     public static uint VP_MAX_PROFILE_NAME_SIZE => 256U;
 

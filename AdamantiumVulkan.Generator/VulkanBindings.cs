@@ -383,13 +383,13 @@ public static partial class VulkanBindings
 
         api.Class("VkCuLaunchInfoNVX")
             .WithField("pParams")
-            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "paramCount")
+            .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2)
             .WithField("pExtras")
-            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "extraCount");
+            .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2);
 
         api.Class("VkPipelineColorWriteCreateInfoEXT")
             .WithField("pColorWriteEnables")
-            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Bool32), arraySizeSource: "attachmentCount");
+            .InterpretAsPointerToArray(new CustomType("VkBool32"), arraySizeSource: "attachmentCount");
         
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").

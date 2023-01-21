@@ -18,7 +18,7 @@ public unsafe partial struct VkPipelineColorWriteCreateInfoEXT
     public StructureType sType;
     public void* pNext;
     public uint attachmentCount;
-    public uint* pColorWriteEnables;
+    public VkBool32* pColorWriteEnables;
 }
 
 

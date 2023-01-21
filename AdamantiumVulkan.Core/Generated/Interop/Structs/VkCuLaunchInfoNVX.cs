@@ -26,9 +26,9 @@ public unsafe partial struct VkCuLaunchInfoNVX
     public uint blockDimZ;
     public uint sharedMemBytes;
     public ulong paramCount;
-    public uint* pParams;
+    public void** pParams;
     public ulong extraCount;
-    public uint* pExtras;
+    public void** pExtras;
 }
 
 

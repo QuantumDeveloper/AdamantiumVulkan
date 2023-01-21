@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.uint> pColorWriteEnables;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBool32> pColorWriteEnables;
 
     public PipelineColorWriteCreateInfoEXT()
     {
@@ -24,19 +24,15 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
         SType = _internal.sType;
         PNext = _internal.pNext;
         AttachmentCount = _internal.attachmentCount;
-        PColorWriteEnables = new bool[_internal.attachmentCount];
-        var nativeTmpArray0 = NativeUtils.PointerToManagedArray(_internal.pColorWriteEnables, _internal.attachmentCount);
-        for (int i = 0; i < nativeTmpArray0.Length; ++i)
-        {
-            PColorWriteEnables[i] = System.Convert.ToBoolean(nativeTmpArray0[i]);
-        }
+        PColorWriteEnables = new VkBool32[_internal.attachmentCount];
+        PColorWriteEnables = NativeUtils.PointerToManagedArray(_internal.pColorWriteEnables, (long)_internal.attachmentCount);
         NativeUtils.Free(_internal.pColorWriteEnables);
     }
 
     public StructureType SType { get; set; }
     public void* PNext { get; set; }
     public uint AttachmentCount { get; set; }
-    public bool[] PColorWriteEnables { get; set; }
+    public VkBool32[] PColorWriteEnables { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT ToNative()
     {
@@ -47,12 +43,12 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
         pColorWriteEnables.Dispose();
         if (PColorWriteEnables != null)
         {
-            var tmpArray0 = new uint[PColorWriteEnables.Length];
+            var tmpArray0 = new VkBool32[PColorWriteEnables.Length];
             for (int i = 0; i < PColorWriteEnables.Length; ++i)
             {
-                tmpArray0[i] = System.Convert.ToUInt32(PColorWriteEnables[i]);
+                tmpArray0[i] = PColorWriteEnables[i];
             }
-            pColorWriteEnables = new NativeStructArray<AdamantiumVulkan.Core.Interop.uint>(tmpArray0);
+            pColorWriteEnables = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBool32>(tmpArray0);
             _internal.pColorWriteEnables = pColorWriteEnables.Handle;
         }
         return _internal;

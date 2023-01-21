@@ -1445,7 +1445,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg1);
     }
 
-    public void GetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.DescriptorSet descriptorSet, out void* ppData)
+    public void GetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.DescriptorSet descriptorSet, out void** ppData)
     {
         var arg1 = ReferenceEquals(descriptorSet, null) ? new VkDescriptorSet_T() : (VkDescriptorSet_T)descriptorSet;
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDescriptorSetHostMappingVALVE(this, arg1, out ppData);
@@ -2298,7 +2298,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result MapMemory(AdamantiumVulkan.Core.DeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
+    public Result MapMemory(AdamantiumVulkan.Core.DeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void** ppData)
     {
         var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkMapMemory(this, arg1, offset, size, flags, out ppData);
