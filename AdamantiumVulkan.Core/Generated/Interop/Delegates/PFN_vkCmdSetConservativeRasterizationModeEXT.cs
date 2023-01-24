@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetConservativeRasterizationModeEXT
     public PFN_vkCmdSetConservativeRasterizationModeEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, ConservativeRasterizationModeEXT, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ConservativeRasterizationModeEXT, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, ConservativeRasterizationModeEXT, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ConservativeRasterizationModeEXT, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, ConservativeRasterizationModeEXT conservativeRasterizationMode)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ConservativeRasterizationModeEXT conservativeRasterizationMode)
     {
          InvokeFunc(commandBuffer, conservativeRasterizationMode);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, ConservativeRasterizationModeEXT conservativeRasterizationMode)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ConservativeRasterizationModeEXT conservativeRasterizationMode)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, ConservativeRasterizationModeEXT, void>)ptr)(commandBuffer, conservativeRasterizationMode);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ConservativeRasterizationModeEXT, void>)ptr)(commandBuffer, conservativeRasterizationMode);
     }
 
     public static explicit operator PFN_vkCmdSetConservativeRasterizationModeEXT(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateDescriptorPool
     public PFN_vkCreateDescriptorPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorPoolCreateInfo*, VkAllocationCallbacks*, out VkDescriptorPool_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorPoolCreateInfo*, VkAllocationCallbacks*, out VkDescriptorPool_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDescriptorPoolCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDescriptorPool_T pDescriptorPool)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T pDescriptorPool)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pDescriptorPool);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDescriptorPoolCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDescriptorPool_T pDescriptorPool)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T pDescriptorPool)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDescriptorPoolCreateInfo*, VkAllocationCallbacks*, out VkDescriptorPool_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pDescriptorPool);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pDescriptorPool);
     }
 
     public static explicit operator PFN_vkCreateDescriptorPool(void* ptr) => new(ptr);

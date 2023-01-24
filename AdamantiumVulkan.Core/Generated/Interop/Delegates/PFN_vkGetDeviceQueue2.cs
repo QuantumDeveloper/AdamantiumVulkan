@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceQueue2
     public PFN_vkGetDeviceQueue2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceQueueInfo2*, out VkQueue_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceQueueInfo2*, out VkQueue_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDeviceQueueInfo2* pQueueInfo, out VkQueue_T pQueue)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
     {
          InvokeFunc(device, pQueueInfo, out pQueue);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDeviceQueueInfo2* pQueueInfo, out VkQueue_T pQueue)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDeviceQueueInfo2*, out VkQueue_T, void>)ptr)(device, pQueueInfo, out pQueue);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr)(device, pQueueInfo, out pQueue);
     }
 
     public static explicit operator PFN_vkGetDeviceQueue2(void* ptr) => new(ptr);

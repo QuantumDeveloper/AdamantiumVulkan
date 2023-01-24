@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdCopyMemoryToImageIndirectNV
     public PFN_vkCmdCopyMemoryToImageIndirectNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, uint, uint, VkImage_T, ImageLayout, VkImageSubresourceLayers*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, uint, uint, VkImage_T, ImageLayout, VkImageSubresourceLayers*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride, VkImage_T dstImage, ImageLayout dstImageLayout, VkImageSubresourceLayers* pImageSubresources)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers* pImageSubresources)
     {
          InvokeFunc(commandBuffer, copyBufferAddress, copyCount, stride, dstImage, dstImageLayout, pImageSubresources);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride, VkImage_T dstImage, ImageLayout dstImageLayout, VkImageSubresourceLayers* pImageSubresources)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers* pImageSubresources)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, uint, uint, VkImage_T, ImageLayout, VkImageSubresourceLayers*, void>)ptr)(commandBuffer, copyBufferAddress, copyCount, stride, dstImage, dstImageLayout, pImageSubresources);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers*, void>)ptr)(commandBuffer, copyBufferAddress, copyCount, stride, dstImage, dstImageLayout, pImageSubresources);
     }
 
     public static explicit operator PFN_vkCmdCopyMemoryToImageIndirectNV(void* ptr) => new(ptr);

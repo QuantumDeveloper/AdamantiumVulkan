@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdCopyAccelerationStructureKHR
     public PFN_vkCmdCopyAccelerationStructureKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkCopyAccelerationStructureInfoKHR*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkCopyAccelerationStructureInfoKHR*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkCopyAccelerationStructureInfoKHR* pInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR* pInfo)
     {
          InvokeFunc(commandBuffer, pInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkCopyAccelerationStructureInfoKHR* pInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR* pInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkCopyAccelerationStructureInfoKHR*, void>)ptr)(commandBuffer, pInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR*, void>)ptr)(commandBuffer, pInfo);
     }
 
     public static explicit operator PFN_vkCmdCopyAccelerationStructureKHR(void* ptr) => new(ptr);

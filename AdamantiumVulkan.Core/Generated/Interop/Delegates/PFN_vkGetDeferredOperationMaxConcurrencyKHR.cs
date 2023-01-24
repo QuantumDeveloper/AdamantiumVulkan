@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeferredOperationMaxConcurrencyKHR
     public PFN_vkGetDeferredOperationMaxConcurrencyKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, uint>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, uint> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public uint Invoke(VkDevice_T device, VkDeferredOperationKHR_T operation)
+    public uint Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation)
     {
         return InvokeFunc(device, operation);
     }
-    public static uint Invoke(void* ptr, VkDevice_T device, VkDeferredOperationKHR_T operation)
+    public static uint Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, uint>)ptr)(device, operation);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint>)ptr)(device, operation);
     }
 
     public static explicit operator PFN_vkGetDeferredOperationMaxConcurrencyKHR(void* ptr) => new(ptr);

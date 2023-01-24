@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetColorBlendEnableEXT
     public PFN_vkCmdSetColorBlendEnableEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBool32*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, VkBool32*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBool32*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, VkBool32*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkBool32* pColorBlendEnables)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkBool32* pColorBlendEnables)
     {
          InvokeFunc(commandBuffer, firstAttachment, attachmentCount, pColorBlendEnables);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkBool32* pColorBlendEnables)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkBool32* pColorBlendEnables)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBool32*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendEnables);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, VkBool32*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendEnables);
     }
 
     public static explicit operator PFN_vkCmdSetColorBlendEnableEXT(void* ptr) => new(ptr);

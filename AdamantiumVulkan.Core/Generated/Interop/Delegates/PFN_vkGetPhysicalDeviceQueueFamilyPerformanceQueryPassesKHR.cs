@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR
     public PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
     {
          InvokeFunc(physicalDevice, pPerformanceQueryCreateInfo, ref pNumPasses);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)ptr)(physicalDevice, pPerformanceQueryCreateInfo, ref pNumPasses);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)ptr)(physicalDevice, pPerformanceQueryCreateInfo, ref pNumPasses);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(void* ptr) => new(ptr);

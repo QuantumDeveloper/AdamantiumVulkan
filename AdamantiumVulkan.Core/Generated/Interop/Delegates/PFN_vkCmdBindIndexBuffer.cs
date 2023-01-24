@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindIndexBuffer
     public PFN_vkCmdBindIndexBuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, IndexType, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, IndexType, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, IndexType, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, IndexType, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset, IndexType indexType)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, IndexType indexType)
     {
          InvokeFunc(commandBuffer, buffer, offset, indexType);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset, IndexType indexType)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, IndexType indexType)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, IndexType, void>)ptr)(commandBuffer, buffer, offset, indexType);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, IndexType, void>)ptr)(commandBuffer, buffer, offset, indexType);
     }
 
     public static explicit operator PFN_vkCmdBindIndexBuffer(void* ptr) => new(ptr);

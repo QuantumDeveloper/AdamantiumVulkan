@@ -19,20 +19,20 @@ public unsafe struct PFN_vkReleaseDisplayEXT
     public PFN_vkReleaseDisplayEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkDisplayKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkDisplayKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkDisplayKHR_T display)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display)
     {
         return InvokeFunc(physicalDevice, display);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkDisplayKHR_T display)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkDisplayKHR_T, Result>)ptr)(physicalDevice, display);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr)(physicalDevice, display);
     }
 
     public static explicit operator PFN_vkReleaseDisplayEXT(void* ptr) => new(ptr);

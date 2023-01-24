@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdTraceRaysIndirect2KHR
     public PFN_vkCmdTraceRaysIndirect2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectDeviceAddress)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectDeviceAddress)
     {
          InvokeFunc(commandBuffer, indirectDeviceAddress);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectDeviceAddress)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectDeviceAddress)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, void>)ptr)(commandBuffer, indirectDeviceAddress);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, void>)ptr)(commandBuffer, indirectDeviceAddress);
     }
 
     public static explicit operator PFN_vkCmdTraceRaysIndirect2KHR(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceSurfaceFormats2KHR
     public PFN_vkGetPhysicalDeviceSurfaceFormats2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceSurfaceInfo2KHR*, ref uint*, VkSurfaceFormat2KHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceSurfaceInfo2KHR*, ref uint*, VkSurfaceFormat2KHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint* pSurfaceFormatCount, VkSurfaceFormat2KHR* pSurfaceFormats)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats)
     {
         return InvokeFunc(physicalDevice, pSurfaceInfo, ref pSurfaceFormatCount, pSurfaceFormats);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint* pSurfaceFormatCount, VkSurfaceFormat2KHR* pSurfaceFormats)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceSurfaceInfo2KHR*, ref uint*, VkSurfaceFormat2KHR*, Result>)ptr)(physicalDevice, pSurfaceInfo, ref pSurfaceFormatCount, pSurfaceFormats);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR*, Result>)ptr)(physicalDevice, pSurfaceInfo, ref pSurfaceFormatCount, pSurfaceFormats);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSurfaceFormats2KHR(void* ptr) => new(ptr);

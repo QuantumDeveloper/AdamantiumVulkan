@@ -20,7 +20,7 @@ public unsafe partial struct VkDebugUtilsMessengerCreateInfoEXT
     public VkDebugUtilsMessengerCreateFlagsEXT flags;
     public DebugUtilsMessageSeverityFlagBitsEXT messageSeverity;
     public DebugUtilsMessageTypeFlagBitsEXT messageType;
-    public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, VkDebugUtilsMessengerCallbackDataEXT*, void*, uint> pfnUserCallback;
+    public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, uint> pfnUserCallback;
     public void* pUserData;
 }
 

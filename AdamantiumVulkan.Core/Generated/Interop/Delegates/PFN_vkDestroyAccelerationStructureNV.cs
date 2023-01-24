@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyAccelerationStructureNV
     public PFN_vkDestroyAccelerationStructureNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAccelerationStructureNV_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAccelerationStructureNV_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkAccelerationStructureNV_T accelerationStructure, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, accelerationStructure, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkAccelerationStructureNV_T accelerationStructure, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkAccelerationStructureNV_T, VkAllocationCallbacks*, void>)ptr)(device, accelerationStructure, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, accelerationStructure, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyAccelerationStructureNV(void* ptr) => new(ptr);

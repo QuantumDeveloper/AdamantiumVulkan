@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetColorWriteEnableEXT
     public PFN_vkCmdSetColorWriteEnableEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkBool32*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, VkBool32*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkBool32*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, VkBool32*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint attachmentCount, VkBool32* pColorWriteEnables)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, VkBool32* pColorWriteEnables)
     {
          InvokeFunc(commandBuffer, attachmentCount, pColorWriteEnables);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint attachmentCount, VkBool32* pColorWriteEnables)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, VkBool32* pColorWriteEnables)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkBool32*, void>)ptr)(commandBuffer, attachmentCount, pColorWriteEnables);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, VkBool32*, void>)ptr)(commandBuffer, attachmentCount, pColorWriteEnables);
     }
 
     public static explicit operator PFN_vkCmdSetColorWriteEnableEXT(void* ptr) => new(ptr);

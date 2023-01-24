@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDescriptorBufferOffsetsEXT
     public PFN_vkCmdSetDescriptorBufferOffsetsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, uint, uint*, VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, uint*, VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, uint, uint*, VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, uint*, VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, VkDeviceSize* pOffsets)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, VkDeviceSize* pOffsets)
     {
          InvokeFunc(commandBuffer, pipelineBindPoint, layout, firstSet, setCount, pBufferIndices, pOffsets);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, VkDeviceSize* pOffsets)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, VkDeviceSize* pOffsets)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, uint, uint*, VkDeviceSize*, void>)ptr)(commandBuffer, pipelineBindPoint, layout, firstSet, setCount, pBufferIndices, pOffsets);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, uint*, VkDeviceSize*, void>)ptr)(commandBuffer, pipelineBindPoint, layout, firstSet, setCount, pBufferIndices, pOffsets);
     }
 
     public static explicit operator PFN_vkCmdSetDescriptorBufferOffsetsEXT(void* ptr) => new(ptr);

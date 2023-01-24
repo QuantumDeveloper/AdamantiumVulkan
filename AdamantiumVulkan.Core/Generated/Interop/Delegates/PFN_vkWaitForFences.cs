@@ -19,20 +19,20 @@ public unsafe struct PFN_vkWaitForFences
     public PFN_vkWaitForFences(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkFence_T*, VkBool32, ulong, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, VkBool32, ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkFence_T*, VkBool32, ulong, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, VkBool32, ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, uint fenceCount, VkFence_T* pFences, VkBool32 waitAll, ulong timeout)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences, VkBool32 waitAll, ulong timeout)
     {
         return InvokeFunc(device, fenceCount, pFences, waitAll, timeout);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, uint fenceCount, VkFence_T* pFences, VkBool32 waitAll, ulong timeout)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences, VkBool32 waitAll, ulong timeout)
     {
-        return ((delegate* unmanaged<VkDevice_T, uint, VkFence_T*, VkBool32, ulong, Result>)ptr)(device, fenceCount, pFences, waitAll, timeout);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, VkBool32, ulong, Result>)ptr)(device, fenceCount, pFences, waitAll, timeout);
     }
 
     public static explicit operator PFN_vkWaitForFences(void* ptr) => new(ptr);

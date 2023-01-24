@@ -19,20 +19,20 @@ public unsafe struct PFN_vkEnumerateDeviceExtensionProperties
     public PFN_vkEnumerateDeviceExtensionProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, sbyte*, ref uint*, VkExtensionProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, sbyte*, ref uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, sbyte*, ref uint*, VkExtensionProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, sbyte*, ref uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint* pPropertyCount, VkExtensionProperties* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
     {
         return InvokeFunc(physicalDevice, pLayerName, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint* pPropertyCount, VkExtensionProperties* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, sbyte*, ref uint*, VkExtensionProperties*, Result>)ptr)(physicalDevice, pLayerName, ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, sbyte*, ref uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr)(physicalDevice, pLayerName, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkEnumerateDeviceExtensionProperties(void* ptr) => new(ptr);

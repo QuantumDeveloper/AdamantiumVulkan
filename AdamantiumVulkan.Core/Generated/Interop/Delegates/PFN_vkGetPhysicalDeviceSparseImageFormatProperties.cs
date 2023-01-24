@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceSparseImageFormatProperties
     public PFN_vkGetPhysicalDeviceSparseImageFormatProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, VkSparseImageFormatProperties*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, VkSparseImageFormatProperties*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, ref uint* pPropertyCount, VkSparseImageFormatProperties* pProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties)
     {
          InvokeFunc(physicalDevice, format, type, samples, usage, tiling, ref pPropertyCount, pProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, ref uint* pPropertyCount, VkSparseImageFormatProperties* pProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, VkSparseImageFormatProperties*, void>)ptr)(physicalDevice, format, type, samples, usage, tiling, ref pPropertyCount, pProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties*, void>)ptr)(physicalDevice, format, type, samples, usage, tiling, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSparseImageFormatProperties(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindInvocationMaskHUAWEI
     public PFN_vkCmdBindInvocationMaskHUAWEI(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkImageView_T, ImageLayout, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkImageView_T, ImageLayout, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkImageView_T imageView, ImageLayout imageLayout)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, ImageLayout imageLayout)
     {
          InvokeFunc(commandBuffer, imageView, imageLayout);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkImageView_T imageView, ImageLayout imageLayout)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, ImageLayout imageLayout)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkImageView_T, ImageLayout, void>)ptr)(commandBuffer, imageView, imageLayout);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, void>)ptr)(commandBuffer, imageView, imageLayout);
     }
 
     public static explicit operator PFN_vkCmdBindInvocationMaskHUAWEI(void* ptr) => new(ptr);

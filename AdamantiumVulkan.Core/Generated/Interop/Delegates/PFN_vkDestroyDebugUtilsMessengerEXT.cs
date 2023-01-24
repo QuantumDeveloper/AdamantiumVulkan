@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyDebugUtilsMessengerEXT
     public PFN_vkDestroyDebugUtilsMessengerEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstance_T, VkDebugUtilsMessengerEXT_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkInstance_T, VkDebugUtilsMessengerEXT_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkInstance_T instance, VkDebugUtilsMessengerEXT_T messenger, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T messenger, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(instance, messenger, pAllocator);
     }
-    public static void Invoke(void* ptr, VkInstance_T instance, VkDebugUtilsMessengerEXT_T messenger, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T messenger, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkInstance_T, VkDebugUtilsMessengerEXT_T, VkAllocationCallbacks*, void>)ptr)(instance, messenger, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(instance, messenger, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyDebugUtilsMessengerEXT(void* ptr) => new(ptr);

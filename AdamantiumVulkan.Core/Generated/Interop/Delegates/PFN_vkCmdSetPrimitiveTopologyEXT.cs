@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetPrimitiveTopologyEXT
     public PFN_vkCmdSetPrimitiveTopologyEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PrimitiveTopology, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PrimitiveTopology, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PrimitiveTopology, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PrimitiveTopology, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PrimitiveTopology primitiveTopology)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PrimitiveTopology primitiveTopology)
     {
          InvokeFunc(commandBuffer, primitiveTopology);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PrimitiveTopology primitiveTopology)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PrimitiveTopology primitiveTopology)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PrimitiveTopology, void>)ptr)(commandBuffer, primitiveTopology);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PrimitiveTopology, void>)ptr)(commandBuffer, primitiveTopology);
     }
 
     public static explicit operator PFN_vkCmdSetPrimitiveTopologyEXT(void* ptr) => new(ptr);

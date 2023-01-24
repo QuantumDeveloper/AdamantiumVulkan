@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateAccelerationStructureNV
     public PFN_vkCreateAccelerationStructureNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAccelerationStructureCreateInfoNV*, VkAllocationCallbacks*, out VkAccelerationStructureNV_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAccelerationStructureCreateInfoNV*, VkAllocationCallbacks*, out VkAccelerationStructureNV_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkAccelerationStructureCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkAccelerationStructureNV_T pAccelerationStructure)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructure)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pAccelerationStructure);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkAccelerationStructureCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkAccelerationStructureNV_T pAccelerationStructure)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructure)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkAccelerationStructureCreateInfoNV*, VkAllocationCallbacks*, out VkAccelerationStructureNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pAccelerationStructure);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pAccelerationStructure);
     }
 
     public static explicit operator PFN_vkCreateAccelerationStructureNV(void* ptr) => new(ptr);

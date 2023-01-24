@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDiscardRectangleEXT
     public PFN_vkCmdSetDiscardRectangleEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkRect2D*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkRect2D*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstDiscardRectangle, uint discardRectangleCount, VkRect2D* pDiscardRectangles)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstDiscardRectangle, uint discardRectangleCount, AdamantiumVulkan.Core.Interop.VkRect2D* pDiscardRectangles)
     {
          InvokeFunc(commandBuffer, firstDiscardRectangle, discardRectangleCount, pDiscardRectangles);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstDiscardRectangle, uint discardRectangleCount, VkRect2D* pDiscardRectangles)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstDiscardRectangle, uint discardRectangleCount, AdamantiumVulkan.Core.Interop.VkRect2D* pDiscardRectangles)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkRect2D*, void>)ptr)(commandBuffer, firstDiscardRectangle, discardRectangleCount, pDiscardRectangles);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr)(commandBuffer, firstDiscardRectangle, discardRectangleCount, pDiscardRectangles);
     }
 
     public static explicit operator PFN_vkCmdSetDiscardRectangleEXT(void* ptr) => new(ptr);

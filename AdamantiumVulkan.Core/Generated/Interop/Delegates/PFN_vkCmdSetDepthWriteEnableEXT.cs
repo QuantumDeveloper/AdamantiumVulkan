@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDepthWriteEnableEXT
     public PFN_vkCmdSetDepthWriteEnableEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBool32, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBool32 depthWriteEnable)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthWriteEnable)
     {
          InvokeFunc(commandBuffer, depthWriteEnable);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBool32 depthWriteEnable)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthWriteEnable)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, depthWriteEnable);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, depthWriteEnable);
     }
 
     public static explicit operator PFN_vkCmdSetDepthWriteEnableEXT(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetCullMode
     public PFN_vkCmdSetCullMode(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkCullModeFlags, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCullModeFlags, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkCullModeFlags, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCullModeFlags, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode)
     {
          InvokeFunc(commandBuffer, cullMode);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkCullModeFlags, void>)ptr)(commandBuffer, cullMode);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCullModeFlags, void>)ptr)(commandBuffer, cullMode);
     }
 
     public static explicit operator PFN_vkCmdSetCullMode(void* ptr) => new(ptr);

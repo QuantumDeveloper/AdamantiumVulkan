@@ -8,7 +8,7 @@ namespace AdamantiumVulkan.Core
         public static LayerProperties[] EnumerateInstanceLayerProperties()
         {
             uint layersCount = 0;
-            var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, (LayerProperties)null);
+            var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceLayerProperties));
 
             LayerProperties[] layers = new LayerProperties[layersCount];
@@ -20,7 +20,7 @@ namespace AdamantiumVulkan.Core
         public static ExtensionProperties[] EnumerateInstanceExtensionProperties(string layerName)
         {
             uint propertyCount = 0;
-            var result = VulkanNative.EnumerateInstanceExtensionProperties(layerName, ref propertyCount, (ExtensionProperties)null);
+            var result = VulkanNative.EnumerateInstanceExtensionProperties(layerName, ref propertyCount, null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceExtensionProperties));
 
             ExtensionProperties[] properties = new ExtensionProperties[propertyCount];
@@ -32,7 +32,7 @@ namespace AdamantiumVulkan.Core
         public static ExtensionProperties[] EnumerateInstanceExtensionProperties()
         {
             uint extensionsCount = 0;
-            var result = VulkanNative.EnumerateInstanceExtensionProperties(null, ref extensionsCount, (ExtensionProperties)null);
+            var result = VulkanNative.EnumerateInstanceExtensionProperties(null, ref extensionsCount, null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceExtensionProperties));
 
             ExtensionProperties[] properties = new ExtensionProperties[extensionsCount];
@@ -179,67 +179,67 @@ namespace AdamantiumVulkan.Core
 
         private void ClearPhysicalDeviceFeatures(PhysicalDeviceFeatures deviceFeatures)
         {
-            deviceFeatures.RobustBufferAccess = false;
-            deviceFeatures.FullDrawIndexUint32 = false;                    
-            deviceFeatures.ImageCubeArray = false;                         
-            deviceFeatures.IndependentBlend = false;                       
-            deviceFeatures.GeometryShader = false;                         
-            deviceFeatures.TessellationShader = false;                     
-            deviceFeatures.SampleRateShading = false;                      
-            deviceFeatures.DualSrcBlend = false;                           
-            deviceFeatures.LogicOp = false;                                
-            deviceFeatures.MultiDrawIndirect = false;                      
-            deviceFeatures.DrawIndirectFirstInstance = false;              
-            deviceFeatures.DepthClamp = false;                             
-            deviceFeatures.DepthBiasClamp = false;                         
-            deviceFeatures.FillModeNonSolid = false;                       
-            deviceFeatures.DepthBounds = false;                            
-            deviceFeatures.WideLines = false;                              
-            deviceFeatures.LargePoints = false;                            
-            deviceFeatures.AlphaToOne = false;                             
-            deviceFeatures.MultiViewport = false;                          
-            deviceFeatures.SamplerAnisotropy = false;                      
-            deviceFeatures.TextureCompressionETC2 = false;                 
-            deviceFeatures.TextureCompressionASTC_LDR = false;             
-            deviceFeatures.TextureCompressionBC = false;                   
-            deviceFeatures.OcclusionQueryPrecise = false;                  
-            deviceFeatures.PipelineStatisticsQuery = false;                
-            deviceFeatures.VertexPipelineStoresAndAtomics = false;         
-            deviceFeatures.FragmentStoresAndAtomics = false;              
-            deviceFeatures.ShaderTessellationAndGeometryPointSize = false; 
-            deviceFeatures.ShaderImageGatherExtended = false;              
-            deviceFeatures.ShaderStorageImageExtendedFormats = false;     
-            deviceFeatures.ShaderStorageImageMultisample = false;      
-            deviceFeatures.ShaderStorageImageReadWithoutFormat = false;
-            deviceFeatures.ShaderStorageImageWriteWithoutFormat = false;
-            deviceFeatures.ShaderUniformBufferArrayDynamicIndexing = false;
-            deviceFeatures.ShaderSampledImageArrayDynamicIndexing = false;
-            deviceFeatures.ShaderStorageBufferArrayDynamicIndexing = false;
-            deviceFeatures.ShaderStorageImageArrayDynamicIndexing = false;
-            deviceFeatures.ShaderClipDistance = false;               
-            deviceFeatures.ShaderCullDistance = false;
-            deviceFeatures.ShaderFloat64 = false;                          
-            deviceFeatures.ShaderInt64 = false;
-            deviceFeatures.ShaderInt16 = false;                            
-            deviceFeatures.ShaderResourceResidency = false;                
-            deviceFeatures.ShaderResourceMinLod = false;                   
-            deviceFeatures.SparseBinding = false;                        
-            deviceFeatures.SparseResidencyBuffer = false;                  
-            deviceFeatures.SparseResidencyImage2D = false;                 
-            deviceFeatures.SparseResidencyImage3D = false;                 
-            deviceFeatures.SparseResidency2Samples = false;               
-            deviceFeatures.SparseResidency4Samples = false;               
-            deviceFeatures.SparseResidency8Samples = false;               
-            deviceFeatures.SparseResidency16Samples = false;               
-            deviceFeatures.SparseResidencyAliased = false;                 
-            deviceFeatures.VariableMultisampleRate = false;                
-            deviceFeatures.InheritedQueries = false;                     
+            deviceFeatures.RobustBufferAccess = VkBool32.FALSE;
+            deviceFeatures.FullDrawIndexUint32 = VkBool32.FALSE;                    
+            deviceFeatures.ImageCubeArray = VkBool32.FALSE;                         
+            deviceFeatures.IndependentBlend = VkBool32.FALSE;                       
+            deviceFeatures.GeometryShader = VkBool32.FALSE;                         
+            deviceFeatures.TessellationShader = VkBool32.FALSE;                     
+            deviceFeatures.SampleRateShading = VkBool32.FALSE;                      
+            deviceFeatures.DualSrcBlend = VkBool32.FALSE;                           
+            deviceFeatures.LogicOp = VkBool32.FALSE;                                
+            deviceFeatures.MultiDrawIndirect = VkBool32.FALSE;                      
+            deviceFeatures.DrawIndirectFirstInstance = VkBool32.FALSE;              
+            deviceFeatures.DepthClamp = VkBool32.FALSE;                             
+            deviceFeatures.DepthBiasClamp = VkBool32.FALSE;                         
+            deviceFeatures.FillModeNonSolid = VkBool32.FALSE;                       
+            deviceFeatures.DepthBounds = VkBool32.FALSE;                            
+            deviceFeatures.WideLines = VkBool32.FALSE;                              
+            deviceFeatures.LargePoints = VkBool32.FALSE;                            
+            deviceFeatures.AlphaToOne = VkBool32.FALSE;                             
+            deviceFeatures.MultiViewport = VkBool32.FALSE;                          
+            deviceFeatures.SamplerAnisotropy = VkBool32.FALSE;                      
+            deviceFeatures.TextureCompressionETC2 = VkBool32.FALSE;                 
+            deviceFeatures.TextureCompressionASTC_LDR = VkBool32.FALSE;             
+            deviceFeatures.TextureCompressionBC = VkBool32.FALSE;                   
+            deviceFeatures.OcclusionQueryPrecise = VkBool32.FALSE;                  
+            deviceFeatures.PipelineStatisticsQuery = VkBool32.FALSE;                
+            deviceFeatures.VertexPipelineStoresAndAtomics = VkBool32.FALSE;         
+            deviceFeatures.FragmentStoresAndAtomics = VkBool32.FALSE;              
+            deviceFeatures.ShaderTessellationAndGeometryPointSize = VkBool32.FALSE; 
+            deviceFeatures.ShaderImageGatherExtended = VkBool32.FALSE;              
+            deviceFeatures.ShaderStorageImageExtendedFormats = VkBool32.FALSE;     
+            deviceFeatures.ShaderStorageImageMultisample = VkBool32.FALSE;      
+            deviceFeatures.ShaderStorageImageReadWithoutFormat = VkBool32.FALSE;
+            deviceFeatures.ShaderStorageImageWriteWithoutFormat = VkBool32.FALSE;
+            deviceFeatures.ShaderUniformBufferArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderSampledImageArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderStorageBufferArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderStorageImageArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderClipDistance = VkBool32.FALSE;               
+            deviceFeatures.ShaderCullDistance = VkBool32.FALSE;
+            deviceFeatures.ShaderFloat64 = VkBool32.FALSE;                          
+            deviceFeatures.ShaderInt64 = VkBool32.FALSE;
+            deviceFeatures.ShaderInt16 = VkBool32.FALSE;                            
+            deviceFeatures.ShaderResourceResidency = VkBool32.FALSE;                
+            deviceFeatures.ShaderResourceMinLod = VkBool32.FALSE;                   
+            deviceFeatures.SparseBinding = VkBool32.FALSE;                        
+            deviceFeatures.SparseResidencyBuffer = VkBool32.FALSE;                  
+            deviceFeatures.SparseResidencyImage2D = VkBool32.FALSE;                 
+            deviceFeatures.SparseResidencyImage3D = VkBool32.FALSE;                 
+            deviceFeatures.SparseResidency2Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidency4Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidency8Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidency16Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidencyAliased = VkBool32.FALSE;                 
+            deviceFeatures.VariableMultisampleRate = VkBool32.FALSE;                
+            deviceFeatures.InheritedQueries = VkBool32.FALSE;                     
         }
 
         public Result GetPhysicalDeviceSurfaceSupport(uint queueFamilyIndex, AdamantiumVulkan.Core.SurfaceKHR surface, out bool pSupported)
         {
             var result = GetPhysicalDeviceSurfaceSupportKHR(queueFamilyIndex, surface, out var supported);
-            pSupported = supported;
+            pSupported = (VkBool32)supported;
             return result;
         }
     }

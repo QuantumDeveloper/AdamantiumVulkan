@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT
     public PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, ref uint*, ref TimeDomainEXT, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, ref uint*, ref TimeDomainEXT, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainEXT pTimeDomains)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainEXT* pTimeDomains)
     {
         return InvokeFunc(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainEXT pTimeDomains)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainEXT* pTimeDomains)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, ref uint*, ref TimeDomainEXT, Result>)ptr)(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainEXT*, Result>)ptr)(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(void* ptr) => new(ptr);

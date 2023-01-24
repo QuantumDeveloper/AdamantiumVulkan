@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPipelineCacheData
     public PFN_vkGetPipelineCacheData(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPipelineCache_T, ref ulong*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPipelineCache_T, ref ulong*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData)
     {
         return InvokeFunc(device, pipelineCache, ref pDataSize, pData);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPipelineCache_T, ref ulong*, void*, Result>)ptr)(device, pipelineCache, ref pDataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, void*, Result>)ptr)(device, pipelineCache, ref pDataSize, pData);
     }
 
     public static explicit operator PFN_vkGetPipelineCacheData(void* ptr) => new(ptr);

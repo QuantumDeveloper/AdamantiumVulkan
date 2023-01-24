@@ -19,20 +19,20 @@ public unsafe struct PFN_vkAllocateCommandBuffers
     public PFN_vkAllocateCommandBuffers(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkCommandBufferAllocateInfo*, out VkCommandBuffer_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkCommandBufferAllocateInfo*, out VkCommandBuffer_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkCommandBufferAllocateInfo* pAllocateInfo, out VkCommandBuffer_T pCommandBuffers)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T pCommandBuffers)
     {
         return InvokeFunc(device, pAllocateInfo, out pCommandBuffers);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkCommandBufferAllocateInfo* pAllocateInfo, out VkCommandBuffer_T pCommandBuffers)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T pCommandBuffers)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkCommandBufferAllocateInfo*, out VkCommandBuffer_T, Result>)ptr)(device, pAllocateInfo, out pCommandBuffers);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)ptr)(device, pAllocateInfo, out pCommandBuffers);
     }
 
     public static explicit operator PFN_vkAllocateCommandBuffers(void* ptr) => new(ptr);

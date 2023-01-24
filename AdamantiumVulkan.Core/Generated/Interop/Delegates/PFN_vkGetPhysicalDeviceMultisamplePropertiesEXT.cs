@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT
     public PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, SampleCountFlagBits, VkMultisamplePropertiesEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, SampleCountFlagBits, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, SampleCountFlagBits, VkMultisamplePropertiesEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, SampleCountFlagBits, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, SampleCountFlagBits samples, VkMultisamplePropertiesEXT* pMultisampleProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, SampleCountFlagBits samples, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT* pMultisampleProperties)
     {
          InvokeFunc(physicalDevice, samples, pMultisampleProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, SampleCountFlagBits samples, VkMultisamplePropertiesEXT* pMultisampleProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, SampleCountFlagBits samples, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT* pMultisampleProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, SampleCountFlagBits, VkMultisamplePropertiesEXT*, void>)ptr)(physicalDevice, samples, pMultisampleProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, SampleCountFlagBits, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT*, void>)ptr)(physicalDevice, samples, pMultisampleProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(void* ptr) => new(ptr);

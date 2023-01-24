@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetCoarseSampleOrderNV
     public PFN_vkCmdSetCoarseSampleOrderNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, VkCoarseSampleOrderCustomNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, VkCoarseSampleOrderCustomNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, CoarseSampleOrderTypeNV sampleOrderType, uint customSampleOrderCount, VkCoarseSampleOrderCustomNV* pCustomSampleOrders)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoarseSampleOrderTypeNV sampleOrderType, uint customSampleOrderCount, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV* pCustomSampleOrders)
     {
          InvokeFunc(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, CoarseSampleOrderTypeNV sampleOrderType, uint customSampleOrderCount, VkCoarseSampleOrderCustomNV* pCustomSampleOrders)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoarseSampleOrderTypeNV sampleOrderType, uint customSampleOrderCount, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV* pCustomSampleOrders)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, VkCoarseSampleOrderCustomNV*, void>)ptr)(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV*, void>)ptr)(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
     }
 
     public static explicit operator PFN_vkCmdSetCoarseSampleOrderNV(void* ptr) => new(ptr);

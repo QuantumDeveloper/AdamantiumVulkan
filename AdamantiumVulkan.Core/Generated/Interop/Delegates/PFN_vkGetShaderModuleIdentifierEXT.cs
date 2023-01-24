@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetShaderModuleIdentifierEXT
     public PFN_vkGetShaderModuleIdentifierEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkShaderModule_T, VkShaderModuleIdentifierEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModule_T, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkShaderModule_T, VkShaderModuleIdentifierEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModule_T, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkShaderModule_T shaderModule, VkShaderModuleIdentifierEXT* pIdentifier)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier)
     {
          InvokeFunc(device, shaderModule, pIdentifier);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkShaderModule_T shaderModule, VkShaderModuleIdentifierEXT* pIdentifier)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier)
     {
-         ((delegate* unmanaged<VkDevice_T, VkShaderModule_T, VkShaderModuleIdentifierEXT*, void>)ptr)(device, shaderModule, pIdentifier);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModule_T, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void>)ptr)(device, shaderModule, pIdentifier);
     }
 
     public static explicit operator PFN_vkGetShaderModuleIdentifierEXT(void* ptr) => new(ptr);

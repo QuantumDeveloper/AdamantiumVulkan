@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetImageViewAddressNVX
     public PFN_vkGetImageViewAddressNVX(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImageView_T, VkImageViewAddressPropertiesNVX*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageView_T, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImageView_T, VkImageViewAddressPropertiesNVX*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageView_T, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkImageView_T imageView, VkImageViewAddressPropertiesNVX* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX* pProperties)
     {
         return InvokeFunc(device, imageView, pProperties);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkImageView_T imageView, VkImageViewAddressPropertiesNVX* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX* pProperties)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkImageView_T, VkImageViewAddressPropertiesNVX*, Result>)ptr)(device, imageView, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageView_T, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX*, Result>)ptr)(device, imageView, pProperties);
     }
 
     public static explicit operator PFN_vkGetImageViewAddressNVX(void* ptr) => new(ptr);

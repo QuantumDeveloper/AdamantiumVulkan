@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetExclusiveScissorNV
     public PFN_vkCmdSetExclusiveScissorNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkRect2D*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkRect2D*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, VkRect2D* pExclusiveScissors)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors)
     {
          InvokeFunc(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, VkRect2D* pExclusiveScissors)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkRect2D*, void>)ptr)(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr)(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
     }
 
     public static explicit operator PFN_vkCmdSetExclusiveScissorNV(void* ptr) => new(ptr);

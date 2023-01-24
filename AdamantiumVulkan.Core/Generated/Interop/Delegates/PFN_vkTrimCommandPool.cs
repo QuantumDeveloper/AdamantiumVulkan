@@ -19,20 +19,20 @@ public unsafe struct PFN_vkTrimCommandPool
     public PFN_vkTrimCommandPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkCommandPoolTrimFlags, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolTrimFlags, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkCommandPoolTrimFlags, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolTrimFlags, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags)
     {
          InvokeFunc(device, commandPool, flags);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags)
     {
-         ((delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkCommandPoolTrimFlags, void>)ptr)(device, commandPool, flags);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolTrimFlags, void>)ptr)(device, commandPool, flags);
     }
 
     public static explicit operator PFN_vkTrimCommandPool(void* ptr) => new(ptr);

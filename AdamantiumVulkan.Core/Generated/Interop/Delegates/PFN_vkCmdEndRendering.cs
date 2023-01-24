@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdEndRendering
     public PFN_vkCmdEndRendering(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer)
     {
          InvokeFunc(commandBuffer);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, void>)ptr)(commandBuffer);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void>)ptr)(commandBuffer);
     }
 
     public static explicit operator PFN_vkCmdEndRendering(void* ptr) => new(ptr);

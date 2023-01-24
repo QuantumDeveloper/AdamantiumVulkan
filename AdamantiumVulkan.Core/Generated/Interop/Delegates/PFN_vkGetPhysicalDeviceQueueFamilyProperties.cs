@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyProperties
     public PFN_vkGetPhysicalDeviceQueueFamilyProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkQueueFamilyProperties*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkQueueFamilyProperties*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, ref uint* pQueueFamilyPropertyCount, VkQueueFamilyProperties* pQueueFamilyProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties)
     {
          InvokeFunc(physicalDevice, ref pQueueFamilyPropertyCount, pQueueFamilyProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, ref uint* pQueueFamilyPropertyCount, VkQueueFamilyProperties* pQueueFamilyProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkQueueFamilyProperties*, void>)ptr)(physicalDevice, ref pQueueFamilyPropertyCount, pQueueFamilyProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties*, void>)ptr)(physicalDevice, ref pQueueFamilyPropertyCount, pQueueFamilyProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceQueueFamilyProperties(void* ptr) => new(ptr);

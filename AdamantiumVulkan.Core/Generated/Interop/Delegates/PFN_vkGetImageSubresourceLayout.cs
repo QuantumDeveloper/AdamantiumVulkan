@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetImageSubresourceLayout
     public PFN_vkGetImageSubresourceLayout(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImage_T, VkImageSubresource*, VkSubresourceLayout*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageSubresource*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImage_T, VkImageSubresource*, VkSubresourceLayout*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageSubresource*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkImage_T image, VkImageSubresource* pSubresource, VkSubresourceLayout* pLayout)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageSubresource* pSubresource, AdamantiumVulkan.Core.Interop.VkSubresourceLayout* pLayout)
     {
          InvokeFunc(device, image, pSubresource, pLayout);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkImage_T image, VkImageSubresource* pSubresource, VkSubresourceLayout* pLayout)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageSubresource* pSubresource, AdamantiumVulkan.Core.Interop.VkSubresourceLayout* pLayout)
     {
-         ((delegate* unmanaged<VkDevice_T, VkImage_T, VkImageSubresource*, VkSubresourceLayout*, void>)ptr)(device, image, pSubresource, pLayout);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageSubresource*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout*, void>)ptr)(device, image, pSubresource, pLayout);
     }
 
     public static explicit operator PFN_vkGetImageSubresourceLayout(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBeginConditionalRenderingEXT
     public PFN_vkCmdBeginConditionalRenderingEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkConditionalRenderingBeginInfoEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkConditionalRenderingBeginInfoEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin)
     {
          InvokeFunc(commandBuffer, pConditionalRenderingBegin);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkConditionalRenderingBeginInfoEXT*, void>)ptr)(commandBuffer, pConditionalRenderingBegin);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT*, void>)ptr)(commandBuffer, pConditionalRenderingBegin);
     }
 
     public static explicit operator PFN_vkCmdBeginConditionalRenderingEXT(void* ptr) => new(ptr);

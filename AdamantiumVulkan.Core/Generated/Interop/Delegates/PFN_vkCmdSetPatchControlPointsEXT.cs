@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetPatchControlPointsEXT
     public PFN_vkCmdSetPatchControlPointsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint patchControlPoints)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint patchControlPoints)
     {
          InvokeFunc(commandBuffer, patchControlPoints);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint patchControlPoints)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint patchControlPoints)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, patchControlPoints);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, patchControlPoints);
     }
 
     public static explicit operator PFN_vkCmdSetPatchControlPointsEXT(void* ptr) => new(ptr);

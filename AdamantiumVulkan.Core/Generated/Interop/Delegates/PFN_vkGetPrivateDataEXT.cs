@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPrivateDataEXT
     public PFN_vkGetPrivateDataEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, ObjectType, ulong, VkPrivateDataSlot_T, ref ulong*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, ObjectType, ulong, VkPrivateDataSlot_T, ref ulong*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, ObjectType objectType, ulong objectHandle, VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
     {
          InvokeFunc(device, objectType, objectHandle, privateDataSlot, ref pData);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, ObjectType objectType, ulong objectHandle, VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
     {
-         ((delegate* unmanaged<VkDevice_T, ObjectType, ulong, VkPrivateDataSlot_T, ref ulong*, void>)ptr)(device, objectType, objectHandle, privateDataSlot, ref pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)ptr)(device, objectType, objectHandle, privateDataSlot, ref pData);
     }
 
     public static explicit operator PFN_vkGetPrivateDataEXT(void* ptr) => new(ptr);

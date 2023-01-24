@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyCommandPool
     public PFN_vkDestroyCommandPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkCommandPool_T commandPool, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, commandPool, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkCommandPool_T commandPool, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkAllocationCallbacks*, void>)ptr)(device, commandPool, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, commandPool, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyCommandPool(void* ptr) => new(ptr);

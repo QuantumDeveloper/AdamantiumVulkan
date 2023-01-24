@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateCuFunctionNVX
     public PFN_vkCreateCuFunctionNVX(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkCuFunctionCreateInfoNVX*, VkAllocationCallbacks*, out VkCuFunctionNVX_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkCuFunctionCreateInfoNVX*, VkAllocationCallbacks*, out VkCuFunctionNVX_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkCuFunctionCreateInfoNVX* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCuFunctionNVX_T pFunction)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T pFunction)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pFunction);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkCuFunctionCreateInfoNVX* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCuFunctionNVX_T pFunction)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T pFunction)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkCuFunctionCreateInfoNVX*, VkAllocationCallbacks*, out VkCuFunctionNVX_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pFunction);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pFunction);
     }
 
     public static explicit operator PFN_vkCreateCuFunctionNVX(void* ptr) => new(ptr);

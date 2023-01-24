@@ -19,20 +19,20 @@ public unsafe struct PFN_vkQueueBindSparse
     public PFN_vkQueueBindSparse(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, uint, VkBindSparseInfo*, VkFence_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkBindSparseInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, uint, VkBindSparseInfo*, VkFence_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkBindSparseInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkQueue_T queue, uint bindInfoCount, VkBindSparseInfo* pBindInfo, VkFence_T fence)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindSparseInfo* pBindInfo, AdamantiumVulkan.Core.Interop.VkFence_T fence)
     {
         return InvokeFunc(queue, bindInfoCount, pBindInfo, fence);
     }
-    public static Result Invoke(void* ptr, VkQueue_T queue, uint bindInfoCount, VkBindSparseInfo* pBindInfo, VkFence_T fence)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindSparseInfo* pBindInfo, AdamantiumVulkan.Core.Interop.VkFence_T fence)
     {
-        return ((delegate* unmanaged<VkQueue_T, uint, VkBindSparseInfo*, VkFence_T, Result>)ptr)(queue, bindInfoCount, pBindInfo, fence);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkBindSparseInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr)(queue, bindInfoCount, pBindInfo, fence);
     }
 
     public static explicit operator PFN_vkQueueBindSparse(void* ptr) => new(ptr);

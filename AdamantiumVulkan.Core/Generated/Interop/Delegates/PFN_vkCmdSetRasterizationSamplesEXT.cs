@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetRasterizationSamplesEXT
     public PFN_vkCmdSetRasterizationSamplesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, SampleCountFlagBits, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SampleCountFlagBits, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, SampleCountFlagBits, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SampleCountFlagBits, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, SampleCountFlagBits rasterizationSamples)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SampleCountFlagBits rasterizationSamples)
     {
          InvokeFunc(commandBuffer, rasterizationSamples);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, SampleCountFlagBits rasterizationSamples)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SampleCountFlagBits rasterizationSamples)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, SampleCountFlagBits, void>)ptr)(commandBuffer, rasterizationSamples);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SampleCountFlagBits, void>)ptr)(commandBuffer, rasterizationSamples);
     }
 
     public static explicit operator PFN_vkCmdSetRasterizationSamplesEXT(void* ptr) => new(ptr);

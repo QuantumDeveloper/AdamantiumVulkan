@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDescriptorSetHostMappingVALVE
     public PFN_vkGetDescriptorSetHostMappingVALVE(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorSet_T, out void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out void*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorSet_T, out void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDescriptorSet_T descriptorSet, out void* ppData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData)
     {
          InvokeFunc(device, descriptorSet, out ppData);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDescriptorSet_T descriptorSet, out void* ppData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDescriptorSet_T, out void*, void>)ptr)(device, descriptorSet, out ppData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out void*, void>)ptr)(device, descriptorSet, out ppData);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetHostMappingVALVE(void* ptr) => new(ptr);

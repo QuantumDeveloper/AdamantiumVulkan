@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetShaderModuleCreateInfoIdentifierEXT
     public PFN_vkGetShaderModuleCreateInfoIdentifierEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkShaderModuleCreateInfo*, VkShaderModuleIdentifierEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo*, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkShaderModuleCreateInfo*, VkShaderModuleIdentifierEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo*, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkShaderModuleCreateInfo* pCreateInfo, VkShaderModuleIdentifierEXT* pIdentifier)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier)
     {
          InvokeFunc(device, pCreateInfo, pIdentifier);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkShaderModuleCreateInfo* pCreateInfo, VkShaderModuleIdentifierEXT* pIdentifier)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier)
     {
-         ((delegate* unmanaged<VkDevice_T, VkShaderModuleCreateInfo*, VkShaderModuleIdentifierEXT*, void>)ptr)(device, pCreateInfo, pIdentifier);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo*, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void>)ptr)(device, pCreateInfo, pIdentifier);
     }
 
     public static explicit operator PFN_vkGetShaderModuleCreateInfoIdentifierEXT(void* ptr) => new(ptr);

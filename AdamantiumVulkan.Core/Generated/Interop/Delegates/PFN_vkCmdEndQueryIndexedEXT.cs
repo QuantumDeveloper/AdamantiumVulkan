@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdEndQueryIndexedEXT
     public PFN_vkCmdEndQueryIndexedEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkQueryPool_T queryPool, uint query, uint index)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, uint index)
     {
          InvokeFunc(commandBuffer, queryPool, query, index);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkQueryPool_T queryPool, uint query, uint index)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, uint index)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, uint, void>)ptr)(commandBuffer, queryPool, query, index);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void>)ptr)(commandBuffer, queryPool, query, index);
     }
 
     public static explicit operator PFN_vkCmdEndQueryIndexedEXT(void* ptr) => new(ptr);

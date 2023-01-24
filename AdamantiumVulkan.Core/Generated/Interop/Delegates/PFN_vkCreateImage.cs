@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateImage
     public PFN_vkCreateImage(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImageCreateInfo*, VkAllocationCallbacks*, out VkImage_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImageCreateInfo*, VkAllocationCallbacks*, out VkImage_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkImageCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkImage_T pImage)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkImage_T pImage)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pImage);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkImageCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkImage_T pImage)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkImage_T pImage)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkImageCreateInfo*, VkAllocationCallbacks*, out VkImage_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pImage);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pImage);
     }
 
     public static explicit operator PFN_vkCreateImage(void* ptr) => new(ptr);

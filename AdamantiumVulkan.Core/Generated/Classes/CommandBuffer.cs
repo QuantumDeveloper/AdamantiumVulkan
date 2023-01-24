@@ -126,7 +126,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg4);
     }
 
-    public void BeginTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ref ulong pCounterBufferOffsets)
+    public void BeginTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ulong pCounterBufferOffsets)
     {
         var arg3 = ReferenceEquals(pCounterBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pCounterBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pCounterBufferOffsets);
@@ -214,7 +214,45 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ref ulong pOffsets, ref ulong pSizes)
+    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong pOffsets, ulong[] pSizes)
+    {
+        var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
+        var arg4 = NativeUtils.StructOrEnumToPointer(pOffsets);
+        var arg5 = NativeUtils.ManagedArrayToPointer(pSizes);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindTransformFeedbackBuffersEXT(this, firstBinding, bindingCount, arg3, arg4, arg5);
+        NativeUtils.Free(arg3);
+        pOffsets = *arg4;
+        NativeUtils.Free(arg4);
+        if (!ReferenceEquals(pSizes, null))
+        {
+            for (var i = 0U; i < pSizes.Length; ++i)
+            {
+                pSizes[i] = arg5[i];
+            }
+        }
+        NativeUtils.Free(arg5);
+    }
+
+    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong[] pOffsets, ulong pSizes)
+    {
+        var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
+        var arg4 = NativeUtils.ManagedArrayToPointer(pOffsets);
+        var arg5 = NativeUtils.StructOrEnumToPointer(pSizes);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindTransformFeedbackBuffersEXT(this, firstBinding, bindingCount, arg3, arg4, arg5);
+        NativeUtils.Free(arg3);
+        if (!ReferenceEquals(pOffsets, null))
+        {
+            for (var i = 0U; i < pOffsets.Length; ++i)
+            {
+                pOffsets[i] = arg4[i];
+            }
+        }
+        NativeUtils.Free(arg4);
+        pSizes = *arg5;
+        NativeUtils.Free(arg5);
+    }
+
+    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong pOffsets, ulong pSizes)
     {
         var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pOffsets);
@@ -227,7 +265,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void BindVertexBuffers(uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Buffer[] pBuffers, ulong[] pOffsets)
+    public void BindVertexBuffers(uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Buffer[] pBuffers, params ulong[] pOffsets)
     {
          var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkBuffer_T>(pBuffers.Length);
         if (!ReferenceEquals(pBuffers, null))
@@ -237,26 +275,38 @@ public unsafe partial class CommandBuffer
                 arg3[i] = pBuffers[i];
             }
         }
-        var arg4 = NativeUtils.ManagedArrayToPointer(pOffsets);
+        var arg4 = ReferenceEquals(pOffsets, null) ? null : NativeUtils.ManagedArrayToPointer(pOffsets);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindVertexBuffers(this, firstBinding, bindingCount, arg3, arg4);
-        if (!ReferenceEquals(pOffsets, null))
-        {
-            for (var i = 0U; i < pOffsets.Length; ++i)
-            {
-                pOffsets[i] = arg4[i];
-            }
-        }
-        NativeUtils.Free(arg4);
     }
 
-    public void BindVertexBuffers(uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Buffer pBuffers, ref ulong pOffsets)
+    public void BindVertexBuffers(uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Buffer pBuffers, params ulong[] pOffsets)
+    {
+        var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
+        var arg4 = ReferenceEquals(pOffsets, null) ? null : NativeUtils.ManagedArrayToPointer(pOffsets);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindVertexBuffers(this, firstBinding, bindingCount, arg3, arg4);
+        NativeUtils.Free(arg3);
+    }
+
+    public void BindVertexBuffers(uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Buffer[] pBuffers, ulong pOffsets)
+    {
+         var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkBuffer_T>(pBuffers.Length);
+        if (!ReferenceEquals(pBuffers, null))
+        {
+            for (var i = 0U; i < pBuffers.Length; ++i)
+            {
+                arg3[i] = pBuffers[i];
+            }
+        }
+        var arg4 = NativeUtils.StructOrEnumToPointer(pOffsets);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindVertexBuffers(this, firstBinding, bindingCount, arg3, arg4);
+    }
+
+    public void BindVertexBuffers(uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Buffer pBuffers, ulong pOffsets)
     {
         var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pOffsets);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindVertexBuffers(this, firstBinding, bindingCount, arg3, arg4);
         NativeUtils.Free(arg3);
-        pOffsets = *arg4;
-        NativeUtils.Free(arg4);
     }
 
     public void BindVertexBuffers2(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, in VkDeviceSize pOffsets, in VkDeviceSize pSizes, in VkDeviceSize pStrides)
@@ -403,7 +453,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg1);
     }
 
-    public void CopyBuffer(AdamantiumVulkan.Core.Buffer srcBuffer, AdamantiumVulkan.Core.Buffer dstBuffer, uint regionCount, BufferCopy[] pRegions)
+    public void CopyBuffer(AdamantiumVulkan.Core.Buffer srcBuffer, AdamantiumVulkan.Core.Buffer dstBuffer, uint regionCount, params BufferCopy[] pRegions)
     {
         var arg1 = ReferenceEquals(srcBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)srcBuffer;
         var arg2 = ReferenceEquals(dstBuffer, null) ? new VkBuffer_T() : (VkBuffer_T)dstBuffer;
@@ -827,7 +877,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg4);
     }
 
-    public void EndTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ref ulong pCounterBufferOffsets)
+    public void EndTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ulong pCounterBufferOffsets)
     {
         var arg3 = ReferenceEquals(pCounterBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pCounterBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pCounterBufferOffsets);
@@ -902,7 +952,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg2);
     }
 
-    public void PipelineBarrier(VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, uint memoryBarrierCount, MemoryBarrier[] pMemoryBarriers, uint bufferMemoryBarrierCount, BufferMemoryBarrier[] pBufferMemoryBarriers, uint imageMemoryBarrierCount, ImageMemoryBarrier[] pImageMemoryBarriers)
+    public void PipelineBarrier(VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, uint memoryBarrierCount, MemoryBarrier[] pMemoryBarriers, uint bufferMemoryBarrierCount, BufferMemoryBarrier[] pBufferMemoryBarriers, uint imageMemoryBarrierCount, params ImageMemoryBarrier[] pImageMemoryBarriers)
     {
         var arg5 = ReferenceEquals(pMemoryBarriers, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkMemoryBarrier>(pMemoryBarriers.Length);
         if (!ReferenceEquals(pMemoryBarriers, null))
@@ -950,20 +1000,6 @@ public unsafe partial class CommandBuffer
                 pImageMemoryBarriers[i]?.Dispose();
             }
         }
-    }
-
-    public void PipelineBarrier(VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, uint memoryBarrierCount, MemoryBarrier pMemoryBarriers, uint bufferMemoryBarrierCount, BufferMemoryBarrier pBufferMemoryBarriers, uint imageMemoryBarrierCount, ImageMemoryBarrier pImageMemoryBarriers)
-    {
-        var arg5 = ReferenceEquals(pMemoryBarriers, null) ? null : NativeUtils.StructOrEnumToPointer(pMemoryBarriers.ToNative());
-        var arg7 = ReferenceEquals(pBufferMemoryBarriers, null) ? null : NativeUtils.StructOrEnumToPointer(pBufferMemoryBarriers.ToNative());
-        var arg9 = ReferenceEquals(pImageMemoryBarriers, null) ? null : NativeUtils.StructOrEnumToPointer(pImageMemoryBarriers.ToNative());
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPipelineBarrier(this, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, arg5, bufferMemoryBarrierCount, arg7, imageMemoryBarrierCount, arg9);
-        pMemoryBarriers?.Dispose();
-        NativeUtils.Free(arg5);
-        pBufferMemoryBarriers?.Dispose();
-        NativeUtils.Free(arg7);
-        pImageMemoryBarriers?.Dispose();
-        NativeUtils.Free(arg9);
     }
 
     public void PipelineBarrier2(in DependencyInfo pDependencyInfo)
@@ -1488,7 +1524,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg2);
     }
 
-    public void SetScissor(uint firstScissor, uint scissorCount, in Rect2D[] pScissors)
+    public void SetScissor(uint firstScissor, uint scissorCount, params Rect2D[] pScissors)
     {
         var arg3 = ReferenceEquals(pScissors, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkRect2D>(scissorCount);
         if (!ReferenceEquals(pScissors, null))
@@ -1578,7 +1614,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg4);
     }
 
-    public void SetViewport(uint firstViewport, uint viewportCount, in Viewport[] pViewports)
+    public void SetViewport(uint firstViewport, uint viewportCount, params Viewport[] pViewports)
     {
         var arg3 = ReferenceEquals(pViewports, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkViewport>(viewportCount);
         if (!ReferenceEquals(pViewports, null))

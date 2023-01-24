@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdWriteAccelerationStructuresPropertiesKHR
     public PFN_vkCmdWriteAccelerationStructuresPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkAccelerationStructureKHR_T*, QueryType, VkQueryPool_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkAccelerationStructureKHR_T*, QueryType, VkQueryPool_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, VkQueryPool_T queryPool, uint firstQuery)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery)
     {
          InvokeFunc(commandBuffer, accelerationStructureCount, pAccelerationStructures, queryType, queryPool, firstQuery);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, VkQueryPool_T queryPool, uint firstQuery)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkAccelerationStructureKHR_T*, QueryType, VkQueryPool_T, uint, void>)ptr)(commandBuffer, accelerationStructureCount, pAccelerationStructures, queryType, queryPool, firstQuery);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr)(commandBuffer, accelerationStructureCount, pAccelerationStructures, queryType, queryPool, firstQuery);
     }
 
     public static explicit operator PFN_vkCmdWriteAccelerationStructuresPropertiesKHR(void* ptr) => new(ptr);

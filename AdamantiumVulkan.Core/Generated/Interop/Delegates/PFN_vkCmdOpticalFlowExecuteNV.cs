@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdOpticalFlowExecuteNV
     public PFN_vkCmdOpticalFlowExecuteNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkOpticalFlowSessionNV_T, VkOpticalFlowExecuteInfoNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkOpticalFlowSessionNV_T, VkOpticalFlowExecuteInfoNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkOpticalFlowSessionNV_T session, VkOpticalFlowExecuteInfoNV* pExecuteInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV* pExecuteInfo)
     {
          InvokeFunc(commandBuffer, session, pExecuteInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkOpticalFlowSessionNV_T session, VkOpticalFlowExecuteInfoNV* pExecuteInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV* pExecuteInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkOpticalFlowSessionNV_T, VkOpticalFlowExecuteInfoNV*, void>)ptr)(commandBuffer, session, pExecuteInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV*, void>)ptr)(commandBuffer, session, pExecuteInfo);
     }
 
     public static explicit operator PFN_vkCmdOpticalFlowExecuteNV(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkBindImageMemory
     public PFN_vkBindImageMemory(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImage_T, VkDeviceMemory_T, VkDeviceSize, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImage_T, VkDeviceMemory_T, VkDeviceSize, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkImage_T image, VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
     {
         return InvokeFunc(device, image, memory, memoryOffset);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkImage_T image, VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkImage_T, VkDeviceMemory_T, VkDeviceSize, Result>)ptr)(device, image, memory, memoryOffset);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)ptr)(device, image, memory, memoryOffset);
     }
 
     public static explicit operator PFN_vkBindImageMemory(void* ptr) => new(ptr);

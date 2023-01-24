@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdPushDescriptorSetWithTemplateKHR
     public PFN_vkCmdPushDescriptorSetWithTemplateKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkDescriptorUpdateTemplate_T, VkPipelineLayout_T, uint, void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkDescriptorUpdateTemplate_T, VkPipelineLayout_T, uint, void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, VkPipelineLayout_T layout, uint set, void* pData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData)
     {
          InvokeFunc(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, VkPipelineLayout_T layout, uint set, void* pData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkDescriptorUpdateTemplate_T, VkPipelineLayout_T, uint, void*, void>)ptr)(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void*, void>)ptr)(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
     }
 
     public static explicit operator PFN_vkCmdPushDescriptorSetWithTemplateKHR(void* ptr) => new(ptr);

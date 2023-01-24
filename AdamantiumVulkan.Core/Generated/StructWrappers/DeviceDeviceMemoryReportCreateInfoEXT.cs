@@ -29,7 +29,7 @@ public unsafe partial class DeviceDeviceMemoryReportCreateInfoEXT : QBDisposable
     public StructureType SType { get; set; }
     public void* PNext { get; set; }
     public VkDeviceMemoryReportFlagsEXT Flags { get; set; }
-    public delegate* unmanaged<VkDeviceMemoryReportCallbackDataEXT*, void*, void> PfnUserCallback { get; set; }
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> PfnUserCallback { get; set; }
     public void* PUserData { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT ToNative()

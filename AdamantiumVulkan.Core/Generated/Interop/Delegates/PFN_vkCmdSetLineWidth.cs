@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetLineWidth
     public PFN_vkCmdSetLineWidth(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, float, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, float, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, float lineWidth)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float lineWidth)
     {
          InvokeFunc(commandBuffer, lineWidth);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, float lineWidth)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float lineWidth)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, float, void>)ptr)(commandBuffer, lineWidth);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, void>)ptr)(commandBuffer, lineWidth);
     }
 
     public static explicit operator PFN_vkCmdSetLineWidth(void* ptr) => new(ptr);

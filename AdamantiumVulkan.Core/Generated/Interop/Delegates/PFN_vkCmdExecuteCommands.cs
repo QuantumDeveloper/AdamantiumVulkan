@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdExecuteCommands
     public PFN_vkCmdExecuteCommands(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkCommandBuffer_T*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkCommandBuffer_T*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint commandBufferCount, VkCommandBuffer_T* pCommandBuffers)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint commandBufferCount, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers)
     {
          InvokeFunc(commandBuffer, commandBufferCount, pCommandBuffers);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint commandBufferCount, VkCommandBuffer_T* pCommandBuffers)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint commandBufferCount, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkCommandBuffer_T*, void>)ptr)(commandBuffer, commandBufferCount, pCommandBuffers);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, void>)ptr)(commandBuffer, commandBufferCount, pCommandBuffers);
     }
 
     public static explicit operator PFN_vkCmdExecuteCommands(void* ptr) => new(ptr);

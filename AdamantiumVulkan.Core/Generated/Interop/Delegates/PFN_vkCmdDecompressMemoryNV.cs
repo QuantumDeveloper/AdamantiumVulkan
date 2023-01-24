@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDecompressMemoryNV
     public PFN_vkCmdDecompressMemoryNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkDecompressMemoryRegionNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkDecompressMemoryRegionNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint decompressRegionCount, VkDecompressMemoryRegionNV* pDecompressMemoryRegions)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint decompressRegionCount, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV* pDecompressMemoryRegions)
     {
          InvokeFunc(commandBuffer, decompressRegionCount, pDecompressMemoryRegions);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint decompressRegionCount, VkDecompressMemoryRegionNV* pDecompressMemoryRegions)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint decompressRegionCount, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV* pDecompressMemoryRegions)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkDecompressMemoryRegionNV*, void>)ptr)(commandBuffer, decompressRegionCount, pDecompressMemoryRegions);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV*, void>)ptr)(commandBuffer, decompressRegionCount, pDecompressMemoryRegions);
     }
 
     public static explicit operator PFN_vkCmdDecompressMemoryNV(void* ptr) => new(ptr);

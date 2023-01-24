@@ -18,20 +18,20 @@ public unsafe struct PFN_vkEnumerateInstanceLayerProperties
     public PFN_vkEnumerateInstanceLayerProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<ref uint*, VkLayerProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<ref uint*, VkLayerProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(ref uint* pPropertyCount, VkLayerProperties* pProperties)
+    public Result Invoke(ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
         return InvokeFunc(ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, ref uint* pPropertyCount, VkLayerProperties* pProperties)
+    public static Result Invoke(void* ptr, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return ((delegate* unmanaged<ref uint*, VkLayerProperties*, Result>)ptr)(ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr)(ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkEnumerateInstanceLayerProperties(void* ptr) => new(ptr);

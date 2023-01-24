@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetInstanceProcAddr
     public PFN_vkGetInstanceProcAddr(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstance_T, sbyte*, void*>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void*>)ptr;
     }
 
-    private delegate* unmanaged<VkInstance_T, sbyte*, void*> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void*> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void* Invoke(VkInstance_T instance, sbyte* pName)
+    public void* Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
     {
         return InvokeFunc(instance, pName);
     }
-    public static void* Invoke(void* ptr, VkInstance_T instance, sbyte* pName)
+    public static void* Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
     {
-        return ((delegate* unmanaged<VkInstance_T, sbyte*, void*>)ptr)(instance, pName);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void*>)ptr)(instance, pName);
     }
 
     public static explicit operator PFN_vkGetInstanceProcAddr(void* ptr) => new(ptr);

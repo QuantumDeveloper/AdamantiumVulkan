@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetRefreshCycleDurationGOOGLE
     public PFN_vkGetRefreshCycleDurationGOOGLE(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, VkRefreshCycleDurationGOOGLE*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, VkRefreshCycleDurationGOOGLE*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSwapchainKHR_T swapchain, VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties)
     {
         return InvokeFunc(device, swapchain, pDisplayTimingProperties);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSwapchainKHR_T swapchain, VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, VkRefreshCycleDurationGOOGLE*, Result>)ptr)(device, swapchain, pDisplayTimingProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE*, Result>)ptr)(device, swapchain, pDisplayTimingProperties);
     }
 
     public static explicit operator PFN_vkGetRefreshCycleDurationGOOGLE(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDispatchIndirect
     public PFN_vkCmdDispatchIndirect(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset)
     {
          InvokeFunc(commandBuffer, buffer, offset);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, void>)ptr)(commandBuffer, buffer, offset);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void>)ptr)(commandBuffer, buffer, offset);
     }
 
     public static explicit operator PFN_vkCmdDispatchIndirect(void* ptr) => new(ptr);

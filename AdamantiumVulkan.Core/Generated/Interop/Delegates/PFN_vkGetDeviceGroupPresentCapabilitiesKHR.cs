@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceGroupPresentCapabilitiesKHR
     public PFN_vkGetDeviceGroupPresentCapabilitiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceGroupPresentCapabilitiesKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceGroupPresentCapabilitiesKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities)
     {
         return InvokeFunc(device, pDeviceGroupPresentCapabilities);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeviceGroupPresentCapabilitiesKHR*, Result>)ptr)(device, pDeviceGroupPresentCapabilities);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR*, Result>)ptr)(device, pDeviceGroupPresentCapabilities);
     }
 
     public static explicit operator PFN_vkGetDeviceGroupPresentCapabilitiesKHR(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetRenderAreaGranularity
     public PFN_vkGetRenderAreaGranularity(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkRenderPass_T, VkExtent2D*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkRenderPass_T, VkExtent2D*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkRenderPass_T renderPass, VkExtent2D* pGranularity)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
     {
          InvokeFunc(device, renderPass, pGranularity);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkRenderPass_T renderPass, VkExtent2D* pGranularity)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
     {
-         ((delegate* unmanaged<VkDevice_T, VkRenderPass_T, VkExtent2D*, void>)ptr)(device, renderPass, pGranularity);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr)(device, renderPass, pGranularity);
     }
 
     public static explicit operator PFN_vkGetRenderAreaGranularity(void* ptr) => new(ptr);

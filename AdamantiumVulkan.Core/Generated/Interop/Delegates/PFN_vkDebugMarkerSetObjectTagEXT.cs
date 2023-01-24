@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDebugMarkerSetObjectTagEXT
     public PFN_vkDebugMarkerSetObjectTagEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDebugMarkerObjectTagInfoEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDebugMarkerObjectTagInfoEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDebugMarkerObjectTagInfoEXT* pTagInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT* pTagInfo)
     {
         return InvokeFunc(device, pTagInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDebugMarkerObjectTagInfoEXT* pTagInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT* pTagInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDebugMarkerObjectTagInfoEXT*, Result>)ptr)(device, pTagInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT*, Result>)ptr)(device, pTagInfo);
     }
 
     public static explicit operator PFN_vkDebugMarkerSetObjectTagEXT(void* ptr) => new(ptr);

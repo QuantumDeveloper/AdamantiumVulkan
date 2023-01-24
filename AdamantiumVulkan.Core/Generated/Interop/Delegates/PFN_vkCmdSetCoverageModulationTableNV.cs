@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetCoverageModulationTableNV
     public PFN_vkCmdSetCoverageModulationTableNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, float*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, float*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, float*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, float*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint coverageModulationTableCount, float* pCoverageModulationTable)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint coverageModulationTableCount, float* pCoverageModulationTable)
     {
          InvokeFunc(commandBuffer, coverageModulationTableCount, pCoverageModulationTable);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint coverageModulationTableCount, float* pCoverageModulationTable)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint coverageModulationTableCount, float* pCoverageModulationTable)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, float*, void>)ptr)(commandBuffer, coverageModulationTableCount, pCoverageModulationTable);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, float*, void>)ptr)(commandBuffer, coverageModulationTableCount, pCoverageModulationTable);
     }
 
     public static explicit operator PFN_vkCmdSetCoverageModulationTableNV(void* ptr) => new(ptr);

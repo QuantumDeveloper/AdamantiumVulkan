@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetColorBlendAdvancedEXT
     public PFN_vkCmdSetColorBlendAdvancedEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkColorBlendAdvancedEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkColorBlendAdvancedEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorBlendAdvancedEXT* pColorBlendAdvanced)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT* pColorBlendAdvanced)
     {
          InvokeFunc(commandBuffer, firstAttachment, attachmentCount, pColorBlendAdvanced);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorBlendAdvancedEXT* pColorBlendAdvanced)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT* pColorBlendAdvanced)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkColorBlendAdvancedEXT*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendAdvanced);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendAdvanced);
     }
 
     public static explicit operator PFN_vkCmdSetColorBlendAdvancedEXT(void* ptr) => new(ptr);

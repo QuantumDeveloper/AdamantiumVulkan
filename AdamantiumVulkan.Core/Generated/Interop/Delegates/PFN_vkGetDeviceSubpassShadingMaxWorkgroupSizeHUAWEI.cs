@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI
     public PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkRenderPass_T, VkExtent2D*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkRenderPass_T, VkExtent2D*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkRenderPass_T renderpass, VkExtent2D* pMaxWorkgroupSize)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderpass, AdamantiumVulkan.Core.Interop.VkExtent2D* pMaxWorkgroupSize)
     {
         return InvokeFunc(device, renderpass, pMaxWorkgroupSize);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkRenderPass_T renderpass, VkExtent2D* pMaxWorkgroupSize)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderpass, AdamantiumVulkan.Core.Interop.VkExtent2D* pMaxWorkgroupSize)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkRenderPass_T, VkExtent2D*, Result>)ptr)(device, renderpass, pMaxWorkgroupSize);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, Result>)ptr)(device, renderpass, pMaxWorkgroupSize);
     }
 
     public static explicit operator PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(void* ptr) => new(ptr);

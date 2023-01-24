@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetLogicOpEnableEXT
     public PFN_vkCmdSetLogicOpEnableEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBool32, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBool32 logicOpEnable)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 logicOpEnable)
     {
          InvokeFunc(commandBuffer, logicOpEnable);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBool32 logicOpEnable)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 logicOpEnable)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, logicOpEnable);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, logicOpEnable);
     }
 
     public static explicit operator PFN_vkCmdSetLogicOpEnableEXT(void* ptr) => new(ptr);

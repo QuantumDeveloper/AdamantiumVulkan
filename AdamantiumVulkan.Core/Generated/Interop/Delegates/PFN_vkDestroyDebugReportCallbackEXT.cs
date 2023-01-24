@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyDebugReportCallbackEXT
     public PFN_vkDestroyDebugReportCallbackEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstance_T, VkDebugReportCallbackEXT_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkInstance_T, VkDebugReportCallbackEXT_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkInstance_T instance, VkDebugReportCallbackEXT_T callback, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T callback, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(instance, callback, pAllocator);
     }
-    public static void Invoke(void* ptr, VkInstance_T instance, VkDebugReportCallbackEXT_T callback, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T callback, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkInstance_T, VkDebugReportCallbackEXT_T, VkAllocationCallbacks*, void>)ptr)(instance, callback, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(instance, callback, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyDebugReportCallbackEXT(void* ptr) => new(ptr);

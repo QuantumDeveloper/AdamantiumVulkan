@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPerformanceParameterINTEL
     public PFN_vkGetPerformanceParameterINTEL(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, PerformanceParameterTypeINTEL, VkPerformanceValueINTEL*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, PerformanceParameterTypeINTEL, AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, PerformanceParameterTypeINTEL, VkPerformanceValueINTEL*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, PerformanceParameterTypeINTEL, AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, PerformanceParameterTypeINTEL parameter, VkPerformanceValueINTEL* pValue)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, PerformanceParameterTypeINTEL parameter, AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL* pValue)
     {
         return InvokeFunc(device, parameter, pValue);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, PerformanceParameterTypeINTEL parameter, VkPerformanceValueINTEL* pValue)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, PerformanceParameterTypeINTEL parameter, AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL* pValue)
     {
-        return ((delegate* unmanaged<VkDevice_T, PerformanceParameterTypeINTEL, VkPerformanceValueINTEL*, Result>)ptr)(device, parameter, pValue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, PerformanceParameterTypeINTEL, AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL*, Result>)ptr)(device, parameter, pValue);
     }
 
     public static explicit operator PFN_vkGetPerformanceParameterINTEL(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkUninitializePerformanceApiINTEL
     public PFN_vkUninitializePerformanceApiINTEL(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device)
     {
          InvokeFunc(device);
     }
-    public static void Invoke(void* ptr, VkDevice_T device)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device)
     {
-         ((delegate* unmanaged<VkDevice_T, void>)ptr)(device);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, void>)ptr)(device);
     }
 
     public static explicit operator PFN_vkUninitializePerformanceApiINTEL(void* ptr) => new(ptr);

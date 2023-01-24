@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateInstance
     public PFN_vkCreateInstance(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstanceCreateInfo*, VkAllocationCallbacks*, out VkInstance_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkInstanceCreateInfo*, VkAllocationCallbacks*, out VkInstance_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkInstanceCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkInstance_T pInstance)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance)
     {
         return InvokeFunc(pCreateInfo, pAllocator, out pInstance);
     }
-    public static Result Invoke(void* ptr, VkInstanceCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkInstance_T pInstance)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance)
     {
-        return ((delegate* unmanaged<VkInstanceCreateInfo*, VkAllocationCallbacks*, out VkInstance_T, Result>)ptr)(pCreateInfo, pAllocator, out pInstance);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)ptr)(pCreateInfo, pAllocator, out pInstance);
     }
 
     public static explicit operator PFN_vkCreateInstance(void* ptr) => new(ptr);

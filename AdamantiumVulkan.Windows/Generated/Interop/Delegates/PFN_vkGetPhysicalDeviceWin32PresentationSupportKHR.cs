@@ -20,20 +20,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR
     public PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, uint, uint>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, uint, uint> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public uint Invoke(VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
+    public uint Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
     {
         return InvokeFunc(physicalDevice, queueFamilyIndex);
     }
-    public static uint Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
+    public static uint Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, uint, uint>)ptr)(physicalDevice, queueFamilyIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)ptr)(physicalDevice, queueFamilyIndex);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(void* ptr) => new(ptr);

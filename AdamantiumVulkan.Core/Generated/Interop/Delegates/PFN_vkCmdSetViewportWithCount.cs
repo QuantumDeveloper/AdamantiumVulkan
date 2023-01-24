@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetViewportWithCount
     public PFN_vkCmdSetViewportWithCount(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkViewport*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkViewport*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkViewport*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkViewport*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint viewportCount, VkViewport* pViewports)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewport* pViewports)
     {
          InvokeFunc(commandBuffer, viewportCount, pViewports);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint viewportCount, VkViewport* pViewports)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewport* pViewports)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkViewport*, void>)ptr)(commandBuffer, viewportCount, pViewports);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkViewport*, void>)ptr)(commandBuffer, viewportCount, pViewports);
     }
 
     public static explicit operator PFN_vkCmdSetViewportWithCount(void* ptr) => new(ptr);

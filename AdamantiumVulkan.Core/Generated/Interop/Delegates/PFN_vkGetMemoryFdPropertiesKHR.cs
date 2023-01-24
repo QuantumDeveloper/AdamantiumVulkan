@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetMemoryFdPropertiesKHR
     public PFN_vkGetMemoryFdPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, VkMemoryFdPropertiesKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, VkMemoryFdPropertiesKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, VkMemoryFdPropertiesKHR* pMemoryFdProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR* pMemoryFdProperties)
     {
         return InvokeFunc(device, handleType, fd, pMemoryFdProperties);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, VkMemoryFdPropertiesKHR* pMemoryFdProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR* pMemoryFdProperties)
     {
-        return ((delegate* unmanaged<VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, VkMemoryFdPropertiesKHR*, Result>)ptr)(device, handleType, fd, pMemoryFdProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR*, Result>)ptr)(device, handleType, fd, pMemoryFdProperties);
     }
 
     public static explicit operator PFN_vkGetMemoryFdPropertiesKHR(void* ptr) => new(ptr);

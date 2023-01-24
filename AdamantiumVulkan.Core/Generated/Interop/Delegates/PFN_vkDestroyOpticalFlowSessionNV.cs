@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyOpticalFlowSessionNV
     public PFN_vkDestroyOpticalFlowSessionNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionNV_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionNV_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkOpticalFlowSessionNV_T session, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, session, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkOpticalFlowSessionNV_T session, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionNV_T, VkAllocationCallbacks*, void>)ptr)(device, session, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, session, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyOpticalFlowSessionNV(void* ptr) => new(ptr);

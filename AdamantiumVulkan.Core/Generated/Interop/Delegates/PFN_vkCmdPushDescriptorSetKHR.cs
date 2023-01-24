@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdPushDescriptorSetKHR
     public PFN_vkCmdPushDescriptorSetKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, uint, VkWriteDescriptorSet*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, uint, VkWriteDescriptorSet*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, VkWriteDescriptorSet* pDescriptorWrites)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites)
     {
          InvokeFunc(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, VkWriteDescriptorSet* pDescriptorWrites)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, uint, VkWriteDescriptorSet*, void>)ptr)(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, void>)ptr)(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
     }
 
     public static explicit operator PFN_vkCmdPushDescriptorSetKHR(void* ptr) => new(ptr);

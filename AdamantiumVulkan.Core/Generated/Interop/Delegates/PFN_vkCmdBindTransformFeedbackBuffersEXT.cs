@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindTransformFeedbackBuffersEXT
     public PFN_vkCmdBindTransformFeedbackBuffersEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes)
     {
          InvokeFunc(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, void>)ptr)(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, void>)ptr)(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes);
     }
 
     public static explicit operator PFN_vkCmdBindTransformFeedbackBuffersEXT(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBuildAccelerationStructuresKHR
     public PFN_vkCmdBuildAccelerationStructuresKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkAccelerationStructureBuildGeometryInfoKHR*, VkAccelerationStructureBuildRangeInfoKHR**, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkAccelerationStructureBuildGeometryInfoKHR*, VkAccelerationStructureBuildRangeInfoKHR**, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint infoCount, VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
     {
          InvokeFunc(commandBuffer, infoCount, pInfos, ppBuildRangeInfos);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint infoCount, VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkAccelerationStructureBuildGeometryInfoKHR*, VkAccelerationStructureBuildRangeInfoKHR**, void>)ptr)(commandBuffer, infoCount, pInfos, ppBuildRangeInfos);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, void>)ptr)(commandBuffer, infoCount, pInfos, ppBuildRangeInfos);
     }
 
     public static explicit operator PFN_vkCmdBuildAccelerationStructuresKHR(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdClearDepthStencilImage
     public PFN_vkCmdClearDepthStencilImage(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkClearDepthStencilValue*, uint, VkImageSubresourceRange*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkClearDepthStencilValue*, uint, VkImageSubresourceRange*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkImage_T image, ImageLayout imageLayout, VkClearDepthStencilValue* pDepthStencil, uint rangeCount, VkImageSubresourceRange* pRanges)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue* pDepthStencil, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges)
     {
          InvokeFunc(commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkImage_T image, ImageLayout imageLayout, VkClearDepthStencilValue* pDepthStencil, uint rangeCount, VkImageSubresourceRange* pRanges)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue* pDepthStencil, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkClearDepthStencilValue*, uint, VkImageSubresourceRange*, void>)ptr)(commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void>)ptr)(commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
     }
 
     public static explicit operator PFN_vkCmdClearDepthStencilImage(void* ptr) => new(ptr);

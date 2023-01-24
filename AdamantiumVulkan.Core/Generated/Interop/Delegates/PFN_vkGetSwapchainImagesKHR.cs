@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetSwapchainImagesKHR
     public PFN_vkGetSwapchainImagesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, ref uint*, out VkImage_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, ref uint*, out VkImage_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out VkImage_T pSwapchainImages)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out AdamantiumVulkan.Core.Interop.VkImage_T pSwapchainImages)
     {
         return InvokeFunc(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out VkImage_T pSwapchainImages)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out AdamantiumVulkan.Core.Interop.VkImage_T pSwapchainImages)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, ref uint*, out VkImage_T, Result>)ptr)(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr)(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
     }
 
     public static explicit operator PFN_vkGetSwapchainImagesKHR(void* ptr) => new(ptr);

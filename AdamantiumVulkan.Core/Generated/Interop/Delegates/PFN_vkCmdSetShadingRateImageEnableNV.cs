@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetShadingRateImageEnableNV
     public PFN_vkCmdSetShadingRateImageEnableNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBool32, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBool32 shadingRateImageEnable)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 shadingRateImageEnable)
     {
          InvokeFunc(commandBuffer, shadingRateImageEnable);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBool32 shadingRateImageEnable)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 shadingRateImageEnable)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, shadingRateImageEnable);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, shadingRateImageEnable);
     }
 
     public static explicit operator PFN_vkCmdSetShadingRateImageEnableNV(void* ptr) => new(ptr);

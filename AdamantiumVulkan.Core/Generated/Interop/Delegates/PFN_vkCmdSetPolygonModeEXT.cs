@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetPolygonModeEXT
     public PFN_vkCmdSetPolygonModeEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PolygonMode, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PolygonMode, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PolygonMode, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PolygonMode, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PolygonMode polygonMode)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PolygonMode polygonMode)
     {
          InvokeFunc(commandBuffer, polygonMode);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PolygonMode polygonMode)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PolygonMode polygonMode)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PolygonMode, void>)ptr)(commandBuffer, polygonMode);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PolygonMode, void>)ptr)(commandBuffer, polygonMode);
     }
 
     public static explicit operator PFN_vkCmdSetPolygonModeEXT(void* ptr) => new(ptr);

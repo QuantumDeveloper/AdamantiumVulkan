@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetCheckpointNV
     public PFN_vkCmdSetCheckpointNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
     {
          InvokeFunc(commandBuffer, pCheckpointMarker);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, void*, void>)ptr)(commandBuffer, pCheckpointMarker);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void>)ptr)(commandBuffer, pCheckpointMarker);
     }
 
     public static explicit operator PFN_vkCmdSetCheckpointNV(void* ptr) => new(ptr);

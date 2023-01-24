@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDepthCompareOpEXT
     public PFN_vkCmdSetDepthCompareOpEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, CompareOp, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CompareOp, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, CompareOp, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CompareOp, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp)
     {
          InvokeFunc(commandBuffer, depthCompareOp);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, CompareOp, void>)ptr)(commandBuffer, depthCompareOp);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CompareOp, void>)ptr)(commandBuffer, depthCompareOp);
     }
 
     public static explicit operator PFN_vkCmdSetDepthCompareOpEXT(void* ptr) => new(ptr);

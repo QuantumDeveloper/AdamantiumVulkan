@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyIndirectCommandsLayoutNV
     public PFN_vkDestroyIndirectCommandsLayoutNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkIndirectCommandsLayoutNV_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkIndirectCommandsLayoutNV_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkIndirectCommandsLayoutNV_T indirectCommandsLayout, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T indirectCommandsLayout, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, indirectCommandsLayout, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkIndirectCommandsLayoutNV_T indirectCommandsLayout, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T indirectCommandsLayout, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkIndirectCommandsLayoutNV_T, VkAllocationCallbacks*, void>)ptr)(device, indirectCommandsLayout, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, indirectCommandsLayout, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyIndirectCommandsLayoutNV(void* ptr) => new(ptr);

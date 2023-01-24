@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdCopyBuffer
     public PFN_vkCmdCopyBuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkBuffer_T, uint, VkBufferCopy*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkBufferCopy*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkBuffer_T, uint, VkBufferCopy*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkBufferCopy*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBuffer_T srcBuffer, VkBuffer_T dstBuffer, uint regionCount, VkBufferCopy* pRegions)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferCopy* pRegions)
     {
          InvokeFunc(commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBuffer_T srcBuffer, VkBuffer_T dstBuffer, uint regionCount, VkBufferCopy* pRegions)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferCopy* pRegions)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkBuffer_T, uint, VkBufferCopy*, void>)ptr)(commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkBufferCopy*, void>)ptr)(commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
     }
 
     public static explicit operator PFN_vkCmdCopyBuffer(void* ptr) => new(ptr);

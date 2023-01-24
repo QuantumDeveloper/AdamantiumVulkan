@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutSupport
     public PFN_vkGetDescriptorSetLayoutSupport(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorSetLayoutCreateInfo*, VkDescriptorSetLayoutSupport*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorSetLayoutCreateInfo*, VkDescriptorSetLayoutSupport*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDescriptorSetLayoutCreateInfo* pCreateInfo, VkDescriptorSetLayoutSupport* pSupport)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport* pSupport)
     {
          InvokeFunc(device, pCreateInfo, pSupport);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDescriptorSetLayoutCreateInfo* pCreateInfo, VkDescriptorSetLayoutSupport* pSupport)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport* pSupport)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDescriptorSetLayoutCreateInfo*, VkDescriptorSetLayoutSupport*, void>)ptr)(device, pCreateInfo, pSupport);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport*, void>)ptr)(device, pCreateInfo, pSupport);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutSupport(void* ptr) => new(ptr);

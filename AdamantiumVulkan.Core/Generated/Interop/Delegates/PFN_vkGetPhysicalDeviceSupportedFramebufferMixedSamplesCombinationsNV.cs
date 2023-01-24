@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesComb
     public PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkFramebufferMixedSamplesCombinationNV*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkFramebufferMixedSamplesCombinationNV*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, ref uint* pCombinationCount, VkFramebufferMixedSamplesCombinationNV* pCombinations)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations)
     {
         return InvokeFunc(physicalDevice, ref pCombinationCount, pCombinations);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, ref uint* pCombinationCount, VkFramebufferMixedSamplesCombinationNV* pCombinations)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkFramebufferMixedSamplesCombinationNV*, Result>)ptr)(physicalDevice, ref pCombinationCount, pCombinations);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV*, Result>)ptr)(physicalDevice, ref pCombinationCount, pCombinations);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(void* ptr) => new(ptr);

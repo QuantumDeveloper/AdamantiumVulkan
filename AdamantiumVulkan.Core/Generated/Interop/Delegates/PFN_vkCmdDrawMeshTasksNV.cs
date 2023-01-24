@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDrawMeshTasksNV
     public PFN_vkCmdDrawMeshTasksNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint taskCount, uint firstTask)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint taskCount, uint firstTask)
     {
          InvokeFunc(commandBuffer, taskCount, firstTask);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint taskCount, uint firstTask)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint taskCount, uint firstTask)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, void>)ptr)(commandBuffer, taskCount, firstTask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, void>)ptr)(commandBuffer, taskCount, firstTask);
     }
 
     public static explicit operator PFN_vkCmdDrawMeshTasksNV(void* ptr) => new(ptr);

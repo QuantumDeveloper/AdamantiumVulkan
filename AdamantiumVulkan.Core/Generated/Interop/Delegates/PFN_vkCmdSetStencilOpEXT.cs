@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetStencilOpEXT
     public PFN_vkCmdSetStencilOpEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
     {
          InvokeFunc(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
     }
 
     public static explicit operator PFN_vkCmdSetStencilOpEXT(void* ptr) => new(ptr);

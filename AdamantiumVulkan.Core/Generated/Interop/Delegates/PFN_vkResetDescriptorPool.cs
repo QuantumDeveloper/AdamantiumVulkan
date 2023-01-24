@@ -19,20 +19,20 @@ public unsafe struct PFN_vkResetDescriptorPool
     public PFN_vkResetDescriptorPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorPool_T, VkDescriptorPoolResetFlags, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, VkDescriptorPoolResetFlags, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorPool_T, VkDescriptorPoolResetFlags, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, VkDescriptorPoolResetFlags, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDescriptorPool_T descriptorPool, VkDescriptorPoolResetFlags flags)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, VkDescriptorPoolResetFlags flags)
     {
         return InvokeFunc(device, descriptorPool, flags);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDescriptorPool_T descriptorPool, VkDescriptorPoolResetFlags flags)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, VkDescriptorPoolResetFlags flags)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDescriptorPool_T, VkDescriptorPoolResetFlags, Result>)ptr)(device, descriptorPool, flags);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, VkDescriptorPoolResetFlags, Result>)ptr)(device, descriptorPool, flags);
     }
 
     public static explicit operator PFN_vkResetDescriptorPool(void* ptr) => new(ptr);

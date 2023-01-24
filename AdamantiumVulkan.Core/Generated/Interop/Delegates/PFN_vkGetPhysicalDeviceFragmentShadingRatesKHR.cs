@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR
     public PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkPhysicalDeviceFragmentShadingRateKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkPhysicalDeviceFragmentShadingRateKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, ref uint* pFragmentShadingRateCount, VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates)
     {
         return InvokeFunc(physicalDevice, ref pFragmentShadingRateCount, pFragmentShadingRates);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, ref uint* pFragmentShadingRateCount, VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkPhysicalDeviceFragmentShadingRateKHR*, Result>)ptr)(physicalDevice, ref pFragmentShadingRateCount, pFragmentShadingRates);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR*, Result>)ptr)(physicalDevice, ref pFragmentShadingRateCount, pFragmentShadingRates);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(void* ptr) => new(ptr);

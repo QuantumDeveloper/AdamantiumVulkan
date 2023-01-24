@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetImageDrmFormatModifierPropertiesEXT
     public PFN_vkGetImageDrmFormatModifierPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImage_T, VkImageDrmFormatModifierPropertiesEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImage_T, VkImageDrmFormatModifierPropertiesEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkImage_T image, VkImageDrmFormatModifierPropertiesEXT* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT* pProperties)
     {
         return InvokeFunc(device, image, pProperties);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkImage_T image, VkImageDrmFormatModifierPropertiesEXT* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT* pProperties)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkImage_T, VkImageDrmFormatModifierPropertiesEXT*, Result>)ptr)(device, image, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT*, Result>)ptr)(device, image, pProperties);
     }
 
     public static explicit operator PFN_vkGetImageDrmFormatModifierPropertiesEXT(void* ptr) => new(ptr);

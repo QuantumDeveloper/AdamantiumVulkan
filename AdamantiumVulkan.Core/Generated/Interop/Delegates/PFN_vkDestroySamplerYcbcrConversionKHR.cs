@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroySamplerYcbcrConversionKHR
     public PFN_vkDestroySamplerYcbcrConversionKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSamplerYcbcrConversion_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSamplerYcbcrConversion_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkSamplerYcbcrConversion_T ycbcrConversion, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T ycbcrConversion, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, ycbcrConversion, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkSamplerYcbcrConversion_T ycbcrConversion, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T ycbcrConversion, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkSamplerYcbcrConversion_T, VkAllocationCallbacks*, void>)ptr)(device, ycbcrConversion, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, ycbcrConversion, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroySamplerYcbcrConversionKHR(void* ptr) => new(ptr);

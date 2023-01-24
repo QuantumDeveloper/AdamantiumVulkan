@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT
     public PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipelineLayout_T layout, uint set)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set)
     {
          InvokeFunc(commandBuffer, pipelineBindPoint, layout, set);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipelineLayout_T layout, uint set)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipelineLayout_T, uint, void>)ptr)(commandBuffer, pipelineBindPoint, layout, set);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void>)ptr)(commandBuffer, pipelineBindPoint, layout, set);
     }
 
     public static explicit operator PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(void* ptr) => new(ptr);

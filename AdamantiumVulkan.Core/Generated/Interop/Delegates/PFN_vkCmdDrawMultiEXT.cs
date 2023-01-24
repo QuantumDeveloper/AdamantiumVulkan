@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDrawMultiEXT
     public PFN_vkCmdDrawMultiEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkMultiDrawInfoEXT*, uint, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT*, uint, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkMultiDrawInfoEXT*, uint, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT*, uint, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint drawCount, VkMultiDrawInfoEXT* pVertexInfo, uint instanceCount, uint firstInstance, uint stride)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint drawCount, AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT* pVertexInfo, uint instanceCount, uint firstInstance, uint stride)
     {
          InvokeFunc(commandBuffer, drawCount, pVertexInfo, instanceCount, firstInstance, stride);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint drawCount, VkMultiDrawInfoEXT* pVertexInfo, uint instanceCount, uint firstInstance, uint stride)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint drawCount, AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT* pVertexInfo, uint instanceCount, uint firstInstance, uint stride)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkMultiDrawInfoEXT*, uint, uint, uint, void>)ptr)(commandBuffer, drawCount, pVertexInfo, instanceCount, firstInstance, stride);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT*, uint, uint, uint, void>)ptr)(commandBuffer, drawCount, pVertexInfo, instanceCount, firstInstance, stride);
     }
 
     public static explicit operator PFN_vkCmdDrawMultiEXT(void* ptr) => new(ptr);

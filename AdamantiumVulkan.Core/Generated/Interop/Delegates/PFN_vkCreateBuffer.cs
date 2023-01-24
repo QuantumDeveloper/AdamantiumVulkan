@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateBuffer
     public PFN_vkCreateBuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkBufferCreateInfo*, VkAllocationCallbacks*, out VkBuffer_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkBuffer_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkBufferCreateInfo*, VkAllocationCallbacks*, out VkBuffer_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkBuffer_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkBufferCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkBuffer_T pBuffer)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pBuffer);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkBufferCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkBuffer_T pBuffer)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkBufferCreateInfo*, VkAllocationCallbacks*, out VkBuffer_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pBuffer);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkBuffer_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pBuffer);
     }
 
     public static explicit operator PFN_vkCreateBuffer(void* ptr) => new(ptr);

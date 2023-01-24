@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceMemoryCommitment
     public PFN_vkGetDeviceMemoryCommitment(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, ref VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, ref VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDeviceMemory_T memory, ref VkDeviceSize* pCommittedMemoryInBytes)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize* pCommittedMemoryInBytes)
     {
-         InvokeFunc(device, memory, ref pCommittedMemoryInBytes);
+         InvokeFunc(device, memory, pCommittedMemoryInBytes);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDeviceMemory_T memory, ref VkDeviceSize* pCommittedMemoryInBytes)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize* pCommittedMemoryInBytes)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, ref VkDeviceSize*, void>)ptr)(device, memory, ref pCommittedMemoryInBytes);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize*, void>)ptr)(device, memory, pCommittedMemoryInBytes);
     }
 
     public static explicit operator PFN_vkGetDeviceMemoryCommitment(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDepthClipNegativeOneToOneEXT
     public PFN_vkCmdSetDepthClipNegativeOneToOneEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBool32, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBool32 negativeOneToOne)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 negativeOneToOne)
     {
          InvokeFunc(commandBuffer, negativeOneToOne);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBool32 negativeOneToOne)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 negativeOneToOne)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, negativeOneToOne);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, negativeOneToOne);
     }
 
     public static explicit operator PFN_vkCmdSetDepthClipNegativeOneToOneEXT(void* ptr) => new(ptr);

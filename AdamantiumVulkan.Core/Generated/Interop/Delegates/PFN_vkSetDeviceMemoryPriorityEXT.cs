@@ -19,20 +19,20 @@ public unsafe struct PFN_vkSetDeviceMemoryPriorityEXT
     public PFN_vkSetDeviceMemoryPriorityEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, float, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, float, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, float, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, float, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDeviceMemory_T memory, float priority)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, float priority)
     {
          InvokeFunc(device, memory, priority);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDeviceMemory_T memory, float priority)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, float priority)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, float, void>)ptr)(device, memory, priority);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, float, void>)ptr)(device, memory, priority);
     }
 
     public static explicit operator PFN_vkSetDeviceMemoryPriorityEXT(void* ptr) => new(ptr);

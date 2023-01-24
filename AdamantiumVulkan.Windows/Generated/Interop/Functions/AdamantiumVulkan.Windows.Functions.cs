@@ -32,13 +32,13 @@ internal static unsafe partial class VulkanInterop
     internal static extern Result vkGetDeviceGroupSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, VkDeviceGroupPresentModeFlagsKHR* pModes);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetFenceWin32HandleKHR", ExactSpelling = true)]
-    internal static extern Result vkGetFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, [In, Out] IntPtr pHandle);
+    internal static extern Result vkGetFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandleKHR", ExactSpelling = true)]
     internal static extern Result vkGetMemoryWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR* pGetWin32HandleInfo, out IntPtr pHandle);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandleNV", ExactSpelling = true)]
-    internal static extern Result vkGetMemoryWin32HandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkExternalMemoryHandleTypeFlagsNV handleType, [In, Out] IntPtr pHandle);
+    internal static extern Result vkGetMemoryWin32HandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkExternalMemoryHandleTypeFlagsNV handleType, IntPtr pHandle);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandlePropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetMemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties);
@@ -50,7 +50,7 @@ internal static unsafe partial class VulkanInterop
     internal static extern VkBool32 vkGetPhysicalDeviceWin32PresentationSupportKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreWin32HandleKHR", ExactSpelling = true)]
-    internal static extern Result vkGetSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, [In, Out] IntPtr pHandle);
+    internal static extern Result vkGetSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle);
 
     [DllImport(LibraryPath, EntryPoint = "vkGetWinrtDisplayNV", ExactSpelling = true)]
     internal static extern Result vkGetWinrtDisplayNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay);

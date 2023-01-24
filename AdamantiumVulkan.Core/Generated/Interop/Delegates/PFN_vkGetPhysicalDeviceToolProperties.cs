@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceToolProperties
     public PFN_vkGetPhysicalDeviceToolProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkPhysicalDeviceToolProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkPhysicalDeviceToolProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, ref uint* pToolCount, VkPhysicalDeviceToolProperties* pToolProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties)
     {
         return InvokeFunc(physicalDevice, ref pToolCount, pToolProperties);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, ref uint* pToolCount, VkPhysicalDeviceToolProperties* pToolProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkPhysicalDeviceToolProperties*, Result>)ptr)(physicalDevice, ref pToolCount, pToolProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties*, Result>)ptr)(physicalDevice, ref pToolCount, pToolProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceToolProperties(void* ptr) => new(ptr);

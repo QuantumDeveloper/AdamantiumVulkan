@@ -18,20 +18,20 @@ public unsafe struct PFN_vkDeviceMemoryReportCallbackEXT
     public PFN_vkDeviceMemoryReportCallbackEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDeviceMemoryReportCallbackDataEXT*, void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDeviceMemoryReportCallbackDataEXT*, void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDeviceMemoryReportCallbackDataEXT* pCallbackData, void* pUserData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT* pCallbackData, void* pUserData)
     {
          InvokeFunc(pCallbackData, pUserData);
     }
-    public static void Invoke(void* ptr, VkDeviceMemoryReportCallbackDataEXT* pCallbackData, void* pUserData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT* pCallbackData, void* pUserData)
     {
-         ((delegate* unmanaged<VkDeviceMemoryReportCallbackDataEXT*, void*, void>)ptr)(pCallbackData, pUserData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void>)ptr)(pCallbackData, pUserData);
     }
 
     public static explicit operator PFN_vkDeviceMemoryReportCallbackEXT(void* ptr) => new(ptr);

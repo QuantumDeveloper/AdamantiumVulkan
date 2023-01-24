@@ -19,20 +19,20 @@ public unsafe struct PFN_vkBindOpticalFlowSessionImageNV
     public PFN_vkBindOpticalFlowSessionImageNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, VkImageView_T, ImageLayout, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, VkImageView_T, ImageLayout, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkOpticalFlowSessionNV_T session, OpticalFlowSessionBindingPointNV bindingPoint, VkImageView_T view, ImageLayout layout)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, OpticalFlowSessionBindingPointNV bindingPoint, AdamantiumVulkan.Core.Interop.VkImageView_T view, ImageLayout layout)
     {
         return InvokeFunc(device, session, bindingPoint, view, layout);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkOpticalFlowSessionNV_T session, OpticalFlowSessionBindingPointNV bindingPoint, VkImageView_T view, ImageLayout layout)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, OpticalFlowSessionBindingPointNV bindingPoint, AdamantiumVulkan.Core.Interop.VkImageView_T view, ImageLayout layout)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, VkImageView_T, ImageLayout, Result>)ptr)(device, session, bindingPoint, view, layout);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, Result>)ptr)(device, session, bindingPoint, view, layout);
     }
 
     public static explicit operator PFN_vkBindOpticalFlowSessionImageNV(void* ptr) => new(ptr);

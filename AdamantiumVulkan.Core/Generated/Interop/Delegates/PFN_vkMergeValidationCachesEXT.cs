@@ -19,20 +19,20 @@ public unsafe struct PFN_vkMergeValidationCachesEXT
     public PFN_vkMergeValidationCachesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkValidationCacheEXT_T, uint, VkValidationCacheEXT_T*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, uint, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkValidationCacheEXT_T, uint, VkValidationCacheEXT_T*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, uint, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkValidationCacheEXT_T dstCache, uint srcCacheCount, VkValidationCacheEXT_T* pSrcCaches)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T* pSrcCaches)
     {
         return InvokeFunc(device, dstCache, srcCacheCount, pSrcCaches);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkValidationCacheEXT_T dstCache, uint srcCacheCount, VkValidationCacheEXT_T* pSrcCaches)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T* pSrcCaches)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkValidationCacheEXT_T, uint, VkValidationCacheEXT_T*, Result>)ptr)(device, dstCache, srcCacheCount, pSrcCaches);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, uint, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T*, Result>)ptr)(device, dstCache, srcCacheCount, pSrcCaches);
     }
 
     public static explicit operator PFN_vkMergeValidationCachesEXT(void* ptr) => new(ptr);

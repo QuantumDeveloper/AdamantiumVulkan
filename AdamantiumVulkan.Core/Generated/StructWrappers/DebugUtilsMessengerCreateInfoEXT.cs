@@ -32,7 +32,7 @@ public unsafe partial class DebugUtilsMessengerCreateInfoEXT : QBDisposableObjec
     public VkDebugUtilsMessengerCreateFlagsEXT Flags { get; set; }
     public DebugUtilsMessageSeverityFlagBitsEXT MessageSeverity { get; set; }
     public DebugUtilsMessageTypeFlagBitsEXT MessageType { get; set; }
-    public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, VkDebugUtilsMessengerCallbackDataEXT*, void*, uint> PfnUserCallback { get; set; }
+    public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, uint> PfnUserCallback { get; set; }
     public void* PUserData { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT ToNative()

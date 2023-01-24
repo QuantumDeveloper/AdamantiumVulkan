@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetLineStippleEXT
     public PFN_vkCmdSetLineStippleEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, ushort, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, ushort, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, ushort, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, ushort, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern)
     {
          InvokeFunc(commandBuffer, lineStippleFactor, lineStipplePattern);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, ushort, void>)ptr)(commandBuffer, lineStippleFactor, lineStipplePattern);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, ushort, void>)ptr)(commandBuffer, lineStippleFactor, lineStipplePattern);
     }
 
     public static explicit operator PFN_vkCmdSetLineStippleEXT(void* ptr) => new(ptr);

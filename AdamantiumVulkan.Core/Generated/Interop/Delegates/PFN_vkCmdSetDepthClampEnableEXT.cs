@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDepthClampEnableEXT
     public PFN_vkCmdSetDepthClampEnableEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBool32, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBool32 depthClampEnable)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthClampEnable)
     {
          InvokeFunc(commandBuffer, depthClampEnable);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBool32 depthClampEnable)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthClampEnable)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, depthClampEnable);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, depthClampEnable);
     }
 
     public static explicit operator PFN_vkCmdSetDepthClampEnableEXT(void* ptr) => new(ptr);

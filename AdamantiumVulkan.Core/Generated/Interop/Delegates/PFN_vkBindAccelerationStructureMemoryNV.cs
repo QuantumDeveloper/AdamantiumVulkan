@@ -19,20 +19,20 @@ public unsafe struct PFN_vkBindAccelerationStructureMemoryNV
     public PFN_vkBindAccelerationStructureMemoryNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkBindAccelerationStructureMemoryInfoNV*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkBindAccelerationStructureMemoryInfoNV*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, uint bindInfoCount, VkBindAccelerationStructureMemoryInfoNV* pBindInfos)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV* pBindInfos)
     {
         return InvokeFunc(device, bindInfoCount, pBindInfos);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, uint bindInfoCount, VkBindAccelerationStructureMemoryInfoNV* pBindInfos)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV* pBindInfos)
     {
-        return ((delegate* unmanaged<VkDevice_T, uint, VkBindAccelerationStructureMemoryInfoNV*, Result>)ptr)(device, bindInfoCount, pBindInfos);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV*, Result>)ptr)(device, bindInfoCount, pBindInfos);
     }
 
     public static explicit operator PFN_vkBindAccelerationStructureMemoryNV(void* ptr) => new(ptr);

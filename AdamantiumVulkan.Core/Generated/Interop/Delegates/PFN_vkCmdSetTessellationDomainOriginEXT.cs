@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetTessellationDomainOriginEXT
     public PFN_vkCmdSetTessellationDomainOriginEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, TessellationDomainOrigin, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, TessellationDomainOrigin, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, TessellationDomainOrigin, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, TessellationDomainOrigin, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, TessellationDomainOrigin domainOrigin)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, TessellationDomainOrigin domainOrigin)
     {
          InvokeFunc(commandBuffer, domainOrigin);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, TessellationDomainOrigin domainOrigin)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, TessellationDomainOrigin domainOrigin)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, TessellationDomainOrigin, void>)ptr)(commandBuffer, domainOrigin);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, TessellationDomainOrigin, void>)ptr)(commandBuffer, domainOrigin);
     }
 
     public static explicit operator PFN_vkCmdSetTessellationDomainOriginEXT(void* ptr) => new(ptr);

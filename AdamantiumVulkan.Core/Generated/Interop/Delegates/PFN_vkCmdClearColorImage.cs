@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdClearColorImage
     public PFN_vkCmdClearColorImage(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkClearColorValue*, uint, VkImageSubresourceRange*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkClearColorValue*, uint, VkImageSubresourceRange*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkImage_T image, ImageLayout imageLayout, VkClearColorValue* pColor, uint rangeCount, VkImageSubresourceRange* pRanges)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue* pColor, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges)
     {
          InvokeFunc(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkImage_T image, ImageLayout imageLayout, VkClearColorValue* pColor, uint rangeCount, VkImageSubresourceRange* pRanges)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue* pColor, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkClearColorValue*, uint, VkImageSubresourceRange*, void>)ptr)(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void>)ptr)(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
     }
 
     public static explicit operator PFN_vkCmdClearColorImage(void* ptr) => new(ptr);

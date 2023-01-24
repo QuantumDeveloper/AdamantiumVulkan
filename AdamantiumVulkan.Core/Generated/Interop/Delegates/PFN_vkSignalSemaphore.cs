@@ -19,20 +19,20 @@ public unsafe struct PFN_vkSignalSemaphore
     public PFN_vkSignalSemaphore(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSemaphoreSignalInfo*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSemaphoreSignalInfo*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSemaphoreSignalInfo* pSignalInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo* pSignalInfo)
     {
         return InvokeFunc(device, pSignalInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSemaphoreSignalInfo* pSignalInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo* pSignalInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSemaphoreSignalInfo*, Result>)ptr)(device, pSignalInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo*, Result>)ptr)(device, pSignalInfo);
     }
 
     public static explicit operator PFN_vkSignalSemaphore(void* ptr) => new(ptr);

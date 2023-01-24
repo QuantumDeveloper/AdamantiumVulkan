@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateDeferredOperationKHR
     public PFN_vkCreateDeferredOperationKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAllocationCallbacks*, out VkDeferredOperationKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAllocationCallbacks*, out VkDeferredOperationKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkAllocationCallbacks* pAllocator, out VkDeferredOperationKHR_T pDeferredOperation)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T pDeferredOperation)
     {
         return InvokeFunc(device, pAllocator, out pDeferredOperation);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkAllocationCallbacks* pAllocator, out VkDeferredOperationKHR_T pDeferredOperation)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T pDeferredOperation)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkAllocationCallbacks*, out VkDeferredOperationKHR_T, Result>)ptr)(device, pAllocator, out pDeferredOperation);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, Result>)ptr)(device, pAllocator, out pDeferredOperation);
     }
 
     public static explicit operator PFN_vkCreateDeferredOperationKHR(void* ptr) => new(ptr);

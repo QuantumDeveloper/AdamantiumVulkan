@@ -19,20 +19,20 @@ public unsafe struct PFN_vkSetPrivateData
     public PFN_vkSetPrivateData(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, ObjectType, ulong, VkPrivateDataSlot_T, ulong, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, ObjectType, ulong, VkPrivateDataSlot_T, ulong, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, ObjectType objectType, ulong objectHandle, VkPrivateDataSlot_T privateDataSlot, ulong data)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong data)
     {
         return InvokeFunc(device, objectType, objectHandle, privateDataSlot, data);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, ObjectType objectType, ulong objectHandle, VkPrivateDataSlot_T privateDataSlot, ulong data)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong data)
     {
-        return ((delegate* unmanaged<VkDevice_T, ObjectType, ulong, VkPrivateDataSlot_T, ulong, Result>)ptr)(device, objectType, objectHandle, privateDataSlot, data);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong, Result>)ptr)(device, objectType, objectHandle, privateDataSlot, data);
     }
 
     public static explicit operator PFN_vkSetPrivateData(void* ptr) => new(ptr);

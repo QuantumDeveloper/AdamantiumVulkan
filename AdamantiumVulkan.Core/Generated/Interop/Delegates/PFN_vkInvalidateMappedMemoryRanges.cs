@@ -19,20 +19,20 @@ public unsafe struct PFN_vkInvalidateMappedMemoryRanges
     public PFN_vkInvalidateMappedMemoryRanges(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkMappedMemoryRange*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkMappedMemoryRange*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, uint memoryRangeCount, VkMappedMemoryRange* pMemoryRanges)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint memoryRangeCount, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange* pMemoryRanges)
     {
         return InvokeFunc(device, memoryRangeCount, pMemoryRanges);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, uint memoryRangeCount, VkMappedMemoryRange* pMemoryRanges)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint memoryRangeCount, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange* pMemoryRanges)
     {
-        return ((delegate* unmanaged<VkDevice_T, uint, VkMappedMemoryRange*, Result>)ptr)(device, memoryRangeCount, pMemoryRanges);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange*, Result>)ptr)(device, memoryRangeCount, pMemoryRanges);
     }
 
     public static explicit operator PFN_vkInvalidateMappedMemoryRanges(void* ptr) => new(ptr);

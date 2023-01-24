@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEX
     public PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
     {
         return InvokeFunc(device, pInfo, pData);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)ptr)(device, pInfo, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)ptr)(device, pInfo, pData);
     }
 
     public static explicit operator PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(void* ptr) => new(ptr);

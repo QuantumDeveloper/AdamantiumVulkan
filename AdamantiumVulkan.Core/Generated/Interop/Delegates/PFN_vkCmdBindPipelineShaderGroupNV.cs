@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindPipelineShaderGroupNV
     public PFN_vkCmdBindPipelineShaderGroupNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipeline_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipeline_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipeline_T pipeline, uint groupIndex)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint groupIndex)
     {
          InvokeFunc(commandBuffer, pipelineBindPoint, pipeline, groupIndex);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipeline_T pipeline, uint groupIndex)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint groupIndex)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipeline_T, uint, void>)ptr)(commandBuffer, pipelineBindPoint, pipeline, groupIndex);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, void>)ptr)(commandBuffer, pipelineBindPoint, pipeline, groupIndex);
     }
 
     public static explicit operator PFN_vkCmdBindPipelineShaderGroupNV(void* ptr) => new(ptr);

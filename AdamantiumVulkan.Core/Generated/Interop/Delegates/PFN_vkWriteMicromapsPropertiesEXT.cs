@@ -19,20 +19,20 @@ public unsafe struct PFN_vkWriteMicromapsPropertiesEXT
     public PFN_vkWriteMicromapsPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, uint micromapCount, VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
     {
         return InvokeFunc(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, uint micromapCount, VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
     {
-        return ((delegate* unmanaged<VkDevice_T, uint, VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result>)ptr)(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result>)ptr)(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
     }
 
     public static explicit operator PFN_vkWriteMicromapsPropertiesEXT(void* ptr) => new(ptr);

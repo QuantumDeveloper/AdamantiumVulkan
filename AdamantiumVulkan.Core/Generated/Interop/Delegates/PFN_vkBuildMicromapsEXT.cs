@@ -19,20 +19,20 @@ public unsafe struct PFN_vkBuildMicromapsEXT
     public PFN_vkBuildMicromapsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, uint, VkMicromapBuildInfoEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, uint, VkMicromapBuildInfoEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDeferredOperationKHR_T deferredOperation, uint infoCount, VkMicromapBuildInfoEXT* pInfos)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pInfos)
     {
         return InvokeFunc(device, deferredOperation, infoCount, pInfos);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDeferredOperationKHR_T deferredOperation, uint infoCount, VkMicromapBuildInfoEXT* pInfos)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pInfos)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, uint, VkMicromapBuildInfoEXT*, Result>)ptr)(device, deferredOperation, infoCount, pInfos);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, Result>)ptr)(device, deferredOperation, infoCount, pInfos);
     }
 
     public static explicit operator PFN_vkBuildMicromapsEXT(void* ptr) => new(ptr);

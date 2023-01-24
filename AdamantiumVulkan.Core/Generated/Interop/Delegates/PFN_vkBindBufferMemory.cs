@@ -19,20 +19,20 @@ public unsafe struct PFN_vkBindBufferMemory
     public PFN_vkBindBufferMemory(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkBuffer_T, VkDeviceMemory_T, VkDeviceSize, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkBuffer_T, VkDeviceMemory_T, VkDeviceSize, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkBuffer_T buffer, VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
     {
         return InvokeFunc(device, buffer, memory, memoryOffset);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkBuffer_T buffer, VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkBuffer_T, VkDeviceMemory_T, VkDeviceSize, Result>)ptr)(device, buffer, memory, memoryOffset);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)ptr)(device, buffer, memory, memoryOffset);
     }
 
     public static explicit operator PFN_vkBindBufferMemory(void* ptr) => new(ptr);

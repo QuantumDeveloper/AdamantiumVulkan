@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetImageViewHandleNVX
     public PFN_vkGetImageViewHandleNVX(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImageViewHandleInfoNVX*, uint>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX*, uint>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImageViewHandleInfoNVX*, uint> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX*, uint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public uint Invoke(VkDevice_T device, VkImageViewHandleInfoNVX* pInfo)
+    public uint Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX* pInfo)
     {
         return InvokeFunc(device, pInfo);
     }
-    public static uint Invoke(void* ptr, VkDevice_T device, VkImageViewHandleInfoNVX* pInfo)
+    public static uint Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX* pInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkImageViewHandleInfoNVX*, uint>)ptr)(device, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX*, uint>)ptr)(device, pInfo);
     }
 
     public static explicit operator PFN_vkGetImageViewHandleNVX(void* ptr) => new(ptr);

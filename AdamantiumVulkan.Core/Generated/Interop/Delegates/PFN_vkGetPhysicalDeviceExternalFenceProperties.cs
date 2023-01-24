@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceExternalFenceProperties
     public PFN_vkGetPhysicalDeviceExternalFenceProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalFenceInfo*, VkExternalFenceProperties*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo*, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalFenceInfo*, VkExternalFenceProperties*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo*, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, VkExternalFenceProperties* pExternalFenceProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties* pExternalFenceProperties)
     {
          InvokeFunc(physicalDevice, pExternalFenceInfo, pExternalFenceProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, VkExternalFenceProperties* pExternalFenceProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties* pExternalFenceProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalFenceInfo*, VkExternalFenceProperties*, void>)ptr)(physicalDevice, pExternalFenceInfo, pExternalFenceProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo*, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties*, void>)ptr)(physicalDevice, pExternalFenceInfo, pExternalFenceProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceExternalFenceProperties(void* ptr) => new(ptr);

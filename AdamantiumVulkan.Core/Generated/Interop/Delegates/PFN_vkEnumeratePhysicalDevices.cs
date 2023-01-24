@@ -19,20 +19,20 @@ public unsafe struct PFN_vkEnumeratePhysicalDevices
     public PFN_vkEnumeratePhysicalDevices(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstance_T, ref uint*, out VkPhysicalDevice_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkInstance_T, ref uint*, out VkPhysicalDevice_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkInstance_T instance, ref uint* pPhysicalDeviceCount, out VkPhysicalDevice_T pPhysicalDevices)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceCount, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T pPhysicalDevices)
     {
         return InvokeFunc(instance, ref pPhysicalDeviceCount, out pPhysicalDevices);
     }
-    public static Result Invoke(void* ptr, VkInstance_T instance, ref uint* pPhysicalDeviceCount, out VkPhysicalDevice_T pPhysicalDevices)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceCount, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T pPhysicalDevices)
     {
-        return ((delegate* unmanaged<VkInstance_T, ref uint*, out VkPhysicalDevice_T, Result>)ptr)(instance, ref pPhysicalDeviceCount, out pPhysicalDevices);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Result>)ptr)(instance, ref pPhysicalDeviceCount, out pPhysicalDevices);
     }
 
     public static explicit operator PFN_vkEnumeratePhysicalDevices(void* ptr) => new(ptr);

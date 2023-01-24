@@ -19,20 +19,20 @@ public unsafe struct PFN_vkFreeDescriptorSets
     public PFN_vkFreeDescriptorSets(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorPool_T, uint, VkDescriptorSet_T*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorPool_T, uint, VkDescriptorSet_T*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDescriptorPool_T descriptorPool, uint descriptorSetCount, VkDescriptorSet_T* pDescriptorSets)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, uint descriptorSetCount, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T* pDescriptorSets)
     {
         return InvokeFunc(device, descriptorPool, descriptorSetCount, pDescriptorSets);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDescriptorPool_T descriptorPool, uint descriptorSetCount, VkDescriptorSet_T* pDescriptorSets)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, uint descriptorSetCount, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T* pDescriptorSets)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDescriptorPool_T, uint, VkDescriptorSet_T*, Result>)ptr)(device, descriptorPool, descriptorSetCount, pDescriptorSets);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*, Result>)ptr)(device, descriptorPool, descriptorSetCount, pDescriptorSets);
     }
 
     public static explicit operator PFN_vkFreeDescriptorSets(void* ptr) => new(ptr);

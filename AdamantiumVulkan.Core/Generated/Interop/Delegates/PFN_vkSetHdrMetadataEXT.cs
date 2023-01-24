@@ -19,20 +19,20 @@ public unsafe struct PFN_vkSetHdrMetadataEXT
     public PFN_vkSetHdrMetadataEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkSwapchainKHR_T*, VkHdrMetadataEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T*, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkSwapchainKHR_T*, VkHdrMetadataEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T*, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, uint swapchainCount, VkSwapchainKHR_T* pSwapchains, VkHdrMetadataEXT* pMetadata)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T* pSwapchains, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT* pMetadata)
     {
          InvokeFunc(device, swapchainCount, pSwapchains, pMetadata);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, uint swapchainCount, VkSwapchainKHR_T* pSwapchains, VkHdrMetadataEXT* pMetadata)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T* pSwapchains, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT* pMetadata)
     {
-         ((delegate* unmanaged<VkDevice_T, uint, VkSwapchainKHR_T*, VkHdrMetadataEXT*, void>)ptr)(device, swapchainCount, pSwapchains, pMetadata);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T*, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT*, void>)ptr)(device, swapchainCount, pSwapchains, pMetadata);
     }
 
     public static explicit operator PFN_vkSetHdrMetadataEXT(void* ptr) => new(ptr);

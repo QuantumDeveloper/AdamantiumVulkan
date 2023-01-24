@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateComputePipelines
     public PFN_vkCreateComputePipelines(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPipelineCache_T, uint, VkComputePipelineCreateInfo*, VkAllocationCallbacks*, out VkPipeline_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, uint, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipeline_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPipelineCache_T, uint, VkComputePipelineCreateInfo*, VkAllocationCallbacks*, out VkPipeline_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, uint, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipeline_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPipelineCache_T pipelineCache, uint createInfoCount, VkComputePipelineCreateInfo* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline_T pPipelines)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines)
     {
         return InvokeFunc(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, out pPipelines);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPipelineCache_T pipelineCache, uint createInfoCount, VkComputePipelineCreateInfo* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline_T pPipelines)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPipelineCache_T, uint, VkComputePipelineCreateInfo*, VkAllocationCallbacks*, out VkPipeline_T, Result>)ptr)(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, out pPipelines);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, uint, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipeline_T, Result>)ptr)(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, out pPipelines);
     }
 
     public static explicit operator PFN_vkCreateComputePipelines(void* ptr) => new(ptr);

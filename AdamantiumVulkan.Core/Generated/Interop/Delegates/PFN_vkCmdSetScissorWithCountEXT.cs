@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetScissorWithCountEXT
     public PFN_vkCmdSetScissorWithCountEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkRect2D*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkRect2D*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint scissorCount, VkRect2D* pScissors)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint scissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pScissors)
     {
          InvokeFunc(commandBuffer, scissorCount, pScissors);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint scissorCount, VkRect2D* pScissors)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint scissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pScissors)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkRect2D*, void>)ptr)(commandBuffer, scissorCount, pScissors);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr)(commandBuffer, scissorCount, pScissors);
     }
 
     public static explicit operator PFN_vkCmdSetScissorWithCountEXT(void* ptr) => new(ptr);

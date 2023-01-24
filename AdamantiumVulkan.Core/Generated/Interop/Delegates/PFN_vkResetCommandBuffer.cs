@@ -19,20 +19,20 @@ public unsafe struct PFN_vkResetCommandBuffer
     public PFN_vkResetCommandBuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkCommandBufferResetFlags, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCommandBufferResetFlags, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkCommandBufferResetFlags, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCommandBufferResetFlags, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkCommandBuffer_T commandBuffer, VkCommandBufferResetFlags flags)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCommandBufferResetFlags flags)
     {
         return InvokeFunc(commandBuffer, flags);
     }
-    public static Result Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkCommandBufferResetFlags flags)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCommandBufferResetFlags flags)
     {
-        return ((delegate* unmanaged<VkCommandBuffer_T, VkCommandBufferResetFlags, Result>)ptr)(commandBuffer, flags);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCommandBufferResetFlags, Result>)ptr)(commandBuffer, flags);
     }
 
     public static explicit operator PFN_vkResetCommandBuffer(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCompileDeferredNV
     public PFN_vkCompileDeferredNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPipeline_T, uint, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPipeline_T, uint, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPipeline_T pipeline, uint shader)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint shader)
     {
         return InvokeFunc(device, pipeline, shader);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPipeline_T pipeline, uint shader)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint shader)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPipeline_T, uint, Result>)ptr)(device, pipeline, shader);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, Result>)ptr)(device, pipeline, shader);
     }
 
     public static explicit operator PFN_vkCompileDeferredNV(void* ptr) => new(ptr);

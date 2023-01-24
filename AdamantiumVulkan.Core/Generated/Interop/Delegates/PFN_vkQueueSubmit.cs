@@ -19,20 +19,20 @@ public unsafe struct PFN_vkQueueSubmit
     public PFN_vkQueueSubmit(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, uint, VkSubmitInfo*, VkFence_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkSubmitInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, uint, VkSubmitInfo*, VkFence_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkSubmitInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkQueue_T queue, uint submitCount, VkSubmitInfo* pSubmits, VkFence_T fence)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint submitCount, AdamantiumVulkan.Core.Interop.VkSubmitInfo* pSubmits, AdamantiumVulkan.Core.Interop.VkFence_T fence)
     {
         return InvokeFunc(queue, submitCount, pSubmits, fence);
     }
-    public static Result Invoke(void* ptr, VkQueue_T queue, uint submitCount, VkSubmitInfo* pSubmits, VkFence_T fence)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint submitCount, AdamantiumVulkan.Core.Interop.VkSubmitInfo* pSubmits, AdamantiumVulkan.Core.Interop.VkFence_T fence)
     {
-        return ((delegate* unmanaged<VkQueue_T, uint, VkSubmitInfo*, VkFence_T, Result>)ptr)(queue, submitCount, pSubmits, fence);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkSubmitInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr)(queue, submitCount, pSubmits, fence);
     }
 
     public static explicit operator PFN_vkQueueSubmit(void* ptr) => new(ptr);

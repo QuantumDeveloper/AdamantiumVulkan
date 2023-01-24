@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdEndTransformFeedbackEXT
     public PFN_vkCmdEndTransformFeedbackEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBuffer_T*, VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBuffer_T*, VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstCounterBuffer, uint counterBufferCount, VkBuffer_T* pCounterBuffers, VkDeviceSize* pCounterBufferOffsets)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstCounterBuffer, uint counterBufferCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pCounterBuffers, VkDeviceSize* pCounterBufferOffsets)
     {
          InvokeFunc(commandBuffer, firstCounterBuffer, counterBufferCount, pCounterBuffers, pCounterBufferOffsets);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstCounterBuffer, uint counterBufferCount, VkBuffer_T* pCounterBuffers, VkDeviceSize* pCounterBufferOffsets)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstCounterBuffer, uint counterBufferCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pCounterBuffers, VkDeviceSize* pCounterBufferOffsets)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkBuffer_T*, VkDeviceSize*, void>)ptr)(commandBuffer, firstCounterBuffer, counterBufferCount, pCounterBuffers, pCounterBufferOffsets);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, void>)ptr)(commandBuffer, firstCounterBuffer, counterBufferCount, pCounterBuffers, pCounterBufferOffsets);
     }
 
     public static explicit operator PFN_vkCmdEndTransformFeedbackEXT(void* ptr) => new(ptr);

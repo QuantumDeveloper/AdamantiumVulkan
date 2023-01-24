@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetPerformanceOverrideINTEL
     public PFN_vkCmdSetPerformanceOverrideINTEL(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkPerformanceOverrideInfoINTEL*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkPerformanceOverrideInfoINTEL*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkCommandBuffer_T commandBuffer, VkPerformanceOverrideInfoINTEL* pOverrideInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL* pOverrideInfo)
     {
         return InvokeFunc(commandBuffer, pOverrideInfo);
     }
-    public static Result Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkPerformanceOverrideInfoINTEL* pOverrideInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL* pOverrideInfo)
     {
-        return ((delegate* unmanaged<VkCommandBuffer_T, VkPerformanceOverrideInfoINTEL*, Result>)ptr)(commandBuffer, pOverrideInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL*, Result>)ptr)(commandBuffer, pOverrideInfo);
     }
 
     public static explicit operator PFN_vkCmdSetPerformanceOverrideINTEL(void* ptr) => new(ptr);

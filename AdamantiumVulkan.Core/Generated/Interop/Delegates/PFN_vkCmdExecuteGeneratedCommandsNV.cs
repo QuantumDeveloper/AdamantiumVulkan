@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdExecuteGeneratedCommandsNV
     public PFN_vkCmdExecuteGeneratedCommandsNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBool32, VkGeneratedCommandsInfoNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBool32, VkGeneratedCommandsInfoNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBool32 isPreprocessed, VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 isPreprocessed, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
     {
          InvokeFunc(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBool32 isPreprocessed, VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 isPreprocessed, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBool32, VkGeneratedCommandsInfoNV*, void>)ptr)(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV*, void>)ptr)(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
     }
 
     public static explicit operator PFN_vkCmdExecuteGeneratedCommandsNV(void* ptr) => new(ptr);

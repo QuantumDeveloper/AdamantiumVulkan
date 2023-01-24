@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetSampleLocationsEXT
     public PFN_vkCmdSetSampleLocationsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkSampleLocationsInfoEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkSampleLocationsInfoEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkSampleLocationsInfoEXT* pSampleLocationsInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT* pSampleLocationsInfo)
     {
          InvokeFunc(commandBuffer, pSampleLocationsInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkSampleLocationsInfoEXT* pSampleLocationsInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT* pSampleLocationsInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkSampleLocationsInfoEXT*, void>)ptr)(commandBuffer, pSampleLocationsInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT*, void>)ptr)(commandBuffer, pSampleLocationsInfo);
     }
 
     public static explicit operator PFN_vkCmdSetSampleLocationsEXT(void* ptr) => new(ptr);

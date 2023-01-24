@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetEventStatus
     public PFN_vkGetEventStatus(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkEvent_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkEvent_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkEvent_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkEvent_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkEvent_T @event)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEvent_T @event)
     {
         return InvokeFunc(device, @event);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkEvent_T @event)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEvent_T @event)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkEvent_T, Result>)ptr)(device, @event);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkEvent_T, Result>)ptr)(device, @event);
     }
 
     public static explicit operator PFN_vkGetEventStatus(void* ptr) => new(ptr);

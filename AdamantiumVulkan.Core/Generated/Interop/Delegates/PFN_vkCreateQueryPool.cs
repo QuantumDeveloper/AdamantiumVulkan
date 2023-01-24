@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateQueryPool
     public PFN_vkCreateQueryPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkQueryPoolCreateInfo*, VkAllocationCallbacks*, out VkQueryPool_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkQueryPool_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkQueryPoolCreateInfo*, VkAllocationCallbacks*, out VkQueryPool_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkQueryPool_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkQueryPoolCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkQueryPool_T pQueryPool)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkQueryPool_T pQueryPool)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pQueryPool);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkQueryPoolCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkQueryPool_T pQueryPool)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkQueryPool_T pQueryPool)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkQueryPoolCreateInfo*, VkAllocationCallbacks*, out VkQueryPool_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pQueryPool);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkQueryPool_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pQueryPool);
     }
 
     public static explicit operator PFN_vkCreateQueryPool(void* ptr) => new(ptr);

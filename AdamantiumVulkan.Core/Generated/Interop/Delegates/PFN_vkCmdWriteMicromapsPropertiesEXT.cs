@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdWriteMicromapsPropertiesEXT
     public PFN_vkCmdWriteMicromapsPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkMicromapEXT_T*, QueryType, VkQueryPool_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkMicromapEXT_T*, QueryType, VkQueryPool_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint micromapCount, VkMicromapEXT_T* pMicromaps, QueryType queryType, VkQueryPool_T queryPool, uint firstQuery)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery)
     {
          InvokeFunc(commandBuffer, micromapCount, pMicromaps, queryType, queryPool, firstQuery);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint micromapCount, VkMicromapEXT_T* pMicromaps, QueryType queryType, VkQueryPool_T queryPool, uint firstQuery)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkMicromapEXT_T*, QueryType, VkQueryPool_T, uint, void>)ptr)(commandBuffer, micromapCount, pMicromaps, queryType, queryPool, firstQuery);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr)(commandBuffer, micromapCount, pMicromaps, queryType, queryPool, firstQuery);
     }
 
     public static explicit operator PFN_vkCmdWriteMicromapsPropertiesEXT(void* ptr) => new(ptr);

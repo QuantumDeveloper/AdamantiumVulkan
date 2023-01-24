@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDevicePresentRectanglesKHR
     public PFN_vkGetPhysicalDevicePresentRectanglesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkSurfaceKHR_T, ref uint*, VkRect2D*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkSurfaceKHR_T, ref uint*, VkRect2D*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkSurfaceKHR_T surface, ref uint* pRectCount, VkRect2D* pRects)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
     {
         return InvokeFunc(physicalDevice, surface, ref pRectCount, pRects);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkSurfaceKHR_T surface, ref uint* pRectCount, VkRect2D* pRects)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkSurfaceKHR_T, ref uint*, VkRect2D*, Result>)ptr)(physicalDevice, surface, ref pRectCount, pRects);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)ptr)(physicalDevice, surface, ref pRectCount, pRects);
     }
 
     public static explicit operator PFN_vkGetPhysicalDevicePresentRectanglesKHR(void* ptr) => new(ptr);

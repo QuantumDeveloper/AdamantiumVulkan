@@ -9,13 +9,13 @@ namespace AdamantiumVulkan.Core
         public static PipelineRasterizationStateCreateInfo Default()
         {
             var state = new PipelineRasterizationStateCreateInfo();
-            state.DepthClampEnable = false;
-            state.RasterizerDiscardEnable = false;
+            state.DepthClampEnable = VkBool32.FALSE;
+            state.RasterizerDiscardEnable = VkBool32.FALSE;
             state.PolygonMode = PolygonMode.Fill;
             state.LineWidth = 1.0f;
             state.CullMode = CullModeFlagBits.BackBit;
             state.FrontFace = FrontFace.Clockwise;
-            state.DepthBiasEnable = false;
+            state.DepthBiasEnable = VkBool32.FALSE;
 
             return state;
         }
@@ -40,13 +40,13 @@ namespace AdamantiumVulkan.Core
         public static PipelineDepthStencilStateCreateInfo Default()
         {
             var state = new PipelineDepthStencilStateCreateInfo();
-            state.DepthTestEnable = false;
-            state.DepthWriteEnable = true;
+            state.DepthTestEnable = VkBool32.FALSE;
+            state.DepthWriteEnable = VkBool32.TRUE;
             state.DepthCompareOp = CompareOp.Less;
-            state.DepthBoundsTestEnable = false;
+            state.DepthBoundsTestEnable = VkBool32.FALSE;
             state.MinDepthBounds = 0.0f;
             state.MaxDepthBounds = 1.0f;
-            state.StencilTestEnable = true;
+            state.StencilTestEnable = VkBool32.TRUE;
             state.Front = new StencilOpState() { CompareOp = CompareOp.Always, DepthFailOp = StencilOp.Keep, FailOp = StencilOp.Keep, PassOp = StencilOp.Keep };
             state.Back = new StencilOpState() { CompareOp = CompareOp.Always, DepthFailOp = StencilOp.Keep, FailOp = StencilOp.Keep, PassOp = StencilOp.Keep };
             return state;
@@ -75,10 +75,10 @@ namespace AdamantiumVulkan.Core
         {
             var colorBlendAttachment = new PipelineColorBlendAttachmentState();
             colorBlendAttachment.ColorWriteMask = (ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
-            colorBlendAttachment.BlendEnable = false;
+            colorBlendAttachment.BlendEnable = VkBool32.FALSE;
 
             var state = new PipelineColorBlendStateCreateInfo();
-            state.LogicOpEnable = false;
+            state.LogicOpEnable = VkBool32.FALSE;
             state.LogicOp = LogicOp.Copy;
             state.AttachmentCount = 1;
             state.PAttachments = new [] { colorBlendAttachment };

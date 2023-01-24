@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetDepthBias
     public PFN_vkCmdSetDepthBias(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, float, float, float, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, float, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, float, float, float, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, float, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor)
     {
          InvokeFunc(commandBuffer, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, float, float, float, void>)ptr)(commandBuffer, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, float, void>)ptr)(commandBuffer, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
     }
 
     public static explicit operator PFN_vkCmdSetDepthBias(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkQueueEndDebugUtilsLabelEXT
     public PFN_vkQueueEndDebugUtilsLabelEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkQueue_T queue)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue)
     {
          InvokeFunc(queue);
     }
-    public static void Invoke(void* ptr, VkQueue_T queue)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue)
     {
-         ((delegate* unmanaged<VkQueue_T, void>)ptr)(queue);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr)(queue);
     }
 
     public static explicit operator PFN_vkQueueEndDebugUtilsLabelEXT(void* ptr) => new(ptr);

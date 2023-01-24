@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateDebugReportCallbackEXT
     public PFN_vkCreateDebugReportCallbackEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstance_T, VkDebugReportCallbackCreateInfoEXT*, VkAllocationCallbacks*, out VkDebugReportCallbackEXT_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkInstance_T, VkDebugReportCallbackCreateInfoEXT*, VkAllocationCallbacks*, out VkDebugReportCallbackEXT_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkInstance_T instance, VkDebugReportCallbackCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDebugReportCallbackEXT_T pCallback)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback)
     {
         return InvokeFunc(instance, pCreateInfo, pAllocator, out pCallback);
     }
-    public static Result Invoke(void* ptr, VkInstance_T instance, VkDebugReportCallbackCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDebugReportCallbackEXT_T pCallback)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback)
     {
-        return ((delegate* unmanaged<VkInstance_T, VkDebugReportCallbackCreateInfoEXT*, VkAllocationCallbacks*, out VkDebugReportCallbackEXT_T, Result>)ptr)(instance, pCreateInfo, pAllocator, out pCallback);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T, Result>)ptr)(instance, pCreateInfo, pAllocator, out pCallback);
     }
 
     public static explicit operator PFN_vkCreateDebugReportCallbackEXT(void* ptr) => new(ptr);

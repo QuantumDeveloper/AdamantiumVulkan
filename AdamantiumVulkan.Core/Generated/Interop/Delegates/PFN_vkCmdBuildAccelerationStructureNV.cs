@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBuildAccelerationStructureNV
     public PFN_vkCmdBuildAccelerationStructureNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkAccelerationStructureInfoNV*, VkBuffer_T, VkDeviceSize, VkBool32, VkAccelerationStructureNV_T, VkAccelerationStructureNV_T, VkBuffer_T, VkDeviceSize, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV*, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkBool32, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkAccelerationStructureInfoNV*, VkBuffer_T, VkDeviceSize, VkBool32, VkAccelerationStructureNV_T, VkAccelerationStructureNV_T, VkBuffer_T, VkDeviceSize, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV*, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkBool32, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkAccelerationStructureInfoNV* pInfo, VkBuffer_T instanceData, VkDeviceSize instanceOffset, VkBool32 update, VkAccelerationStructureNV_T dst, VkAccelerationStructureNV_T src, VkBuffer_T scratch, VkDeviceSize scratchOffset)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, VkDeviceSize instanceOffset, VkBool32 update, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, VkDeviceSize scratchOffset)
     {
          InvokeFunc(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkAccelerationStructureInfoNV* pInfo, VkBuffer_T instanceData, VkDeviceSize instanceOffset, VkBool32 update, VkAccelerationStructureNV_T dst, VkAccelerationStructureNV_T src, VkBuffer_T scratch, VkDeviceSize scratchOffset)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, VkDeviceSize instanceOffset, VkBool32 update, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, VkDeviceSize scratchOffset)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkAccelerationStructureInfoNV*, VkBuffer_T, VkDeviceSize, VkBool32, VkAccelerationStructureNV_T, VkAccelerationStructureNV_T, VkBuffer_T, VkDeviceSize, void>)ptr)(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV*, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkBool32, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void>)ptr)(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
     }
 
     public static explicit operator PFN_vkCmdBuildAccelerationStructureNV(void* ptr) => new(ptr);

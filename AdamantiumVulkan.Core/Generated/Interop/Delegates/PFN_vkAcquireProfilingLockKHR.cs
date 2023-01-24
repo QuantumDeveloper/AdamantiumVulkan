@@ -19,20 +19,20 @@ public unsafe struct PFN_vkAcquireProfilingLockKHR
     public PFN_vkAcquireProfilingLockKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAcquireProfilingLockInfoKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAcquireProfilingLockInfoKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkAcquireProfilingLockInfoKHR* pInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR* pInfo)
     {
         return InvokeFunc(device, pInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkAcquireProfilingLockInfoKHR* pInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR* pInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkAcquireProfilingLockInfoKHR*, Result>)ptr)(device, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR*, Result>)ptr)(device, pInfo);
     }
 
     public static explicit operator PFN_vkAcquireProfilingLockKHR(void* ptr) => new(ptr);

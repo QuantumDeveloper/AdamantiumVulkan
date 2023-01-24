@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBuildMicromapsEXT
     public PFN_vkCmdBuildMicromapsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkMicromapBuildInfoEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkMicromapBuildInfoEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint infoCount, VkMicromapBuildInfoEXT* pInfos)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pInfos)
     {
          InvokeFunc(commandBuffer, infoCount, pInfos);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint infoCount, VkMicromapBuildInfoEXT* pInfos)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pInfos)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkMicromapBuildInfoEXT*, void>)ptr)(commandBuffer, infoCount, pInfos);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, void>)ptr)(commandBuffer, infoCount, pInfos);
     }
 
     public static explicit operator PFN_vkCmdBuildMicromapsEXT(void* ptr) => new(ptr);

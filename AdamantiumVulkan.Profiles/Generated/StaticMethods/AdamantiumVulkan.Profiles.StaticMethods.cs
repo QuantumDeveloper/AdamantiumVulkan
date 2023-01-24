@@ -50,7 +50,7 @@ public unsafe static class VulkanNative
     ///<summary>
     /// Check whether a profile is supported at the instance level
     ///</summary>
-    public static Result VpGetInstanceProfileSupport(string pLayerName, in VpProfileProperties pProfile, ref VkBool32 pSupported)
+    public static Result VpGetInstanceProfileSupport(string pLayerName, in VpProfileProperties pProfile, VkBool32 pSupported)
     {
         var arg0 = (sbyte*)NativeUtils.PointerToString(pLayerName, false);
         var arg1 = ReferenceEquals(pProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pProfile.ToNative());
@@ -118,7 +118,7 @@ public unsafe static class VulkanNative
     ///<summary>
     /// Fill the feature structures with the requirements of a profile
     ///</summary>
-    public static void VpGetProfileFeatures(in VpProfileProperties pProfile, void* pNext)
+    public static void VpGetProfileFeatures(in VpProfileProperties pProfile, ref void* pNext)
     {
         var arg0 = ReferenceEquals(pProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pProfile.ToNative());
         AdamantiumVulkan.Profiles.Interop.VulkanInterop.vpGetProfileFeatures(arg0, pNext);
@@ -148,7 +148,7 @@ public unsafe static class VulkanNative
     ///<summary>
     /// Fill the property structures with the requirements of a profile
     ///</summary>
-    public static void VpGetProfileProperties(in VpProfileProperties pProfile, void* pNext)
+    public static void VpGetProfileProperties(in VpProfileProperties pProfile, ref void* pNext)
     {
         var arg0 = ReferenceEquals(pProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pProfile.ToNative());
         AdamantiumVulkan.Profiles.Interop.VulkanInterop.vpGetProfileProperties(arg0, pNext);
@@ -235,7 +235,7 @@ public unsafe static class VulkanNative
     ///<summary>
     /// Query the requirements of a format for a profile
     ///</summary>
-    public static void VpGetProfileFormatProperties(in VpProfileProperties pProfile, Format format, void* pNext)
+    public static void VpGetProfileFormatProperties(in VpProfileProperties pProfile, Format format, ref void* pNext)
     {
         var arg0 = ReferenceEquals(pProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pProfile.ToNative());
         AdamantiumVulkan.Profiles.Interop.VulkanInterop.vpGetProfileFormatProperties(arg0, format, pNext);

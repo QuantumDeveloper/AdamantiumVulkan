@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateOpticalFlowSessionNV
     public PFN_vkCreateOpticalFlowSessionNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionCreateInfoNV*, VkAllocationCallbacks*, out VkOpticalFlowSessionNV_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionCreateInfoNV*, VkAllocationCallbacks*, out VkOpticalFlowSessionNV_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkOpticalFlowSessionCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkOpticalFlowSessionNV_T pSession)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T pSession)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pSession);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkOpticalFlowSessionCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkOpticalFlowSessionNV_T pSession)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T pSession)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkOpticalFlowSessionCreateInfoNV*, VkAllocationCallbacks*, out VkOpticalFlowSessionNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSession);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSession);
     }
 
     public static explicit operator PFN_vkCreateOpticalFlowSessionNV(void* ptr) => new(ptr);

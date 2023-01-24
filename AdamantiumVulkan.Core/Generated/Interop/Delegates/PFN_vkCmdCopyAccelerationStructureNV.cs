@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdCopyAccelerationStructureNV
     public PFN_vkCmdCopyAccelerationStructureNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkAccelerationStructureNV_T, VkAccelerationStructureNV_T, CopyAccelerationStructureModeKHR, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, CopyAccelerationStructureModeKHR, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkAccelerationStructureNV_T, VkAccelerationStructureNV_T, CopyAccelerationStructureModeKHR, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, CopyAccelerationStructureModeKHR, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkAccelerationStructureNV_T dst, VkAccelerationStructureNV_T src, CopyAccelerationStructureModeKHR mode)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, CopyAccelerationStructureModeKHR mode)
     {
          InvokeFunc(commandBuffer, dst, src, mode);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkAccelerationStructureNV_T dst, VkAccelerationStructureNV_T src, CopyAccelerationStructureModeKHR mode)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, CopyAccelerationStructureModeKHR mode)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkAccelerationStructureNV_T, VkAccelerationStructureNV_T, CopyAccelerationStructureModeKHR, void>)ptr)(commandBuffer, dst, src, mode);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, CopyAccelerationStructureModeKHR, void>)ptr)(commandBuffer, dst, src, mode);
     }
 
     public static explicit operator PFN_vkCmdCopyAccelerationStructureNV(void* ptr) => new(ptr);

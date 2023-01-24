@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdNextSubpass2KHR
     public PFN_vkCmdNextSubpass2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkSubpassBeginInfo*, VkSubpassEndInfo*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo*, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkSubpassBeginInfo*, VkSubpassEndInfo*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo*, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkSubpassBeginInfo* pSubpassBeginInfo, VkSubpassEndInfo* pSubpassEndInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo)
     {
          InvokeFunc(commandBuffer, pSubpassBeginInfo, pSubpassEndInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkSubpassBeginInfo* pSubpassBeginInfo, VkSubpassEndInfo* pSubpassEndInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkSubpassBeginInfo*, VkSubpassEndInfo*, void>)ptr)(commandBuffer, pSubpassBeginInfo, pSubpassEndInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo*, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo*, void>)ptr)(commandBuffer, pSubpassBeginInfo, pSubpassEndInfo);
     }
 
     public static explicit operator PFN_vkCmdNextSubpass2KHR(void* ptr) => new(ptr);

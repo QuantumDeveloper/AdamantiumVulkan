@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyPrivateDataSlot
     public PFN_vkDestroyPrivateDataSlot(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPrivateDataSlot_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPrivateDataSlot_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkPrivateDataSlot_T privateDataSlot, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, privateDataSlot, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkPrivateDataSlot_T privateDataSlot, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkPrivateDataSlot_T, VkAllocationCallbacks*, void>)ptr)(device, privateDataSlot, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, privateDataSlot, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyPrivateDataSlot(void* ptr) => new(ptr);

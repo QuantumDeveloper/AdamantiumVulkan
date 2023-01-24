@@ -19,20 +19,20 @@ public unsafe struct PFN_vkEndCommandBuffer
     public PFN_vkEndCommandBuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkCommandBuffer_T commandBuffer)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer)
     {
         return InvokeFunc(commandBuffer);
     }
-    public static Result Invoke(void* ptr, VkCommandBuffer_T commandBuffer)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer)
     {
-        return ((delegate* unmanaged<VkCommandBuffer_T, Result>)ptr)(commandBuffer);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)ptr)(commandBuffer);
     }
 
     public static explicit operator PFN_vkEndCommandBuffer(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkEnumeratePhysicalDeviceGroups
     public PFN_vkEnumeratePhysicalDeviceGroups(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkInstance_T, ref uint*, VkPhysicalDeviceGroupProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkInstance_T, ref uint*, VkPhysicalDeviceGroupProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
     {
         return InvokeFunc(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
     }
-    public static Result Invoke(void* ptr, VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
     {
-        return ((delegate* unmanaged<VkInstance_T, ref uint*, VkPhysicalDeviceGroupProperties*, Result>)ptr)(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)ptr)(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
     }
 
     public static explicit operator PFN_vkEnumeratePhysicalDeviceGroups(void* ptr) => new(ptr);

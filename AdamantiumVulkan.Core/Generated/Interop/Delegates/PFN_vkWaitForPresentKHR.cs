@@ -19,20 +19,20 @@ public unsafe struct PFN_vkWaitForPresentKHR
     public PFN_vkWaitForPresentKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, ulong, ulong, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, ulong, ulong, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSwapchainKHR_T swapchain, ulong presentId, ulong timeout)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong presentId, ulong timeout)
     {
         return InvokeFunc(device, swapchain, presentId, timeout);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSwapchainKHR_T swapchain, ulong presentId, ulong timeout)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong presentId, ulong timeout)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, ulong, ulong, Result>)ptr)(device, swapchain, presentId, timeout);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, ulong, Result>)ptr)(device, swapchain, presentId, timeout);
     }
 
     public static explicit operator PFN_vkWaitForPresentKHR(void* ptr) => new(ptr);

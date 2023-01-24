@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetFragmentShadingRateKHR
     public PFN_vkCmdSetFragmentShadingRateKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkExtent2D*, FragmentShadingRateCombinerOpKHR[], void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, FragmentShadingRateCombinerOpKHR[], void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkExtent2D*, FragmentShadingRateCombinerOpKHR[], void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, FragmentShadingRateCombinerOpKHR[], void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkExtent2D* pFragmentSize, FragmentShadingRateCombinerOpKHR[] combinerOps)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkExtent2D* pFragmentSize, FragmentShadingRateCombinerOpKHR[] combinerOps)
     {
          InvokeFunc(commandBuffer, pFragmentSize, combinerOps);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkExtent2D* pFragmentSize, FragmentShadingRateCombinerOpKHR[] combinerOps)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkExtent2D* pFragmentSize, FragmentShadingRateCombinerOpKHR[] combinerOps)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkExtent2D*, FragmentShadingRateCombinerOpKHR[], void>)ptr)(commandBuffer, pFragmentSize, combinerOps);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, FragmentShadingRateCombinerOpKHR[], void>)ptr)(commandBuffer, pFragmentSize, combinerOps);
     }
 
     public static explicit operator PFN_vkCmdSetFragmentShadingRateKHR(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateDevice
     public PFN_vkCreateDevice(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkDeviceCreateInfo*, VkAllocationCallbacks*, out VkDevice_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDevice_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkDeviceCreateInfo*, VkAllocationCallbacks*, out VkDevice_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDevice_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkDeviceCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDevice_T pDevice)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice)
     {
         return InvokeFunc(physicalDevice, pCreateInfo, pAllocator, out pDevice);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkDeviceCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDevice_T pDevice)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkDeviceCreateInfo*, VkAllocationCallbacks*, out VkDevice_T, Result>)ptr)(physicalDevice, pCreateInfo, pAllocator, out pDevice);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDevice_T, Result>)ptr)(physicalDevice, pCreateInfo, pAllocator, out pDevice);
     }
 
     public static explicit operator PFN_vkCreateDevice(void* ptr) => new(ptr);

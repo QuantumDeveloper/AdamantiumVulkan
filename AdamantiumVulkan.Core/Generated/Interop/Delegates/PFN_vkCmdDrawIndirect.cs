@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDrawIndirect
     public PFN_vkCmdDrawIndirect(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride)
     {
          InvokeFunc(commandBuffer, buffer, offset, drawCount, stride);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr)(commandBuffer, buffer, offset, drawCount, stride);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr)(commandBuffer, buffer, offset, drawCount, stride);
     }
 
     public static explicit operator PFN_vkCmdDrawIndirect(void* ptr) => new(ptr);

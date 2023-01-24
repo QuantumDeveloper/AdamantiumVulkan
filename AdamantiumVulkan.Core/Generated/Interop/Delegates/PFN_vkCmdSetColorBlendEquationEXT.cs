@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetColorBlendEquationEXT
     public PFN_vkCmdSetColorBlendEquationEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkColorBlendEquationEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkColorBlendEquationEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorBlendEquationEXT* pColorBlendEquations)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT* pColorBlendEquations)
     {
          InvokeFunc(commandBuffer, firstAttachment, attachmentCount, pColorBlendEquations);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorBlendEquationEXT* pColorBlendEquations)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT* pColorBlendEquations)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkColorBlendEquationEXT*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendEquations);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendEquations);
     }
 
     public static explicit operator PFN_vkCmdSetColorBlendEquationEXT(void* ptr) => new(ptr);

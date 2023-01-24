@@ -19,20 +19,20 @@ public unsafe struct PFN_vkMapMemory
     public PFN_vkMapMemory(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
     {
         return InvokeFunc(device, memory, offset, size, flags, out ppData);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result>)ptr)(device, memory, offset, size, flags, out ppData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result>)ptr)(device, memory, offset, size, flags, out ppData);
     }
 
     public static explicit operator PFN_vkMapMemory(void* ptr) => new(ptr);

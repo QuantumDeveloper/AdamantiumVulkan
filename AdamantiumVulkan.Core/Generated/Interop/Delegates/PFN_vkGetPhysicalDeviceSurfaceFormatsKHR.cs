@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceSurfaceFormatsKHR
     public PFN_vkGetPhysicalDeviceSurfaceFormatsKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkSurfaceKHR_T, ref uint*, VkSurfaceFormatKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkSurfaceKHR_T, ref uint*, VkSurfaceFormatKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkSurfaceKHR_T surface, ref uint* pSurfaceFormatCount, VkSurfaceFormatKHR* pSurfaceFormats)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats)
     {
         return InvokeFunc(physicalDevice, surface, ref pSurfaceFormatCount, pSurfaceFormats);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkSurfaceKHR_T surface, ref uint* pSurfaceFormatCount, VkSurfaceFormatKHR* pSurfaceFormats)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkSurfaceKHR_T, ref uint*, VkSurfaceFormatKHR*, Result>)ptr)(physicalDevice, surface, ref pSurfaceFormatCount, pSurfaceFormats);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR*, Result>)ptr)(physicalDevice, surface, ref pSurfaceFormatCount, pSurfaceFormats);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSurfaceFormatsKHR(void* ptr) => new(ptr);

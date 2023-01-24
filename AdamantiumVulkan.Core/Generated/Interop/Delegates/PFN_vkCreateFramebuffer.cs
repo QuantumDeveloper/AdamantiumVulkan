@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateFramebuffer
     public PFN_vkCreateFramebuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkFramebufferCreateInfo*, VkAllocationCallbacks*, out VkFramebuffer_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkFramebuffer_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkFramebufferCreateInfo*, VkAllocationCallbacks*, out VkFramebuffer_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkFramebuffer_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkFramebufferCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkFramebuffer_T pFramebuffer)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFramebuffer_T pFramebuffer)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pFramebuffer);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkFramebufferCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkFramebuffer_T pFramebuffer)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFramebuffer_T pFramebuffer)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkFramebufferCreateInfo*, VkAllocationCallbacks*, out VkFramebuffer_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pFramebuffer);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkFramebuffer_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pFramebuffer);
     }
 
     public static explicit operator PFN_vkCreateFramebuffer(void* ptr) => new(ptr);

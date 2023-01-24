@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetRayTracingShaderGroupStackSizeKHR
     public PFN_vkGetRayTracingShaderGroupStackSizeKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPipeline_T, uint, ShaderGroupShaderKHR, ulong>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, ShaderGroupShaderKHR, ulong>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPipeline_T, uint, ShaderGroupShaderKHR, ulong> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, ShaderGroupShaderKHR, ulong> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public ulong Invoke(VkDevice_T device, VkPipeline_T pipeline, uint group, ShaderGroupShaderKHR groupShader)
+    public ulong Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint group, ShaderGroupShaderKHR groupShader)
     {
         return InvokeFunc(device, pipeline, group, groupShader);
     }
-    public static ulong Invoke(void* ptr, VkDevice_T device, VkPipeline_T pipeline, uint group, ShaderGroupShaderKHR groupShader)
+    public static ulong Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint group, ShaderGroupShaderKHR groupShader)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPipeline_T, uint, ShaderGroupShaderKHR, ulong>)ptr)(device, pipeline, group, groupShader);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, ShaderGroupShaderKHR, ulong>)ptr)(device, pipeline, group, groupShader);
     }
 
     public static explicit operator PFN_vkGetRayTracingShaderGroupStackSizeKHR(void* ptr) => new(ptr);

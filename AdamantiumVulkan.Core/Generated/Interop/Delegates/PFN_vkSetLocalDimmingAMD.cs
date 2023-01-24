@@ -19,20 +19,20 @@ public unsafe struct PFN_vkSetLocalDimmingAMD
     public PFN_vkSetLocalDimmingAMD(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, VkBool32, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, VkBool32, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, VkBool32, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, VkBool32, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable)
     {
          InvokeFunc(device, swapChain, localDimmingEnable);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable)
     {
-         ((delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, VkBool32, void>)ptr)(device, swapChain, localDimmingEnable);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, VkBool32, void>)ptr)(device, swapChain, localDimmingEnable);
     }
 
     public static explicit operator PFN_vkSetLocalDimmingAMD(void* ptr) => new(ptr);

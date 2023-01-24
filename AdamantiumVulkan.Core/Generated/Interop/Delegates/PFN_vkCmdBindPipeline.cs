@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindPipeline
     public PFN_vkCmdBindPipeline(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipeline_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipeline_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipeline_T pipeline)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline)
     {
          InvokeFunc(commandBuffer, pipelineBindPoint, pipeline);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, VkPipeline_T pipeline)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, PipelineBindPoint, VkPipeline_T, void>)ptr)(commandBuffer, pipelineBindPoint, pipeline);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, void>)ptr)(commandBuffer, pipelineBindPoint, pipeline);
     }
 
     public static explicit operator PFN_vkCmdBindPipeline(void* ptr) => new(ptr);

@@ -49,7 +49,6 @@ namespace AdamantiumVulkan.Generator
             options.PodTypesAsSimpleTypes = false;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
 
-            
             vkMainModule = options.AddModule(vkMainLibrary);
             vkMainModule.GeneratorMode = GeneratorMode.Preview;
             vkMainModule.CleanPreviousGeneration = true;
@@ -79,60 +78,60 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
             vkMainModule.WrapInteropObjects = true;
             vkMainModule.GenerateOverloadsForArrayParams = true;
-            vkMainModule.SkipTypedefsGeneration = true;
+            //vkMainModule.SkipGenerationForSimpleTypes = true;
             vkMainModule.OutputPath = corePath;
             
-            // shaderModule = options.AddModule(shadercLibrary);
-            // shaderModule.FileHeader = header;
-            // shaderModule.GeneratorMode = GeneratorMode.Compatible;
-            // shaderModule.EachTypeInSeparateFile = true;
-            // shaderModule.CleanPreviousGeneration = true;
-            // shaderModule.Name = "Shaders";
-            // shaderModule.IncludeDirs.Add(vulkanBasePath);
-            // shaderModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "shaderc"));
-            // shaderModule.Files.Add(Path.Combine(vulkanBasePath, "shaderc", "shaderc.h"));
-            // shaderModule.Defines.Add("SHADERC_SHAREDLIB");
-            // shaderModule.Defines.Add("_WIN32");
-            // shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
-            // shaderModule.ForceCallingConvention = false;
-            // shaderModule.CallingConvention = CallingConvention.Winapi;
-            // shaderModule.AllowConvertStructToClass = true;
-            // shaderModule.MethodClassName = "VulkanShadersNative";
-            // shaderModule.InteropClassName = "VulkanShadersInterop";
-            // shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
-            // shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
-            // shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
-            // shaderModule.InteropSubNamespace = interopSubNamespace;
-            // shaderModule.SuppressUnmanagedCodeSecurity = true;
-            // shaderModule.WrapInteropObjects = true;
-            // shaderModule.GenerateOverloadsForArrayParams = true;
-            // shaderModule.OutputPath = shadersPath;
-            //
-            //
-            // var spirvCrossSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
-            // spivCrossModule = options.AddModule(spirvCrossLibrary);
-            // spivCrossModule.FileHeader = header;
-            // spivCrossModule.GeneratorMode = GeneratorMode.Compatible;
-            // spivCrossModule.EachTypeInSeparateFile = true;
-            // spivCrossModule.CleanPreviousGeneration = true;
-            // spivCrossModule.Name = "Spirv.Cross";
-            // spivCrossModule.Files.Add(Path.Combine(vulkanBasePath, "spirv_cross", "spirv_cross_c.h"));
-            // spivCrossModule.Defines.Add("SPVC_EXPORT_SYMBOLS");
-            // spivCrossModule.Defines.Add("_MSC_VER");
-            // spivCrossModule.ForceCallingConvention = true;
-            // spivCrossModule.CallingConvention = CallingConvention.Winapi;
-            // spivCrossModule.AllowConvertStructToClass = true;
-            // spivCrossModule.MethodClassName = "SpirvCrossNative";
-            // spivCrossModule.InteropClassName = "SpirvCrossInterop";
-            // spivCrossModule.GeneratorSpecializations = spirvCrossSpecs;
-            // spivCrossModule.OutputFileName = "AdamantiumVulkan.Spirv.Cross";
-            // spivCrossModule.OutputNamespace = "AdamantiumVulkan.Spirv.Cross";
-            // spivCrossModule.InteropSubNamespace = interopSubNamespace;
-            // spivCrossModule.SuppressUnmanagedCodeSecurity = true;
-            // spivCrossModule.AddNamespaceMapping("spirv", "AdamantiumVulkan.Spirv", spirvPath, true);
-            // spivCrossModule.WrapInteropObjects = true;
-            // spivCrossModule.CharAsBoolForMethods = true;
-            // spivCrossModule.OutputPath = spirvPath;
+            shaderModule = options.AddModule(shadercLibrary);
+            shaderModule.FileHeader = header;
+            shaderModule.GeneratorMode = GeneratorMode.Compatible;
+            shaderModule.EachTypeInSeparateFile = true;
+            shaderModule.CleanPreviousGeneration = true;
+            shaderModule.Name = "Shaders";
+            shaderModule.IncludeDirs.Add(vulkanBasePath);
+            shaderModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "shaderc"));
+            shaderModule.Files.Add(Path.Combine(vulkanBasePath, "shaderc", "shaderc.h"));
+            shaderModule.Defines.Add("SHADERC_SHAREDLIB");
+            shaderModule.Defines.Add("_WIN32");
+            shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
+            shaderModule.ForceCallingConvention = false;
+            shaderModule.CallingConvention = CallingConvention.Winapi;
+            shaderModule.AllowConvertStructToClass = true;
+            shaderModule.MethodClassName = "VulkanShadersNative";
+            shaderModule.InteropClassName = "VulkanShadersInterop";
+            shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
+            shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
+            shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
+            shaderModule.InteropSubNamespace = interopSubNamespace;
+            shaderModule.SuppressUnmanagedCodeSecurity = true;
+            shaderModule.WrapInteropObjects = true;
+            shaderModule.GenerateOverloadsForArrayParams = true;
+            shaderModule.OutputPath = shadersPath;
+            
+            
+            var spirvCrossSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
+            spivCrossModule = options.AddModule(spirvCrossLibrary);
+            spivCrossModule.FileHeader = header;
+            spivCrossModule.GeneratorMode = GeneratorMode.Compatible;
+            spivCrossModule.EachTypeInSeparateFile = true;
+            spivCrossModule.CleanPreviousGeneration = true;
+            spivCrossModule.Name = "Spirv.Cross";
+            spivCrossModule.Files.Add(Path.Combine(vulkanBasePath, "spirv_cross", "spirv_cross_c.h"));
+            spivCrossModule.Defines.Add("SPVC_EXPORT_SYMBOLS");
+            spivCrossModule.Defines.Add("_MSC_VER");
+            spivCrossModule.ForceCallingConvention = true;
+            spivCrossModule.CallingConvention = CallingConvention.Winapi;
+            spivCrossModule.AllowConvertStructToClass = true;
+            spivCrossModule.MethodClassName = "SpirvCrossNative";
+            spivCrossModule.InteropClassName = "SpirvCrossInterop";
+            spivCrossModule.GeneratorSpecializations = spirvCrossSpecs;
+            spivCrossModule.OutputFileName = "AdamantiumVulkan.Spirv.Cross";
+            spivCrossModule.OutputNamespace = "AdamantiumVulkan.Spirv.Cross";
+            spivCrossModule.InteropSubNamespace = interopSubNamespace;
+            spivCrossModule.SuppressUnmanagedCodeSecurity = true;
+            spivCrossModule.AddNamespaceMapping("spirv", "AdamantiumVulkan.Spirv", spirvPath, true);
+            spivCrossModule.WrapInteropObjects = true;
+            spivCrossModule.CharAsBoolForMethods = true;
+            spivCrossModule.OutputPath = spirvPath;
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -149,7 +148,10 @@ namespace AdamantiumVulkan.Generator
                 "vkGetPhysicalDeviceSurfaceFormatsKHR",
                 "vkGetPhysicalDeviceSurfacePresentModesKHR",
                 "vkGetPhysicalDeviceQueueFamilyProperties",
-                "vkEnumerateDeviceExtensionProperties");
+                "vkEnumerateDeviceExtensionProperties",
+                "vkEnumerateInstanceExtensionProperties",
+                "vkEnumerateInstanceLayerProperties",
+                "vkCmdPipelineBarrier");
             
             context.AddPreGeneratorPass(functionToInstance, ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.Winapi), ExecutionPassKind.PerTranslationUnit);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetPerformanceMarkerINTEL
     public PFN_vkCmdSetPerformanceMarkerINTEL(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkPerformanceMarkerInfoINTEL*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkPerformanceMarkerInfoINTEL*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkCommandBuffer_T commandBuffer, VkPerformanceMarkerInfoINTEL* pMarkerInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL* pMarkerInfo)
     {
         return InvokeFunc(commandBuffer, pMarkerInfo);
     }
-    public static Result Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkPerformanceMarkerInfoINTEL* pMarkerInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL* pMarkerInfo)
     {
-        return ((delegate* unmanaged<VkCommandBuffer_T, VkPerformanceMarkerInfoINTEL*, Result>)ptr)(commandBuffer, pMarkerInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL*, Result>)ptr)(commandBuffer, pMarkerInfo);
     }
 
     public static explicit operator PFN_vkCmdSetPerformanceMarkerINTEL(void* ptr) => new(ptr);

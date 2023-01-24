@@ -4,7 +4,7 @@
 
   <Classes>
     <Class Name="VkBool32">
-      <UnderlyingNativeType xsi:type="BuiltinTypeMap" Type="Bool32"/>
+      <UnderlyingNativeType xsi:type="BuiltinTypeMap" Type="UInt32"/>
     </Class>
 
     <Class Name="VkDeviceCreateInfo">
@@ -481,7 +481,7 @@
 
     <Function Name="vkCmdBindVertexBuffers">
       <Parameters>
-        <Parameter Name="pOffsets" ParameterKind="InOut">
+        <Parameter Name="pOffsets" ParameterKind="In">
           <Type xsi:type="PointerTypeMap">
             <Pointee xsi:type="ArrayTypeMap">
               <ElementType xsi:type="BuiltinTypeMap" Type="UInt64"/>

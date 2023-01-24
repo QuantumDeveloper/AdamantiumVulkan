@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetSampleMaskEXT
     public PFN_vkCmdSetSampleMaskEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, SampleCountFlagBits, VkSampleMask*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SampleCountFlagBits, VkSampleMask*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, SampleCountFlagBits, VkSampleMask*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SampleCountFlagBits, VkSampleMask*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, SampleCountFlagBits samples, VkSampleMask* pSampleMask)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SampleCountFlagBits samples, VkSampleMask* pSampleMask)
     {
          InvokeFunc(commandBuffer, samples, pSampleMask);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, SampleCountFlagBits samples, VkSampleMask* pSampleMask)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SampleCountFlagBits samples, VkSampleMask* pSampleMask)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, SampleCountFlagBits, VkSampleMask*, void>)ptr)(commandBuffer, samples, pSampleMask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SampleCountFlagBits, VkSampleMask*, void>)ptr)(commandBuffer, samples, pSampleMask);
     }
 
     public static explicit operator PFN_vkCmdSetSampleMaskEXT(void* ptr) => new(ptr);

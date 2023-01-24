@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDraw
     public PFN_vkCmdDraw(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)
     {
          InvokeFunc(commandBuffer, vertexCount, instanceCount, firstVertex, firstInstance);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, uint, uint, void>)ptr)(commandBuffer, vertexCount, instanceCount, firstVertex, firstInstance);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, uint, uint, void>)ptr)(commandBuffer, vertexCount, instanceCount, firstVertex, firstInstance);
     }
 
     public static explicit operator PFN_vkCmdDraw(void* ptr) => new(ptr);

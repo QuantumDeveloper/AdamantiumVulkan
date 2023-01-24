@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBeginRenderPass
     public PFN_vkCmdBeginRenderPass(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkRenderPassBeginInfo*, SubpassContents, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo*, SubpassContents, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkRenderPassBeginInfo*, SubpassContents, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo*, SubpassContents, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkRenderPassBeginInfo* pRenderPassBegin, SubpassContents contents)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, SubpassContents contents)
     {
          InvokeFunc(commandBuffer, pRenderPassBegin, contents);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkRenderPassBeginInfo* pRenderPassBegin, SubpassContents contents)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, SubpassContents contents)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkRenderPassBeginInfo*, SubpassContents, void>)ptr)(commandBuffer, pRenderPassBegin, contents);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo*, SubpassContents, void>)ptr)(commandBuffer, pRenderPassBegin, contents);
     }
 
     public static explicit operator PFN_vkCmdBeginRenderPass(void* ptr) => new(ptr);

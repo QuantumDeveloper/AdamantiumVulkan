@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetImageMemoryRequirements2
     public PFN_vkGetImageMemoryRequirements2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImageMemoryRequirementsInfo2*, VkMemoryRequirements2*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImageMemoryRequirementsInfo2*, VkMemoryRequirements2*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkImageMemoryRequirementsInfo2* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements)
     {
          InvokeFunc(device, pInfo, pMemoryRequirements);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkImageMemoryRequirementsInfo2* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements)
     {
-         ((delegate* unmanaged<VkDevice_T, VkImageMemoryRequirementsInfo2*, VkMemoryRequirements2*, void>)ptr)(device, pInfo, pMemoryRequirements);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void>)ptr)(device, pInfo, pMemoryRequirements);
     }
 
     public static explicit operator PFN_vkGetImageMemoryRequirements2(void* ptr) => new(ptr);

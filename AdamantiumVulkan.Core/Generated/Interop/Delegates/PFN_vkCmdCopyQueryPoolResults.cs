@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdCopyQueryPoolResults
     public PFN_vkCmdCopyQueryPoolResults(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, uint, VkBuffer_T, VkDeviceSize, VkDeviceSize, VkQueryResultFlags, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, VkQueryResultFlags, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, uint, VkBuffer_T, VkDeviceSize, VkDeviceSize, VkQueryResultFlags, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, VkQueryResultFlags, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkQueryPool_T queryPool, uint firstQuery, uint queryCount, VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags)
     {
          InvokeFunc(commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkQueryPool_T queryPool, uint firstQuery, uint queryCount, VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, uint, VkBuffer_T, VkDeviceSize, VkDeviceSize, VkQueryResultFlags, void>)ptr)(commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, VkQueryResultFlags, void>)ptr)(commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
     }
 
     public static explicit operator PFN_vkCmdCopyQueryPoolResults(void* ptr) => new(ptr);

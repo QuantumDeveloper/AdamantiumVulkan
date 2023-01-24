@@ -19,20 +19,20 @@ public unsafe struct PFN_vkQueueInsertDebugUtilsLabelEXT
     public PFN_vkQueueInsertDebugUtilsLabelEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, VkDebugUtilsLabelEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, VkDebugUtilsLabelEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkQueue_T queue, VkDebugUtilsLabelEXT* pLabelInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo)
     {
          InvokeFunc(queue, pLabelInfo);
     }
-    public static void Invoke(void* ptr, VkQueue_T queue, VkDebugUtilsLabelEXT* pLabelInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo)
     {
-         ((delegate* unmanaged<VkQueue_T, VkDebugUtilsLabelEXT*, void>)ptr)(queue, pLabelInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void>)ptr)(queue, pLabelInfo);
     }
 
     public static explicit operator PFN_vkQueueInsertDebugUtilsLabelEXT(void* ptr) => new(ptr);

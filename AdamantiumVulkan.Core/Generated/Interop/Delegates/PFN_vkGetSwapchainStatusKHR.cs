@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetSwapchainStatusKHR
     public PFN_vkGetSwapchainStatusKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSwapchainKHR_T swapchain)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain)
     {
         return InvokeFunc(device, swapchain);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSwapchainKHR_T swapchain)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, Result>)ptr)(device, swapchain);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)ptr)(device, swapchain);
     }
 
     public static explicit operator PFN_vkGetSwapchainStatusKHR(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetMemoryRemoteAddressNV
     public PFN_vkGetMemoryRemoteAddressNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkMemoryGetRemoteAddressInfoNV*, out VkRemoteAddressNVImpl, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV*, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkMemoryGetRemoteAddressInfoNV*, out VkRemoteAddressNVImpl, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV*, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out VkRemoteAddressNVImpl pAddress)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl pAddress)
     {
         return InvokeFunc(device, pMemoryGetRemoteAddressInfo, out pAddress);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out VkRemoteAddressNVImpl pAddress)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl pAddress)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkMemoryGetRemoteAddressInfoNV*, out VkRemoteAddressNVImpl, Result>)ptr)(device, pMemoryGetRemoteAddressInfo, out pAddress);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV*, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl, Result>)ptr)(device, pMemoryGetRemoteAddressInfo, out pAddress);
     }
 
     public static explicit operator PFN_vkGetMemoryRemoteAddressNV(void* ptr) => new(ptr);

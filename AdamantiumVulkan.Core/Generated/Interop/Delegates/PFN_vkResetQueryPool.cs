@@ -19,20 +19,20 @@ public unsafe struct PFN_vkResetQueryPool
     public PFN_vkResetQueryPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkQueryPool_T, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkQueryPool_T, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkQueryPool_T queryPool, uint firstQuery, uint queryCount)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount)
     {
          InvokeFunc(device, queryPool, firstQuery, queryCount);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkQueryPool_T queryPool, uint firstQuery, uint queryCount)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount)
     {
-         ((delegate* unmanaged<VkDevice_T, VkQueryPool_T, uint, uint, void>)ptr)(device, queryPool, firstQuery, queryCount);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void>)ptr)(device, queryPool, firstQuery, queryCount);
     }
 
     public static explicit operator PFN_vkResetQueryPool(void* ptr) => new(ptr);

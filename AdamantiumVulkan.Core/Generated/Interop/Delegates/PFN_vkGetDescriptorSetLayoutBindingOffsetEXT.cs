@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutBindingOffsetEXT
     public PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorSetLayout_T, uint, ref VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorSetLayout_T, uint, ref VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDescriptorSetLayout_T layout, uint binding, ref VkDeviceSize* pOffset)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, VkDeviceSize* pOffset)
     {
-         InvokeFunc(device, layout, binding, ref pOffset);
+         InvokeFunc(device, layout, binding, pOffset);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDescriptorSetLayout_T layout, uint binding, ref VkDeviceSize* pOffset)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, VkDeviceSize* pOffset)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDescriptorSetLayout_T, uint, ref VkDeviceSize*, void>)ptr)(device, layout, binding, ref pOffset);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, VkDeviceSize*, void>)ptr)(device, layout, binding, pOffset);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(void* ptr) => new(ptr);

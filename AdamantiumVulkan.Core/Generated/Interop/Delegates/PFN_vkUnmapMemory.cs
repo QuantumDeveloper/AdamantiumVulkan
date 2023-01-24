@@ -19,20 +19,20 @@ public unsafe struct PFN_vkUnmapMemory
     public PFN_vkUnmapMemory(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDeviceMemory_T memory)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory)
     {
          InvokeFunc(device, memory);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDeviceMemory_T memory)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDeviceMemory_T, void>)ptr)(device, memory);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, void>)ptr)(device, memory);
     }
 
     public static explicit operator PFN_vkUnmapMemory(void* ptr) => new(ptr);

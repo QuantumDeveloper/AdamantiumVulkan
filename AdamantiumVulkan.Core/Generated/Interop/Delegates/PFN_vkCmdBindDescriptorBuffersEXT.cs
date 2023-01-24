@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBindDescriptorBuffersEXT
     public PFN_vkCmdBindDescriptorBuffersEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkDescriptorBufferBindingInfoEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkDescriptorBufferBindingInfoEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint bufferCount, VkDescriptorBufferBindingInfoEXT* pBindingInfos)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint bufferCount, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT* pBindingInfos)
     {
          InvokeFunc(commandBuffer, bufferCount, pBindingInfos);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint bufferCount, VkDescriptorBufferBindingInfoEXT* pBindingInfos)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint bufferCount, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT* pBindingInfos)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkDescriptorBufferBindingInfoEXT*, void>)ptr)(commandBuffer, bufferCount, pBindingInfos);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT*, void>)ptr)(commandBuffer, bufferCount, pBindingInfos);
     }
 
     public static explicit operator PFN_vkCmdBindDescriptorBuffersEXT(void* ptr) => new(ptr);

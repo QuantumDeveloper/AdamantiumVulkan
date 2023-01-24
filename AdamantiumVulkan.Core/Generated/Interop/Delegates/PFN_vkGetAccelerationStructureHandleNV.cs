@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetAccelerationStructureHandleNV
     public PFN_vkGetAccelerationStructureHandleNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAccelerationStructureNV_T, ulong, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, ulong, void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAccelerationStructureNV_T, ulong, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, ulong, void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData)
     {
         return InvokeFunc(device, accelerationStructure, dataSize, pData);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkAccelerationStructureNV_T, ulong, void*, Result>)ptr)(device, accelerationStructure, dataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, ulong, void*, Result>)ptr)(device, accelerationStructure, dataSize, pData);
     }
 
     public static explicit operator PFN_vkGetAccelerationStructureHandleNV(void* ptr) => new(ptr);

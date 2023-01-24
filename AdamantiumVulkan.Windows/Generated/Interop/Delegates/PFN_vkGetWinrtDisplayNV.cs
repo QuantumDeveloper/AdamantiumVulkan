@@ -20,20 +20,20 @@ public unsafe struct PFN_vkGetWinrtDisplayNV
     public PFN_vkGetWinrtDisplayNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, uint, out VkDisplayKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, uint, out VkDisplayKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out VkDisplayKHR_T pDisplay)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay)
     {
         return InvokeFunc(physicalDevice, deviceRelativeId, out pDisplay);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out VkDisplayKHR_T pDisplay)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, uint, out VkDisplayKHR_T, Result>)ptr)(physicalDevice, deviceRelativeId, out pDisplay);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr)(physicalDevice, deviceRelativeId, out pDisplay);
     }
 
     public static explicit operator PFN_vkGetWinrtDisplayNV(void* ptr) => new(ptr);

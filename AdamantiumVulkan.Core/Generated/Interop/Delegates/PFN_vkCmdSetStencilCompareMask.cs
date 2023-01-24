@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetStencilCompareMask
     public PFN_vkCmdSetStencilCompareMask(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkStencilFaceFlags, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint compareMask)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint compareMask)
     {
          InvokeFunc(commandBuffer, faceMask, compareMask);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint compareMask)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint compareMask)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr)(commandBuffer, faceMask, compareMask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr)(commandBuffer, faceMask, compareMask);
     }
 
     public static explicit operator PFN_vkCmdSetStencilCompareMask(void* ptr) => new(ptr);

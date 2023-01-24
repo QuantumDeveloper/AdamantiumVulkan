@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceFaultInfoEXT
     public PFN_vkGetDeviceFaultInfoEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceFaultCountsEXT*, VkDeviceFaultInfoEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT*, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceFaultCountsEXT*, VkDeviceFaultInfoEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT*, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDeviceFaultCountsEXT* pFaultCounts, VkDeviceFaultInfoEXT* pFaultInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT* pFaultCounts, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT* pFaultInfo)
     {
         return InvokeFunc(device, pFaultCounts, pFaultInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDeviceFaultCountsEXT* pFaultCounts, VkDeviceFaultInfoEXT* pFaultInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT* pFaultCounts, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT* pFaultInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeviceFaultCountsEXT*, VkDeviceFaultInfoEXT*, Result>)ptr)(device, pFaultCounts, pFaultInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT*, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT*, Result>)ptr)(device, pFaultCounts, pFaultInfo);
     }
 
     public static explicit operator PFN_vkGetDeviceFaultInfoEXT(void* ptr) => new(ptr);

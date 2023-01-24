@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdResolveImage2
     public PFN_vkCmdResolveImage2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkResolveImageInfo2*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkResolveImageInfo2*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkResolveImageInfo2* pResolveImageInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2* pResolveImageInfo)
     {
          InvokeFunc(commandBuffer, pResolveImageInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkResolveImageInfo2* pResolveImageInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2* pResolveImageInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkResolveImageInfo2*, void>)ptr)(commandBuffer, pResolveImageInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2*, void>)ptr)(commandBuffer, pResolveImageInfo);
     }
 
     public static explicit operator PFN_vkCmdResolveImage2(void* ptr) => new(ptr);

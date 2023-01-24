@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdPushConstants
     public PFN_vkCmdPushConstants(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkPipelineLayout_T, VkShaderStageFlags, uint, uint, void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkPipelineLayout_T, VkShaderStageFlags, uint, uint, void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues)
     {
          InvokeFunc(commandBuffer, layout, stageFlags, offset, size, pValues);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkPipelineLayout_T, VkShaderStageFlags, uint, uint, void*, void>)ptr)(commandBuffer, layout, stageFlags, offset, size, pValues);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, void*, void>)ptr)(commandBuffer, layout, stageFlags, offset, size, pValues);
     }
 
     public static explicit operator PFN_vkCmdPushConstants(void* ptr) => new(ptr);

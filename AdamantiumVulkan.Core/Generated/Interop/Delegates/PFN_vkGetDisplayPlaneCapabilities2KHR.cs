@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDisplayPlaneCapabilities2KHR
     public PFN_vkGetDisplayPlaneCapabilities2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkDisplayPlaneInfo2KHR*, VkDisplayPlaneCapabilities2KHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR*, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkDisplayPlaneInfo2KHR*, VkDisplayPlaneCapabilities2KHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR*, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, VkDisplayPlaneCapabilities2KHR* pCapabilities)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR* pCapabilities)
     {
         return InvokeFunc(physicalDevice, pDisplayPlaneInfo, pCapabilities);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, VkDisplayPlaneCapabilities2KHR* pCapabilities)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR* pCapabilities)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkDisplayPlaneInfo2KHR*, VkDisplayPlaneCapabilities2KHR*, Result>)ptr)(physicalDevice, pDisplayPlaneInfo, pCapabilities);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR*, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR*, Result>)ptr)(physicalDevice, pDisplayPlaneInfo, pCapabilities);
     }
 
     public static explicit operator PFN_vkGetDisplayPlaneCapabilities2KHR(void* ptr) => new(ptr);

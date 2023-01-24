@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDisplayPlaneSupportedDisplaysKHR
     public PFN_vkGetDisplayPlaneSupportedDisplaysKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, uint, ref uint*, out VkDisplayKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, uint, ref uint*, out VkDisplayKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint* pDisplayCount, out VkDisplayKHR_T pDisplays)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint* pDisplayCount, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplays)
     {
         return InvokeFunc(physicalDevice, planeIndex, ref pDisplayCount, out pDisplays);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint* pDisplayCount, out VkDisplayKHR_T pDisplays)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint* pDisplayCount, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplays)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, uint, ref uint*, out VkDisplayKHR_T, Result>)ptr)(physicalDevice, planeIndex, ref pDisplayCount, out pDisplays);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr)(physicalDevice, planeIndex, ref pDisplayCount, out pDisplays);
     }
 
     public static explicit operator PFN_vkGetDisplayPlaneSupportedDisplaysKHR(void* ptr) => new(ptr);

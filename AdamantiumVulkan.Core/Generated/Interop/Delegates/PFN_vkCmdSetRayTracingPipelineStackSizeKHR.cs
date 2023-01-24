@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetRayTracingPipelineStackSizeKHR
     public PFN_vkCmdSetRayTracingPipelineStackSizeKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint pipelineStackSize)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint pipelineStackSize)
     {
          InvokeFunc(commandBuffer, pipelineStackSize);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint pipelineStackSize)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint pipelineStackSize)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, pipelineStackSize);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, pipelineStackSize);
     }
 
     public static explicit operator PFN_vkCmdSetRayTracingPipelineStackSizeKHR(void* ptr) => new(ptr);

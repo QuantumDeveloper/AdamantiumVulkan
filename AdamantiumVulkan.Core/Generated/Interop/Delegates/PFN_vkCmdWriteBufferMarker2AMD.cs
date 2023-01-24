@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdWriteBufferMarker2AMD
     public PFN_vkCmdWriteBufferMarker2AMD(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkPipelineStageFlags2, VkBuffer_T, VkDeviceSize, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkPipelineStageFlags2, VkBuffer_T, VkDeviceSize, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker)
     {
          InvokeFunc(commandBuffer, stage, dstBuffer, dstOffset, marker);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkPipelineStageFlags2, VkBuffer_T, VkDeviceSize, uint, void>)ptr)(commandBuffer, stage, dstBuffer, dstOffset, marker);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, void>)ptr)(commandBuffer, stage, dstBuffer, dstOffset, marker);
     }
 
     public static explicit operator PFN_vkCmdWriteBufferMarker2AMD(void* ptr) => new(ptr);

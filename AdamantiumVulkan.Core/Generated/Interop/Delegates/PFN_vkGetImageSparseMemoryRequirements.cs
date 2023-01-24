@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetImageSparseMemoryRequirements
     public PFN_vkGetImageSparseMemoryRequirements(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkImage_T, ref uint*, VkSparseImageMemoryRequirements*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkImage_T, ref uint*, VkSparseImageMemoryRequirements*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkImage_T image, ref uint* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements* pSparseMemoryRequirements)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, ref uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements)
     {
          InvokeFunc(device, image, ref pSparseMemoryRequirementCount, pSparseMemoryRequirements);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkImage_T image, ref uint* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements* pSparseMemoryRequirements)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, ref uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements)
     {
-         ((delegate* unmanaged<VkDevice_T, VkImage_T, ref uint*, VkSparseImageMemoryRequirements*, void>)ptr)(device, image, ref pSparseMemoryRequirementCount, pSparseMemoryRequirements);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements*, void>)ptr)(device, image, ref pSparseMemoryRequirementCount, pSparseMemoryRequirements);
     }
 
     public static explicit operator PFN_vkGetImageSparseMemoryRequirements(void* ptr) => new(ptr);

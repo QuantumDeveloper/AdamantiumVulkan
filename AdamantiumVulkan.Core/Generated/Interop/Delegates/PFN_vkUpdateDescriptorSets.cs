@@ -19,20 +19,20 @@ public unsafe struct PFN_vkUpdateDescriptorSets
     public PFN_vkUpdateDescriptorSets(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkWriteDescriptorSet*, uint, VkCopyDescriptorSet*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, uint, AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkWriteDescriptorSet*, uint, VkCopyDescriptorSet*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, uint, AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, uint descriptorWriteCount, VkWriteDescriptorSet* pDescriptorWrites, uint descriptorCopyCount, VkCopyDescriptorSet* pDescriptorCopies)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites, uint descriptorCopyCount, AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet* pDescriptorCopies)
     {
          InvokeFunc(device, descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, uint descriptorWriteCount, VkWriteDescriptorSet* pDescriptorWrites, uint descriptorCopyCount, VkCopyDescriptorSet* pDescriptorCopies)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites, uint descriptorCopyCount, AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet* pDescriptorCopies)
     {
-         ((delegate* unmanaged<VkDevice_T, uint, VkWriteDescriptorSet*, uint, VkCopyDescriptorSet*, void>)ptr)(device, descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, uint, AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet*, void>)ptr)(device, descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
     }
 
     public static explicit operator PFN_vkUpdateDescriptorSets(void* ptr) => new(ptr);

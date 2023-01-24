@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreatePipelineLayout
     public PFN_vkCreatePipelineLayout(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPipelineLayoutCreateInfo*, VkAllocationCallbacks*, out VkPipelineLayout_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPipelineLayoutCreateInfo*, VkAllocationCallbacks*, out VkPipelineLayout_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPipelineLayoutCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkPipelineLayout_T pPipelineLayout)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pPipelineLayout)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pPipelineLayout);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPipelineLayoutCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkPipelineLayout_T pPipelineLayout)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pPipelineLayout)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPipelineLayoutCreateInfo*, VkAllocationCallbacks*, out VkPipelineLayout_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pPipelineLayout);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pPipelineLayout);
     }
 
     public static explicit operator PFN_vkCreatePipelineLayout(void* ptr) => new(ptr);

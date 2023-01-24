@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetSwapchainCounterEXT
     public PFN_vkGetSwapchainCounterEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
     {
         return InvokeFunc(device, swapchain, counter, ref pCounterValue);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr)(device, swapchain, counter, ref pCounterValue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr)(device, swapchain, counter, ref pCounterValue);
     }
 
     public static explicit operator PFN_vkGetSwapchainCounterEXT(void* ptr) => new(ptr);

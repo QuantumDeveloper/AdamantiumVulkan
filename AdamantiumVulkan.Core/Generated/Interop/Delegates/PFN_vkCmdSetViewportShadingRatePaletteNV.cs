@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetViewportShadingRatePaletteNV
     public PFN_vkCmdSetViewportShadingRatePaletteNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkShadingRatePaletteNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkShadingRatePaletteNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, VkShadingRatePaletteNV* pShadingRatePalettes)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV* pShadingRatePalettes)
     {
          InvokeFunc(commandBuffer, firstViewport, viewportCount, pShadingRatePalettes);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, VkShadingRatePaletteNV* pShadingRatePalettes)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV* pShadingRatePalettes)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkShadingRatePaletteNV*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pShadingRatePalettes);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pShadingRatePalettes);
     }
 
     public static explicit operator PFN_vkCmdSetViewportShadingRatePaletteNV(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetCoverageToColorLocationNV
     public PFN_vkCmdSetCoverageToColorLocationNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint coverageToColorLocation)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint coverageToColorLocation)
     {
          InvokeFunc(commandBuffer, coverageToColorLocation);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint coverageToColorLocation)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint coverageToColorLocation)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, coverageToColorLocation);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, coverageToColorLocation);
     }
 
     public static explicit operator PFN_vkCmdSetCoverageToColorLocationNV(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceExternalSemaphoreProperties
     public PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalSemaphoreInfo*, VkExternalSemaphoreProperties*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo*, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalSemaphoreInfo*, VkExternalSemaphoreProperties*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo*, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, VkExternalSemaphoreProperties* pExternalSemaphoreProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties* pExternalSemaphoreProperties)
     {
          InvokeFunc(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, VkExternalSemaphoreProperties* pExternalSemaphoreProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties* pExternalSemaphoreProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalSemaphoreInfo*, VkExternalSemaphoreProperties*, void>)ptr)(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo*, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties*, void>)ptr)(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(void* ptr) => new(ptr);

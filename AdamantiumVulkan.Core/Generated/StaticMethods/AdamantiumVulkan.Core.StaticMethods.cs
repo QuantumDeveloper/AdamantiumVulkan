@@ -48,23 +48,6 @@ public unsafe static class VulkanNative
         return result;
     }
 
-    public static Result EnumerateInstanceExtensionProperties(string pLayerName, ref uint pPropertyCount, ExtensionProperties pProperties)
-    {
-        var arg0 = (sbyte*)NativeUtils.PointerToString(pLayerName, false);
-        var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
-        var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(arg0, arg1, arg2);
-        NativeUtils.Free(arg0);
-        pPropertyCount = *arg1;
-        NativeUtils.Free(arg1);
-        if (arg2 is not null)
-        {
-            pProperties = new AdamantiumVulkan.Core.ExtensionProperties(*arg2);
-        }
-        NativeUtils.Free(arg2);
-        return result;
-    }
-
     public static Result EnumerateInstanceLayerProperties(ref uint pPropertyCount, LayerProperties[] pProperties)
     {
         var arg0 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
@@ -78,21 +61,6 @@ public unsafe static class VulkanNative
             {
                 pProperties[i] = new LayerProperties(arg1[i]);
             }
-        }
-        NativeUtils.Free(arg1);
-        return result;
-    }
-
-    public static Result EnumerateInstanceLayerProperties(ref uint pPropertyCount, LayerProperties pProperties)
-    {
-        var arg0 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
-        var arg1 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceLayerProperties(arg0, arg1);
-        pPropertyCount = *arg0;
-        NativeUtils.Free(arg0);
-        if (arg1 is not null)
-        {
-            pProperties = new AdamantiumVulkan.Core.LayerProperties(*arg1);
         }
         NativeUtils.Free(arg1);
         return result;

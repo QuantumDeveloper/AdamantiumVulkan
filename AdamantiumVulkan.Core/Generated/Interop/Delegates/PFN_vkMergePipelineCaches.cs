@@ -19,20 +19,20 @@ public unsafe struct PFN_vkMergePipelineCaches
     public PFN_vkMergePipelineCaches(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPipelineCache_T, uint, VkPipelineCache_T*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, uint, AdamantiumVulkan.Core.Interop.VkPipelineCache_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPipelineCache_T, uint, VkPipelineCache_T*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, uint, AdamantiumVulkan.Core.Interop.VkPipelineCache_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPipelineCache_T dstCache, uint srcCacheCount, VkPipelineCache_T* pSrcCaches)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkPipelineCache_T* pSrcCaches)
     {
         return InvokeFunc(device, dstCache, srcCacheCount, pSrcCaches);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPipelineCache_T dstCache, uint srcCacheCount, VkPipelineCache_T* pSrcCaches)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkPipelineCache_T* pSrcCaches)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPipelineCache_T, uint, VkPipelineCache_T*, Result>)ptr)(device, dstCache, srcCacheCount, pSrcCaches);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, uint, AdamantiumVulkan.Core.Interop.VkPipelineCache_T*, Result>)ptr)(device, dstCache, srcCacheCount, pSrcCaches);
     }
 
     public static explicit operator PFN_vkMergePipelineCaches(void* ptr) => new(ptr);

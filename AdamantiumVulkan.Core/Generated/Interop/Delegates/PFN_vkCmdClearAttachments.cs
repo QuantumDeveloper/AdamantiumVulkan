@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdClearAttachments
     public PFN_vkCmdClearAttachments(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkClearAttachment*, uint, VkClearRect*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkClearAttachment*, uint, AdamantiumVulkan.Core.Interop.VkClearRect*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkClearAttachment*, uint, VkClearRect*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkClearAttachment*, uint, AdamantiumVulkan.Core.Interop.VkClearRect*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint attachmentCount, VkClearAttachment* pAttachments, uint rectCount, VkClearRect* pRects)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkClearAttachment* pAttachments, uint rectCount, AdamantiumVulkan.Core.Interop.VkClearRect* pRects)
     {
          InvokeFunc(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint attachmentCount, VkClearAttachment* pAttachments, uint rectCount, VkClearRect* pRects)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkClearAttachment* pAttachments, uint rectCount, AdamantiumVulkan.Core.Interop.VkClearRect* pRects)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkClearAttachment*, uint, VkClearRect*, void>)ptr)(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkClearAttachment*, uint, AdamantiumVulkan.Core.Interop.VkClearRect*, void>)ptr)(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
     }
 
     public static explicit operator PFN_vkCmdClearAttachments(void* ptr) => new(ptr);

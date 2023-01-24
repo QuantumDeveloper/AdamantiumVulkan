@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreatePrivateDataSlotEXT
     public PFN_vkCreatePrivateDataSlotEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPrivateDataSlotCreateInfo*, VkAllocationCallbacks*, out VkPrivateDataSlot_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPrivateDataSlotCreateInfo*, VkAllocationCallbacks*, out VkPrivateDataSlot_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPrivateDataSlotCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkPrivateDataSlot_T pPrivateDataSlot)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T pPrivateDataSlot)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pPrivateDataSlot);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPrivateDataSlotCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkPrivateDataSlot_T pPrivateDataSlot)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T pPrivateDataSlot)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPrivateDataSlotCreateInfo*, VkAllocationCallbacks*, out VkPrivateDataSlot_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pPrivateDataSlot);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pPrivateDataSlot);
     }
 
     public static explicit operator PFN_vkCreatePrivateDataSlotEXT(void* ptr) => new(ptr);

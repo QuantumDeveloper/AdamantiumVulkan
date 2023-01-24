@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetBlendConstants
     public PFN_vkCmdSetBlendConstants(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, float[], void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float[], void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, float[], void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float[], void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, float[] blendConstants)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float[] blendConstants)
     {
          InvokeFunc(commandBuffer, blendConstants);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, float[] blendConstants)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float[] blendConstants)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, float[], void>)ptr)(commandBuffer, blendConstants);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float[], void>)ptr)(commandBuffer, blendConstants);
     }
 
     public static explicit operator PFN_vkCmdSetBlendConstants(void* ptr) => new(ptr);

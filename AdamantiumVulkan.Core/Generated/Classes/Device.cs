@@ -1239,7 +1239,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public void FreeCommandBuffers(AdamantiumVulkan.Core.CommandPool commandPool, uint commandBufferCount, AdamantiumVulkan.Core.CommandBuffer[] pCommandBuffers)
+    public void FreeCommandBuffers(AdamantiumVulkan.Core.CommandPool commandPool, uint commandBufferCount, params AdamantiumVulkan.Core.CommandBuffer[] pCommandBuffers)
     {
         var arg1 = ReferenceEquals(commandPool, null) ? new VkCommandPool_T() : (VkCommandPool_T)commandPool;
          var arg3 = ReferenceEquals(pCommandBuffers, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>(pCommandBuffers.Length);
@@ -1300,7 +1300,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetAccelerationStructureHandleNV(AdamantiumVulkan.Core.AccelerationStructureNV accelerationStructure, ulong dataSize, void* pData)
+    public Result GetAccelerationStructureHandleNV(AdamantiumVulkan.Core.AccelerationStructureNV accelerationStructure, ulong dataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(accelerationStructure, null) ? new VkAccelerationStructureNV_T() : (VkAccelerationStructureNV_T)accelerationStructure;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetAccelerationStructureHandleNV(this, arg1, dataSize, pData);
@@ -1317,7 +1317,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
-    public Result GetAccelerationStructureOpaqueCaptureDescriptorDataEXT(in AccelerationStructureCaptureDescriptorDataInfoEXT pInfo, void* pData)
+    public Result GetAccelerationStructureOpaqueCaptureDescriptorDataEXT(in AccelerationStructureCaptureDescriptorDataInfoEXT pInfo, ref void* pData)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(this, arg1, pData);
@@ -1401,7 +1401,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetBufferOpaqueCaptureDescriptorDataEXT(in BufferCaptureDescriptorDataInfoEXT pInfo, void* pData)
+    public Result GetBufferOpaqueCaptureDescriptorDataEXT(in BufferCaptureDescriptorDataInfoEXT pInfo, ref void* pData)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetBufferOpaqueCaptureDescriptorDataEXT(this, arg1, pData);
@@ -1437,7 +1437,7 @@ public unsafe partial class Device
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeferredOperationResultKHR(this, arg1);
     }
 
-    public void GetDescriptorEXT(in DescriptorGetInfoEXT pDescriptorInfo, ulong dataSize, void* pDescriptor)
+    public void GetDescriptorEXT(in DescriptorGetInfoEXT pDescriptorInfo, ulong dataSize, ref void* pDescriptor)
     {
         var arg1 = ReferenceEquals(pDescriptorInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pDescriptorInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDescriptorEXT(this, arg1, dataSize, pDescriptor);
@@ -1445,13 +1445,13 @@ public unsafe partial class Device
         NativeUtils.Free(arg1);
     }
 
-    public void GetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.DescriptorSet descriptorSet, out void** ppData)
+    public void GetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.DescriptorSet descriptorSet, out void* ppData)
     {
         var arg1 = ReferenceEquals(descriptorSet, null) ? new VkDescriptorSet_T() : (VkDescriptorSet_T)descriptorSet;
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDescriptorSetHostMappingVALVE(this, arg1, out ppData);
     }
 
-    public void GetDescriptorSetLayoutBindingOffsetEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, uint binding, ref VkDeviceSize pOffset)
+    public void GetDescriptorSetLayoutBindingOffsetEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, uint binding, VkDeviceSize pOffset)
     {
         var arg1 = ReferenceEquals(layout, null) ? new VkDescriptorSetLayout_T() : (VkDescriptorSetLayout_T)layout;
         var arg3 = ReferenceEquals(pOffset, null) ? null : NativeUtils.StructOrEnumToPointer(pOffset);
@@ -1474,7 +1474,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
-    public void GetDescriptorSetLayoutSizeEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, ref VkDeviceSize pLayoutSizeInBytes)
+    public void GetDescriptorSetLayoutSizeEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, VkDeviceSize pLayoutSizeInBytes)
     {
         var arg1 = ReferenceEquals(layout, null) ? new VkDescriptorSetLayout_T() : (VkDescriptorSetLayout_T)layout;
         var arg2 = ReferenceEquals(pLayoutSizeInBytes, null) ? null : NativeUtils.StructOrEnumToPointer(pLayoutSizeInBytes);
@@ -1556,7 +1556,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public void GetDeviceGroupPeerMemoryFeatures(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
+    public void GetDeviceGroupPeerMemoryFeatures(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
     {
         var arg4 = ReferenceEquals(pPeerMemoryFeatures, null) ? null : NativeUtils.StructOrEnumToPointer(pPeerMemoryFeatures);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceGroupPeerMemoryFeatures(this, heapIndex, localDeviceIndex, remoteDeviceIndex, arg4);
@@ -1567,7 +1567,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg4);
     }
 
-    public void GetDeviceGroupPeerMemoryFeaturesKHR(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
+    public void GetDeviceGroupPeerMemoryFeaturesKHR(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
     {
         var arg4 = ReferenceEquals(pPeerMemoryFeatures, null) ? null : NativeUtils.StructOrEnumToPointer(pPeerMemoryFeatures);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceGroupPeerMemoryFeaturesKHR(this, heapIndex, localDeviceIndex, remoteDeviceIndex, arg4);
@@ -1587,7 +1587,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetDeviceGroupSurfacePresentModesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref VkDeviceGroupPresentModeFlagsKHR pModes)
+    public Result GetDeviceGroupSurfacePresentModesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, VkDeviceGroupPresentModeFlagsKHR pModes)
     {
         var arg1 = ReferenceEquals(surface, null) ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
         var arg2 = ReferenceEquals(pModes, null) ? null : NativeUtils.StructOrEnumToPointer(pModes);
@@ -1650,7 +1650,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg3);
     }
 
-    public void GetDeviceMemoryCommitment(AdamantiumVulkan.Core.DeviceMemory memory, ref VkDeviceSize pCommittedMemoryInBytes)
+    public void GetDeviceMemoryCommitment(AdamantiumVulkan.Core.DeviceMemory memory, VkDeviceSize pCommittedMemoryInBytes)
     {
         var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
         var arg2 = ReferenceEquals(pCommittedMemoryInBytes, null) ? null : NativeUtils.StructOrEnumToPointer(pCommittedMemoryInBytes);
@@ -1828,7 +1828,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
-    public Result GetImageOpaqueCaptureDescriptorDataEXT(in ImageCaptureDescriptorDataInfoEXT pInfo, void* pData)
+    public Result GetImageOpaqueCaptureDescriptorDataEXT(in ImageCaptureDescriptorDataInfoEXT pInfo, ref void* pData)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageOpaqueCaptureDescriptorDataEXT(this, arg1, pData);
@@ -1917,7 +1917,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetImageViewOpaqueCaptureDescriptorDataEXT(in ImageViewCaptureDescriptorDataInfoEXT pInfo, void* pData)
+    public Result GetImageViewOpaqueCaptureDescriptorDataEXT(in ImageViewCaptureDescriptorDataInfoEXT pInfo, ref void* pData)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageViewOpaqueCaptureDescriptorDataEXT(this, arg1, pData);
@@ -1998,7 +1998,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetPipelineCacheData(AdamantiumVulkan.Core.PipelineCache pipelineCache, ref ulong pDataSize, void* pData)
+    public Result GetPipelineCacheData(AdamantiumVulkan.Core.PipelineCache pipelineCache, ref ulong pDataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
         var arg2 = NativeUtils.StructOrEnumToPointer(pDataSize);
@@ -2083,25 +2083,25 @@ public unsafe partial class Device
         NativeUtils.Free(arg4);
     }
 
-    public Result GetQueryPoolResults(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount, ulong dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags)
+    public Result GetQueryPoolResults(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount, ulong dataSize, ref void* pData, VkDeviceSize stride, VkQueryResultFlags flags)
     {
         var arg1 = ReferenceEquals(queryPool, null) ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetQueryPoolResults(this, arg1, firstQuery, queryCount, dataSize, pData, stride, flags);
     }
 
-    public Result GetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData)
+    public Result GetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(this, arg1, firstGroup, groupCount, dataSize, pData);
     }
 
-    public Result GetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData)
+    public Result GetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingShaderGroupHandlesKHR(this, arg1, firstGroup, groupCount, dataSize, pData);
     }
 
-    public Result GetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData)
+    public Result GetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Pipeline pipeline, uint firstGroup, uint groupCount, ulong dataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRayTracingShaderGroupHandlesNV(this, arg1, firstGroup, groupCount, dataSize, pData);
@@ -2130,7 +2130,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
-    public Result GetSamplerOpaqueCaptureDescriptorDataEXT(in SamplerCaptureDescriptorDataInfoEXT pInfo, void* pData)
+    public Result GetSamplerOpaqueCaptureDescriptorDataEXT(in SamplerCaptureDescriptorDataInfoEXT pInfo, ref void* pData)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetSamplerOpaqueCaptureDescriptorDataEXT(this, arg1, pData);
@@ -2171,7 +2171,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetShaderInfoAMD(AdamantiumVulkan.Core.Pipeline pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong pInfoSize, void* pInfo)
+    public Result GetShaderInfoAMD(AdamantiumVulkan.Core.Pipeline pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong pInfoSize, ref void* pInfo)
     {
         var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         var arg4 = NativeUtils.StructOrEnumToPointer(pInfoSize);
@@ -2252,7 +2252,7 @@ public unsafe partial class Device
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetSwapchainStatusKHR(this, arg1);
     }
 
-    public Result GetValidationCacheDataEXT(AdamantiumVulkan.Core.ValidationCacheEXT validationCache, ref ulong pDataSize, void* pData)
+    public Result GetValidationCacheDataEXT(AdamantiumVulkan.Core.ValidationCacheEXT validationCache, ref ulong pDataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(validationCache, null) ? new VkValidationCacheEXT_T() : (VkValidationCacheEXT_T)validationCache;
         var arg2 = NativeUtils.StructOrEnumToPointer(pDataSize);
@@ -2298,7 +2298,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result MapMemory(AdamantiumVulkan.Core.DeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void** ppData)
+    public Result MapMemory(AdamantiumVulkan.Core.DeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
     {
         var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkMapMemory(this, arg1, offset, size, flags, out ppData);
@@ -2380,7 +2380,7 @@ public unsafe partial class Device
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkResetEvent(this, arg1);
     }
 
-    public Result ResetFences(uint fenceCount, AdamantiumVulkan.Core.Fence[] pFences)
+    public Result ResetFences(uint fenceCount, params AdamantiumVulkan.Core.Fence[] pFences)
     {
          var arg2 = ReferenceEquals(pFences, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkFence_T>(pFences.Length);
         if (!ReferenceEquals(pFences, null))
@@ -2613,7 +2613,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result WriteAccelerationStructuresPropertiesKHR(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructures, QueryType queryType, ulong dataSize, void* pData, ulong stride)
+    public Result WriteAccelerationStructuresPropertiesKHR(uint accelerationStructureCount, in AdamantiumVulkan.Core.AccelerationStructureKHR pAccelerationStructures, QueryType queryType, ulong dataSize, ref void* pData, ulong stride)
     {
         var arg2 = ReferenceEquals(pAccelerationStructures, null) ? null : NativeUtils.StructOrEnumToPointer((VkAccelerationStructureKHR_T)pAccelerationStructures);
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWriteAccelerationStructuresPropertiesKHR(this, accelerationStructureCount, arg2, queryType, dataSize, pData, stride);
@@ -2621,7 +2621,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result WriteMicromapsPropertiesEXT(uint micromapCount, in AdamantiumVulkan.Core.MicromapEXT pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
+    public Result WriteMicromapsPropertiesEXT(uint micromapCount, in AdamantiumVulkan.Core.MicromapEXT pMicromaps, QueryType queryType, ulong dataSize, ref void* pData, ulong stride)
     {
         var arg2 = ReferenceEquals(pMicromaps, null) ? null : NativeUtils.StructOrEnumToPointer((VkMicromapEXT_T)pMicromaps);
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkWriteMicromapsPropertiesEXT(this, micromapCount, arg2, queryType, dataSize, pData, stride);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetViewportSwizzleNV
     public PFN_vkCmdSetViewportSwizzleNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkViewportSwizzleNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkViewportSwizzleNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, VkViewportSwizzleNV* pViewportSwizzles)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV* pViewportSwizzles)
     {
          InvokeFunc(commandBuffer, firstViewport, viewportCount, pViewportSwizzles);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, VkViewportSwizzleNV* pViewportSwizzles)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV* pViewportSwizzles)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkViewportSwizzleNV*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pViewportSwizzles);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pViewportSwizzles);
     }
 
     public static explicit operator PFN_vkCmdSetViewportSwizzleNV(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdResolveImage
     public PFN_vkCmdResolveImage(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkImage_T, ImageLayout, uint, VkImageResolve*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageResolve*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkImage_T, ImageLayout, uint, VkImageResolve*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageResolve*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkImage_T srcImage, ImageLayout srcImageLayout, VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, VkImageResolve* pRegions)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageResolve* pRegions)
     {
          InvokeFunc(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkImage_T srcImage, ImageLayout srcImageLayout, VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, VkImageResolve* pRegions)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageResolve* pRegions)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkImage_T, ImageLayout, VkImage_T, ImageLayout, uint, VkImageResolve*, void>)ptr)(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageResolve*, void>)ptr)(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
     }
 
     public static explicit operator PFN_vkCmdResolveImage(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV
     public PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkCooperativeMatrixPropertiesNV*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkCooperativeMatrixPropertiesNV*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, VkCooperativeMatrixPropertiesNV* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties)
     {
         return InvokeFunc(physicalDevice, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, VkCooperativeMatrixPropertiesNV* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, ref uint*, VkCooperativeMatrixPropertiesNV*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(void* ptr) => new(ptr);

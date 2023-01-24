@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetQueueCheckpointData2NV
     public PFN_vkGetQueueCheckpointData2NV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, ref uint*, VkCheckpointData2NV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, ref uint*, VkCheckpointData2NV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkQueue_T queue, ref uint* pCheckpointDataCount, VkCheckpointData2NV* pCheckpointData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData)
     {
          InvokeFunc(queue, ref pCheckpointDataCount, pCheckpointData);
     }
-    public static void Invoke(void* ptr, VkQueue_T queue, ref uint* pCheckpointDataCount, VkCheckpointData2NV* pCheckpointData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData)
     {
-         ((delegate* unmanaged<VkQueue_T, ref uint*, VkCheckpointData2NV*, void>)ptr)(queue, ref pCheckpointDataCount, pCheckpointData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV*, void>)ptr)(queue, ref pCheckpointDataCount, pCheckpointData);
     }
 
     public static explicit operator PFN_vkGetQueueCheckpointData2NV(void* ptr) => new(ptr);

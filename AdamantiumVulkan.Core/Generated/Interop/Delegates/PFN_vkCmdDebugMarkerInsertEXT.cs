@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDebugMarkerInsertEXT
     public PFN_vkCmdDebugMarkerInsertEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkDebugMarkerMarkerInfoEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkDebugMarkerMarkerInfoEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkDebugMarkerMarkerInfoEXT* pMarkerInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT* pMarkerInfo)
     {
          InvokeFunc(commandBuffer, pMarkerInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkDebugMarkerMarkerInfoEXT* pMarkerInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT* pMarkerInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkDebugMarkerMarkerInfoEXT*, void>)ptr)(commandBuffer, pMarkerInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT*, void>)ptr)(commandBuffer, pMarkerInfo);
     }
 
     public static explicit operator PFN_vkCmdDebugMarkerInsertEXT(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkQueueWaitIdle
     public PFN_vkQueueWaitIdle(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkQueue_T queue)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue)
     {
         return InvokeFunc(queue);
     }
-    public static Result Invoke(void* ptr, VkQueue_T queue)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue)
     {
-        return ((delegate* unmanaged<VkQueue_T, Result>)ptr)(queue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, Result>)ptr)(queue);
     }
 
     public static explicit operator PFN_vkQueueWaitIdle(void* ptr) => new(ptr);

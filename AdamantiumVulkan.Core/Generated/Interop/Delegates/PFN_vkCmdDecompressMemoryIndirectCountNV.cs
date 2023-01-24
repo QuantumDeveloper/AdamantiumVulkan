@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDecompressMemoryIndirectCountNV
     public PFN_vkCmdDecompressMemoryIndirectCountNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, VkDeviceAddress, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, VkDeviceAddress, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, VkDeviceAddress, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, VkDeviceAddress, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint stride)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint stride)
     {
          InvokeFunc(commandBuffer, indirectCommandsAddress, indirectCommandsCountAddress, stride);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint stride)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint stride)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkDeviceAddress, VkDeviceAddress, uint, void>)ptr)(commandBuffer, indirectCommandsAddress, indirectCommandsCountAddress, stride);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, VkDeviceAddress, uint, void>)ptr)(commandBuffer, indirectCommandsAddress, indirectCommandsCountAddress, stride);
     }
 
     public static explicit operator PFN_vkCmdDecompressMemoryIndirectCountNV(void* ptr) => new(ptr);

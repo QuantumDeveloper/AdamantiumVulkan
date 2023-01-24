@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCopyMemoryToMicromapEXT
     public PFN_vkCopyMemoryToMicromapEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, VkCopyMemoryToMicromapInfoEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, VkCopyMemoryToMicromapInfoEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDeferredOperationKHR_T deferredOperation, VkCopyMemoryToMicromapInfoEXT* pInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT* pInfo)
     {
         return InvokeFunc(device, deferredOperation, pInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDeferredOperationKHR_T deferredOperation, VkCopyMemoryToMicromapInfoEXT* pInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT* pInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, VkCopyMemoryToMicromapInfoEXT*, Result>)ptr)(device, deferredOperation, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT*, Result>)ptr)(device, deferredOperation, pInfo);
     }
 
     public static explicit operator PFN_vkCopyMemoryToMicromapEXT(void* ptr) => new(ptr);

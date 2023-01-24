@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetMicromapBuildSizesEXT
     public PFN_vkGetMicromapBuildSizesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, AccelerationStructureBuildTypeKHR, VkMicromapBuildInfoEXT*, VkMicromapBuildSizesInfoEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AccelerationStructureBuildTypeKHR, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, AccelerationStructureBuildTypeKHR, VkMicromapBuildInfoEXT*, VkMicromapBuildSizesInfoEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AccelerationStructureBuildTypeKHR, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, VkMicromapBuildInfoEXT* pBuildInfo, VkMicromapBuildSizesInfoEXT* pSizeInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pBuildInfo, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT* pSizeInfo)
     {
          InvokeFunc(device, buildType, pBuildInfo, pSizeInfo);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, VkMicromapBuildInfoEXT* pBuildInfo, VkMicromapBuildSizesInfoEXT* pSizeInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pBuildInfo, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT* pSizeInfo)
     {
-         ((delegate* unmanaged<VkDevice_T, AccelerationStructureBuildTypeKHR, VkMicromapBuildInfoEXT*, VkMicromapBuildSizesInfoEXT*, void>)ptr)(device, buildType, pBuildInfo, pSizeInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AccelerationStructureBuildTypeKHR, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT*, void>)ptr)(device, buildType, pBuildInfo, pSizeInfo);
     }
 
     public static explicit operator PFN_vkGetMicromapBuildSizesEXT(void* ptr) => new(ptr);

@@ -28,7 +28,7 @@ public unsafe partial class DirectDriverLoadingInfoLUNARG : QBDisposableObject
     public StructureType SType { get; set; }
     public void* PNext { get; set; }
     public VkDirectDriverLoadingFlagsLUNARG Flags { get; set; }
-    public delegate* unmanaged<VkInstance_T, sbyte*, void> PfnGetInstanceProcAddr { get; set; }
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void> PfnGetInstanceProcAddr { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG ToNative()
     {

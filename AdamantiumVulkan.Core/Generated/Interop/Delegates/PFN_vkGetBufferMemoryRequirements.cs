@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetBufferMemoryRequirements
     public PFN_vkGetBufferMemoryRequirements(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkBuffer_T, VkMemoryRequirements*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkBuffer_T, VkMemoryRequirements*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkBuffer_T buffer, VkMemoryRequirements* pMemoryRequirements)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkMemoryRequirements* pMemoryRequirements)
     {
          InvokeFunc(device, buffer, pMemoryRequirements);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkBuffer_T buffer, VkMemoryRequirements* pMemoryRequirements)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkMemoryRequirements* pMemoryRequirements)
     {
-         ((delegate* unmanaged<VkDevice_T, VkBuffer_T, VkMemoryRequirements*, void>)ptr)(device, buffer, pMemoryRequirements);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void>)ptr)(device, buffer, pMemoryRequirements);
     }
 
     public static explicit operator PFN_vkGetBufferMemoryRequirements(void* ptr) => new(ptr);

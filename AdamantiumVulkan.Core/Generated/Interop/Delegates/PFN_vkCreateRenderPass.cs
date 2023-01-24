@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateRenderPass
     public PFN_vkCreateRenderPass(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkRenderPassCreateInfo*, VkAllocationCallbacks*, out VkRenderPass_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkRenderPass_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkRenderPassCreateInfo*, VkAllocationCallbacks*, out VkRenderPass_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkRenderPass_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkRenderPassCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkRenderPass_T pRenderPass)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pRenderPass);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkRenderPassCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkRenderPass_T pRenderPass)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkRenderPassCreateInfo*, VkAllocationCallbacks*, out VkRenderPass_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pRenderPass);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkRenderPass_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pRenderPass);
     }
 
     public static explicit operator PFN_vkCreateRenderPass(void* ptr) => new(ptr);

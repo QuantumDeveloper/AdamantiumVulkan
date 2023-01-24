@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateSwapchainKHR
     public PFN_vkCreateSwapchainKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSwapchainCreateInfoKHR*, VkAllocationCallbacks*, out VkSwapchainKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSwapchainCreateInfoKHR*, VkAllocationCallbacks*, out VkSwapchainKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSwapchainCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSwapchainKHR_T pSwapchain)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchain)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pSwapchain);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSwapchainCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSwapchainKHR_T pSwapchain)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchain)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSwapchainCreateInfoKHR*, VkAllocationCallbacks*, out VkSwapchainKHR_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSwapchain);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSwapchain);
     }
 
     public static explicit operator PFN_vkCreateSwapchainKHR(void* ptr) => new(ptr);

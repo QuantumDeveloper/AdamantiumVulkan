@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR
     public PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceSparseImageFormatInfo2*, ref uint*, VkSparseImageFormatProperties2*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2*, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceSparseImageFormatInfo2*, ref uint*, VkSparseImageFormatProperties2*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2*, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, ref uint* pPropertyCount, VkSparseImageFormatProperties2* pProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties)
     {
          InvokeFunc(physicalDevice, pFormatInfo, ref pPropertyCount, pProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, ref uint* pPropertyCount, VkSparseImageFormatProperties2* pProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceSparseImageFormatInfo2*, ref uint*, VkSparseImageFormatProperties2*, void>)ptr)(physicalDevice, pFormatInfo, ref pPropertyCount, pProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2*, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2*, void>)ptr)(physicalDevice, pFormatInfo, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR(void* ptr) => new(ptr);

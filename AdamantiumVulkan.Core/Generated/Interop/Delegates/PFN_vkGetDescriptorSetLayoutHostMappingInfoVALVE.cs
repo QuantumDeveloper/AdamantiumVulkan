@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE
     public PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorSetBindingReferenceVALVE*, VkDescriptorSetLayoutHostMappingInfoVALVE*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorSetBindingReferenceVALVE*, VkDescriptorSetLayoutHostMappingInfoVALVE*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDescriptorSetBindingReferenceVALVE* pBindingReference, VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE* pBindingReference, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping)
     {
          InvokeFunc(device, pBindingReference, pHostMapping);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDescriptorSetBindingReferenceVALVE* pBindingReference, VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE* pBindingReference, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDescriptorSetBindingReferenceVALVE*, VkDescriptorSetLayoutHostMappingInfoVALVE*, void>)ptr)(device, pBindingReference, pHostMapping);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE*, void>)ptr)(device, pBindingReference, pHostMapping);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(void* ptr) => new(ptr);

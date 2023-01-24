@@ -19,20 +19,20 @@ public unsafe struct PFN_vkResetFences
     public PFN_vkResetFences(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkFence_T*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkFence_T*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, uint fenceCount, VkFence_T* pFences)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences)
     {
         return InvokeFunc(device, fenceCount, pFences);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, uint fenceCount, VkFence_T* pFences)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences)
     {
-        return ((delegate* unmanaged<VkDevice_T, uint, VkFence_T*, Result>)ptr)(device, fenceCount, pFences);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, Result>)ptr)(device, fenceCount, pFences);
     }
 
     public static explicit operator PFN_vkResetFences(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetRasterizationStreamEXT
     public PFN_vkCmdSetRasterizationStreamEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint rasterizationStream)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint rasterizationStream)
     {
          InvokeFunc(commandBuffer, rasterizationStream);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint rasterizationStream)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint rasterizationStream)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, rasterizationStream);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, rasterizationStream);
     }
 
     public static explicit operator PFN_vkCmdSetRasterizationStreamEXT(void* ptr) => new(ptr);

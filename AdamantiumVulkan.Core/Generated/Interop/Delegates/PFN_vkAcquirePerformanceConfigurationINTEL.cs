@@ -19,20 +19,20 @@ public unsafe struct PFN_vkAcquirePerformanceConfigurationINTEL
     public PFN_vkAcquirePerformanceConfigurationINTEL(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkPerformanceConfigurationAcquireInfoINTEL*, out VkPerformanceConfigurationINTEL_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL*, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkPerformanceConfigurationAcquireInfoINTEL*, out VkPerformanceConfigurationINTEL_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL*, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, out VkPerformanceConfigurationINTEL_T pConfiguration)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T pConfiguration)
     {
         return InvokeFunc(device, pAcquireInfo, out pConfiguration);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, out VkPerformanceConfigurationINTEL_T pConfiguration)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T pConfiguration)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkPerformanceConfigurationAcquireInfoINTEL*, out VkPerformanceConfigurationINTEL_T, Result>)ptr)(device, pAcquireInfo, out pConfiguration);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL*, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result>)ptr)(device, pAcquireInfo, out pConfiguration);
     }
 
     public static explicit operator PFN_vkAcquirePerformanceConfigurationINTEL(void* ptr) => new(ptr);

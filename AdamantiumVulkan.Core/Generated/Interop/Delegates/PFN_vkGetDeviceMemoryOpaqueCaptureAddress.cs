@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceMemoryOpaqueCaptureAddress
     public PFN_vkGetDeviceMemoryOpaqueCaptureAddress(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeviceMemoryOpaqueCaptureAddressInfo*, ulong>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo*, ulong>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeviceMemoryOpaqueCaptureAddressInfo*, ulong> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo*, ulong> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public ulong Invoke(VkDevice_T device, VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo)
+    public ulong Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo)
     {
         return InvokeFunc(device, pInfo);
     }
-    public static ulong Invoke(void* ptr, VkDevice_T device, VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo)
+    public static ulong Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeviceMemoryOpaqueCaptureAddressInfo*, ulong>)ptr)(device, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo*, ulong>)ptr)(device, pInfo);
     }
 
     public static explicit operator PFN_vkGetDeviceMemoryOpaqueCaptureAddress(void* ptr) => new(ptr);

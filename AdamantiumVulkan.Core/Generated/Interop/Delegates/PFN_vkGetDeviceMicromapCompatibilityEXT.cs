@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceMicromapCompatibilityEXT
     public PFN_vkGetDeviceMicromapCompatibilityEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR pCompatibility)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
     {
          InvokeFunc(device, pVersionInfo, ref pCompatibility);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR pCompatibility)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
     {
-         ((delegate* unmanaged<VkDevice_T, VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR, void>)ptr)(device, pVersionInfo, ref pCompatibility);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)ptr)(device, pVersionInfo, ref pCompatibility);
     }
 
     public static explicit operator PFN_vkGetDeviceMicromapCompatibilityEXT(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDynamicRenderingTilePropertiesQCOM
     public PFN_vkGetDynamicRenderingTilePropertiesQCOM(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkRenderingInfo*, VkTilePropertiesQCOM*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkRenderingInfo*, VkTilePropertiesQCOM*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkRenderingInfo* pRenderingInfo, VkTilePropertiesQCOM* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
     {
         return InvokeFunc(device, pRenderingInfo, pProperties);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkRenderingInfo* pRenderingInfo, VkTilePropertiesQCOM* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkRenderingInfo*, VkTilePropertiesQCOM*, Result>)ptr)(device, pRenderingInfo, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr)(device, pRenderingInfo, pProperties);
     }
 
     public static explicit operator PFN_vkGetDynamicRenderingTilePropertiesQCOM(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR
     public PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalBufferInfo*, VkExternalBufferProperties*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo*, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalBufferInfo*, VkExternalBufferProperties*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo*, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, VkExternalBufferProperties* pExternalBufferProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties* pExternalBufferProperties)
     {
          InvokeFunc(physicalDevice, pExternalBufferInfo, pExternalBufferProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, VkExternalBufferProperties* pExternalBufferProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties* pExternalBufferProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, VkPhysicalDeviceExternalBufferInfo*, VkExternalBufferProperties*, void>)ptr)(physicalDevice, pExternalBufferInfo, pExternalBufferProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo*, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties*, void>)ptr)(physicalDevice, pExternalBufferInfo, pExternalBufferProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR(void* ptr) => new(ptr);

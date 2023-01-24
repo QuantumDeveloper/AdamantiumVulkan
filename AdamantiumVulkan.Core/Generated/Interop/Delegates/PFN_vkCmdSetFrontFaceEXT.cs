@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetFrontFaceEXT
     public PFN_vkCmdSetFrontFaceEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, FrontFace, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FrontFace, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, FrontFace, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FrontFace, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, FrontFace frontFace)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FrontFace frontFace)
     {
          InvokeFunc(commandBuffer, frontFace);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, FrontFace frontFace)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FrontFace frontFace)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, FrontFace, void>)ptr)(commandBuffer, frontFace);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FrontFace, void>)ptr)(commandBuffer, frontFace);
     }
 
     public static explicit operator PFN_vkCmdSetFrontFaceEXT(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetGeneratedCommandsMemoryRequirementsNV
     public PFN_vkGetGeneratedCommandsMemoryRequirementsNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkGeneratedCommandsMemoryRequirementsInfoNV*, VkMemoryRequirements2*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkGeneratedCommandsMemoryRequirementsInfoNV*, VkMemoryRequirements2*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements)
     {
          InvokeFunc(device, pInfo, pMemoryRequirements);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements)
     {
-         ((delegate* unmanaged<VkDevice_T, VkGeneratedCommandsMemoryRequirementsInfoNV*, VkMemoryRequirements2*, void>)ptr)(device, pInfo, pMemoryRequirements);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void>)ptr)(device, pInfo, pMemoryRequirements);
     }
 
     public static explicit operator PFN_vkGetGeneratedCommandsMemoryRequirementsNV(void* ptr) => new(ptr);

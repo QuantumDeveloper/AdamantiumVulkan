@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdCopyBufferToImage
     public PFN_vkCmdCopyBufferToImage(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkImage_T, ImageLayout, uint, VkBufferImageCopy*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkBufferImageCopy*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkImage_T, ImageLayout, uint, VkBufferImageCopy*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkBufferImageCopy*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBuffer_T srcBuffer, VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, VkBufferImageCopy* pRegions)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferImageCopy* pRegions)
     {
          InvokeFunc(commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBuffer_T srcBuffer, VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, VkBufferImageCopy* pRegions)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferImageCopy* pRegions)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkImage_T, ImageLayout, uint, VkBufferImageCopy*, void>)ptr)(commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkBufferImageCopy*, void>)ptr)(commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
     }
 
     public static explicit operator PFN_vkCmdCopyBufferToImage(void* ptr) => new(ptr);

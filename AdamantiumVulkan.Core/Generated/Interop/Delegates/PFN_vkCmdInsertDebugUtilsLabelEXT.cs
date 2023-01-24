@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdInsertDebugUtilsLabelEXT
     public PFN_vkCmdInsertDebugUtilsLabelEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkDebugUtilsLabelEXT*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkDebugUtilsLabelEXT*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkDebugUtilsLabelEXT* pLabelInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo)
     {
          InvokeFunc(commandBuffer, pLabelInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkDebugUtilsLabelEXT* pLabelInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkDebugUtilsLabelEXT*, void>)ptr)(commandBuffer, pLabelInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void>)ptr)(commandBuffer, pLabelInfo);
     }
 
     public static explicit operator PFN_vkCmdInsertDebugUtilsLabelEXT(void* ptr) => new(ptr);

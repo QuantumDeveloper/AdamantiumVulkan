@@ -19,20 +19,20 @@ public unsafe struct PFN_vkQueuePresentKHR
     public PFN_vkQueuePresentKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkQueue_T, VkPresentInfoKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkQueue_T, VkPresentInfoKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkQueue_T queue, VkPresentInfoKHR* pPresentInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR* pPresentInfo)
     {
         return InvokeFunc(queue, pPresentInfo);
     }
-    public static Result Invoke(void* ptr, VkQueue_T queue, VkPresentInfoKHR* pPresentInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR* pPresentInfo)
     {
-        return ((delegate* unmanaged<VkQueue_T, VkPresentInfoKHR*, Result>)ptr)(queue, pPresentInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR*, Result>)ptr)(queue, pPresentInfo);
     }
 
     public static explicit operator PFN_vkQueuePresentKHR(void* ptr) => new(ptr);

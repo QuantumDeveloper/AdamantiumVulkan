@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceFormatProperties
     public PFN_vkGetPhysicalDeviceFormatProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, Format, VkFormatProperties*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, AdamantiumVulkan.Core.Interop.VkFormatProperties*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, Format, VkFormatProperties*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, AdamantiumVulkan.Core.Interop.VkFormatProperties*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkPhysicalDevice_T physicalDevice, Format format, VkFormatProperties* pFormatProperties)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, AdamantiumVulkan.Core.Interop.VkFormatProperties* pFormatProperties)
     {
          InvokeFunc(physicalDevice, format, pFormatProperties);
     }
-    public static void Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, Format format, VkFormatProperties* pFormatProperties)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, AdamantiumVulkan.Core.Interop.VkFormatProperties* pFormatProperties)
     {
-         ((delegate* unmanaged<VkPhysicalDevice_T, Format, VkFormatProperties*, void>)ptr)(physicalDevice, format, pFormatProperties);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, AdamantiumVulkan.Core.Interop.VkFormatProperties*, void>)ptr)(physicalDevice, format, pFormatProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceFormatProperties(void* ptr) => new(ptr);

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateSampler
     public PFN_vkCreateSampler(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkSamplerCreateInfo*, VkAllocationCallbacks*, out VkSampler_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSampler_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkSamplerCreateInfo*, VkAllocationCallbacks*, out VkSampler_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSampler_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkSamplerCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSampler_T pSampler)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSampler_T pSampler)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pSampler);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkSamplerCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSampler_T pSampler)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSampler_T pSampler)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkSamplerCreateInfo*, VkAllocationCallbacks*, out VkSampler_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSampler);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSampler_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSampler);
     }
 
     public static explicit operator PFN_vkCreateSampler(void* ptr) => new(ptr);

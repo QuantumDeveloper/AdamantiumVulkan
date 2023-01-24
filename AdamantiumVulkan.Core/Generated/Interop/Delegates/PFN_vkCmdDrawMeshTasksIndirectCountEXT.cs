@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdDrawMeshTasksIndirectCountEXT
     public PFN_vkCmdDrawMeshTasksIndirectCountEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, VkBuffer_T, VkDeviceSize, uint, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset, VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
     {
          InvokeFunc(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkBuffer_T buffer, VkDeviceSize offset, VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkBuffer_T, VkDeviceSize, VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr)(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr)(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
     }
 
     public static explicit operator PFN_vkCmdDrawMeshTasksIndirectCountEXT(void* ptr) => new(ptr);

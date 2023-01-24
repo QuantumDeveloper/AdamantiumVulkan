@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateIndirectCommandsLayoutNV
     public PFN_vkCreateIndirectCommandsLayoutNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkIndirectCommandsLayoutCreateInfoNV*, VkAllocationCallbacks*, out VkIndirectCommandsLayoutNV_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkIndirectCommandsLayoutCreateInfoNV*, VkAllocationCallbacks*, out VkIndirectCommandsLayoutNV_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pIndirectCommandsLayout);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkIndirectCommandsLayoutCreateInfoNV*, VkAllocationCallbacks*, out VkIndirectCommandsLayoutNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pIndirectCommandsLayout);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pIndirectCommandsLayout);
     }
 
     public static explicit operator PFN_vkCreateIndirectCommandsLayoutNV(void* ptr) => new(ptr);

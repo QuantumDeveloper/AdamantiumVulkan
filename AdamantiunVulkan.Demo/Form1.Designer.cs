@@ -82,7 +82,6 @@ namespace VulkanEngineTestCore
         {
             AdamantiumVulkan.VulkanDllMap.Register();
             this.ClientSize = new System.Drawing.Size(800, 600);
-            enableValidationLayers = true;
             _pauseEvent = new AutoResetEvent(false);
             //debugCallback = DebugCallback;
 
@@ -152,6 +151,7 @@ namespace VulkanEngineTestCore
         const int MAX_FRAMES_IN_FLIGHT = 3;
 
         private bool enableDynamicRendering = true;
+        private bool enableValidationLayers = false;
 
         Instance instance;
         PhysicalDevice physicalDevice;
@@ -208,8 +208,6 @@ namespace VulkanEngineTestCore
         private delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, VkDebugUtilsMessengerCallbackDataEXT*,
             void*, uint> debugCallback;
         
-        private bool enableValidationLayers;
-
         private string[] validationLayers = new[]
         {
           "VK_LAYER_KHRONOS_validation",
@@ -404,7 +402,7 @@ namespace VulkanEngineTestCore
             }
 
             var renderFence = inFlightFences[currentFrame];
-            var result = logicalDevice.WaitForFences(1, renderFence, true, ulong.MaxValue);
+            var result = logicalDevice.WaitForFences(1, renderFence, VkBool32.TRUE, ulong.MaxValue);
             uint imageIndex = 0;
             result = logicalDevice.AcquireNextImageKHR(swapchain, ulong.MaxValue, imageAvailableSemaphores[currentFrame], null, ref imageIndex);
 
@@ -658,7 +656,7 @@ namespace VulkanEngineTestCore
 
             ulong offset = 0;
 
-            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, ref offset);
+            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, offset);
 
             commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
 
@@ -666,7 +664,7 @@ namespace VulkanEngineTestCore
 
             commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
 
-            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, ref offset);
+            commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, offset);
 
             commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
 
@@ -709,8 +707,6 @@ namespace VulkanEngineTestCore
 
         private void CreateInstance()
         {
-            enableValidationLayers = false;
-            
             var appInfo = new ApplicationInfo();
             appInfo.PApplicationName = "Hello Triangle";
             appInfo.ApplicationVersion = AdamantiumVulkan.Core.Constants.VK_MAKE_API_VERSION(0, 1, 0, 0);
@@ -720,7 +716,6 @@ namespace VulkanEngineTestCore
 
             var createInfo = new InstanceCreateInfo();
             createInfo.PApplicationInfo = appInfo;
-            //createInfo.Flags = InstanceCreateFlagBits.EnumeratePortabilityBitKhr;
 
             var layersAvailable = Instance.EnumerateInstanceLayerProperties();
             var extensions = Instance.EnumerateInstanceExtensionProperties();
@@ -840,7 +835,7 @@ namespace VulkanEngineTestCore
             {
                 var dynamicRendering = new PhysicalDeviceDynamicRenderingFeatures();
                 dynamicRendering.SType = StructureType.PhysicalDeviceDynamicRenderingFeatures;
-                dynamicRendering.DynamicRendering = true;
+                dynamicRendering.DynamicRendering = VkBool32.TRUE;
 
                 var vulkan12Features = new PhysicalDeviceVulkan12Features();
                 vulkan12Features.SType = StructureType.PhysicalDeviceVulkan12Features;
@@ -854,7 +849,7 @@ namespace VulkanEngineTestCore
 
                 var features2 = new PhysicalDeviceFeatures2();
                 features2.Features = new PhysicalDeviceFeatures();
-                features2.Features.SamplerAnisotropy = true;
+                features2.Features.SamplerAnisotropy = VkBool32.TRUE;
                 var vulkan11FeaturesPtr = NativeUtils.StructOrEnumToPointer(vulkan11Features.ToNative());
                 features2.PNext = vulkan11FeaturesPtr;
 
@@ -918,7 +913,7 @@ namespace VulkanEngineTestCore
 
                 device.GetPhysicalDeviceSurfaceSupportKHR(i, surface, out var presentSupport);
 
-                if (queueFamily.QueueCount > 0 && presentSupport)
+                if (queueFamily.QueueCount > 0 && (VkBool32)presentSupport)
                 {
                     indices.presentFamily = i;
                 }
@@ -986,7 +981,7 @@ namespace VulkanEngineTestCore
             createInfo.PreTransform = swapChainSupport.Capabilities.CurrentTransform;
             createInfo.CompositeAlpha = CompositeAlphaFlagBitsKHR.OpaqueBitKhr;
             createInfo.PresentMode = presentMode;
-            createInfo.Clipped = true;
+            createInfo.Clipped = VkBool32.TRUE;
 
             swapchain = logicalDevice.CreateSwapchainKHR(createInfo);
 
@@ -1127,7 +1122,7 @@ namespace VulkanEngineTestCore
 
             var inputAssembly = new PipelineInputAssemblyStateCreateInfo();
             inputAssembly.Topology = PrimitiveTopology.TriangleList;
-            inputAssembly.PrimitiveRestartEnable = false;
+            inputAssembly.PrimitiveRestartEnable = VkBool32.FALSE;
 
             var viewport = new Viewport();
             viewport.X = 0.0f;
@@ -1148,24 +1143,24 @@ namespace VulkanEngineTestCore
             viewportState.PScissors = new Rect2D[] { scissor };
 
             var rasterizer = new PipelineRasterizationStateCreateInfo();
-            rasterizer.DepthClampEnable = false;
-            rasterizer.RasterizerDiscardEnable = false;
+            rasterizer.DepthClampEnable = VkBool32.FALSE;
+            rasterizer.RasterizerDiscardEnable = VkBool32.FALSE;
             rasterizer.PolygonMode = PolygonMode.Fill;
             rasterizer.LineWidth = 1.0f;
             rasterizer.CullMode = CullModeFlagBits.None;
             rasterizer.FrontFace = FrontFace.Clockwise;
-            rasterizer.DepthBiasEnable = false;
+            rasterizer.DepthBiasEnable = VkBool32.FALSE;
 
             var multisampling = new PipelineMultisampleStateCreateInfo();
-            multisampling.SampleShadingEnable = false;
+            multisampling.SampleShadingEnable = VkBool32.FALSE;
             multisampling.RasterizationSamples = SampleCountFlagBits._1Bit;
 
             var colorBlendAttachment = new PipelineColorBlendAttachmentState();
             colorBlendAttachment.ColorWriteMask = (ColorComponentFlagBits.RBit | ColorComponentFlagBits.GBit | ColorComponentFlagBits.BBit | ColorComponentFlagBits.ABit);
-            colorBlendAttachment.BlendEnable = false;
+            colorBlendAttachment.BlendEnable = VkBool32.FALSE;
 
             var colorBlending = new PipelineColorBlendStateCreateInfo();
-            colorBlending.LogicOpEnable = false;
+            colorBlending.LogicOpEnable = VkBool32.FALSE;
             colorBlending.LogicOp = LogicOp.Copy;
             colorBlending.AttachmentCount = 1;
             colorBlending.PAttachments = new PipelineColorBlendAttachmentState[] { colorBlendAttachment };
@@ -1196,8 +1191,8 @@ namespace VulkanEngineTestCore
             var info = new PipelineRenderingCreateInfo(nativeInfo);
 
             var depthStencilState = new PipelineDepthStencilStateCreateInfo();
-            depthStencilState.DepthWriteEnable = false;
-            depthStencilState.DepthTestEnable = false;
+            depthStencilState.DepthWriteEnable = VkBool32.FALSE;
+            depthStencilState.DepthTestEnable = VkBool32.FALSE;
             depthStencilState.DepthCompareOp = CompareOp.Greater;
             
             
@@ -1290,11 +1285,11 @@ namespace VulkanEngineTestCore
             samplerInfo.AddressModeU = SamplerAddressMode.Repeat;
             samplerInfo.AddressModeV = SamplerAddressMode.Repeat;
             samplerInfo.AddressModeW = SamplerAddressMode.Repeat;
-            samplerInfo.AnisotropyEnable = true;
+            samplerInfo.AnisotropyEnable = VkBool32.TRUE;
             samplerInfo.MaxAnisotropy = 16;
             samplerInfo.BorderColor = BorderColor.IntOpaqueBlack;
-            samplerInfo.UnnormalizedCoordinates = false;
-            samplerInfo.CompareEnable = false;
+            samplerInfo.UnnormalizedCoordinates = VkBool32.FALSE;
+            samplerInfo.CompareEnable = VkBool32.FALSE;
             samplerInfo.CompareOp = CompareOp.Always;
             samplerInfo.MipmapMode = SamplerMipmapMode.Linear;
 

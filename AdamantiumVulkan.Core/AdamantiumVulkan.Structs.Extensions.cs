@@ -26,4 +26,8 @@ public unsafe partial struct VkBool32
     {
         return $"{IsTrue(this)}";
     }
+
+    public static VkBool32 TRUE => new VkBool32(true);
+    
+    public static VkBool32 FALSE => new VkBool32(false);
 }

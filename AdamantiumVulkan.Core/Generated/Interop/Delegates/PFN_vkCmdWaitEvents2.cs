@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdWaitEvents2
     public PFN_vkCmdWaitEvents2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, VkEvent_T*, VkDependencyInfo*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, VkEvent_T*, VkDependencyInfo*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint eventCount, VkEvent_T* pEvents, VkDependencyInfo* pDependencyInfos)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfos)
     {
          InvokeFunc(commandBuffer, eventCount, pEvents, pDependencyInfos);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint eventCount, VkEvent_T* pEvents, VkDependencyInfo* pDependencyInfos)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfos)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, VkEvent_T*, VkDependencyInfo*, void>)ptr)(commandBuffer, eventCount, pEvents, pDependencyInfos);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void>)ptr)(commandBuffer, eventCount, pEvents, pDependencyInfos);
     }
 
     public static explicit operator PFN_vkCmdWaitEvents2(void* ptr) => new(ptr);

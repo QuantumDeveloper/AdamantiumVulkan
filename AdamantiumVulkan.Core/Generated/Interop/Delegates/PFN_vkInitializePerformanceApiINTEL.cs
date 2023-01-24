@@ -19,20 +19,20 @@ public unsafe struct PFN_vkInitializePerformanceApiINTEL
     public PFN_vkInitializePerformanceApiINTEL(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkInitializePerformanceApiInfoINTEL*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkInitializePerformanceApiInfoINTEL*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkInitializePerformanceApiInfoINTEL* pInitializeInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL* pInitializeInfo)
     {
         return InvokeFunc(device, pInitializeInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkInitializePerformanceApiInfoINTEL* pInitializeInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL* pInitializeInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkInitializePerformanceApiInfoINTEL*, Result>)ptr)(device, pInitializeInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL*, Result>)ptr)(device, pInitializeInfo);
     }
 
     public static explicit operator PFN_vkInitializePerformanceApiINTEL(void* ptr) => new(ptr);

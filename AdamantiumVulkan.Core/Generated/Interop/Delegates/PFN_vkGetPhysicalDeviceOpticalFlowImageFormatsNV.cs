@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV
     public PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, VkOpticalFlowImageFormatInfoNV*, ref uint*, VkOpticalFlowImageFormatPropertiesNV*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV*, ref uint*, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, VkOpticalFlowImageFormatInfoNV*, ref uint*, VkOpticalFlowImageFormatPropertiesNV*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV*, ref uint*, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, ref uint* pFormatCount, VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, ref uint* pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties)
     {
         return InvokeFunc(physicalDevice, pOpticalFlowImageFormatInfo, ref pFormatCount, pImageFormatProperties);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, ref uint* pFormatCount, VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, ref uint* pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, VkOpticalFlowImageFormatInfoNV*, ref uint*, VkOpticalFlowImageFormatPropertiesNV*, Result>)ptr)(physicalDevice, pOpticalFlowImageFormatInfo, ref pFormatCount, pImageFormatProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV*, ref uint*, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV*, Result>)ptr)(physicalDevice, pOpticalFlowImageFormatInfo, ref pFormatCount, pImageFormatProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(void* ptr) => new(ptr);

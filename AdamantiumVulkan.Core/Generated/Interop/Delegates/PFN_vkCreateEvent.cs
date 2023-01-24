@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateEvent
     public PFN_vkCreateEvent(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkEventCreateInfo*, VkAllocationCallbacks*, out VkEvent_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkEventCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkEvent_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkEventCreateInfo*, VkAllocationCallbacks*, out VkEvent_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkEventCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkEvent_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkEventCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkEvent_T pEvent)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEventCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkEvent_T pEvent)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pEvent);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkEventCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkEvent_T pEvent)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEventCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkEvent_T pEvent)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkEventCreateInfo*, VkAllocationCallbacks*, out VkEvent_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pEvent);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkEventCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkEvent_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pEvent);
     }
 
     public static explicit operator PFN_vkCreateEvent(void* ptr) => new(ptr);

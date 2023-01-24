@@ -19,20 +19,20 @@ public unsafe struct PFN_vkUpdateDescriptorSetWithTemplateKHR
     public PFN_vkUpdateDescriptorSetWithTemplateKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorSet_T, VkDescriptorUpdateTemplate_T, void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorSet_T, VkDescriptorUpdateTemplate_T, void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDescriptorSet_T descriptorSet, VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData)
     {
          InvokeFunc(device, descriptorSet, descriptorUpdateTemplate, pData);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDescriptorSet_T descriptorSet, VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDescriptorSet_T, VkDescriptorUpdateTemplate_T, void*, void>)ptr)(device, descriptorSet, descriptorUpdateTemplate, pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, void*, void>)ptr)(device, descriptorSet, descriptorUpdateTemplate, pData);
     }
 
     public static explicit operator PFN_vkUpdateDescriptorSetWithTemplateKHR(void* ptr) => new(ptr);

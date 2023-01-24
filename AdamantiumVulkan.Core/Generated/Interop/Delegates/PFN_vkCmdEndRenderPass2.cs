@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdEndRenderPass2
     public PFN_vkCmdEndRenderPass2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkSubpassEndInfo*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkSubpassEndInfo*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkSubpassEndInfo* pSubpassEndInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo)
     {
          InvokeFunc(commandBuffer, pSubpassEndInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkSubpassEndInfo* pSubpassEndInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkSubpassEndInfo*, void>)ptr)(commandBuffer, pSubpassEndInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo*, void>)ptr)(commandBuffer, pSubpassEndInfo);
     }
 
     public static explicit operator PFN_vkCmdEndRenderPass2(void* ptr) => new(ptr);

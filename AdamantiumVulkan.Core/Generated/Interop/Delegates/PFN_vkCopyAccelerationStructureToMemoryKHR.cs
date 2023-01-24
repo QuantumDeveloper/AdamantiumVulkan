@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCopyAccelerationStructureToMemoryKHR
     public PFN_vkCopyAccelerationStructureToMemoryKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, VkCopyAccelerationStructureToMemoryInfoKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, VkCopyAccelerationStructureToMemoryInfoKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkDeferredOperationKHR_T deferredOperation, VkCopyAccelerationStructureToMemoryInfoKHR* pInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR* pInfo)
     {
         return InvokeFunc(device, deferredOperation, pInfo);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkDeferredOperationKHR_T deferredOperation, VkCopyAccelerationStructureToMemoryInfoKHR* pInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR* pInfo)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkDeferredOperationKHR_T, VkCopyAccelerationStructureToMemoryInfoKHR*, Result>)ptr)(device, deferredOperation, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR*, Result>)ptr)(device, deferredOperation, pInfo);
     }
 
     public static explicit operator PFN_vkCopyAccelerationStructureToMemoryKHR(void* ptr) => new(ptr);

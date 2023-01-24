@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetValidationCacheDataEXT
     public PFN_vkGetValidationCacheDataEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkValidationCacheEXT_T, ref ulong*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, ref ulong*, void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkValidationCacheEXT_T, ref ulong*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, ref ulong*, void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkValidationCacheEXT_T validationCache, ref ulong* pDataSize, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ref ulong* pDataSize, void* pData)
     {
         return InvokeFunc(device, validationCache, ref pDataSize, pData);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkValidationCacheEXT_T validationCache, ref ulong* pDataSize, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ref ulong* pDataSize, void* pData)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkValidationCacheEXT_T, ref ulong*, void*, Result>)ptr)(device, validationCache, ref pDataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, ref ulong*, void*, Result>)ptr)(device, validationCache, ref pDataSize, pData);
     }
 
     public static explicit operator PFN_vkGetValidationCacheDataEXT(void* ptr) => new(ptr);

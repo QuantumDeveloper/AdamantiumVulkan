@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBeginRenderPass2
     public PFN_vkCmdBeginRenderPass2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkRenderPassBeginInfo*, VkSubpassBeginInfo*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo*, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkRenderPassBeginInfo*, VkSubpassBeginInfo*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo*, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkRenderPassBeginInfo* pRenderPassBegin, VkSubpassBeginInfo* pSubpassBeginInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo)
     {
          InvokeFunc(commandBuffer, pRenderPassBegin, pSubpassBeginInfo);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkRenderPassBeginInfo* pRenderPassBegin, VkSubpassBeginInfo* pSubpassBeginInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkRenderPassBeginInfo*, VkSubpassBeginInfo*, void>)ptr)(commandBuffer, pRenderPassBegin, pSubpassBeginInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo*, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo*, void>)ptr)(commandBuffer, pRenderPassBegin, pSubpassBeginInfo);
     }
 
     public static explicit operator PFN_vkCmdBeginRenderPass2(void* ptr) => new(ptr);

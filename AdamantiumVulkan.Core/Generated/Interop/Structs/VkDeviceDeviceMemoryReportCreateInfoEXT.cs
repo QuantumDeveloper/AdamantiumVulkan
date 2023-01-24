@@ -18,7 +18,7 @@ public unsafe partial struct VkDeviceDeviceMemoryReportCreateInfoEXT
     public StructureType sType;
     public void* pNext;
     public VkDeviceMemoryReportFlagsEXT flags;
-    public delegate* unmanaged<VkDeviceMemoryReportCallbackDataEXT*, void*, void> pfnUserCallback;
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> pfnUserCallback;
     public void* pUserData;
 }
 

@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceAccelerationStructureCompatibilityKHR
     public PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkAccelerationStructureVersionInfoKHR* pVersionInfo, ref AccelerationStructureCompatibilityKHR pCompatibility)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
     {
          InvokeFunc(device, pVersionInfo, ref pCompatibility);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkAccelerationStructureVersionInfoKHR* pVersionInfo, ref AccelerationStructureCompatibilityKHR pCompatibility)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
     {
-         ((delegate* unmanaged<VkDevice_T, VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR, void>)ptr)(device, pVersionInfo, ref pCompatibility);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR*, void>)ptr)(device, pVersionInfo, ref pCompatibility);
     }
 
     public static explicit operator PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(void* ptr) => new(ptr);

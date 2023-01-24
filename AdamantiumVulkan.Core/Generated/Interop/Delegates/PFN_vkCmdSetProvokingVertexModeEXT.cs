@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetProvokingVertexModeEXT
     public PFN_vkCmdSetProvokingVertexModeEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, ProvokingVertexModeEXT, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ProvokingVertexModeEXT, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, ProvokingVertexModeEXT, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ProvokingVertexModeEXT, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, ProvokingVertexModeEXT provokingVertexMode)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ProvokingVertexModeEXT provokingVertexMode)
     {
          InvokeFunc(commandBuffer, provokingVertexMode);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, ProvokingVertexModeEXT provokingVertexMode)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ProvokingVertexModeEXT provokingVertexMode)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, ProvokingVertexModeEXT, void>)ptr)(commandBuffer, provokingVertexMode);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ProvokingVertexModeEXT, void>)ptr)(commandBuffer, provokingVertexMode);
     }
 
     public static explicit operator PFN_vkCmdSetProvokingVertexModeEXT(void* ptr) => new(ptr);

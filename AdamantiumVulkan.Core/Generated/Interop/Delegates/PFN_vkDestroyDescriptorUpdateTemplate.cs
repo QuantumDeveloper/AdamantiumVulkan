@@ -19,20 +19,20 @@ public unsafe struct PFN_vkDestroyDescriptorUpdateTemplate
     public PFN_vkDestroyDescriptorUpdateTemplate(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkDescriptorUpdateTemplate_T, VkAllocationCallbacks*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkDescriptorUpdateTemplate_T, VkAllocationCallbacks*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, VkAllocationCallbacks* pAllocator)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
          InvokeFunc(device, descriptorUpdateTemplate, pAllocator);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, VkAllocationCallbacks* pAllocator)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
     {
-         ((delegate* unmanaged<VkDevice_T, VkDescriptorUpdateTemplate_T, VkAllocationCallbacks*, void>)ptr)(device, descriptorUpdateTemplate, pAllocator);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, descriptorUpdateTemplate, pAllocator);
     }
 
     public static explicit operator PFN_vkDestroyDescriptorUpdateTemplate(void* ptr) => new(ptr);

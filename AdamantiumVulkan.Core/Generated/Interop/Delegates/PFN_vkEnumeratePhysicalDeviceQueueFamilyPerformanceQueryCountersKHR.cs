@@ -19,20 +19,20 @@ public unsafe struct PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCou
     public PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkPhysicalDevice_T, uint, ref uint*, VkPerformanceCounterKHR*, VkPerformanceCounterDescriptionKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkPhysicalDevice_T, uint, ref uint*, VkPerformanceCounterKHR*, VkPerformanceCounterDescriptionKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint* pCounterCount, VkPerformanceCounterKHR* pCounters, VkPerformanceCounterDescriptionKHR* pCounterDescriptions)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint* pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions)
     {
         return InvokeFunc(physicalDevice, queueFamilyIndex, ref pCounterCount, pCounters, pCounterDescriptions);
     }
-    public static Result Invoke(void* ptr, VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint* pCounterCount, VkPerformanceCounterKHR* pCounters, VkPerformanceCounterDescriptionKHR* pCounterDescriptions)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint* pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions)
     {
-        return ((delegate* unmanaged<VkPhysicalDevice_T, uint, ref uint*, VkPerformanceCounterKHR*, VkPerformanceCounterDescriptionKHR*, Result>)ptr)(physicalDevice, queueFamilyIndex, ref pCounterCount, pCounters, pCounterDescriptions);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR*, Result>)ptr)(physicalDevice, queueFamilyIndex, ref pCounterCount, pCounters, pCounterDescriptions);
     }
 
     public static explicit operator PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(void* ptr) => new(ptr);

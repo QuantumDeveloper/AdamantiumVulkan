@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdBeginQueryIndexedEXT
     public PFN_vkCmdBeginQueryIndexedEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, VkQueryControlFlags, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, VkQueryControlFlags, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags, uint index)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags, uint index)
     {
          InvokeFunc(commandBuffer, queryPool, query, flags, index);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags, uint index)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags, uint index)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkQueryPool_T, uint, VkQueryControlFlags, uint, void>)ptr)(commandBuffer, queryPool, query, flags, index);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, uint, void>)ptr)(commandBuffer, queryPool, query, flags, index);
     }
 
     public static explicit operator PFN_vkCmdBeginQueryIndexedEXT(void* ptr) => new(ptr);

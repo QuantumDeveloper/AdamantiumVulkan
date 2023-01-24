@@ -19,20 +19,20 @@ public unsafe struct PFN_vkResetCommandPool
     public PFN_vkResetCommandPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkCommandPoolResetFlags, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkCommandPoolResetFlags, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
     {
         return InvokeFunc(device, commandPool, flags);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkCommandPool_T, VkCommandPoolResetFlags, Result>)ptr)(device, commandPool, flags);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result>)ptr)(device, commandPool, flags);
     }
 
     public static explicit operator PFN_vkResetCommandPool(void* ptr) => new(ptr);

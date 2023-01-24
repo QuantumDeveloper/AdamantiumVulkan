@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdWriteTimestamp2KHR
     public PFN_vkCmdWriteTimestamp2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, VkPipelineStageFlags2, VkQueryPool_T, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, VkPipelineStageFlags2, VkQueryPool_T, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, VkQueryPool_T queryPool, uint query)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query)
     {
          InvokeFunc(commandBuffer, stage, queryPool, query);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, VkQueryPool_T queryPool, uint query)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, VkPipelineStageFlags2, VkQueryPool_T, uint, void>)ptr)(commandBuffer, stage, queryPool, query);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr)(commandBuffer, stage, queryPool, query);
     }
 
     public static explicit operator PFN_vkCmdWriteTimestamp2KHR(void* ptr) => new(ptr);

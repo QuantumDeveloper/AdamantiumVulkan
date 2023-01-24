@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCreateShaderModule
     public PFN_vkCreateShaderModule(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, VkShaderModuleCreateInfo*, VkAllocationCallbacks*, out VkShaderModule_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkShaderModule_T, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, VkShaderModuleCreateInfo*, VkAllocationCallbacks*, out VkShaderModule_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkShaderModule_T, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, VkShaderModuleCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkShaderModule_T pShaderModule)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkShaderModule_T pShaderModule)
     {
         return InvokeFunc(device, pCreateInfo, pAllocator, out pShaderModule);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, VkShaderModuleCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkShaderModule_T pShaderModule)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkShaderModule_T pShaderModule)
     {
-        return ((delegate* unmanaged<VkDevice_T, VkShaderModuleCreateInfo*, VkAllocationCallbacks*, out VkShaderModule_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pShaderModule);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkShaderModule_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pShaderModule);
     }
 
     public static explicit operator PFN_vkCreateShaderModule(void* ptr) => new(ptr);

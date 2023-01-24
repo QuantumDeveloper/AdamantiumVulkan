@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetLogicOpEXT
     public PFN_vkCmdSetLogicOpEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, LogicOp, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LogicOp, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, LogicOp, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LogicOp, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, LogicOp logicOp)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LogicOp logicOp)
     {
          InvokeFunc(commandBuffer, logicOp);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, LogicOp logicOp)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LogicOp logicOp)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, LogicOp, void>)ptr)(commandBuffer, logicOp);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LogicOp, void>)ptr)(commandBuffer, logicOp);
     }
 
     public static explicit operator PFN_vkCmdSetLogicOpEXT(void* ptr) => new(ptr);

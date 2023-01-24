@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetCalibratedTimestampsEXT
     public PFN_vkGetCalibratedTimestampsEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, VkCalibratedTimestampInfoEXT*, ref ulong*, ref ulong*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT*, ref ulong*, ref ulong*, Result>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, VkCalibratedTimestampInfoEXT*, ref ulong*, ref ulong*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT*, ref ulong*, ref ulong*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(VkDevice_T device, uint timestampCount, VkCalibratedTimestampInfoEXT* pTimestampInfos, ref ulong* pTimestamps, ref ulong* pMaxDeviation)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT* pTimestampInfos, ref ulong* pTimestamps, ref ulong* pMaxDeviation)
     {
         return InvokeFunc(device, timestampCount, pTimestampInfos, ref pTimestamps, ref pMaxDeviation);
     }
-    public static Result Invoke(void* ptr, VkDevice_T device, uint timestampCount, VkCalibratedTimestampInfoEXT* pTimestampInfos, ref ulong* pTimestamps, ref ulong* pMaxDeviation)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT* pTimestampInfos, ref ulong* pTimestamps, ref ulong* pMaxDeviation)
     {
-        return ((delegate* unmanaged<VkDevice_T, uint, VkCalibratedTimestampInfoEXT*, ref ulong*, ref ulong*, Result>)ptr)(device, timestampCount, pTimestampInfos, ref pTimestamps, ref pMaxDeviation);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoEXT*, ref ulong*, ref ulong*, Result>)ptr)(device, timestampCount, pTimestampInfos, ref pTimestamps, ref pMaxDeviation);
     }
 
     public static explicit operator PFN_vkGetCalibratedTimestampsEXT(void* ptr) => new(ptr);

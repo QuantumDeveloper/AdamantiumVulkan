@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceQueue
     public PFN_vkGetDeviceQueue(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDevice_T, uint, uint, out VkQueue_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr;
     }
 
-    private delegate* unmanaged<VkDevice_T, uint, uint, out VkQueue_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, out AdamantiumVulkan.Core.Interop.VkQueue_T, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkDevice_T device, uint queueFamilyIndex, uint queueIndex, out VkQueue_T pQueue)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint queueFamilyIndex, uint queueIndex, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
     {
          InvokeFunc(device, queueFamilyIndex, queueIndex, out pQueue);
     }
-    public static void Invoke(void* ptr, VkDevice_T device, uint queueFamilyIndex, uint queueIndex, out VkQueue_T pQueue)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint queueFamilyIndex, uint queueIndex, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
     {
-         ((delegate* unmanaged<VkDevice_T, uint, uint, out VkQueue_T, void>)ptr)(device, queueFamilyIndex, queueIndex, out pQueue);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr)(device, queueFamilyIndex, queueIndex, out pQueue);
     }
 
     public static explicit operator PFN_vkGetDeviceQueue(void* ptr) => new(ptr);

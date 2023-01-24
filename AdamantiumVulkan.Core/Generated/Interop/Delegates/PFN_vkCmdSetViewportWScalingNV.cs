@@ -19,20 +19,20 @@ public unsafe struct PFN_vkCmdSetViewportWScalingNV
     public PFN_vkCmdSetViewportWScalingNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkViewportWScalingNV*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV*, void>)ptr;
     }
 
-    private delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkViewportWScalingNV*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, VkViewportWScalingNV* pViewportWScalings)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV* pViewportWScalings)
     {
          InvokeFunc(commandBuffer, firstViewport, viewportCount, pViewportWScalings);
     }
-    public static void Invoke(void* ptr, VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, VkViewportWScalingNV* pViewportWScalings)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV* pViewportWScalings)
     {
-         ((delegate* unmanaged<VkCommandBuffer_T, uint, uint, VkViewportWScalingNV*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pViewportWScalings);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pViewportWScalings);
     }
 
     public static explicit operator PFN_vkCmdSetViewportWScalingNV(void* ptr) => new(ptr);
