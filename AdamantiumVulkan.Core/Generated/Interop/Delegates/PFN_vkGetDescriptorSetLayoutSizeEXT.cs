@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutSizeEXT
     public PFN_vkGetDescriptorSetLayoutSizeEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, ref VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, ref VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, VkDeviceSize* pLayoutSizeInBytes)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, ref VkDeviceSize* pLayoutSizeInBytes)
     {
-         InvokeFunc(device, layout, pLayoutSizeInBytes);
+         InvokeFunc(device, layout, ref pLayoutSizeInBytes);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, VkDeviceSize* pLayoutSizeInBytes)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, ref VkDeviceSize* pLayoutSizeInBytes)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, VkDeviceSize*, void>)ptr)(device, layout, pLayoutSizeInBytes);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, ref VkDeviceSize*, void>)ptr)(device, layout, ref pLayoutSizeInBytes);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutSizeEXT(void* ptr) => new(ptr);

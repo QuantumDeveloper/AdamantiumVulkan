@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetPhysicalDeviceSurfaceSupportKHR
     public PFN_vkGetPhysicalDeviceSurfaceSupportKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, VkBool32*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkBool32*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, VkBool32*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkBool32*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, VkBool32* pSupported)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref VkBool32* pSupported)
     {
-        return InvokeFunc(physicalDevice, queueFamilyIndex, surface, pSupported);
+        return InvokeFunc(physicalDevice, queueFamilyIndex, surface, ref pSupported);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, VkBool32* pSupported)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref VkBool32* pSupported)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, VkBool32*, Result>)ptr)(physicalDevice, queueFamilyIndex, surface, pSupported);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkBool32*, Result>)ptr)(physicalDevice, queueFamilyIndex, surface, ref pSupported);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSurfaceSupportKHR(void* ptr) => new(ptr);

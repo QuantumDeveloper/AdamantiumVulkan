@@ -183,7 +183,7 @@ public unsafe partial class ShadercCompileOptionsT
     ///<summary>
     /// Sets includer callback functions.
     ///</summary>
-    public void SetIncludeCallbacks(void* resolver, void* result_releaser, void* user_data)
+    public void SetIncludeCallbacks(void* resolver, void* result_releaser, ref void* user_data)
     {
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_include_callbacks(this, resolver, result_releaser, user_data);
     }

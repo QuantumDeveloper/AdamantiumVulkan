@@ -1451,7 +1451,7 @@ public unsafe partial class Device
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDescriptorSetHostMappingVALVE(this, arg1, out ppData);
     }
 
-    public void GetDescriptorSetLayoutBindingOffsetEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, uint binding, VkDeviceSize pOffset)
+    public void GetDescriptorSetLayoutBindingOffsetEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, uint binding, ref VkDeviceSize pOffset)
     {
         var arg1 = ReferenceEquals(layout, null) ? new VkDescriptorSetLayout_T() : (VkDescriptorSetLayout_T)layout;
         var arg3 = ReferenceEquals(pOffset, null) ? null : NativeUtils.StructOrEnumToPointer(pOffset);
@@ -1474,7 +1474,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
-    public void GetDescriptorSetLayoutSizeEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, VkDeviceSize pLayoutSizeInBytes)
+    public void GetDescriptorSetLayoutSizeEXT(AdamantiumVulkan.Core.DescriptorSetLayout layout, ref VkDeviceSize pLayoutSizeInBytes)
     {
         var arg1 = ReferenceEquals(layout, null) ? new VkDescriptorSetLayout_T() : (VkDescriptorSetLayout_T)layout;
         var arg2 = ReferenceEquals(pLayoutSizeInBytes, null) ? null : NativeUtils.StructOrEnumToPointer(pLayoutSizeInBytes);
@@ -1556,7 +1556,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public void GetDeviceGroupPeerMemoryFeatures(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
+    public void GetDeviceGroupPeerMemoryFeatures(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
     {
         var arg4 = ReferenceEquals(pPeerMemoryFeatures, null) ? null : NativeUtils.StructOrEnumToPointer(pPeerMemoryFeatures);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceGroupPeerMemoryFeatures(this, heapIndex, localDeviceIndex, remoteDeviceIndex, arg4);
@@ -1567,7 +1567,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg4);
     }
 
-    public void GetDeviceGroupPeerMemoryFeaturesKHR(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
+    public void GetDeviceGroupPeerMemoryFeaturesKHR(uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags pPeerMemoryFeatures)
     {
         var arg4 = ReferenceEquals(pPeerMemoryFeatures, null) ? null : NativeUtils.StructOrEnumToPointer(pPeerMemoryFeatures);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceGroupPeerMemoryFeaturesKHR(this, heapIndex, localDeviceIndex, remoteDeviceIndex, arg4);
@@ -1587,7 +1587,7 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result GetDeviceGroupSurfacePresentModesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, VkDeviceGroupPresentModeFlagsKHR pModes)
+    public Result GetDeviceGroupSurfacePresentModesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref VkDeviceGroupPresentModeFlagsKHR pModes)
     {
         var arg1 = ReferenceEquals(surface, null) ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
         var arg2 = ReferenceEquals(pModes, null) ? null : NativeUtils.StructOrEnumToPointer(pModes);
@@ -1650,7 +1650,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg3);
     }
 
-    public void GetDeviceMemoryCommitment(AdamantiumVulkan.Core.DeviceMemory memory, VkDeviceSize pCommittedMemoryInBytes)
+    public void GetDeviceMemoryCommitment(AdamantiumVulkan.Core.DeviceMemory memory, ref VkDeviceSize pCommittedMemoryInBytes)
     {
         var arg1 = ReferenceEquals(memory, null) ? new VkDeviceMemory_T() : (VkDeviceMemory_T)memory;
         var arg2 = ReferenceEquals(pCommittedMemoryInBytes, null) ? null : NativeUtils.StructOrEnumToPointer(pCommittedMemoryInBytes);

@@ -23,23 +23,23 @@ public unsafe struct ShadercIncludeResultReleaseFn
         NativePointer = ptr;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            InvokeStdcall = (delegate* unmanaged[Stdcall]<void*, ShadercIncludeResult*, void>)ptr;
+            InvokeStdcall = (delegate* unmanaged[Stdcall]<void*, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult*, void>)ptr;
             InvokeCdecl = default;
         }
         else
         {
-            InvokeCdecl = (delegate* unmanaged[Cdecl]<void*, ShadercIncludeResult*, void>)ptr;
+            InvokeCdecl = (delegate* unmanaged[Cdecl]<void*, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult*, void>)ptr;
             InvokeStdcall = default;
         }
     }
 
-    private delegate* unmanaged[Stdcall]<void*, ShadercIncludeResult*, void> InvokeStdcall;
+    private delegate* unmanaged[Stdcall]<void*, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult*, void> InvokeStdcall;
 
-    private delegate* unmanaged[Cdecl]<void*, ShadercIncludeResult*, void> InvokeCdecl;
+    private delegate* unmanaged[Cdecl]<void*, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult*, void> InvokeCdecl;
 
     public void* NativePointer { get; }
 
-    public void Invoke(void* user_data, ShadercIncludeResult* include_result)
+    public void Invoke(void* user_data, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult* include_result)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -51,15 +51,15 @@ public unsafe struct ShadercIncludeResultReleaseFn
         }
     }
 
-    public static void Invoke(void* ptr, void* user_data, ShadercIncludeResult* include_result)
+    public static void Invoke(void* ptr, void* user_data, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult* include_result)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-             ((delegate* unmanaged[Stdcall]<void*, ShadercIncludeResult*, void>)ptr)(user_data, include_result);
+             ((delegate* unmanaged[Stdcall]<void*, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult*, void>)ptr)(user_data, include_result);
         }
         else
         {
-             ((delegate* unmanaged[Cdecl]<void*, ShadercIncludeResult*, void>)ptr)(user_data, include_result);
+             ((delegate* unmanaged[Cdecl]<void*, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult*, void>)ptr)(user_data, include_result);
         }
     }
 

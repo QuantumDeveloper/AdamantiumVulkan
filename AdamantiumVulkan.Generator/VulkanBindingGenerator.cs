@@ -49,7 +49,7 @@ namespace AdamantiumVulkan.Generator
             options.PodTypesAsSimpleTypes = false;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
 
-            vkMainModule = options.AddModule(vkMainLibrary);
+            vkMainModule = Module.Create(vkMainLibrary);
             vkMainModule.GeneratorMode = GeneratorMode.Preview;
             vkMainModule.CleanPreviousGeneration = true;
             vkMainModule.EachTypeInSeparateFile = true;
@@ -81,7 +81,7 @@ namespace AdamantiumVulkan.Generator
             //vkMainModule.SkipGenerationForSimpleTypes = true;
             vkMainModule.OutputPath = corePath;
             
-            shaderModule = options.AddModule(shadercLibrary);
+            shaderModule = Module.Create(shadercLibrary);
             shaderModule.FileHeader = header;
             shaderModule.GeneratorMode = GeneratorMode.Compatible;
             shaderModule.EachTypeInSeparateFile = true;
@@ -109,7 +109,7 @@ namespace AdamantiumVulkan.Generator
             
             
             var spirvCrossSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
-            spivCrossModule = options.AddModule(spirvCrossLibrary);
+            spivCrossModule = Module.Create(spirvCrossLibrary);
             spivCrossModule.FileHeader = header;
             spivCrossModule.GeneratorMode = GeneratorMode.Compatible;
             spivCrossModule.EachTypeInSeparateFile = true;
@@ -132,6 +132,10 @@ namespace AdamantiumVulkan.Generator
             spivCrossModule.WrapInteropObjects = true;
             spivCrossModule.CharAsBoolForMethods = true;
             spivCrossModule.OutputPath = spirvPath;
+
+            options.AddModule(vkMainModule);
+            options.AddModule(shaderModule);
+            options.AddModule(spivCrossModule);
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)

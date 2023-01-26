@@ -19,20 +19,20 @@ public unsafe struct PFN_vkGetDeviceMemoryCommitment
     public PFN_vkGetDeviceMemoryCommitment(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ref VkDeviceSize*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ref VkDeviceSize*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize* pCommittedMemoryInBytes)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ref VkDeviceSize* pCommittedMemoryInBytes)
     {
-         InvokeFunc(device, memory, pCommittedMemoryInBytes);
+         InvokeFunc(device, memory, ref pCommittedMemoryInBytes);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize* pCommittedMemoryInBytes)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ref VkDeviceSize* pCommittedMemoryInBytes)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize*, void>)ptr)(device, memory, pCommittedMemoryInBytes);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ref VkDeviceSize*, void>)ptr)(device, memory, ref pCommittedMemoryInBytes);
     }
 
     public static explicit operator PFN_vkGetDeviceMemoryCommitment(void* ptr) => new(ptr);

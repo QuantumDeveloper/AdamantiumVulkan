@@ -126,7 +126,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg4);
     }
 
-    public void BeginTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ulong pCounterBufferOffsets)
+    public void BeginTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ref ulong pCounterBufferOffsets)
     {
         var arg3 = ReferenceEquals(pCounterBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pCounterBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pCounterBufferOffsets);
@@ -214,7 +214,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong pOffsets, ulong[] pSizes)
+    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ref ulong pOffsets, ulong[] pSizes)
     {
         var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pOffsets);
@@ -233,7 +233,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong[] pOffsets, ulong pSizes)
+    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong[] pOffsets, ref ulong pSizes)
     {
         var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
         var arg4 = NativeUtils.ManagedArrayToPointer(pOffsets);
@@ -252,7 +252,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ulong pOffsets, ulong pSizes)
+    public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in AdamantiumVulkan.Core.Buffer pBuffers, ref ulong pOffsets, ref ulong pSizes)
     {
         var arg3 = ReferenceEquals(pBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pOffsets);
@@ -877,7 +877,7 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg4);
     }
 
-    public void EndTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ulong pCounterBufferOffsets)
+    public void EndTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in AdamantiumVulkan.Core.Buffer pCounterBuffers, ref ulong pCounterBufferOffsets)
     {
         var arg3 = ReferenceEquals(pCounterBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkBuffer_T)pCounterBuffers);
         var arg4 = NativeUtils.StructOrEnumToPointer(pCounterBufferOffsets);

@@ -89,7 +89,7 @@ public unsafe partial class SpirvContext
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_release_allocations(this);
     }
 
-    public void SetErrorCallback(void* cb, void* userdata)
+    public void SetErrorCallback(void* cb, ref void* userdata)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_set_error_callback(this, cb, userdata);
     }

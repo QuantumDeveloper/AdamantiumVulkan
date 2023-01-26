@@ -50,7 +50,7 @@ public unsafe static class VulkanNative
     ///<summary>
     /// Check whether a profile is supported at the instance level
     ///</summary>
-    public static Result VpGetInstanceProfileSupport(string pLayerName, in VpProfileProperties pProfile, VkBool32 pSupported)
+    public static Result VpGetInstanceProfileSupport(string pLayerName, in VpProfileProperties pProfile, ref VkBool32 pSupported)
     {
         var arg0 = (sbyte*)NativeUtils.PointerToString(pLayerName, false);
         var arg1 = ReferenceEquals(pProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pProfile.ToNative());

@@ -114,14 +114,14 @@ namespace VulkanEngineTestCore
             var dxcCompiler = DxcCompiler.Create();
             var result = dxcCompiler.CompileIntoSpirvFromText(vertexText, "UIEffect.fx", "SolidColorPixelShader", "ps_5_1", compilerOptions);
 
-            /*
+            
             SpirvReflection reflection = new SpirvReflection(result.Bytecode, Backend.Hlsl);
             var lst = new List<ResourceBindingKey>();
             var reflectionResult = reflection.Disassemble(lst);
             var buffer = reflectionResult.UniformBuffers[0];
             var member = buffer.GetVariable(0);
             var arraySize = member.GetArraySizeForDimension(0);
-            */
+            
 
             InitVulkan();
             ClientSizeChanged += Form1_ClientSizeChanged;
