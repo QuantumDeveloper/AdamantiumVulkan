@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pDeviceRenderAreas;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> _pDeviceRenderAreas;
 
     public DeviceGroupRenderPassBeginInfo()
     {
@@ -41,19 +41,19 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.deviceMask = DeviceMask;
         _internal.deviceRenderAreaCount = DeviceRenderAreaCount;
-        pDeviceRenderAreas.Dispose();
+        _pDeviceRenderAreas.Dispose();
         if (PDeviceRenderAreas != null)
         {
             var struct0 = PDeviceRenderAreas.ToNative();
-            pDeviceRenderAreas = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
-            _internal.pDeviceRenderAreas = pDeviceRenderAreas.Handle;
+            _pDeviceRenderAreas = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
+            _internal.pDeviceRenderAreas = _pDeviceRenderAreas.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDeviceRenderAreas.Dispose();
+        _pDeviceRenderAreas.Dispose();
     }
 
 

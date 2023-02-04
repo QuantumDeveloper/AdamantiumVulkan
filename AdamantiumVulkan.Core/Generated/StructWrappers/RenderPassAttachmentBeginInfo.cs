@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassAttachmentBeginInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T> pAttachments;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T> _pAttachments;
 
     public RenderPassAttachmentBeginInfo()
     {
@@ -39,19 +39,19 @@ public unsafe partial class RenderPassAttachmentBeginInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.attachmentCount = AttachmentCount;
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
         if (PAttachments != null)
         {
             AdamantiumVulkan.Core.Interop.VkImageView_T struct0 = PAttachments;
-            pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T>(struct0);
-            _internal.pAttachments = pAttachments.Handle;
+            _pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T>(struct0);
+            _internal.pAttachments = _pAttachments.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
     }
 
 

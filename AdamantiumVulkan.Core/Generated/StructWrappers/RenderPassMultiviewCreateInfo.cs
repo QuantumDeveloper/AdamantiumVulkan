@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassMultiviewCreateInfo : QBDisposableObject
 {
-    private NativeStruct<uint> pViewMasks;
+    private NativeStruct<uint> _pViewMasks;
 
-    private NativeStruct<int> pViewOffsets;
+    private NativeStruct<int> _pViewOffsets;
 
-    private NativeStruct<uint> pCorrelationMasks;
+    private NativeStruct<uint> _pCorrelationMasks;
 
     public RenderPassMultiviewCreateInfo()
     {
@@ -61,34 +61,34 @@ public unsafe partial class RenderPassMultiviewCreateInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.subpassCount = SubpassCount;
-        pViewMasks.Dispose();
+        _pViewMasks.Dispose();
         if (PViewMasks.HasValue)
         {
-            pViewMasks = new NativeStruct<uint>(PViewMasks.Value);
-            _internal.pViewMasks = pViewMasks.Handle;
+            _pViewMasks = new NativeStruct<uint>(PViewMasks.Value);
+            _internal.pViewMasks = _pViewMasks.Handle;
         }
         _internal.dependencyCount = DependencyCount;
-        pViewOffsets.Dispose();
+        _pViewOffsets.Dispose();
         if (PViewOffsets.HasValue)
         {
-            pViewOffsets = new NativeStruct<int>(PViewOffsets.Value);
-            _internal.pViewOffsets = pViewOffsets.Handle;
+            _pViewOffsets = new NativeStruct<int>(PViewOffsets.Value);
+            _internal.pViewOffsets = _pViewOffsets.Handle;
         }
         _internal.correlationMaskCount = CorrelationMaskCount;
-        pCorrelationMasks.Dispose();
+        _pCorrelationMasks.Dispose();
         if (PCorrelationMasks.HasValue)
         {
-            pCorrelationMasks = new NativeStruct<uint>(PCorrelationMasks.Value);
-            _internal.pCorrelationMasks = pCorrelationMasks.Handle;
+            _pCorrelationMasks = new NativeStruct<uint>(PCorrelationMasks.Value);
+            _internal.pCorrelationMasks = _pCorrelationMasks.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pViewMasks.Dispose();
-        pViewOffsets.Dispose();
-        pCorrelationMasks.Dispose();
+        _pViewMasks.Dispose();
+        _pViewOffsets.Dispose();
+        _pCorrelationMasks.Dispose();
     }
 
 

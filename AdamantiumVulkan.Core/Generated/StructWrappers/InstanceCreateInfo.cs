@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class InstanceCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo> pApplicationInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo> _pApplicationInfo;
 
-    private MarshaledStringArray ppEnabledLayerNames;
+    private MarshaledStringArray _ppEnabledLayerNames;
 
-    private MarshaledStringArray ppEnabledExtensionNames;
+    private MarshaledStringArray _ppEnabledExtensionNames;
 
     public InstanceCreateInfo()
     {
@@ -50,37 +50,37 @@ public unsafe partial class InstanceCreateInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.flags = Flags;
-        pApplicationInfo.Dispose();
+        _pApplicationInfo.Dispose();
         if (PApplicationInfo != null)
         {
             var struct0 = PApplicationInfo.ToNative();
-            pApplicationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo>(struct0);
-            _internal.pApplicationInfo = pApplicationInfo.Handle;
+            _pApplicationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo>(struct0);
+            _internal.pApplicationInfo = _pApplicationInfo.Handle;
         }
         _internal.enabledLayerCount = EnabledLayerCount;
-        ppEnabledLayerNames.Dispose();
+        _ppEnabledLayerNames.Dispose();
         if (PEnabledLayerNames != null)
         {
-            ppEnabledLayerNames = new MarshaledStringArray(PEnabledLayerNames, false);
+            _ppEnabledLayerNames = new MarshaledStringArray(PEnabledLayerNames, false);
             _internal.ppEnabledLayerNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledLayerNames.Length, false);
-            ppEnabledLayerNames.Fill(_internal.ppEnabledLayerNames);
+            _ppEnabledLayerNames.Fill(_internal.ppEnabledLayerNames);
         }
         _internal.enabledExtensionCount = EnabledExtensionCount;
-        ppEnabledExtensionNames.Dispose();
+        _ppEnabledExtensionNames.Dispose();
         if (PEnabledExtensionNames != null)
         {
-            ppEnabledExtensionNames = new MarshaledStringArray(PEnabledExtensionNames, false);
+            _ppEnabledExtensionNames = new MarshaledStringArray(PEnabledExtensionNames, false);
             _internal.ppEnabledExtensionNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledExtensionNames.Length, false);
-            ppEnabledExtensionNames.Fill(_internal.ppEnabledExtensionNames);
+            _ppEnabledExtensionNames.Fill(_internal.ppEnabledExtensionNames);
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pApplicationInfo.Dispose();
-        ppEnabledLayerNames.Dispose();
-        ppEnabledExtensionNames.Dispose();
+        _pApplicationInfo.Dispose();
+        _ppEnabledLayerNames.Dispose();
+        _ppEnabledExtensionNames.Dispose();
     }
 
 

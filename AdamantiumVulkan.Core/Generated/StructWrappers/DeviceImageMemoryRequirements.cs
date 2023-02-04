@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceImageMemoryRequirements : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo> pCreateInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo> _pCreateInfo;
 
     public DeviceImageMemoryRequirements()
     {
@@ -38,12 +38,12 @@ public unsafe partial class DeviceImageMemoryRequirements : QBDisposableObject
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pCreateInfo.Dispose();
+        _pCreateInfo.Dispose();
         if (PCreateInfo != null)
         {
             var struct0 = PCreateInfo.ToNative();
-            pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(struct0);
-            _internal.pCreateInfo = pCreateInfo.Handle;
+            _pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(struct0);
+            _internal.pCreateInfo = _pCreateInfo.Handle;
         }
         _internal.planeAspect = PlaneAspect;
         return _internal;
@@ -51,7 +51,7 @@ public unsafe partial class DeviceImageMemoryRequirements : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCreateInfo.Dispose();
+        _pCreateInfo.Dispose();
     }
 
 

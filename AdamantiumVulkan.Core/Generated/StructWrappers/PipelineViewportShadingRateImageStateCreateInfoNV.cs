@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV> pShadingRatePalettes;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV> _pShadingRatePalettes;
 
     public PipelineViewportShadingRateImageStateCreateInfoNV()
     {
@@ -41,19 +41,19 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
         _internal.pNext = PNext;
         _internal.shadingRateImageEnable = ShadingRateImageEnable;
         _internal.viewportCount = ViewportCount;
-        pShadingRatePalettes.Dispose();
+        _pShadingRatePalettes.Dispose();
         if (PShadingRatePalettes != null)
         {
             var struct0 = PShadingRatePalettes.ToNative();
-            pShadingRatePalettes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(struct0);
-            _internal.pShadingRatePalettes = pShadingRatePalettes.Handle;
+            _pShadingRatePalettes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(struct0);
+            _internal.pShadingRatePalettes = _pShadingRatePalettes.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pShadingRatePalettes.Dispose();
+        _pShadingRatePalettes.Dispose();
     }
 
 

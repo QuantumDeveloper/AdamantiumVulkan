@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassSubpassFeedbackCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT> pSubpassFeedback;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT> _pSubpassFeedback;
 
     public RenderPassSubpassFeedbackCreateInfoEXT()
     {
@@ -36,19 +36,19 @@ public unsafe partial class RenderPassSubpassFeedbackCreateInfoEXT : QBDisposabl
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackCreateInfoEXT();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pSubpassFeedback.Dispose();
+        _pSubpassFeedback.Dispose();
         if (PSubpassFeedback != null)
         {
             var struct0 = PSubpassFeedback.ToNative();
-            pSubpassFeedback = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT>(struct0);
-            _internal.pSubpassFeedback = pSubpassFeedback.Handle;
+            _pSubpassFeedback = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT>(struct0);
+            _internal.pSubpassFeedback = _pSubpassFeedback.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSubpassFeedback.Dispose();
+        _pSubpassFeedback.Dispose();
     }
 
 

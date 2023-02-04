@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubpassDescriptionDepthStencilResolve : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2> pDepthStencilResolveAttachment;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2> _pDepthStencilResolveAttachment;
 
     public SubpassDescriptionDepthStencilResolve()
     {
@@ -42,19 +42,19 @@ public unsafe partial class SubpassDescriptionDepthStencilResolve : QBDisposable
         _internal.pNext = PNext;
         _internal.depthResolveMode = DepthResolveMode;
         _internal.stencilResolveMode = StencilResolveMode;
-        pDepthStencilResolveAttachment.Dispose();
+        _pDepthStencilResolveAttachment.Dispose();
         if (PDepthStencilResolveAttachment != null)
         {
             var struct0 = PDepthStencilResolveAttachment.ToNative();
-            pDepthStencilResolveAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);
-            _internal.pDepthStencilResolveAttachment = pDepthStencilResolveAttachment.Handle;
+            _pDepthStencilResolveAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);
+            _internal.pDepthStencilResolveAttachment = _pDepthStencilResolveAttachment.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDepthStencilResolveAttachment.Dispose();
+        _pDepthStencilResolveAttachment.Dispose();
     }
 
 

@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2> pAttachments;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2> _pAttachments;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2> pSubpasses;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2> _pSubpasses;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2> pDependencies;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2> _pDependencies;
 
-    private NativeStruct<uint> pCorrelatedViewMasks;
+    private NativeStruct<uint> _pCorrelatedViewMasks;
 
     public RenderPassCreateInfo2()
     {
@@ -66,45 +66,45 @@ public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.attachmentCount = AttachmentCount;
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
         if (PAttachments != null)
         {
             var struct0 = PAttachments.ToNative();
-            pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>(struct0);
-            _internal.pAttachments = pAttachments.Handle;
+            _pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>(struct0);
+            _internal.pAttachments = _pAttachments.Handle;
         }
         _internal.subpassCount = SubpassCount;
-        pSubpasses.Dispose();
+        _pSubpasses.Dispose();
         if (PSubpasses != null)
         {
             var struct1 = PSubpasses.ToNative();
-            pSubpasses = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2>(struct1);
-            _internal.pSubpasses = pSubpasses.Handle;
+            _pSubpasses = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2>(struct1);
+            _internal.pSubpasses = _pSubpasses.Handle;
         }
         _internal.dependencyCount = DependencyCount;
-        pDependencies.Dispose();
+        _pDependencies.Dispose();
         if (PDependencies != null)
         {
             var struct2 = PDependencies.ToNative();
-            pDependencies = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(struct2);
-            _internal.pDependencies = pDependencies.Handle;
+            _pDependencies = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(struct2);
+            _internal.pDependencies = _pDependencies.Handle;
         }
         _internal.correlatedViewMaskCount = CorrelatedViewMaskCount;
-        pCorrelatedViewMasks.Dispose();
+        _pCorrelatedViewMasks.Dispose();
         if (PCorrelatedViewMasks.HasValue)
         {
-            pCorrelatedViewMasks = new NativeStruct<uint>(PCorrelatedViewMasks.Value);
-            _internal.pCorrelatedViewMasks = pCorrelatedViewMasks.Handle;
+            _pCorrelatedViewMasks = new NativeStruct<uint>(PCorrelatedViewMasks.Value);
+            _internal.pCorrelatedViewMasks = _pCorrelatedViewMasks.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachments.Dispose();
-        pSubpasses.Dispose();
-        pDependencies.Dispose();
-        pCorrelatedViewMasks.Dispose();
+        _pAttachments.Dispose();
+        _pSubpasses.Dispose();
+        _pDependencies.Dispose();
+        _pCorrelatedViewMasks.Dispose();
     }
 
 

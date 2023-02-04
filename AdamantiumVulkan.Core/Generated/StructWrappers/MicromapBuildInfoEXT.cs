@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class MicromapBuildInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> pUsageCounts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> _pUsageCounts;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> ppUsageCounts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> _ppUsageCounts;
 
     public MicromapBuildInfoEXT()
     {
@@ -61,12 +61,12 @@ public unsafe partial class MicromapBuildInfoEXT : QBDisposableObject
         _internal.mode = Mode;
         _internal.dstMicromap = DstMicromap;
         _internal.usageCountsCount = UsageCountsCount;
-        pUsageCounts.Dispose();
+        _pUsageCounts.Dispose();
         if (PUsageCounts != null)
         {
             var struct0 = PUsageCounts.ToNative();
-            pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
-            _internal.pUsageCounts = pUsageCounts.Handle;
+            _pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
+            _internal.pUsageCounts = _pUsageCounts.Handle;
         }
         if (Data != null)
         {
@@ -86,8 +86,8 @@ public unsafe partial class MicromapBuildInfoEXT : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pUsageCounts.Dispose();
-        ppUsageCounts.Dispose();
+        _pUsageCounts.Dispose();
+        _ppUsageCounts.Dispose();
     }
 
 

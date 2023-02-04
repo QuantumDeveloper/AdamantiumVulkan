@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState> pAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState> _pAttachments;
 
     public PipelineColorBlendStateCreateInfo()
     {
@@ -54,7 +54,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObje
         _internal.logicOpEnable = LogicOpEnable;
         _internal.logicOp = LogicOp;
         _internal.attachmentCount = AttachmentCount;
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
         if (PAttachments != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState[PAttachments.Length];
@@ -62,8 +62,8 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObje
             {
                 tmpArray0[i] = PAttachments[i].ToNative();
             }
-            pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState>(tmpArray0);
-            _internal.pAttachments = pAttachments.Handle;
+            _pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState>(tmpArray0);
+            _internal.pAttachments = _pAttachments.Handle;
         }
         if(BlendConstants != null)
         {
@@ -77,7 +77,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObje
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
     }
 
 

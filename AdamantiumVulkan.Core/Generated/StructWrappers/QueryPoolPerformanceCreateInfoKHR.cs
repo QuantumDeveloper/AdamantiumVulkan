@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class QueryPoolPerformanceCreateInfoKHR : QBDisposableObject
 {
-    private NativeStruct<uint> pCounterIndices;
+    private NativeStruct<uint> _pCounterIndices;
 
     public QueryPoolPerformanceCreateInfoKHR()
     {
@@ -45,18 +45,18 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : QBDisposableObje
         _internal.pNext = PNext;
         _internal.queueFamilyIndex = QueueFamilyIndex;
         _internal.counterIndexCount = CounterIndexCount;
-        pCounterIndices.Dispose();
+        _pCounterIndices.Dispose();
         if (PCounterIndices.HasValue)
         {
-            pCounterIndices = new NativeStruct<uint>(PCounterIndices.Value);
-            _internal.pCounterIndices = pCounterIndices.Handle;
+            _pCounterIndices = new NativeStruct<uint>(PCounterIndices.Value);
+            _internal.pCounterIndices = _pCounterIndices.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCounterIndices.Dispose();
+        _pCounterIndices.Dispose();
     }
 
 

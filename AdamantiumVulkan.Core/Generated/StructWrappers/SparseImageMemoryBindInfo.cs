@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SparseImageMemoryBindInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind> pBinds;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind> _pBinds;
 
     public SparseImageMemoryBindInfo()
     {
@@ -36,19 +36,19 @@ public unsafe partial class SparseImageMemoryBindInfo : QBDisposableObject
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo();
         _internal.image = Image;
         _internal.bindCount = BindCount;
-        pBinds.Dispose();
+        _pBinds.Dispose();
         if (PBinds != null)
         {
             var struct0 = PBinds.ToNative();
-            pBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind>(struct0);
-            _internal.pBinds = pBinds.Handle;
+            _pBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind>(struct0);
+            _internal.pBinds = _pBinds.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pBinds.Dispose();
+        _pBinds.Dispose();
     }
 
 

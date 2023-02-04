@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR> pGeometries;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR> _pGeometries;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR> ppGeometries;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR> _ppGeometries;
 
     public AccelerationStructureBuildGeometryInfoKHR()
     {
@@ -63,7 +63,7 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
         _internal.srcAccelerationStructure = SrcAccelerationStructure;
         _internal.dstAccelerationStructure = DstAccelerationStructure;
         _internal.geometryCount = GeometryCount;
-        pGeometries.Dispose();
+        _pGeometries.Dispose();
         if (PGeometries != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR[PGeometries.Length];
@@ -71,8 +71,8 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
             {
                 tmpArray0[i] = PGeometries[i].ToNative();
             }
-            pGeometries = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR>(tmpArray0);
-            _internal.pGeometries = pGeometries.Handle;
+            _pGeometries = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR>(tmpArray0);
+            _internal.pGeometries = _pGeometries.Handle;
         }
         if (ScratchData != null)
         {
@@ -83,8 +83,8 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
 
     protected override void UnmanagedDisposeOverride()
     {
-        pGeometries.Dispose();
-        ppGeometries.Dispose();
+        _pGeometries.Dispose();
+        _ppGeometries.Dispose();
     }
 
 

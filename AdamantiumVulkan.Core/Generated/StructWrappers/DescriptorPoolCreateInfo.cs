@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorPoolCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize> pPoolSizes;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize> _pPoolSizes;
 
     public DescriptorPoolCreateInfo()
     {
@@ -49,7 +49,7 @@ public unsafe partial class DescriptorPoolCreateInfo : QBDisposableObject
         _internal.flags = Flags;
         _internal.maxSets = MaxSets;
         _internal.poolSizeCount = PoolSizeCount;
-        pPoolSizes.Dispose();
+        _pPoolSizes.Dispose();
         if (PoolSizes != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize[PoolSizes.Length];
@@ -57,15 +57,15 @@ public unsafe partial class DescriptorPoolCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PoolSizes[i].ToNative();
             }
-            pPoolSizes = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize>(tmpArray0);
-            _internal.pPoolSizes = pPoolSizes.Handle;
+            _pPoolSizes = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize>(tmpArray0);
+            _internal.pPoolSizes = _pPoolSizes.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pPoolSizes.Dispose();
+        _pPoolSizes.Dispose();
     }
 
 

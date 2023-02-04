@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<float> pCoverageModulationTable;
+    private NativeStruct<float> _pCoverageModulationTable;
 
     public PipelineCoverageModulationStateCreateInfoNV()
     {
@@ -50,18 +50,18 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : QBDisp
         _internal.coverageModulationMode = CoverageModulationMode;
         _internal.coverageModulationTableEnable = CoverageModulationTableEnable;
         _internal.coverageModulationTableCount = CoverageModulationTableCount;
-        pCoverageModulationTable.Dispose();
+        _pCoverageModulationTable.Dispose();
         if (PCoverageModulationTable.HasValue)
         {
-            pCoverageModulationTable = new NativeStruct<float>(PCoverageModulationTable.Value);
-            _internal.pCoverageModulationTable = pCoverageModulationTable.Handle;
+            _pCoverageModulationTable = new NativeStruct<float>(PCoverageModulationTable.Value);
+            _internal.pCoverageModulationTable = _pCoverageModulationTable.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCoverageModulationTable.Dispose();
+        _pCoverageModulationTable.Dispose();
     }
 
 

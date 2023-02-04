@@ -82,12 +82,12 @@ public static partial class VulkanBindings
         api.Function("vkEnumerateDeviceExtensionProperties")
             .WithParameterName("pProperties")
             .InterpretAsPointerToArray(new CustomType("VkExtensionProperties"), true, "pPropertyCount")
-            .SetParameterKind(ParameterKind.InOut);
+            .SetParameterKind(ParameterKind.Ref);
 
         api.Function("vkEnumerateDeviceLayerProperties")
             .WithParameterName("pProperties")
             .InterpretAsPointerToArray(new CustomType("VkLayerProperties"), true, "pPropertyCount")
-            .SetParameterKind(ParameterKind.InOut);
+            .SetParameterKind(ParameterKind.Ref);
 
         api.Function("vkCmdSetScissor")
             .WithParameterName("pScissors")

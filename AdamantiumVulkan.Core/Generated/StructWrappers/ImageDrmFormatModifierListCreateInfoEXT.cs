@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<ulong> pDrmFormatModifiers;
+    private NativeStruct<ulong> _pDrmFormatModifiers;
 
     public ImageDrmFormatModifierListCreateInfoEXT()
     {
@@ -41,18 +41,18 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : QBDisposab
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.drmFormatModifierCount = DrmFormatModifierCount;
-        pDrmFormatModifiers.Dispose();
+        _pDrmFormatModifiers.Dispose();
         if (PDrmFormatModifiers.HasValue)
         {
-            pDrmFormatModifiers = new NativeStruct<ulong>(PDrmFormatModifiers.Value);
-            _internal.pDrmFormatModifiers = pDrmFormatModifiers.Handle;
+            _pDrmFormatModifiers = new NativeStruct<ulong>(PDrmFormatModifiers.Value);
+            _internal.pDrmFormatModifiers = _pDrmFormatModifiers.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDrmFormatModifiers.Dispose();
+        _pDrmFormatModifiers.Dispose();
     }
 
 

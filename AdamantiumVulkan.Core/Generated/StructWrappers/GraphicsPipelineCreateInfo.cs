@@ -13,25 +13,25 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class GraphicsPipelineCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> pStages;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> _pStages;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo> pVertexInputState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo> _pVertexInputState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo> pInputAssemblyState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo> _pInputAssemblyState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo> pTessellationState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo> _pTessellationState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo> pViewportState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo> _pViewportState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo> pRasterizationState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo> _pRasterizationState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo> pMultisampleState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo> _pMultisampleState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo> pDepthStencilState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo> _pDepthStencilState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo> pColorBlendState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo> _pColorBlendState;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo> pDynamicState;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo> _pDynamicState;
 
     public GraphicsPipelineCreateInfo()
     {
@@ -101,7 +101,7 @@ public unsafe partial class GraphicsPipelineCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.stageCount = StageCount;
-        pStages.Dispose();
+        _pStages.Dispose();
         if (PStages != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo[PStages.Length];
@@ -109,71 +109,71 @@ public unsafe partial class GraphicsPipelineCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PStages[i].ToNative();
             }
-            pStages = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(tmpArray0);
-            _internal.pStages = pStages.Handle;
+            _pStages = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(tmpArray0);
+            _internal.pStages = _pStages.Handle;
         }
-        pVertexInputState.Dispose();
+        _pVertexInputState.Dispose();
         if (PVertexInputState != null)
         {
             var struct0 = PVertexInputState.ToNative();
-            pVertexInputState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>(struct0);
-            _internal.pVertexInputState = pVertexInputState.Handle;
+            _pVertexInputState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>(struct0);
+            _internal.pVertexInputState = _pVertexInputState.Handle;
         }
-        pInputAssemblyState.Dispose();
+        _pInputAssemblyState.Dispose();
         if (PInputAssemblyState != null)
         {
             var struct1 = PInputAssemblyState.ToNative();
-            pInputAssemblyState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo>(struct1);
-            _internal.pInputAssemblyState = pInputAssemblyState.Handle;
+            _pInputAssemblyState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo>(struct1);
+            _internal.pInputAssemblyState = _pInputAssemblyState.Handle;
         }
-        pTessellationState.Dispose();
+        _pTessellationState.Dispose();
         if (PTessellationState != null)
         {
             var struct2 = PTessellationState.ToNative();
-            pTessellationState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo>(struct2);
-            _internal.pTessellationState = pTessellationState.Handle;
+            _pTessellationState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo>(struct2);
+            _internal.pTessellationState = _pTessellationState.Handle;
         }
-        pViewportState.Dispose();
+        _pViewportState.Dispose();
         if (PViewportState != null)
         {
             var struct3 = PViewportState.ToNative();
-            pViewportState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo>(struct3);
-            _internal.pViewportState = pViewportState.Handle;
+            _pViewportState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo>(struct3);
+            _internal.pViewportState = _pViewportState.Handle;
         }
-        pRasterizationState.Dispose();
+        _pRasterizationState.Dispose();
         if (PRasterizationState != null)
         {
             var struct4 = PRasterizationState.ToNative();
-            pRasterizationState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo>(struct4);
-            _internal.pRasterizationState = pRasterizationState.Handle;
+            _pRasterizationState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo>(struct4);
+            _internal.pRasterizationState = _pRasterizationState.Handle;
         }
-        pMultisampleState.Dispose();
+        _pMultisampleState.Dispose();
         if (PMultisampleState != null)
         {
             var struct5 = PMultisampleState.ToNative();
-            pMultisampleState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo>(struct5);
-            _internal.pMultisampleState = pMultisampleState.Handle;
+            _pMultisampleState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo>(struct5);
+            _internal.pMultisampleState = _pMultisampleState.Handle;
         }
-        pDepthStencilState.Dispose();
+        _pDepthStencilState.Dispose();
         if (PDepthStencilState != null)
         {
             var struct6 = PDepthStencilState.ToNative();
-            pDepthStencilState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo>(struct6);
-            _internal.pDepthStencilState = pDepthStencilState.Handle;
+            _pDepthStencilState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo>(struct6);
+            _internal.pDepthStencilState = _pDepthStencilState.Handle;
         }
-        pColorBlendState.Dispose();
+        _pColorBlendState.Dispose();
         if (PColorBlendState != null)
         {
             var struct7 = PColorBlendState.ToNative();
-            pColorBlendState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>(struct7);
-            _internal.pColorBlendState = pColorBlendState.Handle;
+            _pColorBlendState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>(struct7);
+            _internal.pColorBlendState = _pColorBlendState.Handle;
         }
-        pDynamicState.Dispose();
+        _pDynamicState.Dispose();
         if (PDynamicState != null)
         {
             var struct8 = PDynamicState.ToNative();
-            pDynamicState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(struct8);
-            _internal.pDynamicState = pDynamicState.Handle;
+            _pDynamicState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(struct8);
+            _internal.pDynamicState = _pDynamicState.Handle;
         }
         _internal.layout = Layout;
         _internal.renderPass = RenderPass;
@@ -185,16 +185,16 @@ public unsafe partial class GraphicsPipelineCreateInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pStages.Dispose();
-        pVertexInputState.Dispose();
-        pInputAssemblyState.Dispose();
-        pTessellationState.Dispose();
-        pViewportState.Dispose();
-        pRasterizationState.Dispose();
-        pMultisampleState.Dispose();
-        pDepthStencilState.Dispose();
-        pColorBlendState.Dispose();
-        pDynamicState.Dispose();
+        _pStages.Dispose();
+        _pVertexInputState.Dispose();
+        _pInputAssemblyState.Dispose();
+        _pTessellationState.Dispose();
+        _pViewportState.Dispose();
+        _pRasterizationState.Dispose();
+        _pMultisampleState.Dispose();
+        _pDepthStencilState.Dispose();
+        _pColorBlendState.Dispose();
+        _pDynamicState.Dispose();
     }
 
 

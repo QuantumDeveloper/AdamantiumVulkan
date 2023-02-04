@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry> pDescriptorUpdateEntries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry> _pDescriptorUpdateEntries;
 
     public DescriptorUpdateTemplateCreateInfo()
     {
@@ -51,12 +51,12 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObj
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.descriptorUpdateEntryCount = DescriptorUpdateEntryCount;
-        pDescriptorUpdateEntries.Dispose();
+        _pDescriptorUpdateEntries.Dispose();
         if (PDescriptorUpdateEntries != null)
         {
             var struct0 = PDescriptorUpdateEntries.ToNative();
-            pDescriptorUpdateEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(struct0);
-            _internal.pDescriptorUpdateEntries = pDescriptorUpdateEntries.Handle;
+            _pDescriptorUpdateEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(struct0);
+            _internal.pDescriptorUpdateEntries = _pDescriptorUpdateEntries.Handle;
         }
         _internal.templateType = TemplateType;
         _internal.descriptorSetLayout = DescriptorSetLayout;
@@ -68,7 +68,7 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObj
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDescriptorUpdateEntries.Dispose();
+        _pDescriptorUpdateEntries.Dispose();
     }
 
 

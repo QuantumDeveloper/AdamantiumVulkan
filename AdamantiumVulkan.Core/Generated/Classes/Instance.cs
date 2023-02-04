@@ -85,8 +85,8 @@ public unsafe partial class Instance
 
     public void DebugReportMessageEXT(VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, string pLayerPrefix, string pMessage)
     {
-        var arg6 = (sbyte*)NativeUtils.PointerToString(pLayerPrefix, false);
-        var arg7 = (sbyte*)NativeUtils.PointerToString(pMessage, false);
+        var arg6 = (sbyte*)NativeUtils.StringToPointer(pLayerPrefix, false);
+        var arg7 = (sbyte*)NativeUtils.StringToPointer(pMessage, false);
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkDebugReportMessageEXT(this, flags, objectType, @object, location, messageCode, arg6, arg7);
         NativeUtils.Free(arg6);
         NativeUtils.Free(arg7);
@@ -171,7 +171,7 @@ public unsafe partial class Instance
 
     public void* GetInstanceProcAddr(string pName)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(pName, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(pName, false);
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetInstanceProcAddr(this, arg1);
         NativeUtils.Free(arg1);
         return result;

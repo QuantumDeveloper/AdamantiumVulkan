@@ -33,7 +33,7 @@ public unsafe static class VulkanShadersNative
     ///</summary>
     public static bool ParseVersionProfile(string str, ref int version, ref ShadercProfile profile)
     {
-        var arg0 = (sbyte*)NativeUtils.PointerToString(str, false);
+        var arg0 = (sbyte*)NativeUtils.StringToPointer(str, false);
         var arg1 = NativeUtils.StructOrEnumToPointer(version);
         var arg2 = NativeUtils.StructOrEnumToPointer(profile);
         var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_parse_version_profile(arg0, arg1, arg2);

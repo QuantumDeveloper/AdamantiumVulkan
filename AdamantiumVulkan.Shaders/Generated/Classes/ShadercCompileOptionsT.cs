@@ -33,8 +33,8 @@ public unsafe partial class ShadercCompileOptionsT
     ///</summary>
     public void AddMacroDefinition(string name, ulong name_length, string value, ulong value_length)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(name, false);
-        var arg3 = (sbyte*)NativeUtils.PointerToString(value, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(name, false);
+        var arg3 = (sbyte*)NativeUtils.StringToPointer(value, false);
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_add_macro_definition(this, arg1, name_length, arg3, value_length);
         NativeUtils.Free(arg1);
         NativeUtils.Free(arg3);
@@ -157,9 +157,9 @@ public unsafe partial class ShadercCompileOptionsT
     ///</summary>
     public void SetHlslRegisterSetAndBinding(string reg, string set, string binding)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(reg, false);
-        var arg2 = (sbyte*)NativeUtils.PointerToString(set, false);
-        var arg3 = (sbyte*)NativeUtils.PointerToString(binding, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(reg, false);
+        var arg2 = (sbyte*)NativeUtils.StringToPointer(set, false);
+        var arg3 = (sbyte*)NativeUtils.StringToPointer(binding, false);
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_register_set_and_binding(this, arg1, arg2, arg3);
         NativeUtils.Free(arg1);
         NativeUtils.Free(arg2);
@@ -171,9 +171,9 @@ public unsafe partial class ShadercCompileOptionsT
     ///</summary>
     public void SetHlslRegisterSetAndBindingForStage(ShadercShaderKind shader_kind, string reg, string set, string binding)
     {
-        var arg2 = (sbyte*)NativeUtils.PointerToString(reg, false);
-        var arg3 = (sbyte*)NativeUtils.PointerToString(set, false);
-        var arg4 = (sbyte*)NativeUtils.PointerToString(binding, false);
+        var arg2 = (sbyte*)NativeUtils.StringToPointer(reg, false);
+        var arg3 = (sbyte*)NativeUtils.StringToPointer(set, false);
+        var arg4 = (sbyte*)NativeUtils.StringToPointer(binding, false);
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_hlsl_register_set_and_binding_for_stage(this, shader_kind, arg2, arg3, arg4);
         NativeUtils.Free(arg2);
         NativeUtils.Free(arg3);

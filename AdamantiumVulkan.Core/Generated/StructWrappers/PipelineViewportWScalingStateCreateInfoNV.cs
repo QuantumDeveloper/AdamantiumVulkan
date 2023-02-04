@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV> pViewportWScalings;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV> _pViewportWScalings;
 
     public PipelineViewportWScalingStateCreateInfoNV()
     {
@@ -41,19 +41,19 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : QBDispos
         _internal.pNext = PNext;
         _internal.viewportWScalingEnable = ViewportWScalingEnable;
         _internal.viewportCount = ViewportCount;
-        pViewportWScalings.Dispose();
+        _pViewportWScalings.Dispose();
         if (PViewportWScalings != null)
         {
             var struct0 = PViewportWScalings.ToNative();
-            pViewportWScalings = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(struct0);
-            _internal.pViewportWScalings = pViewportWScalings.Handle;
+            _pViewportWScalings = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(struct0);
+            _internal.pViewportWScalings = _pViewportWScalings.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pViewportWScalings.Dispose();
+        _pViewportWScalings.Dispose();
     }
 
 

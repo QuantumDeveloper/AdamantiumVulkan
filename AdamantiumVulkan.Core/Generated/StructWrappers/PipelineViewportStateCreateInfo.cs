@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport> pViewports;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport> _pViewports;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkRect2D> pScissors;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkRect2D> _pScissors;
 
     public PipelineViewportStateCreateInfo()
     {
@@ -58,7 +58,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.viewportCount = ViewportCount;
-        pViewports.Dispose();
+        _pViewports.Dispose();
         if (PViewports != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewport[PViewports.Length];
@@ -66,11 +66,11 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PViewports[i].ToNative();
             }
-            pViewports = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport>(tmpArray0);
-            _internal.pViewports = pViewports.Handle;
+            _pViewports = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport>(tmpArray0);
+            _internal.pViewports = _pViewports.Handle;
         }
         _internal.scissorCount = ScissorCount;
-        pScissors.Dispose();
+        _pScissors.Dispose();
         if (PScissors != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkRect2D[PScissors.Length];
@@ -78,16 +78,16 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
             {
                 tmpArray1[i] = PScissors[i].ToNative();
             }
-            pScissors = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkRect2D>(tmpArray1);
-            _internal.pScissors = pScissors.Handle;
+            _pScissors = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkRect2D>(tmpArray1);
+            _internal.pScissors = _pScissors.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pViewports.Dispose();
-        pScissors.Dispose();
+        _pViewports.Dispose();
+        _pScissors.Dispose();
     }
 
 

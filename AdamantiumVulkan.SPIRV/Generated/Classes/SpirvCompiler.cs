@@ -32,7 +32,7 @@ public unsafe partial class SpirvCompiler
     ///</summary>
     public Result AddHeaderLine(string line)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(line, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(line, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_add_header_line(this, arg1);
         NativeUtils.Free(arg1);
         return result;
@@ -80,7 +80,7 @@ public unsafe partial class SpirvCompiler
     ///</summary>
     public Result Compile(in string[] source)
     {
-        var arg1 = (sbyte**)NativeUtils.GetPointerToStringArray((uint)source.Length, false);
+        var arg1 = (sbyte**)NativeUtils.StringArrayToPointer(source, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_compile(this, arg1);
         NativeUtils.Free(arg1);
         return result;
@@ -169,7 +169,7 @@ public unsafe partial class SpirvCompiler
 
     public string GetCleansedEntryPointName(string name, SpvExecutionModel model)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(name, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(name, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_cleansed_entry_point_name(this, arg1, model);
         NativeUtils.Free(arg1);
         return new string(result);
@@ -212,7 +212,7 @@ public unsafe partial class SpirvCompiler
 
     public Result GetDeclaredExtensions(in string extensions, ref ulong num_extensions)
     {
-        var arg1 = (sbyte***)NativeUtils.PointerToString(extensions, false);
+        var arg1 = (sbyte***)NativeUtils.StringToPointer(extensions, false);
         var arg2 = NativeUtils.StructOrEnumToPointer(num_extensions);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_extensions(this, arg1, arg2);
         NativeUtils.Free(arg1);
@@ -638,7 +638,7 @@ public unsafe partial class SpirvCompiler
 
     public Result MslSetCombinedSamplerSuffix(string suffix)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(suffix, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(suffix, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_set_combined_sampler_suffix(this, arg1);
         NativeUtils.Free(arg1);
         return result;
@@ -651,8 +651,8 @@ public unsafe partial class SpirvCompiler
 
     public Result RenameEntryPoint(string old_name, string new_name, SpvExecutionModel model)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(old_name, false);
-        var arg2 = (sbyte*)NativeUtils.PointerToString(new_name, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(old_name, false);
+        var arg2 = (sbyte*)NativeUtils.StringToPointer(new_name, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_rename_entry_point(this, arg1, arg2, model);
         NativeUtils.Free(arg1);
         NativeUtils.Free(arg2);
@@ -661,7 +661,7 @@ public unsafe partial class SpirvCompiler
 
     public Result RequireExtension(string ext)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(ext, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(ext, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_require_extension(this, arg1);
         NativeUtils.Free(arg1);
         return result;
@@ -677,7 +677,7 @@ public unsafe partial class SpirvCompiler
 
     public void SetDecorationString(SpvId id, SpvDecoration decoration, string argument)
     {
-        var arg3 = (sbyte*)NativeUtils.PointerToString(argument, false);
+        var arg3 = (sbyte*)NativeUtils.StringToPointer(argument, false);
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_decoration_string(this, id, decoration, arg3);
         NativeUtils.Free(arg3);
     }
@@ -690,7 +690,7 @@ public unsafe partial class SpirvCompiler
 
     public Result SetEntryPoint(string name, SpvExecutionModel model)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(name, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(name, false);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_entry_point(this, arg1, model);
         NativeUtils.Free(arg1);
         return result;
@@ -713,21 +713,21 @@ public unsafe partial class SpirvCompiler
 
     public void SetMemberDecorationString(SpvcTypeId id, uint member_index, SpvDecoration decoration, string argument)
     {
-        var arg4 = (sbyte*)NativeUtils.PointerToString(argument, false);
+        var arg4 = (sbyte*)NativeUtils.StringToPointer(argument, false);
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_member_decoration_string(this, id, member_index, decoration, arg4);
         NativeUtils.Free(arg4);
     }
 
     public void SetMemberName(SpvcTypeId id, uint member_index, string argument)
     {
-        var arg3 = (sbyte*)NativeUtils.PointerToString(argument, false);
+        var arg3 = (sbyte*)NativeUtils.StringToPointer(argument, false);
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_member_name(this, id, member_index, arg3);
         NativeUtils.Free(arg3);
     }
 
     public void SetName(SpvId id, string argument)
     {
-        var arg2 = (sbyte*)NativeUtils.PointerToString(argument, false);
+        var arg2 = (sbyte*)NativeUtils.StringToPointer(argument, false);
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_name(this, id, arg2);
         NativeUtils.Free(arg2);
     }

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBool32> pColorWriteEnables;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBool32> _pColorWriteEnables;
 
     public PipelineColorWriteCreateInfoEXT()
     {
@@ -40,7 +40,7 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.attachmentCount = AttachmentCount;
-        pColorWriteEnables.Dispose();
+        _pColorWriteEnables.Dispose();
         if (PColorWriteEnables != null)
         {
             var tmpArray0 = new VkBool32[PColorWriteEnables.Length];
@@ -48,15 +48,15 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
             {
                 tmpArray0[i] = PColorWriteEnables[i];
             }
-            pColorWriteEnables = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBool32>(tmpArray0);
-            _internal.pColorWriteEnables = pColorWriteEnables.Handle;
+            _pColorWriteEnables = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBool32>(tmpArray0);
+            _internal.pColorWriteEnables = _pColorWriteEnables.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pColorWriteEnables.Dispose();
+        _pColorWriteEnables.Dispose();
     }
 
 

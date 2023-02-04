@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubmitInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pWaitSemaphores;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> _pWaitSemaphores;
 
-    private NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits> pWaitDstStageMask;
+    private NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits> _pWaitDstStageMask;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T> pCommandBuffers;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T> _pCommandBuffers;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pSignalSemaphores;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> _pSignalSemaphores;
 
     public SubmitInfo()
     {
@@ -71,7 +71,7 @@ public unsafe partial class SubmitInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.waitSemaphoreCount = WaitSemaphoreCount;
-        pWaitSemaphores.Dispose();
+        _pWaitSemaphores.Dispose();
         if (PWaitSemaphores != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PWaitSemaphores.Length];
@@ -79,17 +79,17 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             {
                 tmpArray0[i] = PWaitSemaphores[i];
             }
-            pWaitSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray0);
-            _internal.pWaitSemaphores = pWaitSemaphores.Handle;
+            _pWaitSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray0);
+            _internal.pWaitSemaphores = _pWaitSemaphores.Handle;
         }
-        pWaitDstStageMask.Dispose();
+        _pWaitDstStageMask.Dispose();
         if (PWaitDstStageMask != null)
         {
-            pWaitDstStageMask = new NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits>(PWaitDstStageMask);
-            _internal.pWaitDstStageMask = pWaitDstStageMask.Handle;
+            _pWaitDstStageMask = new NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits>(PWaitDstStageMask);
+            _internal.pWaitDstStageMask = _pWaitDstStageMask.Handle;
         }
         _internal.commandBufferCount = CommandBufferCount;
-        pCommandBuffers.Dispose();
+        _pCommandBuffers.Dispose();
         if (PCommandBuffers != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[PCommandBuffers.Length];
@@ -97,11 +97,11 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             {
                 tmpArray1[i] = PCommandBuffers[i];
             }
-            pCommandBuffers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>(tmpArray1);
-            _internal.pCommandBuffers = pCommandBuffers.Handle;
+            _pCommandBuffers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>(tmpArray1);
+            _internal.pCommandBuffers = _pCommandBuffers.Handle;
         }
         _internal.signalSemaphoreCount = SignalSemaphoreCount;
-        pSignalSemaphores.Dispose();
+        _pSignalSemaphores.Dispose();
         if (PSignalSemaphores != null)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PSignalSemaphores.Length];
@@ -109,18 +109,18 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             {
                 tmpArray2[i] = PSignalSemaphores[i];
             }
-            pSignalSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray2);
-            _internal.pSignalSemaphores = pSignalSemaphores.Handle;
+            _pSignalSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray2);
+            _internal.pSignalSemaphores = _pSignalSemaphores.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pWaitSemaphores.Dispose();
-        pWaitDstStageMask.Dispose();
-        pCommandBuffers.Dispose();
-        pSignalSemaphores.Dispose();
+        _pWaitSemaphores.Dispose();
+        _pWaitDstStageMask.Dispose();
+        _pCommandBuffers.Dispose();
+        _pSignalSemaphores.Dispose();
     }
 
 

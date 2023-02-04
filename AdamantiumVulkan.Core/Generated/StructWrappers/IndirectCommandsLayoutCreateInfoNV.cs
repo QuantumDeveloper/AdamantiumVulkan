@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class IndirectCommandsLayoutCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV> pTokens;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV> _pTokens;
 
-    private NativeStruct<uint> pStreamStrides;
+    private NativeStruct<uint> _pStreamStrides;
 
     public IndirectCommandsLayoutCreateInfoNV()
     {
@@ -55,27 +55,27 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : QBDisposableObj
         _internal.flags = Flags;
         _internal.pipelineBindPoint = PipelineBindPoint;
         _internal.tokenCount = TokenCount;
-        pTokens.Dispose();
+        _pTokens.Dispose();
         if (PTokens != null)
         {
             var struct0 = PTokens.ToNative();
-            pTokens = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(struct0);
-            _internal.pTokens = pTokens.Handle;
+            _pTokens = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(struct0);
+            _internal.pTokens = _pTokens.Handle;
         }
         _internal.streamCount = StreamCount;
-        pStreamStrides.Dispose();
+        _pStreamStrides.Dispose();
         if (PStreamStrides.HasValue)
         {
-            pStreamStrides = new NativeStruct<uint>(PStreamStrides.Value);
-            _internal.pStreamStrides = pStreamStrides.Handle;
+            _pStreamStrides = new NativeStruct<uint>(PStreamStrides.Value);
+            _internal.pStreamStrides = _pStreamStrides.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pTokens.Dispose();
-        pStreamStrides.Dispose();
+        _pTokens.Dispose();
+        _pStreamStrides.Dispose();
     }
 
 

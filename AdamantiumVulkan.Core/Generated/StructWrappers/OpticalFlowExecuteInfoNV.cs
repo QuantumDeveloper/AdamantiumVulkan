@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class OpticalFlowExecuteInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> _pRegions;
 
     public OpticalFlowExecuteInfoNV()
     {
@@ -42,19 +42,19 @@ public unsafe partial class OpticalFlowExecuteInfoNV : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.regionCount = RegionCount;
-        pRegions.Dispose();
+        _pRegions.Dispose();
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
-            _internal.pRegions = pRegions.Handle;
+            _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);
+            _internal.pRegions = _pRegions.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pRegions.Dispose();
+        _pRegions.Dispose();
     }
 
 

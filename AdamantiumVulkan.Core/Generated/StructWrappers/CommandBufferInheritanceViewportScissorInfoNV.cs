@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport> pViewportDepths;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport> _pViewportDepths;
 
     public CommandBufferInheritanceViewportScissorInfoNV()
     {
@@ -42,19 +42,19 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : QBDi
         _internal.pNext = PNext;
         _internal.viewportScissor2D = ViewportScissor2D;
         _internal.viewportDepthCount = ViewportDepthCount;
-        pViewportDepths.Dispose();
+        _pViewportDepths.Dispose();
         if (PViewportDepths != null)
         {
             var struct0 = PViewportDepths.ToNative();
-            pViewportDepths = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport>(struct0);
-            _internal.pViewportDepths = pViewportDepths.Handle;
+            _pViewportDepths = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport>(struct0);
+            _internal.pViewportDepths = _pViewportDepths.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pViewportDepths.Dispose();
+        _pViewportDepths.Dispose();
     }
 
 

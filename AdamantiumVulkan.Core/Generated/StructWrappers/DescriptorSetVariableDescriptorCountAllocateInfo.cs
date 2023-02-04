@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : QBDisposableObject
 {
-    private NativeStruct<uint> pDescriptorCounts;
+    private NativeStruct<uint> _pDescriptorCounts;
 
     public DescriptorSetVariableDescriptorCountAllocateInfo()
     {
@@ -42,18 +42,18 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : Q
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.descriptorSetCount = DescriptorSetCount;
-        pDescriptorCounts.Dispose();
+        _pDescriptorCounts.Dispose();
         if (PDescriptorCounts.HasValue)
         {
-            pDescriptorCounts = new NativeStruct<uint>(PDescriptorCounts.Value);
-            _internal.pDescriptorCounts = pDescriptorCounts.Handle;
+            _pDescriptorCounts = new NativeStruct<uint>(PDescriptorCounts.Value);
+            _internal.pDescriptorCounts = _pDescriptorCounts.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDescriptorCounts.Dispose();
+        _pDescriptorCounts.Dispose();
     }
 
 

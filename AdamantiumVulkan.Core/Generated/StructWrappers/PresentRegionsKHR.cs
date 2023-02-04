@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PresentRegionsKHR : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR> _pRegions;
 
     public PresentRegionsKHR()
     {
@@ -38,19 +38,19 @@ public unsafe partial class PresentRegionsKHR : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.swapchainCount = SwapchainCount;
-        pRegions.Dispose();
+        _pRegions.Dispose();
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(struct0);
-            _internal.pRegions = pRegions.Handle;
+            _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(struct0);
+            _internal.pRegions = _pRegions.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pRegions.Dispose();
+        _pRegions.Dispose();
     }
 
 

@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT> pAddressInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT> _pAddressInfos;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT> pVendorInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT> _pVendorInfos;
 
     public DeviceFaultInfoEXT()
     {
@@ -52,19 +52,19 @@ public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
 
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
-        pAddressInfos.Dispose();
+        _pAddressInfos.Dispose();
         if (PAddressInfos != null)
         {
             var struct0 = PAddressInfos.ToNative();
-            pAddressInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT>(struct0);
-            _internal.pAddressInfos = pAddressInfos.Handle;
+            _pAddressInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT>(struct0);
+            _internal.pAddressInfos = _pAddressInfos.Handle;
         }
-        pVendorInfos.Dispose();
+        _pVendorInfos.Dispose();
         if (PVendorInfos != null)
         {
             var struct1 = PVendorInfos.ToNative();
-            pVendorInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT>(struct1);
-            _internal.pVendorInfos = pVendorInfos.Handle;
+            _pVendorInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT>(struct1);
+            _internal.pVendorInfos = _pVendorInfos.Handle;
         }
         _internal.pVendorBinaryData = PVendorBinaryData;
         return _internal;
@@ -72,8 +72,8 @@ public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAddressInfos.Dispose();
-        pVendorInfos.Dispose();
+        _pAddressInfos.Dispose();
+        _pVendorInfos.Dispose();
     }
 
 

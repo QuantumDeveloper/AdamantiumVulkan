@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorBindingFlags> pBindingFlags;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorBindingFlags> _pBindingFlags;
 
     public DescriptorSetLayoutBindingFlagsCreateInfo()
     {
@@ -42,18 +42,18 @@ public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : QBDispos
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.bindingCount = BindingCount;
-        pBindingFlags.Dispose();
+        _pBindingFlags.Dispose();
         if (PBindingFlags.HasValue)
         {
-            pBindingFlags = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorBindingFlags>(PBindingFlags.Value);
-            _internal.pBindingFlags = pBindingFlags.Handle;
+            _pBindingFlags = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorBindingFlags>(PBindingFlags.Value);
+            _internal.pBindingFlags = _pBindingFlags.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pBindingFlags.Dispose();
+        _pBindingFlags.Dispose();
     }
 
 

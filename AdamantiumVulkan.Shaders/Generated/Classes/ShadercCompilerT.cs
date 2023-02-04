@@ -33,7 +33,7 @@ public unsafe partial class ShadercCompilerT
     ///</summary>
     public ShadercCompilationResultT AssembleIntoSpv(string source_assembly, ulong source_assembly_size, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(source_assembly, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(source_assembly, false);
         var arg3 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
         var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_assemble_into_spv(this, arg1, source_assembly_size, arg3);
         NativeUtils.Free(arg1);
@@ -45,9 +45,9 @@ public unsafe partial class ShadercCompilerT
     ///</summary>
     public ShadercCompilationResultT CompileIntoPreprocessedText(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(source_text, false);
-        var arg4 = (sbyte*)NativeUtils.PointerToString(input_file_name, false);
-        var arg5 = (sbyte*)NativeUtils.PointerToString(entry_point_name, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(source_text, false);
+        var arg4 = (sbyte*)NativeUtils.StringToPointer(input_file_name, false);
+        var arg5 = (sbyte*)NativeUtils.StringToPointer(entry_point_name, false);
         var arg6 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
         var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_preprocessed_text(this, arg1, source_text_size, shader_kind, arg4, arg5, arg6);
         NativeUtils.Free(arg1);
@@ -61,9 +61,9 @@ public unsafe partial class ShadercCompilerT
     ///</summary>
     public ShadercCompilationResultT CompileIntoSpv(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(source_text, false);
-        var arg4 = (sbyte*)NativeUtils.PointerToString(input_file_name, false);
-        var arg5 = (sbyte*)NativeUtils.PointerToString(entry_point_name, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(source_text, false);
+        var arg4 = (sbyte*)NativeUtils.StringToPointer(input_file_name, false);
+        var arg5 = (sbyte*)NativeUtils.StringToPointer(entry_point_name, false);
         var arg6 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
         var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_spv(this, arg1, source_text_size, shader_kind, arg4, arg5, arg6);
         NativeUtils.Free(arg1);
@@ -77,9 +77,9 @@ public unsafe partial class ShadercCompilerT
     ///</summary>
     public ShadercCompilationResultT CompileIntoSpvAssembly(string source_text, ulong source_text_size, ShadercShaderKind shader_kind, string input_file_name, string entry_point_name, AdamantiumVulkan.Shaders.ShadercCompileOptionsT additional_options)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(source_text, false);
-        var arg4 = (sbyte*)NativeUtils.PointerToString(input_file_name, false);
-        var arg5 = (sbyte*)NativeUtils.PointerToString(entry_point_name, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(source_text, false);
+        var arg4 = (sbyte*)NativeUtils.StringToPointer(input_file_name, false);
+        var arg5 = (sbyte*)NativeUtils.StringToPointer(entry_point_name, false);
         var arg6 = ReferenceEquals(additional_options, null) ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
         var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_into_spv_assembly(this, arg1, source_text_size, shader_kind, arg4, arg5, arg6);
         NativeUtils.Free(arg1);

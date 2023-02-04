@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PerformanceValueDataINTEL : QBDisposableObject
 {
-    private MarshaledString valueString;
+    private MarshaledString _valueString;
 
     public PerformanceValueDataINTEL()
     {
@@ -41,18 +41,18 @@ public unsafe partial class PerformanceValueDataINTEL : QBDisposableObject
         _internal.value64 = Value64;
         _internal.valueFloat = ValueFloat;
         _internal.valueBool = ValueBool;
-        valueString.Dispose();
+        _valueString.Dispose();
         if (ValueString != null)
         {
-            valueString = new MarshaledString(ValueString, false);
-            _internal.valueString = (sbyte*)valueString;
+            _valueString = new MarshaledString(ValueString, false);
+            _internal.valueString = (sbyte*)_valueString;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        valueString.Dispose();
+        _valueString.Dispose();
     }
 
 

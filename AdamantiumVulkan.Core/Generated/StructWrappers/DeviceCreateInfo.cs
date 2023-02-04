@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo> pQueueCreateInfos;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo> _pQueueCreateInfos;
 
-    private MarshaledStringArray ppEnabledLayerNames;
+    private MarshaledStringArray _ppEnabledLayerNames;
 
-    private MarshaledStringArray ppEnabledExtensionNames;
+    private MarshaledStringArray _ppEnabledExtensionNames;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures> pEnabledFeatures;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures> _pEnabledFeatures;
 
     public DeviceCreateInfo()
     {
@@ -63,7 +63,7 @@ public unsafe partial class DeviceCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.queueCreateInfoCount = QueueCreateInfoCount;
-        pQueueCreateInfos.Dispose();
+        _pQueueCreateInfos.Dispose();
         if (PQueueCreateInfos != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo[PQueueCreateInfos.Length];
@@ -71,41 +71,41 @@ public unsafe partial class DeviceCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PQueueCreateInfos[i].ToNative();
             }
-            pQueueCreateInfos = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo>(tmpArray0);
-            _internal.pQueueCreateInfos = pQueueCreateInfos.Handle;
+            _pQueueCreateInfos = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo>(tmpArray0);
+            _internal.pQueueCreateInfos = _pQueueCreateInfos.Handle;
         }
         _internal.enabledLayerCount = EnabledLayerCount;
-        ppEnabledLayerNames.Dispose();
+        _ppEnabledLayerNames.Dispose();
         if (PEnabledLayerNames != null)
         {
-            ppEnabledLayerNames = new MarshaledStringArray(PEnabledLayerNames, false);
+            _ppEnabledLayerNames = new MarshaledStringArray(PEnabledLayerNames, false);
             _internal.ppEnabledLayerNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledLayerNames.Length, false);
-            ppEnabledLayerNames.Fill(_internal.ppEnabledLayerNames);
+            _ppEnabledLayerNames.Fill(_internal.ppEnabledLayerNames);
         }
         _internal.enabledExtensionCount = EnabledExtensionCount;
-        ppEnabledExtensionNames.Dispose();
+        _ppEnabledExtensionNames.Dispose();
         if (PEnabledExtensionNames != null)
         {
-            ppEnabledExtensionNames = new MarshaledStringArray(PEnabledExtensionNames, false);
+            _ppEnabledExtensionNames = new MarshaledStringArray(PEnabledExtensionNames, false);
             _internal.ppEnabledExtensionNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledExtensionNames.Length, false);
-            ppEnabledExtensionNames.Fill(_internal.ppEnabledExtensionNames);
+            _ppEnabledExtensionNames.Fill(_internal.ppEnabledExtensionNames);
         }
-        pEnabledFeatures.Dispose();
+        _pEnabledFeatures.Dispose();
         if (PEnabledFeatures != null)
         {
             var struct0 = PEnabledFeatures.ToNative();
-            pEnabledFeatures = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures>(struct0);
-            _internal.pEnabledFeatures = pEnabledFeatures.Handle;
+            _pEnabledFeatures = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures>(struct0);
+            _internal.pEnabledFeatures = _pEnabledFeatures.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pQueueCreateInfos.Dispose();
-        ppEnabledLayerNames.Dispose();
-        ppEnabledExtensionNames.Dispose();
-        pEnabledFeatures.Dispose();
+        _pQueueCreateInfos.Dispose();
+        _ppEnabledLayerNames.Dispose();
+        _ppEnabledExtensionNames.Dispose();
+        _pEnabledFeatures.Dispose();
     }
 
 

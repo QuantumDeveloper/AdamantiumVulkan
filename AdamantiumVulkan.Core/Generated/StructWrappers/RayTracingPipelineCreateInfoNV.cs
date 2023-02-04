@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> pStages;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo> _pStages;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV> pGroups;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV> _pGroups;
 
     public RayTracingPipelineCreateInfoNV()
     {
@@ -56,20 +56,20 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.stageCount = StageCount;
-        pStages.Dispose();
+        _pStages.Dispose();
         if (PStages != null)
         {
             var struct0 = PStages.ToNative();
-            pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
-            _internal.pStages = pStages.Handle;
+            _pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
+            _internal.pStages = _pStages.Handle;
         }
         _internal.groupCount = GroupCount;
-        pGroups.Dispose();
+        _pGroups.Dispose();
         if (PGroups != null)
         {
             var struct1 = PGroups.ToNative();
-            pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>(struct1);
-            _internal.pGroups = pGroups.Handle;
+            _pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>(struct1);
+            _internal.pGroups = _pGroups.Handle;
         }
         _internal.maxRecursionDepth = MaxRecursionDepth;
         _internal.layout = Layout;
@@ -80,8 +80,8 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pStages.Dispose();
-        pGroups.Dispose();
+        _pStages.Dispose();
+        _pGroups.Dispose();
     }
 
 

@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceGroupSubmitInfo : QBDisposableObject
 {
-    private NativeStruct<uint> pWaitSemaphoreDeviceIndices;
+    private NativeStruct<uint> _pWaitSemaphoreDeviceIndices;
 
-    private NativeStruct<uint> pCommandBufferDeviceMasks;
+    private NativeStruct<uint> _pCommandBufferDeviceMasks;
 
-    private NativeStruct<uint> pSignalSemaphoreDeviceIndices;
+    private NativeStruct<uint> _pSignalSemaphoreDeviceIndices;
 
     public DeviceGroupSubmitInfo()
     {
@@ -61,34 +61,34 @@ public unsafe partial class DeviceGroupSubmitInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.waitSemaphoreCount = WaitSemaphoreCount;
-        pWaitSemaphoreDeviceIndices.Dispose();
+        _pWaitSemaphoreDeviceIndices.Dispose();
         if (PWaitSemaphoreDeviceIndices.HasValue)
         {
-            pWaitSemaphoreDeviceIndices = new NativeStruct<uint>(PWaitSemaphoreDeviceIndices.Value);
-            _internal.pWaitSemaphoreDeviceIndices = pWaitSemaphoreDeviceIndices.Handle;
+            _pWaitSemaphoreDeviceIndices = new NativeStruct<uint>(PWaitSemaphoreDeviceIndices.Value);
+            _internal.pWaitSemaphoreDeviceIndices = _pWaitSemaphoreDeviceIndices.Handle;
         }
         _internal.commandBufferCount = CommandBufferCount;
-        pCommandBufferDeviceMasks.Dispose();
+        _pCommandBufferDeviceMasks.Dispose();
         if (PCommandBufferDeviceMasks.HasValue)
         {
-            pCommandBufferDeviceMasks = new NativeStruct<uint>(PCommandBufferDeviceMasks.Value);
-            _internal.pCommandBufferDeviceMasks = pCommandBufferDeviceMasks.Handle;
+            _pCommandBufferDeviceMasks = new NativeStruct<uint>(PCommandBufferDeviceMasks.Value);
+            _internal.pCommandBufferDeviceMasks = _pCommandBufferDeviceMasks.Handle;
         }
         _internal.signalSemaphoreCount = SignalSemaphoreCount;
-        pSignalSemaphoreDeviceIndices.Dispose();
+        _pSignalSemaphoreDeviceIndices.Dispose();
         if (PSignalSemaphoreDeviceIndices.HasValue)
         {
-            pSignalSemaphoreDeviceIndices = new NativeStruct<uint>(PSignalSemaphoreDeviceIndices.Value);
-            _internal.pSignalSemaphoreDeviceIndices = pSignalSemaphoreDeviceIndices.Handle;
+            _pSignalSemaphoreDeviceIndices = new NativeStruct<uint>(PSignalSemaphoreDeviceIndices.Value);
+            _internal.pSignalSemaphoreDeviceIndices = _pSignalSemaphoreDeviceIndices.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pWaitSemaphoreDeviceIndices.Dispose();
-        pCommandBufferDeviceMasks.Dispose();
-        pSignalSemaphoreDeviceIndices.Dispose();
+        _pWaitSemaphoreDeviceIndices.Dispose();
+        _pCommandBufferDeviceMasks.Dispose();
+        _pSignalSemaphoreDeviceIndices.Dispose();
     }
 
 

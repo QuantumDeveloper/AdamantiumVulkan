@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubmitInfo2 : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo> pWaitSemaphoreInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo> _pWaitSemaphoreInfos;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo> pCommandBufferInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo> _pCommandBufferInfos;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo> pSignalSemaphoreInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo> _pSignalSemaphoreInfos;
 
     public SubmitInfo2()
     {
@@ -56,37 +56,37 @@ public unsafe partial class SubmitInfo2 : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.waitSemaphoreInfoCount = WaitSemaphoreInfoCount;
-        pWaitSemaphoreInfos.Dispose();
+        _pWaitSemaphoreInfos.Dispose();
         if (PWaitSemaphoreInfos != null)
         {
             var struct0 = PWaitSemaphoreInfos.ToNative();
-            pWaitSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct0);
-            _internal.pWaitSemaphoreInfos = pWaitSemaphoreInfos.Handle;
+            _pWaitSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct0);
+            _internal.pWaitSemaphoreInfos = _pWaitSemaphoreInfos.Handle;
         }
         _internal.commandBufferInfoCount = CommandBufferInfoCount;
-        pCommandBufferInfos.Dispose();
+        _pCommandBufferInfos.Dispose();
         if (PCommandBufferInfos != null)
         {
             var struct1 = PCommandBufferInfos.ToNative();
-            pCommandBufferInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo>(struct1);
-            _internal.pCommandBufferInfos = pCommandBufferInfos.Handle;
+            _pCommandBufferInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo>(struct1);
+            _internal.pCommandBufferInfos = _pCommandBufferInfos.Handle;
         }
         _internal.signalSemaphoreInfoCount = SignalSemaphoreInfoCount;
-        pSignalSemaphoreInfos.Dispose();
+        _pSignalSemaphoreInfos.Dispose();
         if (PSignalSemaphoreInfos != null)
         {
             var struct2 = PSignalSemaphoreInfos.ToNative();
-            pSignalSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct2);
-            _internal.pSignalSemaphoreInfos = pSignalSemaphoreInfos.Handle;
+            _pSignalSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct2);
+            _internal.pSignalSemaphoreInfos = _pSignalSemaphoreInfos.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pWaitSemaphoreInfos.Dispose();
-        pCommandBufferInfos.Dispose();
-        pSignalSemaphoreInfos.Dispose();
+        _pWaitSemaphoreInfos.Dispose();
+        _pCommandBufferInfos.Dispose();
+        _pSignalSemaphoreInfos.Dispose();
     }
 
 

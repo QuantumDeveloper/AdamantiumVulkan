@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CopyImageInfo2 : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCopy2> pRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCopy2> _pRegions;
 
     public CopyImageInfo2()
     {
@@ -51,19 +51,19 @@ public unsafe partial class CopyImageInfo2 : QBDisposableObject
         _internal.dstImage = DstImage;
         _internal.dstImageLayout = DstImageLayout;
         _internal.regionCount = RegionCount;
-        pRegions.Dispose();
+        _pRegions.Dispose();
         if (PRegions != null)
         {
             var struct0 = PRegions.ToNative();
-            pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCopy2>(struct0);
-            _internal.pRegions = pRegions.Handle;
+            _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCopy2>(struct0);
+            _internal.pRegions = _pRegions.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pRegions.Dispose();
+        _pRegions.Dispose();
     }
 
 

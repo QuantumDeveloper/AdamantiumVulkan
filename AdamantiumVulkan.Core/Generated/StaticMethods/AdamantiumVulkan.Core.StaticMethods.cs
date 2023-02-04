@@ -30,7 +30,7 @@ public unsafe static class VulkanNative
 
     public static Result EnumerateInstanceExtensionProperties(string pLayerName, ref uint pPropertyCount, ExtensionProperties[] pProperties)
     {
-        var arg0 = (sbyte*)NativeUtils.PointerToString(pLayerName, false);
+        var arg0 = (sbyte*)NativeUtils.StringToPointer(pLayerName, false);
         var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
         var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkExtensionProperties>(pProperties.Length);
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(arg0, arg1, arg2);

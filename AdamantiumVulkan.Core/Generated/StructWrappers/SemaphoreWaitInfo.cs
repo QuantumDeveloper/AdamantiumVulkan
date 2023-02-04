@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SemaphoreWaitInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pSemaphores;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T> _pSemaphores;
 
-    private NativeStruct<ulong> pValues;
+    private NativeStruct<ulong> _pValues;
 
     public SemaphoreWaitInfo()
     {
@@ -50,26 +50,26 @@ public unsafe partial class SemaphoreWaitInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.semaphoreCount = SemaphoreCount;
-        pSemaphores.Dispose();
+        _pSemaphores.Dispose();
         if (PSemaphores != null)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = PSemaphores;
-            pSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct0);
-            _internal.pSemaphores = pSemaphores.Handle;
+            _pSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct0);
+            _internal.pSemaphores = _pSemaphores.Handle;
         }
-        pValues.Dispose();
+        _pValues.Dispose();
         if (PValues.HasValue)
         {
-            pValues = new NativeStruct<ulong>(PValues.Value);
-            _internal.pValues = pValues.Handle;
+            _pValues = new NativeStruct<ulong>(PValues.Value);
+            _internal.pValues = _pValues.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSemaphores.Dispose();
-        pValues.Dispose();
+        _pSemaphores.Dispose();
+        _pValues.Dispose();
     }
 
 

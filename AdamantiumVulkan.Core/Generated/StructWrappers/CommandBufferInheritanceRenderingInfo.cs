@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CommandBufferInheritanceRenderingInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Format> pColorAttachmentFormats;
+    private NativeStruct<AdamantiumVulkan.Core.Format> _pColorAttachmentFormats;
 
     public CommandBufferInheritanceRenderingInfo()
     {
@@ -50,11 +50,11 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : QBDisposable
         _internal.flags = Flags;
         _internal.viewMask = ViewMask;
         _internal.colorAttachmentCount = ColorAttachmentCount;
-        pColorAttachmentFormats.Dispose();
+        _pColorAttachmentFormats.Dispose();
         if (PColorAttachmentFormats.HasValue)
         {
-            pColorAttachmentFormats = new NativeStruct<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats.Value);
-            _internal.pColorAttachmentFormats = pColorAttachmentFormats.Handle;
+            _pColorAttachmentFormats = new NativeStruct<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats.Value);
+            _internal.pColorAttachmentFormats = _pColorAttachmentFormats.Handle;
         }
         _internal.depthAttachmentFormat = DepthAttachmentFormat;
         _internal.stencilAttachmentFormat = StencilAttachmentFormat;
@@ -64,7 +64,7 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : QBDisposable
 
     protected override void UnmanagedDisposeOverride()
     {
-        pColorAttachmentFormats.Dispose();
+        _pColorAttachmentFormats.Dispose();
     }
 
 

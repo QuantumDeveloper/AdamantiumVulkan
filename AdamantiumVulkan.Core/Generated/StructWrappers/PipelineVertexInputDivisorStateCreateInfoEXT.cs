@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineVertexInputDivisorStateCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT> pVertexBindingDivisors;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT> _pVertexBindingDivisors;
 
     public PipelineVertexInputDivisorStateCreateInfoEXT()
     {
@@ -38,19 +38,19 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfoEXT : QBDis
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.vertexBindingDivisorCount = VertexBindingDivisorCount;
-        pVertexBindingDivisors.Dispose();
+        _pVertexBindingDivisors.Dispose();
         if (PVertexBindingDivisors != null)
         {
             var struct0 = PVertexBindingDivisors.ToNative();
-            pVertexBindingDivisors = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT>(struct0);
-            _internal.pVertexBindingDivisors = pVertexBindingDivisors.Handle;
+            _pVertexBindingDivisors = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionEXT>(struct0);
+            _internal.pVertexBindingDivisors = _pVertexBindingDivisors.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pVertexBindingDivisors.Dispose();
+        _pVertexBindingDivisors.Dispose();
     }
 
 

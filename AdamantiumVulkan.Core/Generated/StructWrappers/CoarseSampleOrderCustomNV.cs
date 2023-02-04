@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CoarseSampleOrderCustomNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV> pSampleLocations;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV> _pSampleLocations;
 
     public CoarseSampleOrderCustomNV()
     {
@@ -39,19 +39,19 @@ public unsafe partial class CoarseSampleOrderCustomNV : QBDisposableObject
         _internal.shadingRate = ShadingRate;
         _internal.sampleCount = SampleCount;
         _internal.sampleLocationCount = SampleLocationCount;
-        pSampleLocations.Dispose();
+        _pSampleLocations.Dispose();
         if (PSampleLocations != null)
         {
             var struct0 = PSampleLocations.ToNative();
-            pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(struct0);
-            _internal.pSampleLocations = pSampleLocations.Handle;
+            _pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(struct0);
+            _internal.pSampleLocations = _pSampleLocations.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSampleLocations.Dispose();
+        _pSampleLocations.Dispose();
     }
 
 

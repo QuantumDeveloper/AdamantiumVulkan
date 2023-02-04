@@ -15,15 +15,15 @@ namespace AdamantiumVulkan.Windows;
 
 public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T> pAcquireSyncs;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T> _pAcquireSyncs;
 
-    private NativeStruct<ulong> pAcquireKeys;
+    private NativeStruct<ulong> _pAcquireKeys;
 
-    private NativeStruct<uint> pAcquireTimeoutMilliseconds;
+    private NativeStruct<uint> _pAcquireTimeoutMilliseconds;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T> pReleaseSyncs;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T> _pReleaseSyncs;
 
-    private NativeStruct<ulong> pReleaseKeys;
+    private NativeStruct<ulong> _pReleaseKeys;
 
     public Win32KeyedMutexAcquireReleaseInfoNV()
     {
@@ -72,49 +72,49 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : QBDisposableOb
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.acquireCount = AcquireCount;
-        pAcquireSyncs.Dispose();
+        _pAcquireSyncs.Dispose();
         if (PAcquireSyncs != null)
         {
             AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = PAcquireSyncs;
-            pAcquireSyncs = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(struct0);
-            _internal.pAcquireSyncs = pAcquireSyncs.Handle;
+            _pAcquireSyncs = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(struct0);
+            _internal.pAcquireSyncs = _pAcquireSyncs.Handle;
         }
-        pAcquireKeys.Dispose();
+        _pAcquireKeys.Dispose();
         if (PAcquireKeys.HasValue)
         {
-            pAcquireKeys = new NativeStruct<ulong>(PAcquireKeys.Value);
-            _internal.pAcquireKeys = pAcquireKeys.Handle;
+            _pAcquireKeys = new NativeStruct<ulong>(PAcquireKeys.Value);
+            _internal.pAcquireKeys = _pAcquireKeys.Handle;
         }
-        pAcquireTimeoutMilliseconds.Dispose();
+        _pAcquireTimeoutMilliseconds.Dispose();
         if (PAcquireTimeoutMilliseconds.HasValue)
         {
-            pAcquireTimeoutMilliseconds = new NativeStruct<uint>(PAcquireTimeoutMilliseconds.Value);
-            _internal.pAcquireTimeoutMilliseconds = pAcquireTimeoutMilliseconds.Handle;
+            _pAcquireTimeoutMilliseconds = new NativeStruct<uint>(PAcquireTimeoutMilliseconds.Value);
+            _internal.pAcquireTimeoutMilliseconds = _pAcquireTimeoutMilliseconds.Handle;
         }
         _internal.releaseCount = ReleaseCount;
-        pReleaseSyncs.Dispose();
+        _pReleaseSyncs.Dispose();
         if (PReleaseSyncs != null)
         {
             AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct3 = PReleaseSyncs;
-            pReleaseSyncs = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(struct3);
-            _internal.pReleaseSyncs = pReleaseSyncs.Handle;
+            _pReleaseSyncs = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(struct3);
+            _internal.pReleaseSyncs = _pReleaseSyncs.Handle;
         }
-        pReleaseKeys.Dispose();
+        _pReleaseKeys.Dispose();
         if (PReleaseKeys.HasValue)
         {
-            pReleaseKeys = new NativeStruct<ulong>(PReleaseKeys.Value);
-            _internal.pReleaseKeys = pReleaseKeys.Handle;
+            _pReleaseKeys = new NativeStruct<ulong>(PReleaseKeys.Value);
+            _internal.pReleaseKeys = _pReleaseKeys.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAcquireSyncs.Dispose();
-        pAcquireKeys.Dispose();
-        pAcquireTimeoutMilliseconds.Dispose();
-        pReleaseSyncs.Dispose();
-        pReleaseKeys.Dispose();
+        _pAcquireSyncs.Dispose();
+        _pAcquireKeys.Dispose();
+        _pAcquireTimeoutMilliseconds.Dispose();
+        _pReleaseSyncs.Dispose();
+        _pReleaseKeys.Dispose();
     }
 
 

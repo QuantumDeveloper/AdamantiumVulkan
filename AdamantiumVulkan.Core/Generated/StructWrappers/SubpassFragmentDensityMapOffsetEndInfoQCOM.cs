@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkOffset2D> pFragmentDensityOffsets;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkOffset2D> _pFragmentDensityOffsets;
 
     public SubpassFragmentDensityMapOffsetEndInfoQCOM()
     {
@@ -39,19 +39,19 @@ public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : QBDispo
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.fragmentDensityOffsetCount = FragmentDensityOffsetCount;
-        pFragmentDensityOffsets.Dispose();
+        _pFragmentDensityOffsets.Dispose();
         if (PFragmentDensityOffsets != null)
         {
             var struct0 = PFragmentDensityOffsets.ToNative();
-            pFragmentDensityOffsets = new NativeStruct<AdamantiumVulkan.Core.Interop.VkOffset2D>(struct0);
-            _internal.pFragmentDensityOffsets = pFragmentDensityOffsets.Handle;
+            _pFragmentDensityOffsets = new NativeStruct<AdamantiumVulkan.Core.Interop.VkOffset2D>(struct0);
+            _internal.pFragmentDensityOffsets = _pFragmentDensityOffsets.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pFragmentDensityOffsets.Dispose();
+        _pFragmentDensityOffsets.Dispose();
     }
 
 

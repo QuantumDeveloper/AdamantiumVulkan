@@ -13,15 +13,15 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObject
 {
-    private MarshaledString pMessageIdName;
+    private MarshaledString _pMessageIdName;
 
-    private MarshaledString pMessage;
+    private MarshaledString _pMessage;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT> pQueueLabels;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT> _pQueueLabels;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT> pCmdBufLabels;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT> _pCmdBufLabels;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT> pObjects;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT> _pObjects;
 
     public DebugUtilsMessengerCallbackDataEXT()
     {
@@ -64,53 +64,53 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObj
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.flags = Flags;
-        pMessageIdName.Dispose();
+        _pMessageIdName.Dispose();
         if (PMessageIdName != null)
         {
-            pMessageIdName = new MarshaledString(PMessageIdName, false);
-            _internal.pMessageIdName = (sbyte*)pMessageIdName;
+            _pMessageIdName = new MarshaledString(PMessageIdName, false);
+            _internal.pMessageIdName = (sbyte*)_pMessageIdName;
         }
         _internal.messageIdNumber = MessageIdNumber;
-        pMessage.Dispose();
+        _pMessage.Dispose();
         if (PMessage != null)
         {
-            pMessage = new MarshaledString(PMessage, false);
-            _internal.pMessage = (sbyte*)pMessage;
+            _pMessage = new MarshaledString(PMessage, false);
+            _internal.pMessage = (sbyte*)_pMessage;
         }
         _internal.queueLabelCount = QueueLabelCount;
-        pQueueLabels.Dispose();
+        _pQueueLabels.Dispose();
         if (PQueueLabels != null)
         {
             var struct0 = PQueueLabels.ToNative();
-            pQueueLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct0);
-            _internal.pQueueLabels = pQueueLabels.Handle;
+            _pQueueLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct0);
+            _internal.pQueueLabels = _pQueueLabels.Handle;
         }
         _internal.cmdBufLabelCount = CmdBufLabelCount;
-        pCmdBufLabels.Dispose();
+        _pCmdBufLabels.Dispose();
         if (PCmdBufLabels != null)
         {
             var struct1 = PCmdBufLabels.ToNative();
-            pCmdBufLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct1);
-            _internal.pCmdBufLabels = pCmdBufLabels.Handle;
+            _pCmdBufLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct1);
+            _internal.pCmdBufLabels = _pCmdBufLabels.Handle;
         }
         _internal.objectCount = ObjectCount;
-        pObjects.Dispose();
+        _pObjects.Dispose();
         if (PObjects != null)
         {
             var struct2 = PObjects.ToNative();
-            pObjects = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(struct2);
-            _internal.pObjects = pObjects.Handle;
+            _pObjects = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(struct2);
+            _internal.pObjects = _pObjects.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pMessageIdName.Dispose();
-        pMessage.Dispose();
-        pQueueLabels.Dispose();
-        pCmdBufLabels.Dispose();
-        pObjects.Dispose();
+        _pMessageIdName.Dispose();
+        _pMessage.Dispose();
+        _pQueueLabels.Dispose();
+        _pCmdBufLabels.Dispose();
+        _pObjects.Dispose();
     }
 
 

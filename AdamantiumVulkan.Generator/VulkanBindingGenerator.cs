@@ -78,6 +78,7 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
             vkMainModule.WrapInteropObjects = true;
             vkMainModule.GenerateOverloadsForArrayParams = true;
+            vkMainModule.GeneratorSpecializations = GeneratorSpecializations.All;
             //vkMainModule.SkipGenerationForSimpleTypes = true;
             vkMainModule.OutputPath = corePath;
             
@@ -252,7 +253,7 @@ namespace AdamantiumVulkan.Generator
             macroAction.SubstitutionList.Add("VP_LUNARG_DESKTOP_BASELINE_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 1, 139));
             
             
-            // Soirv constansta part
+            // Soirv constansts part
             macroAction.IgnoreList.Add("SPVC_PUBLIC_API");
             macroAction.IgnoreList.Add("SPVC_TRUE");
             macroAction.IgnoreList.Add("SPVC_FALSE");

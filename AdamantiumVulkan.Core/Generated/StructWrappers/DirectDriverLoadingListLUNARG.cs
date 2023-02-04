@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DirectDriverLoadingListLUNARG : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG> pDrivers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG> _pDrivers;
 
     public DirectDriverLoadingListLUNARG()
     {
@@ -42,19 +42,19 @@ public unsafe partial class DirectDriverLoadingListLUNARG : QBDisposableObject
         _internal.pNext = PNext;
         _internal.mode = Mode;
         _internal.driverCount = DriverCount;
-        pDrivers.Dispose();
+        _pDrivers.Dispose();
         if (PDrivers != null)
         {
             var struct0 = PDrivers.ToNative();
-            pDrivers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>(struct0);
-            _internal.pDrivers = pDrivers.Handle;
+            _pDrivers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>(struct0);
+            _internal.pDrivers = _pDrivers.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDrivers.Dispose();
+        _pDrivers.Dispose();
     }
 
 

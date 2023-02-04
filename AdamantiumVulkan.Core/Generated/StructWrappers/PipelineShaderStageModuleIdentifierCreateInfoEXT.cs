@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<byte> pIdentifier;
+    private NativeStruct<byte> _pIdentifier;
 
     public PipelineShaderStageModuleIdentifierCreateInfoEXT()
     {
@@ -42,18 +42,18 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : Q
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.identifierSize = IdentifierSize;
-        pIdentifier.Dispose();
+        _pIdentifier.Dispose();
         if (PIdentifier.HasValue)
         {
-            pIdentifier = new NativeStruct<byte>(PIdentifier.Value);
-            _internal.pIdentifier = pIdentifier.Handle;
+            _pIdentifier = new NativeStruct<byte>(PIdentifier.Value);
+            _internal.pIdentifier = _pIdentifier.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pIdentifier.Dispose();
+        _pIdentifier.Dispose();
     }
 
 

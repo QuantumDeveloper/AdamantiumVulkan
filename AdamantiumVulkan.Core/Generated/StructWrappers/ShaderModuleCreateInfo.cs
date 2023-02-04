@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ShaderModuleCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<byte> pCode;
+    private NativeStructArray<byte> _pCode;
 
     public ShaderModuleCreateInfo()
     {
@@ -42,7 +42,7 @@ public unsafe partial class ShaderModuleCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.codeSize = CodeSize;
-        pCode.Dispose();
+        _pCode.Dispose();
         if (PCode != null)
         {
             var tmpArray0 = new byte[PCode.Length];
@@ -50,15 +50,15 @@ public unsafe partial class ShaderModuleCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PCode[i];
             }
-            pCode = new NativeStructArray<byte>(tmpArray0);
-            _internal.pCode = pCode.Handle;
+            _pCode = new NativeStructArray<byte>(tmpArray0);
+            _internal.pCode = _pCode.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCode.Dispose();
+        _pCode.Dispose();
     }
 
 

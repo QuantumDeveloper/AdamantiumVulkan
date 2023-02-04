@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class WriteDescriptorSet : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> pImageInfo;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> _pImageInfo;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo> pBufferInfo;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo> _pBufferInfo;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferView_T> pTexelBufferView;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferView_T> _pTexelBufferView;
 
     public WriteDescriptorSet()
     {
@@ -75,7 +75,7 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
         _internal.dstArrayElement = DstArrayElement;
         _internal.descriptorCount = DescriptorCount;
         _internal.descriptorType = DescriptorType;
-        pImageInfo.Dispose();
+        _pImageInfo.Dispose();
         if (PImageInfo != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo[PImageInfo.Length];
@@ -83,10 +83,10 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             {
                 tmpArray0[i] = PImageInfo[i].ToNative();
             }
-            pImageInfo = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(tmpArray0);
-            _internal.pImageInfo = pImageInfo.Handle;
+            _pImageInfo = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(tmpArray0);
+            _internal.pImageInfo = _pImageInfo.Handle;
         }
-        pBufferInfo.Dispose();
+        _pBufferInfo.Dispose();
         if (PBufferInfo != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo[PBufferInfo.Length];
@@ -94,10 +94,10 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             {
                 tmpArray1[i] = PBufferInfo[i].ToNative();
             }
-            pBufferInfo = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo>(tmpArray1);
-            _internal.pBufferInfo = pBufferInfo.Handle;
+            _pBufferInfo = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo>(tmpArray1);
+            _internal.pBufferInfo = _pBufferInfo.Handle;
         }
-        pTexelBufferView.Dispose();
+        _pTexelBufferView.Dispose();
         if (PTexelBufferView != null)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkBufferView_T[PTexelBufferView.Length];
@@ -105,17 +105,17 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             {
                 tmpArray2[i] = PTexelBufferView[i];
             }
-            pTexelBufferView = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferView_T>(tmpArray2);
-            _internal.pTexelBufferView = pTexelBufferView.Handle;
+            _pTexelBufferView = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferView_T>(tmpArray2);
+            _internal.pTexelBufferView = _pTexelBufferView.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pImageInfo.Dispose();
-        pBufferInfo.Dispose();
-        pTexelBufferView.Dispose();
+        _pImageInfo.Dispose();
+        _pBufferInfo.Dispose();
+        _pTexelBufferView.Dispose();
     }
 
 

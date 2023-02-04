@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassBeginInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkClearValue> pClearValues;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkClearValue> _pClearValues;
 
     public RenderPassBeginInfo()
     {
@@ -55,7 +55,7 @@ public unsafe partial class RenderPassBeginInfo : QBDisposableObject
             _internal.renderArea = RenderArea.ToNative();
         }
         _internal.clearValueCount = ClearValueCount;
-        pClearValues.Dispose();
+        _pClearValues.Dispose();
         if (PClearValues != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkClearValue[PClearValues.Length];
@@ -63,15 +63,15 @@ public unsafe partial class RenderPassBeginInfo : QBDisposableObject
             {
                 tmpArray0[i] = PClearValues[i].ToNative();
             }
-            pClearValues = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkClearValue>(tmpArray0);
-            _internal.pClearValues = pClearValues.Handle;
+            _pClearValues = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkClearValue>(tmpArray0);
+            _internal.pClearValues = _pClearValues.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pClearValues.Dispose();
+        _pClearValues.Dispose();
     }
 
 

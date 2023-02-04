@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.IndexType> pIndexTypes;
+    private NativeStructArray<AdamantiumVulkan.Core.IndexType> _pIndexTypes;
 
-    private NativeStructArray<uint> pIndexTypeValues;
+    private NativeStructArray<uint> _pIndexTypeValues;
 
     public IndirectCommandsLayoutTokenNV()
     {
@@ -74,13 +74,13 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
         _internal.pushconstantSize = PushconstantSize;
         _internal.indirectStateFlags = IndirectStateFlags;
         _internal.indexTypeCount = IndexTypeCount;
-        pIndexTypes.Dispose();
+        _pIndexTypes.Dispose();
         if (PIndexTypes != null)
         {
-            pIndexTypes = new NativeStructArray<AdamantiumVulkan.Core.IndexType>(PIndexTypes);
-            _internal.pIndexTypes = pIndexTypes.Handle;
+            _pIndexTypes = new NativeStructArray<AdamantiumVulkan.Core.IndexType>(PIndexTypes);
+            _internal.pIndexTypes = _pIndexTypes.Handle;
         }
-        pIndexTypeValues.Dispose();
+        _pIndexTypeValues.Dispose();
         if (PIndexTypeValues != null)
         {
             var tmpArray0 = new uint[PIndexTypeValues.Length];
@@ -88,16 +88,16 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
             {
                 tmpArray0[i] = PIndexTypeValues[i];
             }
-            pIndexTypeValues = new NativeStructArray<uint>(tmpArray0);
-            _internal.pIndexTypeValues = pIndexTypeValues.Handle;
+            _pIndexTypeValues = new NativeStructArray<uint>(tmpArray0);
+            _internal.pIndexTypeValues = _pIndexTypeValues.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pIndexTypes.Dispose();
-        pIndexTypeValues.Dispose();
+        _pIndexTypes.Dispose();
+        _pIndexTypeValues.Dispose();
     }
 
 

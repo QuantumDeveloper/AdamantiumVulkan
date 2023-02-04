@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class GeneratedCommandsInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV> pStreams;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV> _pStreams;
 
     public GeneratedCommandsInfoNV()
     {
@@ -64,12 +64,12 @@ public unsafe partial class GeneratedCommandsInfoNV : QBDisposableObject
         _internal.pipeline = Pipeline;
         _internal.indirectCommandsLayout = IndirectCommandsLayout;
         _internal.streamCount = StreamCount;
-        pStreams.Dispose();
+        _pStreams.Dispose();
         if (PStreams != null)
         {
             var struct0 = PStreams.ToNative();
-            pStreams = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>(struct0);
-            _internal.pStreams = pStreams.Handle;
+            _pStreams = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>(struct0);
+            _internal.pStreams = _pStreams.Handle;
         }
         _internal.sequencesCount = SequencesCount;
         _internal.preprocessBuffer = PreprocessBuffer;
@@ -84,7 +84,7 @@ public unsafe partial class GeneratedCommandsInfoNV : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pStreams.Dispose();
+        _pStreams.Dispose();
     }
 
 

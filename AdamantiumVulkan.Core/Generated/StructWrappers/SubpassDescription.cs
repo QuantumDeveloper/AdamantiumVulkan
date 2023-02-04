@@ -13,15 +13,15 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SubpassDescription : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference> pInputAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference> _pInputAttachments;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference> pColorAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference> _pColorAttachments;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference> pResolveAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference> _pResolveAttachments;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference> pDepthStencilAttachment;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference> _pDepthStencilAttachment;
 
-    private NativeStructArray<uint> pPreserveAttachments;
+    private NativeStructArray<uint> _pPreserveAttachments;
 
     public SubpassDescription()
     {
@@ -79,7 +79,7 @@ public unsafe partial class SubpassDescription : QBDisposableObject
         _internal.flags = Flags;
         _internal.pipelineBindPoint = PipelineBindPoint;
         _internal.inputAttachmentCount = InputAttachmentCount;
-        pInputAttachments.Dispose();
+        _pInputAttachments.Dispose();
         if (PInputAttachments != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[PInputAttachments.Length];
@@ -87,11 +87,11 @@ public unsafe partial class SubpassDescription : QBDisposableObject
             {
                 tmpArray0[i] = PInputAttachments[i].ToNative();
             }
-            pInputAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(tmpArray0);
-            _internal.pInputAttachments = pInputAttachments.Handle;
+            _pInputAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(tmpArray0);
+            _internal.pInputAttachments = _pInputAttachments.Handle;
         }
         _internal.colorAttachmentCount = ColorAttachmentCount;
-        pColorAttachments.Dispose();
+        _pColorAttachments.Dispose();
         if (PColorAttachments != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[PColorAttachments.Length];
@@ -99,10 +99,10 @@ public unsafe partial class SubpassDescription : QBDisposableObject
             {
                 tmpArray1[i] = PColorAttachments[i].ToNative();
             }
-            pColorAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(tmpArray1);
-            _internal.pColorAttachments = pColorAttachments.Handle;
+            _pColorAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(tmpArray1);
+            _internal.pColorAttachments = _pColorAttachments.Handle;
         }
-        pResolveAttachments.Dispose();
+        _pResolveAttachments.Dispose();
         if (PResolveAttachments != null)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[PResolveAttachments.Length];
@@ -110,18 +110,18 @@ public unsafe partial class SubpassDescription : QBDisposableObject
             {
                 tmpArray2[i] = PResolveAttachments[i].ToNative();
             }
-            pResolveAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(tmpArray2);
-            _internal.pResolveAttachments = pResolveAttachments.Handle;
+            _pResolveAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(tmpArray2);
+            _internal.pResolveAttachments = _pResolveAttachments.Handle;
         }
-        pDepthStencilAttachment.Dispose();
+        _pDepthStencilAttachment.Dispose();
         if (PDepthStencilAttachment != null)
         {
             var struct0 = PDepthStencilAttachment.ToNative();
-            pDepthStencilAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(struct0);
-            _internal.pDepthStencilAttachment = pDepthStencilAttachment.Handle;
+            _pDepthStencilAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference>(struct0);
+            _internal.pDepthStencilAttachment = _pDepthStencilAttachment.Handle;
         }
         _internal.preserveAttachmentCount = PreserveAttachmentCount;
-        pPreserveAttachments.Dispose();
+        _pPreserveAttachments.Dispose();
         if (PreserveAttachments != null)
         {
             var tmpArray3 = new uint[PreserveAttachments.Length];
@@ -129,19 +129,19 @@ public unsafe partial class SubpassDescription : QBDisposableObject
             {
                 tmpArray3[i] = PreserveAttachments[i];
             }
-            pPreserveAttachments = new NativeStructArray<uint>(tmpArray3);
-            _internal.pPreserveAttachments = pPreserveAttachments.Handle;
+            _pPreserveAttachments = new NativeStructArray<uint>(tmpArray3);
+            _internal.pPreserveAttachments = _pPreserveAttachments.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pInputAttachments.Dispose();
-        pColorAttachments.Dispose();
-        pResolveAttachments.Dispose();
-        pDepthStencilAttachment.Dispose();
-        pPreserveAttachments.Dispose();
+        _pInputAttachments.Dispose();
+        _pColorAttachments.Dispose();
+        _pResolveAttachments.Dispose();
+        _pDepthStencilAttachment.Dispose();
+        _pPreserveAttachments.Dispose();
     }
 
 

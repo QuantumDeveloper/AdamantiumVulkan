@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ShadingRatePaletteNV : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.ShadingRatePaletteEntryNV> pShadingRatePaletteEntries;
+    private NativeStructArray<AdamantiumVulkan.Core.ShadingRatePaletteEntryNV> _pShadingRatePaletteEntries;
 
     public ShadingRatePaletteNV()
     {
@@ -32,18 +32,18 @@ public unsafe partial class ShadingRatePaletteNV : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV();
         _internal.shadingRatePaletteEntryCount = ShadingRatePaletteEntryCount;
-        pShadingRatePaletteEntries.Dispose();
+        _pShadingRatePaletteEntries.Dispose();
         if (PShadingRatePaletteEntries != null)
         {
-            pShadingRatePaletteEntries = new NativeStructArray<AdamantiumVulkan.Core.ShadingRatePaletteEntryNV>(PShadingRatePaletteEntries);
-            _internal.pShadingRatePaletteEntries = pShadingRatePaletteEntries.Handle;
+            _pShadingRatePaletteEntries = new NativeStructArray<AdamantiumVulkan.Core.ShadingRatePaletteEntryNV>(PShadingRatePaletteEntries);
+            _internal.pShadingRatePaletteEntries = _pShadingRatePaletteEntries.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pShadingRatePaletteEntries.Dispose();
+        _pShadingRatePaletteEntries.Dispose();
     }
 
 

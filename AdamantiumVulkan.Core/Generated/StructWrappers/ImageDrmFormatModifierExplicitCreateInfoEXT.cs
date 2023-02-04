@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubresourceLayout> pPlaneLayouts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubresourceLayout> _pPlaneLayouts;
 
     public ImageDrmFormatModifierExplicitCreateInfoEXT()
     {
@@ -41,19 +41,19 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : QBDisp
         _internal.pNext = PNext;
         _internal.drmFormatModifier = DrmFormatModifier;
         _internal.drmFormatModifierPlaneCount = DrmFormatModifierPlaneCount;
-        pPlaneLayouts.Dispose();
+        _pPlaneLayouts.Dispose();
         if (PlaneLayouts != null)
         {
             var struct0 = PlaneLayouts.ToNative();
-            pPlaneLayouts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(struct0);
-            _internal.pPlaneLayouts = pPlaneLayouts.Handle;
+            _pPlaneLayouts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(struct0);
+            _internal.pPlaneLayouts = _pPlaneLayouts.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pPlaneLayouts.Dispose();
+        _pPlaneLayouts.Dispose();
     }
 
 

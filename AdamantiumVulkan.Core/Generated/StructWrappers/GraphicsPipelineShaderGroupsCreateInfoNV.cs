@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV> pGroups;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV> _pGroups;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T> pPipelines;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T> _pPipelines;
 
     public GraphicsPipelineShaderGroupsCreateInfoNV()
     {
@@ -46,28 +46,28 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : QBDisposa
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.groupCount = GroupCount;
-        pGroups.Dispose();
+        _pGroups.Dispose();
         if (PGroups != null)
         {
             var struct0 = PGroups.ToNative();
-            pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>(struct0);
-            _internal.pGroups = pGroups.Handle;
+            _pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>(struct0);
+            _internal.pGroups = _pGroups.Handle;
         }
         _internal.pipelineCount = PipelineCount;
-        pPipelines.Dispose();
+        _pPipelines.Dispose();
         if (Pipelines != null)
         {
             AdamantiumVulkan.Core.Interop.VkPipeline_T struct1 = Pipelines;
-            pPipelines = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct1);
-            _internal.pPipelines = pPipelines.Handle;
+            _pPipelines = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct1);
+            _internal.pPipelines = _pPipelines.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pGroups.Dispose();
-        pPipelines.Dispose();
+        _pGroups.Dispose();
+        _pPipelines.Dispose();
     }
 
 

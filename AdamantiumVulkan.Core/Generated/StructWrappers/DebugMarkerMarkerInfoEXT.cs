@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DebugMarkerMarkerInfoEXT : QBDisposableObject
 {
-    private MarshaledString pMarkerName;
+    private MarshaledString _pMarkerName;
 
     public DebugMarkerMarkerInfoEXT()
     {
@@ -36,11 +36,11 @@ public unsafe partial class DebugMarkerMarkerInfoEXT : QBDisposableObject
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pMarkerName.Dispose();
+        _pMarkerName.Dispose();
         if (PMarkerName != null)
         {
-            pMarkerName = new MarshaledString(PMarkerName, false);
-            _internal.pMarkerName = (sbyte*)pMarkerName;
+            _pMarkerName = new MarshaledString(PMarkerName, false);
+            _internal.pMarkerName = (sbyte*)_pMarkerName;
         }
         if(Color != null)
         {
@@ -54,7 +54,7 @@ public unsafe partial class DebugMarkerMarkerInfoEXT : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pMarkerName.Dispose();
+        _pMarkerName.Dispose();
     }
 
 

@@ -18,10 +18,11 @@ public unsafe partial struct VkPhysicalDeviceGroupProperties
     public StructureType sType;
     public void* pNext;
     public uint physicalDeviceCount;
-    public VkPhysicalDevice_T__FixedBuffer physicalDevices;
+    public VkPhysicalDevice_T0__FixedBuffer physicalDevices;
     public VkBool32 subsetAllocation;
 
-    public partial struct VkPhysicalDevice_T__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkPhysicalDevice_T0__FixedBuffer
     {
         public VkPhysicalDevice_T item0;
         public VkPhysicalDevice_T item1;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceQueueCreateInfo : QBDisposableObject
 {
-    private NativeStruct<float> pQueuePriorities;
+    private NativeStruct<float> _pQueuePriorities;
 
     public DeviceQueueCreateInfo()
     {
@@ -47,18 +47,18 @@ public unsafe partial class DeviceQueueCreateInfo : QBDisposableObject
         _internal.flags = Flags;
         _internal.queueFamilyIndex = QueueFamilyIndex;
         _internal.queueCount = QueueCount;
-        pQueuePriorities.Dispose();
+        _pQueuePriorities.Dispose();
         if (PQueuePriorities.HasValue)
         {
-            pQueuePriorities = new NativeStruct<float>(PQueuePriorities.Value);
-            _internal.pQueuePriorities = pQueuePriorities.Handle;
+            _pQueuePriorities = new NativeStruct<float>(PQueuePriorities.Value);
+            _internal.pQueuePriorities = _pQueuePriorities.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pQueuePriorities.Dispose();
+        _pQueuePriorities.Dispose();
     }
 
 

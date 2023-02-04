@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineMultisampleStateCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleMask> pSampleMask;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleMask> _pSampleMask;
 
     public PipelineMultisampleStateCreateInfo()
     {
@@ -54,11 +54,11 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : QBDisposableObj
         _internal.rasterizationSamples = RasterizationSamples;
         _internal.sampleShadingEnable = SampleShadingEnable;
         _internal.minSampleShading = MinSampleShading;
-        pSampleMask.Dispose();
+        _pSampleMask.Dispose();
         if (PSampleMask.HasValue)
         {
-            pSampleMask = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleMask>(PSampleMask.Value);
-            _internal.pSampleMask = pSampleMask.Handle;
+            _pSampleMask = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleMask>(PSampleMask.Value);
+            _internal.pSampleMask = _pSampleMask.Handle;
         }
         _internal.alphaToCoverageEnable = AlphaToCoverageEnable;
         _internal.alphaToOneEnable = AlphaToOneEnable;
@@ -67,7 +67,7 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : QBDisposableObj
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSampleMask.Dispose();
+        _pSampleMask.Dispose();
     }
 
 

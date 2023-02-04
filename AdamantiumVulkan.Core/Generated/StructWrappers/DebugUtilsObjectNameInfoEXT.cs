@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DebugUtilsObjectNameInfoEXT : QBDisposableObject
 {
-    private MarshaledString pObjectName;
+    private MarshaledString _pObjectName;
 
     public DebugUtilsObjectNameInfoEXT()
     {
@@ -40,18 +40,18 @@ public unsafe partial class DebugUtilsObjectNameInfoEXT : QBDisposableObject
         _internal.pNext = PNext;
         _internal.objectType = ObjectType;
         _internal.objectHandle = ObjectHandle;
-        pObjectName.Dispose();
+        _pObjectName.Dispose();
         if (PObjectName != null)
         {
-            pObjectName = new MarshaledString(PObjectName, false);
-            _internal.pObjectName = (sbyte*)pObjectName;
+            _pObjectName = new MarshaledString(PObjectName, false);
+            _internal.pObjectName = (sbyte*)_pObjectName;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pObjectName.Dispose();
+        _pObjectName.Dispose();
     }
 
 

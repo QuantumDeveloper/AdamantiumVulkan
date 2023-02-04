@@ -15,9 +15,9 @@ namespace AdamantiumVulkan.Profiles;
 
 public unsafe partial class VpDeviceCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo> pCreateInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo> _pCreateInfo;
 
-    private NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties> pProfile;
+    private NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties> _pProfile;
 
     public VpDeviceCreateInfo()
     {
@@ -39,19 +39,19 @@ public unsafe partial class VpDeviceCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Profiles.Interop.VpDeviceCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Profiles.Interop.VpDeviceCreateInfo();
-        pCreateInfo.Dispose();
+        _pCreateInfo.Dispose();
         if (PCreateInfo != null)
         {
             var struct0 = PCreateInfo.ToNative();
-            pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo>(struct0);
-            _internal.pCreateInfo = pCreateInfo.Handle;
+            _pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo>(struct0);
+            _internal.pCreateInfo = _pCreateInfo.Handle;
         }
-        pProfile.Dispose();
+        _pProfile.Dispose();
         if (Profile != null)
         {
             var struct1 = Profile.ToNative();
-            pProfile = new NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties>(struct1);
-            _internal.pProfile = pProfile.Handle;
+            _pProfile = new NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties>(struct1);
+            _internal.pProfile = _pProfile.Handle;
         }
         _internal.flags = Flags;
         return _internal;
@@ -59,8 +59,8 @@ public unsafe partial class VpDeviceCreateInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCreateInfo.Dispose();
-        pProfile.Dispose();
+        _pCreateInfo.Dispose();
+        _pProfile.Dispose();
     }
 
 

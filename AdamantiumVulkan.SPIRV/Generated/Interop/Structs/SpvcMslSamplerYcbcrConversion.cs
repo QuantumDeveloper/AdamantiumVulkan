@@ -23,12 +23,13 @@ public unsafe partial struct SpvcMslSamplerYcbcrConversion
     public MslSamplerFilter chroma_filter;
     public MslChromaLocation x_chroma_offset;
     public MslChromaLocation y_chroma_offset;
-    public MslComponentSwizzle__FixedBuffer swizzle;
+    public MslComponentSwizzle0__FixedBuffer swizzle;
     public MslSamplerYcbcrModelConversion ycbcr_model;
     public MslSamplerYcbcrRange ycbcr_range;
     public uint bpc;
 
-    public partial struct MslComponentSwizzle__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct MslComponentSwizzle0__FixedBuffer
     {
         public MslComponentSwizzle item0;
         public MslComponentSwizzle item1;

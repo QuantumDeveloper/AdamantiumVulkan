@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CommandBufferBeginInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo> pInheritanceInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo> _pInheritanceInfo;
 
     public CommandBufferBeginInfo()
     {
@@ -38,19 +38,19 @@ public unsafe partial class CommandBufferBeginInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.flags = Flags;
-        pInheritanceInfo.Dispose();
+        _pInheritanceInfo.Dispose();
         if (PInheritanceInfo != null)
         {
             var struct0 = PInheritanceInfo.ToNative();
-            pInheritanceInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(struct0);
-            _internal.pInheritanceInfo = pInheritanceInfo.Handle;
+            _pInheritanceInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(struct0);
+            _internal.pInheritanceInfo = _pInheritanceInfo.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pInheritanceInfo.Dispose();
+        _pInheritanceInfo.Dispose();
     }
 
 

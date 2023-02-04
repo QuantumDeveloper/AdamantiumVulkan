@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SampleLocationsInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT> pSampleLocations;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT> _pSampleLocations;
 
     public SampleLocationsInfoEXT()
     {
@@ -47,19 +47,19 @@ public unsafe partial class SampleLocationsInfoEXT : QBDisposableObject
             _internal.sampleLocationGridSize = SampleLocationGridSize.ToNative();
         }
         _internal.sampleLocationsCount = SampleLocationsCount;
-        pSampleLocations.Dispose();
+        _pSampleLocations.Dispose();
         if (PSampleLocations != null)
         {
             var struct0 = PSampleLocations.ToNative();
-            pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(struct0);
-            _internal.pSampleLocations = pSampleLocations.Handle;
+            _pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(struct0);
+            _internal.pSampleLocations = _pSampleLocations.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSampleLocations.Dispose();
+        _pSampleLocations.Dispose();
     }
 
 

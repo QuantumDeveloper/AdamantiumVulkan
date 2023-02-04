@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T> pSetLayouts;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T> _pSetLayouts;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange> pPushConstantRanges;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange> _pPushConstantRanges;
 
     public PipelineLayoutCreateInfo()
     {
@@ -53,7 +53,7 @@ public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.setLayoutCount = SetLayoutCount;
-        pSetLayouts.Dispose();
+        _pSetLayouts.Dispose();
         if (PSetLayouts != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
@@ -61,24 +61,24 @@ public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PSetLayouts[i];
             }
-            pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
-            _internal.pSetLayouts = pSetLayouts.Handle;
+            _pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
+            _internal.pSetLayouts = _pSetLayouts.Handle;
         }
         _internal.pushConstantRangeCount = PushConstantRangeCount;
-        pPushConstantRanges.Dispose();
+        _pPushConstantRanges.Dispose();
         if (PushConstantRanges != null)
         {
             var struct0 = PushConstantRanges.ToNative();
-            pPushConstantRanges = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange>(struct0);
-            _internal.pPushConstantRanges = pPushConstantRanges.Handle;
+            _pPushConstantRanges = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange>(struct0);
+            _internal.pPushConstantRanges = _pPushConstantRanges.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSetLayouts.Dispose();
-        pPushConstantRanges.Dispose();
+        _pSetLayouts.Dispose();
+        _pPushConstantRanges.Dispose();
     }
 
 

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DebugUtilsLabelEXT : QBDisposableObject
 {
-    private MarshaledString pLabelName;
+    private MarshaledString _pLabelName;
 
     public DebugUtilsLabelEXT()
     {
@@ -36,11 +36,11 @@ public unsafe partial class DebugUtilsLabelEXT : QBDisposableObject
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pLabelName.Dispose();
+        _pLabelName.Dispose();
         if (PLabelName != null)
         {
-            pLabelName = new MarshaledString(PLabelName, false);
-            _internal.pLabelName = (sbyte*)pLabelName;
+            _pLabelName = new MarshaledString(PLabelName, false);
+            _internal.pLabelName = (sbyte*)_pLabelName;
         }
         if(Color != null)
         {
@@ -54,7 +54,7 @@ public unsafe partial class DebugUtilsLabelEXT : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pLabelName.Dispose();
+        _pLabelName.Dispose();
     }
 
 

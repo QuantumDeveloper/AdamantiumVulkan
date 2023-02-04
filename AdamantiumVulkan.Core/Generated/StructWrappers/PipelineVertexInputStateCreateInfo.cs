@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription> pVertexBindingDescriptions;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription> _pVertexBindingDescriptions;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription> pVertexAttributeDescriptions;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription> _pVertexAttributeDescriptions;
 
     public PipelineVertexInputStateCreateInfo()
     {
@@ -58,7 +58,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.vertexBindingDescriptionCount = VertexBindingDescriptionCount;
-        pVertexBindingDescriptions.Dispose();
+        _pVertexBindingDescriptions.Dispose();
         if (PVertexBindingDescriptions != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription[PVertexBindingDescriptions.Length];
@@ -66,11 +66,11 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
             {
                 tmpArray0[i] = PVertexBindingDescriptions[i].ToNative();
             }
-            pVertexBindingDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription>(tmpArray0);
-            _internal.pVertexBindingDescriptions = pVertexBindingDescriptions.Handle;
+            _pVertexBindingDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription>(tmpArray0);
+            _internal.pVertexBindingDescriptions = _pVertexBindingDescriptions.Handle;
         }
         _internal.vertexAttributeDescriptionCount = VertexAttributeDescriptionCount;
-        pVertexAttributeDescriptions.Dispose();
+        _pVertexAttributeDescriptions.Dispose();
         if (PVertexAttributeDescriptions != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription[PVertexAttributeDescriptions.Length];
@@ -78,16 +78,16 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
             {
                 tmpArray1[i] = PVertexAttributeDescriptions[i].ToNative();
             }
-            pVertexAttributeDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription>(tmpArray1);
-            _internal.pVertexAttributeDescriptions = pVertexAttributeDescriptions.Handle;
+            _pVertexAttributeDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription>(tmpArray1);
+            _internal.pVertexAttributeDescriptions = _pVertexAttributeDescriptions.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pVertexBindingDescriptions.Dispose();
-        pVertexAttributeDescriptions.Dispose();
+        _pVertexBindingDescriptions.Dispose();
+        _pVertexAttributeDescriptions.Dispose();
     }
 
 

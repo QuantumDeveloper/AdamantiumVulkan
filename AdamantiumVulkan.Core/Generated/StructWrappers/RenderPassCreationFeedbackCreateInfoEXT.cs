@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT> pRenderPassFeedback;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT> _pRenderPassFeedback;
 
     public RenderPassCreationFeedbackCreateInfoEXT()
     {
@@ -36,19 +36,19 @@ public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : QBDisposab
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pRenderPassFeedback.Dispose();
+        _pRenderPassFeedback.Dispose();
         if (PRenderPassFeedback != null)
         {
             var struct0 = PRenderPassFeedback.ToNative();
-            pRenderPassFeedback = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT>(struct0);
-            _internal.pRenderPassFeedback = pRenderPassFeedback.Handle;
+            _pRenderPassFeedback = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT>(struct0);
+            _internal.pRenderPassFeedback = _pRenderPassFeedback.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pRenderPassFeedback.Dispose();
+        _pRenderPassFeedback.Dispose();
     }
 
 

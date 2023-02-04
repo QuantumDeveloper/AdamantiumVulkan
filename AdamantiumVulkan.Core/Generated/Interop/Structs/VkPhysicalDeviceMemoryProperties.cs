@@ -15,11 +15,12 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMemoryProperties
 {
     public uint memoryTypeCount;
-    public VkMemoryType__FixedBuffer memoryTypes;
+    public VkMemoryType0__FixedBuffer memoryTypes;
     public uint memoryHeapCount;
-    public VkMemoryHeap__FixedBuffer memoryHeaps;
+    public VkMemoryHeap0__FixedBuffer memoryHeaps;
 
-    public partial struct VkMemoryType__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryType0__FixedBuffer
     {
         public VkMemoryType item0;
         public VkMemoryType item1;
@@ -61,7 +62,8 @@ public unsafe partial struct VkPhysicalDeviceMemoryProperties
         }
     }
 
-    public partial struct VkMemoryHeap__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkMemoryHeap0__FixedBuffer
     {
         public VkMemoryHeap item0;
         public VkMemoryHeap item1;

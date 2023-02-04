@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetAllocateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T> pSetLayouts;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T> _pSetLayouts;
 
     public DescriptorSetAllocateInfo()
     {
@@ -46,7 +46,7 @@ public unsafe partial class DescriptorSetAllocateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.descriptorPool = DescriptorPool;
         _internal.descriptorSetCount = DescriptorSetCount;
-        pSetLayouts.Dispose();
+        _pSetLayouts.Dispose();
         if (PSetLayouts != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
@@ -54,15 +54,15 @@ public unsafe partial class DescriptorSetAllocateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PSetLayouts[i];
             }
-            pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
-            _internal.pSetLayouts = pSetLayouts.Handle;
+            _pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
+            _internal.pSetLayouts = _pSetLayouts.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSetLayouts.Dispose();
+        _pSetLayouts.Dispose();
     }
 
 

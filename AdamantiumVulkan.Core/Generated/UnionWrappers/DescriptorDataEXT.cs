@@ -13,23 +13,23 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorDataEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T> pSampler;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T> _pSampler;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> pCombinedImageSampler;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> _pCombinedImageSampler;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> pInputAttachmentImage;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> _pInputAttachmentImage;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> pSampledImage;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> _pSampledImage;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> pStorageImage;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo> _pStorageImage;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> pUniformTexelBuffer;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> _pUniformTexelBuffer;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> pStorageTexelBuffer;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> _pStorageTexelBuffer;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> pUniformBuffer;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> _pUniformBuffer;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> pStorageBuffer;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT> _pStorageBuffer;
 
     public DescriptorDataEXT()
     {
@@ -72,68 +72,68 @@ public unsafe partial class DescriptorDataEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT();
-        pSampler.Dispose();
+        _pSampler.Dispose();
         if (PSampler != null)
         {
             AdamantiumVulkan.Core.Interop.VkSampler_T struct0 = PSampler;
-            pSampler = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T>(struct0);
-            _internal.pSampler = pSampler.Handle;
+            _pSampler = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T>(struct0);
+            _internal.pSampler = _pSampler.Handle;
         }
-        pCombinedImageSampler.Dispose();
+        _pCombinedImageSampler.Dispose();
         if (PCombinedImageSampler != null)
         {
             var struct1 = PCombinedImageSampler.ToNative();
-            pCombinedImageSampler = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct1);
-            _internal.pCombinedImageSampler = pCombinedImageSampler.Handle;
+            _pCombinedImageSampler = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct1);
+            _internal.pCombinedImageSampler = _pCombinedImageSampler.Handle;
         }
-        pInputAttachmentImage.Dispose();
+        _pInputAttachmentImage.Dispose();
         if (PInputAttachmentImage != null)
         {
             var struct2 = PInputAttachmentImage.ToNative();
-            pInputAttachmentImage = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct2);
-            _internal.pInputAttachmentImage = pInputAttachmentImage.Handle;
+            _pInputAttachmentImage = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct2);
+            _internal.pInputAttachmentImage = _pInputAttachmentImage.Handle;
         }
-        pSampledImage.Dispose();
+        _pSampledImage.Dispose();
         if (PSampledImage != null)
         {
             var struct3 = PSampledImage.ToNative();
-            pSampledImage = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct3);
-            _internal.pSampledImage = pSampledImage.Handle;
+            _pSampledImage = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct3);
+            _internal.pSampledImage = _pSampledImage.Handle;
         }
-        pStorageImage.Dispose();
+        _pStorageImage.Dispose();
         if (PStorageImage != null)
         {
             var struct4 = PStorageImage.ToNative();
-            pStorageImage = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct4);
-            _internal.pStorageImage = pStorageImage.Handle;
+            _pStorageImage = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(struct4);
+            _internal.pStorageImage = _pStorageImage.Handle;
         }
-        pUniformTexelBuffer.Dispose();
+        _pUniformTexelBuffer.Dispose();
         if (PUniformTexelBuffer != null)
         {
             var struct5 = PUniformTexelBuffer.ToNative();
-            pUniformTexelBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct5);
-            _internal.pUniformTexelBuffer = pUniformTexelBuffer.Handle;
+            _pUniformTexelBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct5);
+            _internal.pUniformTexelBuffer = _pUniformTexelBuffer.Handle;
         }
-        pStorageTexelBuffer.Dispose();
+        _pStorageTexelBuffer.Dispose();
         if (PStorageTexelBuffer != null)
         {
             var struct6 = PStorageTexelBuffer.ToNative();
-            pStorageTexelBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct6);
-            _internal.pStorageTexelBuffer = pStorageTexelBuffer.Handle;
+            _pStorageTexelBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct6);
+            _internal.pStorageTexelBuffer = _pStorageTexelBuffer.Handle;
         }
-        pUniformBuffer.Dispose();
+        _pUniformBuffer.Dispose();
         if (PUniformBuffer != null)
         {
             var struct7 = PUniformBuffer.ToNative();
-            pUniformBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct7);
-            _internal.pUniformBuffer = pUniformBuffer.Handle;
+            _pUniformBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct7);
+            _internal.pUniformBuffer = _pUniformBuffer.Handle;
         }
-        pStorageBuffer.Dispose();
+        _pStorageBuffer.Dispose();
         if (PStorageBuffer != null)
         {
             var struct8 = PStorageBuffer.ToNative();
-            pStorageBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct8);
-            _internal.pStorageBuffer = pStorageBuffer.Handle;
+            _pStorageBuffer = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(struct8);
+            _internal.pStorageBuffer = _pStorageBuffer.Handle;
         }
         _internal.accelerationStructure = AccelerationStructure;
         return _internal;
@@ -141,15 +141,15 @@ public unsafe partial class DescriptorDataEXT : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pSampler.Dispose();
-        pCombinedImageSampler.Dispose();
-        pInputAttachmentImage.Dispose();
-        pSampledImage.Dispose();
-        pStorageImage.Dispose();
-        pUniformTexelBuffer.Dispose();
-        pStorageTexelBuffer.Dispose();
-        pUniformBuffer.Dispose();
-        pStorageBuffer.Dispose();
+        _pSampler.Dispose();
+        _pCombinedImageSampler.Dispose();
+        _pInputAttachmentImage.Dispose();
+        _pSampledImage.Dispose();
+        _pStorageImage.Dispose();
+        _pUniformTexelBuffer.Dispose();
+        _pStorageTexelBuffer.Dispose();
+        _pUniformBuffer.Dispose();
+        _pStorageBuffer.Dispose();
     }
 
 

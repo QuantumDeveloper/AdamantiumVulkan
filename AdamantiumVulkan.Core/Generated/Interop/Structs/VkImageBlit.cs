@@ -15,11 +15,12 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkImageBlit
 {
     public VkImageSubresourceLayers srcSubresource;
-    public VkOffset3D__FixedBuffer srcOffsets;
+    public VkOffset3D0__FixedBuffer srcOffsets;
     public VkImageSubresourceLayers dstSubresource;
-    public VkOffset3D__FixedBuffer dstOffsets;
+    public VkOffset3D0__FixedBuffer dstOffsets;
 
-    public partial struct VkOffset3D__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct VkOffset3D0__FixedBuffer
     {
         public VkOffset3D item0;
         public VkOffset3D item1;

@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class BindImageMemoryDeviceGroupInfo : QBDisposableObject
 {
-    private NativeStruct<uint> pDeviceIndices;
+    private NativeStruct<uint> _pDeviceIndices;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> pSplitInstanceBindRegions;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D> _pSplitInstanceBindRegions;
 
     public BindImageMemoryDeviceGroupInfo()
     {
@@ -48,27 +48,27 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.deviceIndexCount = DeviceIndexCount;
-        pDeviceIndices.Dispose();
+        _pDeviceIndices.Dispose();
         if (PDeviceIndices.HasValue)
         {
-            pDeviceIndices = new NativeStruct<uint>(PDeviceIndices.Value);
-            _internal.pDeviceIndices = pDeviceIndices.Handle;
+            _pDeviceIndices = new NativeStruct<uint>(PDeviceIndices.Value);
+            _internal.pDeviceIndices = _pDeviceIndices.Handle;
         }
         _internal.splitInstanceBindRegionCount = SplitInstanceBindRegionCount;
-        pSplitInstanceBindRegions.Dispose();
+        _pSplitInstanceBindRegions.Dispose();
         if (PSplitInstanceBindRegions != null)
         {
             var struct1 = PSplitInstanceBindRegions.ToNative();
-            pSplitInstanceBindRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct1);
-            _internal.pSplitInstanceBindRegions = pSplitInstanceBindRegions.Handle;
+            _pSplitInstanceBindRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct1);
+            _internal.pSplitInstanceBindRegions = _pSplitInstanceBindRegions.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDeviceIndices.Dispose();
-        pSplitInstanceBindRegions.Dispose();
+        _pDeviceIndices.Dispose();
+        _pSplitInstanceBindRegions.Dispose();
     }
 
 

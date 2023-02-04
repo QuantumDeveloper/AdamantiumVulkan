@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding> pBindings;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding> _pBindings;
 
     public DescriptorSetLayoutCreateInfo()
     {
@@ -46,7 +46,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.bindingCount = BindingCount;
-        pBindings.Dispose();
+        _pBindings.Dispose();
         if (PBindings != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[PBindings.Length];
@@ -54,15 +54,15 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PBindings[i].ToNative();
             }
-            pBindings = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding>(tmpArray0);
-            _internal.pBindings = pBindings.Handle;
+            _pBindings = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding>(tmpArray0);
+            _internal.pBindings = _pBindings.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pBindings.Dispose();
+        _pBindings.Dispose();
     }
 
 

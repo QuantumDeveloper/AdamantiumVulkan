@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineShaderStageCreateInfo : QBDisposableObject
 {
-    private MarshaledString pName;
+    private MarshaledString _pName;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo> pSpecializationInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo> _pSpecializationInfo;
 
     public PipelineShaderStageCreateInfo()
     {
@@ -48,26 +48,26 @@ public unsafe partial class PipelineShaderStageCreateInfo : QBDisposableObject
         _internal.flags = Flags;
         _internal.stage = Stage;
         _internal.module = Module;
-        pName.Dispose();
+        _pName.Dispose();
         if (PName != null)
         {
-            pName = new MarshaledString(PName, false);
-            _internal.pName = (sbyte*)pName;
+            _pName = new MarshaledString(PName, false);
+            _internal.pName = (sbyte*)_pName;
         }
-        pSpecializationInfo.Dispose();
+        _pSpecializationInfo.Dispose();
         if (PSpecializationInfo != null)
         {
             var struct0 = PSpecializationInfo.ToNative();
-            pSpecializationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(struct0);
-            _internal.pSpecializationInfo = pSpecializationInfo.Handle;
+            _pSpecializationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(struct0);
+            _internal.pSpecializationInfo = _pSpecializationInfo.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pName.Dispose();
-        pSpecializationInfo.Dispose();
+        _pName.Dispose();
+        _pSpecializationInfo.Dispose();
     }
 
 

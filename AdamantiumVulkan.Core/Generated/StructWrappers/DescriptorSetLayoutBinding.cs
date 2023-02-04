@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DescriptorSetLayoutBinding : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T> pImmutableSamplers;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T> _pImmutableSamplers;
 
     public DescriptorSetLayoutBinding()
     {
@@ -42,19 +42,19 @@ public unsafe partial class DescriptorSetLayoutBinding : QBDisposableObject
         _internal.descriptorType = DescriptorType;
         _internal.descriptorCount = DescriptorCount;
         _internal.stageFlags = StageFlags;
-        pImmutableSamplers.Dispose();
+        _pImmutableSamplers.Dispose();
         if (PImmutableSamplers != null)
         {
             AdamantiumVulkan.Core.Interop.VkSampler_T struct0 = PImmutableSamplers;
-            pImmutableSamplers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T>(struct0);
-            _internal.pImmutableSamplers = pImmutableSamplers.Handle;
+            _pImmutableSamplers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T>(struct0);
+            _internal.pImmutableSamplers = _pImmutableSamplers.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pImmutableSamplers.Dispose();
+        _pImmutableSamplers.Dispose();
     }
 
 

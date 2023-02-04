@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ImageCreateInfo : QBDisposableObject
 {
-    private NativeStruct<uint> pQueueFamilyIndices;
+    private NativeStruct<uint> _pQueueFamilyIndices;
 
     public ImageCreateInfo()
     {
@@ -76,11 +76,11 @@ public unsafe partial class ImageCreateInfo : QBDisposableObject
         _internal.usage = Usage;
         _internal.sharingMode = SharingMode;
         _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
-        pQueueFamilyIndices.Dispose();
+        _pQueueFamilyIndices.Dispose();
         if (PQueueFamilyIndices.HasValue)
         {
-            pQueueFamilyIndices = new NativeStruct<uint>(PQueueFamilyIndices.Value);
-            _internal.pQueueFamilyIndices = pQueueFamilyIndices.Handle;
+            _pQueueFamilyIndices = new NativeStruct<uint>(PQueueFamilyIndices.Value);
+            _internal.pQueueFamilyIndices = _pQueueFamilyIndices.Handle;
         }
         _internal.initialLayout = InitialLayout;
         return _internal;
@@ -88,7 +88,7 @@ public unsafe partial class ImageCreateInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pQueueFamilyIndices.Dispose();
+        _pQueueFamilyIndices.Dispose();
     }
 
 

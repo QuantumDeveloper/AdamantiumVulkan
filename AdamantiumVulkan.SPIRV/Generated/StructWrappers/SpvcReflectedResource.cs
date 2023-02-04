@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Spirv.Cross;
 
 public unsafe partial class SpvcReflectedResource : QBDisposableObject
 {
-    private MarshaledString name;
+    private MarshaledString _name;
 
     public SpvcReflectedResource()
     {
@@ -38,18 +38,18 @@ public unsafe partial class SpvcReflectedResource : QBDisposableObject
         _internal.id = Id;
         _internal.base_type_id = Base_type_id;
         _internal.type_id = Type_id;
-        name.Dispose();
+        _name.Dispose();
         if (Name != null)
         {
-            name = new MarshaledString(Name, false);
-            _internal.name = (sbyte*)name;
+            _name = new MarshaledString(Name, false);
+            _internal.name = (sbyte*)_name;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        name.Dispose();
+        _name.Dispose();
     }
 
 

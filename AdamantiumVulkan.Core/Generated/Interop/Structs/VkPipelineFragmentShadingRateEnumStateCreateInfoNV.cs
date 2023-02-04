@@ -19,9 +19,10 @@ public unsafe partial struct VkPipelineFragmentShadingRateEnumStateCreateInfoNV
     public void* pNext;
     public FragmentShadingRateTypeNV shadingRateType;
     public FragmentShadingRateNV shadingRate;
-    public FragmentShadingRateCombinerOpKHR__FixedBuffer combinerOps;
+    public FragmentShadingRateCombinerOpKHR0__FixedBuffer combinerOps;
 
-    public partial struct FragmentShadingRateCombinerOpKHR__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct FragmentShadingRateCombinerOpKHR0__FixedBuffer
     {
         public FragmentShadingRateCombinerOpKHR item0;
         public FragmentShadingRateCombinerOpKHR item1;

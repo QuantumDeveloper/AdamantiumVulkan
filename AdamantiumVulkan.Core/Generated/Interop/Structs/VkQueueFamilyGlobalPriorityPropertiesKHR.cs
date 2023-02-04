@@ -18,9 +18,10 @@ public unsafe partial struct VkQueueFamilyGlobalPriorityPropertiesKHR
     public StructureType sType;
     public void* pNext;
     public uint priorityCount;
-    public QueueGlobalPriorityKHR__FixedBuffer priorities;
+    public QueueGlobalPriorityKHR0__FixedBuffer priorities;
 
-    public partial struct QueueGlobalPriorityKHR__FixedBuffer
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct QueueGlobalPriorityKHR0__FixedBuffer
     {
         public QueueGlobalPriorityKHR item0;
         public QueueGlobalPriorityKHR item1;

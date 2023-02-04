@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class BufferCreateInfo : QBDisposableObject
 {
-    private NativeStruct<uint> pQueueFamilyIndices;
+    private NativeStruct<uint> _pQueueFamilyIndices;
 
     public BufferCreateInfo()
     {
@@ -53,18 +53,18 @@ public unsafe partial class BufferCreateInfo : QBDisposableObject
         _internal.usage = Usage;
         _internal.sharingMode = SharingMode;
         _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
-        pQueueFamilyIndices.Dispose();
+        _pQueueFamilyIndices.Dispose();
         if (PQueueFamilyIndices.HasValue)
         {
-            pQueueFamilyIndices = new NativeStruct<uint>(PQueueFamilyIndices.Value);
-            _internal.pQueueFamilyIndices = pQueueFamilyIndices.Handle;
+            _pQueueFamilyIndices = new NativeStruct<uint>(PQueueFamilyIndices.Value);
+            _internal.pQueueFamilyIndices = _pQueueFamilyIndices.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pQueueFamilyIndices.Dispose();
+        _pQueueFamilyIndices.Dispose();
     }
 
 

@@ -1696,7 +1696,7 @@ public unsafe partial class Device
 
     public void* GetDeviceProcAddr(string pName)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(pName, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(pName, false);
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceProcAddr(this, arg1);
         NativeUtils.Free(arg1);
         return result;

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class CuFunctionCreateInfoNVX : QBDisposableObject
 {
-    private MarshaledString pName;
+    private MarshaledString _pName;
 
     public CuFunctionCreateInfoNVX()
     {
@@ -38,18 +38,18 @@ public unsafe partial class CuFunctionCreateInfoNVX : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.module = Module;
-        pName.Dispose();
+        _pName.Dispose();
         if (PName != null)
         {
-            pName = new MarshaledString(PName, false);
-            _internal.pName = (sbyte*)pName;
+            _pName = new MarshaledString(PName, false);
+            _internal.pName = (sbyte*)_pName;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pName.Dispose();
+        _pName.Dispose();
     }
 
 

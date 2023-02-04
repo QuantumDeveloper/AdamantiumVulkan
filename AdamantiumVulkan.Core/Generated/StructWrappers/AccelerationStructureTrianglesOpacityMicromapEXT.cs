@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> pUsageCounts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> _pUsageCounts;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> ppUsageCounts;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT> _ppUsageCounts;
 
     public AccelerationStructureTrianglesOpacityMicromapEXT()
     {
@@ -58,12 +58,12 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : Q
         _internal.indexStride = IndexStride;
         _internal.baseTriangle = BaseTriangle;
         _internal.usageCountsCount = UsageCountsCount;
-        pUsageCounts.Dispose();
+        _pUsageCounts.Dispose();
         if (PUsageCounts != null)
         {
             var struct0 = PUsageCounts.ToNative();
-            pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
-            _internal.pUsageCounts = pUsageCounts.Handle;
+            _pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
+            _internal.pUsageCounts = _pUsageCounts.Handle;
         }
         _internal.micromap = Micromap;
         return _internal;
@@ -71,8 +71,8 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : Q
 
     protected override void UnmanagedDisposeOverride()
     {
-        pUsageCounts.Dispose();
-        ppUsageCounts.Dispose();
+        _pUsageCounts.Dispose();
+        _ppUsageCounts.Dispose();
     }
 
 

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class BaseInStructure : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBaseInStructure> pNext;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBaseInStructure> _pNext;
 
     public BaseInStructure()
     {
@@ -33,19 +33,19 @@ public unsafe partial class BaseInStructure : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBaseInStructure();
         _internal.sType = SType;
-        pNext.Dispose();
+        _pNext.Dispose();
         if (PNext != null)
         {
             var struct0 = PNext.ToNative();
-            pNext = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBaseInStructure>(struct0);
-            _internal.pNext = pNext.Handle;
+            _pNext = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBaseInStructure>(struct0);
+            _internal.pNext = _pNext.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pNext.Dispose();
+        _pNext.Dispose();
     }
 
 

@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ApplicationInfo : QBDisposableObject
 {
-    private MarshaledString pApplicationName;
+    private MarshaledString _pApplicationName;
 
-    private MarshaledString pEngineName;
+    private MarshaledString _pEngineName;
 
     public ApplicationInfo()
     {
@@ -44,18 +44,18 @@ public unsafe partial class ApplicationInfo : QBDisposableObject
         var _internal = new AdamantiumVulkan.Core.Interop.VkApplicationInfo();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pApplicationName.Dispose();
+        _pApplicationName.Dispose();
         if (PApplicationName != null)
         {
-            pApplicationName = new MarshaledString(PApplicationName, false);
-            _internal.pApplicationName = (sbyte*)pApplicationName;
+            _pApplicationName = new MarshaledString(PApplicationName, false);
+            _internal.pApplicationName = (sbyte*)_pApplicationName;
         }
         _internal.applicationVersion = ApplicationVersion;
-        pEngineName.Dispose();
+        _pEngineName.Dispose();
         if (PEngineName != null)
         {
-            pEngineName = new MarshaledString(PEngineName, false);
-            _internal.pEngineName = (sbyte*)pEngineName;
+            _pEngineName = new MarshaledString(PEngineName, false);
+            _internal.pEngineName = (sbyte*)_pEngineName;
         }
         _internal.engineVersion = EngineVersion;
         _internal.apiVersion = ApiVersion;
@@ -64,8 +64,8 @@ public unsafe partial class ApplicationInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pApplicationName.Dispose();
-        pEngineName.Dispose();
+        _pApplicationName.Dispose();
+        _pEngineName.Dispose();
     }
 
 

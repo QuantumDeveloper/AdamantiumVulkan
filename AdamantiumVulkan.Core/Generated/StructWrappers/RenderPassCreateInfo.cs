@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription> pAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription> _pAttachments;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription> pSubpasses;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription> _pSubpasses;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDependency> pDependencies;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDependency> _pDependencies;
 
     public RenderPassCreateInfo()
     {
@@ -70,7 +70,7 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.flags = Flags;
         _internal.attachmentCount = AttachmentCount;
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
         if (PAttachments != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[PAttachments.Length];
@@ -78,11 +78,11 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PAttachments[i].ToNative();
             }
-            pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription>(tmpArray0);
-            _internal.pAttachments = pAttachments.Handle;
+            _pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription>(tmpArray0);
+            _internal.pAttachments = _pAttachments.Handle;
         }
         _internal.subpassCount = SubpassCount;
-        pSubpasses.Dispose();
+        _pSubpasses.Dispose();
         if (PSubpasses != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[PSubpasses.Length];
@@ -90,11 +90,11 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             {
                 tmpArray1[i] = PSubpasses[i].ToNative();
             }
-            pSubpasses = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription>(tmpArray1);
-            _internal.pSubpasses = pSubpasses.Handle;
+            _pSubpasses = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription>(tmpArray1);
+            _internal.pSubpasses = _pSubpasses.Handle;
         }
         _internal.dependencyCount = DependencyCount;
-        pDependencies.Dispose();
+        _pDependencies.Dispose();
         if (PDependencies != null)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[PDependencies.Length];
@@ -102,17 +102,17 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             {
                 tmpArray2[i] = PDependencies[i].ToNative();
             }
-            pDependencies = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDependency>(tmpArray2);
-            _internal.pDependencies = pDependencies.Handle;
+            _pDependencies = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDependency>(tmpArray2);
+            _internal.pDependencies = _pDependencies.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachments.Dispose();
-        pSubpasses.Dispose();
-        pDependencies.Dispose();
+        _pAttachments.Dispose();
+        _pSubpasses.Dispose();
+        _pDependencies.Dispose();
     }
 
 

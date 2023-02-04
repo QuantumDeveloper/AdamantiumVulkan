@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceBufferMemoryRequirements : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo> pCreateInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo> _pCreateInfo;
 
     public DeviceBufferMemoryRequirements()
     {
@@ -36,19 +36,19 @@ public unsafe partial class DeviceBufferMemoryRequirements : QBDisposableObject
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pCreateInfo.Dispose();
+        _pCreateInfo.Dispose();
         if (PCreateInfo != null)
         {
             var struct0 = PCreateInfo.ToNative();
-            pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo>(struct0);
-            _internal.pCreateInfo = pCreateInfo.Handle;
+            _pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo>(struct0);
+            _internal.pCreateInfo = _pCreateInfo.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCreateInfo.Dispose();
+        _pCreateInfo.Dispose();
     }
 
 

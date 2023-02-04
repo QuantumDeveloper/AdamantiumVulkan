@@ -52,7 +52,7 @@ public unsafe static class VulkanNative
     ///</summary>
     public static Result VpGetInstanceProfileSupport(string pLayerName, in VpProfileProperties pProfile, ref VkBool32 pSupported)
     {
-        var arg0 = (sbyte*)NativeUtils.PointerToString(pLayerName, false);
+        var arg0 = (sbyte*)NativeUtils.StringToPointer(pLayerName, false);
         var arg1 = ReferenceEquals(pProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pProfile.ToNative());
         var arg2 = ReferenceEquals(pSupported, null) ? null : NativeUtils.StructOrEnumToPointer(pSupported);
         var result = AdamantiumVulkan.Profiles.Interop.VulkanInterop.vpGetInstanceProfileSupport(arg0, arg1, arg2);

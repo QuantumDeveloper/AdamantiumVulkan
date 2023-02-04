@@ -15,9 +15,9 @@ namespace AdamantiumVulkan.Profiles;
 
 public unsafe partial class VpInstanceCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo> pCreateInfo;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo> _pCreateInfo;
 
-    private NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties> pProfile;
+    private NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties> _pProfile;
 
     public VpInstanceCreateInfo()
     {
@@ -39,19 +39,19 @@ public unsafe partial class VpInstanceCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Profiles.Interop.VpInstanceCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Profiles.Interop.VpInstanceCreateInfo();
-        pCreateInfo.Dispose();
+        _pCreateInfo.Dispose();
         if (PCreateInfo != null)
         {
             var struct0 = PCreateInfo.ToNative();
-            pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo>(struct0);
-            _internal.pCreateInfo = pCreateInfo.Handle;
+            _pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo>(struct0);
+            _internal.pCreateInfo = _pCreateInfo.Handle;
         }
-        pProfile.Dispose();
+        _pProfile.Dispose();
         if (Profile != null)
         {
             var struct1 = Profile.ToNative();
-            pProfile = new NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties>(struct1);
-            _internal.pProfile = pProfile.Handle;
+            _pProfile = new NativeStruct<AdamantiumVulkan.Profiles.Interop.VpProfileProperties>(struct1);
+            _internal.pProfile = _pProfile.Handle;
         }
         _internal.flags = Flags;
         return _internal;
@@ -59,8 +59,8 @@ public unsafe partial class VpInstanceCreateInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pCreateInfo.Dispose();
-        pProfile.Dispose();
+        _pCreateInfo.Dispose();
+        _pProfile.Dispose();
     }
 
 

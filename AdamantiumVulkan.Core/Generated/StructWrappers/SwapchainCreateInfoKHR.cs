@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
 {
-    private NativeStructArray<uint> pQueueFamilyIndices;
+    private NativeStructArray<uint> _pQueueFamilyIndices;
 
     public SwapchainCreateInfoKHR()
     {
@@ -79,7 +79,7 @@ public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
         _internal.imageUsage = ImageUsage;
         _internal.imageSharingMode = ImageSharingMode;
         _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
-        pQueueFamilyIndices.Dispose();
+        _pQueueFamilyIndices.Dispose();
         if (PQueueFamilyIndices != null)
         {
             var tmpArray0 = new uint[PQueueFamilyIndices.Length];
@@ -87,8 +87,8 @@ public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
             {
                 tmpArray0[i] = PQueueFamilyIndices[i];
             }
-            pQueueFamilyIndices = new NativeStructArray<uint>(tmpArray0);
-            _internal.pQueueFamilyIndices = pQueueFamilyIndices.Handle;
+            _pQueueFamilyIndices = new NativeStructArray<uint>(tmpArray0);
+            _internal.pQueueFamilyIndices = _pQueueFamilyIndices.Handle;
         }
         _internal.preTransform = PreTransform;
         _internal.compositeAlpha = CompositeAlpha;
@@ -100,7 +100,7 @@ public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pQueueFamilyIndices.Dispose();
+        _pQueueFamilyIndices.Dispose();
     }
 
 

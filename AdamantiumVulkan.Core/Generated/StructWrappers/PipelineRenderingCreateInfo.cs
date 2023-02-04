@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Format> pColorAttachmentFormats;
+    private NativeStructArray<AdamantiumVulkan.Core.Format> _pColorAttachmentFormats;
 
     public PipelineRenderingCreateInfo()
     {
@@ -45,11 +45,11 @@ public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
         _internal.pNext = PNext;
         _internal.viewMask = ViewMask;
         _internal.colorAttachmentCount = ColorAttachmentCount;
-        pColorAttachmentFormats.Dispose();
+        _pColorAttachmentFormats.Dispose();
         if (PColorAttachmentFormats != null)
         {
-            pColorAttachmentFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats);
-            _internal.pColorAttachmentFormats = pColorAttachmentFormats.Handle;
+            _pColorAttachmentFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats);
+            _internal.pColorAttachmentFormats = _pColorAttachmentFormats.Handle;
         }
         _internal.depthAttachmentFormat = DepthAttachmentFormat;
         _internal.stencilAttachmentFormat = StencilAttachmentFormat;
@@ -58,7 +58,7 @@ public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pColorAttachmentFormats.Dispose();
+        _pColorAttachmentFormats.Dispose();
     }
 
 

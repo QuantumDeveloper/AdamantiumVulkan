@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureVersionInfoKHR : QBDisposableObject
 {
-    private NativeStruct<byte> pVersionData;
+    private NativeStruct<byte> _pVersionData;
 
     public AccelerationStructureVersionInfoKHR()
     {
@@ -39,18 +39,18 @@ public unsafe partial class AccelerationStructureVersionInfoKHR : QBDisposableOb
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR();
         _internal.sType = SType;
         _internal.pNext = PNext;
-        pVersionData.Dispose();
+        _pVersionData.Dispose();
         if (PVersionData.HasValue)
         {
-            pVersionData = new NativeStruct<byte>(PVersionData.Value);
-            _internal.pVersionData = pVersionData.Handle;
+            _pVersionData = new NativeStruct<byte>(PVersionData.Value);
+            _internal.pVersionData = _pVersionData.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pVersionData.Dispose();
+        _pVersionData.Dispose();
     }
 
 

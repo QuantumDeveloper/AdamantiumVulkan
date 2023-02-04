@@ -14,7 +14,7 @@ namespace AdamantiumVulkan.Spirv.Cross;
 
 public unsafe partial class SpvcEntryPoint : QBDisposableObject
 {
-    private MarshaledString name;
+    private MarshaledString _name;
 
     public SpvcEntryPoint()
     {
@@ -33,18 +33,18 @@ public unsafe partial class SpvcEntryPoint : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint();
         _internal.execution_model = Execution_model;
-        name.Dispose();
+        _name.Dispose();
         if (Name != null)
         {
-            name = new MarshaledString(Name, false);
-            _internal.name = (sbyte*)name;
+            _name = new MarshaledString(Name, false);
+            _internal.name = (sbyte*)_name;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        name.Dispose();
+        _name.Dispose();
     }
 
 

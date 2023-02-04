@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT> pAttachmentInitialSampleLocations;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT> _pAttachmentInitialSampleLocations;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT> pPostSubpassSampleLocations;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT> _pPostSubpassSampleLocations;
 
     public RenderPassSampleLocationsBeginInfoEXT()
     {
@@ -45,28 +45,28 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : QBDisposable
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.attachmentInitialSampleLocationsCount = AttachmentInitialSampleLocationsCount;
-        pAttachmentInitialSampleLocations.Dispose();
+        _pAttachmentInitialSampleLocations.Dispose();
         if (PAttachmentInitialSampleLocations != null)
         {
             var struct0 = PAttachmentInitialSampleLocations.ToNative();
-            pAttachmentInitialSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT>(struct0);
-            _internal.pAttachmentInitialSampleLocations = pAttachmentInitialSampleLocations.Handle;
+            _pAttachmentInitialSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT>(struct0);
+            _internal.pAttachmentInitialSampleLocations = _pAttachmentInitialSampleLocations.Handle;
         }
         _internal.postSubpassSampleLocationsCount = PostSubpassSampleLocationsCount;
-        pPostSubpassSampleLocations.Dispose();
+        _pPostSubpassSampleLocations.Dispose();
         if (PostSubpassSampleLocations != null)
         {
             var struct1 = PostSubpassSampleLocations.ToNative();
-            pPostSubpassSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT>(struct1);
-            _internal.pPostSubpassSampleLocations = pPostSubpassSampleLocations.Handle;
+            _pPostSubpassSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT>(struct1);
+            _internal.pPostSubpassSampleLocations = _pPostSubpassSampleLocations.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachmentInitialSampleLocations.Dispose();
-        pPostSubpassSampleLocations.Dispose();
+        _pAttachmentInitialSampleLocations.Dispose();
+        _pPostSubpassSampleLocations.Dispose();
     }
 
 

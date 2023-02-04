@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AttachmentSampleCountInfoAMD : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.SampleCountFlagBits> pColorAttachmentSamples;
+    private NativeStruct<AdamantiumVulkan.Core.SampleCountFlagBits> _pColorAttachmentSamples;
 
     public AttachmentSampleCountInfoAMD()
     {
@@ -40,11 +40,11 @@ public unsafe partial class AttachmentSampleCountInfoAMD : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.colorAttachmentCount = ColorAttachmentCount;
-        pColorAttachmentSamples.Dispose();
+        _pColorAttachmentSamples.Dispose();
         if (PColorAttachmentSamples.HasValue)
         {
-            pColorAttachmentSamples = new NativeStruct<AdamantiumVulkan.Core.SampleCountFlagBits>(PColorAttachmentSamples.Value);
-            _internal.pColorAttachmentSamples = pColorAttachmentSamples.Handle;
+            _pColorAttachmentSamples = new NativeStruct<AdamantiumVulkan.Core.SampleCountFlagBits>(PColorAttachmentSamples.Value);
+            _internal.pColorAttachmentSamples = _pColorAttachmentSamples.Handle;
         }
         _internal.depthStencilAttachmentSamples = DepthStencilAttachmentSamples;
         return _internal;
@@ -52,7 +52,7 @@ public unsafe partial class AttachmentSampleCountInfoAMD : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pColorAttachmentSamples.Dispose();
+        _pColorAttachmentSamples.Dispose();
     }
 
 

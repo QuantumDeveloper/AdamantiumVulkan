@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FramebufferCreateInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T> pAttachments;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T> _pAttachments;
 
     public FramebufferCreateInfo()
     {
@@ -55,7 +55,7 @@ public unsafe partial class FramebufferCreateInfo : QBDisposableObject
         _internal.flags = Flags;
         _internal.renderPass = RenderPass;
         _internal.attachmentCount = AttachmentCount;
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
         if (PAttachments != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[PAttachments.Length];
@@ -63,8 +63,8 @@ public unsafe partial class FramebufferCreateInfo : QBDisposableObject
             {
                 tmpArray0[i] = PAttachments[i];
             }
-            pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T>(tmpArray0);
-            _internal.pAttachments = pAttachments.Handle;
+            _pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T>(tmpArray0);
+            _internal.pAttachments = _pAttachments.Handle;
         }
         _internal.width = Width;
         _internal.height = Height;
@@ -74,7 +74,7 @@ public unsafe partial class FramebufferCreateInfo : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachments.Dispose();
+        _pAttachments.Dispose();
     }
 
 

@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T> pPhysicalDevices;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T> _pPhysicalDevices;
 
     public DeviceGroupDeviceCreateInfo()
     {
@@ -38,19 +38,19 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.physicalDeviceCount = PhysicalDeviceCount;
-        pPhysicalDevices.Dispose();
+        _pPhysicalDevices.Dispose();
         if (PhysicalDevices != null)
         {
             AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T struct0 = PhysicalDevices;
-            pPhysicalDevices = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>(struct0);
-            _internal.pPhysicalDevices = pPhysicalDevices.Handle;
+            _pPhysicalDevices = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>(struct0);
+            _internal.pPhysicalDevices = _pPhysicalDevices.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pPhysicalDevices.Dispose();
+        _pPhysicalDevices.Dispose();
     }
 
 

@@ -13,9 +13,9 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class ValidationFeaturesEXT : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT> pEnabledValidationFeatures;
+    private NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT> _pEnabledValidationFeatures;
 
-    private NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureDisableEXT> pDisabledValidationFeatures;
+    private NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureDisableEXT> _pDisabledValidationFeatures;
 
     public ValidationFeaturesEXT()
     {
@@ -43,26 +43,26 @@ public unsafe partial class ValidationFeaturesEXT : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.enabledValidationFeatureCount = EnabledValidationFeatureCount;
-        pEnabledValidationFeatures.Dispose();
+        _pEnabledValidationFeatures.Dispose();
         if (PEnabledValidationFeatures != null)
         {
-            pEnabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT>(PEnabledValidationFeatures);
-            _internal.pEnabledValidationFeatures = pEnabledValidationFeatures.Handle;
+            _pEnabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT>(PEnabledValidationFeatures);
+            _internal.pEnabledValidationFeatures = _pEnabledValidationFeatures.Handle;
         }
         _internal.disabledValidationFeatureCount = DisabledValidationFeatureCount;
-        pDisabledValidationFeatures.Dispose();
+        _pDisabledValidationFeatures.Dispose();
         if (PDisabledValidationFeatures != null)
         {
-            pDisabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureDisableEXT>(PDisabledValidationFeatures);
-            _internal.pDisabledValidationFeatures = pDisabledValidationFeatures.Handle;
+            _pDisabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureDisableEXT>(PDisabledValidationFeatures);
+            _internal.pDisabledValidationFeatures = _pDisabledValidationFeatures.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pEnabledValidationFeatures.Dispose();
-        pDisabledValidationFeatures.Dispose();
+        _pEnabledValidationFeatures.Dispose();
+        _pDisabledValidationFeatures.Dispose();
     }
 
 

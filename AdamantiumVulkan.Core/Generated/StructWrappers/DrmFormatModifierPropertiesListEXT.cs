@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DrmFormatModifierPropertiesListEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT> pDrmFormatModifierProperties;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT> _pDrmFormatModifierProperties;
 
     public DrmFormatModifierPropertiesListEXT()
     {
@@ -38,19 +38,19 @@ public unsafe partial class DrmFormatModifierPropertiesListEXT : QBDisposableObj
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.drmFormatModifierCount = DrmFormatModifierCount;
-        pDrmFormatModifierProperties.Dispose();
+        _pDrmFormatModifierProperties.Dispose();
         if (PDrmFormatModifierProperties != null)
         {
             var struct0 = PDrmFormatModifierProperties.ToNative();
-            pDrmFormatModifierProperties = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT>(struct0);
-            _internal.pDrmFormatModifierProperties = pDrmFormatModifierProperties.Handle;
+            _pDrmFormatModifierProperties = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT>(struct0);
+            _internal.pDrmFormatModifierProperties = _pDrmFormatModifierProperties.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDrmFormatModifierProperties.Dispose();
+        _pDrmFormatModifierProperties.Dispose();
     }
 
 

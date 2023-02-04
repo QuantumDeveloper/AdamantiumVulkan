@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DisplayPropertiesKHR : QBDisposableObject
 {
-    private MarshaledString displayName;
+    private MarshaledString _displayName;
 
     public DisplayPropertiesKHR()
     {
@@ -42,11 +42,11 @@ public unsafe partial class DisplayPropertiesKHR : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR();
         _internal.display = Display;
-        displayName.Dispose();
+        _displayName.Dispose();
         if (DisplayName != null)
         {
-            displayName = new MarshaledString(DisplayName, false);
-            _internal.displayName = (sbyte*)displayName;
+            _displayName = new MarshaledString(DisplayName, false);
+            _internal.displayName = (sbyte*)_displayName;
         }
         if (PhysicalDimensions != null)
         {
@@ -64,7 +64,7 @@ public unsafe partial class DisplayPropertiesKHR : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        displayName.Dispose();
+        _displayName.Dispose();
     }
 
 

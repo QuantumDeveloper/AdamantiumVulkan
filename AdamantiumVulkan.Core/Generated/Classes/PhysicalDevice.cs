@@ -63,7 +63,7 @@ public unsafe partial class PhysicalDevice
 
     public Result EnumerateDeviceExtensionProperties(string pLayerName, ref uint pPropertyCount, ExtensionProperties[] pProperties)
     {
-        var arg1 = (sbyte*)NativeUtils.PointerToString(pLayerName, false);
+        var arg1 = (sbyte*)NativeUtils.StringToPointer(pLayerName, false);
         var arg2 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
         var arg3 = ReferenceEquals(pProperties, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkExtensionProperties>(pPropertyCount);
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceExtensionProperties(this, arg1, arg2, arg3);

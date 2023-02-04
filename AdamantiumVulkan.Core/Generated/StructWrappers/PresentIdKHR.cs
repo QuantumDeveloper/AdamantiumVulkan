@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PresentIdKHR : QBDisposableObject
 {
-    private NativeStruct<ulong> pPresentIds;
+    private NativeStruct<ulong> _pPresentIds;
 
     public PresentIdKHR()
     {
@@ -42,18 +42,18 @@ public unsafe partial class PresentIdKHR : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.swapchainCount = SwapchainCount;
-        pPresentIds.Dispose();
+        _pPresentIds.Dispose();
         if (PresentIds.HasValue)
         {
-            pPresentIds = new NativeStruct<ulong>(PresentIds.Value);
-            _internal.pPresentIds = pPresentIds.Handle;
+            _pPresentIds = new NativeStruct<ulong>(PresentIds.Value);
+            _internal.pPresentIds = _pPresentIds.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pPresentIds.Dispose();
+        _pPresentIds.Dispose();
     }
 
 

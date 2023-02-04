@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FramebufferAttachmentImageInfo : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Format> pViewFormats;
+    private NativeStructArray<AdamantiumVulkan.Core.Format> _pViewFormats;
 
     public FramebufferAttachmentImageInfo()
     {
@@ -53,18 +53,18 @@ public unsafe partial class FramebufferAttachmentImageInfo : QBDisposableObject
         _internal.height = Height;
         _internal.layerCount = LayerCount;
         _internal.viewFormatCount = ViewFormatCount;
-        pViewFormats.Dispose();
+        _pViewFormats.Dispose();
         if (PViewFormats != null)
         {
-            pViewFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PViewFormats);
-            _internal.pViewFormats = pViewFormats.Handle;
+            _pViewFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PViewFormats);
+            _internal.pViewFormats = _pViewFormats.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pViewFormats.Dispose();
+        _pViewFormats.Dispose();
     }
 
 

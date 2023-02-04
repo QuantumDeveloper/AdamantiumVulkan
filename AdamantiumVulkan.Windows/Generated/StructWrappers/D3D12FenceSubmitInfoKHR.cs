@@ -14,9 +14,9 @@ namespace AdamantiumVulkan.Windows;
 
 public unsafe partial class D3D12FenceSubmitInfoKHR : QBDisposableObject
 {
-    private NativeStruct<ulong> pWaitSemaphoreValues;
+    private NativeStruct<ulong> _pWaitSemaphoreValues;
 
-    private NativeStruct<ulong> pSignalSemaphoreValues;
+    private NativeStruct<ulong> _pSignalSemaphoreValues;
 
     public D3D12FenceSubmitInfoKHR()
     {
@@ -53,26 +53,26 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.waitSemaphoreValuesCount = WaitSemaphoreValuesCount;
-        pWaitSemaphoreValues.Dispose();
+        _pWaitSemaphoreValues.Dispose();
         if (PWaitSemaphoreValues.HasValue)
         {
-            pWaitSemaphoreValues = new NativeStruct<ulong>(PWaitSemaphoreValues.Value);
-            _internal.pWaitSemaphoreValues = pWaitSemaphoreValues.Handle;
+            _pWaitSemaphoreValues = new NativeStruct<ulong>(PWaitSemaphoreValues.Value);
+            _internal.pWaitSemaphoreValues = _pWaitSemaphoreValues.Handle;
         }
         _internal.signalSemaphoreValuesCount = SignalSemaphoreValuesCount;
-        pSignalSemaphoreValues.Dispose();
+        _pSignalSemaphoreValues.Dispose();
         if (PSignalSemaphoreValues.HasValue)
         {
-            pSignalSemaphoreValues = new NativeStruct<ulong>(PSignalSemaphoreValues.Value);
-            _internal.pSignalSemaphoreValues = pSignalSemaphoreValues.Handle;
+            _pSignalSemaphoreValues = new NativeStruct<ulong>(PSignalSemaphoreValues.Value);
+            _internal.pSignalSemaphoreValues = _pSignalSemaphoreValues.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pWaitSemaphoreValues.Dispose();
-        pSignalSemaphoreValues.Dispose();
+        _pWaitSemaphoreValues.Dispose();
+        _pSignalSemaphoreValues.Dispose();
     }
 
 

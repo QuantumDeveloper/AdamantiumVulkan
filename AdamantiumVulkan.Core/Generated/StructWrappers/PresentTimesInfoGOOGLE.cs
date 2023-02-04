@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PresentTimesInfoGOOGLE : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE> pTimes;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE> _pTimes;
 
     public PresentTimesInfoGOOGLE()
     {
@@ -38,19 +38,19 @@ public unsafe partial class PresentTimesInfoGOOGLE : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.swapchainCount = SwapchainCount;
-        pTimes.Dispose();
+        _pTimes.Dispose();
         if (PTimes != null)
         {
             var struct0 = PTimes.ToNative();
-            pTimes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(struct0);
-            _internal.pTimes = pTimes.Handle;
+            _pTimes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(struct0);
+            _internal.pTimes = _pTimes.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pTimes.Dispose();
+        _pTimes.Dispose();
     }
 
 

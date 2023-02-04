@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Spirv.Cross;
 
 public unsafe partial class SpvcHlslVertexAttributeRemap : QBDisposableObject
 {
-    private MarshaledString semantic;
+    private MarshaledString _semantic;
 
     public SpvcHlslVertexAttributeRemap()
     {
@@ -32,18 +32,18 @@ public unsafe partial class SpvcHlslVertexAttributeRemap : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap();
         _internal.location = Location;
-        semantic.Dispose();
+        _semantic.Dispose();
         if (Semantic != null)
         {
-            semantic = new MarshaledString(Semantic, false);
-            _internal.semantic = (sbyte*)semantic;
+            _semantic = new MarshaledString(Semantic, false);
+            _internal.semantic = (sbyte*)_semantic;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        semantic.Dispose();
+        _semantic.Dispose();
     }
 
 

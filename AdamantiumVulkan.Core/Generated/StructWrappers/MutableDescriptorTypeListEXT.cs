@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class MutableDescriptorTypeListEXT : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.DescriptorType> pDescriptorTypes;
+    private NativeStruct<AdamantiumVulkan.Core.DescriptorType> _pDescriptorTypes;
 
     public MutableDescriptorTypeListEXT()
     {
@@ -32,18 +32,18 @@ public unsafe partial class MutableDescriptorTypeListEXT : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT();
         _internal.descriptorTypeCount = DescriptorTypeCount;
-        pDescriptorTypes.Dispose();
+        _pDescriptorTypes.Dispose();
         if (PDescriptorTypes.HasValue)
         {
-            pDescriptorTypes = new NativeStruct<AdamantiumVulkan.Core.DescriptorType>(PDescriptorTypes.Value);
-            _internal.pDescriptorTypes = pDescriptorTypes.Handle;
+            _pDescriptorTypes = new NativeStruct<AdamantiumVulkan.Core.DescriptorType>(PDescriptorTypes.Value);
+            _internal.pDescriptorTypes = _pDescriptorTypes.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDescriptorTypes.Dispose();
+        _pDescriptorTypes.Dispose();
     }
 
 

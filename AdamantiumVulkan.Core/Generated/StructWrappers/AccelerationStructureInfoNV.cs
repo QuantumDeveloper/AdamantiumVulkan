@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class AccelerationStructureInfoNV : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV> pGeometries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV> _pGeometries;
 
     public AccelerationStructureInfoNV()
     {
@@ -47,19 +47,19 @@ public unsafe partial class AccelerationStructureInfoNV : QBDisposableObject
         _internal.flags = Flags;
         _internal.instanceCount = InstanceCount;
         _internal.geometryCount = GeometryCount;
-        pGeometries.Dispose();
+        _pGeometries.Dispose();
         if (PGeometries != null)
         {
             var struct0 = PGeometries.ToNative();
-            pGeometries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV>(struct0);
-            _internal.pGeometries = pGeometries.Handle;
+            _pGeometries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV>(struct0);
+            _internal.pGeometries = _pGeometries.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pGeometries.Dispose();
+        _pGeometries.Dispose();
     }
 
 

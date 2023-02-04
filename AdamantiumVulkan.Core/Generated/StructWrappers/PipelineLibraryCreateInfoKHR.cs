@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PipelineLibraryCreateInfoKHR : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T> pLibraries;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T> _pLibraries;
 
     public PipelineLibraryCreateInfoKHR()
     {
@@ -39,19 +39,19 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.libraryCount = LibraryCount;
-        pLibraries.Dispose();
+        _pLibraries.Dispose();
         if (PLibraries != null)
         {
             AdamantiumVulkan.Core.Interop.VkPipeline_T struct0 = PLibraries;
-            pLibraries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct0);
-            _internal.pLibraries = pLibraries.Handle;
+            _pLibraries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct0);
+            _internal.pLibraries = _pLibraries.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pLibraries.Dispose();
+        _pLibraries.Dispose();
     }
 
 

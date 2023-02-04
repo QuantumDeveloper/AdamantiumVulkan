@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class FramebufferAttachmentsCreateInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo> pAttachmentImageInfos;
+    private NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo> _pAttachmentImageInfos;
 
     public FramebufferAttachmentsCreateInfo()
     {
@@ -39,19 +39,19 @@ public unsafe partial class FramebufferAttachmentsCreateInfo : QBDisposableObjec
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.attachmentImageInfoCount = AttachmentImageInfoCount;
-        pAttachmentImageInfos.Dispose();
+        _pAttachmentImageInfos.Dispose();
         if (PAttachmentImageInfos != null)
         {
             var struct0 = PAttachmentImageInfos.ToNative();
-            pAttachmentImageInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo>(struct0);
-            _internal.pAttachmentImageInfos = pAttachmentImageInfos.Handle;
+            _pAttachmentImageInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo>(struct0);
+            _internal.pAttachmentImageInfos = _pAttachmentImageInfos.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pAttachmentImageInfos.Dispose();
+        _pAttachmentImageInfos.Dispose();
     }
 
 

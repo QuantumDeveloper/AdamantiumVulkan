@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceGroupPresentInfoKHR : QBDisposableObject
 {
-    private NativeStruct<uint> pDeviceMasks;
+    private NativeStruct<uint> _pDeviceMasks;
 
     public DeviceGroupPresentInfoKHR()
     {
@@ -43,11 +43,11 @@ public unsafe partial class DeviceGroupPresentInfoKHR : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.swapchainCount = SwapchainCount;
-        pDeviceMasks.Dispose();
+        _pDeviceMasks.Dispose();
         if (PDeviceMasks.HasValue)
         {
-            pDeviceMasks = new NativeStruct<uint>(PDeviceMasks.Value);
-            _internal.pDeviceMasks = pDeviceMasks.Handle;
+            _pDeviceMasks = new NativeStruct<uint>(PDeviceMasks.Value);
+            _internal.pDeviceMasks = _pDeviceMasks.Handle;
         }
         _internal.mode = Mode;
         return _internal;
@@ -55,7 +55,7 @@ public unsafe partial class DeviceGroupPresentInfoKHR : QBDisposableObject
 
     protected override void UnmanagedDisposeOverride()
     {
-        pDeviceMasks.Dispose();
+        _pDeviceMasks.Dispose();
     }
 
 

@@ -13,13 +13,13 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class PresentInfoKHR : QBDisposableObject
 {
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> pWaitSemaphores;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T> _pWaitSemaphores;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T> pSwapchains;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T> _pSwapchains;
 
-    private NativeStructArray<uint> pImageIndices;
+    private NativeStructArray<uint> _pImageIndices;
 
-    private NativeStructArray<AdamantiumVulkan.Core.Result> pResults;
+    private NativeStructArray<AdamantiumVulkan.Core.Result> _pResults;
 
     public PresentInfoKHR()
     {
@@ -65,7 +65,7 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
         _internal.sType = SType;
         _internal.pNext = PNext;
         _internal.waitSemaphoreCount = WaitSemaphoreCount;
-        pWaitSemaphores.Dispose();
+        _pWaitSemaphores.Dispose();
         if (PWaitSemaphores != null)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PWaitSemaphores.Length];
@@ -73,11 +73,11 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
             {
                 tmpArray0[i] = PWaitSemaphores[i];
             }
-            pWaitSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray0);
-            _internal.pWaitSemaphores = pWaitSemaphores.Handle;
+            _pWaitSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray0);
+            _internal.pWaitSemaphores = _pWaitSemaphores.Handle;
         }
         _internal.swapchainCount = SwapchainCount;
-        pSwapchains.Dispose();
+        _pSwapchains.Dispose();
         if (PSwapchains != null)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T[PSwapchains.Length];
@@ -85,10 +85,10 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
             {
                 tmpArray1[i] = PSwapchains[i];
             }
-            pSwapchains = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T>(tmpArray1);
-            _internal.pSwapchains = pSwapchains.Handle;
+            _pSwapchains = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T>(tmpArray1);
+            _internal.pSwapchains = _pSwapchains.Handle;
         }
-        pImageIndices.Dispose();
+        _pImageIndices.Dispose();
         if (PImageIndices != null)
         {
             var tmpArray2 = new uint[PImageIndices.Length];
@@ -96,24 +96,24 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
             {
                 tmpArray2[i] = PImageIndices[i];
             }
-            pImageIndices = new NativeStructArray<uint>(tmpArray2);
-            _internal.pImageIndices = pImageIndices.Handle;
+            _pImageIndices = new NativeStructArray<uint>(tmpArray2);
+            _internal.pImageIndices = _pImageIndices.Handle;
         }
-        pResults.Dispose();
+        _pResults.Dispose();
         if (PResults != null)
         {
-            pResults = new NativeStructArray<AdamantiumVulkan.Core.Result>(PResults);
-            _internal.pResults = pResults.Handle;
+            _pResults = new NativeStructArray<AdamantiumVulkan.Core.Result>(PResults);
+            _internal.pResults = _pResults.Handle;
         }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
-        pWaitSemaphores.Dispose();
-        pSwapchains.Dispose();
-        pImageIndices.Dispose();
-        pResults.Dispose();
+        _pWaitSemaphores.Dispose();
+        _pSwapchains.Dispose();
+        _pImageIndices.Dispose();
+        _pResults.Dispose();
     }
 
 
