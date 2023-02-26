@@ -1,37 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdamantiumVulkan.Common;
 using AdamantiumVulkan.Spirv.Cross;
+using AdamantiumVulkan.Spirv.Cross.Interop;
+using AdamantiumVulkan.Spirv.Interop;
+using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Spirv.Reflection
 {
     public class SpirvReflection : QBDisposableObject
     {
-        private SpvcContext context;
-        private SpvcCompiler compiler;
-        private SpvcParsedIr parsedIr;
-        private SpvcResources resources;
-        private SpvcSet set;
-        private SpvcResult lastResult;
+        private SpirvContext context;
+        private SpirvCompiler compiler;
+        private SpirvParsedIr parsedIr;
+        private SpirvResources resources;
+        private SpirvSet set;
+        private Result lastResult;
 
-        private static readonly List<SpvcResourceType> resourcesToReflect;
+        private static readonly List<ResourceType> resourcesToReflect;
 
         private byte[] bytecode;
-        private SpvcBackend reflectionBackend;
+        private Backend reflectionBackend;
 
         static SpirvReflection()
         {
-            resourcesToReflect = new List<SpvcResourceType>
+            resourcesToReflect = new List<ResourceType>
             {
-                SpvcResourceType.UniformBuffer,
-                SpvcResourceType.SeparateSamplers,
-                SpvcResourceType.SeparateImage,
-                SpvcResourceType.SampledImage,
-                SpvcResourceType.StorageImage,
-                SpvcResourceType.StorageBuffer,
-                SpvcResourceType.AccelerationStructure,
-                SpvcResourceType.RayQuery
+                ResourceType.UniformBuffer,
+                ResourceType.SeparateSamplers,
+                ResourceType.SeparateImage,
+                ResourceType.SampledImage,
+                ResourceType.StorageImage,
+                ResourceType.StorageBuffer,
+                ResourceType.AccelerationStructure,
+                ResourceType.RayQuery
             };
         }
 
@@ -40,14 +42,14 @@ namespace AdamantiumVulkan.Spirv.Reflection
             return bytecode;
         }
 
-        public SpirvReflection(byte[] bytecode, SpvcBackend reflectionBackend = SpvcBackend.Hlsl)
+        public SpirvReflection(byte[] bytecode, Backend reflectionBackend = Backend.Hlsl)
         {
             if (bytecode == null || bytecode.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(bytecode), "bytecode array should not be null or empty");
             }
             
-            lastResult = SpvcContext.Create(out context);
+            lastResult = SpirvContext.Create(out context);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::Create");
 
             this.bytecode = bytecode;
@@ -58,18 +60,17 @@ namespace AdamantiumVulkan.Spirv.Reflection
         {
             lastResult = context.ParseSpirv(bytecode, (ulong)bytecode.Length / 4, out parsedIr);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::ParseSpirv");
-            lastResult = context.CreateCompiler(reflectionBackend, parsedIr, SpvcCaptureMode.TakeOwnership, out compiler);
+            lastResult = context.CreateCompiler(reflectionBackend, parsedIr, CaptureMode.TakeOwnership, out compiler);
             SpirvResultHelper.CheckResult(lastResult, "SpvcContext::CreateCompiler");
             lastResult = compiler.GetActiveInterfaceVariables(out set);
             SpirvResultHelper.CheckResult(lastResult, "SpvcCompiler::GetActiveInterfaceVariables");
             lastResult = compiler.CreateShaderResourcesForActiveVariables(out resources, set);
-            ulong size = 0;
 
             var disassembleResult = new SpirvReflectionResult();
 
             foreach (var resourceType in resourcesToReflect)
             {
-                lastResult = resources.GetResourceListForType(resourceType, out var shaderResources, ref size);
+                lastResult = resources.GetResourceListForType(resourceType, out var shaderResources, out var size);
 
                 for (ulong i = 0; i < (ulong)shaderResources.Length; ++i)
                 {
@@ -131,7 +132,7 @@ namespace AdamantiumVulkan.Spirv.Reflection
                     for (uint k = 0; k < membersCount; ++k)
                     {
                         var memberType = spvcType.GetMemberType(k);
-                        var member = new ShaderReflectionVariable(SpvcResourceType.UniformBuffer);
+                        var member = new ShaderReflectionVariable(ResourceType.UniformBuffer);
 
                         member.TypeId = memberType;
                         var memberTypeHandle = compiler.GetTypeHandle(memberType);
@@ -177,7 +178,7 @@ namespace AdamantiumVulkan.Spirv.Reflection
                             }
                         }
 
-                        if (member.Type == SpvcBasetype.Struct)
+                        if (member.Type == Basetype.Struct)
                         {
                             member.VariableType = ShaderVariableClass.Struct;
                         }

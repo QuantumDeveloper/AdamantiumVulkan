@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using AdamantiumVulkan.Common;
+using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core
 {
@@ -9,7 +9,7 @@ namespace AdamantiumVulkan.Core
     {
         public static void CheckResult(Result result, string methodName)
         {
-            if (result != Result.Success)
+            if (result is not Result.Success)
             {
                 throw new ResultException($"Result of function {methodName} was not success. Function Returns {result}");
             }

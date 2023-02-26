@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AdamantiumVulkan.Spirv.Cross;
+using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Reflection
 {
@@ -7,7 +8,7 @@ namespace AdamantiumVulkan.Spirv.Reflection
     {
         private readonly Dictionary<uint, uint> dimensionToArraySize;
         
-        public ShaderReflectionVariable(SpvcResourceType resourceType)
+        public ShaderReflectionVariable(ResourceType resourceType)
         {
             Class = resourceType;
             dimensionToArraySize = new Dictionary<uint, uint>();
@@ -23,11 +24,11 @@ namespace AdamantiumVulkan.Spirv.Reflection
 
         public uint DescriptorSet { get; internal set; }
 
-        public SpvcResourceType Class { get; internal set; }
+        public ResourceType Class { get; internal set; }
         
         public ShaderVariableClass VariableType { get; internal set; }
 
-        public SpvcBasetype Type { get; internal set; }
+        public Basetype Type { get; internal set; }
 
         public ShaderResourceDimension Dimension { get; internal set; }
 

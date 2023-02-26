@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.MacOS", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Spirv", "AdamantiumVulkan.Spirv\AdamantiumVulkan.Spirv.csproj", "{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdamantiumVulkan.Common", "AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj", "{7DE83A91-5851-4A65-B07E-C99BB842167F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumBinding.Utils", "..\QuantumBinding\QuantumBinding.Utils\QuantumBinding.Utils.csproj", "{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdamantiumVulkan.Profiles", "AdamantiumVulkan.Profiles\AdamantiumVulkan.Profiles.csproj", "{E1D8BE46-A83C-4335-971C-DFE5D007DB55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +73,14 @@ Global
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Debug|x64.Build.0 = Debug|x64
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.ActiveCfg = Release|x64
 		{1DDB655F-2D7D-4B35-9E43-A62FB8C40BFD}.Release|x64.Build.0 = Release|x64
-		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Debug|x64.ActiveCfg = Debug|x64
-		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Debug|x64.Build.0 = Debug|x64
-		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Release|x64.ActiveCfg = Release|x64
-		{7DE83A91-5851-4A65-B07E-C99BB842167F}.Release|x64.Build.0 = Release|x64
+		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Debug|x64.Build.0 = Debug|Any CPU
+		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Release|x64.ActiveCfg = Release|Any CPU
+		{9B4A0F5F-4596-4320-BFB8-BCCA0883BDA2}.Release|x64.Build.0 = Release|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1D8BE46-A83C-4335-971C-DFE5D007DB55}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

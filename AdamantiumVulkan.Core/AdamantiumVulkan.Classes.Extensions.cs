@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
 using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core
 {
-    public partial class Instance 
+    public unsafe partial class Instance 
     {
-        public static unsafe LayerProperties[] EnumerateInstanceLayerProperties()
+        public static LayerProperties[] EnumerateInstanceLayerProperties()
         {
             uint layersCount = 0;
             var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, null);
@@ -161,7 +157,7 @@ namespace AdamantiumVulkan.Core
                 return presentModes;
             }
 
-            return new PresentModeKHR[0];
+            return Array.Empty<PresentModeKHR>();
         }
 
         public uint FindCorrespondingMemoryType(uint typeFilter, MemoryPropertyFlagBits properties)
@@ -172,7 +168,7 @@ namespace AdamantiumVulkan.Core
             {
                 var shift = 1 << (int)i;
                 if ((typeFilter & shift) > 0 && 
-                    ((MemoryPropertyFlagBits)(memProperties.MemoryTypes[i].PropertyFlags)).HasFlag(properties))
+                    (memProperties.MemoryTypes[i].PropertyFlags).HasFlag(properties))
                 {
                     return i;
                 }
@@ -183,65 +179,72 @@ namespace AdamantiumVulkan.Core
 
         private void ClearPhysicalDeviceFeatures(PhysicalDeviceFeatures deviceFeatures)
         {
-            deviceFeatures.RobustBufferAccess = false;
-            deviceFeatures.FullDrawIndexUint32 = false;                    
-            deviceFeatures.ImageCubeArray = false;                         
-            deviceFeatures.IndependentBlend = false;                       
-            deviceFeatures.GeometryShader = false;                         
-            deviceFeatures.TessellationShader = false;                     
-            deviceFeatures.SampleRateShading = false;                      
-            deviceFeatures.DualSrcBlend = false;                           
-            deviceFeatures.LogicOp = false;                                
-            deviceFeatures.MultiDrawIndirect = false;                      
-            deviceFeatures.DrawIndirectFirstInstance = false;              
-            deviceFeatures.DepthClamp = false;                             
-            deviceFeatures.DepthBiasClamp = false;                         
-            deviceFeatures.FillModeNonSolid = false;                       
-            deviceFeatures.DepthBounds = false;                            
-            deviceFeatures.WideLines = false;                              
-            deviceFeatures.LargePoints = false;                            
-            deviceFeatures.AlphaToOne = false;                             
-            deviceFeatures.MultiViewport = false;                          
-            deviceFeatures.SamplerAnisotropy = false;                      
-            deviceFeatures.TextureCompressionETC2 = false;                 
-            deviceFeatures.TextureCompressionASTC_LDR = false;             
-            deviceFeatures.TextureCompressionBC = false;                   
-            deviceFeatures.OcclusionQueryPrecise = false;                  
-            deviceFeatures.PipelineStatisticsQuery = false;                
-            deviceFeatures.VertexPipelineStoresAndAtomics = false;         
-            deviceFeatures.FragmentStoresAndAtomics = false;              
-            deviceFeatures.ShaderTessellationAndGeometryPointSize = false; 
-            deviceFeatures.ShaderImageGatherExtended = false;              
-            deviceFeatures.ShaderStorageImageExtendedFormats = false;     
-            deviceFeatures.ShaderStorageImageMultisample = false;      
-            deviceFeatures.ShaderStorageImageReadWithoutFormat = false;
-            deviceFeatures.ShaderStorageImageWriteWithoutFormat = false;
-            deviceFeatures.ShaderUniformBufferArrayDynamicIndexing = false;
-            deviceFeatures.ShaderSampledImageArrayDynamicIndexing = false;
-            deviceFeatures.ShaderStorageBufferArrayDynamicIndexing = false;
-            deviceFeatures.ShaderStorageImageArrayDynamicIndexing = false;
-            deviceFeatures.ShaderClipDistance = false;               
-            deviceFeatures.ShaderCullDistance = false;
-            deviceFeatures.ShaderFloat64 = false;                          
-            deviceFeatures.ShaderInt64 = false;
-            deviceFeatures.ShaderInt16 = false;                            
-            deviceFeatures.ShaderResourceResidency = false;                
-            deviceFeatures.ShaderResourceMinLod = false;                   
-            deviceFeatures.SparseBinding = false;                        
-            deviceFeatures.SparseResidencyBuffer = false;                  
-            deviceFeatures.SparseResidencyImage2D = false;                 
-            deviceFeatures.SparseResidencyImage3D = false;                 
-            deviceFeatures.SparseResidency2Samples = false;               
-            deviceFeatures.SparseResidency4Samples = false;               
-            deviceFeatures.SparseResidency8Samples = false;               
-            deviceFeatures.SparseResidency16Samples = false;               
-            deviceFeatures.SparseResidencyAliased = false;                 
-            deviceFeatures.VariableMultisampleRate = false;                
-            deviceFeatures.InheritedQueries = false;                     
+            deviceFeatures.RobustBufferAccess = VkBool32.FALSE;
+            deviceFeatures.FullDrawIndexUint32 = VkBool32.FALSE;                    
+            deviceFeatures.ImageCubeArray = VkBool32.FALSE;                         
+            deviceFeatures.IndependentBlend = VkBool32.FALSE;                       
+            deviceFeatures.GeometryShader = VkBool32.FALSE;                         
+            deviceFeatures.TessellationShader = VkBool32.FALSE;                     
+            deviceFeatures.SampleRateShading = VkBool32.FALSE;                      
+            deviceFeatures.DualSrcBlend = VkBool32.FALSE;                           
+            deviceFeatures.LogicOp = VkBool32.FALSE;                                
+            deviceFeatures.MultiDrawIndirect = VkBool32.FALSE;                      
+            deviceFeatures.DrawIndirectFirstInstance = VkBool32.FALSE;              
+            deviceFeatures.DepthClamp = VkBool32.FALSE;                             
+            deviceFeatures.DepthBiasClamp = VkBool32.FALSE;                         
+            deviceFeatures.FillModeNonSolid = VkBool32.FALSE;                       
+            deviceFeatures.DepthBounds = VkBool32.FALSE;                            
+            deviceFeatures.WideLines = VkBool32.FALSE;                              
+            deviceFeatures.LargePoints = VkBool32.FALSE;                            
+            deviceFeatures.AlphaToOne = VkBool32.FALSE;                             
+            deviceFeatures.MultiViewport = VkBool32.FALSE;                          
+            deviceFeatures.SamplerAnisotropy = VkBool32.FALSE;                      
+            deviceFeatures.TextureCompressionETC2 = VkBool32.FALSE;                 
+            deviceFeatures.TextureCompressionASTC_LDR = VkBool32.FALSE;             
+            deviceFeatures.TextureCompressionBC = VkBool32.FALSE;                   
+            deviceFeatures.OcclusionQueryPrecise = VkBool32.FALSE;                  
+            deviceFeatures.PipelineStatisticsQuery = VkBool32.FALSE;                
+            deviceFeatures.VertexPipelineStoresAndAtomics = VkBool32.FALSE;         
+            deviceFeatures.FragmentStoresAndAtomics = VkBool32.FALSE;              
+            deviceFeatures.ShaderTessellationAndGeometryPointSize = VkBool32.FALSE; 
+            deviceFeatures.ShaderImageGatherExtended = VkBool32.FALSE;              
+            deviceFeatures.ShaderStorageImageExtendedFormats = VkBool32.FALSE;     
+            deviceFeatures.ShaderStorageImageMultisample = VkBool32.FALSE;      
+            deviceFeatures.ShaderStorageImageReadWithoutFormat = VkBool32.FALSE;
+            deviceFeatures.ShaderStorageImageWriteWithoutFormat = VkBool32.FALSE;
+            deviceFeatures.ShaderUniformBufferArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderSampledImageArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderStorageBufferArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderStorageImageArrayDynamicIndexing = VkBool32.FALSE;
+            deviceFeatures.ShaderClipDistance = VkBool32.FALSE;               
+            deviceFeatures.ShaderCullDistance = VkBool32.FALSE;
+            deviceFeatures.ShaderFloat64 = VkBool32.FALSE;                          
+            deviceFeatures.ShaderInt64 = VkBool32.FALSE;
+            deviceFeatures.ShaderInt16 = VkBool32.FALSE;                            
+            deviceFeatures.ShaderResourceResidency = VkBool32.FALSE;                
+            deviceFeatures.ShaderResourceMinLod = VkBool32.FALSE;                   
+            deviceFeatures.SparseBinding = VkBool32.FALSE;                        
+            deviceFeatures.SparseResidencyBuffer = VkBool32.FALSE;                  
+            deviceFeatures.SparseResidencyImage2D = VkBool32.FALSE;                 
+            deviceFeatures.SparseResidencyImage3D = VkBool32.FALSE;                 
+            deviceFeatures.SparseResidency2Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidency4Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidency8Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidency16Samples = VkBool32.FALSE;               
+            deviceFeatures.SparseResidencyAliased = VkBool32.FALSE;                 
+            deviceFeatures.VariableMultisampleRate = VkBool32.FALSE;                
+            deviceFeatures.InheritedQueries = VkBool32.FALSE;                     
+        }
+
+        public Result GetPhysicalDeviceSurfaceSupport(uint queueFamilyIndex, AdamantiumVulkan.Core.SurfaceKHR surface, out bool pSupported)
+        {
+            var result = GetPhysicalDeviceSurfaceSupportKHR(queueFamilyIndex, surface, out var supported);
+            pSupported = (VkBool32)supported;
+            return result;
         }
     }
 
-    public partial class Device
+    public unsafe partial class Device
     {
         public Queue GetDeviceQueue(uint queueFamilyIndex, uint queueIndex)
         {
@@ -344,11 +347,12 @@ namespace AdamantiumVulkan.Core
             return deviceMemory;
         }
 
-        public IntPtr MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
+        public void* MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
         {
-            var result = MapMemory(memory, offset, size, flags, out IntPtr ppData);
+            //void** data = default;
+            var result = MapMemory(memory, offset, size, flags, out var data);
             ResultHelper.CheckResult(result, nameof(MapMemory));
-            return ppData;
+            return data;
         }
 
         public CommandBuffer[] AllocateCommandBuffers(CommandBufferAllocateInfo allocateInfo)
@@ -422,7 +426,7 @@ namespace AdamantiumVulkan.Core
             var commandBuffers = AllocateCommandBuffers(allocInfo);
 
             var beginInfo = new CommandBufferBeginInfo();
-            beginInfo.Flags = (uint)CommandBufferUsageFlagBits.OneTimeSubmitBit;
+            beginInfo.Flags = CommandBufferUsageFlagBits.OneTimeSubmitBit;
 
             var commandBuffer = commandBuffers[0];
             commandBuffer.BeginCommandBuffer(beginInfo);
@@ -461,115 +465,123 @@ namespace AdamantiumVulkan.Core
         }
     }
 
-    public partial class Framebuffer
+    public unsafe partial class Framebuffer
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyFramebuffer(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class Image
+    public unsafe partial class Image
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyImage(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class ImageView
+    public unsafe partial class ImageView
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyImageView(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class Pipeline
+    public unsafe partial class Pipeline
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipeline(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class SwapchainKHR
+    public unsafe partial class SwapchainKHR
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroySwapchainKHR(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class DeviceMemory
+    public unsafe partial class DeviceMemory
     {
         public void FreeMemory(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.FreeMemory(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class Buffer
+    public unsafe partial class Buffer
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyBuffer(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class BufferView
+    public unsafe partial class BufferView
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyBufferView(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
         }
     }
 
-    public partial class DescriptorSetLayout
+    public unsafe partial class DescriptorSetLayout
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyDescriptorSetLayout(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
 
         }
     }
 
-    public partial class PipelineLayout
+    public unsafe partial class PipelineLayout
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == IntPtr.Zero) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipelineLayout(this);
-            __Instance.pointer = IntPtr.Zero;
+            __Instance.pointer = null;
 
+        }
+    }
+
+    public unsafe partial class ExtensionProperties
+    {
+        public override string ToString()
+        {
+            return $"{ExtensionName} : {SpecVersion}";
         }
     }
 }
