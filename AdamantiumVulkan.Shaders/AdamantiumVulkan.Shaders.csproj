@@ -14,6 +14,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>..\Output\ReleaseX64</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj" />
+    <ProjectReference Include="..\..\QuantumBinding\QuantumBinding.Utils\QuantumBinding.Utils.csproj" />
   </ItemGroup>
 
 </Project>

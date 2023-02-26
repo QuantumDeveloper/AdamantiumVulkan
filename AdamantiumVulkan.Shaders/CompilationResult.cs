@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AdamantiumVulkan.Shaders.Interop;
 
 namespace AdamantiumVulkan.Shaders
 {

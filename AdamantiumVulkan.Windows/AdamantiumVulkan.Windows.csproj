@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Platforms>x64</Platforms>
     <Configurations>Debug;Release</Configurations>
     <LangVersion>latestmajor</LangVersion>
@@ -14,10 +14,10 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>..\Output\ReleaseX64</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
   </ItemGroup>
 

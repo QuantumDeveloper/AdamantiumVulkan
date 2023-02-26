@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <Platforms>x64</Platforms>
     <ApplicationIcon />
@@ -116,7 +116,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Adamantium.DXC" Version="1.0.5" />
+    <PackageReference Include="Adamantium.DXC" Version="1.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="shaders\BasicShader.hlsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

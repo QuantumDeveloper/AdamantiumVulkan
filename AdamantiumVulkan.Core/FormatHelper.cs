@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core
 {

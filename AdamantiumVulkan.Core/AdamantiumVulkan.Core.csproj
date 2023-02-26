@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Platforms>x64</Platforms>
     <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdamantiumVulkan.Common\AdamantiumVulkan.Common.csproj" />
+    <ProjectReference Include="..\..\QuantumBinding\QuantumBinding.Utils\QuantumBinding.Utils.csproj" />
   </ItemGroup>
 
   <ItemGroup>

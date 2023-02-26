@@ -36,7 +36,7 @@
       <xs:enumeration value="Unknown" />
       <xs:enumeration value="In" />
       <xs:enumeration value="Out" />
-      <xs:enumeration value="InOut" />
+      <xs:enumeration value="Ref" />
       <xs:enumeration value="Readonly" />
     </xs:restriction>
   </xs:simpleType>
