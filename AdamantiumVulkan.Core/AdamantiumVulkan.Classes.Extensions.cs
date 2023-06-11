@@ -52,6 +52,8 @@ namespace AdamantiumVulkan.Core
         {
             get
             {
+                if (IsDisposed) return 0;
+
                 uint physicalDeviceCount = 0;
                 var result = EnumeratePhysicalDevices(ref physicalDeviceCount, null);
                 ResultHelper.CheckResult(result, nameof(EnumeratePhysicalDevices));

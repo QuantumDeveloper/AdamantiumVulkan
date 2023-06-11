@@ -19,7 +19,6 @@ public unsafe partial class PhysicalDeviceVulkan11Features : QBDisposableObject
 
     public PhysicalDeviceVulkan11Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Features _internal)
     {
-        SType = _internal.sType;
         PNext = _internal.pNext;
         StorageBuffer16BitAccess = _internal.storageBuffer16BitAccess;
         UniformAndStorageBuffer16BitAccess = _internal.uniformAndStorageBuffer16BitAccess;
@@ -35,7 +34,7 @@ public unsafe partial class PhysicalDeviceVulkan11Features : QBDisposableObject
         ShaderDrawParameters = _internal.shaderDrawParameters;
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan11Features;
     public void* PNext { get; set; }
     public VkBool32 StorageBuffer16BitAccess { get; set; }
     public VkBool32 UniformAndStorageBuffer16BitAccess { get; set; }

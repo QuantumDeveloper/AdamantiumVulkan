@@ -11,7 +11,7 @@
 
   <PropertyGroup>
     <PackageId>AdamantiumVulkan.Spirv</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Den</Authors>
     <Company>Adamantium studio</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -45,7 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

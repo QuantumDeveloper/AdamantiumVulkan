@@ -77,6 +77,9 @@ public static partial class VulkanBindings
             predefinedValues.Add(CreatePredefinedInput("VkMemoryRequirements2", "sType", "StructureType.MemoryRequirements2"));
             predefinedValues.Add(CreatePredefinedInput("VkSparseImageMemoryRequirements2", "sType", "StructureType.SparseImageMemoryRequirements2"));
             predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceFeatures2", "sType", "StructureType.PhysicalDeviceFeatures2"));
+            predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceDynamicRenderingFeatures", "sType", "StructureType.PhysicalDeviceDynamicRenderingFeatures"));
+            predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceVulkan12Features", "sType", "StructureType.PhysicalDeviceVulkan12Features"));
+            predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceVulkan11Features", "sType", "StructureType.PhysicalDeviceVulkan11Features"));
             predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceProperties2", "sType", "StructureType.PhysicalDeviceProperties2"));
             predefinedValues.Add(CreatePredefinedInput("VkFormatProperties2", "sType", "StructureType.FormatProperties2"));
             predefinedValues.Add(CreatePredefinedInput("VkImageFormatProperties2", "sType", "StructureType.ImageFormatProperties2"));

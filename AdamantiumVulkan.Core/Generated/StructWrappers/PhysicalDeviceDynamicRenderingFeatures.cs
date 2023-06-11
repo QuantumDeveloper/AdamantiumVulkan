@@ -19,12 +19,11 @@ public unsafe partial class PhysicalDeviceDynamicRenderingFeatures : QBDisposabl
 
     public PhysicalDeviceDynamicRenderingFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingFeatures _internal)
     {
-        SType = _internal.sType;
         PNext = _internal.pNext;
         DynamicRendering = _internal.dynamicRendering;
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDynamicRenderingFeatures;
     public void* PNext { get; set; }
     public VkBool32 DynamicRendering { get; set; }
 

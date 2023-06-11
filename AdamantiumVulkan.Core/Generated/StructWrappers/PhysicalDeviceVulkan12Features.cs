@@ -19,7 +19,6 @@ public unsafe partial class PhysicalDeviceVulkan12Features : QBDisposableObject
 
     public PhysicalDeviceVulkan12Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Features _internal)
     {
-        SType = _internal.sType;
         PNext = _internal.pNext;
         SamplerMirrorClampToEdge = _internal.samplerMirrorClampToEdge;
         DrawIndirectCount = _internal.drawIndirectCount;
@@ -70,7 +69,7 @@ public unsafe partial class PhysicalDeviceVulkan12Features : QBDisposableObject
         SubgroupBroadcastDynamicId = _internal.subgroupBroadcastDynamicId;
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan12Features;
     public void* PNext { get; set; }
     public VkBool32 SamplerMirrorClampToEdge { get; set; }
     public VkBool32 DrawIndirectCount { get; set; }
