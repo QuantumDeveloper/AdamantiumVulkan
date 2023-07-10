@@ -25,7 +25,7 @@ public unsafe partial class QueueFamilyProperties
         MinImageTransferGranularity = new Extent3D(_internal.minImageTransferGranularity);
     }
 
-    public VkQueueFlags QueueFlags { get; set; }
+    public QueueFlagBits QueueFlags { get; set; }
     public uint QueueCount { get; set; }
     public uint TimestampValidBits { get; set; }
     public Extent3D MinImageTransferGranularity { get; set; }

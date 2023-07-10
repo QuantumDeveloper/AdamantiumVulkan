@@ -133,10 +133,15 @@ public static partial class VulkanBindings
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Out);
 
+        api.Function("vkCmdExecuteCommands").WithParameterName("pCommandBuffers")
+            .InterpretAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
+
         api.Delegate("spvc_error_callback").WithParameterName("error").InterpretAsIs()
             .SetParameterKind(ParameterKind.Out);
 
         api.Function("spvc_constant_get_type").RenameTo("spvc_constant_get_constant_type");
+        
+        
 
         //api.Function("vkEnumerateInstanceExtensionProperties").
         //    WithParameterName("pProperties").
@@ -390,7 +395,7 @@ public static partial class VulkanBindings
         api.Class("VkPipelineColorWriteCreateInfoEXT")
             .WithField("pColorWriteEnables")
             .InterpretAsPointerToArray(new CustomType("VkBool32"), arraySizeSource: "attachmentCount");
-        
+
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").
         //    TreatAsIs().
