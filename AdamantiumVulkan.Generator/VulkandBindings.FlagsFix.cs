@@ -172,6 +172,11 @@ public static partial class VulkanBindings
             .WithField("colorWriteMask")
             .InterpretAsCustomType("VkColorComponentFlagBits")
             .ChangeType();
+        
+        api.Class("VkQueueFamilyProperties")
+            .WithField("queueFlags")
+            .InterpretAsCustomType("VkQueueFlagBits")
+            .ChangeType();
 
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

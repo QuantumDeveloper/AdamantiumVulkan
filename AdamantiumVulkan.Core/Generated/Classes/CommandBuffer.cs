@@ -887,6 +887,19 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg4);
     }
 
+    public void ExecuteCommands(uint commandBufferCount, params AdamantiumVulkan.Core.CommandBuffer[] pCommandBuffers)
+    {
+         var arg2 = ReferenceEquals(pCommandBuffers, null) ? null : NativeUtils.GetPointerToManagedArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>(commandBufferCount);
+        if (!ReferenceEquals(pCommandBuffers, null))
+        {
+            for (var i = 0U; i < commandBufferCount; ++i)
+            {
+                arg2[i] = pCommandBuffers[i];
+            }
+        }
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdExecuteCommands(this, commandBufferCount, arg2);
+    }
+
     public void ExecuteCommands(uint commandBufferCount, in AdamantiumVulkan.Core.CommandBuffer pCommandBuffers)
     {
         var arg2 = ReferenceEquals(pCommandBuffers, null) ? null : NativeUtils.StructOrEnumToPointer((VkCommandBuffer_T)pCommandBuffers);

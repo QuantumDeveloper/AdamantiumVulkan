@@ -8,13 +8,14 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkQueueFamilyProperties
 {
-    public VkQueueFlags queueFlags;
+    public QueueFlagBits queueFlags;
     public uint queueCount;
     public uint timestampValidBits;
     public VkExtent3D minImageTransferGranularity;
