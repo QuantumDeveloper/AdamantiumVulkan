@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6194 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSubpassDescriptionDepthStencilResolve
 {
@@ -19,7 +20,7 @@ public unsafe partial struct VkSubpassDescriptionDepthStencilResolve
     public void* pNext;
     public ResolveModeFlagBits depthResolveMode;
     public ResolveModeFlagBits stencilResolveMode;
-    public VkAttachmentReference2* pDepthStencilResolveAttachment;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentReference2* pDepthStencilResolveAttachment;
 }
 
 

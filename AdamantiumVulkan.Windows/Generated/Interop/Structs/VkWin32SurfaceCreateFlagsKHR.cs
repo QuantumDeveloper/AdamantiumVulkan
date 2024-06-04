@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_win32.h Line: 26 Column: 17
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkWin32SurfaceCreateFlagsKHR
 {

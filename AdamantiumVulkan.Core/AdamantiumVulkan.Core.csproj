@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Platforms>x64</Platforms>
     <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
@@ -17,11 +17,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\QuantumBinding\QuantumBinding.Utils\QuantumBinding.Utils.csproj" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <ProjectReference Include="..\..\QuantumBinding\QuantumBinding.Utils\QuantumBinding.Utils.csproj" />
   </ItemGroup>
 
 </Project>

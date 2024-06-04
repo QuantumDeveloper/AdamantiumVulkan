@@ -12,13 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13986 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineViewportExclusiveScissorStateCreateInfoNV
 {
     public StructureType sType;
     public void* pNext;
     public uint exclusiveScissorCount;
-    public VkRect2D* pExclusiveScissors;
+    public AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors;
 }
 
 

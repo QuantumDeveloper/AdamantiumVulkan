@@ -18,6 +18,7 @@ using AdamantiumVulkan.Core;
 using AdamantiumVulkan.Core.Interop;
 using AdamantiumVulkan.Spirv.Cross;
 using AdamantiumVulkan.Spirv.Reflection;
+using AdamantiumVulkan.SpirvTools;
 using QuantumBinding.Utils;
 using ImageLayout = AdamantiumVulkan.Core.ImageLayout;
 using Result = AdamantiumVulkan.Core.Result;
@@ -30,7 +31,7 @@ namespace VulkanEngineTestCore
         const int MAX_FRAMES_IN_FLIGHT = 3;
 
         private bool enableDynamicRendering = true;
-        private bool enableValidationLayers = false;
+        private bool enableValidationLayers = true;
 
         Instance instance;
         PhysicalDevice physicalDevice;
@@ -135,6 +136,13 @@ namespace VulkanEngineTestCore
             var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
             var result = dxcCompiler.CompileIntoSpirvFromText(vertexText, "UIEffect.fx", "SolidColorPixelShader", "ps_5_1", compilerOptions);
 
+            var spvToolsContext = new spv_const_context(SpirvToolsNative.SpvContextCreate(spv_target_env.Vulkan11));
+            var res = spvToolsContext.SpvBinaryToText(
+                result.Bytecode, 
+                (uint)result.Bytecode.Length / 4, 
+                (uint)spv_binary_to_text_options_t.BinaryToTextOptionIndent, 
+                out var text, 
+                out var diagnostic);
             
             SpirvReflection reflection = new SpirvReflection(result.Bytecode, Backend.Hlsl);
             var lst = new List<ResourceBindingKey>();
@@ -198,7 +206,6 @@ namespace VulkanEngineTestCore
                 return graphicsFamily.HasValue && presentFamily.HasValue;
             }
         }
-
 
         [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvStdcall) })]
         private static AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult* ResolveInclude(void* user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
@@ -451,12 +458,12 @@ namespace VulkanEngineTestCore
                 range.BaseArrayLayer = 0;
                 range.LayerCount = (~0U);
 
-                ImageSubresourceRange depth_range = new ImageSubresourceRange();
-                depth_range.AspectMask = ImageAspectFlagBits.DepthBit | ImageAspectFlagBits.StencilBit;
-                depth_range.BaseMipLevel = 0;
-                depth_range.LevelCount = (~0U);
-                depth_range.BaseArrayLayer = 0;
-                depth_range.LayerCount = (~0U);
+                ImageSubresourceRange depthRange = new ImageSubresourceRange();
+                depthRange.AspectMask = ImageAspectFlagBits.DepthBit | ImageAspectFlagBits.StencilBit;
+                depthRange.BaseMipLevel = 0;
+                depthRange.LevelCount = (~0U);
+                depthRange.BaseArrayLayer = 0;
+                depthRange.LayerCount = (~0U);
 
                 InsertImageMemoryBarrier(commandBuffer,
                     swapchainImages[imageIndex],
@@ -477,12 +484,12 @@ namespace VulkanEngineTestCore
                     ImageLayout.DepthStencilAttachmentOptimal,
                     PipelineStageFlagBits.EarlyFragmentTestsBit | PipelineStageFlagBits.LateFragmentTestsBit,
                     PipelineStageFlagBits.EarlyFragmentTestsBit | PipelineStageFlagBits.LateFragmentTestsBit,
-                    depth_range
+                    depthRange
                 );
 
                 commandBuffer.BeginRendering(renderingInfo);
 
-                RenderInternal(commandBuffer, imageIndex);
+                //RenderInternal(commandBuffer, imageIndex);
 
                 commandBuffer.EndRendering();
 
@@ -799,6 +806,10 @@ namespace VulkanEngineTestCore
             //createInfo.PEnabledFeatures = deviceFeatures;
             createInfo.EnabledExtensionCount = (uint)deviceExtensions.Length;
             createInfo.PEnabledExtensionNames = deviceExtensions;
+            
+            var maintenance4Features = new PhysicalDeviceMaintenance4Features();
+            maintenance4Features.SType = StructureType.PhysicalDeviceMaintenance4Features;
+            maintenance4Features.Maintenance4 = VkBool32.TRUE;
 
             if (enableDynamicRendering)
             {
@@ -806,6 +817,7 @@ namespace VulkanEngineTestCore
                 dynamicRendering.DynamicRendering = VkBool32.TRUE;
 
                 var vulkan12Features = new PhysicalDeviceVulkan12Features();
+                vulkan12Features.SamplerMirrorClampToEdge = true;
                 var dynamicRenderingPtr = NativeUtils.StructOrEnumToPointer(dynamicRendering.ToNative());
                 vulkan12Features.PNext = dynamicRenderingPtr;
                 
@@ -816,11 +828,23 @@ namespace VulkanEngineTestCore
                 var features2 = new PhysicalDeviceFeatures2();
                 features2.Features = new PhysicalDeviceFeatures();
                 features2.Features.SamplerAnisotropy = VkBool32.TRUE;
+                features2.Features.SampleRateShading = VkBool32.TRUE;
+                features2.Features.GeometryShader = true;
+                
                 var vulkan11FeaturesPtr = NativeUtils.StructOrEnumToPointer(vulkan11Features.ToNative());
                 features2.PNext = vulkan11FeaturesPtr;
 
                 var features2Ptr = NativeUtils.StructOrEnumToPointer(features2.ToNative());
-                createInfo.PNext = features2Ptr;
+                
+                maintenance4Features.PNext = features2Ptr;
+                var maintenance4FeaturesPtr = NativeUtils.StructOrEnumToPointer(maintenance4Features.ToNative());
+                
+                var shaderObjectFeatures = new PhysicalDeviceShaderObjectFeaturesEXT();
+                shaderObjectFeatures.ShaderObject = true;
+                shaderObjectFeatures.PNext = maintenance4FeaturesPtr;
+                var shaderObjectPtr = NativeUtils.StructOrEnumToPointer(shaderObjectFeatures.ToNative());
+                
+                createInfo.PNext = shaderObjectPtr;
             }
             
             if (enableValidationLayers)

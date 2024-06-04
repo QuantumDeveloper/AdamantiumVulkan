@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\shaderc/status.h Line: 23 Column: 9
 ///<summary>
 /// Indicate the status of a compilation.
 ///</summary>

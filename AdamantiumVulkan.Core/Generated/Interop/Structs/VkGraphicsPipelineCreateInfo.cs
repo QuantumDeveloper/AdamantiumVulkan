@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3599 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkGraphicsPipelineCreateInfo
 {
@@ -19,16 +20,16 @@ public unsafe partial struct VkGraphicsPipelineCreateInfo
     public void* pNext;
     public VkPipelineCreateFlags flags;
     public uint stageCount;
-    public VkPipelineShaderStageCreateInfo* pStages;
-    public VkPipelineVertexInputStateCreateInfo* pVertexInputState;
-    public VkPipelineInputAssemblyStateCreateInfo* pInputAssemblyState;
-    public VkPipelineTessellationStateCreateInfo* pTessellationState;
-    public VkPipelineViewportStateCreateInfo* pViewportState;
-    public VkPipelineRasterizationStateCreateInfo* pRasterizationState;
-    public VkPipelineMultisampleStateCreateInfo* pMultisampleState;
-    public VkPipelineDepthStencilStateCreateInfo* pDepthStencilState;
-    public VkPipelineColorBlendStateCreateInfo* pColorBlendState;
-    public VkPipelineDynamicStateCreateInfo* pDynamicState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo* pStages;
+    public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo* pVertexInputState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo* pInputAssemblyState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo* pTessellationState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo* pViewportState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo* pRasterizationState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo* pMultisampleState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo* pDepthStencilState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo* pColorBlendState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo* pDynamicState;
     public VkPipelineLayout_T layout;
     public VkRenderPass_T renderPass;
     public uint subpass;

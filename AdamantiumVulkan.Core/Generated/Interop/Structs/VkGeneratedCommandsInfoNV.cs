@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15233 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkGeneratedCommandsInfoNV
 {
@@ -21,7 +22,7 @@ public unsafe partial struct VkGeneratedCommandsInfoNV
     public VkPipeline_T pipeline;
     public VkIndirectCommandsLayoutNV_T indirectCommandsLayout;
     public uint streamCount;
-    public VkIndirectCommandsStreamNV* pStreams;
+    public AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV* pStreams;
     public uint sequencesCount;
     public VkBuffer_T preprocessBuffer;
     public VkDeviceSize preprocessOffset;

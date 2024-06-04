@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17948 Column: 14
 public enum SubpassMergeStatusEXT : uint
 {
     MergedExt = 0,

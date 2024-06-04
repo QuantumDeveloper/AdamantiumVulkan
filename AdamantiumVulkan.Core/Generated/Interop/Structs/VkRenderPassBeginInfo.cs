@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3903 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderPassBeginInfo
 {
@@ -21,7 +22,7 @@ public unsafe partial struct VkRenderPassBeginInfo
     public VkFramebuffer_T framebuffer;
     public VkRect2D renderArea;
     public uint clearValueCount;
-    public VkClearValue* pClearValues;
+    public AdamantiumVulkan.Core.Interop.VkClearValue* pClearValues;
 }
 
 

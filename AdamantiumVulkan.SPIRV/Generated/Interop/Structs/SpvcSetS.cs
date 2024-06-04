@@ -11,15 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 80 Column: 8
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcSetS
 {
     public void* pointer;
-    public SpvcSetS(void* pointer)
-    {
-        this.pointer = pointer;
-    }
-
 }
 
 

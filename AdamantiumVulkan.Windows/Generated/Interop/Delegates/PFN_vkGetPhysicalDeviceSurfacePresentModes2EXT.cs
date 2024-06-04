@@ -15,6 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_win32.h Line: 293 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT
 {
     public PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT(void* ptr)

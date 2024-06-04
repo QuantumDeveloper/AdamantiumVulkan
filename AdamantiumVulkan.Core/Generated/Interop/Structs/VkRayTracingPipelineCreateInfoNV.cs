@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13410 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRayTracingPipelineCreateInfoNV
 {
@@ -19,9 +20,9 @@ public unsafe partial struct VkRayTracingPipelineCreateInfoNV
     public void* pNext;
     public VkPipelineCreateFlags flags;
     public uint stageCount;
-    public VkPipelineShaderStageCreateInfo* pStages;
+    public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo* pStages;
     public uint groupCount;
-    public VkRayTracingShaderGroupCreateInfoNV* pGroups;
+    public AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV* pGroups;
     public uint maxRecursionDepth;
     public VkPipelineLayout_T layout;
     public VkPipeline_T basePipelineHandle;

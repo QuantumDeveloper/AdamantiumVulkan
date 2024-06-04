@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3532 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineMultisampleStateCreateInfo
 {
@@ -21,7 +22,7 @@ public unsafe partial struct VkPipelineMultisampleStateCreateInfo
     public SampleCountFlagBits rasterizationSamples;
     public VkBool32 sampleShadingEnable;
     public float minSampleShading;
-    public VkSampleMask* pSampleMask;
+    public AdamantiumVulkan.Core.Interop.VkSampleMask* pSampleMask;
     public VkBool32 alphaToCoverageEnable;
     public VkBool32 alphaToOneEnable;
 }

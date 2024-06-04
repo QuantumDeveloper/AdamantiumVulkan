@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5797 Column: 14
 [Flags]
 public enum ResolveModeFlagBits : uint
 {
@@ -23,6 +24,8 @@ public enum ResolveModeFlagBits : uint
     MinBit = 4,
 
     MaxBit = 8,
+
+    ExternalFormatDownsampleAndroid = 16,
 
     FlagBitsMaxEnum = 2147483647,
 

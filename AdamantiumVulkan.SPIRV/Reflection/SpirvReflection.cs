@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using AdamantiumVulkan.Spirv.Cross;
-using AdamantiumVulkan.Spirv.Cross.Interop;
-using AdamantiumVulkan.Spirv.Interop;
 using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Spirv.Reflection

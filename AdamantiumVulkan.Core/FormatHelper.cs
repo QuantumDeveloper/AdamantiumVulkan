@@ -151,7 +151,11 @@ namespace AdamantiumVulkan.Core
                 Format.R8_UINT,
                 Format.R8_SINT,
                 Format.R8_SRGB,
-                Format.S8_UINT
+                Format.S8_UINT,
+                Format.BC2_UNORM_BLOCK,
+                Format.BC2_SRGB_BLOCK,
+                Format.BC3_UNORM_BLOCK,
+                Format.BC3_SRGB_BLOCK,
             }, 8);
 
             Init(new Format[] 
@@ -319,10 +323,6 @@ namespace AdamantiumVulkan.Core
                 Format.R64G64_UINT,
                 Format.R64G64_SINT,
                 Format.R64G64_SFLOAT,
-                Format.BC2_UNORM_BLOCK,
-                Format.BC2_SRGB_BLOCK,
-                Format.BC3_UNORM_BLOCK,
-                Format.BC3_SRGB_BLOCK,
                 Format.BC5_UNORM_BLOCK,
                 Format.BC5_SNORM_BLOCK,
                 Format.BC6H_UFLOAT_BLOCK,

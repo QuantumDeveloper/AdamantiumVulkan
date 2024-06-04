@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 1381 Column: 14
 public enum VendorId : uint
 {
     Viv = 65537,
@@ -24,6 +25,8 @@ public enum VendorId : uint
     Mesa = 65541,
 
     Pocl = 65542,
+
+    Mobileye = 65543,
 
     MaxEnum = 2147483647,
 

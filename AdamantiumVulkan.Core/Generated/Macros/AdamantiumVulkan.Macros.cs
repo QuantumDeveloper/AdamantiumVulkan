@@ -13,9 +13,195 @@ namespace AdamantiumVulkan;
 
 public static class Constants
 {
+    // File: <command line> Line: 2 Column: 9
     public static uint _MSC_VER => 1;
 
+    // File: <command line> Line: 4 Column: 9
     public static uint VK_USE_PLATFORM_MACOS_MVK => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODEC_H264STD_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 23 Column: 9
+    public static uint vulkan_video_codec_h264std => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codecs_common.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODECS_COMMON_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codecs_common.h Line: 23 Column: 9
+    public static uint vulkan_video_codecs_common => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codecs_common.h Line: 28 Column: 9
+    public static uint VK_MAKE_VIDEO_STD_VERSION(byte major, byte minor, byte patch)
+    {
+        var version = ((((uint)(major)) << 22) | (((uint)(minor)) << 12) | ((uint)(patch)));
+        return (uint)version;
+    }
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 25 Column: 9
+    public static uint STD_VIDEO_H264_CPB_CNT_LIST_SIZE => 32;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 26 Column: 9
+    public static uint STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS => 6;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 27 Column: 9
+    public static uint STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS => 16;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 28 Column: 9
+    public static uint STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS => 6;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 29 Column: 9
+    public static uint STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS => 64;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 30 Column: 9
+    public static uint STD_VIDEO_H264_MAX_NUM_LIST_REF => 32;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 31 Column: 9
+    public static uint STD_VIDEO_H264_MAX_CHROMA_PLANES => 2;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 32 Column: 9
+    public static uint STD_VIDEO_H264_NO_REFERENCE_PICTURE => 0xFF;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODEC_H264STD_ENCODE_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 23 Column: 9
+    public static uint vulkan_video_codec_h264std_encode => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 26 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1,0,0);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 28 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_SPEC_VERSION => VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_API_VERSION_1_0_0;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 29 Column: 9
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h264_encode";
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODEC_H265STD_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 23 Column: 9
+    public static uint vulkan_video_codec_h265std => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 25 Column: 9
+    public static uint STD_VIDEO_H265_CPB_CNT_LIST_SIZE => 32;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 26 Column: 9
+    public static uint STD_VIDEO_H265_SUBLAYERS_LIST_SIZE => 7;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 27 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS => 6;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 28 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS => 16;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 29 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS => 6;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 30 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS => 64;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 31 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS => 6;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 32 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS => 64;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 33 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS => 2;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 34 Column: 9
+    public static uint STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS => 64;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 35 Column: 9
+    public static uint STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE => 6;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 36 Column: 9
+    public static uint STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE => 19;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 37 Column: 9
+    public static uint STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE => 21;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 38 Column: 9
+    public static uint STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE => 3;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 39 Column: 9
+    public static uint STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE => 128;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 40 Column: 9
+    public static uint STD_VIDEO_H265_MAX_NUM_LIST_REF => 15;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 41 Column: 9
+    public static uint STD_VIDEO_H265_MAX_CHROMA_PLANES => 2;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 42 Column: 9
+    public static uint STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS => 64;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 43 Column: 9
+    public static uint STD_VIDEO_H265_MAX_DPB_SIZE => 16;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 44 Column: 9
+    public static uint STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS => 32;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 45 Column: 9
+    public static uint STD_VIDEO_H265_MAX_LONG_TERM_PICS => 16;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 46 Column: 9
+    public static uint STD_VIDEO_H265_MAX_DELTA_POC => 48;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 47 Column: 9
+    public static uint STD_VIDEO_H265_NO_REFERENCE_PICTURE => 0xFF;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODEC_H265STD_ENCODE_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 23 Column: 9
+    public static uint vulkan_video_codec_h265std_encode => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 26 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1,0,0);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 28 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_SPEC_VERSION => VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_API_VERSION_1_0_0;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 29 Column: 9
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h265_encode";
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_decode.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODEC_H264STD_DECODE_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_decode.h Line: 23 Column: 9
+    public static uint vulkan_video_codec_h264std_decode => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_decode.h Line: 26 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1,0,0);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_decode.h Line: 28 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_SPEC_VERSION => VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_API_VERSION_1_0_0;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_decode.h Line: 29 Column: 9
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h264_decode";
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_decode.h Line: 30 Column: 9
+    public static uint STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE => 2;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_decode.h Line: 2 Column: 9
+    public static uint VULKAN_VIDEO_CODEC_H265STD_DECODE_H_ => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_decode.h Line: 23 Column: 9
+    public static uint vulkan_video_codec_h265std_decode => 1;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_decode.h Line: 26 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1,0,0);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_decode.h Line: 28 Column: 9
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_SPEC_VERSION => VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_API_VERSION_1_0_0;
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_decode.h Line: 29 Column: 9
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h265_decode";
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h265std_decode.h Line: 30 Column: 9
+    public static uint STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE => 8;
 
 }
 

@@ -14,6 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19037 Column: 37
 public unsafe struct PFN_vkGetAccelerationStructureDeviceAddressKHR
 {
     public PFN_vkGetAccelerationStructureDeviceAddressKHR(void* ptr)

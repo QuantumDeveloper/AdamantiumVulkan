@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross/spirv.h Line: 450 Column: 14
 public enum SpvFunctionParameterAttribute : uint
 {
     Zext = 0,

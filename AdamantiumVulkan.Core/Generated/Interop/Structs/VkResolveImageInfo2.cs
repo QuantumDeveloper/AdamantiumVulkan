@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7084 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkResolveImageInfo2
 {
@@ -22,7 +23,7 @@ public unsafe partial struct VkResolveImageInfo2
     public VkImage_T dstImage;
     public ImageLayout dstImageLayout;
     public uint regionCount;
-    public VkImageResolve2* pRegions;
+    public AdamantiumVulkan.Core.Interop.VkImageResolve2* pRegions;
 }
 
 

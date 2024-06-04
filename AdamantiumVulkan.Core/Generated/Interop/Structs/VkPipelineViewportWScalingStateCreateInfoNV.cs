@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12226 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineViewportWScalingStateCreateInfoNV
 {
@@ -19,7 +20,7 @@ public unsafe partial struct VkPipelineViewportWScalingStateCreateInfoNV
     public void* pNext;
     public VkBool32 viewportWScalingEnable;
     public uint viewportCount;
-    public VkViewportWScalingNV* pViewportWScalings;
+    public AdamantiumVulkan.Core.Interop.VkViewportWScalingNV* pViewportWScalings;
 }
 
 

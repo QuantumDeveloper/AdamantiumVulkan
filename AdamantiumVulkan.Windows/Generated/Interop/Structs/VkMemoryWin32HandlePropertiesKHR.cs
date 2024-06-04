@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_win32.h Line: 71 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMemoryWin32HandlePropertiesKHR
 {

@@ -14,6 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14768 Column: 26
 public unsafe struct PFN_vkCmdSetDepthWriteEnableEXT
 {
     public PFN_vkCmdSetDepthWriteEnableEXT(void* ptr)

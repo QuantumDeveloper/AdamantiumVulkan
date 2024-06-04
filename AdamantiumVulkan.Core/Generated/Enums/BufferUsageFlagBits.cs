@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2480 Column: 14
 [Flags]
 public enum BufferUsageFlagBits : uint
 {
@@ -34,6 +35,10 @@ public enum BufferUsageFlagBits : uint
 
     ShaderDeviceAddressBit = 131072,
 
+    VideoDecodeSrcBitKhr = 8192,
+
+    VideoDecodeDstBitKhr = 16384,
+
     TransformFeedbackBufferBitExt = 2048,
 
     TransformFeedbackCounterBufferBitExt = 4096,
@@ -45,6 +50,10 @@ public enum BufferUsageFlagBits : uint
     AccelerationStructureStorageBitKhr = 1048576,
 
     ShaderBindingTableBitKhr = 1024,
+
+    VideoEncodeDstBitKhr = 32768,
+
+    VideoEncodeSrcBitKhr = 65536,
 
     SamplerDescriptorBufferBitExt = 2097152,
 

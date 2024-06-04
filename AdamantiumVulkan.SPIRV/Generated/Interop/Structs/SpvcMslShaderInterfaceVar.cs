@@ -13,6 +13,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 340 Column: 16
 ///<summary>
 /// Maps to C++ API. Deprecated; use spvc_msl_shader_interface_var_2.
 ///</summary>

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13374 Column: 14
 [Flags]
 public enum BuildAccelerationStructureFlagBitsKHR : uint
 {
@@ -31,6 +32,8 @@ public enum BuildAccelerationStructureFlagBitsKHR : uint
     AllowDisableOpacityMicromapsExt = 128,
 
     AllowOpacityMicromapDataUpdateExt = 256,
+
+    AllowDataAccessKhr = 2048,
 
     FlagBitsMaxEnumKhr = 2147483647,
 

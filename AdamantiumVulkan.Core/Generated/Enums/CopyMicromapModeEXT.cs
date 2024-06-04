@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16930 Column: 14
 public enum CopyMicromapModeEXT : uint
 {
     CloneExt = 0,

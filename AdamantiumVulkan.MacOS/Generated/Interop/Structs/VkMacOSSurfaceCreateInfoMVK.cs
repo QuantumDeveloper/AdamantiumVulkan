@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.MacOS.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 27 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMacOSSurfaceCreateInfoMVK
 {

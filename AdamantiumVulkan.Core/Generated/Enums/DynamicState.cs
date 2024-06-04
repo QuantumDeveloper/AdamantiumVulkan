@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 1876 Column: 14
 public enum DynamicState : uint
 {
     Viewport = 0,
@@ -65,6 +66,10 @@ public enum DynamicState : uint
 
     DiscardRectangleExt = 1000099000,
 
+    DiscardRectangleEnableExt = 1000099001,
+
+    DiscardRectangleModeExt = 1000099002,
+
     SampleLocationsExt = 1000143000,
 
     RayTracingPipelineStackSizeKhr = 1000347000,
@@ -72,6 +77,8 @@ public enum DynamicState : uint
     ViewportShadingRatePaletteNv = 1000164004,
 
     ViewportCoarseSampleOrderNv = 1000164006,
+
+    ExclusiveScissorEnableNv = 1000205000,
 
     ExclusiveScissorNv = 1000205001,
 
@@ -148,6 +155,8 @@ public enum DynamicState : uint
     RepresentativeFragmentTestEnableNv = 1000455031,
 
     CoverageReductionModeNv = 1000455032,
+
+    AttachmentFeedbackLoopEnableExt = 1000524000,
 
     MaxEnum = 2147483647,
 

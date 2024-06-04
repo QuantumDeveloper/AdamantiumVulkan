@@ -15,6 +15,7 @@ using AdamantiumVulkan.Spirv.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 74 Column: 33
 public unsafe partial class SpirvCompiler
 {
     internal SpvcCompilerS __Instance;
@@ -329,9 +330,20 @@ public unsafe partial class SpirvCompiler
         return new string(result);
     }
 
+    public ulong GetNumRequiredExtensions()
+    {
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_num_required_extensions(this);
+    }
+
     public string GetRemappedDeclaredBlockName(SpvcVariableId id)
     {
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_remapped_declared_block_name(this, id);
+        return new string(result);
+    }
+
+    public string GetRequiredExtension(ulong index)
+    {
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_required_extension(this, index);
         return new string(result);
     }
 

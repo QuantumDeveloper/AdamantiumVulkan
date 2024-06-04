@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2456 Column: 14
 [Flags]
 public enum QueryResultFlagBits : uint
 {
@@ -21,6 +22,8 @@ public enum QueryResultFlagBits : uint
     WithAvailabilityBit = 4,
 
     PartialBit = 8,
+
+    WithStatusBitKhr = 16,
 
     FlagBitsMaxEnum = 2147483647,
 

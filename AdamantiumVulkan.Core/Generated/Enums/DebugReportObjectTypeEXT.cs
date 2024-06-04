@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11451 Column: 14
 public enum DebugReportObjectTypeEXT : uint
 {
     UnknownExt = 0,
@@ -88,6 +89,10 @@ public enum DebugReportObjectTypeEXT : uint
     AccelerationStructureKhrExt = 1000150000,
 
     AccelerationStructureNvExt = 1000165000,
+
+    CudaModuleNvExt = 1000307000,
+
+    CudaFunctionNvExt = 1000307001,
 
     BufferCollectionFuchsiaExt = 1000366000,
 

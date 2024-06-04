@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 1323 Column: 14
 public enum ObjectType : uint
 {
     Unknown = 0,
@@ -81,6 +82,10 @@ public enum ObjectType : uint
 
     DebugReportCallbackExt = 1000011000,
 
+    VideoSessionKhr = 1000023000,
+
+    VideoSessionParametersKhr = 1000023001,
+
     CuModuleNvx = 1000029000,
 
     CuFunctionNvx = 1000029001,
@@ -99,11 +104,17 @@ public enum ObjectType : uint
 
     IndirectCommandsLayoutNv = 1000277000,
 
+    CudaModuleNv = 1000307000,
+
+    CudaFunctionNv = 1000307001,
+
     BufferCollectionFuchsia = 1000366000,
 
     MicromapExt = 1000396000,
 
     OpticalFlowSessionNv = 1000464000,
+
+    ShaderExt = 1000482000,
 
     MaxEnum = 2147483647,
 

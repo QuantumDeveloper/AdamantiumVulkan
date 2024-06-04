@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4857 Column: 1
 public unsafe partial class DescriptorUpdateTemplate
 {
     internal VkDescriptorUpdateTemplate_T __Instance;

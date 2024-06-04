@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7166 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderingInfo
 {
@@ -22,9 +23,9 @@ public unsafe partial struct VkRenderingInfo
     public uint layerCount;
     public uint viewMask;
     public uint colorAttachmentCount;
-    public VkRenderingAttachmentInfo* pColorAttachments;
-    public VkRenderingAttachmentInfo* pDepthAttachment;
-    public VkRenderingAttachmentInfo* pStencilAttachment;
+    public AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo* pColorAttachments;
+    public AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo* pDepthAttachment;
+    public AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo* pStencilAttachment;
 }
 
 

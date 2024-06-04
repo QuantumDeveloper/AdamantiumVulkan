@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3472 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineVertexInputStateCreateInfo
 {
@@ -19,9 +20,9 @@ public unsafe partial struct VkPipelineVertexInputStateCreateInfo
     public void* pNext;
     public VkPipelineVertexInputStateCreateFlags flags;
     public uint vertexBindingDescriptionCount;
-    public VkVertexInputBindingDescription* pVertexBindingDescriptions;
+    public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription* pVertexBindingDescriptions;
     public uint vertexAttributeDescriptionCount;
-    public VkVertexInputAttributeDescription* pVertexAttributeDescriptions;
+    public AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription* pVertexAttributeDescriptions;
 }
 
 

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 140 Column: 14
 public enum Result : int
 {
     Success = 0,
@@ -75,6 +76,18 @@ public enum Result : int
 
     ErrorInvalidShaderNv = -1000012000,
 
+    ErrorImageUsageNotSupportedKhr = -1000023000,
+
+    ErrorVideoPictureLayoutNotSupportedKhr = -1000023001,
+
+    ErrorVideoProfileOperationNotSupportedKhr = -1000023002,
+
+    ErrorVideoProfileFormatNotSupportedKhr = -1000023003,
+
+    ErrorVideoProfileCodecNotSupportedKhr = -1000023004,
+
+    ErrorVideoStdVersionNotSupportedKhr = -1000023005,
+
     ErrorInvalidDrmFormatModifierPlaneLayoutExt = -1000158000,
 
     ErrorNotPermittedKhr = -1000174001,
@@ -89,7 +102,11 @@ public enum Result : int
 
     OperationNotDeferredKhr = 1000268003,
 
+    ErrorInvalidVideoStdParametersKhr = -1000299000,
+
     ErrorCompressionExhaustedExt = -1000338000,
+
+    ErrorIncompatibleShaderBinaryExt = 1000482000,
 
     ResultMaxEnum = 2147483647,
 

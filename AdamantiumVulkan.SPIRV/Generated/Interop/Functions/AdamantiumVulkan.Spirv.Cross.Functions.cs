@@ -20,6 +20,7 @@ public static unsafe partial class SpirvCrossInterop
 {
     public const string LibraryPath = "spirv-cross-c-shared";
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 788 Column: 29
     ///<summary>
     /// Maps to C++ API.
     ///</summary>
@@ -27,18 +28,22 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_add_header_line", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_add_header_line(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte* line);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1080 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_buffer_get_hlsl_counter_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_buffer_get_hlsl_counter_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id, SpvcVariableId* counter_id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1079 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_buffer_is_hlsl_counter_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_buffer_is_hlsl_counter_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1010 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_build_combined_image_samplers", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_build_combined_image_samplers(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1009 Column: 29
     ///<summary>
     /// Workaround helper functions. Maps to C++ API.
     ///</summary>
@@ -46,6 +51,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_build_dummy_sampler_for_combined_images", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_build_dummy_sampler_for_combined_images(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId* id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 785 Column: 29
     ///<summary>
     /// Compile IR into a string. *source is owned by the context, and caller must not free it themselves.
     ///</summary>
@@ -53,6 +59,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_compile", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_compile(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte** source);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 773 Column: 29
     ///<summary>
     /// Create compiler options, which will initialize defaults.
     ///</summary>
@@ -60,18 +67,22 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_create_compiler_options", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_create_compiler_options(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS options);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 884 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_create_shader_resources", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_create_shader_resources(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcResourcesS resources);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 885 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_create_shader_resources_for_active_variables", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_create_shader_resources_for_active_variables(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcResourcesS resources, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSetS active);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 792 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_flatten_buffer_block", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_flatten_buffer_block(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1034 Column: 29
     ///<summary>
     /// Buffer ranges Maps to C++ API.
     ///</summary>
@@ -79,6 +90,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_active_buffer_ranges", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_active_buffer_ranges(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id, AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange** ranges, ulong* num_ranges);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 882 Column: 29
     ///<summary>
     /// Reflect resources. Maps almost 1:1 to C++ API.
     ///</summary>
@@ -86,6 +98,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_active_interface_variables", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_active_interface_variables(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcSetS set);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1074 Column: 27
     ///<summary>
     /// Misc reflection Maps to C++ API.
     ///</summary>
@@ -93,22 +106,27 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_binary_offset_for_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_get_binary_offset_for_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id, SpvDecoration decoration, uint* word_offset);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1090 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_buffer_block_decorations", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_buffer_block_decorations(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id, SpvDecoration** decorations, ulong* num_decorations);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 941 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_cleansed_entry_point_name", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_get_cleansed_entry_point_name(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte* name, SpvExecutionModel model);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1011 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_combined_image_samplers", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_combined_image_samplers(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler** samplers, ulong* num_samplers);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1022 Column: 31
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_constant_handle", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcConstantS spvc_compiler_get_constant_handle(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcConstantId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 770 Column: 26
     ///<summary>
     /// Maps directly to C++ API.
     ///</summary>
@@ -116,18 +134,22 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_current_id_bound", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_get_current_id_bound(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1083 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_capabilities", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_declared_capabilities(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, Apability** capabilities, ulong* num_capabilities);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1086 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_extensions", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_declared_extensions(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte*** extensions, ulong* num_extensions);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 996 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_struct_member_size", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_declared_struct_member_size(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint index, ulong* size);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 993 Column: 29
     ///<summary>
     /// Buffer layout query. Maps to C++ API.
     ///</summary>
@@ -135,18 +157,22 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_struct_size", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_declared_struct_size(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS struct_type, ulong* size);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 994 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_declared_struct_size_runtime_array", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_declared_struct_size_runtime_array(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS struct_type, ulong array_size, ulong* size);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 921 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_get_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 922 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_decoration_string", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_get_decoration_string(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 934 Column: 29
     ///<summary>
     /// Entry points. Maps to C++ API.
     ///</summary>
@@ -154,42 +180,62 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_entry_points", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_entry_points(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint** entry_points, ulong* num_entry_points);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 949 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_mode_argument", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_get_execution_mode_argument(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionMode mode);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 950 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_mode_argument_by_index", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_get_execution_mode_argument_by_index(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionMode mode, uint index);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 952 Column: 35
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_model", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvExecutionModel spvc_compiler_get_execution_model(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 947 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_execution_modes", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_execution_modes(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionMode** modes, ulong* num_modes);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 924 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_member_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_get_member_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 926 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_member_decoration_string", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_get_member_decoration_string(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 928 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_member_name", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_get_member_name(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 920 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_name", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_get_name(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 790 Column: 24
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_num_required_extensions", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern ulong spvc_compiler_get_num_required_extensions(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1089 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_remapped_declared_block_name", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_get_remapped_declared_block_name(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 791 Column: 29
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_required_extension", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern sbyte* spvc_compiler_get_required_extension(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, ulong index);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1019 Column: 29
     ///<summary>
     /// Constants Maps to C++ API.
     ///</summary>
@@ -197,6 +243,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_specialization_constants", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_get_specialization_constants(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant** constants, ulong* num_constants);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 960 Column: 27
     ///<summary>
     /// Type query interface. Maps to C++ API, except it's read-only.
     ///</summary>
@@ -204,42 +251,52 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_type_handle", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcTypeS spvc_compiler_get_type_handle(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1025 Column: 34
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_get_work_group_size_specialization_constants", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcConstantId spvc_compiler_get_work_group_size_specialization_constants(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant* x, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant* y, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant* z);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 954 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_active_builtin", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_has_active_builtin(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvBuiltIn builtin, SpvStorageClass storage);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 917 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_has_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 918 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_has_member_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_has_member_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 815 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_add_resource_binding", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_hlsl_add_resource_binding(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding* binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 807 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_add_vertex_attribute_remap", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_hlsl_add_vertex_attribute_remap(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap* remap, ulong remaps);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 817 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_is_resource_used", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_hlsl_is_resource_used(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionModel model, uint set, uint binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 810 Column: 34
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_remap_num_workgroups_builtin", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcVariableId spvc_compiler_hlsl_remap_num_workgroups_builtin(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 812 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_set_resource_binding_flags", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_hlsl_set_resource_binding_flags(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcHlslBindingFlags flags);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 804 Column: 29
     ///<summary>
     /// HLSL specifics. Maps to C++ API.
     ///</summary>
@@ -247,6 +304,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_hlsl_set_root_constants_layout", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_hlsl_set_root_constants_layout(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants* constant_info, ulong count);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 781 Column: 29
     ///<summary>
     /// Set compiler options.
     ///</summary>
@@ -254,30 +312,37 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_install_compiler_options", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_install_compiler_options(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS options);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 798 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_mask_stage_output_by_builtin", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_mask_stage_output_by_builtin(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvBuiltIn builtin);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 796 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_mask_stage_output_by_location", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_mask_stage_output_by_location(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint location, uint component);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 850 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_discrete_descriptor_set", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_discrete_descriptor_set(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint desc_set);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 871 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_dynamic_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_dynamic_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint desc_set, uint binding, uint index);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 873 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_inline_uniform_block", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_inline_uniform_block(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint desc_set, uint binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 838 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_resource_binding", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_resource_binding(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding* binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 841 Column: 29
     ///<summary>
     /// Deprecated; use spvc_compiler_msl_add_shader_input_2().
     ///</summary>
@@ -285,10 +350,12 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_shader_input", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_shader_input(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar* input);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 843 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_shader_input_2", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_shader_input_2(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2* input);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 846 Column: 29
     ///<summary>
     /// Deprecated; use spvc_compiler_msl_add_shader_output_2().
     ///</summary>
@@ -296,26 +363,32 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_shader_output", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_shader_output(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar output);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 848 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_shader_output_2", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_shader_output_2(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2 output);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 836 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_add_vertex_attribute", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_add_vertex_attribute(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute* attrs);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 868 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_automatic_resource_binding", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_msl_get_automatic_resource_binding(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 869 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_automatic_resource_binding_secondary", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_compiler_msl_get_automatic_resource_binding_secondary(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 876 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_get_combined_sampler_suffix", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_compiler_msl_get_combined_sampler_suffix(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 826 Column: 27
     ///<summary>
     /// MSL specifics. Maps to C++ API.
     ///</summary>
@@ -323,18 +396,22 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_rasterization_disabled", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_is_rasterization_disabled(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 858 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_resource_used", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_is_resource_used(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionModel model, uint set, uint binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 855 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_shader_input_used", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_is_shader_input_used(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint location);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 856 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_shader_output_used", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_is_shader_output_used(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint location);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 854 Column: 27
     ///<summary>
     /// Obsolete, use is_shader_input_used.
     ///</summary>
@@ -342,6 +419,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_is_vertex_attribute_used", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_is_vertex_attribute_used(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint location);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 829 Column: 27
     ///<summary>
     /// Obsolete. Renamed to needs_swizzle_buffer.
     ///</summary>
@@ -349,54 +427,67 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_aux_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_needs_aux_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 831 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_buffer_size_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_needs_buffer_size_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 835 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_input_threadgroup_mem", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_needs_input_threadgroup_mem(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 833 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_output_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_needs_output_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 834 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_patch_output_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_needs_patch_output_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 830 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_needs_swizzle_buffer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_msl_needs_swizzle_buffer(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 862 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_remap_constexpr_sampler(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler* sampler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 863 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler_by_binding", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_remap_constexpr_sampler_by_binding(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint desc_set, uint binding, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler* sampler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 865 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint desc_set, uint binding, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler* sampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion* conv);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 864 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_remap_constexpr_sampler_ycbcr", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_remap_constexpr_sampler_ycbcr(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler* sampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion* conv);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 851 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_argument_buffer_device_address_space", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_set_argument_buffer_device_address_space(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint desc_set, SpvcBool device_address);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 875 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_combined_sampler_suffix", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_set_combined_sampler_suffix(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte* suffix);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 866 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_msl_set_fragment_output_components", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_msl_set_fragment_output_components(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, uint location, uint components);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 776 Column: 29
     ///<summary>
     /// Override options. Will return error if e.g. MSL options are used for the HLSL backend, etc.
     ///</summary>
@@ -404,18 +495,22 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_options_set_bool", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_options_set_bool(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS options, CompilerOption option, SpvcBool value);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 778 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_options_set_uint", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_options_set_uint(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS options, CompilerOption option, uint value);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 939 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_rename_entry_point", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_rename_entry_point(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte* old_name, sbyte* new_name, SpvExecutionModel model);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 789 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_require_extension", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_require_extension(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte* ext);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 901 Column: 22
     ///<summary>
     /// Decorations. Maps to C++ API.
     ///</summary>
@@ -423,78 +518,97 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, SpvDecoration decoration, uint argument);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 903 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_decoration_string", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_decoration_string(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, SpvDecoration decoration, sbyte* argument);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 883 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_enabled_interface_variables", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_set_enabled_interface_variables(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSetS set);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 937 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_entry_point", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_set_entry_point(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, sbyte* name, SpvExecutionModel model);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 943 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_execution_mode", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_execution_mode(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionMode mode);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 945 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_execution_mode_with_arguments", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_execution_mode_with_arguments(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionMode mode, uint arg0, uint arg1, uint arg2);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 906 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_member_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_member_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, SpvDecoration decoration, uint argument);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 908 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_member_decoration_string", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_member_decoration_string(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, SpvDecoration decoration, sbyte* argument);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 911 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_member_name", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_member_name(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, sbyte* argument);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 905 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_set_name", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_set_name(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, sbyte* argument);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1000 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_type_struct_member_array_stride", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_type_struct_member_array_stride(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint index, uint* stride);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1002 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_type_struct_member_matrix_stride", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_type_struct_member_matrix_stride(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint index, uint* stride);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 998 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_type_struct_member_offset", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_compiler_type_struct_member_offset(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint index, uint* offset);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 913 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_unset_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvId id, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 944 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_execution_mode", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_unset_execution_mode(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvExecutionMode mode);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 914 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_unset_member_decoration", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_unset_member_decoration(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcTypeId id, uint member_index, SpvDecoration decoration);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 953 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_update_active_builtins", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_compiler_update_active_builtins(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 794 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_compiler_variable_is_depth_or_compare", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_compiler_variable_is_depth_or_compare(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler, SpvcVariableId id);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1055 Column: 30
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_type", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcTypeId spvc_constant_get_constant_type(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1045 Column: 23
     ///<summary>
     /// No stdint.h until C99, sigh :( For smaller types, the result is sign or zero-extended as appropriate. Maps to C++ API. TODO: The SPIRConstant query interface and modification interface is not quite complete.
     ///</summary>
@@ -502,42 +616,100 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_fp16", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern float spvc_constant_get_scalar_fp16(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1046 Column: 23
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_fp32", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern float spvc_constant_get_scalar_fp32(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1047 Column: 24
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_fp64", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern double spvc_constant_get_scalar_fp64(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1051 Column: 21
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_i16", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern int spvc_constant_get_scalar_i16(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1049 Column: 21
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_i32", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern int spvc_constant_get_scalar_i32(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1053 Column: 21
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_i8", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern int spvc_constant_get_scalar_i8(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1050 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_u16", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_constant_get_scalar_u16(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1048 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_u32", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_constant_get_scalar_u32(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1052 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_scalar_u8", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_constant_get_scalar_u8(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1054 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_constant_get_subconstants", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_constant_get_subconstants(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, SpvcConstantId** constituents, ulong* count);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1060 Column: 22
+    ///<summary>
+    /// C implementation of the C++ api.
+    ///</summary>
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_fp16", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_fp16(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, ushort value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1061 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_fp32", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_fp32(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, float value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1062 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_fp64", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_fp64(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, double value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1066 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_i16", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_i16(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, short value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1064 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_i32", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_i32(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, int value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1068 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_i8", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_i8(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, bool value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1065 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_u16", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_u16(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, ushort value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1063 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_u32", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_u32(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, uint value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 1067 Column: 22
+    [SuppressUnmanagedCodeSecurity]
+    [DllImport(LibraryPath, EntryPoint = "spvc_constant_set_scalar_u8", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    internal static extern void spvc_constant_set_scalar_u8(AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS constant, uint column, uint row, bool value);
+
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 742 Column: 29
     ///<summary>
     /// Context is the highest-level API construct. The context owns all memory allocations made by its child object hierarchy, including various non-opaque structs and strings. This means that the API user only has to care about one "destroy" call ever when using the C API. All pointers handed out by the APIs are only valid as long as the context is alive and spvc_context_release_allocations has not been called.
     ///</summary>
@@ -545,6 +717,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_context_create", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_context_create(out AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 765 Column: 29
     ///<summary>
     /// Create a compiler backend. Capture mode controls if we construct by copy or move semantics. It is always recommended to use SPVC_CAPTURE_MODE_TAKE_OWNERSHIP if you only intend to cross-compile the IR once.
     ///</summary>
@@ -552,6 +725,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_context_create_compiler", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_context_create_compiler(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context, Backend backend, AdamantiumVulkan.Spirv.Cross.Interop.SpvcParsedIrS parsed_ir, CaptureMode mode, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcCompilerS compiler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 745 Column: 22
     ///<summary>
     /// Frees all memory allocations and objects associated with the context and its child objects.
     ///</summary>
@@ -559,6 +733,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_context_destroy", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_context_destroy(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 751 Column: 29
     ///<summary>
     /// Get the string for the last error which was logged.
     ///</summary>
@@ -566,6 +741,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_context_get_last_error_string", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_context_get_last_error_string(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 758 Column: 29
     ///<summary>
     /// SPIR-V parsing interface. Maps to Parser which then creates a ParsedIR, and that IR is extracted into the handle.
     ///</summary>
@@ -573,6 +749,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_context_parse_spirv", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_context_parse_spirv(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context, byte* spirv, ulong word_count, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcParsedIrS parsed_ir);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 748 Column: 22
     ///<summary>
     /// Frees all memory allocations and objects associated with the context and its child objects, but keeps the context alive.
     ///</summary>
@@ -580,10 +757,12 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_context_release_allocations", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_context_release_allocations(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 755 Column: 22
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_context_set_error_callback", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_context_set_error_callback(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context, void* cb, void* userdata);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 69 Column: 29
     ///<summary>
     /// Gets a human readable version string to identify which commit a particular binary was created from.
     ///</summary>
@@ -591,6 +770,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_get_commit_revision_and_timestamp", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* spvc_get_commit_revision_and_timestamp();
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 66 Column: 22
     ///<summary>
     /// Gets the SPVC_C_API_VERSION_* used to build this library. Can be used to check for ABI mismatch if so-versioning did not catch it.
     ///</summary>
@@ -598,6 +778,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_get_version", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_get_version(uint* major, uint* minor, uint* patch);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 603 Column: 22
     ///<summary>
     /// Initializes the resource binding struct. The defaults are non-zero.
     ///</summary>
@@ -605,6 +786,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_hlsl_resource_binding_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_hlsl_resource_binding_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding* binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 545 Column: 22
     ///<summary>
     /// Initializes the constexpr sampler struct. The defaults are non-zero.
     ///</summary>
@@ -612,6 +794,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_constexpr_sampler_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_constexpr_sampler_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler* sampler);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 410 Column: 26
     ///<summary>
     /// Runtime check for incompatibility. Obsolete.
     ///</summary>
@@ -619,6 +802,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_get_aux_buffer_struct_version", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_msl_get_aux_buffer_struct_version();
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 398 Column: 22
     ///<summary>
     /// Initializes the resource binding struct. The defaults are non-zero.
     ///</summary>
@@ -626,6 +810,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_resource_binding_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_resource_binding_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding* binding);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 565 Column: 22
     ///<summary>
     /// Initializes the constexpr sampler struct. The defaults are non-zero.
     ///</summary>
@@ -633,6 +818,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_sampler_ycbcr_conversion_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_sampler_ycbcr_conversion_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion* conv);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 356 Column: 22
     ///<summary>
     /// Deprecated. Use spvc_msl_shader_interface_var_init_2().
     ///</summary>
@@ -640,6 +826,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_shader_input_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_shader_input_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar* input);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 352 Column: 22
     ///<summary>
     /// Initializes the shader input struct. Deprecated. Use spvc_msl_shader_interface_var_init_2().
     ///</summary>
@@ -647,6 +834,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_shader_interface_var_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_shader_interface_var_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar* var);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 381 Column: 22
     ///<summary>
     /// Initializes the shader interface variable struct.
     ///</summary>
@@ -654,6 +842,7 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_shader_interface_var_init_2", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_shader_interface_var_init_2(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2* var);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 337 Column: 22
     ///<summary>
     /// Initializes the vertex attribute struct.
     ///</summary>
@@ -661,22 +850,27 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_msl_vertex_attribute_init", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void spvc_msl_vertex_attribute_init(AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute* attr);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 892 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_resources_get_builtin_resource_list_for_type", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_resources_get_builtin_resource_list_for_type(AdamantiumVulkan.Spirv.Cross.Interop.SpvcResourcesS resources, BuiltinResourceType type, AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource** resource_list, ulong* resource_size);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 888 Column: 29
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_resources_get_resource_list_for_type", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Result spvc_resources_get_resource_list_for_type(AdamantiumVulkan.Spirv.Cross.Interop.SpvcResourcesS resources, ResourceType type, out AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource* resource_list, out ulong resource_size);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 973 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_array_dimension_is_literal", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_type_array_dimension_is_literal(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint dimension);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 974 Column: 23
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_array_dimension", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvId spvc_type_get_array_dimension(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint dimension);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 966 Column: 30
     ///<summary>
     /// Pulls out SPIRType::self. This effectively gives the type ID without array or pointer qualifiers. This is necessary when reflecting decoration/name information on members of a struct, which are placed in the base type, not the qualified type. This is similar to spvc_reflected_resource::base_type_id.
     ///</summary>
@@ -684,42 +878,52 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_base_type_id", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcTypeId spvc_type_get_base_type_id(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 968 Column: 31
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_basetype", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern Basetype spvc_type_get_basetype(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 969 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_bit_width", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_type_get_bit_width(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 971 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_columns", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_type_get_columns(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 987 Column: 36
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_access_qualifier", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvAccessQualifier spvc_type_get_image_access_qualifier(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 983 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_arrayed", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_type_get_image_arrayed(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 981 Column: 24
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_dimension", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvDim spvc_type_get_image_dimension(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 982 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_is_depth", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_type_get_image_is_depth(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 985 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_is_storage", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_type_get_image_is_storage(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 984 Column: 27
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_multisampled", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcBool spvc_type_get_image_multisampled(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 980 Column: 30
     ///<summary>
     /// Image type query.
     ///</summary>
@@ -727,26 +931,32 @@ public static unsafe partial class SpirvCrossInterop
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_sampled_type", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcTypeId spvc_type_get_image_sampled_type(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 986 Column: 32
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_image_storage_format", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvImageFormat spvc_type_get_image_storage_format(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 976 Column: 30
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_member_type", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvcTypeId spvc_type_get_member_type(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type, uint index);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 972 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_num_array_dimensions", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_type_get_num_array_dimensions(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 975 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_num_member_types", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_type_get_num_member_types(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 977 Column: 33
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_storage_class", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SpvStorageClass spvc_type_get_storage_class(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);
 
+    // File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 970 Column: 26
     [SuppressUnmanagedCodeSecurity]
     [DllImport(LibraryPath, EntryPoint = "spvc_type_get_vector_size", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern uint spvc_type_get_vector_size(AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS type);

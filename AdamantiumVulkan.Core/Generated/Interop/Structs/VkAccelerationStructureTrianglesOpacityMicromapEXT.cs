@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17069 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkAccelerationStructureTrianglesOpacityMicromapEXT
 {
@@ -22,8 +23,8 @@ public unsafe partial struct VkAccelerationStructureTrianglesOpacityMicromapEXT
     public VkDeviceSize indexStride;
     public uint baseTriangle;
     public uint usageCountsCount;
-    public VkMicromapUsageEXT* pUsageCounts;
-    public VkMicromapUsageEXT** ppUsageCounts;
+    public AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT* pUsageCounts;
+    public AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT** ppUsageCounts;
     public VkMicromapEXT_T micromap;
 }
 

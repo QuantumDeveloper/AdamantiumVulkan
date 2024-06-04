@@ -13,6 +13,7 @@ using AdamantiumVulkan.Shaders.Interop;
 
 namespace AdamantiumVulkan.Shaders;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\shaderc\shaderc.h Line: 277 Column: 41
 ///<summary>
 /// An opaque handle to an object that manages options to a single compilation result.
 ///</summary>
@@ -221,6 +222,14 @@ public unsafe partial class ShadercCompileOptionsT
     }
 
     ///<summary>
+    /// Sets whether the compiler should preserve all bindings, even when those bindings are not used.
+    ///</summary>
+    public void SetPreserveBindings(bool preserve_bindings)
+    {
+        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_preserve_bindings(this, preserve_bindings);
+    }
+
+    ///<summary>
     /// Sets the source language. The default is GLSL.
     ///</summary>
     public void SetSourceLanguage(ShadercSourceLanguage lang)
@@ -250,6 +259,14 @@ public unsafe partial class ShadercCompileOptionsT
     public void SetTargetSpirv(ShadercSpirvVersion version)
     {
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_target_spirv(this, version);
+    }
+
+    ///<summary>
+    /// Enables or disables relaxed Vulkan rules.
+    ///</summary>
+    public void SetVulkanRulesRelaxed(bool enable)
+    {
+        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_vulkan_rules_relaxed(this, enable);
     }
 
     ///<summary>

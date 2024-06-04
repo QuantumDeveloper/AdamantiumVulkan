@@ -14,6 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7304 Column: 26
 public unsafe struct PFN_vkCmdCopyImageToBuffer2
 {
     public PFN_vkCmdCopyImageToBuffer2(void* ptr)

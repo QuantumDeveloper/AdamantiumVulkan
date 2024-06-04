@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16965 Column: 14
 [Flags]
 public enum BuildMicromapFlagBitsEXT : uint
 {

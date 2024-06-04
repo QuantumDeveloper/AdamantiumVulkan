@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vk_platform.h Line: 69 Column: 34
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct int16_t
 {

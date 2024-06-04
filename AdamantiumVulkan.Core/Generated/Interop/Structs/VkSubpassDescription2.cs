@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6014 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSubpassDescription2
 {
@@ -21,11 +22,11 @@ public unsafe partial struct VkSubpassDescription2
     public PipelineBindPoint pipelineBindPoint;
     public uint viewMask;
     public uint inputAttachmentCount;
-    public VkAttachmentReference2* pInputAttachments;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentReference2* pInputAttachments;
     public uint colorAttachmentCount;
-    public VkAttachmentReference2* pColorAttachments;
-    public VkAttachmentReference2* pResolveAttachments;
-    public VkAttachmentReference2* pDepthStencilAttachment;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentReference2* pColorAttachments;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentReference2* pResolveAttachments;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentReference2* pDepthStencilAttachment;
     public uint preserveAttachmentCount;
     public uint* pPreserveAttachments;
 }

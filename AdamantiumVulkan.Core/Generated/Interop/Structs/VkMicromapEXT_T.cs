@@ -11,15 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16913 Column: 1
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMicromapEXT_T
 {
     public void* pointer;
-    public VkMicromapEXT_T(void* pointer)
-    {
-        this.pointer = pointer;
-    }
-
 }
 
 

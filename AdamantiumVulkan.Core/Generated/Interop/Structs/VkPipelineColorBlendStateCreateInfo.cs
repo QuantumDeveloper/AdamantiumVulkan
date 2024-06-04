@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3580 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineColorBlendStateCreateInfo
 {
@@ -21,7 +22,7 @@ public unsafe partial struct VkPipelineColorBlendStateCreateInfo
     public VkBool32 logicOpEnable;
     public LogicOp logicOp;
     public uint attachmentCount;
-    public VkPipelineColorBlendAttachmentState* pAttachments;
+    public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState* pAttachments;
     public unsafe fixed float blendConstants[4];
 }
 

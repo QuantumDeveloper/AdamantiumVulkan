@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6926 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDependencyInfo
 {
@@ -19,11 +20,11 @@ public unsafe partial struct VkDependencyInfo
     public void* pNext;
     public VkDependencyFlags dependencyFlags;
     public uint memoryBarrierCount;
-    public VkMemoryBarrier2* pMemoryBarriers;
+    public AdamantiumVulkan.Core.Interop.VkMemoryBarrier2* pMemoryBarriers;
     public uint bufferMemoryBarrierCount;
-    public VkBufferMemoryBarrier2* pBufferMemoryBarriers;
+    public AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2* pBufferMemoryBarriers;
     public uint imageMemoryBarrierCount;
-    public VkImageMemoryBarrier2* pImageMemoryBarriers;
+    public AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2* pImageMemoryBarriers;
 }
 
 

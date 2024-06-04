@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16342 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceFaultVendorBinaryHeaderVersionOneEXT
 {
@@ -24,6 +25,8 @@ public unsafe partial struct VkDeviceFaultVendorBinaryHeaderVersionOneEXT
     public uint applicationNameOffset;
     public uint applicationVersion;
     public uint engineNameOffset;
+    public uint engineVersion;
+    public uint apiVersion;
 }
 
 

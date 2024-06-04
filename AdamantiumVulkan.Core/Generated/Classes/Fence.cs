@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 107 Column: 1
 public unsafe partial class Fence
 {
     internal VkFence_T __Instance;

@@ -15,6 +15,7 @@ namespace AdamantiumVulkan.Generator
         private Module vkMainModule;
         private Module shaderModule;
         private Module spivCrossModule;
+        private Module spivToolsModule;
 
         public override void OnSetup(BindingOptions options)
         {
@@ -29,25 +30,27 @@ namespace AdamantiumVulkan.Generator
             string vkMainLibrary = "vulkan-1";
             string shadercLibrary = "shaderc_shared";
             string spirvCrossLibrary = "spirv-cross-c-shared";
+            string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.3.236.0\Include";
+            string vulkanBasePath = @"C:\VulkanSDK\1.3.275.0\Include";
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
-            string vulkanProfilesPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Profiles", "Generated"));
             string corePath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "Generated"));
             string windowsPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Windows", "Generated"));
             string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.MacOS", "Generated"));
             string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Shaders", "Generated"));
             string spirvPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Spirv", "Generated"));
+            var spirvToolsPath = (Path.Combine(appRoot, "..", "AdamantiumVulkan.SpirvTools", "Generated"));
             
             PathManager vulkanPathManager = new PathManager();
-            vulkanPathManager.AddFilePath(OSPlatform.Windows, Path.Combine(vulkanBasePath, "vulkan", "vulkan_profiles.h"));
-            vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan_profiles.h"));
+            vulkanPathManager.AddFilePath(OSPlatform.Windows, Path.Combine(vulkanBasePath, "vulkan", "vulkan.h"));
+            vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan.h"));
 
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = false;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
+            options.DebugMode = true;
 
             vkMainModule = Module.Create(vkMainLibrary);
             vkMainModule.GeneratorMode = GeneratorMode.Preview;
@@ -72,7 +75,6 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.OutputNamespace = mainNamespace;
             vkMainModule.InteropSubNamespace = interopSubNamespace;
             vkMainModule.SuppressUnmanagedCodeSecurity = false;
-            vkMainModule.AddNamespaceMapping("vulkan_profiles", "Profiles", vulkanProfilesPath);
             vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
             vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
             vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
@@ -108,7 +110,6 @@ namespace AdamantiumVulkan.Generator
             shaderModule.GenerateOverloadsForArrayParams = true;
             shaderModule.OutputPath = shadersPath;
             
-            
             var spirvCrossSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
             spivCrossModule = Module.Create(spirvCrossLibrary);
             spivCrossModule.FileHeader = header;
@@ -133,10 +134,36 @@ namespace AdamantiumVulkan.Generator
             spivCrossModule.WrapInteropObjects = true;
             spivCrossModule.CharAsBoolForMethods = true;
             spivCrossModule.OutputPath = spirvPath;
+            
+            var spirvToolsSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
+            spivToolsModule = Module.Create(spirvToolsLibrary);
+            spivToolsModule.FileHeader = header;
+            spivToolsModule.GeneratorMode = GeneratorMode.Compatible;
+            spivToolsModule.EachTypeInSeparateFile = true;
+            spivToolsModule.CleanPreviousGeneration = true;
+            spivToolsModule.Name = "SpirvTools";
+            spivToolsModule.Files.Add(Path.Combine(vulkanBasePath, "spirv-tools", "libspirv.h"));
+            spivToolsModule.Defines.Add("SPIRV_TOOLS_EXPORT");
+            spivToolsModule.Defines.Add("_WIN32");
+            spivToolsModule.ForceCallingConvention = true;
+            spivToolsModule.CallingConvention = CallingConvention.Winapi;
+            spivToolsModule.AllowConvertStructToClass = true;
+            spivToolsModule.MethodClassName = "SpirvToolsNative";
+            spivToolsModule.InteropClassName = "SpirvToolsInterop";
+            spivToolsModule.GeneratorSpecializations = spirvToolsSpecs;
+            spivToolsModule.OutputFileName = "AdamantiumVulkan.SpirvTools";
+            spivToolsModule.OutputNamespace = "AdamantiumVulkan.SpirvTools";
+            spivToolsModule.InteropSubNamespace = interopSubNamespace;
+            spivToolsModule.SuppressUnmanagedCodeSecurity = true;
+            spivToolsModule.AddNamespaceMapping("libspirv", "AdamantiumVulkan.SpirvTools", spirvToolsPath, true);
+            spivToolsModule.WrapInteropObjects = true;
+            spivToolsModule.CharAsBoolForMethods = true;
+            spivToolsModule.OutputPath = spirvToolsPath;
 
             options.AddModule(vkMainModule);
             options.AddModule(shaderModule);
             options.AddModule(spivCrossModule);
+            options.AddModule(spivToolsModule);
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -252,14 +279,13 @@ namespace AdamantiumVulkan.Generator
             macroAction.SubstitutionList.Add("VP_KHR_ROADMAP_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 3, 204));
             macroAction.SubstitutionList.Add("VP_LUNARG_DESKTOP_BASELINE_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 1, 139));
             
-            
             // Soirv constansts part
             macroAction.IgnoreList.Add("SPVC_PUBLIC_API");
             macroAction.IgnoreList.Add("SPVC_TRUE");
             macroAction.IgnoreList.Add("SPVC_FALSE");
             
             macroAction.SubstitutionList.Add("SPVC_MAKE_MSL_VERSION", VulkanBindings.MacroFunctions.CreateSpirvMSLVersion());
-            
+            macroAction.SubstitutionList.Add("VK_MAKE_VIDEO_STD_VERSION", VulkanBindings.MacroFunctions.CreateMakeVideoStdVersion());
             
             context.AddPreGeneratorPass(macroAction, ExecutionPassKind.PerTranslationUnit);
         }

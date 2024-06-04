@@ -74,10 +74,10 @@ namespace AdamantiumVulkan.Core
 
     public static partial class InstanceExtension
     {
-        public static SurfaceKHR CreateHeadlesSurface(this Instance instance, HeadlessSurfaceCreateInfoEXT surfaceInfo, AllocationCallbacks allocator = null)
+        public static SurfaceKHR CreateHeadlessSurface(this Instance instance, HeadlessSurfaceCreateInfoEXT surfaceInfo, AllocationCallbacks allocator = null)
         {
             var result = instance.CreateHeadlessSurfaceEXT(surfaceInfo, null, out var surface);
-            ResultHelper.CheckResult(result, nameof(CreateHeadlesSurface));
+            ResultHelper.CheckResult(result, nameof(CreateHeadlessSurface));
             return surface;
         }
     }
@@ -238,7 +238,7 @@ namespace AdamantiumVulkan.Core
             deviceFeatures.InheritedQueries = VkBool32.FALSE;                     
         }
 
-        public Result GetPhysicalDeviceSurfaceSupport(uint queueFamilyIndex, AdamantiumVulkan.Core.SurfaceKHR surface, out bool pSupported)
+        public Result GetPhysicalDeviceSurfaceSupport(uint queueFamilyIndex, SurfaceKHR surface, out bool pSupported)
         {
             var result = GetPhysicalDeviceSurfaceSupportKHR(queueFamilyIndex, surface, out var supported);
             pSupported = (VkBool32)supported;
@@ -439,6 +439,8 @@ namespace AdamantiumVulkan.Core
         public void EndSingleTimeCommands(Queue queue, CommandPool commandPool, CommandBuffer commandBuffer)
         {
             commandBuffer.EndCommandBuffer();
+            var fenceInfo = new FenceCreateInfo();
+            var fence = CreateFence(fenceInfo);
 
             SubmitInfo submitInfo = new SubmitInfo();
             submitInfo.CommandBufferCount = 1;
@@ -446,10 +448,11 @@ namespace AdamantiumVulkan.Core
 
             var submitInfoArray = new SubmitInfo[1];
             submitInfoArray[0] = submitInfo;
-            queue.QueueSubmit(1, submitInfoArray, null);
-            queue.QueueWaitIdle();
-
+            queue.QueueSubmit(1, submitInfoArray, fence);
+            WaitForFences(1, fence, true, ulong.MaxValue);
+            
             FreeCommandBuffers(commandPool, 1, commandBuffer);
+            DestroyFence(fence);
         }
 
         public DescriptorSetLayout CreateDescriptorSetLayout(DescriptorSetLayoutCreateInfo layoutInfo, AllocationCallbacks allocator = null)
@@ -464,6 +467,20 @@ namespace AdamantiumVulkan.Core
             var result = CreateDescriptorPool(descriptorPoolInfo, null, out var descriptorPool);
             ResultHelper.CheckResult(result, nameof(CreateDescriptorPool));
             return descriptorPool;
+        }
+        
+        public ShaderEXT CreateShader(ShaderCreateInfoEXT createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateShadersEXT(1, createInfo, allocator, out var shaders);
+            ResultHelper.CheckResult(result, nameof(CreateShader));
+            return shaders[0];
+        }
+        
+        public ShaderEXT[] CreateShaders(ShaderCreateInfoEXT[] createInfo, AllocationCallbacks allocator = null)
+        {
+            var result = CreateShadersEXT((uint)createInfo.Length, createInfo, allocator, out var shaders);
+            ResultHelper.CheckResult(result, nameof(CreateShader));
+            return shaders;
         }
     }
 

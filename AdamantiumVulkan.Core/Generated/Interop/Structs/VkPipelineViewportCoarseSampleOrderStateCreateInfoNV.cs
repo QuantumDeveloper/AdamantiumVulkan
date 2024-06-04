@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13248 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineViewportCoarseSampleOrderStateCreateInfoNV
 {
@@ -19,7 +20,7 @@ public unsafe partial struct VkPipelineViewportCoarseSampleOrderStateCreateInfoN
     public void* pNext;
     public CoarseSampleOrderTypeNV sampleOrderType;
     public uint customSampleOrderCount;
-    public VkCoarseSampleOrderCustomNV* pCustomSampleOrders;
+    public AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV* pCustomSampleOrders;
 }
 
 
