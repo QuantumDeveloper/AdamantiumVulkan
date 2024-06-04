@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 606 Column: 14
 ///<summary>
 /// Maps to the various spirv_cross::Compiler*::Option structures. See C++ API for defaults and details.
 ///</summary>
@@ -373,6 +374,36 @@ public enum CompilerOption : uint
     /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
     ///</summary>
     MslCheckDiscardedFragStores = 134217810,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    GlslEnableRowMajorLoadWorkaround = 33554515,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    MslArgumentBuffersTier = 134217812,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    MslSampleDrefLodArrayAsGrad = 134217813,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    MslReadwriteTextureFences = 134217814,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    MslReplaceRecursiveInputs = 134217815,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    MslAgxManualCubeGradFixup = 134217816,
 
     ///<summary>
     /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.

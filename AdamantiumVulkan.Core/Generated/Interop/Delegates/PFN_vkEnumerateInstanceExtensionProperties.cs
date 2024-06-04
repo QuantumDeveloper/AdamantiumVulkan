@@ -13,6 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3926 Column: 30
 public unsafe struct PFN_vkEnumerateInstanceExtensionProperties
 {
     public PFN_vkEnumerateInstanceExtensionProperties(void* ptr)

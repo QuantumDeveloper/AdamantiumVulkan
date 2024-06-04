@@ -12,15 +12,16 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15161 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkGraphicsShaderGroupCreateInfoNV
 {
     public StructureType sType;
     public void* pNext;
     public uint stageCount;
-    public VkPipelineShaderStageCreateInfo* pStages;
-    public VkPipelineVertexInputStateCreateInfo* pVertexInputState;
-    public VkPipelineTessellationStateCreateInfo* pTessellationState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo* pStages;
+    public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo* pVertexInputState;
+    public AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo* pTessellationState;
 }
 
 

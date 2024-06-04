@@ -11,12 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-[Flags]
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2138 Column: 14
 public enum SubpassContents : uint
 {
     Inline = 0,
 
     SecondaryCommandBuffers = 1,
+
+    InlineAndSecondaryCommandBuffersExt = 1000451000,
 
     MaxEnum = 2147483647,
 

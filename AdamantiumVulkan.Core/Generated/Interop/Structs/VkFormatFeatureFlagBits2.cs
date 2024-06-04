@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6687 Column: 19
 ///<summary>
 /// Flag bits for VkFormatFeatureFlagBits2
 ///</summary>

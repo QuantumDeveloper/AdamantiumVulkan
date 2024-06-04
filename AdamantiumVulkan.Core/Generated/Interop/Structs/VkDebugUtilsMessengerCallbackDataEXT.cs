@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12690 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDebugUtilsMessengerCallbackDataEXT
 {
@@ -22,11 +23,11 @@ public unsafe partial struct VkDebugUtilsMessengerCallbackDataEXT
     public int messageIdNumber;
     public sbyte* pMessage;
     public uint queueLabelCount;
-    public VkDebugUtilsLabelEXT* pQueueLabels;
+    public AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pQueueLabels;
     public uint cmdBufLabelCount;
-    public VkDebugUtilsLabelEXT* pCmdBufLabels;
+    public AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pCmdBufLabels;
     public uint objectCount;
-    public VkDebugUtilsObjectNameInfoEXT* pObjects;
+    public AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT* pObjects;
 }
 
 

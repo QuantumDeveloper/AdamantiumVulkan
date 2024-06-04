@@ -35,11 +35,11 @@ public unsafe partial class CooperativeMatrixPropertiesNV : QBDisposableObject
     public uint MSize { get; set; }
     public uint NSize { get; set; }
     public uint KSize { get; set; }
-    public ComponentTypeNV AType { get; set; }
-    public ComponentTypeNV BType { get; set; }
-    public ComponentTypeNV CType { get; set; }
-    public ComponentTypeNV DType { get; set; }
-    public ScopeNV Scope { get; set; }
+    public ComponentTypeKHR AType { get; set; }
+    public ComponentTypeKHR BType { get; set; }
+    public ComponentTypeKHR CType { get; set; }
+    public ComponentTypeKHR DType { get; set; }
+    public ScopeKHR Scope { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV ToNative()
     {

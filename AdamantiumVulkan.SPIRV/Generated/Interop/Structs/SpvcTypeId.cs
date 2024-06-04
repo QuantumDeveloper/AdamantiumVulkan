@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 87 Column: 15
 ///<summary>
 /// Shallow typedefs. All SPIR-V IDs are plain 32-bit numbers, but this helps communicate which data is used. Maps to a SPIRType.
 ///</summary>

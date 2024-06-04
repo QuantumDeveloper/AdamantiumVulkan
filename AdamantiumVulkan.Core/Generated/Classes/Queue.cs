@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 104 Column: 1
 public unsafe partial class Queue
 {
     internal VkQueue_T __Instance;
@@ -77,6 +78,14 @@ public unsafe partial class Queue
         var arg1 = ReferenceEquals(pLabelInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pLabelInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkQueueInsertDebugUtilsLabelEXT(this, arg1);
         pLabelInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void QueueNotifyOutOfBandNV(in OutOfBandQueueTypeInfoNV pQueueTypeInfo)
+    {
+        var arg1 = ReferenceEquals(pQueueTypeInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pQueueTypeInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkQueueNotifyOutOfBandNV(this, arg1);
+        pQueueTypeInfo?.Dispose();
         NativeUtils.Free(arg1);
     }
 

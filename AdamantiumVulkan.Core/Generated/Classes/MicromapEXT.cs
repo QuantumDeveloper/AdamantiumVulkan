@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16913 Column: 1
 public unsafe partial class MicromapEXT
 {
     internal VkMicromapEXT_T __Instance;

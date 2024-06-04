@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2436 Column: 14
 [Flags]
 public enum QueryPipelineStatisticFlagBits : uint
 {
@@ -39,6 +40,8 @@ public enum QueryPipelineStatisticFlagBits : uint
     TaskShaderInvocationsBitExt = 2048,
 
     MeshShaderInvocationsBitExt = 4096,
+
+    ClusterCullingShaderInvocationsBitHuawei = 8192,
 
     FlagBitsMaxEnum = 2147483647,
 

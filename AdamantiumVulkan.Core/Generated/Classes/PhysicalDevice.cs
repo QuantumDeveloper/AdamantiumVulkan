@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 102 Column: 1
 public unsafe partial class PhysicalDevice
 {
     internal VkPhysicalDevice_T __Instance;
@@ -39,6 +40,7 @@ public unsafe partial class PhysicalDevice
         var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
         VkDevice_T arg3;
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDevice(this, arg1, arg2, out arg3);
+        pCreateInfo?.Dispose();
         NativeUtils.Free(arg1);
         pAllocator?.Dispose();
         NativeUtils.Free(arg2);
@@ -199,7 +201,7 @@ public unsafe partial class PhysicalDevice
         return result;
     }
 
-    public Result GetPhysicalDeviceCalibrateableTimeDomainsEXT(ref uint pTimeDomainCount, ref TimeDomainEXT pTimeDomains)
+    public Result GetPhysicalDeviceCalibrateableTimeDomainsEXT(ref uint pTimeDomainCount, ref TimeDomainKHR pTimeDomains)
     {
         var arg1 = NativeUtils.StructOrEnumToPointer(pTimeDomainCount);
         var arg2 = NativeUtils.StructOrEnumToPointer(pTimeDomains);
@@ -210,6 +212,33 @@ public unsafe partial class PhysicalDevice
         {
             pTimeDomains = *arg2;
         }
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceCalibrateableTimeDomainsKHR(ref uint pTimeDomainCount, ref TimeDomainKHR pTimeDomains)
+    {
+        var arg1 = NativeUtils.StructOrEnumToPointer(pTimeDomainCount);
+        var arg2 = NativeUtils.StructOrEnumToPointer(pTimeDomains);
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, arg1, arg2);
+        pTimeDomainCount = *arg1;
+        NativeUtils.Free(arg1);
+        if (arg2 is not null)
+        {
+            pTimeDomains = *arg2;
+        }
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceCooperativeMatrixPropertiesKHR(ref uint pPropertyCount, CooperativeMatrixPropertiesKHR pProperties)
+    {
+        var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
+        var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, arg1, arg2);
+        pPropertyCount = *arg1;
+        NativeUtils.Free(arg1);
+        pProperties?.Dispose();
         NativeUtils.Free(arg2);
         return result;
     }
@@ -745,6 +774,45 @@ public unsafe partial class PhysicalDevice
         NativeUtils.Free(arg1);
         pToolProperties?.Dispose();
         NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceVideoCapabilitiesKHR(in VideoProfileInfoKHR pVideoProfile, VideoCapabilitiesKHR pCapabilities)
+    {
+        var arg1 = ReferenceEquals(pVideoProfile, null) ? null : NativeUtils.StructOrEnumToPointer(pVideoProfile.ToNative());
+        var arg2 = ReferenceEquals(pCapabilities, null) ? null : NativeUtils.StructOrEnumToPointer(pCapabilities.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceVideoCapabilitiesKHR(this, arg1, arg2);
+        pVideoProfile?.Dispose();
+        NativeUtils.Free(arg1);
+        pCapabilities?.Dispose();
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(in PhysicalDeviceVideoEncodeQualityLevelInfoKHR pQualityLevelInfo, VideoEncodeQualityLevelPropertiesKHR pQualityLevelProperties)
+    {
+        var arg1 = ReferenceEquals(pQualityLevelInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pQualityLevelInfo.ToNative());
+        var arg2 = ReferenceEquals(pQualityLevelProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pQualityLevelProperties.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(this, arg1, arg2);
+        pQualityLevelInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pQualityLevelProperties?.Dispose();
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceVideoFormatPropertiesKHR(in PhysicalDeviceVideoFormatInfoKHR pVideoFormatInfo, ref uint pVideoFormatPropertyCount, VideoFormatPropertiesKHR pVideoFormatProperties)
+    {
+        var arg1 = ReferenceEquals(pVideoFormatInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pVideoFormatInfo.ToNative());
+        var arg2 = NativeUtils.StructOrEnumToPointer(pVideoFormatPropertyCount);
+        var arg3 = ReferenceEquals(pVideoFormatProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pVideoFormatProperties.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, arg2, arg3);
+        pVideoFormatInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pVideoFormatPropertyCount = *arg2;
+        NativeUtils.Free(arg2);
+        pVideoFormatProperties?.Dispose();
+        NativeUtils.Free(arg3);
         return result;
     }
 

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\shaderc\shaderc.h Line: 108 Column: 9
 ///<summary>
 /// Resource limits.
 ///</summary>
@@ -181,6 +182,44 @@ public enum ShadercLimit : uint
     AxCombinedClipAndCullDistances = 81,
 
     AxSamples = 82,
+
+    AxMeshOutputVerticesNv = 83,
+
+    AxMeshOutputPrimitivesNv = 84,
+
+    AxMeshWorkGroupSizeXNv = 85,
+
+    AxMeshWorkGroupSizeYNv = 86,
+
+    AxMeshWorkGroupSizeZNv = 87,
+
+    AxTaskWorkGroupSizeXNv = 88,
+
+    AxTaskWorkGroupSizeYNv = 89,
+
+    AxTaskWorkGroupSizeZNv = 90,
+
+    AxMeshViewCountNv = 91,
+
+    AxMeshOutputVerticesExt = 92,
+
+    AxMeshOutputPrimitivesExt = 93,
+
+    AxMeshWorkGroupSizeXExt = 94,
+
+    AxMeshWorkGroupSizeYExt = 95,
+
+    AxMeshWorkGroupSizeZExt = 96,
+
+    AxTaskWorkGroupSizeXExt = 97,
+
+    AxTaskWorkGroupSizeYExt = 98,
+
+    AxTaskWorkGroupSizeZExt = 99,
+
+    AxMeshViewCountExt = 100,
+
+    AxDualSourceDrawBuffersExt = 101,
 
 }
 

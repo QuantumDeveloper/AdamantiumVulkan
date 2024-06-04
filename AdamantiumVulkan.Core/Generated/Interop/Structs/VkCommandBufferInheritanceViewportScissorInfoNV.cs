@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15311 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCommandBufferInheritanceViewportScissorInfoNV
 {
@@ -19,7 +20,7 @@ public unsafe partial struct VkCommandBufferInheritanceViewportScissorInfoNV
     public void* pNext;
     public VkBool32 viewportScissor2D;
     public uint viewportDepthCount;
-    public VkViewport* pViewportDepths;
+    public AdamantiumVulkan.Core.Interop.VkViewport* pViewportDepths;
 }
 
 

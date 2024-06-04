@@ -11,11 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3432 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSpecializationInfo
 {
     public uint mapEntryCount;
-    public VkSpecializationMapEntry* pMapEntries;
+    public AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry* pMapEntries;
     public ulong dataSize;
     public void* pData;
 }

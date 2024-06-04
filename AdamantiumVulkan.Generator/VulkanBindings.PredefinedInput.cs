@@ -303,7 +303,9 @@ public static partial class VulkanBindings
             predefinedValues.Add(CreatePredefinedInput("VkMacOSSurfaceCreateInfoMVK", "sType", "StructureType.MacosSurfaceCreateInfoMvk"));
             predefinedValues.Add(CreatePredefinedInput("VkHeadlessSurfaceCreateInfoEXT", "sType", "StructureType.HeadlessSurfaceCreateInfoExt"));
             predefinedValues.Add(CreatePredefinedInput("VkMemoryAllocateInfo", "sType", "StructureType.MemoryAllocateInfo"));
-
+            predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceShaderObjectFeaturesEXT", "sType", "StructureType.PhysicalDeviceShaderObjectFeaturesExt"));
+            predefinedValues.Add(CreatePredefinedInput("VkShaderCreateInfoEXT", "sType", "StructureType.ShaderCreateInfoExt"));
+            
             return predefinedValues;
         }
     }

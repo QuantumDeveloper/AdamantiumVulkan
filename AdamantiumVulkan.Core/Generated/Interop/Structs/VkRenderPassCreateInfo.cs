@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3785 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderPassCreateInfo
 {
@@ -19,11 +20,11 @@ public unsafe partial struct VkRenderPassCreateInfo
     public void* pNext;
     public VkRenderPassCreateFlags flags;
     public uint attachmentCount;
-    public VkAttachmentDescription* pAttachments;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentDescription* pAttachments;
     public uint subpassCount;
-    public VkSubpassDescription* pSubpasses;
+    public AdamantiumVulkan.Core.Interop.VkSubpassDescription* pSubpasses;
     public uint dependencyCount;
-    public VkSubpassDependency* pDependencies;
+    public AdamantiumVulkan.Core.Interop.VkSubpassDependency* pDependencies;
 }
 
 

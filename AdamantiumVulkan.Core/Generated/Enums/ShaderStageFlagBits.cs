@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2596 Column: 14
 public enum ShaderStageFlagBits : uint
 {
     VertexBit = 1,
@@ -46,6 +47,8 @@ public enum ShaderStageFlagBits : uint
     MeshBitExt = 128,
 
     SubpassShadingBitHuawei = 16384,
+
+    ClusterCullingBitHuawei = 524288,
 
 }
 

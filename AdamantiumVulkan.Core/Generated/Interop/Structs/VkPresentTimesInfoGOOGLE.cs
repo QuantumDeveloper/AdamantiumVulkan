@@ -12,13 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12393 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPresentTimesInfoGOOGLE
 {
     public StructureType sType;
     public void* pNext;
     public uint swapchainCount;
-    public VkPresentTimeGOOGLE* pTimes;
+    public AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE* pTimes;
 }
 
 

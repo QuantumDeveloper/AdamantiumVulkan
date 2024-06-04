@@ -12,15 +12,16 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12871 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderPassSampleLocationsBeginInfoEXT
 {
     public StructureType sType;
     public void* pNext;
     public uint attachmentInitialSampleLocationsCount;
-    public VkAttachmentSampleLocationsEXT* pAttachmentInitialSampleLocations;
+    public AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT* pAttachmentInitialSampleLocations;
     public uint postSubpassSampleLocationsCount;
-    public VkSubpassSampleLocationsEXT* pPostSubpassSampleLocations;
+    public AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT* pPostSubpassSampleLocations;
 }
 
 

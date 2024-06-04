@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 1737 Column: 14
 public enum QueryType : uint
 {
     Occlusion = 0,
@@ -18,6 +19,8 @@ public enum QueryType : uint
     PipelineStatistics = 1,
 
     Timestamp = 2,
+
+    ResultStatusOnlyKhr = 1000023000,
 
     TransformFeedbackStreamExt = 1000028004,
 
@@ -30,6 +33,8 @@ public enum QueryType : uint
     AccelerationStructureCompactedSizeNv = 1000165000,
 
     PerformanceQueryIntel = 1000210000,
+
+    VideoEncodeFeedbackKhr = 1000299000,
 
     MeshPrimitivesGeneratedExt = 1000328000,
 

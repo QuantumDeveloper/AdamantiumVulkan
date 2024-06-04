@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9777 Column: 34
 public unsafe partial class SamplerYcbcrConversionKHR
 {
     internal VkSamplerYcbcrConversion_T __Instance;

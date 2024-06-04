@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2688 Column: 14
 [Flags]
 public enum DescriptorSetLayoutCreateFlagBits : uint
 {
@@ -22,7 +23,11 @@ public enum DescriptorSetLayoutCreateFlagBits : uint
 
     EmbeddedImmutableSamplersBitExt = 32,
 
+    IndirectBindableBitNv = 128,
+
     HostOnlyPoolBitExt = 4,
+
+    PerStageBitNv = 64,
 
     FlagBitsMaxEnum = 2147483647,
 

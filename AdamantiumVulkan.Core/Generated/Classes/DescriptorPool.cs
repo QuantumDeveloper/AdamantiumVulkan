@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 121 Column: 1
 public unsafe partial class DescriptorPool
 {
     internal VkDescriptorPool_T __Instance;

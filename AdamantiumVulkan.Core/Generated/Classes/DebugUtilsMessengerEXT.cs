@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12652 Column: 1
 public unsafe partial class DebugUtilsMessengerEXT
 {
     internal VkDebugUtilsMessengerEXT_T __Instance;

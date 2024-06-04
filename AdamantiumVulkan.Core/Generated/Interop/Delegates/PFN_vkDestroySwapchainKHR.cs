@@ -14,6 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7726 Column: 26
 public unsafe struct PFN_vkDestroySwapchainKHR
 {
     public PFN_vkDestroySwapchainKHR(void* ptr)

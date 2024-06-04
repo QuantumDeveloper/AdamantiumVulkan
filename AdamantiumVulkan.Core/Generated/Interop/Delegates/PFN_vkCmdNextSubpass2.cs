@@ -14,6 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6393 Column: 26
 public unsafe struct PFN_vkCmdNextSubpass2
 {
     public PFN_vkCmdNextSubpass2(void* ptr)

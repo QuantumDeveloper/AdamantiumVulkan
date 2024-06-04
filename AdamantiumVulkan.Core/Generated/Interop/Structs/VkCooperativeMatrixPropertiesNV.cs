@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14492 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCooperativeMatrixPropertiesNV
 {
@@ -20,11 +21,11 @@ public unsafe partial struct VkCooperativeMatrixPropertiesNV
     public uint MSize;
     public uint NSize;
     public uint KSize;
-    public ComponentTypeNV AType;
-    public ComponentTypeNV BType;
-    public ComponentTypeNV CType;
-    public ComponentTypeNV DType;
-    public ScopeNV scope;
+    public ComponentTypeKHR AType;
+    public ComponentTypeKHR BType;
+    public ComponentTypeKHR CType;
+    public ComponentTypeKHR DType;
+    public ScopeKHR scope;
 }
 
 

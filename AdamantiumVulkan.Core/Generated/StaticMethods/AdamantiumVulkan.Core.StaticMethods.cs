@@ -21,6 +21,7 @@ public unsafe static class VulkanNative
         var arg1 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
         VkInstance_T arg2;
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateInstance(arg0, arg1, out arg2);
+        pCreateInfo?.Dispose();
         NativeUtils.Free(arg0);
         pAllocator?.Dispose();
         NativeUtils.Free(arg1);

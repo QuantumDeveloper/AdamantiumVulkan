@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 160 Column: 23
 ///<summary>
 /// Be compatible with non-C99 compilers, which do not have stdbool. Only recent MSVC compilers supports this for example, and ideally SPIRV-Cross should be linkable from a wide range of compilers in its C wrapper.
 ///</summary>

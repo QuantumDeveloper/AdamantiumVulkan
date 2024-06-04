@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3289 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkBindSparseInfo
 {
@@ -20,11 +21,11 @@ public unsafe partial struct VkBindSparseInfo
     public uint waitSemaphoreCount;
     public VkSemaphore_T* pWaitSemaphores;
     public uint bufferBindCount;
-    public VkSparseBufferMemoryBindInfo* pBufferBinds;
+    public AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo* pBufferBinds;
     public uint imageOpaqueBindCount;
-    public VkSparseImageOpaqueMemoryBindInfo* pImageOpaqueBinds;
+    public AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo* pImageOpaqueBinds;
     public uint imageBindCount;
-    public VkSparseImageMemoryBindInfo* pImageBinds;
+    public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo* pImageBinds;
     public uint signalSemaphoreCount;
     public VkSemaphore_T* pSignalSemaphores;
 }

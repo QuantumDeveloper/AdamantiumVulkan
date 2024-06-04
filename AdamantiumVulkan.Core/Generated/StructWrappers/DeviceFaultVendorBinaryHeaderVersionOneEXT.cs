@@ -28,6 +28,8 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT
         ApplicationNameOffset = _internal.applicationNameOffset;
         ApplicationVersion = _internal.applicationVersion;
         EngineNameOffset = _internal.engineNameOffset;
+        EngineVersion = _internal.engineVersion;
+        ApiVersion = _internal.apiVersion;
     }
 
     public uint HeaderSize { get; set; }
@@ -39,6 +41,8 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT
     public uint ApplicationNameOffset { get; set; }
     public uint ApplicationVersion { get; set; }
     public uint EngineNameOffset { get; set; }
+    public uint EngineVersion { get; set; }
+    public uint ApiVersion { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneEXT ToNative()
     {
@@ -58,6 +62,8 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT
         _internal.applicationNameOffset = ApplicationNameOffset;
         _internal.applicationVersion = ApplicationVersion;
         _internal.engineNameOffset = EngineNameOffset;
+        _internal.engineVersion = EngineVersion;
+        _internal.apiVersion = ApiVersion;
         return _internal;
     }
 

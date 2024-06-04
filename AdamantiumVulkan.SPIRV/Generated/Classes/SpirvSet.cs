@@ -13,6 +13,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 81 Column: 34
 public unsafe partial class SpirvSet
 {
     internal SpvcSetS __Instance;

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 199 Column: 14
 public enum StructureType : uint
 {
     ApplicationInfo = 0,
@@ -487,6 +488,46 @@ public enum StructureType : uint
 
     DebugMarkerMarkerInfoExt = 1000022002,
 
+    VideoProfileInfoKhr = 1000023000,
+
+    VideoCapabilitiesKhr = 1000023001,
+
+    VideoPictureResourceInfoKhr = 1000023002,
+
+    VideoSessionMemoryRequirementsKhr = 1000023003,
+
+    BindVideoSessionMemoryInfoKhr = 1000023004,
+
+    VideoSessionCreateInfoKhr = 1000023005,
+
+    VideoSessionParametersCreateInfoKhr = 1000023006,
+
+    VideoSessionParametersUpdateInfoKhr = 1000023007,
+
+    VideoBeginCodingInfoKhr = 1000023008,
+
+    VideoEndCodingInfoKhr = 1000023009,
+
+    VideoCodingControlInfoKhr = 1000023010,
+
+    VideoReferenceSlotInfoKhr = 1000023011,
+
+    QueueFamilyVideoPropertiesKhr = 1000023012,
+
+    VideoProfileListInfoKhr = 1000023013,
+
+    PhysicalDeviceVideoFormatInfoKhr = 1000023014,
+
+    VideoFormatPropertiesKhr = 1000023015,
+
+    QueueFamilyQueryResultStatusPropertiesKhr = 1000023016,
+
+    VideoDecodeInfoKhr = 1000024000,
+
+    VideoDecodeCapabilitiesKhr = 1000024001,
+
+    VideoDecodeUsageInfoKhr = 1000024002,
+
     DedicatedAllocationImageCreateInfoNv = 1000026000,
 
     DedicatedAllocationBufferCreateInfoNv = 1000026001,
@@ -508,6 +549,74 @@ public enum StructureType : uint
     ImageViewHandleInfoNvx = 1000030000,
 
     ImageViewAddressPropertiesNvx = 1000030001,
+
+    VideoEncodeH264CapabilitiesKhr = 1000038000,
+
+    VideoEncodeH264SessionParametersCreateInfoKhr = 1000038001,
+
+    VideoEncodeH264SessionParametersAddInfoKhr = 1000038002,
+
+    VideoEncodeH264PictureInfoKhr = 1000038003,
+
+    VideoEncodeH264DpbSlotInfoKhr = 1000038004,
+
+    VideoEncodeH264NaluSliceInfoKhr = 1000038005,
+
+    VideoEncodeH264GopRemainingFrameInfoKhr = 1000038006,
+
+    VideoEncodeH264ProfileInfoKhr = 1000038007,
+
+    VideoEncodeH264RateControlInfoKhr = 1000038008,
+
+    VideoEncodeH264RateControlLayerInfoKhr = 1000038009,
+
+    VideoEncodeH264SessionCreateInfoKhr = 1000038010,
+
+    VideoEncodeH264QualityLevelPropertiesKhr = 1000038011,
+
+    VideoEncodeH264SessionParametersGetInfoKhr = 1000038012,
+
+    VideoEncodeH264SessionParametersFeedbackInfoKhr = 1000038013,
+
+    VideoEncodeH265CapabilitiesKhr = 1000039000,
+
+    VideoEncodeH265SessionParametersCreateInfoKhr = 1000039001,
+
+    VideoEncodeH265SessionParametersAddInfoKhr = 1000039002,
+
+    VideoEncodeH265PictureInfoKhr = 1000039003,
+
+    VideoEncodeH265DpbSlotInfoKhr = 1000039004,
+
+    VideoEncodeH265NaluSliceSegmentInfoKhr = 1000039005,
+
+    VideoEncodeH265GopRemainingFrameInfoKhr = 1000039006,
+
+    VideoEncodeH265ProfileInfoKhr = 1000039007,
+
+    VideoEncodeH265RateControlInfoKhr = 1000039009,
+
+    VideoEncodeH265RateControlLayerInfoKhr = 1000039010,
+
+    VideoEncodeH265SessionCreateInfoKhr = 1000039011,
+
+    VideoEncodeH265QualityLevelPropertiesKhr = 1000039012,
+
+    VideoEncodeH265SessionParametersGetInfoKhr = 1000039013,
+
+    VideoEncodeH265SessionParametersFeedbackInfoKhr = 1000039014,
+
+    VideoDecodeH264CapabilitiesKhr = 1000040000,
+
+    VideoDecodeH264PictureInfoKhr = 1000040001,
+
+    VideoDecodeH264ProfileInfoKhr = 1000040003,
+
+    VideoDecodeH264SessionParametersCreateInfoKhr = 1000040004,
+
+    VideoDecodeH264SessionParametersAddInfoKhr = 1000040005,
+
+    VideoDecodeH264DpbSlotInfoKhr = 1000040006,
 
     TextureLodGatherFormatPropertiesAmd = 1000041000,
 
@@ -616,6 +725,8 @@ public enum StructureType : uint
     PipelineRasterizationDepthClipStateCreateInfoExt = 1000102001,
 
     HdrMetadataExt = 1000105000,
+
+    PhysicalDeviceRelaxedLineRasterizationFeaturesImg = 1000110000,
 
     SharedPresentSurfaceCapabilitiesKhr = 1000111000,
 
@@ -817,9 +928,19 @@ public enum StructureType : uint
 
     PipelineCompilerControlCreateInfoAmd = 1000183000,
 
-    CalibratedTimestampInfoExt = 1000184000,
-
     PhysicalDeviceShaderCorePropertiesAmd = 1000185000,
+
+    VideoDecodeH265CapabilitiesKhr = 1000187000,
+
+    VideoDecodeH265SessionParametersCreateInfoKhr = 1000187001,
+
+    VideoDecodeH265SessionParametersAddInfoKhr = 1000187002,
+
+    VideoDecodeH265ProfileInfoKhr = 1000187003,
+
+    VideoDecodeH265PictureInfoKhr = 1000187004,
+
+    VideoDecodeH265DpbSlotInfoKhr = 1000187005,
 
     DeviceQueueGlobalPriorityCreateInfoKhr = 1000174000,
 
@@ -830,10 +951,6 @@ public enum StructureType : uint
     DeviceMemoryOverallocationCreateInfoAmd = 1000189000,
 
     PhysicalDeviceVertexAttributeDivisorPropertiesExt = 1000190000,
-
-    PipelineVertexInputDivisorStateCreateInfoExt = 1000190001,
-
-    PhysicalDeviceVertexAttributeDivisorFeaturesExt = 1000190002,
 
     PresentFrameTokenGgp = 1000191000,
 
@@ -971,7 +1088,49 @@ public enum StructureType : uint
 
     PipelineExecutableInternalRepresentationKhr = 1000269005,
 
+    PhysicalDeviceHostImageCopyFeaturesExt = 1000270000,
+
+    PhysicalDeviceHostImageCopyPropertiesExt = 1000270001,
+
+    MemoryToImageCopyExt = 1000270002,
+
+    ImageToMemoryCopyExt = 1000270003,
+
+    CopyImageToMemoryInfoExt = 1000270004,
+
+    CopyMemoryToImageInfoExt = 1000270005,
+
+    HostImageLayoutTransitionInfoExt = 1000270006,
+
+    CopyImageToImageInfoExt = 1000270007,
+
+    SubresourceHostMemcpySizeExt = 1000270008,
+
+    HostImageCopyDevicePerformanceQueryExt = 1000270009,
+
+    MemoryMapInfoKhr = 1000271000,
+
+    MemoryUnmapInfoKhr = 1000271001,
+
     PhysicalDeviceShaderAtomicFloat2FeaturesExt = 1000273000,
+
+    SurfacePresentModeExt = 1000274000,
+
+    SurfacePresentScalingCapabilitiesExt = 1000274001,
+
+    SurfacePresentModeCompatibilityExt = 1000274002,
+
+    PhysicalDeviceSwapchainMaintenance1FeaturesExt = 1000275000,
+
+    SwapchainPresentFenceInfoExt = 1000275001,
+
+    SwapchainPresentModesCreateInfoExt = 1000275002,
+
+    SwapchainPresentModeInfoExt = 1000275003,
+
+    SwapchainPresentScalingCreateInfoExt = 1000275004,
+
+    ReleaseSwapchainImagesInfoExt = 1000275005,
 
     PhysicalDeviceDeviceGeneratedCommandsPropertiesNv = 1000277000,
 
@@ -998,6 +1157,12 @@ public enum StructureType : uint
     CommandBufferInheritanceRenderPassTransformInfoQcom = 1000282000,
 
     RenderPassTransformBeginInfoQcom = 1000282001,
+
+    PhysicalDeviceDepthBiasControlFeaturesExt = 1000283000,
+
+    DepthBiasInfoExt = 1000283001,
+
+    DepthBiasRepresentationInfoExt = 1000283002,
 
     PhysicalDeviceDeviceMemoryReportFeaturesExt = 1000284000,
 
@@ -1027,9 +1192,43 @@ public enum StructureType : uint
 
     PhysicalDevicePresentIdFeaturesKhr = 1000294001,
 
+    VideoEncodeInfoKhr = 1000299000,
+
+    VideoEncodeRateControlInfoKhr = 1000299001,
+
+    VideoEncodeRateControlLayerInfoKhr = 1000299002,
+
+    VideoEncodeCapabilitiesKhr = 1000299003,
+
+    VideoEncodeUsageInfoKhr = 1000299004,
+
+    QueryPoolVideoEncodeFeedbackCreateInfoKhr = 1000299005,
+
+    PhysicalDeviceVideoEncodeQualityLevelInfoKhr = 1000299006,
+
+    VideoEncodeQualityLevelPropertiesKhr = 1000299007,
+
+    VideoEncodeQualityLevelInfoKhr = 1000299008,
+
+    VideoEncodeSessionParametersGetInfoKhr = 1000299009,
+
+    VideoEncodeSessionParametersFeedbackInfoKhr = 1000299010,
+
     PhysicalDeviceDiagnosticsConfigFeaturesNv = 1000300000,
 
     DeviceDiagnosticsConfigCreateInfoNv = 1000300001,
+
+    CudaModuleCreateInfoNv = 1000307000,
+
+    CudaFunctionCreateInfoNv = 1000307001,
+
+    CudaLaunchInfoNv = 1000307002,
+
+    PhysicalDeviceCudaKernelLaunchFeaturesNv = 1000307003,
+
+    PhysicalDeviceCudaKernelLaunchPropertiesNv = 1000307004,
+
+    QueryLowLatencySupportNv = 1000310000,
 
     ExportMetalObjectCreateInfoExt = 1000311000,
 
@@ -1129,10 +1328,6 @@ public enum StructureType : uint
 
     ImageCompressionControlExt = 1000338001,
 
-    SubresourceLayout2Ext = 1000338002,
-
-    ImageSubresource2Ext = 1000338003,
-
     ImageCompressionPropertiesExt = 1000338004,
 
     PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesExt = 1000339000,
@@ -1213,6 +1408,10 @@ public enum StructureType : uint
 
     PhysicalDevicePipelinePropertiesFeaturesExt = 1000372001,
 
+    PhysicalDeviceFrameBoundaryFeaturesExt = 1000375000,
+
+    FrameBoundaryExt = 1000375001,
+
     PhysicalDeviceMultisampledRenderToSingleSampledFeaturesExt = 1000376000,
 
     SubpassResolvePerformanceQueryExt = 1000376001,
@@ -1241,6 +1440,10 @@ public enum StructureType : uint
 
     PhysicalDeviceImage2dViewOf3dFeaturesExt = 1000393000,
 
+    PhysicalDeviceShaderTileImageFeaturesExt = 1000395000,
+
+    PhysicalDeviceShaderTileImagePropertiesExt = 1000395001,
+
     MicromapBuildInfoExt = 1000396000,
 
     MicromapVersionInfoExt = 1000396001,
@@ -1261,11 +1464,29 @@ public enum StructureType : uint
 
     AccelerationStructureTrianglesOpacityMicromapExt = 1000396009,
 
+    PhysicalDeviceClusterCullingShaderFeaturesHuawei = 1000404000,
+
+    PhysicalDeviceClusterCullingShaderPropertiesHuawei = 1000404001,
+
+    PhysicalDeviceClusterCullingShaderVrsFeaturesHuawei = 1000404002,
+
     PhysicalDeviceBorderColorSwizzleFeaturesExt = 1000411000,
 
     SamplerBorderColorComponentMappingCreateInfoExt = 1000411001,
 
     PhysicalDevicePageableDeviceLocalMemoryFeaturesExt = 1000412000,
+
+    PhysicalDeviceShaderCorePropertiesArm = 1000415000,
+
+    DeviceQueueShaderCoreControlCreateInfoArm = 1000417000,
+
+    PhysicalDeviceSchedulingControlsFeaturesArm = 1000417001,
+
+    PhysicalDeviceSchedulingControlsPropertiesArm = 1000417002,
+
+    PhysicalDeviceImageSlicedViewOf3dFeaturesExt = 1000418000,
+
+    ImageViewSlicedCreateInfoExt = 1000418001,
 
     PhysicalDeviceDescriptorSetHostMappingFeaturesValve = 1000420000,
 
@@ -1276,6 +1497,16 @@ public enum StructureType : uint
     PhysicalDeviceDepthClampZeroOneFeaturesExt = 1000421000,
 
     PhysicalDeviceNonSeamlessCubeMapFeaturesExt = 1000422000,
+
+    PhysicalDeviceRenderPassStripedFeaturesArm = 1000424000,
+
+    PhysicalDeviceRenderPassStripedPropertiesArm = 1000424001,
+
+    RenderPassStripeBeginInfoArm = 1000424002,
+
+    RenderPassStripeInfoArm = 1000424003,
+
+    RenderPassStripeSubmitInfoArm = 1000424004,
 
     PhysicalDeviceFragmentDensityMapOffsetFeaturesQcom = 1000425000,
 
@@ -1291,6 +1522,12 @@ public enum StructureType : uint
 
     PhysicalDeviceMemoryDecompressionPropertiesNv = 1000427001,
 
+    PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNv = 1000428000,
+
+    ComputePipelineIndirectBufferInfoNv = 1000428001,
+
+    PipelineIndirectDeviceAddressInfoNv = 1000428002,
+
     PhysicalDeviceLinearColorAttachmentFeaturesNv = 1000430000,
 
     PhysicalDeviceImageCompressionControlSwapchainFeaturesExt = 1000437000,
@@ -1300,6 +1537,12 @@ public enum StructureType : uint
     PhysicalDeviceImageProcessingPropertiesQcom = 1000440001,
 
     ImageViewSampleWeightCreateInfoQcom = 1000440002,
+
+    PhysicalDeviceNestedCommandBufferFeaturesExt = 1000451000,
+
+    PhysicalDeviceNestedCommandBufferPropertiesExt = 1000451001,
+
+    ExternalMemoryAcquireUnmodifiedExt = 1000453000,
 
     PhysicalDeviceExtendedDynamicState3FeaturesExt = 1000455000,
 
@@ -1345,6 +1588,36 @@ public enum StructureType : uint
 
     PhysicalDevicePipelineProtectedAccessFeaturesExt = 1000466000,
 
+    PhysicalDeviceExternalFormatResolveFeaturesAndroid = 1000468000,
+
+    PhysicalDeviceExternalFormatResolvePropertiesAndroid = 1000468001,
+
+    AndroidHardwareBufferFormatResolvePropertiesAndroid = 1000468002,
+
+    PhysicalDeviceMaintenance5FeaturesKhr = 1000470000,
+
+    PhysicalDeviceMaintenance5PropertiesKhr = 1000470001,
+
+    RenderingAreaInfoKhr = 1000470003,
+
+    DeviceImageSubresourceInfoKhr = 1000470004,
+
+    SubresourceLayout2Khr = 1000338002,
+
+    ImageSubresource2Khr = 1000338003,
+
+    PipelineCreateFlags2CreateInfoKhr = 1000470005,
+
+    BufferUsageFlags2CreateInfoKhr = 1000470006,
+
+    PhysicalDeviceRayTracingPositionFetchFeaturesKhr = 1000481000,
+
+    PhysicalDeviceShaderObjectFeaturesExt = 1000482000,
+
+    PhysicalDeviceShaderObjectPropertiesExt = 1000482001,
+
+    ShaderCreateInfoExt = 1000482002,
+
     PhysicalDeviceTilePropertiesFeaturesQcom = 1000484000,
 
     TilePropertiesQcom = 1000484001,
@@ -1359,13 +1632,117 @@ public enum StructureType : uint
 
     PhysicalDeviceRayTracingInvocationReorderPropertiesNv = 1000490001,
 
+    PhysicalDeviceExtendedSparseAddressSpaceFeaturesNv = 1000492000,
+
+    PhysicalDeviceExtendedSparseAddressSpacePropertiesNv = 1000492001,
+
     PhysicalDeviceMutableDescriptorTypeFeaturesExt = 1000351000,
 
     MutableDescriptorTypeCreateInfoExt = 1000351002,
 
+    LayerSettingsCreateInfoExt = 1000496000,
+
     PhysicalDeviceShaderCoreBuiltinsFeaturesArm = 1000497000,
 
     PhysicalDeviceShaderCoreBuiltinsPropertiesArm = 1000497001,
+
+    PhysicalDevicePipelineLibraryGroupHandlesFeaturesExt = 1000498000,
+
+    PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesExt = 1000499000,
+
+    LatencySleepModeInfoNv = 1000505000,
+
+    LatencySleepInfoNv = 1000505001,
+
+    SetLatencyMarkerInfoNv = 1000505002,
+
+    GetLatencyMarkerInfoNv = 1000505003,
+
+    LatencyTimingsFrameReportNv = 1000505004,
+
+    LatencySubmissionPresentIdNv = 1000505005,
+
+    OutOfBandQueueTypeInfoNv = 1000505006,
+
+    SwapchainLatencyCreateInfoNv = 1000505007,
+
+    LatencySurfaceCapabilitiesNv = 1000505008,
+
+    PhysicalDeviceCooperativeMatrixFeaturesKhr = 1000506000,
+
+    CooperativeMatrixPropertiesKhr = 1000506001,
+
+    PhysicalDeviceCooperativeMatrixPropertiesKhr = 1000506002,
+
+    PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQcom = 1000510000,
+
+    MultiviewPerViewRenderAreasRenderPassBeginInfoQcom = 1000510001,
+
+    PhysicalDeviceVideoMaintenance1FeaturesKhr = 1000515000,
+
+    VideoInlineQueryInfoKhr = 1000515001,
+
+    PhysicalDevicePerStageDescriptorSetFeaturesNv = 1000516000,
+
+    PhysicalDeviceImageProcessing2FeaturesQcom = 1000518000,
+
+    PhysicalDeviceImageProcessing2PropertiesQcom = 1000518001,
+
+    SamplerBlockMatchWindowCreateInfoQcom = 1000518002,
+
+    SamplerCubicWeightsCreateInfoQcom = 1000519000,
+
+    PhysicalDeviceCubicWeightsFeaturesQcom = 1000519001,
+
+    BlitImageCubicWeightsInfoQcom = 1000519002,
+
+    PhysicalDeviceYcbcrDegammaFeaturesQcom = 1000520000,
+
+    SamplerYcbcrConversionYcbcrDegammaCreateInfoQcom = 1000520001,
+
+    PhysicalDeviceCubicClampFeaturesQcom = 1000521000,
+
+    PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesExt = 1000524000,
+
+    PhysicalDeviceVertexAttributeDivisorPropertiesKhr = 1000525000,
+
+    PipelineVertexInputDivisorStateCreateInfoKhr = 1000190001,
+
+    PhysicalDeviceVertexAttributeDivisorFeaturesKhr = 1000190002,
+
+    ScreenBufferPropertiesQnx = 1000529000,
+
+    ScreenBufferFormatPropertiesQnx = 1000529001,
+
+    ImportScreenBufferInfoQnx = 1000529002,
+
+    ExternalFormatQnx = 1000529003,
+
+    PhysicalDeviceExternalMemoryScreenBufferFeaturesQnx = 1000529004,
+
+    PhysicalDeviceLayeredDriverPropertiesMsft = 1000530000,
+
+    CalibratedTimestampInfoKhr = 1000184000,
+
+    PhysicalDeviceMaintenance6FeaturesKhr = 1000545000,
+
+    PhysicalDeviceMaintenance6PropertiesKhr = 1000545001,
+
+    BindMemoryStatusKhr = 1000545002,
+
+    BindDescriptorSetsInfoKhr = 1000545003,
+
+    PushConstantsInfoKhr = 1000545004,
+
+    PushDescriptorSetInfoKhr = 1000545005,
+
+    PushDescriptorSetWithTemplateInfoKhr = 1000545006,
+
+    SetDescriptorBufferOffsetsInfoExt = 1000545007,
+
+    BindDescriptorBufferEmbeddedSamplersInfoExt = 1000545008,
+
+    PhysicalDeviceDescriptorPoolOverallocationFeaturesNv = 1000546000,
 
     MaxEnum = 2147483647,
 

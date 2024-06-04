@@ -14,6 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19031 Column: 30
 public unsafe struct PFN_vkCopyAccelerationStructureToMemoryKHR
 {
     public PFN_vkCopyAccelerationStructureToMemoryKHR(void* ptr)

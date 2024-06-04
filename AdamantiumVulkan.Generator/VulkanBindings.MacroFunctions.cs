@@ -13,19 +13,19 @@ public partial class VulkanBindings
         {
             var function = new MacroFunction();
             var variant = new Parameter()
-                { Type = new BuiltinType(PrimitiveType.Byte), Name = "variant", ParameterKind = ParameterKind.In };
+                { Type = new BuiltinType(PrimitiveType.UInt32), Name = "variant", ParameterKind = ParameterKind.In };
             var major = new Parameter()
-                { Type = new BuiltinType(PrimitiveType.Byte), Name = "major", ParameterKind = ParameterKind.In };
+                { Type = new BuiltinType(PrimitiveType.UInt32), Name = "major", ParameterKind = ParameterKind.In };
             var minor = new Parameter()
-                { Type = new BuiltinType(PrimitiveType.Byte), Name = "minor", ParameterKind = ParameterKind.In };
+                { Type = new BuiltinType(PrimitiveType.UInt32), Name = "minor", ParameterKind = ParameterKind.In };
             var patch = new Parameter()
-                { Type = new BuiltinType(PrimitiveType.Byte), Name = "patch", ParameterKind = ParameterKind.In };
+                { Type = new BuiltinType(PrimitiveType.UInt32), Name = "patch", ParameterKind = ParameterKind.In };
             function.Parameters.Add(variant);
             function.Parameters.Add(major);
             function.Parameters.Add(minor);
             function.Parameters.Add(patch);
             function.FunctionBody =
-                $"var version = variant << 29 | major << 22 | minor << 12 | patch;{Environment.NewLine}return (uint)version;";
+                $"var version = (((variant) << 29) | ((major) << 22) | ((minor) << 12) | ((uint)(patch)));{Environment.NewLine}return (uint)version;";
             function.ReturnType = new BuiltinType(PrimitiveType.UInt32);
 
             return function;
@@ -97,7 +97,7 @@ public partial class VulkanBindings
         public static MacroFunction CreateHeaderVersion()
         {
             var function = new MacroFunction();
-            function.ReturnType = new BuiltinType(PrimitiveType.Byte);
+            function.ReturnType = new BuiltinType(PrimitiveType.UInt32);
             function.ApplyStrategy = MacroFunctionStrategy.ApplyOnlyReturnType;
             return function;
         }
@@ -116,6 +116,25 @@ public partial class VulkanBindings
             func.ReturnType = new BuiltinType(PrimitiveType.String);
             func.ApplyStrategy = MacroFunctionStrategy.ApplyOnlyReturnType;
             return func;
+        }
+
+        public static MacroFunction CreateMakeVideoStdVersion()
+        {
+            var function = new MacroFunction();
+            var major = new Parameter()
+                { Type = new BuiltinType(PrimitiveType.Byte), Name = "major", ParameterKind = ParameterKind.In };
+            var minor = new Parameter()
+                { Type = new BuiltinType(PrimitiveType.Byte), Name = "minor", ParameterKind = ParameterKind.In };
+            var patch = new Parameter()
+                { Type = new BuiltinType(PrimitiveType.Byte), Name = "patch", ParameterKind = ParameterKind.In };
+            function.Parameters.Add(major);
+            function.Parameters.Add(minor);
+            function.Parameters.Add(patch);
+            function.FunctionBody =
+                $"var version = ((((uint)(major)) << 22) | (((uint)(minor)) << 12) | ((uint)(patch)));{Environment.NewLine}return (uint)version;";
+            function.ReturnType = new BuiltinType(PrimitiveType.UInt32);
+
+            return function;
         }
     }
 }

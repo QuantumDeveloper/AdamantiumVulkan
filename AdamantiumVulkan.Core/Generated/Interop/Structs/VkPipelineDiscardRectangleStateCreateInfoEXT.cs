@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12500 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineDiscardRectangleStateCreateInfoEXT
 {
@@ -20,7 +21,7 @@ public unsafe partial struct VkPipelineDiscardRectangleStateCreateInfoEXT
     public VkPipelineDiscardRectangleStateCreateFlagsEXT flags;
     public DiscardRectangleModeEXT discardRectangleMode;
     public uint discardRectangleCount;
-    public VkRect2D* pDiscardRectangles;
+    public AdamantiumVulkan.Core.Interop.VkRect2D* pDiscardRectangles;
 }
 
 

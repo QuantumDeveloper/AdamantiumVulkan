@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12473 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineViewportSwizzleStateCreateInfoNV
 {
@@ -19,7 +20,7 @@ public unsafe partial struct VkPipelineViewportSwizzleStateCreateInfoNV
     public void* pNext;
     public VkPipelineViewportSwizzleStateCreateFlagsNV flags;
     public uint viewportCount;
-    public VkViewportSwizzleNV* pViewportSwizzles;
+    public AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV* pViewportSwizzles;
 }
 
 

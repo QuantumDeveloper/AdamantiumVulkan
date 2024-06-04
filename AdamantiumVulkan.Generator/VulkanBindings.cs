@@ -60,8 +60,16 @@ public static partial class VulkanBindings
             .WithField("pColorAttachments")
             .InterpretAsPointerToArray(new CustomType("VkRenderingAttachmentInfo"), arraySizeSource: "colorAttachmentCount");
 
+        api.Class("VkShaderCreateInfoEXT")
+            .WithField("pCode")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Byte))
+            .WithField("pSetLayouts")
+            .InterpretAsPointerToArray(new CustomType("VkDescriptorSetLayout_T"), arraySizeSource: "setLayoutCount")
+            .WithField("pPushConstantRanges")
+            .InterpretAsPointerToArray(new CustomType("VkPushConstantRange"), arraySizeSource: "pushConstantRangeCount");
         
-
+        
+        
         api.Function("vkUpdateDescriptorSets")
             .WithParameterName("pDescriptorWrites")
             .InterpretAsPointerToArray(new CustomType("VkWriteDescriptorSet"), true, "descriptorWriteCount")
@@ -133,15 +141,22 @@ public static partial class VulkanBindings
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Out);
 
-        api.Function("vkCmdExecuteCommands").WithParameterName("pCommandBuffers")
+        api.Function("vkCmdExecuteCommands")
+            .WithParameterName("pCommandBuffers")
             .InterpretAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
 
-        api.Delegate("spvc_error_callback").WithParameterName("error").InterpretAsIs()
+        api.Delegate("spvc_error_callback")
+            .WithParameterName("error")
+            .InterpretAsIs()
             .SetParameterKind(ParameterKind.Out);
 
         api.Function("spvc_constant_get_type").RenameTo("spvc_constant_get_constant_type");
-        
-        
+
+        api.Function("vkCreateShadersEXT")
+            .WithParameterName("pCreateInfos")
+            .InterpretAsPointerToArray(new CustomType("VkShaderCreateInfoEXT"), arraySizeSource: "createInfoCount")
+            .WithParameterName("pShaders")
+            .InterpretAsPointerToArray(new CustomType("VkShaderEXT"), arraySizeSource: "createInfoCount");
 
         //api.Function("vkEnumerateInstanceExtensionProperties").
         //    WithParameterName("pProperties").
@@ -319,6 +334,7 @@ public static partial class VulkanBindings
             "VkDebugUtilsMessengerEXT",
             "VkValidationCacheEXT",
             "VkAccelerationStructureNV",
+            "VkShaderEXT"
         };
 
         api.Classes(classesList).AddProperty("NativePointer")
@@ -358,7 +374,8 @@ public static partial class VulkanBindings
             "vkDestroyObjectTableNVX",
             "vkDestroyValidationCacheEXT",
             "vkDestroyAccelerationStructureNV",
-            "vkFreeMemory"
+            "vkFreeMemory",
+            "vkDestroyShaderEXT"
         };
 
         api.Functions(defaultParamFunctions).WithParameterName("pAllocator").InterpretAsIs()
@@ -395,7 +412,7 @@ public static partial class VulkanBindings
         api.Class("VkPipelineColorWriteCreateInfoEXT")
             .WithField("pColorWriteEnables")
             .InterpretAsPointerToArray(new CustomType("VkBool32"), arraySizeSource: "attachmentCount");
-
+        
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").
         //    TreatAsIs().
@@ -555,7 +572,41 @@ public static partial class VulkanBindings
         //api.Class("VkDescriptorSetAllocateInfo").
         //    WithField("pSetLayouts").
         //    TreatAsPointerToArray(new CustomType("VkDescriptorSetLayout"), true, "descriptorSetCount");
+        
+        var spirvToolsStructsList = new List<string>
+        {
+            "spv_binary_t",
+            "spv_const_binary_t",
+        };
 
+        api.Classes(spirvToolsStructsList).AddField("pointer")
+            .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) });
+
+        api.Class("spv_parsed_instruction_t").WithField("operands")
+            .InterpretAsPointerToArray(new CustomType("spv_parsed_operand_t"));
+
+        api.Class("spv_text_t").Ignore();
+        api.Class("spv_text")
+            .CleanObject()
+            .CopyFieldsFromLinkedObject()
+            .SetClassType(ClassType.Struct);
+        
+        api.Class("spv_diagnostic_t").Ignore();
+        api.Class("spv_diagnostic")
+            .CleanObject()
+            .CopyFieldsFromLinkedObject()
+            .SetClassType(ClassType.Struct);
+        
+        api.Function("spvBinaryToText")
+            .WithParameterName("binary")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Byte))
+            .WithParameterName("text")
+            .InterpretAsPointerType(new CustomType("spv_text"), 2)
+            .SetParameterKind(ParameterKind.Out)
+            .WithParameterName("diagnostic")
+            .InterpretAsPointerType(new CustomType("spv_diagnostic"), 2)
+            .SetParameterKind(ParameterKind.Out);
+        
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);
     }

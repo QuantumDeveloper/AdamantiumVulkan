@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\shaderc\shaderc.h Line: 101 Column: 9
 ///<summary>
 /// Optimization level.
 ///</summary>

@@ -13,6 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15544 Column: 27
 public unsafe partial class PrivateDataSlotEXT
 {
     internal VkPrivateDataSlot_T __Instance;

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9462 Column: 14
 public enum PerformanceCounterStorageKHR : uint
 {
     Int32Khr = 0,

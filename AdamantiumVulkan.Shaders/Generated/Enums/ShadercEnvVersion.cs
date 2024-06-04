@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\shaderc/env.h Line: 37 Column: 9
 public enum ShadercEnvVersion : uint
 {
     ///<summary>

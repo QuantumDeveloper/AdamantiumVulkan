@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3720 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkWriteDescriptorSet
 {
@@ -22,8 +23,8 @@ public unsafe partial struct VkWriteDescriptorSet
     public uint dstArrayElement;
     public uint descriptorCount;
     public DescriptorType descriptorType;
-    public VkDescriptorImageInfo* pImageInfo;
-    public VkDescriptorBufferInfo* pBufferInfo;
+    public AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo* pImageInfo;
+    public AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo* pBufferInfo;
     public VkBufferView_T* pTexelBufferView;
 }
 

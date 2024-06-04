@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross/spirv.h Line: 267 Column: 14
 public enum SpvImageFormat : uint
 {
     Unknown = 0,

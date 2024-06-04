@@ -12,13 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16766 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineColorWriteCreateInfoEXT
 {
     public StructureType sType;
     public void* pNext;
     public uint attachmentCount;
-    public VkBool32* pColorWriteEnables;
+    public AdamantiumVulkan.Core.Interop.VkBool32* pColorWriteEnables;
 }
 
 

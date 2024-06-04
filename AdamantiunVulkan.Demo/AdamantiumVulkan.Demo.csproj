@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <Platforms>x64</Platforms>
     <ApplicationIcon />
@@ -89,6 +89,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdamantiumVulkan.Core\AdamantiumVulkan.Core.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Shaders\AdamantiumVulkan.Shaders.csproj" />
+    <ProjectReference Include="..\AdamantiumVulkan.SpirvTools\AdamantiumVulkan.SpirvTools.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.SPIRV\AdamantiumVulkan.SPIRV.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan.Windows\AdamantiumVulkan.Windows.csproj" />
     <ProjectReference Include="..\AdamantiumVulkan\AdamantiumVulkan.csproj" />

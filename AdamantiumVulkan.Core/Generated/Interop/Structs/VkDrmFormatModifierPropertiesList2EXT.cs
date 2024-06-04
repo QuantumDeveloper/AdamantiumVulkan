@@ -12,13 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13080 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDrmFormatModifierPropertiesList2EXT
 {
     public StructureType sType;
     public void* pNext;
     public uint drmFormatModifierCount;
-    public VkDrmFormatModifierProperties2EXT* pDrmFormatModifierProperties;
+    public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT* pDrmFormatModifierProperties;
 }
 
 

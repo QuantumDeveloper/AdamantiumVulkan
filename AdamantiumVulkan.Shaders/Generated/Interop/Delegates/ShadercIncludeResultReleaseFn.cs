@@ -13,6 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Shaders.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\shaderc\shaderc.h Line: 380 Column: 16
 ///<summary>
 /// An includer callback type for destroying an include result.
 ///</summary>

@@ -12,6 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
+// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 3506 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineViewportStateCreateInfo
 {
@@ -19,9 +20,9 @@ public unsafe partial struct VkPipelineViewportStateCreateInfo
     public void* pNext;
     public VkPipelineViewportStateCreateFlags flags;
     public uint viewportCount;
-    public VkViewport* pViewports;
+    public AdamantiumVulkan.Core.Interop.VkViewport* pViewports;
     public uint scissorCount;
-    public VkRect2D* pScissors;
+    public AdamantiumVulkan.Core.Interop.VkRect2D* pScissors;
 }
 
 
