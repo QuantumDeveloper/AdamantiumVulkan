@@ -122,55 +122,199 @@ public unsafe partial class PhysicalDeviceVulkan12Features : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.samplerMirrorClampToEdge = SamplerMirrorClampToEdge;
-        _internal.drawIndirectCount = DrawIndirectCount;
-        _internal.storageBuffer8BitAccess = StorageBuffer8BitAccess;
-        _internal.uniformAndStorageBuffer8BitAccess = UniformAndStorageBuffer8BitAccess;
-        _internal.storagePushConstant8 = StoragePushConstant8;
-        _internal.shaderBufferInt64Atomics = ShaderBufferInt64Atomics;
-        _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
-        _internal.shaderFloat16 = ShaderFloat16;
-        _internal.shaderInt8 = ShaderInt8;
-        _internal.descriptorIndexing = DescriptorIndexing;
-        _internal.shaderInputAttachmentArrayDynamicIndexing = ShaderInputAttachmentArrayDynamicIndexing;
-        _internal.shaderUniformTexelBufferArrayDynamicIndexing = ShaderUniformTexelBufferArrayDynamicIndexing;
-        _internal.shaderStorageTexelBufferArrayDynamicIndexing = ShaderStorageTexelBufferArrayDynamicIndexing;
-        _internal.shaderUniformBufferArrayNonUniformIndexing = ShaderUniformBufferArrayNonUniformIndexing;
-        _internal.shaderSampledImageArrayNonUniformIndexing = ShaderSampledImageArrayNonUniformIndexing;
-        _internal.shaderStorageBufferArrayNonUniformIndexing = ShaderStorageBufferArrayNonUniformIndexing;
-        _internal.shaderStorageImageArrayNonUniformIndexing = ShaderStorageImageArrayNonUniformIndexing;
-        _internal.shaderInputAttachmentArrayNonUniformIndexing = ShaderInputAttachmentArrayNonUniformIndexing;
-        _internal.shaderUniformTexelBufferArrayNonUniformIndexing = ShaderUniformTexelBufferArrayNonUniformIndexing;
-        _internal.shaderStorageTexelBufferArrayNonUniformIndexing = ShaderStorageTexelBufferArrayNonUniformIndexing;
-        _internal.descriptorBindingUniformBufferUpdateAfterBind = DescriptorBindingUniformBufferUpdateAfterBind;
-        _internal.descriptorBindingSampledImageUpdateAfterBind = DescriptorBindingSampledImageUpdateAfterBind;
-        _internal.descriptorBindingStorageImageUpdateAfterBind = DescriptorBindingStorageImageUpdateAfterBind;
-        _internal.descriptorBindingStorageBufferUpdateAfterBind = DescriptorBindingStorageBufferUpdateAfterBind;
-        _internal.descriptorBindingUniformTexelBufferUpdateAfterBind = DescriptorBindingUniformTexelBufferUpdateAfterBind;
-        _internal.descriptorBindingStorageTexelBufferUpdateAfterBind = DescriptorBindingStorageTexelBufferUpdateAfterBind;
-        _internal.descriptorBindingUpdateUnusedWhilePending = DescriptorBindingUpdateUnusedWhilePending;
-        _internal.descriptorBindingPartiallyBound = DescriptorBindingPartiallyBound;
-        _internal.descriptorBindingVariableDescriptorCount = DescriptorBindingVariableDescriptorCount;
-        _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
-        _internal.samplerFilterMinmax = SamplerFilterMinmax;
-        _internal.scalarBlockLayout = ScalarBlockLayout;
-        _internal.imagelessFramebuffer = ImagelessFramebuffer;
-        _internal.uniformBufferStandardLayout = UniformBufferStandardLayout;
-        _internal.shaderSubgroupExtendedTypes = ShaderSubgroupExtendedTypes;
-        _internal.separateDepthStencilLayouts = SeparateDepthStencilLayouts;
-        _internal.hostQueryReset = HostQueryReset;
-        _internal.timelineSemaphore = TimelineSemaphore;
-        _internal.bufferDeviceAddress = BufferDeviceAddress;
-        _internal.bufferDeviceAddressCaptureReplay = BufferDeviceAddressCaptureReplay;
-        _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
-        _internal.vulkanMemoryModel = VulkanMemoryModel;
-        _internal.vulkanMemoryModelDeviceScope = VulkanMemoryModelDeviceScope;
-        _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
-        _internal.shaderOutputViewportIndex = ShaderOutputViewportIndex;
-        _internal.shaderOutputLayer = ShaderOutputLayer;
-        _internal.subgroupBroadcastDynamicId = SubgroupBroadcastDynamicId;
+        if (SamplerMirrorClampToEdge != (uint)default)
+        {
+            _internal.samplerMirrorClampToEdge = SamplerMirrorClampToEdge;
+        }
+        if (DrawIndirectCount != (uint)default)
+        {
+            _internal.drawIndirectCount = DrawIndirectCount;
+        }
+        if (StorageBuffer8BitAccess != (uint)default)
+        {
+            _internal.storageBuffer8BitAccess = StorageBuffer8BitAccess;
+        }
+        if (UniformAndStorageBuffer8BitAccess != (uint)default)
+        {
+            _internal.uniformAndStorageBuffer8BitAccess = UniformAndStorageBuffer8BitAccess;
+        }
+        if (StoragePushConstant8 != (uint)default)
+        {
+            _internal.storagePushConstant8 = StoragePushConstant8;
+        }
+        if (ShaderBufferInt64Atomics != (uint)default)
+        {
+            _internal.shaderBufferInt64Atomics = ShaderBufferInt64Atomics;
+        }
+        if (ShaderSharedInt64Atomics != (uint)default)
+        {
+            _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
+        }
+        if (ShaderFloat16 != (uint)default)
+        {
+            _internal.shaderFloat16 = ShaderFloat16;
+        }
+        if (ShaderInt8 != (uint)default)
+        {
+            _internal.shaderInt8 = ShaderInt8;
+        }
+        if (DescriptorIndexing != (uint)default)
+        {
+            _internal.descriptorIndexing = DescriptorIndexing;
+        }
+        if (ShaderInputAttachmentArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderInputAttachmentArrayDynamicIndexing = ShaderInputAttachmentArrayDynamicIndexing;
+        }
+        if (ShaderUniformTexelBufferArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderUniformTexelBufferArrayDynamicIndexing = ShaderUniformTexelBufferArrayDynamicIndexing;
+        }
+        if (ShaderStorageTexelBufferArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderStorageTexelBufferArrayDynamicIndexing = ShaderStorageTexelBufferArrayDynamicIndexing;
+        }
+        if (ShaderUniformBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderUniformBufferArrayNonUniformIndexing = ShaderUniformBufferArrayNonUniformIndexing;
+        }
+        if (ShaderSampledImageArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderSampledImageArrayNonUniformIndexing = ShaderSampledImageArrayNonUniformIndexing;
+        }
+        if (ShaderStorageBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderStorageBufferArrayNonUniformIndexing = ShaderStorageBufferArrayNonUniformIndexing;
+        }
+        if (ShaderStorageImageArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderStorageImageArrayNonUniformIndexing = ShaderStorageImageArrayNonUniformIndexing;
+        }
+        if (ShaderInputAttachmentArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderInputAttachmentArrayNonUniformIndexing = ShaderInputAttachmentArrayNonUniformIndexing;
+        }
+        if (ShaderUniformTexelBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderUniformTexelBufferArrayNonUniformIndexing = ShaderUniformTexelBufferArrayNonUniformIndexing;
+        }
+        if (ShaderStorageTexelBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderStorageTexelBufferArrayNonUniformIndexing = ShaderStorageTexelBufferArrayNonUniformIndexing;
+        }
+        if (DescriptorBindingUniformBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingUniformBufferUpdateAfterBind = DescriptorBindingUniformBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingSampledImageUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingSampledImageUpdateAfterBind = DescriptorBindingSampledImageUpdateAfterBind;
+        }
+        if (DescriptorBindingStorageImageUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingStorageImageUpdateAfterBind = DescriptorBindingStorageImageUpdateAfterBind;
+        }
+        if (DescriptorBindingStorageBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingStorageBufferUpdateAfterBind = DescriptorBindingStorageBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingUniformTexelBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingUniformTexelBufferUpdateAfterBind = DescriptorBindingUniformTexelBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingStorageTexelBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingStorageTexelBufferUpdateAfterBind = DescriptorBindingStorageTexelBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingUpdateUnusedWhilePending != (uint)default)
+        {
+            _internal.descriptorBindingUpdateUnusedWhilePending = DescriptorBindingUpdateUnusedWhilePending;
+        }
+        if (DescriptorBindingPartiallyBound != (uint)default)
+        {
+            _internal.descriptorBindingPartiallyBound = DescriptorBindingPartiallyBound;
+        }
+        if (DescriptorBindingVariableDescriptorCount != (uint)default)
+        {
+            _internal.descriptorBindingVariableDescriptorCount = DescriptorBindingVariableDescriptorCount;
+        }
+        if (RuntimeDescriptorArray != (uint)default)
+        {
+            _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
+        }
+        if (SamplerFilterMinmax != (uint)default)
+        {
+            _internal.samplerFilterMinmax = SamplerFilterMinmax;
+        }
+        if (ScalarBlockLayout != (uint)default)
+        {
+            _internal.scalarBlockLayout = ScalarBlockLayout;
+        }
+        if (ImagelessFramebuffer != (uint)default)
+        {
+            _internal.imagelessFramebuffer = ImagelessFramebuffer;
+        }
+        if (UniformBufferStandardLayout != (uint)default)
+        {
+            _internal.uniformBufferStandardLayout = UniformBufferStandardLayout;
+        }
+        if (ShaderSubgroupExtendedTypes != (uint)default)
+        {
+            _internal.shaderSubgroupExtendedTypes = ShaderSubgroupExtendedTypes;
+        }
+        if (SeparateDepthStencilLayouts != (uint)default)
+        {
+            _internal.separateDepthStencilLayouts = SeparateDepthStencilLayouts;
+        }
+        if (HostQueryReset != (uint)default)
+        {
+            _internal.hostQueryReset = HostQueryReset;
+        }
+        if (TimelineSemaphore != (uint)default)
+        {
+            _internal.timelineSemaphore = TimelineSemaphore;
+        }
+        if (BufferDeviceAddress != (uint)default)
+        {
+            _internal.bufferDeviceAddress = BufferDeviceAddress;
+        }
+        if (BufferDeviceAddressCaptureReplay != (uint)default)
+        {
+            _internal.bufferDeviceAddressCaptureReplay = BufferDeviceAddressCaptureReplay;
+        }
+        if (BufferDeviceAddressMultiDevice != (uint)default)
+        {
+            _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
+        }
+        if (VulkanMemoryModel != (uint)default)
+        {
+            _internal.vulkanMemoryModel = VulkanMemoryModel;
+        }
+        if (VulkanMemoryModelDeviceScope != (uint)default)
+        {
+            _internal.vulkanMemoryModelDeviceScope = VulkanMemoryModelDeviceScope;
+        }
+        if (VulkanMemoryModelAvailabilityVisibilityChains != (uint)default)
+        {
+            _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
+        }
+        if (ShaderOutputViewportIndex != (uint)default)
+        {
+            _internal.shaderOutputViewportIndex = ShaderOutputViewportIndex;
+        }
+        if (ShaderOutputLayer != (uint)default)
+        {
+            _internal.shaderOutputLayer = ShaderOutputLayer;
+        }
+        if (SubgroupBroadcastDynamicId != (uint)default)
+        {
+            _internal.subgroupBroadcastDynamicId = SubgroupBroadcastDynamicId;
+        }
         return _internal;
     }
 

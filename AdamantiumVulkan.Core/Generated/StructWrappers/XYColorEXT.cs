@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class XYColorEXT
+public unsafe partial class XYColorEXT : QBDisposableObject
 {
     public XYColorEXT()
     {
@@ -29,8 +29,14 @@ public unsafe partial class XYColorEXT
     public AdamantiumVulkan.Core.Interop.VkXYColorEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkXYColorEXT();
-        _internal.x = X;
-        _internal.y = Y;
+        if (X != default)
+        {
+            _internal.x = X;
+        }
+        if (Y != default)
+        {
+            _internal.y = Y;
+        }
         return _internal;
     }
 

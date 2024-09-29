@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceSamplerFilterMinmaxProperties : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.filterMinmaxSingleComponentFormats = FilterMinmaxSingleComponentFormats;
-        _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
+        if (FilterMinmaxSingleComponentFormats != (uint)default)
+        {
+            _internal.filterMinmaxSingleComponentFormats = FilterMinmaxSingleComponentFormats;
+        }
+        if (FilterMinmaxImageComponentMapping != (uint)default)
+        {
+            _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
+        }
         return _internal;
     }
 

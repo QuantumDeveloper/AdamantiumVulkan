@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SubpassSampleLocationsEXT
+public unsafe partial class SubpassSampleLocationsEXT : QBDisposableObject
 {
     public SubpassSampleLocationsEXT()
     {
@@ -29,13 +29,22 @@ public unsafe partial class SubpassSampleLocationsEXT
     public AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT();
-        _internal.subpassIndex = SubpassIndex;
-        if (SampleLocationsInfo != null)
+        if (SubpassIndex != default)
+        {
+            _internal.subpassIndex = SubpassIndex;
+        }
+        if (SampleLocationsInfo != default)
         {
             _internal.sampleLocationsInfo = SampleLocationsInfo.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SampleLocationsInfo?.Dispose();
+    }
+
 
     public static implicit operator SubpassSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT s)
     {

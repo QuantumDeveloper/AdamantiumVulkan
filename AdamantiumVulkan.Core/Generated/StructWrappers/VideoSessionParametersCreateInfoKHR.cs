@@ -35,11 +35,23 @@ public unsafe partial class VideoSessionParametersCreateInfoKHR : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.videoSessionParametersTemplate = VideoSessionParametersTemplate;
-        _internal.videoSession = VideoSession;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (VideoSessionParametersTemplate != default)
+        {
+            _internal.videoSessionParametersTemplate = VideoSessionParametersTemplate;
+        }
+        if (VideoSession != default)
+        {
+            _internal.videoSession = VideoSession;
+        }
         return _internal;
     }
 

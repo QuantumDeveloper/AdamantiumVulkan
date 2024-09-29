@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH265ReferenceListsInfo
+public unsafe partial class StdVideoEncodeH265ReferenceListsInfo : QBDisposableObject
 {
     public StdVideoEncodeH265ReferenceListsInfo()
     {
@@ -39,34 +39,40 @@ public unsafe partial class StdVideoEncodeH265ReferenceListsInfo
     public AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.num_ref_idx_l0_active_minus1 = Num_ref_idx_l0_active_minus1;
-        _internal.num_ref_idx_l1_active_minus1 = Num_ref_idx_l1_active_minus1;
-        if(RefPicList0 != null)
+        if (Num_ref_idx_l0_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l0_active_minus1 = Num_ref_idx_l0_active_minus1;
+        }
+        if (Num_ref_idx_l1_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l1_active_minus1 = Num_ref_idx_l1_active_minus1;
+        }
+        if (RefPicList0 != default)
         {
             if (RefPicList0.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicList0), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.PrimitiveToFixedArray(_internal.RefPicList0, 15, RefPicList0);
         }
-        if(RefPicList1 != null)
+        if (RefPicList1 != default)
         {
             if (RefPicList1.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicList1), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.PrimitiveToFixedArray(_internal.RefPicList1, 15, RefPicList1);
         }
-        if(List_entry_l0 != null)
+        if (List_entry_l0 != default)
         {
             if (List_entry_l0.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(List_entry_l0), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.PrimitiveToFixedArray(_internal.list_entry_l0, 15, List_entry_l0);
         }
-        if(List_entry_l1 != null)
+        if (List_entry_l1 != default)
         {
             if (List_entry_l1.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(List_entry_l1), "Array is out of bounds. Size should not be more than 15");
@@ -75,6 +81,12 @@ public unsafe partial class StdVideoEncodeH265ReferenceListsInfo
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoEncodeH265ReferenceListsInfo(AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo s)
     {

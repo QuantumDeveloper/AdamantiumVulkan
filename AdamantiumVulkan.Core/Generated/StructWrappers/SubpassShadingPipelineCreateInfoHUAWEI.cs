@@ -33,10 +33,19 @@ public unsafe partial class SubpassShadingPipelineCreateInfoHUAWEI : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.renderPass = RenderPass;
-        _internal.subpass = Subpass;
+        if (RenderPass != default)
+        {
+            _internal.renderPass = RenderPass;
+        }
+        if (Subpass != default)
+        {
+            _internal.subpass = Subpass;
+        }
         return _internal;
     }
 

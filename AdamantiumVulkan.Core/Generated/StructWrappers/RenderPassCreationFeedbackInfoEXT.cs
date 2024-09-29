@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class RenderPassCreationFeedbackInfoEXT
+public unsafe partial class RenderPassCreationFeedbackInfoEXT : QBDisposableObject
 {
     public RenderPassCreationFeedbackInfoEXT()
     {
@@ -27,7 +27,10 @@ public unsafe partial class RenderPassCreationFeedbackInfoEXT
     public AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT();
-        _internal.postMergeSubpassCount = PostMergeSubpassCount;
+        if (PostMergeSubpassCount != default)
+        {
+            _internal.postMergeSubpassCount = PostMergeSubpassCount;
+        }
         return _internal;
     }
 

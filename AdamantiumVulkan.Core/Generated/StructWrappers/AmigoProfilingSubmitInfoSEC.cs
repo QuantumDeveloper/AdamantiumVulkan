@@ -33,10 +33,19 @@ public unsafe partial class AmigoProfilingSubmitInfoSEC : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAmigoProfilingSubmitInfoSEC ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAmigoProfilingSubmitInfoSEC();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.firstDrawTimestamp = FirstDrawTimestamp;
-        _internal.swapBufferTimestamp = SwapBufferTimestamp;
+        if (FirstDrawTimestamp != default)
+        {
+            _internal.firstDrawTimestamp = FirstDrawTimestamp;
+        }
+        if (SwapBufferTimestamp != default)
+        {
+            _internal.swapBufferTimestamp = SwapBufferTimestamp;
+        }
         return _internal;
     }
 

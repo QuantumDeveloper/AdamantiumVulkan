@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ClearAttachment
+public unsafe partial class ClearAttachment : QBDisposableObject
 {
     public ClearAttachment()
     {
@@ -31,14 +31,26 @@ public unsafe partial class ClearAttachment
     public AdamantiumVulkan.Core.Interop.VkClearAttachment ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkClearAttachment();
-        _internal.aspectMask = AspectMask;
-        _internal.colorAttachment = ColorAttachment;
-        if (ClearValue != null)
+        if (AspectMask != (uint)default)
+        {
+            _internal.aspectMask = AspectMask;
+        }
+        if (ColorAttachment != default)
+        {
+            _internal.colorAttachment = ColorAttachment;
+        }
+        if (ClearValue != default)
         {
             _internal.clearValue = ClearValue.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ClearValue?.Dispose();
+    }
+
 
     public static implicit operator ClearAttachment(AdamantiumVulkan.Core.Interop.VkClearAttachment c)
     {

@@ -44,12 +44,27 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.accelerationStructure = AccelerationStructure;
-        _internal.memory = Memory;
-        _internal.memoryOffset = MemoryOffset;
-        _internal.deviceIndexCount = DeviceIndexCount;
+        if (AccelerationStructure != default)
+        {
+            _internal.accelerationStructure = AccelerationStructure;
+        }
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (MemoryOffset != (ulong)default)
+        {
+            _internal.memoryOffset = MemoryOffset;
+        }
+        if (DeviceIndexCount != default)
+        {
+            _internal.deviceIndexCount = DeviceIndexCount;
+        }
         _pDeviceIndices.Dispose();
         if (PDeviceIndices.HasValue)
         {

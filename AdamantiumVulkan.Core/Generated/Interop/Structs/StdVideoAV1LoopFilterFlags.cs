@@ -8,20 +8,16 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Core.Interop;
+namespace AdamantiumVulkan.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14680 Column: 16
+// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 234 Column: 16
 [StructLayout(LayoutKind.Sequential)]
-public unsafe partial struct VkPipelineRasterizationLineStateCreateInfoEXT
+public unsafe partial struct StdVideoAV1LoopFilterFlags
 {
-    public StructureType sType;
-    public void* pNext;
-    public LineRasterizationModeEXT lineRasterizationMode;
-    public VkBool32 stippledLineEnable;
-    public uint lineStippleFactor;
-    public ushort lineStipplePattern;
+    public uint loop_filter_delta_enabled;
+    public uint loop_filter_delta_update;
+    public uint reserved;
 }
 
 

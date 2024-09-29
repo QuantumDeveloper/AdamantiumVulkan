@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DescriptorBufferInfo
+public unsafe partial class DescriptorBufferInfo : QBDisposableObject
 {
     public DescriptorBufferInfo()
     {
@@ -31,9 +31,18 @@ public unsafe partial class DescriptorBufferInfo
     public AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo();
-        _internal.buffer = Buffer;
-        _internal.offset = Offset;
-        _internal.range = Range;
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Range != (ulong)default)
+        {
+            _internal.range = Range;
+        }
         return _internal;
     }
 

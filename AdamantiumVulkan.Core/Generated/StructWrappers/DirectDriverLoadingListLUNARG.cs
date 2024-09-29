@@ -38,12 +38,21 @@ public unsafe partial class DirectDriverLoadingListLUNARG : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.mode = Mode;
-        _internal.driverCount = DriverCount;
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
+        if (DriverCount != default)
+        {
+            _internal.driverCount = DriverCount;
+        }
         _pDrivers.Dispose();
-        if (PDrivers != null)
+        if (PDrivers != default)
         {
             var struct0 = PDrivers.ToNative();
             _pDrivers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>(struct0);

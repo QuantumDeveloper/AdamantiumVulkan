@@ -46,17 +46,47 @@ public unsafe partial class PhysicalDeviceConservativeRasterizationPropertiesEXT
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.primitiveOverestimationSize = PrimitiveOverestimationSize;
-        _internal.maxExtraPrimitiveOverestimationSize = MaxExtraPrimitiveOverestimationSize;
-        _internal.extraPrimitiveOverestimationSizeGranularity = ExtraPrimitiveOverestimationSizeGranularity;
-        _internal.primitiveUnderestimation = PrimitiveUnderestimation;
-        _internal.conservativePointAndLineRasterization = ConservativePointAndLineRasterization;
-        _internal.degenerateTrianglesRasterized = DegenerateTrianglesRasterized;
-        _internal.degenerateLinesRasterized = DegenerateLinesRasterized;
-        _internal.fullyCoveredFragmentShaderInputVariable = FullyCoveredFragmentShaderInputVariable;
-        _internal.conservativeRasterizationPostDepthCoverage = ConservativeRasterizationPostDepthCoverage;
+        if (PrimitiveOverestimationSize != default)
+        {
+            _internal.primitiveOverestimationSize = PrimitiveOverestimationSize;
+        }
+        if (MaxExtraPrimitiveOverestimationSize != default)
+        {
+            _internal.maxExtraPrimitiveOverestimationSize = MaxExtraPrimitiveOverestimationSize;
+        }
+        if (ExtraPrimitiveOverestimationSizeGranularity != default)
+        {
+            _internal.extraPrimitiveOverestimationSizeGranularity = ExtraPrimitiveOverestimationSizeGranularity;
+        }
+        if (PrimitiveUnderestimation != (uint)default)
+        {
+            _internal.primitiveUnderestimation = PrimitiveUnderestimation;
+        }
+        if (ConservativePointAndLineRasterization != (uint)default)
+        {
+            _internal.conservativePointAndLineRasterization = ConservativePointAndLineRasterization;
+        }
+        if (DegenerateTrianglesRasterized != (uint)default)
+        {
+            _internal.degenerateTrianglesRasterized = DegenerateTrianglesRasterized;
+        }
+        if (DegenerateLinesRasterized != (uint)default)
+        {
+            _internal.degenerateLinesRasterized = DegenerateLinesRasterized;
+        }
+        if (FullyCoveredFragmentShaderInputVariable != (uint)default)
+        {
+            _internal.fullyCoveredFragmentShaderInputVariable = FullyCoveredFragmentShaderInputVariable;
+        }
+        if (ConservativeRasterizationPostDepthCoverage != (uint)default)
+        {
+            _internal.conservativeRasterizationPostDepthCoverage = ConservativeRasterizationPostDepthCoverage;
+        }
         return _internal;
     }
 

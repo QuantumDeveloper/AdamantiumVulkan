@@ -31,9 +31,15 @@ public unsafe partial class PipelineCompilerControlCreateInfoAMD : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.compilerControlFlags = CompilerControlFlags;
+        if (CompilerControlFlags != (uint)default)
+        {
+            _internal.compilerControlFlags = CompilerControlFlags;
+        }
         return _internal;
     }
 

@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fragmentShaderSampleInterlock = FragmentShaderSampleInterlock;
-        _internal.fragmentShaderPixelInterlock = FragmentShaderPixelInterlock;
-        _internal.fragmentShaderShadingRateInterlock = FragmentShaderShadingRateInterlock;
+        if (FragmentShaderSampleInterlock != (uint)default)
+        {
+            _internal.fragmentShaderSampleInterlock = FragmentShaderSampleInterlock;
+        }
+        if (FragmentShaderPixelInterlock != (uint)default)
+        {
+            _internal.fragmentShaderPixelInterlock = FragmentShaderPixelInterlock;
+        }
+        if (FragmentShaderShadingRateInterlock != (uint)default)
+        {
+            _internal.fragmentShaderShadingRateInterlock = FragmentShaderShadingRateInterlock;
+        }
         return _internal;
     }
 

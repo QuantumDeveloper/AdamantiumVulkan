@@ -119,53 +119,191 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.minSubgroupSize = MinSubgroupSize;
-        _internal.maxSubgroupSize = MaxSubgroupSize;
-        _internal.maxComputeWorkgroupSubgroups = MaxComputeWorkgroupSubgroups;
-        _internal.requiredSubgroupSizeStages = RequiredSubgroupSizeStages;
-        _internal.maxInlineUniformBlockSize = MaxInlineUniformBlockSize;
-        _internal.maxPerStageDescriptorInlineUniformBlocks = MaxPerStageDescriptorInlineUniformBlocks;
-        _internal.maxPerStageDescriptorUpdateAfterBindInlineUniformBlocks = MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks;
-        _internal.maxDescriptorSetInlineUniformBlocks = MaxDescriptorSetInlineUniformBlocks;
-        _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
-        _internal.maxInlineUniformTotalSize = MaxInlineUniformTotalSize;
-        _internal.integerDotProduct8BitUnsignedAccelerated = IntegerDotProduct8BitUnsignedAccelerated;
-        _internal.integerDotProduct8BitSignedAccelerated = IntegerDotProduct8BitSignedAccelerated;
-        _internal.integerDotProduct8BitMixedSignednessAccelerated = IntegerDotProduct8BitMixedSignednessAccelerated;
-        _internal.integerDotProduct4x8BitPackedUnsignedAccelerated = IntegerDotProduct4x8BitPackedUnsignedAccelerated;
-        _internal.integerDotProduct4x8BitPackedSignedAccelerated = IntegerDotProduct4x8BitPackedSignedAccelerated;
-        _internal.integerDotProduct4x8BitPackedMixedSignednessAccelerated = IntegerDotProduct4x8BitPackedMixedSignednessAccelerated;
-        _internal.integerDotProduct16BitUnsignedAccelerated = IntegerDotProduct16BitUnsignedAccelerated;
-        _internal.integerDotProduct16BitSignedAccelerated = IntegerDotProduct16BitSignedAccelerated;
-        _internal.integerDotProduct16BitMixedSignednessAccelerated = IntegerDotProduct16BitMixedSignednessAccelerated;
-        _internal.integerDotProduct32BitUnsignedAccelerated = IntegerDotProduct32BitUnsignedAccelerated;
-        _internal.integerDotProduct32BitSignedAccelerated = IntegerDotProduct32BitSignedAccelerated;
-        _internal.integerDotProduct32BitMixedSignednessAccelerated = IntegerDotProduct32BitMixedSignednessAccelerated;
-        _internal.integerDotProduct64BitUnsignedAccelerated = IntegerDotProduct64BitUnsignedAccelerated;
-        _internal.integerDotProduct64BitSignedAccelerated = IntegerDotProduct64BitSignedAccelerated;
-        _internal.integerDotProduct64BitMixedSignednessAccelerated = IntegerDotProduct64BitMixedSignednessAccelerated;
-        _internal.integerDotProductAccumulatingSaturating8BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating8BitUnsignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating8BitSignedAccelerated = IntegerDotProductAccumulatingSaturating8BitSignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating8BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating8BitMixedSignednessAccelerated;
-        _internal.integerDotProductAccumulatingSaturating4x8BitPackedUnsignedAccelerated = IntegerDotProductAccumulatingSaturating4x8BitPackedUnsignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating4x8BitPackedSignedAccelerated = IntegerDotProductAccumulatingSaturating4x8BitPackedSignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating4x8BitPackedMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating4x8BitPackedMixedSignednessAccelerated;
-        _internal.integerDotProductAccumulatingSaturating16BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating16BitUnsignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating16BitSignedAccelerated = IntegerDotProductAccumulatingSaturating16BitSignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating16BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating16BitMixedSignednessAccelerated;
-        _internal.integerDotProductAccumulatingSaturating32BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating32BitUnsignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating32BitSignedAccelerated = IntegerDotProductAccumulatingSaturating32BitSignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating32BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating32BitMixedSignednessAccelerated;
-        _internal.integerDotProductAccumulatingSaturating64BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating64BitUnsignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating64BitSignedAccelerated = IntegerDotProductAccumulatingSaturating64BitSignedAccelerated;
-        _internal.integerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated;
-        _internal.storageTexelBufferOffsetAlignmentBytes = StorageTexelBufferOffsetAlignmentBytes;
-        _internal.storageTexelBufferOffsetSingleTexelAlignment = StorageTexelBufferOffsetSingleTexelAlignment;
-        _internal.uniformTexelBufferOffsetAlignmentBytes = UniformTexelBufferOffsetAlignmentBytes;
-        _internal.uniformTexelBufferOffsetSingleTexelAlignment = UniformTexelBufferOffsetSingleTexelAlignment;
-        _internal.maxBufferSize = MaxBufferSize;
+        if (MinSubgroupSize != default)
+        {
+            _internal.minSubgroupSize = MinSubgroupSize;
+        }
+        if (MaxSubgroupSize != default)
+        {
+            _internal.maxSubgroupSize = MaxSubgroupSize;
+        }
+        if (MaxComputeWorkgroupSubgroups != default)
+        {
+            _internal.maxComputeWorkgroupSubgroups = MaxComputeWorkgroupSubgroups;
+        }
+        if (RequiredSubgroupSizeStages != (uint)default)
+        {
+            _internal.requiredSubgroupSizeStages = RequiredSubgroupSizeStages;
+        }
+        if (MaxInlineUniformBlockSize != default)
+        {
+            _internal.maxInlineUniformBlockSize = MaxInlineUniformBlockSize;
+        }
+        if (MaxPerStageDescriptorInlineUniformBlocks != default)
+        {
+            _internal.maxPerStageDescriptorInlineUniformBlocks = MaxPerStageDescriptorInlineUniformBlocks;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindInlineUniformBlocks = MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks;
+        }
+        if (MaxDescriptorSetInlineUniformBlocks != default)
+        {
+            _internal.maxDescriptorSetInlineUniformBlocks = MaxDescriptorSetInlineUniformBlocks;
+        }
+        if (MaxDescriptorSetUpdateAfterBindInlineUniformBlocks != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
+        }
+        if (MaxInlineUniformTotalSize != default)
+        {
+            _internal.maxInlineUniformTotalSize = MaxInlineUniformTotalSize;
+        }
+        if (IntegerDotProduct8BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct8BitUnsignedAccelerated = IntegerDotProduct8BitUnsignedAccelerated;
+        }
+        if (IntegerDotProduct8BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct8BitSignedAccelerated = IntegerDotProduct8BitSignedAccelerated;
+        }
+        if (IntegerDotProduct8BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct8BitMixedSignednessAccelerated = IntegerDotProduct8BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProduct4x8BitPackedUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct4x8BitPackedUnsignedAccelerated = IntegerDotProduct4x8BitPackedUnsignedAccelerated;
+        }
+        if (IntegerDotProduct4x8BitPackedSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct4x8BitPackedSignedAccelerated = IntegerDotProduct4x8BitPackedSignedAccelerated;
+        }
+        if (IntegerDotProduct4x8BitPackedMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct4x8BitPackedMixedSignednessAccelerated = IntegerDotProduct4x8BitPackedMixedSignednessAccelerated;
+        }
+        if (IntegerDotProduct16BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct16BitUnsignedAccelerated = IntegerDotProduct16BitUnsignedAccelerated;
+        }
+        if (IntegerDotProduct16BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct16BitSignedAccelerated = IntegerDotProduct16BitSignedAccelerated;
+        }
+        if (IntegerDotProduct16BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct16BitMixedSignednessAccelerated = IntegerDotProduct16BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProduct32BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct32BitUnsignedAccelerated = IntegerDotProduct32BitUnsignedAccelerated;
+        }
+        if (IntegerDotProduct32BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct32BitSignedAccelerated = IntegerDotProduct32BitSignedAccelerated;
+        }
+        if (IntegerDotProduct32BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct32BitMixedSignednessAccelerated = IntegerDotProduct32BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProduct64BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct64BitUnsignedAccelerated = IntegerDotProduct64BitUnsignedAccelerated;
+        }
+        if (IntegerDotProduct64BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct64BitSignedAccelerated = IntegerDotProduct64BitSignedAccelerated;
+        }
+        if (IntegerDotProduct64BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProduct64BitMixedSignednessAccelerated = IntegerDotProduct64BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating8BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating8BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating8BitUnsignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating8BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating8BitSignedAccelerated = IntegerDotProductAccumulatingSaturating8BitSignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating8BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating8BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating8BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating4x8BitPackedUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating4x8BitPackedUnsignedAccelerated = IntegerDotProductAccumulatingSaturating4x8BitPackedUnsignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating4x8BitPackedSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating4x8BitPackedSignedAccelerated = IntegerDotProductAccumulatingSaturating4x8BitPackedSignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating4x8BitPackedMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating4x8BitPackedMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating4x8BitPackedMixedSignednessAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating16BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating16BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating16BitUnsignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating16BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating16BitSignedAccelerated = IntegerDotProductAccumulatingSaturating16BitSignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating16BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating16BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating16BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating32BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating32BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating32BitUnsignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating32BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating32BitSignedAccelerated = IntegerDotProductAccumulatingSaturating32BitSignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating32BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating32BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating32BitMixedSignednessAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating64BitUnsignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating64BitUnsignedAccelerated = IntegerDotProductAccumulatingSaturating64BitUnsignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating64BitSignedAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating64BitSignedAccelerated = IntegerDotProductAccumulatingSaturating64BitSignedAccelerated;
+        }
+        if (IntegerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated != (uint)default)
+        {
+            _internal.integerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated = IntegerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated;
+        }
+        if (StorageTexelBufferOffsetAlignmentBytes != (ulong)default)
+        {
+            _internal.storageTexelBufferOffsetAlignmentBytes = StorageTexelBufferOffsetAlignmentBytes;
+        }
+        if (StorageTexelBufferOffsetSingleTexelAlignment != (uint)default)
+        {
+            _internal.storageTexelBufferOffsetSingleTexelAlignment = StorageTexelBufferOffsetSingleTexelAlignment;
+        }
+        if (UniformTexelBufferOffsetAlignmentBytes != (ulong)default)
+        {
+            _internal.uniformTexelBufferOffsetAlignmentBytes = UniformTexelBufferOffsetAlignmentBytes;
+        }
+        if (UniformTexelBufferOffsetSingleTexelAlignment != (uint)default)
+        {
+            _internal.uniformTexelBufferOffsetSingleTexelAlignment = UniformTexelBufferOffsetSingleTexelAlignment;
+        }
+        if (MaxBufferSize != (ulong)default)
+        {
+            _internal.maxBufferSize = MaxBufferSize;
+        }
         return _internal;
     }
 

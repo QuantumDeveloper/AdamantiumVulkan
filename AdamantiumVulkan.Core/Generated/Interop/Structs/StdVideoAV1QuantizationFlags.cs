@@ -8,22 +8,16 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Core.Interop;
+namespace AdamantiumVulkan.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14663 Column: 16
+// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 250 Column: 16
 [StructLayout(LayoutKind.Sequential)]
-public unsafe partial struct VkPhysicalDeviceLineRasterizationFeaturesEXT
+public unsafe partial struct StdVideoAV1QuantizationFlags
 {
-    public StructureType sType;
-    public void* pNext;
-    public VkBool32 rectangularLines;
-    public VkBool32 bresenhamLines;
-    public VkBool32 smoothLines;
-    public VkBool32 stippledRectangularLines;
-    public VkBool32 stippledBresenhamLines;
-    public VkBool32 stippledSmoothLines;
+    public uint using_qmatrix;
+    public uint diff_uv_delta;
+    public uint reserved;
 }
 
 

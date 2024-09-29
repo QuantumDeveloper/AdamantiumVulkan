@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class Rect2D
+public unsafe partial class Rect2D : QBDisposableObject
 {
     public Rect2D()
     {
@@ -29,16 +29,23 @@ public unsafe partial class Rect2D
     public AdamantiumVulkan.Core.Interop.VkRect2D ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRect2D();
-        if (Offset != null)
+        if (Offset != default)
         {
             _internal.offset = Offset.ToNative();
         }
-        if (Extent != null)
+        if (Extent != default)
         {
             _internal.extent = Extent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Offset?.Dispose();
+        Extent?.Dispose();
+    }
+
 
     public static implicit operator Rect2D(AdamantiumVulkan.Core.Interop.VkRect2D r)
     {

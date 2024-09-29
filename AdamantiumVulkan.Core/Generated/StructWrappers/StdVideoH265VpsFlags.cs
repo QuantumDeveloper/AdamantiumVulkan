@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265VpsFlags
+public unsafe partial class StdVideoH265VpsFlags : QBDisposableObject
 {
     public StdVideoH265VpsFlags()
     {
@@ -33,10 +33,22 @@ public unsafe partial class StdVideoH265VpsFlags
     public AdamantiumVulkan.Interop.StdVideoH265VpsFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265VpsFlags();
-        _internal.vps_temporal_id_nesting_flag = Vps_temporal_id_nesting_flag;
-        _internal.vps_sub_layer_ordering_info_present_flag = Vps_sub_layer_ordering_info_present_flag;
-        _internal.vps_timing_info_present_flag = Vps_timing_info_present_flag;
-        _internal.vps_poc_proportional_to_timing_flag = Vps_poc_proportional_to_timing_flag;
+        if (Vps_temporal_id_nesting_flag != default)
+        {
+            _internal.vps_temporal_id_nesting_flag = Vps_temporal_id_nesting_flag;
+        }
+        if (Vps_sub_layer_ordering_info_present_flag != default)
+        {
+            _internal.vps_sub_layer_ordering_info_present_flag = Vps_sub_layer_ordering_info_present_flag;
+        }
+        if (Vps_timing_info_present_flag != default)
+        {
+            _internal.vps_timing_info_present_flag = Vps_timing_info_present_flag;
+        }
+        if (Vps_poc_proportional_to_timing_flag != default)
+        {
+            _internal.vps_poc_proportional_to_timing_flag = Vps_poc_proportional_to_timing_flag;
+        }
         return _internal;
     }
 

@@ -37,12 +37,21 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shadingRateImageEnable = ShadingRateImageEnable;
-        _internal.viewportCount = ViewportCount;
+        if (ShadingRateImageEnable != (uint)default)
+        {
+            _internal.shadingRateImageEnable = ShadingRateImageEnable;
+        }
+        if (ViewportCount != default)
+        {
+            _internal.viewportCount = ViewportCount;
+        }
         _pShadingRatePalettes.Dispose();
-        if (PShadingRatePalettes != null)
+        if (PShadingRatePalettes != default)
         {
             var struct0 = PShadingRatePalettes.ToNative();
             _pShadingRatePalettes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(struct0);

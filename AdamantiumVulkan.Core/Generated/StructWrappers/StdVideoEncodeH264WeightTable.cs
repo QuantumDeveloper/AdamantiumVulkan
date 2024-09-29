@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264WeightTable
+public unsafe partial class StdVideoEncodeH264WeightTable : QBDisposableObject
 {
     public StdVideoEncodeH264WeightTable()
     {
@@ -47,62 +47,68 @@ public unsafe partial class StdVideoEncodeH264WeightTable
     public AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.luma_log2_weight_denom = Luma_log2_weight_denom;
-        _internal.chroma_log2_weight_denom = Chroma_log2_weight_denom;
-        if(Luma_weight_l0 != null)
+        if (Luma_log2_weight_denom != default)
+        {
+            _internal.luma_log2_weight_denom = Luma_log2_weight_denom;
+        }
+        if (Chroma_log2_weight_denom != default)
+        {
+            _internal.chroma_log2_weight_denom = Chroma_log2_weight_denom;
+        }
+        if (Luma_weight_l0 != default)
         {
             if (Luma_weight_l0.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Luma_weight_l0), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.StringToFixedArray(_internal.luma_weight_l0, 32, Luma_weight_l0, false);
         }
-        if(Luma_offset_l0 != null)
+        if (Luma_offset_l0 != default)
         {
             if (Luma_offset_l0.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Luma_offset_l0), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.StringToFixedArray(_internal.luma_offset_l0, 32, Luma_offset_l0, false);
         }
-        if(Chroma_weight_l0 != null)
+        if (Chroma_weight_l0 != default)
         {
             if (Chroma_weight_l0.Length > 64)
                 throw new System.ArgumentOutOfRangeException(nameof(Chroma_weight_l0), "Array is out of bounds. Size should not be more than 64");
 
             NativeUtils.StringToFixedArray(_internal.chroma_weight_l0, 64, Chroma_weight_l0, false);
         }
-        if(Chroma_offset_l0 != null)
+        if (Chroma_offset_l0 != default)
         {
             if (Chroma_offset_l0.Length > 64)
                 throw new System.ArgumentOutOfRangeException(nameof(Chroma_offset_l0), "Array is out of bounds. Size should not be more than 64");
 
             NativeUtils.StringToFixedArray(_internal.chroma_offset_l0, 64, Chroma_offset_l0, false);
         }
-        if(Luma_weight_l1 != null)
+        if (Luma_weight_l1 != default)
         {
             if (Luma_weight_l1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Luma_weight_l1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.StringToFixedArray(_internal.luma_weight_l1, 32, Luma_weight_l1, false);
         }
-        if(Luma_offset_l1 != null)
+        if (Luma_offset_l1 != default)
         {
             if (Luma_offset_l1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Luma_offset_l1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.StringToFixedArray(_internal.luma_offset_l1, 32, Luma_offset_l1, false);
         }
-        if(Chroma_weight_l1 != null)
+        if (Chroma_weight_l1 != default)
         {
             if (Chroma_weight_l1.Length > 64)
                 throw new System.ArgumentOutOfRangeException(nameof(Chroma_weight_l1), "Array is out of bounds. Size should not be more than 64");
 
             NativeUtils.StringToFixedArray(_internal.chroma_weight_l1, 64, Chroma_weight_l1, false);
         }
-        if(Chroma_offset_l1 != null)
+        if (Chroma_offset_l1 != default)
         {
             if (Chroma_offset_l1.Length > 64)
                 throw new System.ArgumentOutOfRangeException(nameof(Chroma_offset_l1), "Array is out of bounds. Size should not be more than 64");
@@ -111,6 +117,12 @@ public unsafe partial class StdVideoEncodeH264WeightTable
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoEncodeH264WeightTable(AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable s)
     {

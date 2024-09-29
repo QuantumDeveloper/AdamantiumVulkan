@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9547 Column: 26
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9584 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR
 {
     public PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(void* ptr)

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceLegacyDitheringFeaturesEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLegacyDitheringFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLegacyDitheringFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.legacyDithering = LegacyDithering;
+        if (LegacyDithering != (uint)default)
+        {
+            _internal.legacyDithering = LegacyDithering;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePipelineCreationCacheControlFeatures :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineCreationCacheControlFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineCreationCacheControlFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineCreationCacheControl = PipelineCreationCacheControl;
+        if (PipelineCreationCacheControl != (uint)default)
+        {
+            _internal.pipelineCreationCacheControl = PipelineCreationCacheControl;
+        }
         return _internal;
     }
 

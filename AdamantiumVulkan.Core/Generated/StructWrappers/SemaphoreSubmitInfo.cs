@@ -37,12 +37,27 @@ public unsafe partial class SemaphoreSubmitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.semaphore = Semaphore;
-        _internal.value = Value;
-        _internal.stageMask = StageMask;
-        _internal.deviceIndex = DeviceIndex;
+        if (Semaphore != default)
+        {
+            _internal.semaphore = Semaphore;
+        }
+        if (Value != default)
+        {
+            _internal.value = Value;
+        }
+        if (StageMask != (ulong)default)
+        {
+            _internal.stageMask = StageMask;
+        }
+        if (DeviceIndex != default)
+        {
+            _internal.deviceIndex = DeviceIndex;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ImageSubresourceRange
+public unsafe partial class ImageSubresourceRange : QBDisposableObject
 {
     public ImageSubresourceRange()
     {
@@ -35,11 +35,26 @@ public unsafe partial class ImageSubresourceRange
     public AdamantiumVulkan.Core.Interop.VkImageSubresourceRange ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageSubresourceRange();
-        _internal.aspectMask = AspectMask;
-        _internal.baseMipLevel = BaseMipLevel;
-        _internal.levelCount = LevelCount;
-        _internal.baseArrayLayer = BaseArrayLayer;
-        _internal.layerCount = LayerCount;
+        if (AspectMask != default)
+        {
+            _internal.aspectMask = AspectMask;
+        }
+        if (BaseMipLevel != default)
+        {
+            _internal.baseMipLevel = BaseMipLevel;
+        }
+        if (LevelCount != default)
+        {
+            _internal.levelCount = LevelCount;
+        }
+        if (BaseArrayLayer != default)
+        {
+            _internal.baseArrayLayer = BaseArrayLayer;
+        }
+        if (LayerCount != default)
+        {
+            _internal.layerCount = LayerCount;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH265ReferenceInfo
+public unsafe partial class StdVideoEncodeH265ReferenceInfo : QBDisposableObject
 {
     public StdVideoEncodeH265ReferenceInfo()
     {
@@ -33,15 +33,30 @@ public unsafe partial class StdVideoEncodeH265ReferenceInfo
     public AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.pic_type = Pic_type;
-        _internal.PicOrderCntVal = PicOrderCntVal;
-        _internal.TemporalId = TemporalId;
+        if (Pic_type != default)
+        {
+            _internal.pic_type = Pic_type;
+        }
+        if (PicOrderCntVal != default)
+        {
+            _internal.PicOrderCntVal = PicOrderCntVal;
+        }
+        if (TemporalId != default)
+        {
+            _internal.TemporalId = TemporalId;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoEncodeH265ReferenceInfo(AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfo s)
     {

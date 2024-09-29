@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceSeparateDepthStencilLayoutsFeatures : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.separateDepthStencilLayouts = SeparateDepthStencilLayouts;
+        if (SeparateDepthStencilLayouts != (uint)default)
+        {
+            _internal.separateDepthStencilLayouts = SeparateDepthStencilLayouts;
+        }
         return _internal;
     }
 

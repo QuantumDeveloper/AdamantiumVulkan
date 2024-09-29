@@ -13,7 +13,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 76 Column: 34
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 76 Column: 34
 public unsafe partial class SpirvResources
 {
     internal SpvcResourcesS __Instance;
@@ -31,6 +31,7 @@ public unsafe partial class SpirvResources
         var arg2 = ReferenceEquals(resource_list, null) ? null : (AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource**)NativeUtils.StructOrEnumToPointer(resource_list.ToNative());
         var arg3 = NativeUtils.StructOrEnumToPointer(resource_size);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_builtin_resource_list_for_type(this, type, arg2, arg3);
+        resource_list?.Dispose();
         NativeUtils.Free(arg2);
         resource_size = *arg3;
         NativeUtils.Free(arg3);

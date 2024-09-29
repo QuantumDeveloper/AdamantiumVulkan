@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class LayerProperties
+public unsafe partial class LayerProperties : QBDisposableObject
 {
     public LayerProperties()
     {
@@ -33,16 +33,22 @@ public unsafe partial class LayerProperties
     public AdamantiumVulkan.Core.Interop.VkLayerProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLayerProperties();
-        if(LayerName != null)
+        if (LayerName != default)
         {
             if (LayerName.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(LayerName), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.layerName, 256, LayerName, false);
         }
-        _internal.specVersion = SpecVersion;
-        _internal.implementationVersion = ImplementationVersion;
-        if(Description != null)
+        if (SpecVersion != default)
+        {
+            _internal.specVersion = SpecVersion;
+        }
+        if (ImplementationVersion != default)
+        {
+            _internal.implementationVersion = ImplementationVersion;
+        }
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");

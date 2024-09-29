@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceCopyMemoryIndirectPropertiesNV : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supportedQueues = SupportedQueues;
+        if (SupportedQueues != (uint)default)
+        {
+            _internal.supportedQueues = SupportedQueues;
+        }
         return _internal;
     }
 

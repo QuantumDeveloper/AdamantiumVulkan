@@ -40,12 +40,15 @@ public unsafe partial class Spv_text : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.SpirvTools.Interop.spv_text();
         _str.Dispose();
-        if (Str != null)
+        if (Str != default)
         {
             _str = new MarshaledString(Str, false);
             _internal.str = (sbyte*)_str;
         }
-        _internal.length = Length;
+        if (Length != default)
+        {
+            _internal.length = Length;
+        }
         return _internal;
     }
 

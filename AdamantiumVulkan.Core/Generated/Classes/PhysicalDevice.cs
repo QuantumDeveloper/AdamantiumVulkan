@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 102 Column: 1
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 102 Column: 1
 public unsafe partial class PhysicalDevice
 {
     internal VkPhysicalDevice_T __Instance;
@@ -101,13 +101,14 @@ public unsafe partial class PhysicalDevice
         return result;
     }
 
-    public Result EnumerateDeviceLayerProperties(ref uint pPropertyCount, LayerProperties pProperties)
+    public Result EnumerateDeviceLayerProperties(ref uint pPropertyCount, ref LayerProperties pProperties)
     {
         var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
         var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceLayerProperties(this, arg1, arg2);
         pPropertyCount = *arg1;
         NativeUtils.Free(arg1);
+        pProperties?.Dispose();
         if (arg2 is not null)
         {
             pProperties = new AdamantiumVulkan.Core.LayerProperties(*arg2);
@@ -152,6 +153,7 @@ public unsafe partial class PhysicalDevice
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayModePropertiesKHR(this, arg1, arg2, arg3);
         pPropertyCount = *arg2;
         NativeUtils.Free(arg2);
+        pProperties?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }
@@ -173,6 +175,7 @@ public unsafe partial class PhysicalDevice
         var arg1 = ReferenceEquals(mode, null) ? new VkDisplayModeKHR_T() : (VkDisplayModeKHR_T)mode;
         var arg3 = ReferenceEquals(pCapabilities, null) ? null : NativeUtils.StructOrEnumToPointer(pCapabilities.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayPlaneCapabilitiesKHR(this, arg1, planeIndex, arg3);
+        pCapabilities?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }
@@ -355,6 +358,7 @@ public unsafe partial class PhysicalDevice
     {
         var arg7 = ReferenceEquals(pExternalImageFormatProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pExternalImageFormatProperties.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalImageFormatPropertiesNV(this, format, type, tiling, usage, flags, externalHandleType, arg7);
+        pExternalImageFormatProperties?.Dispose();
         NativeUtils.Free(arg7);
         return result;
     }
@@ -406,6 +410,7 @@ public unsafe partial class PhysicalDevice
     {
         var arg2 = ReferenceEquals(pFormatProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pFormatProperties.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFormatProperties(this, format, arg2);
+        pFormatProperties?.Dispose();
         NativeUtils.Free(arg2);
     }
 
@@ -441,6 +446,7 @@ public unsafe partial class PhysicalDevice
     {
         var arg6 = ReferenceEquals(pImageFormatProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pImageFormatProperties.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceImageFormatProperties(this, format, type, tiling, usage, flags, arg6);
+        pImageFormatProperties?.Dispose();
         NativeUtils.Free(arg6);
         return result;
     }
@@ -521,6 +527,7 @@ public unsafe partial class PhysicalDevice
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, arg2, arg3);
         pRectCount = *arg2;
         NativeUtils.Free(arg2);
+        pRects?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }
@@ -532,19 +539,27 @@ public unsafe partial class PhysicalDevice
         pProperties = new PhysicalDeviceProperties(arg1);
     }
 
-    public void GetPhysicalDeviceProperties2(PhysicalDeviceProperties2 pProperties)
+    public void GetPhysicalDeviceProperties2(ref PhysicalDeviceProperties2 pProperties)
     {
         var arg1 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceProperties2(this, arg1);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.VkGetPhysicalDeviceProperties2(this, arg1);
         pProperties?.Dispose();
+        if (arg1 is not null)
+        {
+            pProperties = new AdamantiumVulkan.Core.PhysicalDeviceProperties2(*arg1);
+        }
         NativeUtils.Free(arg1);
     }
 
-    public void GetPhysicalDeviceProperties2KHR(PhysicalDeviceProperties2 pProperties)
+    public void GetPhysicalDeviceProperties2KHR(ref PhysicalDeviceProperties2 pProperties)
     {
         var arg1 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceProperties2KHR(this, arg1);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.VkGetPhysicalDeviceProperties2KHR(this, arg1);
         pProperties?.Dispose();
+        if (arg1 is not null)
+        {
+            pProperties = new AdamantiumVulkan.Core.PhysicalDeviceProperties2(*arg1);
+        }
         NativeUtils.Free(arg1);
     }
 
@@ -593,7 +608,7 @@ public unsafe partial class PhysicalDevice
         NativeUtils.Free(arg2);
     }
 
-    public void GetPhysicalDeviceQueueFamilyProperties2(ref uint pQueueFamilyPropertyCount, QueueFamilyProperties2 pQueueFamilyProperties)
+    public void GetPhysicalDeviceQueueFamilyProperties2(ref uint pQueueFamilyPropertyCount, ref QueueFamilyProperties2 pQueueFamilyProperties)
     {
         var arg1 = NativeUtils.StructOrEnumToPointer(pQueueFamilyPropertyCount);
         var arg2 = ReferenceEquals(pQueueFamilyProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pQueueFamilyProperties.ToNative());
@@ -626,6 +641,7 @@ public unsafe partial class PhysicalDevice
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, arg6, arg7);
         pPropertyCount = *arg6;
         NativeUtils.Free(arg6);
+        pProperties?.Dispose();
         NativeUtils.Free(arg7);
     }
 

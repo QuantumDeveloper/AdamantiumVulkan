@@ -8,17 +8,38 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Core.Interop;
+namespace AdamantiumVulkan;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14674 Column: 16
-[StructLayout(LayoutKind.Sequential)]
-public unsafe partial struct VkPhysicalDeviceLineRasterizationPropertiesEXT
+// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 133 Column: 14
+public enum StdVideoAV1ColorPrimaries : uint
 {
-    public StructureType sType;
-    public void* pNext;
-    public uint lineSubPixelPrecisionBits;
+    Bt709 = 1,
+
+    BtUnspecified = 2,
+
+    Bt470M = 4,
+
+    Bt470BG = 5,
+
+    Bt601 = 6,
+
+    Smpte240 = 7,
+
+    GenericFilm = 8,
+
+    Bt2020 = 9,
+
+    Xyz = 10,
+
+    Smpte431 = 11,
+
+    Smpte432 = 12,
+
+    Ebu3213 = 22,
+
+    Invalid = 2147483647,
+
 }
 
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMultiDrawPropertiesEXT : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiDrawPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiDrawPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxMultiDrawCount = MaxMultiDrawCount;
+        if (MaxMultiDrawCount != default)
+        {
+            _internal.maxMultiDrawCount = MaxMultiDrawCount;
+        }
         return _internal;
     }
 

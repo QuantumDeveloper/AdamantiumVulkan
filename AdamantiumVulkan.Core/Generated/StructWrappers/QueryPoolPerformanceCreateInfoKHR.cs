@@ -41,10 +41,19 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.queueFamilyIndex = QueueFamilyIndex;
-        _internal.counterIndexCount = CounterIndexCount;
+        if (QueueFamilyIndex != default)
+        {
+            _internal.queueFamilyIndex = QueueFamilyIndex;
+        }
+        if (CounterIndexCount != default)
+        {
+            _internal.counterIndexCount = CounterIndexCount;
+        }
         _pCounterIndices.Dispose();
         if (PCounterIndices.HasValue)
         {

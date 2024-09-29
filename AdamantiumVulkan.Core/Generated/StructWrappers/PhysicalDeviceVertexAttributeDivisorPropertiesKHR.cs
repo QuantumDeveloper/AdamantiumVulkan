@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesKHR : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
-        _internal.supportsNonZeroFirstInstance = SupportsNonZeroFirstInstance;
+        if (MaxVertexAttribDivisor != default)
+        {
+            _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
+        }
+        if (SupportsNonZeroFirstInstance != (uint)default)
+        {
+            _internal.supportsNonZeroFirstInstance = SupportsNonZeroFirstInstance;
+        }
         return _internal;
     }
 

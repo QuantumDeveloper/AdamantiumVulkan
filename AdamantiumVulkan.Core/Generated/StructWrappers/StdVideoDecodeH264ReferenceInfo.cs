@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoDecodeH264ReferenceInfo
+public unsafe partial class StdVideoDecodeH264ReferenceInfo : QBDisposableObject
 {
     public StdVideoDecodeH264ReferenceInfo()
     {
@@ -33,13 +33,19 @@ public unsafe partial class StdVideoDecodeH264ReferenceInfo
     public AdamantiumVulkan.Interop.StdVideoDecodeH264ReferenceInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoDecodeH264ReferenceInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.FrameNum = FrameNum;
-        _internal.reserved = Reserved;
-        if(PicOrderCnt != null)
+        if (FrameNum != default)
+        {
+            _internal.FrameNum = FrameNum;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
+        if (PicOrderCnt != default)
         {
             if (PicOrderCnt.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(PicOrderCnt), "Array is out of bounds. Size should not be more than 2");
@@ -48,6 +54,12 @@ public unsafe partial class StdVideoDecodeH264ReferenceInfo
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoDecodeH264ReferenceInfo(AdamantiumVulkan.Interop.StdVideoDecodeH264ReferenceInfo s)
     {

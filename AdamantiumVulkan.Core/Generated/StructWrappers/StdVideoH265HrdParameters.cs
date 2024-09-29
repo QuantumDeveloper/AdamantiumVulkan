@@ -61,34 +61,61 @@ public unsafe partial class StdVideoH265HrdParameters : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoH265HrdParameters ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265HrdParameters();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.tick_divisor_minus2 = Tick_divisor_minus2;
-        _internal.du_cpb_removal_delay_increment_length_minus1 = Du_cpb_removal_delay_increment_length_minus1;
-        _internal.dpb_output_delay_du_length_minus1 = Dpb_output_delay_du_length_minus1;
-        _internal.bit_rate_scale = Bit_rate_scale;
-        _internal.cpb_size_scale = Cpb_size_scale;
-        _internal.cpb_size_du_scale = Cpb_size_du_scale;
-        _internal.initial_cpb_removal_delay_length_minus1 = Initial_cpb_removal_delay_length_minus1;
-        _internal.au_cpb_removal_delay_length_minus1 = Au_cpb_removal_delay_length_minus1;
-        _internal.dpb_output_delay_length_minus1 = Dpb_output_delay_length_minus1;
-        if(Cpb_cnt_minus1 != null)
+        if (Tick_divisor_minus2 != default)
+        {
+            _internal.tick_divisor_minus2 = Tick_divisor_minus2;
+        }
+        if (Du_cpb_removal_delay_increment_length_minus1 != default)
+        {
+            _internal.du_cpb_removal_delay_increment_length_minus1 = Du_cpb_removal_delay_increment_length_minus1;
+        }
+        if (Dpb_output_delay_du_length_minus1 != default)
+        {
+            _internal.dpb_output_delay_du_length_minus1 = Dpb_output_delay_du_length_minus1;
+        }
+        if (Bit_rate_scale != default)
+        {
+            _internal.bit_rate_scale = Bit_rate_scale;
+        }
+        if (Cpb_size_scale != default)
+        {
+            _internal.cpb_size_scale = Cpb_size_scale;
+        }
+        if (Cpb_size_du_scale != default)
+        {
+            _internal.cpb_size_du_scale = Cpb_size_du_scale;
+        }
+        if (Initial_cpb_removal_delay_length_minus1 != default)
+        {
+            _internal.initial_cpb_removal_delay_length_minus1 = Initial_cpb_removal_delay_length_minus1;
+        }
+        if (Au_cpb_removal_delay_length_minus1 != default)
+        {
+            _internal.au_cpb_removal_delay_length_minus1 = Au_cpb_removal_delay_length_minus1;
+        }
+        if (Dpb_output_delay_length_minus1 != default)
+        {
+            _internal.dpb_output_delay_length_minus1 = Dpb_output_delay_length_minus1;
+        }
+        if (Cpb_cnt_minus1 != default)
         {
             if (Cpb_cnt_minus1.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Cpb_cnt_minus1), "Array is out of bounds. Size should not be more than 7");
 
             NativeUtils.PrimitiveToFixedArray(_internal.cpb_cnt_minus1, 7, Cpb_cnt_minus1);
         }
-        if(Elemental_duration_in_tc_minus1 != null)
+        if (Elemental_duration_in_tc_minus1 != default)
         {
             if (Elemental_duration_in_tc_minus1.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Elemental_duration_in_tc_minus1), "Array is out of bounds. Size should not be more than 7");
 
             NativeUtils.PrimitiveToFixedArray(_internal.elemental_duration_in_tc_minus1, 7, Elemental_duration_in_tc_minus1);
         }
-        if(Reserved != null)
+        if (Reserved != default)
         {
             if (Reserved.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(Reserved), "Array is out of bounds. Size should not be more than 3");
@@ -96,14 +123,14 @@ public unsafe partial class StdVideoH265HrdParameters : QBDisposableObject
             NativeUtils.PrimitiveToFixedArray(_internal.reserved, 3, Reserved);
         }
         _pSubLayerHrdParametersNal.Dispose();
-        if (PSubLayerHrdParametersNal != null)
+        if (PSubLayerHrdParametersNal != default)
         {
             var struct0 = PSubLayerHrdParametersNal.ToNative();
             _pSubLayerHrdParametersNal = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265SubLayerHrdParameters>(struct0);
             _internal.pSubLayerHrdParametersNal = _pSubLayerHrdParametersNal.Handle;
         }
         _pSubLayerHrdParametersVcl.Dispose();
-        if (PSubLayerHrdParametersVcl != null)
+        if (PSubLayerHrdParametersVcl != default)
         {
             var struct1 = PSubLayerHrdParametersVcl.ToNative();
             _pSubLayerHrdParametersVcl = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265SubLayerHrdParameters>(struct1);
@@ -116,6 +143,7 @@ public unsafe partial class StdVideoH265HrdParameters : QBDisposableObject
     {
         _pSubLayerHrdParametersNal.Dispose();
         _pSubLayerHrdParametersVcl.Dispose();
+        Flags?.Dispose();
     }
 
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMaintenance4Features : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance4Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance4Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maintenance4 = Maintenance4;
+        if (Maintenance4 != (uint)default)
+        {
+            _internal.maintenance4 = Maintenance4;
+        }
         return _internal;
     }
 

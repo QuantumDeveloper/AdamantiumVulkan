@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DescriptorPoolSize
+public unsafe partial class DescriptorPoolSize : QBDisposableObject
 {
     public DescriptorPoolSize()
     {
@@ -29,8 +29,14 @@ public unsafe partial class DescriptorPoolSize
     public AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize();
-        _internal.type = Type;
-        _internal.descriptorCount = DescriptorCount;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (DescriptorCount != default)
+        {
+            _internal.descriptorCount = DescriptorCount;
+        }
         return _internal;
     }
 

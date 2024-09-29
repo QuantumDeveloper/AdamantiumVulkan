@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.multiviewPerViewViewports = MultiviewPerViewViewports;
+        if (MultiviewPerViewViewports != (uint)default)
+        {
+            _internal.multiviewPerViewViewports = MultiviewPerViewViewports;
+        }
         return _internal;
     }
 

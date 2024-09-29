@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceExternalMemoryRDMAFeaturesNV : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryRDMAFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryRDMAFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.externalMemoryRDMA = ExternalMemoryRDMA;
+        if (ExternalMemoryRDMA != (uint)default)
+        {
+            _internal.externalMemoryRDMA = ExternalMemoryRDMA;
+        }
         return _internal;
     }
 

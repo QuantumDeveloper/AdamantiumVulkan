@@ -30,14 +30,23 @@ public unsafe partial class ExternalBufferProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExternalBufferProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalBufferProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (ExternalMemoryProperties != null)
+        if (ExternalMemoryProperties != default)
         {
             _internal.externalMemoryProperties = ExternalMemoryProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ExternalMemoryProperties?.Dispose();
+    }
+
 
     public static implicit operator ExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkExternalBufferProperties e)
     {

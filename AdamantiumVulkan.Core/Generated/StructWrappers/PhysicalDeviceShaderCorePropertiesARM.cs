@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesARM : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pixelRate = PixelRate;
-        _internal.texelRate = TexelRate;
-        _internal.fmaRate = FmaRate;
+        if (PixelRate != default)
+        {
+            _internal.pixelRate = PixelRate;
+        }
+        if (TexelRate != default)
+        {
+            _internal.texelRate = TexelRate;
+        }
+        if (FmaRate != default)
+        {
+            _internal.fmaRate = FmaRate;
+        }
         return _internal;
     }
 

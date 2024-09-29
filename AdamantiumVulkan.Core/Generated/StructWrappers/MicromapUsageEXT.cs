@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class MicromapUsageEXT
+public unsafe partial class MicromapUsageEXT : QBDisposableObject
 {
     public MicromapUsageEXT()
     {
@@ -31,9 +31,18 @@ public unsafe partial class MicromapUsageEXT
     public AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT();
-        _internal.count = Count;
-        _internal.subdivisionLevel = SubdivisionLevel;
-        _internal.format = Format;
+        if (Count != default)
+        {
+            _internal.count = Count;
+        }
+        if (SubdivisionLevel != default)
+        {
+            _internal.subdivisionLevel = SubdivisionLevel;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDescriptorBufferDensityMapPropertiesEX
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.combinedImageSamplerDensityMapDescriptorSize = CombinedImageSamplerDensityMapDescriptorSize;
+        if (CombinedImageSamplerDensityMapDescriptorSize != default)
+        {
+            _internal.combinedImageSamplerDensityMapDescriptorSize = CombinedImageSamplerDensityMapDescriptorSize;
+        }
         return _internal;
     }
 

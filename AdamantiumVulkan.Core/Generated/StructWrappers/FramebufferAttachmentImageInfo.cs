@@ -45,14 +45,35 @@ public unsafe partial class FramebufferAttachmentImageInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.usage = Usage;
-        _internal.width = Width;
-        _internal.height = Height;
-        _internal.layerCount = LayerCount;
-        _internal.viewFormatCount = ViewFormatCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Usage != (uint)default)
+        {
+            _internal.usage = Usage;
+        }
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
+        if (LayerCount != default)
+        {
+            _internal.layerCount = LayerCount;
+        }
+        if (ViewFormatCount != default)
+        {
+            _internal.viewFormatCount = ViewFormatCount;
+        }
         _pViewFormats.Dispose();
         if (PViewFormats != null)
         {

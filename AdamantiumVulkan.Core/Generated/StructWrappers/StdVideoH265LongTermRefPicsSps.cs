@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265LongTermRefPicsSps
+public unsafe partial class StdVideoH265LongTermRefPicsSps : QBDisposableObject
 {
     public StdVideoH265LongTermRefPicsSps()
     {
@@ -29,8 +29,11 @@ public unsafe partial class StdVideoH265LongTermRefPicsSps
     public AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps();
-        _internal.used_by_curr_pic_lt_sps_flag = Used_by_curr_pic_lt_sps_flag;
-        if(Lt_ref_pic_poc_lsb_sps != null)
+        if (Used_by_curr_pic_lt_sps_flag != default)
+        {
+            _internal.used_by_curr_pic_lt_sps_flag = Used_by_curr_pic_lt_sps_flag;
+        }
+        if (Lt_ref_pic_poc_lsb_sps != default)
         {
             if (Lt_ref_pic_poc_lsb_sps.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Lt_ref_pic_poc_lsb_sps), "Array is out of bounds. Size should not be more than 32");

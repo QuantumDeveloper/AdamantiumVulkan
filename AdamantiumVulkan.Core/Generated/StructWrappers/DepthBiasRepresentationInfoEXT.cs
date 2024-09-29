@@ -33,10 +33,19 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.depthBiasRepresentation = DepthBiasRepresentation;
-        _internal.depthBiasExact = DepthBiasExact;
+        if (DepthBiasRepresentation != default)
+        {
+            _internal.depthBiasRepresentation = DepthBiasRepresentation;
+        }
+        if (DepthBiasExact != (uint)default)
+        {
+            _internal.depthBiasExact = DepthBiasExact;
+        }
         return _internal;
     }
 

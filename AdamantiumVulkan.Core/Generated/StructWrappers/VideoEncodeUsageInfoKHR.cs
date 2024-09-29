@@ -35,11 +35,23 @@ public unsafe partial class VideoEncodeUsageInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.videoUsageHints = VideoUsageHints;
-        _internal.videoContentHints = VideoContentHints;
-        _internal.tuningMode = TuningMode;
+        if (VideoUsageHints != (uint)default)
+        {
+            _internal.videoUsageHints = VideoUsageHints;
+        }
+        if (VideoContentHints != (uint)default)
+        {
+            _internal.videoContentHints = VideoContentHints;
+        }
+        if (TuningMode != default)
+        {
+            _internal.tuningMode = TuningMode;
+        }
         return _internal;
     }
 

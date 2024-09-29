@@ -34,11 +34,23 @@ public unsafe partial class DeviceQueueInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.queueFamilyIndex = QueueFamilyIndex;
-        _internal.queueIndex = QueueIndex;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (QueueFamilyIndex != default)
+        {
+            _internal.queueFamilyIndex = QueueFamilyIndex;
+        }
+        if (QueueIndex != default)
+        {
+            _internal.queueIndex = QueueIndex;
+        }
         return _internal;
     }
 

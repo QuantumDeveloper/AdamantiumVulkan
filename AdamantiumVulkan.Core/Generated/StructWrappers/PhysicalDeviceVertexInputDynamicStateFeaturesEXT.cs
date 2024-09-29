@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceVertexInputDynamicStateFeaturesEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.vertexInputDynamicState = VertexInputDynamicState;
+        if (VertexInputDynamicState != (uint)default)
+        {
+            _internal.vertexInputDynamicState = VertexInputDynamicState;
+        }
         return _internal;
     }
 

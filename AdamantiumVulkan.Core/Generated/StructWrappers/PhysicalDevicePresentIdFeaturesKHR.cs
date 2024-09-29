@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePresentIdFeaturesKHR : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentIdFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentIdFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentId = PresentId;
+        if (PresentId != (uint)default)
+        {
+            _internal.presentId = PresentId;
+        }
         return _internal;
     }
 

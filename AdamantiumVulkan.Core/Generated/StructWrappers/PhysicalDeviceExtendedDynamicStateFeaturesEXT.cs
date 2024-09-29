@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceExtendedDynamicStateFeaturesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicStateFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicStateFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.extendedDynamicState = ExtendedDynamicState;
+        if (ExtendedDynamicState != (uint)default)
+        {
+            _internal.extendedDynamicState = ExtendedDynamicState;
+        }
         return _internal;
     }
 

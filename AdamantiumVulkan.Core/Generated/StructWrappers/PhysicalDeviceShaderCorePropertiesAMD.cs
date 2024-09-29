@@ -56,22 +56,67 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesAMD : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderEngineCount = ShaderEngineCount;
-        _internal.shaderArraysPerEngineCount = ShaderArraysPerEngineCount;
-        _internal.computeUnitsPerShaderArray = ComputeUnitsPerShaderArray;
-        _internal.simdPerComputeUnit = SimdPerComputeUnit;
-        _internal.wavefrontsPerSimd = WavefrontsPerSimd;
-        _internal.wavefrontSize = WavefrontSize;
-        _internal.sgprsPerSimd = SgprsPerSimd;
-        _internal.minSgprAllocation = MinSgprAllocation;
-        _internal.maxSgprAllocation = MaxSgprAllocation;
-        _internal.sgprAllocationGranularity = SgprAllocationGranularity;
-        _internal.vgprsPerSimd = VgprsPerSimd;
-        _internal.minVgprAllocation = MinVgprAllocation;
-        _internal.maxVgprAllocation = MaxVgprAllocation;
-        _internal.vgprAllocationGranularity = VgprAllocationGranularity;
+        if (ShaderEngineCount != default)
+        {
+            _internal.shaderEngineCount = ShaderEngineCount;
+        }
+        if (ShaderArraysPerEngineCount != default)
+        {
+            _internal.shaderArraysPerEngineCount = ShaderArraysPerEngineCount;
+        }
+        if (ComputeUnitsPerShaderArray != default)
+        {
+            _internal.computeUnitsPerShaderArray = ComputeUnitsPerShaderArray;
+        }
+        if (SimdPerComputeUnit != default)
+        {
+            _internal.simdPerComputeUnit = SimdPerComputeUnit;
+        }
+        if (WavefrontsPerSimd != default)
+        {
+            _internal.wavefrontsPerSimd = WavefrontsPerSimd;
+        }
+        if (WavefrontSize != default)
+        {
+            _internal.wavefrontSize = WavefrontSize;
+        }
+        if (SgprsPerSimd != default)
+        {
+            _internal.sgprsPerSimd = SgprsPerSimd;
+        }
+        if (MinSgprAllocation != default)
+        {
+            _internal.minSgprAllocation = MinSgprAllocation;
+        }
+        if (MaxSgprAllocation != default)
+        {
+            _internal.maxSgprAllocation = MaxSgprAllocation;
+        }
+        if (SgprAllocationGranularity != default)
+        {
+            _internal.sgprAllocationGranularity = SgprAllocationGranularity;
+        }
+        if (VgprsPerSimd != default)
+        {
+            _internal.vgprsPerSimd = VgprsPerSimd;
+        }
+        if (MinVgprAllocation != default)
+        {
+            _internal.minVgprAllocation = MinVgprAllocation;
+        }
+        if (MaxVgprAllocation != default)
+        {
+            _internal.maxVgprAllocation = MaxVgprAllocation;
+        }
+        if (VgprAllocationGranularity != default)
+        {
+            _internal.vgprAllocationGranularity = VgprAllocationGranularity;
+        }
         return _internal;
     }
 

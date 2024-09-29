@@ -59,23 +59,71 @@ public unsafe partial class PhysicalDeviceVulkan13Features : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.robustImageAccess = RobustImageAccess;
-        _internal.inlineUniformBlock = InlineUniformBlock;
-        _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
-        _internal.pipelineCreationCacheControl = PipelineCreationCacheControl;
-        _internal.privateData = PrivateData;
-        _internal.shaderDemoteToHelperInvocation = ShaderDemoteToHelperInvocation;
-        _internal.shaderTerminateInvocation = ShaderTerminateInvocation;
-        _internal.subgroupSizeControl = SubgroupSizeControl;
-        _internal.computeFullSubgroups = ComputeFullSubgroups;
-        _internal.synchronization2 = Synchronization2;
-        _internal.textureCompressionASTC_HDR = TextureCompressionASTC_HDR;
-        _internal.shaderZeroInitializeWorkgroupMemory = ShaderZeroInitializeWorkgroupMemory;
-        _internal.dynamicRendering = DynamicRendering;
-        _internal.shaderIntegerDotProduct = ShaderIntegerDotProduct;
-        _internal.maintenance4 = Maintenance4;
+        if (RobustImageAccess != (uint)default)
+        {
+            _internal.robustImageAccess = RobustImageAccess;
+        }
+        if (InlineUniformBlock != (uint)default)
+        {
+            _internal.inlineUniformBlock = InlineUniformBlock;
+        }
+        if (DescriptorBindingInlineUniformBlockUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
+        }
+        if (PipelineCreationCacheControl != (uint)default)
+        {
+            _internal.pipelineCreationCacheControl = PipelineCreationCacheControl;
+        }
+        if (PrivateData != (uint)default)
+        {
+            _internal.privateData = PrivateData;
+        }
+        if (ShaderDemoteToHelperInvocation != (uint)default)
+        {
+            _internal.shaderDemoteToHelperInvocation = ShaderDemoteToHelperInvocation;
+        }
+        if (ShaderTerminateInvocation != (uint)default)
+        {
+            _internal.shaderTerminateInvocation = ShaderTerminateInvocation;
+        }
+        if (SubgroupSizeControl != (uint)default)
+        {
+            _internal.subgroupSizeControl = SubgroupSizeControl;
+        }
+        if (ComputeFullSubgroups != (uint)default)
+        {
+            _internal.computeFullSubgroups = ComputeFullSubgroups;
+        }
+        if (Synchronization2 != (uint)default)
+        {
+            _internal.synchronization2 = Synchronization2;
+        }
+        if (TextureCompressionASTC_HDR != (uint)default)
+        {
+            _internal.textureCompressionASTC_HDR = TextureCompressionASTC_HDR;
+        }
+        if (ShaderZeroInitializeWorkgroupMemory != (uint)default)
+        {
+            _internal.shaderZeroInitializeWorkgroupMemory = ShaderZeroInitializeWorkgroupMemory;
+        }
+        if (DynamicRendering != (uint)default)
+        {
+            _internal.dynamicRendering = DynamicRendering;
+        }
+        if (ShaderIntegerDotProduct != (uint)default)
+        {
+            _internal.shaderIntegerDotProduct = ShaderIntegerDotProduct;
+        }
+        if (Maintenance4 != (uint)default)
+        {
+            _internal.maintenance4 = Maintenance4;
+        }
         return _internal;
     }
 

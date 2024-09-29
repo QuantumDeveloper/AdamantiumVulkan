@@ -207,7 +207,8 @@ namespace AdamantiumVulkan.Spirv.Reflection
             foreach (var bindingKey in resourceKeys)
             {
                 if (bindingKey.Name != current.Name &&
-                    bindingKey.BindingId == current.BindingId)
+                    bindingKey.BindingId == current.BindingId &&
+                    bindingKey.DescriptorSet == current.DescriptorSet)
                 {
                     return true;
                 }

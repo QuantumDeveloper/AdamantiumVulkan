@@ -35,11 +35,17 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.physicalDeviceCount = PhysicalDeviceCount;
+        if (PhysicalDeviceCount != default)
+        {
+            _internal.physicalDeviceCount = PhysicalDeviceCount;
+        }
         _pPhysicalDevices.Dispose();
-        if (PhysicalDevices != null)
+        if (PhysicalDevices != default)
         {
             AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T struct0 = PhysicalDevices;
             _pPhysicalDevices = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>(struct0);

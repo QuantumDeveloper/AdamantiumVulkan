@@ -31,9 +31,15 @@ public unsafe partial class PipelineShaderStageRequiredSubgroupSizeCreateInfo : 
     public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.requiredSubgroupSize = RequiredSubgroupSize;
+        if (RequiredSubgroupSize != default)
+        {
+            _internal.requiredSubgroupSize = RequiredSubgroupSize;
+        }
         return _internal;
     }
 

@@ -36,15 +36,21 @@ public unsafe partial class SpecializationInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSpecializationInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSpecializationInfo();
-        _internal.mapEntryCount = MapEntryCount;
+        if (MapEntryCount != default)
+        {
+            _internal.mapEntryCount = MapEntryCount;
+        }
         _pMapEntries.Dispose();
-        if (PMapEntries != null)
+        if (PMapEntries != default)
         {
             var struct0 = PMapEntries.ToNative();
             _pMapEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry>(struct0);
             _internal.pMapEntries = _pMapEntries.Handle;
         }
-        _internal.dataSize = DataSize;
+        if (DataSize != default)
+        {
+            _internal.dataSize = DataSize;
+        }
         _internal.pData = PData;
         return _internal;
     }

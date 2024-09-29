@@ -37,12 +37,27 @@ public unsafe partial class DeviceAddressBindingCallbackDataEXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkDeviceAddressBindingCallbackDataEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceAddressBindingCallbackDataEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.baseAddress = BaseAddress;
-        _internal.size = Size;
-        _internal.bindingType = BindingType;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (BaseAddress != (ulong)default)
+        {
+            _internal.baseAddress = BaseAddress;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (BindingType != default)
+        {
+            _internal.bindingType = BindingType;
+        }
         return _internal;
     }
 

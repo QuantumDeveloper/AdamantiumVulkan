@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderCoreBuiltinsFeaturesARM : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderCoreBuiltins = ShaderCoreBuiltins;
+        if (ShaderCoreBuiltins != (uint)default)
+        {
+            _internal.shaderCoreBuiltins = ShaderCoreBuiltins;
+        }
         return _internal;
     }
 

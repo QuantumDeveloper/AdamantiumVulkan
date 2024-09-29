@@ -39,13 +39,31 @@ public unsafe partial class PhysicalDeviceAccelerationStructureFeaturesKHR : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.accelerationStructure = AccelerationStructure;
-        _internal.accelerationStructureCaptureReplay = AccelerationStructureCaptureReplay;
-        _internal.accelerationStructureIndirectBuild = AccelerationStructureIndirectBuild;
-        _internal.accelerationStructureHostCommands = AccelerationStructureHostCommands;
-        _internal.descriptorBindingAccelerationStructureUpdateAfterBind = DescriptorBindingAccelerationStructureUpdateAfterBind;
+        if (AccelerationStructure != (uint)default)
+        {
+            _internal.accelerationStructure = AccelerationStructure;
+        }
+        if (AccelerationStructureCaptureReplay != (uint)default)
+        {
+            _internal.accelerationStructureCaptureReplay = AccelerationStructureCaptureReplay;
+        }
+        if (AccelerationStructureIndirectBuild != (uint)default)
+        {
+            _internal.accelerationStructureIndirectBuild = AccelerationStructureIndirectBuild;
+        }
+        if (AccelerationStructureHostCommands != (uint)default)
+        {
+            _internal.accelerationStructureHostCommands = AccelerationStructureHostCommands;
+        }
+        if (DescriptorBindingAccelerationStructureUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingAccelerationStructureUpdateAfterBind = DescriptorBindingAccelerationStructureUpdateAfterBind;
+        }
         return _internal;
     }
 

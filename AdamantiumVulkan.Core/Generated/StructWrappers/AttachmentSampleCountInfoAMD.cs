@@ -37,16 +37,25 @@ public unsafe partial class AttachmentSampleCountInfoAMD : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.colorAttachmentCount = ColorAttachmentCount;
+        if (ColorAttachmentCount != default)
+        {
+            _internal.colorAttachmentCount = ColorAttachmentCount;
+        }
         _pColorAttachmentSamples.Dispose();
         if (PColorAttachmentSamples.HasValue)
         {
             _pColorAttachmentSamples = new NativeStruct<AdamantiumVulkan.Core.SampleCountFlagBits>(PColorAttachmentSamples.Value);
             _internal.pColorAttachmentSamples = _pColorAttachmentSamples.Handle;
         }
-        _internal.depthStencilAttachmentSamples = DepthStencilAttachmentSamples;
+        if (DepthStencilAttachmentSamples != default)
+        {
+            _internal.depthStencilAttachmentSamples = DepthStencilAttachmentSamples;
+        }
         return _internal;
     }
 

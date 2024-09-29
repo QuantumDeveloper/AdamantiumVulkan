@@ -32,10 +32,19 @@ public unsafe partial class MemoryDedicatedRequirements : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.prefersDedicatedAllocation = PrefersDedicatedAllocation;
-        _internal.requiresDedicatedAllocation = RequiresDedicatedAllocation;
+        if (PrefersDedicatedAllocation != (uint)default)
+        {
+            _internal.prefersDedicatedAllocation = PrefersDedicatedAllocation;
+        }
+        if (RequiresDedicatedAllocation != (uint)default)
+        {
+            _internal.requiresDedicatedAllocation = RequiresDedicatedAllocation;
+        }
         return _internal;
     }
 

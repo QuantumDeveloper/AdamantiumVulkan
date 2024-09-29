@@ -30,9 +30,15 @@ public unsafe partial class SwapchainCounterCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.surfaceCounters = SurfaceCounters;
+        if (SurfaceCounters != (uint)default)
+        {
+            _internal.surfaceCounters = SurfaceCounters;
+        }
         return _internal;
     }
 

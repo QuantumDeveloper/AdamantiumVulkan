@@ -34,11 +34,23 @@ public unsafe partial class ConditionalRenderingBeginInfoEXT : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.buffer = Buffer;
-        _internal.offset = Offset;
-        _internal.flags = Flags;
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

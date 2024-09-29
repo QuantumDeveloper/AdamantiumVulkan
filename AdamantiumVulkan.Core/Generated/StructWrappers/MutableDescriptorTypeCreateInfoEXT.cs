@@ -36,11 +36,17 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.mutableDescriptorTypeListCount = MutableDescriptorTypeListCount;
+        if (MutableDescriptorTypeListCount != default)
+        {
+            _internal.mutableDescriptorTypeListCount = MutableDescriptorTypeListCount;
+        }
         _pMutableDescriptorTypeLists.Dispose();
-        if (PMutableDescriptorTypeLists != null)
+        if (PMutableDescriptorTypeLists != default)
         {
             var struct0 = PMutableDescriptorTypeLists.ToNative();
             _pMutableDescriptorTypeLists = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>(struct0);

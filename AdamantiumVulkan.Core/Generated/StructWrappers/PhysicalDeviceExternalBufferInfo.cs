@@ -34,11 +34,23 @@ public unsafe partial class PhysicalDeviceExternalBufferInfo : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.usage = Usage;
-        _internal.handleType = HandleType;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Usage != (uint)default)
+        {
+            _internal.usage = Usage;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

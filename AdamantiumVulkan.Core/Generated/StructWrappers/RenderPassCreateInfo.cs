@@ -66,12 +66,21 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.attachmentCount = AttachmentCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (AttachmentCount != default)
+        {
+            _internal.attachmentCount = AttachmentCount;
+        }
         _pAttachments.Dispose();
-        if (PAttachments != null)
+        if (PAttachments != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[PAttachments.Length];
             for (int i = 0; i < PAttachments.Length; ++i)
@@ -81,9 +90,12 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             _pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAttachmentDescription>(tmpArray0);
             _internal.pAttachments = _pAttachments.Handle;
         }
-        _internal.subpassCount = SubpassCount;
+        if (SubpassCount != default)
+        {
+            _internal.subpassCount = SubpassCount;
+        }
         _pSubpasses.Dispose();
-        if (PSubpasses != null)
+        if (PSubpasses != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[PSubpasses.Length];
             for (int i = 0; i < PSubpasses.Length; ++i)
@@ -93,9 +105,12 @@ public unsafe partial class RenderPassCreateInfo : QBDisposableObject
             _pSubpasses = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSubpassDescription>(tmpArray1);
             _internal.pSubpasses = _pSubpasses.Handle;
         }
-        _internal.dependencyCount = DependencyCount;
+        if (DependencyCount != default)
+        {
+            _internal.dependencyCount = DependencyCount;
+        }
         _pDependencies.Dispose();
-        if (PDependencies != null)
+        if (PDependencies != default)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[PDependencies.Length];
             for (int i = 0; i < PDependencies.Length; ++i)

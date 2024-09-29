@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderZeroInitializeWorkgroupMemory = ShaderZeroInitializeWorkgroupMemory;
+        if (ShaderZeroInitializeWorkgroupMemory != (uint)default)
+        {
+            _internal.shaderZeroInitializeWorkgroupMemory = ShaderZeroInitializeWorkgroupMemory;
+        }
         return _internal;
     }
 

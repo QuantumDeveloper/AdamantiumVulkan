@@ -44,30 +44,54 @@ public unsafe partial class HdrMetadataEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (DisplayPrimaryRed != null)
+        if (DisplayPrimaryRed != default)
         {
             _internal.displayPrimaryRed = DisplayPrimaryRed.ToNative();
         }
-        if (DisplayPrimaryGreen != null)
+        if (DisplayPrimaryGreen != default)
         {
             _internal.displayPrimaryGreen = DisplayPrimaryGreen.ToNative();
         }
-        if (DisplayPrimaryBlue != null)
+        if (DisplayPrimaryBlue != default)
         {
             _internal.displayPrimaryBlue = DisplayPrimaryBlue.ToNative();
         }
-        if (WhitePoint != null)
+        if (WhitePoint != default)
         {
             _internal.whitePoint = WhitePoint.ToNative();
         }
-        _internal.maxLuminance = MaxLuminance;
-        _internal.minLuminance = MinLuminance;
-        _internal.maxContentLightLevel = MaxContentLightLevel;
-        _internal.maxFrameAverageLightLevel = MaxFrameAverageLightLevel;
+        if (MaxLuminance != default)
+        {
+            _internal.maxLuminance = MaxLuminance;
+        }
+        if (MinLuminance != default)
+        {
+            _internal.minLuminance = MinLuminance;
+        }
+        if (MaxContentLightLevel != default)
+        {
+            _internal.maxContentLightLevel = MaxContentLightLevel;
+        }
+        if (MaxFrameAverageLightLevel != default)
+        {
+            _internal.maxFrameAverageLightLevel = MaxFrameAverageLightLevel;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        DisplayPrimaryRed?.Dispose();
+        DisplayPrimaryGreen?.Dispose();
+        DisplayPrimaryBlue?.Dispose();
+        WhitePoint?.Dispose();
+    }
+
 
     public static implicit operator HdrMetadataEXT(AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT h)
     {

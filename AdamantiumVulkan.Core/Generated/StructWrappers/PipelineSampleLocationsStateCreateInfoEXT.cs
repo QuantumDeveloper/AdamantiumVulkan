@@ -32,15 +32,27 @@ public unsafe partial class PipelineSampleLocationsStateCreateInfoEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sampleLocationsEnable = SampleLocationsEnable;
-        if (SampleLocationsInfo != null)
+        if (SampleLocationsEnable != (uint)default)
+        {
+            _internal.sampleLocationsEnable = SampleLocationsEnable;
+        }
+        if (SampleLocationsInfo != default)
         {
             _internal.sampleLocationsInfo = SampleLocationsInfo.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SampleLocationsInfo?.Dispose();
+    }
+
 
     public static implicit operator PipelineSampleLocationsStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT p)
     {

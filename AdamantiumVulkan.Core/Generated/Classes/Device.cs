@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 103 Column: 1
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 103 Column: 1
 public unsafe partial class Device
 {
     internal VkDevice_T __Instance;
@@ -236,6 +236,7 @@ public unsafe partial class Device
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkBuildAccelerationStructuresKHR(this, arg1, infoCount, arg3, arg4);
         pInfos?.Dispose();
         NativeUtils.Free(arg3);
+        ppBuildRangeInfos?.Dispose();
         NativeUtils.Free(arg4);
         return result;
     }
@@ -1949,6 +1950,7 @@ public unsafe partial class Device
         var arg1 = ReferenceEquals(renderpass, null) ? new VkRenderPass_T() : (VkRenderPass_T)renderpass;
         var arg2 = ReferenceEquals(pMaxWorkgroupSize, null) ? null : NativeUtils.StructOrEnumToPointer(pMaxWorkgroupSize.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(this, arg1, arg2);
+        pMaxWorkgroupSize?.Dispose();
         NativeUtils.Free(arg2);
         return result;
     }
@@ -2085,6 +2087,7 @@ public unsafe partial class Device
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageSparseMemoryRequirements(this, arg1, arg2, arg3);
         pSparseMemoryRequirementCount = *arg2;
         NativeUtils.Free(arg2);
+        pSparseMemoryRequirements?.Dispose();
         NativeUtils.Free(arg3);
     }
 
@@ -2122,7 +2125,9 @@ public unsafe partial class Device
         var arg2 = ReferenceEquals(pSubresource, null) ? null : NativeUtils.StructOrEnumToPointer(pSubresource.ToNative());
         var arg3 = ReferenceEquals(pLayout, null) ? null : NativeUtils.StructOrEnumToPointer(pLayout.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageSubresourceLayout(this, arg1, arg2, arg3);
+        pSubresource?.Dispose();
         NativeUtils.Free(arg2);
+        pLayout?.Dispose();
         NativeUtils.Free(arg3);
     }
 
@@ -2247,6 +2252,7 @@ public unsafe partial class Device
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPastPresentationTimingGOOGLE(this, arg1, arg2, arg3);
         pPresentationTimingCount = *arg2;
         NativeUtils.Free(arg2);
+        pPresentationTimings?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }
@@ -2255,6 +2261,7 @@ public unsafe partial class Device
     {
         var arg2 = ReferenceEquals(pValue, null) ? null : NativeUtils.StructOrEnumToPointer(pValue.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPerformanceParameterINTEL(this, parameter, arg2);
+        pValue?.Dispose();
         NativeUtils.Free(arg2);
         return result;
     }
@@ -2399,6 +2406,7 @@ public unsafe partial class Device
         var arg1 = ReferenceEquals(swapchain, null) ? new VkSwapchainKHR_T() : (VkSwapchainKHR_T)swapchain;
         var arg2 = ReferenceEquals(pDisplayTimingProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pDisplayTimingProperties.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRefreshCycleDurationGOOGLE(this, arg1, arg2);
+        pDisplayTimingProperties?.Dispose();
         NativeUtils.Free(arg2);
         return result;
     }
@@ -2408,6 +2416,7 @@ public unsafe partial class Device
         var arg1 = ReferenceEquals(renderPass, null) ? new VkRenderPass_T() : (VkRenderPass_T)renderPass;
         var arg2 = ReferenceEquals(pGranularity, null) ? null : NativeUtils.StructOrEnumToPointer(pGranularity.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRenderAreaGranularity(this, arg1, arg2);
+        pGranularity?.Dispose();
         NativeUtils.Free(arg2);
     }
 
@@ -2418,6 +2427,7 @@ public unsafe partial class Device
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRenderingAreaGranularityKHR(this, arg1, arg2);
         pRenderingAreaInfo?.Dispose();
         NativeUtils.Free(arg1);
+        pGranularity?.Dispose();
         NativeUtils.Free(arg2);
     }
 

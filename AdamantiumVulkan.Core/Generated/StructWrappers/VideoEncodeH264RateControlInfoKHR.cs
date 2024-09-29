@@ -39,13 +39,31 @@ public unsafe partial class VideoEncodeH264RateControlInfoKHR : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.gopFrameCount = GopFrameCount;
-        _internal.idrPeriod = IdrPeriod;
-        _internal.consecutiveBFrameCount = ConsecutiveBFrameCount;
-        _internal.temporalLayerCount = TemporalLayerCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (GopFrameCount != default)
+        {
+            _internal.gopFrameCount = GopFrameCount;
+        }
+        if (IdrPeriod != default)
+        {
+            _internal.idrPeriod = IdrPeriod;
+        }
+        if (ConsecutiveBFrameCount != default)
+        {
+            _internal.consecutiveBFrameCount = ConsecutiveBFrameCount;
+        }
+        if (TemporalLayerCount != default)
+        {
+            _internal.temporalLayerCount = TemporalLayerCount;
+        }
         return _internal;
     }
 

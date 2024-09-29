@@ -35,11 +35,17 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.exclusiveScissorCount = ExclusiveScissorCount;
+        if (ExclusiveScissorCount != default)
+        {
+            _internal.exclusiveScissorCount = ExclusiveScissorCount;
+        }
         _pExclusiveScissors.Dispose();
-        if (PExclusiveScissors != null)
+        if (PExclusiveScissors != default)
         {
             var struct0 = PExclusiveScissors.ToNative();
             _pExclusiveScissors = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);

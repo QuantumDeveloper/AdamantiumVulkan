@@ -32,15 +32,27 @@ public unsafe partial class DisplayModeCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        if (Parameters != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Parameters != default)
         {
             _internal.parameters = Parameters.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Parameters?.Dispose();
+    }
+
 
     public static implicit operator DisplayModeCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR d)
     {

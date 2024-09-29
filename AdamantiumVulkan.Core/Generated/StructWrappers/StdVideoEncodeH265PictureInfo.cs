@@ -58,18 +58,39 @@ public unsafe partial class StdVideoEncodeH265PictureInfo : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.pic_type = Pic_type;
-        _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
-        _internal.pps_seq_parameter_set_id = Ps_seq_parameter_set_id;
-        _internal.pps_pic_parameter_set_id = Ps_pic_parameter_set_id;
-        _internal.short_term_ref_pic_set_idx = Short_term_ref_pic_set_idx;
-        _internal.PicOrderCntVal = PicOrderCntVal;
-        _internal.TemporalId = TemporalId;
-        if(Reserved1 != null)
+        if (Pic_type != default)
+        {
+            _internal.pic_type = Pic_type;
+        }
+        if (Sps_video_parameter_set_id != default)
+        {
+            _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
+        }
+        if (Ps_seq_parameter_set_id != default)
+        {
+            _internal.pps_seq_parameter_set_id = Ps_seq_parameter_set_id;
+        }
+        if (Ps_pic_parameter_set_id != default)
+        {
+            _internal.pps_pic_parameter_set_id = Ps_pic_parameter_set_id;
+        }
+        if (Short_term_ref_pic_set_idx != default)
+        {
+            _internal.short_term_ref_pic_set_idx = Short_term_ref_pic_set_idx;
+        }
+        if (PicOrderCntVal != default)
+        {
+            _internal.PicOrderCntVal = PicOrderCntVal;
+        }
+        if (TemporalId != default)
+        {
+            _internal.TemporalId = TemporalId;
+        }
+        if (Reserved1 != default)
         {
             if (Reserved1.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Reserved1), "Array is out of bounds. Size should not be more than 7");
@@ -77,21 +98,21 @@ public unsafe partial class StdVideoEncodeH265PictureInfo : QBDisposableObject
             NativeUtils.PrimitiveToFixedArray(_internal.reserved1, 7, Reserved1);
         }
         _pRefLists.Dispose();
-        if (PRefLists != null)
+        if (PRefLists != default)
         {
             var struct0 = PRefLists.ToNative();
             _pRefLists = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo>(struct0);
             _internal.pRefLists = _pRefLists.Handle;
         }
         _pShortTermRefPicSet.Dispose();
-        if (PShortTermRefPicSet != null)
+        if (PShortTermRefPicSet != default)
         {
             var struct1 = PShortTermRefPicSet.ToNative();
             _pShortTermRefPicSet = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet>(struct1);
             _internal.pShortTermRefPicSet = _pShortTermRefPicSet.Handle;
         }
         _pLongTermRefPics.Dispose();
-        if (PLongTermRefPics != null)
+        if (PLongTermRefPics != default)
         {
             var struct2 = PLongTermRefPics.ToNative();
             _pLongTermRefPics = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH265LongTermRefPics>(struct2);
@@ -105,6 +126,7 @@ public unsafe partial class StdVideoEncodeH265PictureInfo : QBDisposableObject
         _pRefLists.Dispose();
         _pShortTermRefPicSet.Dispose();
         _pLongTermRefPics.Dispose();
+        Flags?.Dispose();
     }
 
 

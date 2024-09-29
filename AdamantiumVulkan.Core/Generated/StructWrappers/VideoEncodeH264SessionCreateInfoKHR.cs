@@ -34,10 +34,19 @@ public unsafe partial class VideoEncodeH264SessionCreateInfoKHR : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.useMaxLevelIdc = UseMaxLevelIdc;
-        _internal.maxLevelIdc = MaxLevelIdc;
+        if (UseMaxLevelIdc != (uint)default)
+        {
+            _internal.useMaxLevelIdc = UseMaxLevelIdc;
+        }
+        if (MaxLevelIdc != default)
+        {
+            _internal.maxLevelIdc = MaxLevelIdc;
+        }
         return _internal;
     }
 

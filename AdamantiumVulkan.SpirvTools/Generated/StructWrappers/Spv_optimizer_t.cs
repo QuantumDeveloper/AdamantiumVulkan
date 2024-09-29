@@ -11,7 +11,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-public unsafe partial class Spv_optimizer_t
+public unsafe partial class Spv_optimizer_t : QBDisposableObject
 {
     public Spv_optimizer_t()
     {
@@ -42,13 +42,26 @@ public unsafe partial class Spv_optimizer_t
     }
 
     ///<summary>
-    /// Registers passes specified by length number of flags in an optimizer object.
+    /// Registers passes specified by length number of flags in an optimizer object. Passes may remove interface variables that are unused.
     ///</summary>
     public bool SpvOptimizerRegisterPassesFromFlags(in string[] flags, ulong flag_count)
     {
         var arg0 = NativeUtils.StructOrEnumToPointer(ToNative());
         var arg1 = (sbyte**)NativeUtils.StringArrayToPointer(flags, false);
         var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlags(arg0, arg1, flag_count);
+        NativeUtils.Free(arg0);
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    ///<summary>
+    /// Registers passes specified by length number of flags in an optimizer object. Passes will not remove interface variables.
+    ///</summary>
+    public bool SpvOptimizerRegisterPassesFromFlagsWhilePreservingTheInterface(in string[] flags, ulong flag_count)
+    {
+        var arg0 = NativeUtils.StructOrEnumToPointer(ToNative());
+        var arg1 = (sbyte**)NativeUtils.StringArrayToPointer(flags, false);
+        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlagsWhilePreservingTheInterface(arg0, arg1, flag_count);
         NativeUtils.Free(arg0);
         NativeUtils.Free(arg1);
         return result;

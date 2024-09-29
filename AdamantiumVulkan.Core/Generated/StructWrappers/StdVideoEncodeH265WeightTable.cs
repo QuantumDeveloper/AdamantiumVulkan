@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH265WeightTable
+public unsafe partial class StdVideoEncodeH265WeightTable : QBDisposableObject
 {
     public StdVideoEncodeH265WeightTable()
     {
@@ -47,62 +47,68 @@ public unsafe partial class StdVideoEncodeH265WeightTable
     public AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.luma_log2_weight_denom = Luma_log2_weight_denom;
-        _internal.delta_chroma_log2_weight_denom = Delta_chroma_log2_weight_denom;
-        if(Delta_luma_weight_l0 != null)
+        if (Luma_log2_weight_denom != default)
+        {
+            _internal.luma_log2_weight_denom = Luma_log2_weight_denom;
+        }
+        if (Delta_chroma_log2_weight_denom != default)
+        {
+            _internal.delta_chroma_log2_weight_denom = Delta_chroma_log2_weight_denom;
+        }
+        if (Delta_luma_weight_l0 != default)
         {
             if (Delta_luma_weight_l0.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_luma_weight_l0), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.StringToFixedArray(_internal.delta_luma_weight_l0, 15, Delta_luma_weight_l0, false);
         }
-        if(Luma_offset_l0 != null)
+        if (Luma_offset_l0 != default)
         {
             if (Luma_offset_l0.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(Luma_offset_l0), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.StringToFixedArray(_internal.luma_offset_l0, 15, Luma_offset_l0, false);
         }
-        if(Delta_chroma_weight_l0 != null)
+        if (Delta_chroma_weight_l0 != default)
         {
             if (Delta_chroma_weight_l0.Length > 30)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_chroma_weight_l0), "Array is out of bounds. Size should not be more than 30");
 
             NativeUtils.StringToFixedArray(_internal.delta_chroma_weight_l0, 30, Delta_chroma_weight_l0, false);
         }
-        if(Delta_chroma_offset_l0 != null)
+        if (Delta_chroma_offset_l0 != default)
         {
             if (Delta_chroma_offset_l0.Length > 30)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_chroma_offset_l0), "Array is out of bounds. Size should not be more than 30");
 
             NativeUtils.StringToFixedArray(_internal.delta_chroma_offset_l0, 30, Delta_chroma_offset_l0, false);
         }
-        if(Delta_luma_weight_l1 != null)
+        if (Delta_luma_weight_l1 != default)
         {
             if (Delta_luma_weight_l1.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_luma_weight_l1), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.StringToFixedArray(_internal.delta_luma_weight_l1, 15, Delta_luma_weight_l1, false);
         }
-        if(Luma_offset_l1 != null)
+        if (Luma_offset_l1 != default)
         {
             if (Luma_offset_l1.Length > 15)
                 throw new System.ArgumentOutOfRangeException(nameof(Luma_offset_l1), "Array is out of bounds. Size should not be more than 15");
 
             NativeUtils.StringToFixedArray(_internal.luma_offset_l1, 15, Luma_offset_l1, false);
         }
-        if(Delta_chroma_weight_l1 != null)
+        if (Delta_chroma_weight_l1 != default)
         {
             if (Delta_chroma_weight_l1.Length > 30)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_chroma_weight_l1), "Array is out of bounds. Size should not be more than 30");
 
             NativeUtils.StringToFixedArray(_internal.delta_chroma_weight_l1, 30, Delta_chroma_weight_l1, false);
         }
-        if(Delta_chroma_offset_l1 != null)
+        if (Delta_chroma_offset_l1 != default)
         {
             if (Delta_chroma_offset_l1.Length > 30)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_chroma_offset_l1), "Array is out of bounds. Size should not be more than 30");
@@ -111,6 +117,12 @@ public unsafe partial class StdVideoEncodeH265WeightTable
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoEncodeH265WeightTable(AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable s)
     {

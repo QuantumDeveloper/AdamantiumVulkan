@@ -53,19 +53,52 @@ public unsafe partial class CuLaunchInfoNVX : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.function = Function;
-        _internal.gridDimX = GridDimX;
-        _internal.gridDimY = GridDimY;
-        _internal.gridDimZ = GridDimZ;
-        _internal.blockDimX = BlockDimX;
-        _internal.blockDimY = BlockDimY;
-        _internal.blockDimZ = BlockDimZ;
-        _internal.sharedMemBytes = SharedMemBytes;
-        _internal.paramCount = ParamCount;
+        if (Function != default)
+        {
+            _internal.function = Function;
+        }
+        if (GridDimX != default)
+        {
+            _internal.gridDimX = GridDimX;
+        }
+        if (GridDimY != default)
+        {
+            _internal.gridDimY = GridDimY;
+        }
+        if (GridDimZ != default)
+        {
+            _internal.gridDimZ = GridDimZ;
+        }
+        if (BlockDimX != default)
+        {
+            _internal.blockDimX = BlockDimX;
+        }
+        if (BlockDimY != default)
+        {
+            _internal.blockDimY = BlockDimY;
+        }
+        if (BlockDimZ != default)
+        {
+            _internal.blockDimZ = BlockDimZ;
+        }
+        if (SharedMemBytes != default)
+        {
+            _internal.sharedMemBytes = SharedMemBytes;
+        }
+        if (ParamCount != default)
+        {
+            _internal.paramCount = ParamCount;
+        }
         _internal.pParams = Params;
-        _internal.extraCount = ExtraCount;
+        if (ExtraCount != default)
+        {
+            _internal.extraCount = ExtraCount;
+        }
         _internal.pExtras = PExtras;
         return _internal;
     }

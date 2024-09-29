@@ -34,11 +34,23 @@ public unsafe partial class BindImageMemoryInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.image = Image;
-        _internal.memory = Memory;
-        _internal.memoryOffset = MemoryOffset;
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (MemoryOffset != (ulong)default)
+        {
+            _internal.memoryOffset = MemoryOffset;
+        }
         return _internal;
     }
 

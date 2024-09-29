@@ -35,16 +35,31 @@ public unsafe partial class CopyAccelerationStructureToMemoryInfoKHR : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.src = Src;
-        if (Dst != null)
+        if (Src != default)
+        {
+            _internal.src = Src;
+        }
+        if (Dst != default)
         {
             _internal.dst = Dst.ToNative();
         }
-        _internal.mode = Mode;
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Dst?.Dispose();
+    }
+
 
     public static implicit operator CopyAccelerationStructureToMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR c)
     {

@@ -32,9 +32,15 @@ public unsafe partial class CheckpointDataNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCheckpointDataNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCheckpointDataNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stage = Stage;
+        if (Stage != default)
+        {
+            _internal.stage = Stage;
+        }
         _internal.pCheckpointMarker = PCheckpointMarker;
         return _internal;
     }

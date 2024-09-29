@@ -46,17 +46,29 @@ public unsafe partial class RenderPassBeginInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.renderPass = RenderPass;
-        _internal.framebuffer = Framebuffer;
-        if (RenderArea != null)
+        if (RenderPass != default)
+        {
+            _internal.renderPass = RenderPass;
+        }
+        if (Framebuffer != default)
+        {
+            _internal.framebuffer = Framebuffer;
+        }
+        if (RenderArea != default)
         {
             _internal.renderArea = RenderArea.ToNative();
         }
-        _internal.clearValueCount = ClearValueCount;
+        if (ClearValueCount != default)
+        {
+            _internal.clearValueCount = ClearValueCount;
+        }
         _pClearValues.Dispose();
-        if (PClearValues != null)
+        if (PClearValues != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkClearValue[PClearValues.Length];
             for (int i = 0; i < PClearValues.Length; ++i)
@@ -72,6 +84,7 @@ public unsafe partial class RenderPassBeginInfo : QBDisposableObject
     protected override void UnmanagedDisposeOverride()
     {
         _pClearValues.Dispose();
+        RenderArea?.Dispose();
     }
 
 

@@ -30,9 +30,15 @@ public unsafe partial class FenceCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFenceCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFenceCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

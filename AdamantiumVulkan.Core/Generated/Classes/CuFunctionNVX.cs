@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11782 Column: 1
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12041 Column: 1
 public unsafe partial class CuFunctionNVX
 {
     internal VkCuFunctionNVX_T __Instance;

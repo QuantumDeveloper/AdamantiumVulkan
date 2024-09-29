@@ -34,15 +34,18 @@ public unsafe partial class DebugUtilsLabelEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pLabelName.Dispose();
-        if (PLabelName != null)
+        if (PLabelName != default)
         {
             _pLabelName = new MarshaledString(PLabelName, false);
             _internal.pLabelName = (sbyte*)_pLabelName;
         }
-        if(Color != null)
+        if (Color != default)
         {
             if (Color.Length > 4)
                 throw new System.ArgumentOutOfRangeException(nameof(Color), "Array is out of bounds. Size should not be more than 4");

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceLinearColorAttachmentFeaturesNV : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLinearColorAttachmentFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLinearColorAttachmentFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.linearColorAttachment = LinearColorAttachment;
+        if (LinearColorAttachment != (uint)default)
+        {
+            _internal.linearColorAttachment = LinearColorAttachment;
+        }
         return _internal;
     }
 

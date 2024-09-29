@@ -43,19 +43,28 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.groupCount = GroupCount;
+        if (GroupCount != default)
+        {
+            _internal.groupCount = GroupCount;
+        }
         _pGroups.Dispose();
-        if (PGroups != null)
+        if (PGroups != default)
         {
             var struct0 = PGroups.ToNative();
             _pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>(struct0);
             _internal.pGroups = _pGroups.Handle;
         }
-        _internal.pipelineCount = PipelineCount;
+        if (PipelineCount != default)
+        {
+            _internal.pipelineCount = PipelineCount;
+        }
         _pPipelines.Dispose();
-        if (Pipelines != null)
+        if (Pipelines != default)
         {
             AdamantiumVulkan.Core.Interop.VkPipeline_T struct1 = Pipelines;
             _pPipelines = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct1);

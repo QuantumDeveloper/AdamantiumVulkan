@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ViewportSwizzleNV
+public unsafe partial class ViewportSwizzleNV : QBDisposableObject
 {
     public ViewportSwizzleNV()
     {
@@ -33,10 +33,22 @@ public unsafe partial class ViewportSwizzleNV
     public AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV();
-        _internal.x = X;
-        _internal.y = Y;
-        _internal.z = Z;
-        _internal.w = W;
+        if (X != default)
+        {
+            _internal.x = X;
+        }
+        if (Y != default)
+        {
+            _internal.y = Y;
+        }
+        if (Z != default)
+        {
+            _internal.z = Z;
+        }
+        if (W != default)
+        {
+            _internal.w = W;
+        }
         return _internal;
     }
 

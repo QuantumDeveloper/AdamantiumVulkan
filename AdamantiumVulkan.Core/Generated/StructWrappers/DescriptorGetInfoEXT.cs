@@ -33,15 +33,27 @@ public unsafe partial class DescriptorGetInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        if (Data != null)
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Data != default)
         {
             _internal.data = Data.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Data?.Dispose();
+    }
+
 
     public static implicit operator DescriptorGetInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT d)
     {

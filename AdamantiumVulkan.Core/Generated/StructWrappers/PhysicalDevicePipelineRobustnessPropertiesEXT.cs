@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDevicePipelineRobustnessPropertiesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineRobustnessPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineRobustnessPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.defaultRobustnessStorageBuffers = DefaultRobustnessStorageBuffers;
-        _internal.defaultRobustnessUniformBuffers = DefaultRobustnessUniformBuffers;
-        _internal.defaultRobustnessVertexInputs = DefaultRobustnessVertexInputs;
-        _internal.defaultRobustnessImages = DefaultRobustnessImages;
+        if (DefaultRobustnessStorageBuffers != default)
+        {
+            _internal.defaultRobustnessStorageBuffers = DefaultRobustnessStorageBuffers;
+        }
+        if (DefaultRobustnessUniformBuffers != default)
+        {
+            _internal.defaultRobustnessUniformBuffers = DefaultRobustnessUniformBuffers;
+        }
+        if (DefaultRobustnessVertexInputs != default)
+        {
+            _internal.defaultRobustnessVertexInputs = DefaultRobustnessVertexInputs;
+        }
+        if (DefaultRobustnessImages != default)
+        {
+            _internal.defaultRobustnessImages = DefaultRobustnessImages;
+        }
         return _internal;
     }
 

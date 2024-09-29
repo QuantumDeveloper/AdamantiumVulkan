@@ -30,14 +30,23 @@ public unsafe partial class RenderPassFragmentDensityMapCreateInfoEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (FragmentDensityMapAttachment != null)
+        if (FragmentDensityMapAttachment != default)
         {
             _internal.fragmentDensityMapAttachment = FragmentDensityMapAttachment.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FragmentDensityMapAttachment?.Dispose();
+    }
+
 
     public static implicit operator RenderPassFragmentDensityMapCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT r)
     {

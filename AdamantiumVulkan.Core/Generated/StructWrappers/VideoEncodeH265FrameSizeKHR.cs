@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class VideoEncodeH265FrameSizeKHR
+public unsafe partial class VideoEncodeH265FrameSizeKHR : QBDisposableObject
 {
     public VideoEncodeH265FrameSizeKHR()
     {
@@ -31,9 +31,18 @@ public unsafe partial class VideoEncodeH265FrameSizeKHR
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265FrameSizeKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265FrameSizeKHR();
-        _internal.frameISize = FrameISize;
-        _internal.framePSize = FramePSize;
-        _internal.frameBSize = FrameBSize;
+        if (FrameISize != default)
+        {
+            _internal.frameISize = FrameISize;
+        }
+        if (FramePSize != default)
+        {
+            _internal.framePSize = FramePSize;
+        }
+        if (FrameBSize != default)
+        {
+            _internal.frameBSize = FrameBSize;
+        }
         return _internal;
     }
 

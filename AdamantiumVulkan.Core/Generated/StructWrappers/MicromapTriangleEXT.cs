@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class MicromapTriangleEXT
+public unsafe partial class MicromapTriangleEXT : QBDisposableObject
 {
     public MicromapTriangleEXT()
     {
@@ -31,9 +31,18 @@ public unsafe partial class MicromapTriangleEXT
     public AdamantiumVulkan.Core.Interop.VkMicromapTriangleEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMicromapTriangleEXT();
-        _internal.dataOffset = DataOffset;
-        _internal.subdivisionLevel = SubdivisionLevel;
-        _internal.format = Format;
+        if (DataOffset != default)
+        {
+            _internal.dataOffset = DataOffset;
+        }
+        if (SubdivisionLevel != default)
+        {
+            _internal.subdivisionLevel = SubdivisionLevel;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
         return _internal;
     }
 

@@ -39,12 +39,27 @@ public unsafe partial class PushConstantsInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPushConstantsInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPushConstantsInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.layout = Layout;
-        _internal.stageFlags = StageFlags;
-        _internal.offset = Offset;
-        _internal.size = Size;
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (StageFlags != (uint)default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != default)
+        {
+            _internal.size = Size;
+        }
         _internal.pValues = PValues;
         return _internal;
     }

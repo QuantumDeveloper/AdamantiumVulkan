@@ -68,50 +68,74 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.stageCount = StageCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (StageCount != default)
+        {
+            _internal.stageCount = StageCount;
+        }
         _pStages.Dispose();
-        if (PStages != null)
+        if (PStages != default)
         {
             var struct0 = PStages.ToNative();
             _pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
             _internal.pStages = _pStages.Handle;
         }
-        _internal.groupCount = GroupCount;
+        if (GroupCount != default)
+        {
+            _internal.groupCount = GroupCount;
+        }
         _pGroups.Dispose();
-        if (PGroups != null)
+        if (PGroups != default)
         {
             var struct1 = PGroups.ToNative();
             _pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(struct1);
             _internal.pGroups = _pGroups.Handle;
         }
-        _internal.maxPipelineRayRecursionDepth = MaxPipelineRayRecursionDepth;
+        if (MaxPipelineRayRecursionDepth != default)
+        {
+            _internal.maxPipelineRayRecursionDepth = MaxPipelineRayRecursionDepth;
+        }
         _pLibraryInfo.Dispose();
-        if (PLibraryInfo != null)
+        if (PLibraryInfo != default)
         {
             var struct2 = PLibraryInfo.ToNative();
             _pLibraryInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR>(struct2);
             _internal.pLibraryInfo = _pLibraryInfo.Handle;
         }
         _pLibraryInterface.Dispose();
-        if (PLibraryInterface != null)
+        if (PLibraryInterface != default)
         {
             var struct3 = PLibraryInterface.ToNative();
             _pLibraryInterface = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR>(struct3);
             _internal.pLibraryInterface = _pLibraryInterface.Handle;
         }
         _pDynamicState.Dispose();
-        if (PDynamicState != null)
+        if (PDynamicState != default)
         {
             var struct4 = PDynamicState.ToNative();
             _pDynamicState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(struct4);
             _internal.pDynamicState = _pDynamicState.Handle;
         }
-        _internal.layout = Layout;
-        _internal.basePipelineHandle = BasePipelineHandle;
-        _internal.basePipelineIndex = BasePipelineIndex;
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (BasePipelineHandle != default)
+        {
+            _internal.basePipelineHandle = BasePipelineHandle;
+        }
+        if (BasePipelineIndex != default)
+        {
+            _internal.basePipelineIndex = BasePipelineIndex;
+        }
         return _internal;
     }
 

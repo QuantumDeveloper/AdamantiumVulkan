@@ -37,23 +37,37 @@ public unsafe partial class PhysicalDeviceImageProcessingPropertiesQCOM : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingPropertiesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingPropertiesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxWeightFilterPhases = MaxWeightFilterPhases;
-        if (MaxWeightFilterDimension != null)
+        if (MaxWeightFilterPhases != default)
+        {
+            _internal.maxWeightFilterPhases = MaxWeightFilterPhases;
+        }
+        if (MaxWeightFilterDimension != default)
         {
             _internal.maxWeightFilterDimension = MaxWeightFilterDimension.ToNative();
         }
-        if (MaxBlockMatchRegion != null)
+        if (MaxBlockMatchRegion != default)
         {
             _internal.maxBlockMatchRegion = MaxBlockMatchRegion.ToNative();
         }
-        if (MaxBoxFilterBlockSize != null)
+        if (MaxBoxFilterBlockSize != default)
         {
             _internal.maxBoxFilterBlockSize = MaxBoxFilterBlockSize.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MaxWeightFilterDimension?.Dispose();
+        MaxBlockMatchRegion?.Dispose();
+        MaxBoxFilterBlockSize?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceImageProcessingPropertiesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingPropertiesQCOM p)
     {

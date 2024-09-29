@@ -49,12 +49,21 @@ public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.setLayoutCount = SetLayoutCount;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (SetLayoutCount != default)
+        {
+            _internal.setLayoutCount = SetLayoutCount;
+        }
         _pSetLayouts.Dispose();
-        if (PSetLayouts != null)
+        if (PSetLayouts != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
             for (int i = 0; i < PSetLayouts.Length; ++i)
@@ -64,9 +73,12 @@ public unsafe partial class PipelineLayoutCreateInfo : QBDisposableObject
             _pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray0);
             _internal.pSetLayouts = _pSetLayouts.Handle;
         }
-        _internal.pushConstantRangeCount = PushConstantRangeCount;
+        if (PushConstantRangeCount != default)
+        {
+            _internal.pushConstantRangeCount = PushConstantRangeCount;
+        }
         _pPushConstantRanges.Dispose();
-        if (PushConstantRanges != null)
+        if (PushConstantRanges != default)
         {
             var struct0 = PushConstantRanges.ToNative();
             _pPushConstantRanges = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPushConstantRange>(struct0);

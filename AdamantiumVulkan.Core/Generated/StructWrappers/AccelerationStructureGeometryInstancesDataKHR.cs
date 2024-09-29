@@ -33,15 +33,27 @@ public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : QBDi
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.arrayOfPointers = ArrayOfPointers;
-        if (Data != null)
+        if (ArrayOfPointers != (uint)default)
+        {
+            _internal.arrayOfPointers = ArrayOfPointers;
+        }
+        if (Data != default)
         {
             _internal.data = Data.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Data?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureGeometryInstancesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR a)
     {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DisplayPlaneCapabilitiesKHR
+public unsafe partial class DisplayPlaneCapabilitiesKHR : QBDisposableObject
 {
     public DisplayPlaneCapabilitiesKHR()
     {
@@ -43,41 +43,57 @@ public unsafe partial class DisplayPlaneCapabilitiesKHR
     public AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR();
-        _internal.supportedAlpha = SupportedAlpha;
-        if (MinSrcPosition != null)
+        if (SupportedAlpha != (uint)default)
+        {
+            _internal.supportedAlpha = SupportedAlpha;
+        }
+        if (MinSrcPosition != default)
         {
             _internal.minSrcPosition = MinSrcPosition.ToNative();
         }
-        if (MaxSrcPosition != null)
+        if (MaxSrcPosition != default)
         {
             _internal.maxSrcPosition = MaxSrcPosition.ToNative();
         }
-        if (MinSrcExtent != null)
+        if (MinSrcExtent != default)
         {
             _internal.minSrcExtent = MinSrcExtent.ToNative();
         }
-        if (MaxSrcExtent != null)
+        if (MaxSrcExtent != default)
         {
             _internal.maxSrcExtent = MaxSrcExtent.ToNative();
         }
-        if (MinDstPosition != null)
+        if (MinDstPosition != default)
         {
             _internal.minDstPosition = MinDstPosition.ToNative();
         }
-        if (MaxDstPosition != null)
+        if (MaxDstPosition != default)
         {
             _internal.maxDstPosition = MaxDstPosition.ToNative();
         }
-        if (MinDstExtent != null)
+        if (MinDstExtent != default)
         {
             _internal.minDstExtent = MinDstExtent.ToNative();
         }
-        if (MaxDstExtent != null)
+        if (MaxDstExtent != default)
         {
             _internal.maxDstExtent = MaxDstExtent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MinSrcPosition?.Dispose();
+        MaxSrcPosition?.Dispose();
+        MinSrcExtent?.Dispose();
+        MaxSrcExtent?.Dispose();
+        MinDstPosition?.Dispose();
+        MaxDstPosition?.Dispose();
+        MinDstExtent?.Dispose();
+        MaxDstExtent?.Dispose();
+    }
+
 
     public static implicit operator DisplayPlaneCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR d)
     {

@@ -31,14 +31,23 @@ public unsafe partial class ImageSubresource2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageSubresource2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageSubresource2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (ImageSubresource != null)
+        if (ImageSubresource != default)
         {
             _internal.imageSubresource = ImageSubresource.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageSubresource?.Dispose();
+    }
+
 
     public static implicit operator ImageSubresource2KHR(AdamantiumVulkan.Core.Interop.VkImageSubresource2KHR i)
     {

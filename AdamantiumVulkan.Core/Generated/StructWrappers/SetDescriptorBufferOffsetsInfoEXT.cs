@@ -53,12 +53,27 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stageFlags = StageFlags;
-        _internal.layout = Layout;
-        _internal.firstSet = FirstSet;
-        _internal.setCount = SetCount;
+        if (StageFlags != (uint)default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (FirstSet != default)
+        {
+            _internal.firstSet = FirstSet;
+        }
+        if (SetCount != default)
+        {
+            _internal.setCount = SetCount;
+        }
         _pBufferIndices.Dispose();
         if (PBufferIndices.HasValue)
         {

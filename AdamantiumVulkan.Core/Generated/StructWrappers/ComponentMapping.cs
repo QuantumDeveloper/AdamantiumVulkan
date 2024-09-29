@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ComponentMapping
+public unsafe partial class ComponentMapping : QBDisposableObject
 {
     public ComponentMapping()
     {
@@ -33,10 +33,22 @@ public unsafe partial class ComponentMapping
     public AdamantiumVulkan.Core.Interop.VkComponentMapping ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkComponentMapping();
-        _internal.r = R;
-        _internal.g = G;
-        _internal.b = B;
-        _internal.a = A;
+        if (R != default)
+        {
+            _internal.r = R;
+        }
+        if (G != default)
+        {
+            _internal.g = G;
+        }
+        if (B != default)
+        {
+            _internal.b = B;
+        }
+        if (A != default)
+        {
+            _internal.a = A;
+        }
         return _internal;
     }
 

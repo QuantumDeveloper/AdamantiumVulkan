@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7945 Column: 1
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7981 Column: 1
 public unsafe partial class VideoSessionKHR
 {
     internal VkVideoSessionKHR_T __Instance;

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceImageSlicedViewOf3DFeaturesEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageSlicedViewOf3D = ImageSlicedViewOf3D;
+        if (ImageSlicedViewOf3D != (uint)default)
+        {
+            _internal.imageSlicedViewOf3D = ImageSlicedViewOf3D;
+        }
         return _internal;
     }
 

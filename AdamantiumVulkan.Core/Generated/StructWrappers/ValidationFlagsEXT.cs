@@ -34,9 +34,15 @@ public unsafe partial class ValidationFlagsEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.disabledValidationCheckCount = DisabledValidationCheckCount;
+        if (DisabledValidationCheckCount != default)
+        {
+            _internal.disabledValidationCheckCount = DisabledValidationCheckCount;
+        }
         _pDisabledValidationChecks.Dispose();
         if (PDisabledValidationChecks != null)
         {

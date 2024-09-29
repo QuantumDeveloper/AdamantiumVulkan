@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265PpsFlags
+public unsafe partial class StdVideoH265PpsFlags : QBDisposableObject
 {
     public StdVideoH265PpsFlags()
     {
@@ -87,37 +87,130 @@ public unsafe partial class StdVideoH265PpsFlags
     public AdamantiumVulkan.Interop.StdVideoH265PpsFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265PpsFlags();
-        _internal.dependent_slice_segments_enabled_flag = Dependent_slice_segments_enabled_flag;
-        _internal.output_flag_present_flag = Output_flag_present_flag;
-        _internal.sign_data_hiding_enabled_flag = Sign_data_hiding_enabled_flag;
-        _internal.cabac_init_present_flag = Cabac_init_present_flag;
-        _internal.constrained_intra_pred_flag = Constrained_intra_pred_flag;
-        _internal.transform_skip_enabled_flag = Transform_skip_enabled_flag;
-        _internal.cu_qp_delta_enabled_flag = Cu_qp_delta_enabled_flag;
-        _internal.pps_slice_chroma_qp_offsets_present_flag = Ps_slice_chroma_qp_offsets_present_flag;
-        _internal.weighted_pred_flag = Weighted_pred_flag;
-        _internal.weighted_bipred_flag = Weighted_bipred_flag;
-        _internal.transquant_bypass_enabled_flag = Transquant_bypass_enabled_flag;
-        _internal.tiles_enabled_flag = Tiles_enabled_flag;
-        _internal.entropy_coding_sync_enabled_flag = Entropy_coding_sync_enabled_flag;
-        _internal.uniform_spacing_flag = Uniform_spacing_flag;
-        _internal.loop_filter_across_tiles_enabled_flag = Loop_filter_across_tiles_enabled_flag;
-        _internal.pps_loop_filter_across_slices_enabled_flag = Ps_loop_filter_across_slices_enabled_flag;
-        _internal.deblocking_filter_control_present_flag = Deblocking_filter_control_present_flag;
-        _internal.deblocking_filter_override_enabled_flag = Deblocking_filter_override_enabled_flag;
-        _internal.pps_deblocking_filter_disabled_flag = Ps_deblocking_filter_disabled_flag;
-        _internal.pps_scaling_list_data_present_flag = Ps_scaling_list_data_present_flag;
-        _internal.lists_modification_present_flag = Lists_modification_present_flag;
-        _internal.slice_segment_header_extension_present_flag = Slice_segment_header_extension_present_flag;
-        _internal.pps_extension_present_flag = Ps_extension_present_flag;
-        _internal.cross_component_prediction_enabled_flag = Cross_component_prediction_enabled_flag;
-        _internal.chroma_qp_offset_list_enabled_flag = Chroma_qp_offset_list_enabled_flag;
-        _internal.pps_curr_pic_ref_enabled_flag = Ps_curr_pic_ref_enabled_flag;
-        _internal.residual_adaptive_colour_transform_enabled_flag = Residual_adaptive_colour_transform_enabled_flag;
-        _internal.pps_slice_act_qp_offsets_present_flag = Ps_slice_act_qp_offsets_present_flag;
-        _internal.pps_palette_predictor_initializers_present_flag = Ps_palette_predictor_initializers_present_flag;
-        _internal.monochrome_palette_flag = Monochrome_palette_flag;
-        _internal.pps_range_extension_flag = Ps_range_extension_flag;
+        if (Dependent_slice_segments_enabled_flag != default)
+        {
+            _internal.dependent_slice_segments_enabled_flag = Dependent_slice_segments_enabled_flag;
+        }
+        if (Output_flag_present_flag != default)
+        {
+            _internal.output_flag_present_flag = Output_flag_present_flag;
+        }
+        if (Sign_data_hiding_enabled_flag != default)
+        {
+            _internal.sign_data_hiding_enabled_flag = Sign_data_hiding_enabled_flag;
+        }
+        if (Cabac_init_present_flag != default)
+        {
+            _internal.cabac_init_present_flag = Cabac_init_present_flag;
+        }
+        if (Constrained_intra_pred_flag != default)
+        {
+            _internal.constrained_intra_pred_flag = Constrained_intra_pred_flag;
+        }
+        if (Transform_skip_enabled_flag != default)
+        {
+            _internal.transform_skip_enabled_flag = Transform_skip_enabled_flag;
+        }
+        if (Cu_qp_delta_enabled_flag != default)
+        {
+            _internal.cu_qp_delta_enabled_flag = Cu_qp_delta_enabled_flag;
+        }
+        if (Ps_slice_chroma_qp_offsets_present_flag != default)
+        {
+            _internal.pps_slice_chroma_qp_offsets_present_flag = Ps_slice_chroma_qp_offsets_present_flag;
+        }
+        if (Weighted_pred_flag != default)
+        {
+            _internal.weighted_pred_flag = Weighted_pred_flag;
+        }
+        if (Weighted_bipred_flag != default)
+        {
+            _internal.weighted_bipred_flag = Weighted_bipred_flag;
+        }
+        if (Transquant_bypass_enabled_flag != default)
+        {
+            _internal.transquant_bypass_enabled_flag = Transquant_bypass_enabled_flag;
+        }
+        if (Tiles_enabled_flag != default)
+        {
+            _internal.tiles_enabled_flag = Tiles_enabled_flag;
+        }
+        if (Entropy_coding_sync_enabled_flag != default)
+        {
+            _internal.entropy_coding_sync_enabled_flag = Entropy_coding_sync_enabled_flag;
+        }
+        if (Uniform_spacing_flag != default)
+        {
+            _internal.uniform_spacing_flag = Uniform_spacing_flag;
+        }
+        if (Loop_filter_across_tiles_enabled_flag != default)
+        {
+            _internal.loop_filter_across_tiles_enabled_flag = Loop_filter_across_tiles_enabled_flag;
+        }
+        if (Ps_loop_filter_across_slices_enabled_flag != default)
+        {
+            _internal.pps_loop_filter_across_slices_enabled_flag = Ps_loop_filter_across_slices_enabled_flag;
+        }
+        if (Deblocking_filter_control_present_flag != default)
+        {
+            _internal.deblocking_filter_control_present_flag = Deblocking_filter_control_present_flag;
+        }
+        if (Deblocking_filter_override_enabled_flag != default)
+        {
+            _internal.deblocking_filter_override_enabled_flag = Deblocking_filter_override_enabled_flag;
+        }
+        if (Ps_deblocking_filter_disabled_flag != default)
+        {
+            _internal.pps_deblocking_filter_disabled_flag = Ps_deblocking_filter_disabled_flag;
+        }
+        if (Ps_scaling_list_data_present_flag != default)
+        {
+            _internal.pps_scaling_list_data_present_flag = Ps_scaling_list_data_present_flag;
+        }
+        if (Lists_modification_present_flag != default)
+        {
+            _internal.lists_modification_present_flag = Lists_modification_present_flag;
+        }
+        if (Slice_segment_header_extension_present_flag != default)
+        {
+            _internal.slice_segment_header_extension_present_flag = Slice_segment_header_extension_present_flag;
+        }
+        if (Ps_extension_present_flag != default)
+        {
+            _internal.pps_extension_present_flag = Ps_extension_present_flag;
+        }
+        if (Cross_component_prediction_enabled_flag != default)
+        {
+            _internal.cross_component_prediction_enabled_flag = Cross_component_prediction_enabled_flag;
+        }
+        if (Chroma_qp_offset_list_enabled_flag != default)
+        {
+            _internal.chroma_qp_offset_list_enabled_flag = Chroma_qp_offset_list_enabled_flag;
+        }
+        if (Ps_curr_pic_ref_enabled_flag != default)
+        {
+            _internal.pps_curr_pic_ref_enabled_flag = Ps_curr_pic_ref_enabled_flag;
+        }
+        if (Residual_adaptive_colour_transform_enabled_flag != default)
+        {
+            _internal.residual_adaptive_colour_transform_enabled_flag = Residual_adaptive_colour_transform_enabled_flag;
+        }
+        if (Ps_slice_act_qp_offsets_present_flag != default)
+        {
+            _internal.pps_slice_act_qp_offsets_present_flag = Ps_slice_act_qp_offsets_present_flag;
+        }
+        if (Ps_palette_predictor_initializers_present_flag != default)
+        {
+            _internal.pps_palette_predictor_initializers_present_flag = Ps_palette_predictor_initializers_present_flag;
+        }
+        if (Monochrome_palette_flag != default)
+        {
+            _internal.monochrome_palette_flag = Monochrome_palette_flag;
+        }
+        if (Ps_range_extension_flag != default)
+        {
+            _internal.pps_range_extension_flag = Ps_range_extension_flag;
+        }
         return _internal;
     }
 

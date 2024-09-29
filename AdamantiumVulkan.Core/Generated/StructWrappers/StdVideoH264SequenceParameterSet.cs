@@ -87,31 +87,94 @@ public unsafe partial class StdVideoH264SequenceParameterSet : QBDisposableObjec
     public AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.profile_idc = Profile_idc;
-        _internal.level_idc = Level_idc;
-        _internal.chroma_format_idc = Chroma_format_idc;
-        _internal.seq_parameter_set_id = Seq_parameter_set_id;
-        _internal.bit_depth_luma_minus8 = Bit_depth_luma_minus8;
-        _internal.bit_depth_chroma_minus8 = Bit_depth_chroma_minus8;
-        _internal.log2_max_frame_num_minus4 = Log2_max_frame_num_minus4;
-        _internal.pic_order_cnt_type = Pic_order_cnt_type;
-        _internal.offset_for_non_ref_pic = Offset_for_non_ref_pic;
-        _internal.offset_for_top_to_bottom_field = Offset_for_top_to_bottom_field;
-        _internal.log2_max_pic_order_cnt_lsb_minus4 = Log2_max_pic_order_cnt_lsb_minus4;
-        _internal.num_ref_frames_in_pic_order_cnt_cycle = Num_ref_frames_in_pic_order_cnt_cycle;
-        _internal.max_num_ref_frames = Max_num_ref_frames;
-        _internal.reserved1 = Reserved1;
-        _internal.pic_width_in_mbs_minus1 = Pic_width_in_mbs_minus1;
-        _internal.pic_height_in_map_units_minus1 = Pic_height_in_map_units_minus1;
-        _internal.frame_crop_left_offset = Frame_crop_left_offset;
-        _internal.frame_crop_right_offset = Frame_crop_right_offset;
-        _internal.frame_crop_top_offset = Frame_crop_top_offset;
-        _internal.frame_crop_bottom_offset = Frame_crop_bottom_offset;
-        _internal.reserved2 = Reserved2;
+        if (Profile_idc != default)
+        {
+            _internal.profile_idc = Profile_idc;
+        }
+        if (Level_idc != default)
+        {
+            _internal.level_idc = Level_idc;
+        }
+        if (Chroma_format_idc != default)
+        {
+            _internal.chroma_format_idc = Chroma_format_idc;
+        }
+        if (Seq_parameter_set_id != default)
+        {
+            _internal.seq_parameter_set_id = Seq_parameter_set_id;
+        }
+        if (Bit_depth_luma_minus8 != default)
+        {
+            _internal.bit_depth_luma_minus8 = Bit_depth_luma_minus8;
+        }
+        if (Bit_depth_chroma_minus8 != default)
+        {
+            _internal.bit_depth_chroma_minus8 = Bit_depth_chroma_minus8;
+        }
+        if (Log2_max_frame_num_minus4 != default)
+        {
+            _internal.log2_max_frame_num_minus4 = Log2_max_frame_num_minus4;
+        }
+        if (Pic_order_cnt_type != default)
+        {
+            _internal.pic_order_cnt_type = Pic_order_cnt_type;
+        }
+        if (Offset_for_non_ref_pic != default)
+        {
+            _internal.offset_for_non_ref_pic = Offset_for_non_ref_pic;
+        }
+        if (Offset_for_top_to_bottom_field != default)
+        {
+            _internal.offset_for_top_to_bottom_field = Offset_for_top_to_bottom_field;
+        }
+        if (Log2_max_pic_order_cnt_lsb_minus4 != default)
+        {
+            _internal.log2_max_pic_order_cnt_lsb_minus4 = Log2_max_pic_order_cnt_lsb_minus4;
+        }
+        if (Num_ref_frames_in_pic_order_cnt_cycle != default)
+        {
+            _internal.num_ref_frames_in_pic_order_cnt_cycle = Num_ref_frames_in_pic_order_cnt_cycle;
+        }
+        if (Max_num_ref_frames != default)
+        {
+            _internal.max_num_ref_frames = Max_num_ref_frames;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
+        if (Pic_width_in_mbs_minus1 != default)
+        {
+            _internal.pic_width_in_mbs_minus1 = Pic_width_in_mbs_minus1;
+        }
+        if (Pic_height_in_map_units_minus1 != default)
+        {
+            _internal.pic_height_in_map_units_minus1 = Pic_height_in_map_units_minus1;
+        }
+        if (Frame_crop_left_offset != default)
+        {
+            _internal.frame_crop_left_offset = Frame_crop_left_offset;
+        }
+        if (Frame_crop_right_offset != default)
+        {
+            _internal.frame_crop_right_offset = Frame_crop_right_offset;
+        }
+        if (Frame_crop_top_offset != default)
+        {
+            _internal.frame_crop_top_offset = Frame_crop_top_offset;
+        }
+        if (Frame_crop_bottom_offset != default)
+        {
+            _internal.frame_crop_bottom_offset = Frame_crop_bottom_offset;
+        }
+        if (Reserved2 != default)
+        {
+            _internal.reserved2 = Reserved2;
+        }
         _pOffsetForRefFrame.Dispose();
         if (POffsetForRefFrame.HasValue)
         {
@@ -119,14 +182,14 @@ public unsafe partial class StdVideoH264SequenceParameterSet : QBDisposableObjec
             _internal.pOffsetForRefFrame = _pOffsetForRefFrame.Handle;
         }
         _pScalingLists.Dispose();
-        if (PScalingLists != null)
+        if (PScalingLists != default)
         {
             var struct1 = PScalingLists.ToNative();
             _pScalingLists = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH264ScalingLists>(struct1);
             _internal.pScalingLists = _pScalingLists.Handle;
         }
         _pSequenceParameterSetVui.Dispose();
-        if (PSequenceParameterSetVui != null)
+        if (PSequenceParameterSetVui != default)
         {
             var struct2 = PSequenceParameterSetVui.ToNative();
             _pSequenceParameterSetVui = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui>(struct2);
@@ -140,6 +203,7 @@ public unsafe partial class StdVideoH264SequenceParameterSet : QBDisposableObjec
         _pOffsetForRefFrame.Dispose();
         _pScalingLists.Dispose();
         _pSequenceParameterSetVui.Dispose();
+        Flags?.Dispose();
     }
 
 

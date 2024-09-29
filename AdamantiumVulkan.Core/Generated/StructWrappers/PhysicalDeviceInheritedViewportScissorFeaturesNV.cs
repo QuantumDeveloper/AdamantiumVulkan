@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceInheritedViewportScissorFeaturesNV : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInheritedViewportScissorFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInheritedViewportScissorFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.inheritedViewportScissor2D = InheritedViewportScissor2D;
+        if (InheritedViewportScissor2D != (uint)default)
+        {
+            _internal.inheritedViewportScissor2D = InheritedViewportScissor2D;
+        }
         return _internal;
     }
 

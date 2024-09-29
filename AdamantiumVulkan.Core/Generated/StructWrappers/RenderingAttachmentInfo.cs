@@ -45,21 +45,51 @@ public unsafe partial class RenderingAttachmentInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageView = ImageView;
-        _internal.imageLayout = ImageLayout;
-        _internal.resolveMode = ResolveMode;
-        _internal.resolveImageView = ResolveImageView;
-        _internal.resolveImageLayout = ResolveImageLayout;
-        _internal.loadOp = LoadOp;
-        _internal.storeOp = StoreOp;
-        if (ClearValue != null)
+        if (ImageView != default)
+        {
+            _internal.imageView = ImageView;
+        }
+        if (ImageLayout != default)
+        {
+            _internal.imageLayout = ImageLayout;
+        }
+        if (ResolveMode != default)
+        {
+            _internal.resolveMode = ResolveMode;
+        }
+        if (ResolveImageView != default)
+        {
+            _internal.resolveImageView = ResolveImageView;
+        }
+        if (ResolveImageLayout != default)
+        {
+            _internal.resolveImageLayout = ResolveImageLayout;
+        }
+        if (LoadOp != default)
+        {
+            _internal.loadOp = LoadOp;
+        }
+        if (StoreOp != default)
+        {
+            _internal.storeOp = StoreOp;
+        }
+        if (ClearValue != default)
         {
             _internal.clearValue = ClearValue.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ClearValue?.Dispose();
+    }
+
 
     public static implicit operator RenderingAttachmentInfo(AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo r)
     {

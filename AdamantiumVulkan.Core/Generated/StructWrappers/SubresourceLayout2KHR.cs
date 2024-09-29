@@ -31,14 +31,23 @@ public unsafe partial class SubresourceLayout2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (SubresourceLayout != null)
+        if (SubresourceLayout != default)
         {
             _internal.subresourceLayout = SubresourceLayout.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SubresourceLayout?.Dispose();
+    }
+
 
     public static implicit operator SubresourceLayout2KHR(AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR s)
     {

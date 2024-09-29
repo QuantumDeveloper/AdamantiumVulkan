@@ -32,10 +32,19 @@ public unsafe partial class PipelineRasterizationStateStreamCreateInfoEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.rasterizationStream = RasterizationStream;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (RasterizationStream != default)
+        {
+            _internal.rasterizationStream = RasterizationStream;
+        }
         return _internal;
     }
 

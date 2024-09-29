@@ -54,12 +54,21 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.vertexBindingDescriptionCount = VertexBindingDescriptionCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (VertexBindingDescriptionCount != default)
+        {
+            _internal.vertexBindingDescriptionCount = VertexBindingDescriptionCount;
+        }
         _pVertexBindingDescriptions.Dispose();
-        if (PVertexBindingDescriptions != null)
+        if (PVertexBindingDescriptions != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription[PVertexBindingDescriptions.Length];
             for (int i = 0; i < PVertexBindingDescriptions.Length; ++i)
@@ -69,9 +78,12 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : QBDisposableObj
             _pVertexBindingDescriptions = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription>(tmpArray0);
             _internal.pVertexBindingDescriptions = _pVertexBindingDescriptions.Handle;
         }
-        _internal.vertexAttributeDescriptionCount = VertexAttributeDescriptionCount;
+        if (VertexAttributeDescriptionCount != default)
+        {
+            _internal.vertexAttributeDescriptionCount = VertexAttributeDescriptionCount;
+        }
         _pVertexAttributeDescriptions.Dispose();
-        if (PVertexAttributeDescriptions != null)
+        if (PVertexAttributeDescriptions != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription[PVertexAttributeDescriptions.Length];
             for (int i = 0; i < PVertexAttributeDescriptions.Length; ++i)

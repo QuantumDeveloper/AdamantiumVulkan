@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross/spirv.h Line: 864 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 866 Column: 14
 public enum SpvGroupOperation : uint
 {
     Reduce = 0,

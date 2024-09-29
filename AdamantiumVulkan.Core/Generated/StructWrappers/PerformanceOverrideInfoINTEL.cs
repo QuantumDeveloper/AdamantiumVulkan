@@ -35,11 +35,23 @@ public unsafe partial class PerformanceOverrideInfoINTEL : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        _internal.enable = Enable;
-        _internal.parameter = Parameter;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Enable != (uint)default)
+        {
+            _internal.enable = Enable;
+        }
+        if (Parameter != default)
+        {
+            _internal.parameter = Parameter;
+        }
         return _internal;
     }
 

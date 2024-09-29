@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderEarlyAndLateFragmentTestsFeature
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderEarlyAndLateFragmentTests = ShaderEarlyAndLateFragmentTests;
+        if (ShaderEarlyAndLateFragmentTests != (uint)default)
+        {
+            _internal.shaderEarlyAndLateFragmentTests = ShaderEarlyAndLateFragmentTests;
+        }
         return _internal;
     }
 

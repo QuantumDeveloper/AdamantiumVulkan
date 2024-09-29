@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceNestedCommandBufferPropertiesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxCommandBufferNestingLevel = MaxCommandBufferNestingLevel;
+        if (MaxCommandBufferNestingLevel != default)
+        {
+            _internal.maxCommandBufferNestingLevel = MaxCommandBufferNestingLevel;
+        }
         return _internal;
     }
 

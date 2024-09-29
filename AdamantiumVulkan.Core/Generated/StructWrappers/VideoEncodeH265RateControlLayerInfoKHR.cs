@@ -41,25 +41,45 @@ public unsafe partial class VideoEncodeH265RateControlLayerInfoKHR : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265RateControlLayerInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265RateControlLayerInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.useMinQp = UseMinQp;
-        if (MinQp != null)
+        if (UseMinQp != (uint)default)
+        {
+            _internal.useMinQp = UseMinQp;
+        }
+        if (MinQp != default)
         {
             _internal.minQp = MinQp.ToNative();
         }
-        _internal.useMaxQp = UseMaxQp;
-        if (MaxQp != null)
+        if (UseMaxQp != (uint)default)
+        {
+            _internal.useMaxQp = UseMaxQp;
+        }
+        if (MaxQp != default)
         {
             _internal.maxQp = MaxQp.ToNative();
         }
-        _internal.useMaxFrameSize = UseMaxFrameSize;
-        if (MaxFrameSize != null)
+        if (UseMaxFrameSize != (uint)default)
+        {
+            _internal.useMaxFrameSize = UseMaxFrameSize;
+        }
+        if (MaxFrameSize != default)
         {
             _internal.maxFrameSize = MaxFrameSize.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MinQp?.Dispose();
+        MaxQp?.Dispose();
+        MaxFrameSize?.Dispose();
+    }
+
 
     public static implicit operator VideoEncodeH265RateControlLayerInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265RateControlLayerInfoKHR v)
     {

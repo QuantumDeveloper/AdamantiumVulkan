@@ -33,10 +33,19 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.coverageReductionMode = CoverageReductionMode;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (CoverageReductionMode != default)
+        {
+            _internal.coverageReductionMode = CoverageReductionMode;
+        }
         return _internal;
     }
 

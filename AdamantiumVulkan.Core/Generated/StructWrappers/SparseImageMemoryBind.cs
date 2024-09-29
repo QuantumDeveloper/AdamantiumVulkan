@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SparseImageMemoryBind
+public unsafe partial class SparseImageMemoryBind : QBDisposableObject
 {
     public SparseImageMemoryBind()
     {
@@ -37,23 +37,40 @@ public unsafe partial class SparseImageMemoryBind
     public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind();
-        if (Subresource != null)
+        if (Subresource != default)
         {
             _internal.subresource = Subresource.ToNative();
         }
-        if (Offset != null)
+        if (Offset != default)
         {
             _internal.offset = Offset.ToNative();
         }
-        if (Extent != null)
+        if (Extent != default)
         {
             _internal.extent = Extent.ToNative();
         }
-        _internal.memory = Memory;
-        _internal.memoryOffset = MemoryOffset;
-        _internal.flags = Flags;
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (MemoryOffset != (ulong)default)
+        {
+            _internal.memoryOffset = MemoryOffset;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Subresource?.Dispose();
+        Offset?.Dispose();
+        Extent?.Dispose();
+    }
+
 
     public static implicit operator SparseImageMemoryBind(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBind s)
     {

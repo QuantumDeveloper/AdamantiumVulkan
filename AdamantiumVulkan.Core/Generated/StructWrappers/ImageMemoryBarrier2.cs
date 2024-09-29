@@ -49,23 +49,59 @@ public unsafe partial class ImageMemoryBarrier2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcStageMask = SrcStageMask;
-        _internal.srcAccessMask = SrcAccessMask;
-        _internal.dstStageMask = DstStageMask;
-        _internal.dstAccessMask = DstAccessMask;
-        _internal.oldLayout = OldLayout;
-        _internal.newLayout = NewLayout;
-        _internal.srcQueueFamilyIndex = SrcQueueFamilyIndex;
-        _internal.dstQueueFamilyIndex = DstQueueFamilyIndex;
-        _internal.image = Image;
-        if (SubresourceRange != null)
+        if (SrcStageMask != (ulong)default)
+        {
+            _internal.srcStageMask = SrcStageMask;
+        }
+        if (SrcAccessMask != (ulong)default)
+        {
+            _internal.srcAccessMask = SrcAccessMask;
+        }
+        if (DstStageMask != (ulong)default)
+        {
+            _internal.dstStageMask = DstStageMask;
+        }
+        if (DstAccessMask != (ulong)default)
+        {
+            _internal.dstAccessMask = DstAccessMask;
+        }
+        if (OldLayout != default)
+        {
+            _internal.oldLayout = OldLayout;
+        }
+        if (NewLayout != default)
+        {
+            _internal.newLayout = NewLayout;
+        }
+        if (SrcQueueFamilyIndex != default)
+        {
+            _internal.srcQueueFamilyIndex = SrcQueueFamilyIndex;
+        }
+        if (DstQueueFamilyIndex != default)
+        {
+            _internal.dstQueueFamilyIndex = DstQueueFamilyIndex;
+        }
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
+        if (SubresourceRange != default)
         {
             _internal.subresourceRange = SubresourceRange.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SubresourceRange?.Dispose();
+    }
+
 
     public static implicit operator ImageMemoryBarrier2(AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2 i)
     {

@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.minImportedHostPointerAlignment = MinImportedHostPointerAlignment;
+        if (MinImportedHostPointerAlignment != (ulong)default)
+        {
+            _internal.minImportedHostPointerAlignment = MinImportedHostPointerAlignment;
+        }
         return _internal;
     }
 

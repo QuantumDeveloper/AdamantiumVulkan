@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2918 Column: 27
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 2952 Column: 27
 public unsafe struct PFN_vkReallocationFunction
 {
     public PFN_vkReallocationFunction(void* ptr)

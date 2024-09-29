@@ -39,13 +39,31 @@ public unsafe partial class PhysicalDeviceRayTracingPipelineFeaturesKHR : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rayTracingPipeline = RayTracingPipeline;
-        _internal.rayTracingPipelineShaderGroupHandleCaptureReplay = RayTracingPipelineShaderGroupHandleCaptureReplay;
-        _internal.rayTracingPipelineShaderGroupHandleCaptureReplayMixed = RayTracingPipelineShaderGroupHandleCaptureReplayMixed;
-        _internal.rayTracingPipelineTraceRaysIndirect = RayTracingPipelineTraceRaysIndirect;
-        _internal.rayTraversalPrimitiveCulling = RayTraversalPrimitiveCulling;
+        if (RayTracingPipeline != (uint)default)
+        {
+            _internal.rayTracingPipeline = RayTracingPipeline;
+        }
+        if (RayTracingPipelineShaderGroupHandleCaptureReplay != (uint)default)
+        {
+            _internal.rayTracingPipelineShaderGroupHandleCaptureReplay = RayTracingPipelineShaderGroupHandleCaptureReplay;
+        }
+        if (RayTracingPipelineShaderGroupHandleCaptureReplayMixed != (uint)default)
+        {
+            _internal.rayTracingPipelineShaderGroupHandleCaptureReplayMixed = RayTracingPipelineShaderGroupHandleCaptureReplayMixed;
+        }
+        if (RayTracingPipelineTraceRaysIndirect != (uint)default)
+        {
+            _internal.rayTracingPipelineTraceRaysIndirect = RayTracingPipelineTraceRaysIndirect;
+        }
+        if (RayTraversalPrimitiveCulling != (uint)default)
+        {
+            _internal.rayTraversalPrimitiveCulling = RayTraversalPrimitiveCulling;
+        }
         return _internal;
     }
 

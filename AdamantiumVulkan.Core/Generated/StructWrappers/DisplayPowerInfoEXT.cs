@@ -30,9 +30,15 @@ public unsafe partial class DisplayPowerInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.powerState = PowerState;
+        if (PowerState != default)
+        {
+            _internal.powerState = PowerState;
+        }
         return _internal;
     }
 

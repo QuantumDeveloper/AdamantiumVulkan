@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class RenderPassSubpassFeedbackInfoEXT
+public unsafe partial class RenderPassSubpassFeedbackInfoEXT : QBDisposableObject
 {
     public RenderPassSubpassFeedbackInfoEXT()
     {
@@ -31,15 +31,21 @@ public unsafe partial class RenderPassSubpassFeedbackInfoEXT
     public AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT();
-        _internal.subpassMergeStatus = SubpassMergeStatus;
-        if(Description != null)
+        if (SubpassMergeStatus != default)
+        {
+            _internal.subpassMergeStatus = SubpassMergeStatus;
+        }
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
-        _internal.postMergeIndex = PostMergeIndex;
+        if (PostMergeIndex != default)
+        {
+            _internal.postMergeIndex = PostMergeIndex;
+        }
         return _internal;
     }
 

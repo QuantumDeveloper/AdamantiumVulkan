@@ -51,19 +51,55 @@ public unsafe partial class PhysicalDeviceOpticalFlowPropertiesNV : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpticalFlowPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpticalFlowPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supportedOutputGridSizes = SupportedOutputGridSizes;
-        _internal.supportedHintGridSizes = SupportedHintGridSizes;
-        _internal.hintSupported = HintSupported;
-        _internal.costSupported = CostSupported;
-        _internal.bidirectionalFlowSupported = BidirectionalFlowSupported;
-        _internal.globalFlowSupported = GlobalFlowSupported;
-        _internal.minWidth = MinWidth;
-        _internal.minHeight = MinHeight;
-        _internal.maxWidth = MaxWidth;
-        _internal.maxHeight = MaxHeight;
-        _internal.maxNumRegionsOfInterest = MaxNumRegionsOfInterest;
+        if (SupportedOutputGridSizes != (uint)default)
+        {
+            _internal.supportedOutputGridSizes = SupportedOutputGridSizes;
+        }
+        if (SupportedHintGridSizes != (uint)default)
+        {
+            _internal.supportedHintGridSizes = SupportedHintGridSizes;
+        }
+        if (HintSupported != (uint)default)
+        {
+            _internal.hintSupported = HintSupported;
+        }
+        if (CostSupported != (uint)default)
+        {
+            _internal.costSupported = CostSupported;
+        }
+        if (BidirectionalFlowSupported != (uint)default)
+        {
+            _internal.bidirectionalFlowSupported = BidirectionalFlowSupported;
+        }
+        if (GlobalFlowSupported != (uint)default)
+        {
+            _internal.globalFlowSupported = GlobalFlowSupported;
+        }
+        if (MinWidth != default)
+        {
+            _internal.minWidth = MinWidth;
+        }
+        if (MinHeight != default)
+        {
+            _internal.minHeight = MinHeight;
+        }
+        if (MaxWidth != default)
+        {
+            _internal.maxWidth = MaxWidth;
+        }
+        if (MaxHeight != default)
+        {
+            _internal.maxHeight = MaxHeight;
+        }
+        if (MaxNumRegionsOfInterest != default)
+        {
+            _internal.maxNumRegionsOfInterest = MaxNumRegionsOfInterest;
+        }
         return _internal;
     }
 

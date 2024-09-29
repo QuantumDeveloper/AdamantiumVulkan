@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsFeaturesNV : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceGeneratedCommands = DeviceGeneratedCommands;
+        if (DeviceGeneratedCommands != (uint)default)
+        {
+            _internal.deviceGeneratedCommands = DeviceGeneratedCommands;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class SubresourceHostMemcpySizeEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSubresourceHostMemcpySizeEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubresourceHostMemcpySizeEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.size = Size;
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

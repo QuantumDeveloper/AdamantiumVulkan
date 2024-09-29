@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 199 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 200 Column: 14
 public enum StructureType : uint
 {
     ApplicationInfo = 0,
@@ -1014,7 +1014,15 @@ public enum StructureType : uint
 
     PhysicalDeviceCoherentMemoryFeaturesAmd = 1000229000,
 
+    PhysicalDeviceDynamicRenderingLocalReadFeaturesKhr = 1000232000,
+
+    RenderingAttachmentLocationInfoKhr = 1000232001,
+
+    RenderingInputAttachmentIndexInfoKhr = 1000232002,
+
     PhysicalDeviceShaderImageAtomicInt64FeaturesExt = 1000234000,
+
+    PhysicalDeviceShaderQuadControlFeaturesKhr = 1000235000,
 
     PhysicalDeviceMemoryBudgetPropertiesExt = 1000237000,
 
@@ -1064,15 +1072,7 @@ public enum StructureType : uint
 
     HeadlessSurfaceCreateInfoExt = 1000256000,
 
-    PhysicalDeviceLineRasterizationFeaturesExt = 1000259000,
-
-    PipelineRasterizationLineStateCreateInfoExt = 1000259001,
-
-    PhysicalDeviceLineRasterizationPropertiesExt = 1000259002,
-
     PhysicalDeviceShaderAtomicFloatFeaturesExt = 1000260000,
-
-    PhysicalDeviceIndexTypeUint8FeaturesExt = 1000265000,
 
     PhysicalDeviceExtendedDynamicStateFeaturesExt = 1000267000,
 
@@ -1111,6 +1111,12 @@ public enum StructureType : uint
     MemoryMapInfoKhr = 1000271000,
 
     MemoryUnmapInfoKhr = 1000271001,
+
+    PhysicalDeviceMapMemoryPlacedFeaturesExt = 1000272000,
+
+    PhysicalDeviceMapMemoryPlacedPropertiesExt = 1000272001,
+
+    MemoryMapPlacedInfoExt = 1000272002,
 
     PhysicalDeviceShaderAtomicFloat2FeaturesExt = 1000273000,
 
@@ -1478,6 +1484,8 @@ public enum StructureType : uint
 
     PhysicalDeviceShaderCorePropertiesArm = 1000415000,
 
+    PhysicalDeviceShaderSubgroupRotateFeaturesKhr = 1000416000,
+
     DeviceQueueShaderCoreControlCreateInfoArm = 1000417000,
 
     PhysicalDeviceSchedulingControlsFeaturesArm = 1000417001,
@@ -1529,6 +1537,8 @@ public enum StructureType : uint
     PipelineIndirectDeviceAddressInfoNv = 1000428002,
 
     PhysicalDeviceLinearColorAttachmentFeaturesNv = 1000430000,
+
+    PhysicalDeviceShaderMaximalReconvergenceFeaturesKhr = 1000434000,
 
     PhysicalDeviceImageCompressionControlSwapchainFeaturesExt = 1000437000,
 
@@ -1678,6 +1688,16 @@ public enum StructureType : uint
 
     MultiviewPerViewRenderAreasRenderPassBeginInfoQcom = 1000510001,
 
+    VideoDecodeAv1CapabilitiesKhr = 1000512000,
+
+    VideoDecodeAv1PictureInfoKhr = 1000512001,
+
+    VideoDecodeAv1ProfileInfoKhr = 1000512003,
+
+    VideoDecodeAv1SessionParametersCreateInfoKhr = 1000512004,
+
+    VideoDecodeAv1DpbSlotInfoKhr = 1000512005,
+
     PhysicalDeviceVideoMaintenance1FeaturesKhr = 1000515000,
 
     VideoInlineQueryInfoKhr = 1000515001,
@@ -1710,6 +1730,8 @@ public enum StructureType : uint
 
     PhysicalDeviceVertexAttributeDivisorFeaturesKhr = 1000190002,
 
+    PhysicalDeviceShaderFloatControls2FeaturesKhr = 1000528000,
+
     ScreenBufferPropertiesQnx = 1000529000,
 
     ScreenBufferFormatPropertiesQnx = 1000529001,
@@ -1722,7 +1744,17 @@ public enum StructureType : uint
 
     PhysicalDeviceLayeredDriverPropertiesMsft = 1000530000,
 
+    PhysicalDeviceIndexTypeUint8FeaturesKhr = 1000265000,
+
+    PhysicalDeviceLineRasterizationFeaturesKhr = 1000259000,
+
+    PipelineRasterizationLineStateCreateInfoKhr = 1000259001,
+
+    PhysicalDeviceLineRasterizationPropertiesKhr = 1000259002,
+
     CalibratedTimestampInfoKhr = 1000184000,
+
+    PhysicalDeviceShaderExpectAssumeFeaturesKhr = 1000544000,
 
     PhysicalDeviceMaintenance6FeaturesKhr = 1000545000,
 
@@ -1743,6 +1775,12 @@ public enum StructureType : uint
     BindDescriptorBufferEmbeddedSamplersInfoExt = 1000545008,
 
     PhysicalDeviceDescriptorPoolOverallocationFeaturesNv = 1000546000,
+
+    PhysicalDeviceRawAccessChainsFeaturesNv = 1000555000,
+
+    PhysicalDeviceShaderAtomicFloat16VectorFeaturesNv = 1000563000,
+
+    PhysicalDeviceRayTracingValidationFeaturesNv = 1000568000,
 
     MaxEnum = 2147483647,
 

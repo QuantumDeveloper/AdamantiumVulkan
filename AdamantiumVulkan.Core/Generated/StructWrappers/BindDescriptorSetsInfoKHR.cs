@@ -52,20 +52,38 @@ public unsafe partial class BindDescriptorSetsInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stageFlags = StageFlags;
-        _internal.layout = Layout;
-        _internal.firstSet = FirstSet;
-        _internal.descriptorSetCount = DescriptorSetCount;
+        if (StageFlags != (uint)default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (FirstSet != default)
+        {
+            _internal.firstSet = FirstSet;
+        }
+        if (DescriptorSetCount != default)
+        {
+            _internal.descriptorSetCount = DescriptorSetCount;
+        }
         _pDescriptorSets.Dispose();
-        if (PDescriptorSets != null)
+        if (PDescriptorSets != default)
         {
             AdamantiumVulkan.Core.Interop.VkDescriptorSet_T struct0 = PDescriptorSets;
             _pDescriptorSets = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorSet_T>(struct0);
             _internal.pDescriptorSets = _pDescriptorSets.Handle;
         }
-        _internal.dynamicOffsetCount = DynamicOffsetCount;
+        if (DynamicOffsetCount != default)
+        {
+            _internal.dynamicOffsetCount = DynamicOffsetCount;
+        }
         _pDynamicOffsets.Dispose();
         if (PDynamicOffsets.HasValue)
         {

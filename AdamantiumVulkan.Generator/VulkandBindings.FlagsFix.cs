@@ -178,6 +178,26 @@ public static partial class VulkanBindings
             .InterpretAsCustomType("VkQueueFlagBits")
             .ChangeType();
 
+        api.Class("VkDescriptorSetLayoutCreateInfo")
+            .WithField("flags")
+            .InterpretAsCustomType("VkDescriptorSetLayoutCreateFlagBits")
+            .ChangeType();
+
+        api.Class("VkGraphicsPipelineCreateInfo")
+            .WithField("flags")
+            .InterpretAsCustomType("VkPipelineCreateFlagBits")
+            .ChangeType();
+        
+        api.Class("VkDescriptorBufferBindingInfoEXT")
+            .WithField("usage")
+            .InterpretAsCustomType("VkBufferUsageFlagBits")
+            .ChangeType();
+        
+        api.Class("VkShaderCreateInfoEXT")
+            .WithField("nextStage")
+            .InterpretAsCustomType("VkShaderStageFlagBits")
+            .ChangeType();
+
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);
     }

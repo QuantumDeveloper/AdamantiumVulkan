@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.representativeFragmentTest = RepresentativeFragmentTest;
+        if (RepresentativeFragmentTest != (uint)default)
+        {
+            _internal.representativeFragmentTest = RepresentativeFragmentTest;
+        }
         return _internal;
     }
 

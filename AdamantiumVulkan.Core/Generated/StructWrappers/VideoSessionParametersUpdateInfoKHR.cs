@@ -31,9 +31,15 @@ public unsafe partial class VideoSessionParametersUpdateInfoKHR : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.updateSequenceCount = UpdateSequenceCount;
+        if (UpdateSequenceCount != default)
+        {
+            _internal.updateSequenceCount = UpdateSequenceCount;
+        }
         return _internal;
     }
 

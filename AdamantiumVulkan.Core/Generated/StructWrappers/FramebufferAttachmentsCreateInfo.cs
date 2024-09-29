@@ -36,11 +36,17 @@ public unsafe partial class FramebufferAttachmentsCreateInfo : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.attachmentImageInfoCount = AttachmentImageInfoCount;
+        if (AttachmentImageInfoCount != default)
+        {
+            _internal.attachmentImageInfoCount = AttachmentImageInfoCount;
+        }
         _pAttachmentImageInfos.Dispose();
-        if (PAttachmentImageInfos != null)
+        if (PAttachmentImageInfos != default)
         {
             var struct0 = PAttachmentImageInfos.ToNative();
             _pAttachmentImageInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo>(struct0);

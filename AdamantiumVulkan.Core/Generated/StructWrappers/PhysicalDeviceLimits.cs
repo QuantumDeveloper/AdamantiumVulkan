@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceLimits
+public unsafe partial class PhysicalDeviceLimits : QBDisposableObject
 {
     public PhysicalDeviceLimits()
     {
@@ -237,148 +237,448 @@ public unsafe partial class PhysicalDeviceLimits
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits();
-        _internal.maxImageDimension1D = MaxImageDimension1D;
-        _internal.maxImageDimension2D = MaxImageDimension2D;
-        _internal.maxImageDimension3D = MaxImageDimension3D;
-        _internal.maxImageDimensionCube = MaxImageDimensionCube;
-        _internal.maxImageArrayLayers = MaxImageArrayLayers;
-        _internal.maxTexelBufferElements = MaxTexelBufferElements;
-        _internal.maxUniformBufferRange = MaxUniformBufferRange;
-        _internal.maxStorageBufferRange = MaxStorageBufferRange;
-        _internal.maxPushConstantsSize = MaxPushConstantsSize;
-        _internal.maxMemoryAllocationCount = MaxMemoryAllocationCount;
-        _internal.maxSamplerAllocationCount = MaxSamplerAllocationCount;
-        _internal.bufferImageGranularity = BufferImageGranularity;
-        _internal.sparseAddressSpaceSize = SparseAddressSpaceSize;
-        _internal.maxBoundDescriptorSets = MaxBoundDescriptorSets;
-        _internal.maxPerStageDescriptorSamplers = MaxPerStageDescriptorSamplers;
-        _internal.maxPerStageDescriptorUniformBuffers = MaxPerStageDescriptorUniformBuffers;
-        _internal.maxPerStageDescriptorStorageBuffers = MaxPerStageDescriptorStorageBuffers;
-        _internal.maxPerStageDescriptorSampledImages = MaxPerStageDescriptorSampledImages;
-        _internal.maxPerStageDescriptorStorageImages = MaxPerStageDescriptorStorageImages;
-        _internal.maxPerStageDescriptorInputAttachments = MaxPerStageDescriptorInputAttachments;
-        _internal.maxPerStageResources = MaxPerStageResources;
-        _internal.maxDescriptorSetSamplers = MaxDescriptorSetSamplers;
-        _internal.maxDescriptorSetUniformBuffers = MaxDescriptorSetUniformBuffers;
-        _internal.maxDescriptorSetUniformBuffersDynamic = MaxDescriptorSetUniformBuffersDynamic;
-        _internal.maxDescriptorSetStorageBuffers = MaxDescriptorSetStorageBuffers;
-        _internal.maxDescriptorSetStorageBuffersDynamic = MaxDescriptorSetStorageBuffersDynamic;
-        _internal.maxDescriptorSetSampledImages = MaxDescriptorSetSampledImages;
-        _internal.maxDescriptorSetStorageImages = MaxDescriptorSetStorageImages;
-        _internal.maxDescriptorSetInputAttachments = MaxDescriptorSetInputAttachments;
-        _internal.maxVertexInputAttributes = MaxVertexInputAttributes;
-        _internal.maxVertexInputBindings = MaxVertexInputBindings;
-        _internal.maxVertexInputAttributeOffset = MaxVertexInputAttributeOffset;
-        _internal.maxVertexInputBindingStride = MaxVertexInputBindingStride;
-        _internal.maxVertexOutputComponents = MaxVertexOutputComponents;
-        _internal.maxTessellationGenerationLevel = MaxTessellationGenerationLevel;
-        _internal.maxTessellationPatchSize = MaxTessellationPatchSize;
-        _internal.maxTessellationControlPerVertexInputComponents = MaxTessellationControlPerVertexInputComponents;
-        _internal.maxTessellationControlPerVertexOutputComponents = MaxTessellationControlPerVertexOutputComponents;
-        _internal.maxTessellationControlPerPatchOutputComponents = MaxTessellationControlPerPatchOutputComponents;
-        _internal.maxTessellationControlTotalOutputComponents = MaxTessellationControlTotalOutputComponents;
-        _internal.maxTessellationEvaluationInputComponents = MaxTessellationEvaluationInputComponents;
-        _internal.maxTessellationEvaluationOutputComponents = MaxTessellationEvaluationOutputComponents;
-        _internal.maxGeometryShaderInvocations = MaxGeometryShaderInvocations;
-        _internal.maxGeometryInputComponents = MaxGeometryInputComponents;
-        _internal.maxGeometryOutputComponents = MaxGeometryOutputComponents;
-        _internal.maxGeometryOutputVertices = MaxGeometryOutputVertices;
-        _internal.maxGeometryTotalOutputComponents = MaxGeometryTotalOutputComponents;
-        _internal.maxFragmentInputComponents = MaxFragmentInputComponents;
-        _internal.maxFragmentOutputAttachments = MaxFragmentOutputAttachments;
-        _internal.maxFragmentDualSrcAttachments = MaxFragmentDualSrcAttachments;
-        _internal.maxFragmentCombinedOutputResources = MaxFragmentCombinedOutputResources;
-        _internal.maxComputeSharedMemorySize = MaxComputeSharedMemorySize;
-        if(MaxComputeWorkGroupCount != null)
+        if (MaxImageDimension1D != default)
+        {
+            _internal.maxImageDimension1D = MaxImageDimension1D;
+        }
+        if (MaxImageDimension2D != default)
+        {
+            _internal.maxImageDimension2D = MaxImageDimension2D;
+        }
+        if (MaxImageDimension3D != default)
+        {
+            _internal.maxImageDimension3D = MaxImageDimension3D;
+        }
+        if (MaxImageDimensionCube != default)
+        {
+            _internal.maxImageDimensionCube = MaxImageDimensionCube;
+        }
+        if (MaxImageArrayLayers != default)
+        {
+            _internal.maxImageArrayLayers = MaxImageArrayLayers;
+        }
+        if (MaxTexelBufferElements != default)
+        {
+            _internal.maxTexelBufferElements = MaxTexelBufferElements;
+        }
+        if (MaxUniformBufferRange != default)
+        {
+            _internal.maxUniformBufferRange = MaxUniformBufferRange;
+        }
+        if (MaxStorageBufferRange != default)
+        {
+            _internal.maxStorageBufferRange = MaxStorageBufferRange;
+        }
+        if (MaxPushConstantsSize != default)
+        {
+            _internal.maxPushConstantsSize = MaxPushConstantsSize;
+        }
+        if (MaxMemoryAllocationCount != default)
+        {
+            _internal.maxMemoryAllocationCount = MaxMemoryAllocationCount;
+        }
+        if (MaxSamplerAllocationCount != default)
+        {
+            _internal.maxSamplerAllocationCount = MaxSamplerAllocationCount;
+        }
+        if (BufferImageGranularity != (ulong)default)
+        {
+            _internal.bufferImageGranularity = BufferImageGranularity;
+        }
+        if (SparseAddressSpaceSize != (ulong)default)
+        {
+            _internal.sparseAddressSpaceSize = SparseAddressSpaceSize;
+        }
+        if (MaxBoundDescriptorSets != default)
+        {
+            _internal.maxBoundDescriptorSets = MaxBoundDescriptorSets;
+        }
+        if (MaxPerStageDescriptorSamplers != default)
+        {
+            _internal.maxPerStageDescriptorSamplers = MaxPerStageDescriptorSamplers;
+        }
+        if (MaxPerStageDescriptorUniformBuffers != default)
+        {
+            _internal.maxPerStageDescriptorUniformBuffers = MaxPerStageDescriptorUniformBuffers;
+        }
+        if (MaxPerStageDescriptorStorageBuffers != default)
+        {
+            _internal.maxPerStageDescriptorStorageBuffers = MaxPerStageDescriptorStorageBuffers;
+        }
+        if (MaxPerStageDescriptorSampledImages != default)
+        {
+            _internal.maxPerStageDescriptorSampledImages = MaxPerStageDescriptorSampledImages;
+        }
+        if (MaxPerStageDescriptorStorageImages != default)
+        {
+            _internal.maxPerStageDescriptorStorageImages = MaxPerStageDescriptorStorageImages;
+        }
+        if (MaxPerStageDescriptorInputAttachments != default)
+        {
+            _internal.maxPerStageDescriptorInputAttachments = MaxPerStageDescriptorInputAttachments;
+        }
+        if (MaxPerStageResources != default)
+        {
+            _internal.maxPerStageResources = MaxPerStageResources;
+        }
+        if (MaxDescriptorSetSamplers != default)
+        {
+            _internal.maxDescriptorSetSamplers = MaxDescriptorSetSamplers;
+        }
+        if (MaxDescriptorSetUniformBuffers != default)
+        {
+            _internal.maxDescriptorSetUniformBuffers = MaxDescriptorSetUniformBuffers;
+        }
+        if (MaxDescriptorSetUniformBuffersDynamic != default)
+        {
+            _internal.maxDescriptorSetUniformBuffersDynamic = MaxDescriptorSetUniformBuffersDynamic;
+        }
+        if (MaxDescriptorSetStorageBuffers != default)
+        {
+            _internal.maxDescriptorSetStorageBuffers = MaxDescriptorSetStorageBuffers;
+        }
+        if (MaxDescriptorSetStorageBuffersDynamic != default)
+        {
+            _internal.maxDescriptorSetStorageBuffersDynamic = MaxDescriptorSetStorageBuffersDynamic;
+        }
+        if (MaxDescriptorSetSampledImages != default)
+        {
+            _internal.maxDescriptorSetSampledImages = MaxDescriptorSetSampledImages;
+        }
+        if (MaxDescriptorSetStorageImages != default)
+        {
+            _internal.maxDescriptorSetStorageImages = MaxDescriptorSetStorageImages;
+        }
+        if (MaxDescriptorSetInputAttachments != default)
+        {
+            _internal.maxDescriptorSetInputAttachments = MaxDescriptorSetInputAttachments;
+        }
+        if (MaxVertexInputAttributes != default)
+        {
+            _internal.maxVertexInputAttributes = MaxVertexInputAttributes;
+        }
+        if (MaxVertexInputBindings != default)
+        {
+            _internal.maxVertexInputBindings = MaxVertexInputBindings;
+        }
+        if (MaxVertexInputAttributeOffset != default)
+        {
+            _internal.maxVertexInputAttributeOffset = MaxVertexInputAttributeOffset;
+        }
+        if (MaxVertexInputBindingStride != default)
+        {
+            _internal.maxVertexInputBindingStride = MaxVertexInputBindingStride;
+        }
+        if (MaxVertexOutputComponents != default)
+        {
+            _internal.maxVertexOutputComponents = MaxVertexOutputComponents;
+        }
+        if (MaxTessellationGenerationLevel != default)
+        {
+            _internal.maxTessellationGenerationLevel = MaxTessellationGenerationLevel;
+        }
+        if (MaxTessellationPatchSize != default)
+        {
+            _internal.maxTessellationPatchSize = MaxTessellationPatchSize;
+        }
+        if (MaxTessellationControlPerVertexInputComponents != default)
+        {
+            _internal.maxTessellationControlPerVertexInputComponents = MaxTessellationControlPerVertexInputComponents;
+        }
+        if (MaxTessellationControlPerVertexOutputComponents != default)
+        {
+            _internal.maxTessellationControlPerVertexOutputComponents = MaxTessellationControlPerVertexOutputComponents;
+        }
+        if (MaxTessellationControlPerPatchOutputComponents != default)
+        {
+            _internal.maxTessellationControlPerPatchOutputComponents = MaxTessellationControlPerPatchOutputComponents;
+        }
+        if (MaxTessellationControlTotalOutputComponents != default)
+        {
+            _internal.maxTessellationControlTotalOutputComponents = MaxTessellationControlTotalOutputComponents;
+        }
+        if (MaxTessellationEvaluationInputComponents != default)
+        {
+            _internal.maxTessellationEvaluationInputComponents = MaxTessellationEvaluationInputComponents;
+        }
+        if (MaxTessellationEvaluationOutputComponents != default)
+        {
+            _internal.maxTessellationEvaluationOutputComponents = MaxTessellationEvaluationOutputComponents;
+        }
+        if (MaxGeometryShaderInvocations != default)
+        {
+            _internal.maxGeometryShaderInvocations = MaxGeometryShaderInvocations;
+        }
+        if (MaxGeometryInputComponents != default)
+        {
+            _internal.maxGeometryInputComponents = MaxGeometryInputComponents;
+        }
+        if (MaxGeometryOutputComponents != default)
+        {
+            _internal.maxGeometryOutputComponents = MaxGeometryOutputComponents;
+        }
+        if (MaxGeometryOutputVertices != default)
+        {
+            _internal.maxGeometryOutputVertices = MaxGeometryOutputVertices;
+        }
+        if (MaxGeometryTotalOutputComponents != default)
+        {
+            _internal.maxGeometryTotalOutputComponents = MaxGeometryTotalOutputComponents;
+        }
+        if (MaxFragmentInputComponents != default)
+        {
+            _internal.maxFragmentInputComponents = MaxFragmentInputComponents;
+        }
+        if (MaxFragmentOutputAttachments != default)
+        {
+            _internal.maxFragmentOutputAttachments = MaxFragmentOutputAttachments;
+        }
+        if (MaxFragmentDualSrcAttachments != default)
+        {
+            _internal.maxFragmentDualSrcAttachments = MaxFragmentDualSrcAttachments;
+        }
+        if (MaxFragmentCombinedOutputResources != default)
+        {
+            _internal.maxFragmentCombinedOutputResources = MaxFragmentCombinedOutputResources;
+        }
+        if (MaxComputeSharedMemorySize != default)
+        {
+            _internal.maxComputeSharedMemorySize = MaxComputeSharedMemorySize;
+        }
+        if (MaxComputeWorkGroupCount != default)
         {
             if (MaxComputeWorkGroupCount.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxComputeWorkGroupCount), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxComputeWorkGroupCount, 3, MaxComputeWorkGroupCount);
         }
-        _internal.maxComputeWorkGroupInvocations = MaxComputeWorkGroupInvocations;
-        if(MaxComputeWorkGroupSize != null)
+        if (MaxComputeWorkGroupInvocations != default)
+        {
+            _internal.maxComputeWorkGroupInvocations = MaxComputeWorkGroupInvocations;
+        }
+        if (MaxComputeWorkGroupSize != default)
         {
             if (MaxComputeWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxComputeWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxComputeWorkGroupSize, 3, MaxComputeWorkGroupSize);
         }
-        _internal.subPixelPrecisionBits = SubPixelPrecisionBits;
-        _internal.subTexelPrecisionBits = SubTexelPrecisionBits;
-        _internal.mipmapPrecisionBits = MipmapPrecisionBits;
-        _internal.maxDrawIndexedIndexValue = MaxDrawIndexedIndexValue;
-        _internal.maxDrawIndirectCount = MaxDrawIndirectCount;
-        _internal.maxSamplerLodBias = MaxSamplerLodBias;
-        _internal.maxSamplerAnisotropy = MaxSamplerAnisotropy;
-        _internal.maxViewports = MaxViewports;
-        if(MaxViewportDimensions != null)
+        if (SubPixelPrecisionBits != default)
+        {
+            _internal.subPixelPrecisionBits = SubPixelPrecisionBits;
+        }
+        if (SubTexelPrecisionBits != default)
+        {
+            _internal.subTexelPrecisionBits = SubTexelPrecisionBits;
+        }
+        if (MipmapPrecisionBits != default)
+        {
+            _internal.mipmapPrecisionBits = MipmapPrecisionBits;
+        }
+        if (MaxDrawIndexedIndexValue != default)
+        {
+            _internal.maxDrawIndexedIndexValue = MaxDrawIndexedIndexValue;
+        }
+        if (MaxDrawIndirectCount != default)
+        {
+            _internal.maxDrawIndirectCount = MaxDrawIndirectCount;
+        }
+        if (MaxSamplerLodBias != default)
+        {
+            _internal.maxSamplerLodBias = MaxSamplerLodBias;
+        }
+        if (MaxSamplerAnisotropy != default)
+        {
+            _internal.maxSamplerAnisotropy = MaxSamplerAnisotropy;
+        }
+        if (MaxViewports != default)
+        {
+            _internal.maxViewports = MaxViewports;
+        }
+        if (MaxViewportDimensions != default)
         {
             if (MaxViewportDimensions.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxViewportDimensions), "Array is out of bounds. Size should not be more than 2");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxViewportDimensions, 2, MaxViewportDimensions);
         }
-        if(ViewportBoundsRange != null)
+        if (ViewportBoundsRange != default)
         {
             if (ViewportBoundsRange.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(ViewportBoundsRange), "Array is out of bounds. Size should not be more than 2");
 
             NativeUtils.PrimitiveToFixedArray(_internal.viewportBoundsRange, 2, ViewportBoundsRange);
         }
-        _internal.viewportSubPixelBits = ViewportSubPixelBits;
-        _internal.minMemoryMapAlignment = MinMemoryMapAlignment;
-        _internal.minTexelBufferOffsetAlignment = MinTexelBufferOffsetAlignment;
-        _internal.minUniformBufferOffsetAlignment = MinUniformBufferOffsetAlignment;
-        _internal.minStorageBufferOffsetAlignment = MinStorageBufferOffsetAlignment;
-        _internal.minTexelOffset = MinTexelOffset;
-        _internal.maxTexelOffset = MaxTexelOffset;
-        _internal.minTexelGatherOffset = MinTexelGatherOffset;
-        _internal.maxTexelGatherOffset = MaxTexelGatherOffset;
-        _internal.minInterpolationOffset = MinInterpolationOffset;
-        _internal.maxInterpolationOffset = MaxInterpolationOffset;
-        _internal.subPixelInterpolationOffsetBits = SubPixelInterpolationOffsetBits;
-        _internal.maxFramebufferWidth = MaxFramebufferWidth;
-        _internal.maxFramebufferHeight = MaxFramebufferHeight;
-        _internal.maxFramebufferLayers = MaxFramebufferLayers;
-        _internal.framebufferColorSampleCounts = FramebufferColorSampleCounts;
-        _internal.framebufferDepthSampleCounts = FramebufferDepthSampleCounts;
-        _internal.framebufferStencilSampleCounts = FramebufferStencilSampleCounts;
-        _internal.framebufferNoAttachmentsSampleCounts = FramebufferNoAttachmentsSampleCounts;
-        _internal.maxColorAttachments = MaxColorAttachments;
-        _internal.sampledImageColorSampleCounts = SampledImageColorSampleCounts;
-        _internal.sampledImageIntegerSampleCounts = SampledImageIntegerSampleCounts;
-        _internal.sampledImageDepthSampleCounts = SampledImageDepthSampleCounts;
-        _internal.sampledImageStencilSampleCounts = SampledImageStencilSampleCounts;
-        _internal.storageImageSampleCounts = StorageImageSampleCounts;
-        _internal.maxSampleMaskWords = MaxSampleMaskWords;
-        _internal.timestampComputeAndGraphics = TimestampComputeAndGraphics;
-        _internal.timestampPeriod = TimestampPeriod;
-        _internal.maxClipDistances = MaxClipDistances;
-        _internal.maxCullDistances = MaxCullDistances;
-        _internal.maxCombinedClipAndCullDistances = MaxCombinedClipAndCullDistances;
-        _internal.discreteQueuePriorities = DiscreteQueuePriorities;
-        if(PointSizeRange != null)
+        if (ViewportSubPixelBits != default)
+        {
+            _internal.viewportSubPixelBits = ViewportSubPixelBits;
+        }
+        if (MinMemoryMapAlignment != default)
+        {
+            _internal.minMemoryMapAlignment = MinMemoryMapAlignment;
+        }
+        if (MinTexelBufferOffsetAlignment != (ulong)default)
+        {
+            _internal.minTexelBufferOffsetAlignment = MinTexelBufferOffsetAlignment;
+        }
+        if (MinUniformBufferOffsetAlignment != (ulong)default)
+        {
+            _internal.minUniformBufferOffsetAlignment = MinUniformBufferOffsetAlignment;
+        }
+        if (MinStorageBufferOffsetAlignment != (ulong)default)
+        {
+            _internal.minStorageBufferOffsetAlignment = MinStorageBufferOffsetAlignment;
+        }
+        if (MinTexelOffset != default)
+        {
+            _internal.minTexelOffset = MinTexelOffset;
+        }
+        if (MaxTexelOffset != default)
+        {
+            _internal.maxTexelOffset = MaxTexelOffset;
+        }
+        if (MinTexelGatherOffset != default)
+        {
+            _internal.minTexelGatherOffset = MinTexelGatherOffset;
+        }
+        if (MaxTexelGatherOffset != default)
+        {
+            _internal.maxTexelGatherOffset = MaxTexelGatherOffset;
+        }
+        if (MinInterpolationOffset != default)
+        {
+            _internal.minInterpolationOffset = MinInterpolationOffset;
+        }
+        if (MaxInterpolationOffset != default)
+        {
+            _internal.maxInterpolationOffset = MaxInterpolationOffset;
+        }
+        if (SubPixelInterpolationOffsetBits != default)
+        {
+            _internal.subPixelInterpolationOffsetBits = SubPixelInterpolationOffsetBits;
+        }
+        if (MaxFramebufferWidth != default)
+        {
+            _internal.maxFramebufferWidth = MaxFramebufferWidth;
+        }
+        if (MaxFramebufferHeight != default)
+        {
+            _internal.maxFramebufferHeight = MaxFramebufferHeight;
+        }
+        if (MaxFramebufferLayers != default)
+        {
+            _internal.maxFramebufferLayers = MaxFramebufferLayers;
+        }
+        if (FramebufferColorSampleCounts != (uint)default)
+        {
+            _internal.framebufferColorSampleCounts = FramebufferColorSampleCounts;
+        }
+        if (FramebufferDepthSampleCounts != (uint)default)
+        {
+            _internal.framebufferDepthSampleCounts = FramebufferDepthSampleCounts;
+        }
+        if (FramebufferStencilSampleCounts != (uint)default)
+        {
+            _internal.framebufferStencilSampleCounts = FramebufferStencilSampleCounts;
+        }
+        if (FramebufferNoAttachmentsSampleCounts != (uint)default)
+        {
+            _internal.framebufferNoAttachmentsSampleCounts = FramebufferNoAttachmentsSampleCounts;
+        }
+        if (MaxColorAttachments != default)
+        {
+            _internal.maxColorAttachments = MaxColorAttachments;
+        }
+        if (SampledImageColorSampleCounts != (uint)default)
+        {
+            _internal.sampledImageColorSampleCounts = SampledImageColorSampleCounts;
+        }
+        if (SampledImageIntegerSampleCounts != (uint)default)
+        {
+            _internal.sampledImageIntegerSampleCounts = SampledImageIntegerSampleCounts;
+        }
+        if (SampledImageDepthSampleCounts != (uint)default)
+        {
+            _internal.sampledImageDepthSampleCounts = SampledImageDepthSampleCounts;
+        }
+        if (SampledImageStencilSampleCounts != (uint)default)
+        {
+            _internal.sampledImageStencilSampleCounts = SampledImageStencilSampleCounts;
+        }
+        if (StorageImageSampleCounts != (uint)default)
+        {
+            _internal.storageImageSampleCounts = StorageImageSampleCounts;
+        }
+        if (MaxSampleMaskWords != default)
+        {
+            _internal.maxSampleMaskWords = MaxSampleMaskWords;
+        }
+        if (TimestampComputeAndGraphics != (uint)default)
+        {
+            _internal.timestampComputeAndGraphics = TimestampComputeAndGraphics;
+        }
+        if (TimestampPeriod != default)
+        {
+            _internal.timestampPeriod = TimestampPeriod;
+        }
+        if (MaxClipDistances != default)
+        {
+            _internal.maxClipDistances = MaxClipDistances;
+        }
+        if (MaxCullDistances != default)
+        {
+            _internal.maxCullDistances = MaxCullDistances;
+        }
+        if (MaxCombinedClipAndCullDistances != default)
+        {
+            _internal.maxCombinedClipAndCullDistances = MaxCombinedClipAndCullDistances;
+        }
+        if (DiscreteQueuePriorities != default)
+        {
+            _internal.discreteQueuePriorities = DiscreteQueuePriorities;
+        }
+        if (PointSizeRange != default)
         {
             if (PointSizeRange.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(PointSizeRange), "Array is out of bounds. Size should not be more than 2");
 
             NativeUtils.PrimitiveToFixedArray(_internal.pointSizeRange, 2, PointSizeRange);
         }
-        if(LineWidthRange != null)
+        if (LineWidthRange != default)
         {
             if (LineWidthRange.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(LineWidthRange), "Array is out of bounds. Size should not be more than 2");
 
             NativeUtils.PrimitiveToFixedArray(_internal.lineWidthRange, 2, LineWidthRange);
         }
-        _internal.pointSizeGranularity = PointSizeGranularity;
-        _internal.lineWidthGranularity = LineWidthGranularity;
-        _internal.strictLines = StrictLines;
-        _internal.standardSampleLocations = StandardSampleLocations;
-        _internal.optimalBufferCopyOffsetAlignment = OptimalBufferCopyOffsetAlignment;
-        _internal.optimalBufferCopyRowPitchAlignment = OptimalBufferCopyRowPitchAlignment;
-        _internal.nonCoherentAtomSize = NonCoherentAtomSize;
+        if (PointSizeGranularity != default)
+        {
+            _internal.pointSizeGranularity = PointSizeGranularity;
+        }
+        if (LineWidthGranularity != default)
+        {
+            _internal.lineWidthGranularity = LineWidthGranularity;
+        }
+        if (StrictLines != (uint)default)
+        {
+            _internal.strictLines = StrictLines;
+        }
+        if (StandardSampleLocations != (uint)default)
+        {
+            _internal.standardSampleLocations = StandardSampleLocations;
+        }
+        if (OptimalBufferCopyOffsetAlignment != (ulong)default)
+        {
+            _internal.optimalBufferCopyOffsetAlignment = OptimalBufferCopyOffsetAlignment;
+        }
+        if (OptimalBufferCopyRowPitchAlignment != (ulong)default)
+        {
+            _internal.optimalBufferCopyRowPitchAlignment = OptimalBufferCopyRowPitchAlignment;
+        }
+        if (NonCoherentAtomSize != (ulong)default)
+        {
+            _internal.nonCoherentAtomSize = NonCoherentAtomSize;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class MemoryType
+public unsafe partial class MemoryType : QBDisposableObject
 {
     public MemoryType()
     {
@@ -29,8 +29,14 @@ public unsafe partial class MemoryType
     public AdamantiumVulkan.Core.Interop.VkMemoryType ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryType();
-        _internal.propertyFlags = PropertyFlags;
-        _internal.heapIndex = HeapIndex;
+        if (PropertyFlags != default)
+        {
+            _internal.propertyFlags = PropertyFlags;
+        }
+        if (HeapIndex != default)
+        {
+            _internal.heapIndex = HeapIndex;
+        }
         return _internal;
     }
 

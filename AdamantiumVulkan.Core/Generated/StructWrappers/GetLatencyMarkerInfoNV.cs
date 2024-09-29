@@ -36,11 +36,17 @@ public unsafe partial class GetLatencyMarkerInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.timingCount = TimingCount;
+        if (TimingCount != default)
+        {
+            _internal.timingCount = TimingCount;
+        }
         _pTimings.Dispose();
-        if (PTimings != null)
+        if (PTimings != default)
         {
             var struct0 = PTimings.ToNative();
             _pTimings = new NativeStruct<AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV>(struct0);

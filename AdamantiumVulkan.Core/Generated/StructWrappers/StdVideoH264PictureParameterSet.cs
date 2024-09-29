@@ -50,21 +50,48 @@ public unsafe partial class StdVideoH264PictureParameterSet : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.seq_parameter_set_id = Seq_parameter_set_id;
-        _internal.pic_parameter_set_id = Pic_parameter_set_id;
-        _internal.num_ref_idx_l0_default_active_minus1 = Num_ref_idx_l0_default_active_minus1;
-        _internal.num_ref_idx_l1_default_active_minus1 = Num_ref_idx_l1_default_active_minus1;
-        _internal.weighted_bipred_idc = Weighted_bipred_idc;
-        _internal.pic_init_qp_minus26 = Pic_init_qp_minus26;
-        _internal.pic_init_qs_minus26 = Pic_init_qs_minus26;
-        _internal.chroma_qp_index_offset = Chroma_qp_index_offset;
-        _internal.second_chroma_qp_index_offset = Second_chroma_qp_index_offset;
+        if (Seq_parameter_set_id != default)
+        {
+            _internal.seq_parameter_set_id = Seq_parameter_set_id;
+        }
+        if (Pic_parameter_set_id != default)
+        {
+            _internal.pic_parameter_set_id = Pic_parameter_set_id;
+        }
+        if (Num_ref_idx_l0_default_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l0_default_active_minus1 = Num_ref_idx_l0_default_active_minus1;
+        }
+        if (Num_ref_idx_l1_default_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l1_default_active_minus1 = Num_ref_idx_l1_default_active_minus1;
+        }
+        if (Weighted_bipred_idc != default)
+        {
+            _internal.weighted_bipred_idc = Weighted_bipred_idc;
+        }
+        if (Pic_init_qp_minus26 != default)
+        {
+            _internal.pic_init_qp_minus26 = Pic_init_qp_minus26;
+        }
+        if (Pic_init_qs_minus26 != default)
+        {
+            _internal.pic_init_qs_minus26 = Pic_init_qs_minus26;
+        }
+        if (Chroma_qp_index_offset != default)
+        {
+            _internal.chroma_qp_index_offset = Chroma_qp_index_offset;
+        }
+        if (Second_chroma_qp_index_offset != default)
+        {
+            _internal.second_chroma_qp_index_offset = Second_chroma_qp_index_offset;
+        }
         _pScalingLists.Dispose();
-        if (PScalingLists != null)
+        if (PScalingLists != default)
         {
             var struct0 = PScalingLists.ToNative();
             _pScalingLists = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH264ScalingLists>(struct0);
@@ -76,6 +103,7 @@ public unsafe partial class StdVideoH264PictureParameterSet : QBDisposableObject
     protected override void UnmanagedDisposeOverride()
     {
         _pScalingLists.Dispose();
+        Flags?.Dispose();
     }
 
 

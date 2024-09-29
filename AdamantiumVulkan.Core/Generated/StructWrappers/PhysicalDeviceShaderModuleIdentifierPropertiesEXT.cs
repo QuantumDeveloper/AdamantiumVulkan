@@ -31,9 +31,12 @@ public unsafe partial class PhysicalDeviceShaderModuleIdentifierPropertiesEXT : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(ShaderModuleIdentifierAlgorithmUUID != null)
+        if (ShaderModuleIdentifierAlgorithmUUID != default)
         {
             if (ShaderModuleIdentifierAlgorithmUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(ShaderModuleIdentifierAlgorithmUUID), "Array is out of bounds. Size should not be more than 16");

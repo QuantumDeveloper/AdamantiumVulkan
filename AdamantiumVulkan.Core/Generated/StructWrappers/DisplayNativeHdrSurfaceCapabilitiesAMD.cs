@@ -31,9 +31,15 @@ public unsafe partial class DisplayNativeHdrSurfaceCapabilitiesAMD : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.localDimmingSupport = LocalDimmingSupport;
+        if (LocalDimmingSupport != (uint)default)
+        {
+            _internal.localDimmingSupport = LocalDimmingSupport;
+        }
         return _internal;
     }
 

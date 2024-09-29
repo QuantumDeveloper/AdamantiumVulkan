@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceShaderDrawParametersFeatures : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderDrawParameters = ShaderDrawParameters;
+        if (ShaderDrawParameters != (uint)default)
+        {
+            _internal.shaderDrawParameters = ShaderDrawParameters;
+        }
         return _internal;
     }
 

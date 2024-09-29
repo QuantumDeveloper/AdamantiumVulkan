@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceVideoFormatInfoKHR : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageUsage = ImageUsage;
+        if (ImageUsage != (uint)default)
+        {
+            _internal.imageUsage = ImageUsage;
+        }
         return _internal;
     }
 

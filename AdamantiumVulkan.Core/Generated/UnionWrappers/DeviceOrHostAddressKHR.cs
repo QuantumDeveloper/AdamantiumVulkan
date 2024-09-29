@@ -29,7 +29,10 @@ public unsafe partial class DeviceOrHostAddressKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR();
-        _internal.deviceAddress = DeviceAddress;
+        if (DeviceAddress != (ulong)default)
+        {
+            _internal.deviceAddress = DeviceAddress;
+        }
         _internal.hostAddress = HostAddress;
         return _internal;
     }

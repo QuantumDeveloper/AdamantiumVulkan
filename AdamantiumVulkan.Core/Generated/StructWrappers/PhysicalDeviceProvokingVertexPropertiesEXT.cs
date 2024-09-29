@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceProvokingVertexPropertiesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.provokingVertexModePerPipeline = ProvokingVertexModePerPipeline;
-        _internal.transformFeedbackPreservesTriangleFanProvokingVertex = TransformFeedbackPreservesTriangleFanProvokingVertex;
+        if (ProvokingVertexModePerPipeline != (uint)default)
+        {
+            _internal.provokingVertexModePerPipeline = ProvokingVertexModePerPipeline;
+        }
+        if (TransformFeedbackPreservesTriangleFanProvokingVertex != (uint)default)
+        {
+            _internal.transformFeedbackPreservesTriangleFanProvokingVertex = TransformFeedbackPreservesTriangleFanProvokingVertex;
+        }
         return _internal;
     }
 

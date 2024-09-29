@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DisplayPlanePropertiesKHR
+public unsafe partial class DisplayPlanePropertiesKHR : QBDisposableObject
 {
     public DisplayPlanePropertiesKHR()
     {
@@ -29,8 +29,14 @@ public unsafe partial class DisplayPlanePropertiesKHR
     public AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR();
-        _internal.currentDisplay = CurrentDisplay;
-        _internal.currentStackIndex = CurrentStackIndex;
+        if (CurrentDisplay != default)
+        {
+            _internal.currentDisplay = CurrentDisplay;
+        }
+        if (CurrentStackIndex != default)
+        {
+            _internal.currentStackIndex = CurrentStackIndex;
+        }
         return _internal;
     }
 

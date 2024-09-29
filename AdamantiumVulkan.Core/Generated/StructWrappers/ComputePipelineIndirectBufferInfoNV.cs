@@ -35,11 +35,23 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceAddress = DeviceAddress;
-        _internal.size = Size;
-        _internal.pipelineDeviceAddressCaptureReplay = PipelineDeviceAddressCaptureReplay;
+        if (DeviceAddress != (ulong)default)
+        {
+            _internal.deviceAddress = DeviceAddress;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (PipelineDeviceAddressCaptureReplay != (ulong)default)
+        {
+            _internal.pipelineDeviceAddressCaptureReplay = PipelineDeviceAddressCaptureReplay;
+        }
         return _internal;
     }
 

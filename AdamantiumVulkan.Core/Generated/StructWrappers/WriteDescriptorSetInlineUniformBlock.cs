@@ -33,9 +33,15 @@ public unsafe partial class WriteDescriptorSetInlineUniformBlock : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlock ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlock();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dataSize = DataSize;
+        if (DataSize != default)
+        {
+            _internal.dataSize = DataSize;
+        }
         _internal.pData = PData;
         return _internal;
     }

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePresentWaitFeaturesKHR : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentWaitFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentWaitFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentWait = PresentWait;
+        if (PresentWait != (uint)default)
+        {
+            _internal.presentWait = PresentWait;
+        }
         return _internal;
     }
 

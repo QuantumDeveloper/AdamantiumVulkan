@@ -30,9 +30,15 @@ public unsafe partial class PipelineRasterizationStateRasterizationOrderAMD : QB
     public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rasterizationOrder = RasterizationOrder;
+        if (RasterizationOrder != default)
+        {
+            _internal.rasterizationOrder = RasterizationOrder;
+        }
         return _internal;
     }
 

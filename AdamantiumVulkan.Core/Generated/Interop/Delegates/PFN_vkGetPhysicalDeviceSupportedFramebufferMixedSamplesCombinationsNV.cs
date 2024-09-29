@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14561 Column: 30
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14820 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
 {
     public PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(void* ptr)

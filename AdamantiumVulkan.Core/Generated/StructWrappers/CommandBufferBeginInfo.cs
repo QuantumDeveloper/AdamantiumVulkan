@@ -35,11 +35,17 @@ public unsafe partial class CommandBufferBeginInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
         _pInheritanceInfo.Dispose();
-        if (PInheritanceInfo != null)
+        if (PInheritanceInfo != default)
         {
             var struct0 = PInheritanceInfo.ToNative();
             _pInheritanceInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(struct0);

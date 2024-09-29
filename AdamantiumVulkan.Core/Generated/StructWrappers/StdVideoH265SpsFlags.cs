@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265SpsFlags
+public unsafe partial class StdVideoH265SpsFlags : QBDisposableObject
 {
     public StdVideoH265SpsFlags()
     {
@@ -85,36 +85,126 @@ public unsafe partial class StdVideoH265SpsFlags
     public AdamantiumVulkan.Interop.StdVideoH265SpsFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265SpsFlags();
-        _internal.sps_temporal_id_nesting_flag = Sps_temporal_id_nesting_flag;
-        _internal.separate_colour_plane_flag = Separate_colour_plane_flag;
-        _internal.conformance_window_flag = Conformance_window_flag;
-        _internal.sps_sub_layer_ordering_info_present_flag = Sps_sub_layer_ordering_info_present_flag;
-        _internal.scaling_list_enabled_flag = Scaling_list_enabled_flag;
-        _internal.sps_scaling_list_data_present_flag = Sps_scaling_list_data_present_flag;
-        _internal.amp_enabled_flag = Amp_enabled_flag;
-        _internal.sample_adaptive_offset_enabled_flag = Sample_adaptive_offset_enabled_flag;
-        _internal.pcm_enabled_flag = Pcm_enabled_flag;
-        _internal.pcm_loop_filter_disabled_flag = Pcm_loop_filter_disabled_flag;
-        _internal.long_term_ref_pics_present_flag = Long_term_ref_pics_present_flag;
-        _internal.sps_temporal_mvp_enabled_flag = Sps_temporal_mvp_enabled_flag;
-        _internal.strong_intra_smoothing_enabled_flag = Strong_intra_smoothing_enabled_flag;
-        _internal.vui_parameters_present_flag = Vui_parameters_present_flag;
-        _internal.sps_extension_present_flag = Sps_extension_present_flag;
-        _internal.sps_range_extension_flag = Sps_range_extension_flag;
-        _internal.transform_skip_rotation_enabled_flag = Transform_skip_rotation_enabled_flag;
-        _internal.transform_skip_context_enabled_flag = Transform_skip_context_enabled_flag;
-        _internal.implicit_rdpcm_enabled_flag = Implicit_rdpcm_enabled_flag;
-        _internal.explicit_rdpcm_enabled_flag = Explicit_rdpcm_enabled_flag;
-        _internal.extended_precision_processing_flag = Extended_precision_processing_flag;
-        _internal.intra_smoothing_disabled_flag = Intra_smoothing_disabled_flag;
-        _internal.high_precision_offsets_enabled_flag = High_precision_offsets_enabled_flag;
-        _internal.persistent_rice_adaptation_enabled_flag = Persistent_rice_adaptation_enabled_flag;
-        _internal.cabac_bypass_alignment_enabled_flag = Cabac_bypass_alignment_enabled_flag;
-        _internal.sps_scc_extension_flag = Sps_scc_extension_flag;
-        _internal.sps_curr_pic_ref_enabled_flag = Sps_curr_pic_ref_enabled_flag;
-        _internal.palette_mode_enabled_flag = Palette_mode_enabled_flag;
-        _internal.sps_palette_predictor_initializers_present_flag = Sps_palette_predictor_initializers_present_flag;
-        _internal.intra_boundary_filtering_disabled_flag = Intra_boundary_filtering_disabled_flag;
+        if (Sps_temporal_id_nesting_flag != default)
+        {
+            _internal.sps_temporal_id_nesting_flag = Sps_temporal_id_nesting_flag;
+        }
+        if (Separate_colour_plane_flag != default)
+        {
+            _internal.separate_colour_plane_flag = Separate_colour_plane_flag;
+        }
+        if (Conformance_window_flag != default)
+        {
+            _internal.conformance_window_flag = Conformance_window_flag;
+        }
+        if (Sps_sub_layer_ordering_info_present_flag != default)
+        {
+            _internal.sps_sub_layer_ordering_info_present_flag = Sps_sub_layer_ordering_info_present_flag;
+        }
+        if (Scaling_list_enabled_flag != default)
+        {
+            _internal.scaling_list_enabled_flag = Scaling_list_enabled_flag;
+        }
+        if (Sps_scaling_list_data_present_flag != default)
+        {
+            _internal.sps_scaling_list_data_present_flag = Sps_scaling_list_data_present_flag;
+        }
+        if (Amp_enabled_flag != default)
+        {
+            _internal.amp_enabled_flag = Amp_enabled_flag;
+        }
+        if (Sample_adaptive_offset_enabled_flag != default)
+        {
+            _internal.sample_adaptive_offset_enabled_flag = Sample_adaptive_offset_enabled_flag;
+        }
+        if (Pcm_enabled_flag != default)
+        {
+            _internal.pcm_enabled_flag = Pcm_enabled_flag;
+        }
+        if (Pcm_loop_filter_disabled_flag != default)
+        {
+            _internal.pcm_loop_filter_disabled_flag = Pcm_loop_filter_disabled_flag;
+        }
+        if (Long_term_ref_pics_present_flag != default)
+        {
+            _internal.long_term_ref_pics_present_flag = Long_term_ref_pics_present_flag;
+        }
+        if (Sps_temporal_mvp_enabled_flag != default)
+        {
+            _internal.sps_temporal_mvp_enabled_flag = Sps_temporal_mvp_enabled_flag;
+        }
+        if (Strong_intra_smoothing_enabled_flag != default)
+        {
+            _internal.strong_intra_smoothing_enabled_flag = Strong_intra_smoothing_enabled_flag;
+        }
+        if (Vui_parameters_present_flag != default)
+        {
+            _internal.vui_parameters_present_flag = Vui_parameters_present_flag;
+        }
+        if (Sps_extension_present_flag != default)
+        {
+            _internal.sps_extension_present_flag = Sps_extension_present_flag;
+        }
+        if (Sps_range_extension_flag != default)
+        {
+            _internal.sps_range_extension_flag = Sps_range_extension_flag;
+        }
+        if (Transform_skip_rotation_enabled_flag != default)
+        {
+            _internal.transform_skip_rotation_enabled_flag = Transform_skip_rotation_enabled_flag;
+        }
+        if (Transform_skip_context_enabled_flag != default)
+        {
+            _internal.transform_skip_context_enabled_flag = Transform_skip_context_enabled_flag;
+        }
+        if (Implicit_rdpcm_enabled_flag != default)
+        {
+            _internal.implicit_rdpcm_enabled_flag = Implicit_rdpcm_enabled_flag;
+        }
+        if (Explicit_rdpcm_enabled_flag != default)
+        {
+            _internal.explicit_rdpcm_enabled_flag = Explicit_rdpcm_enabled_flag;
+        }
+        if (Extended_precision_processing_flag != default)
+        {
+            _internal.extended_precision_processing_flag = Extended_precision_processing_flag;
+        }
+        if (Intra_smoothing_disabled_flag != default)
+        {
+            _internal.intra_smoothing_disabled_flag = Intra_smoothing_disabled_flag;
+        }
+        if (High_precision_offsets_enabled_flag != default)
+        {
+            _internal.high_precision_offsets_enabled_flag = High_precision_offsets_enabled_flag;
+        }
+        if (Persistent_rice_adaptation_enabled_flag != default)
+        {
+            _internal.persistent_rice_adaptation_enabled_flag = Persistent_rice_adaptation_enabled_flag;
+        }
+        if (Cabac_bypass_alignment_enabled_flag != default)
+        {
+            _internal.cabac_bypass_alignment_enabled_flag = Cabac_bypass_alignment_enabled_flag;
+        }
+        if (Sps_scc_extension_flag != default)
+        {
+            _internal.sps_scc_extension_flag = Sps_scc_extension_flag;
+        }
+        if (Sps_curr_pic_ref_enabled_flag != default)
+        {
+            _internal.sps_curr_pic_ref_enabled_flag = Sps_curr_pic_ref_enabled_flag;
+        }
+        if (Palette_mode_enabled_flag != default)
+        {
+            _internal.palette_mode_enabled_flag = Palette_mode_enabled_flag;
+        }
+        if (Sps_palette_predictor_initializers_present_flag != default)
+        {
+            _internal.sps_palette_predictor_initializers_present_flag = Sps_palette_predictor_initializers_present_flag;
+        }
+        if (Intra_boundary_filtering_disabled_flag != default)
+        {
+            _internal.intra_boundary_filtering_disabled_flag = Intra_boundary_filtering_disabled_flag;
+        }
         return _internal;
     }
 

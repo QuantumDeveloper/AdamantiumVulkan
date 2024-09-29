@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross/spirv.h Line: 206 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 206 Column: 14
 public enum SpvStorageClass : uint
 {
     UniformConstant = 0,

@@ -38,11 +38,26 @@ public unsafe partial class AllocationCallbacks : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAllocationCallbacks();
         _internal.pUserData = PUserData;
-        _internal.pfnAllocation = PfnAllocation;
-        _internal.pfnReallocation = PfnReallocation;
-        _internal.pfnFree = PfnFree;
-        _internal.pfnInternalAllocation = PfnInternalAllocation;
-        _internal.pfnInternalFree = PfnInternalFree;
+        if (PfnAllocation != default)
+        {
+            _internal.pfnAllocation = PfnAllocation;
+        }
+        if (PfnReallocation != default)
+        {
+            _internal.pfnReallocation = PfnReallocation;
+        }
+        if (PfnFree != default)
+        {
+            _internal.pfnFree = PfnFree;
+        }
+        if (PfnInternalAllocation != default)
+        {
+            _internal.pfnInternalAllocation = PfnInternalAllocation;
+        }
+        if (PfnInternalFree != default)
+        {
+            _internal.pfnInternalFree = PfnInternalFree;
+        }
         return _internal;
     }
 

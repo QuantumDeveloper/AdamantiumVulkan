@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceVulkanMemoryModelFeatures : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.vulkanMemoryModel = VulkanMemoryModel;
-        _internal.vulkanMemoryModelDeviceScope = VulkanMemoryModelDeviceScope;
-        _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
+        if (VulkanMemoryModel != (uint)default)
+        {
+            _internal.vulkanMemoryModel = VulkanMemoryModel;
+        }
+        if (VulkanMemoryModelDeviceScope != (uint)default)
+        {
+            _internal.vulkanMemoryModelDeviceScope = VulkanMemoryModelDeviceScope;
+        }
+        if (VulkanMemoryModelAvailabilityVisibilityChains != (uint)default)
+        {
+            _internal.vulkanMemoryModelAvailabilityVisibilityChains = VulkanMemoryModelAvailabilityVisibilityChains;
+        }
         return _internal;
     }
 

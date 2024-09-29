@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcHlslRootConstants
+public unsafe partial class SpvcHlslRootConstants : QBDisposableObject
 {
     public SpvcHlslRootConstants()
     {
@@ -33,10 +33,22 @@ public unsafe partial class SpvcHlslRootConstants
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants();
-        _internal.start = Start;
-        _internal.end = End;
-        _internal.binding = Binding;
-        _internal.space = Space;
+        if (Start != default)
+        {
+            _internal.start = Start;
+        }
+        if (End != default)
+        {
+            _internal.end = End;
+        }
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Space != default)
+        {
+            _internal.space = Space;
+        }
         return _internal;
     }
 

@@ -38,11 +38,17 @@ public unsafe partial class VideoEncodeH265NaluSliceSegmentInfoKHR : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.constantQp = ConstantQp;
+        if (ConstantQp != default)
+        {
+            _internal.constantQp = ConstantQp;
+        }
         _pStdSliceSegmentHeader.Dispose();
-        if (PStdSliceSegmentHeader != null)
+        if (PStdSliceSegmentHeader != default)
         {
             var struct0 = PStdSliceSegmentHeader.ToNative();
             _pStdSliceSegmentHeader = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader>(struct0);

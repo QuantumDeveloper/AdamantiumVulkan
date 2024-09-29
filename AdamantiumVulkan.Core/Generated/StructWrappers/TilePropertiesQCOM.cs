@@ -35,22 +35,33 @@ public unsafe partial class TilePropertiesQCOM : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (TileSize != null)
+        if (TileSize != default)
         {
             _internal.tileSize = TileSize.ToNative();
         }
-        if (ApronSize != null)
+        if (ApronSize != default)
         {
             _internal.apronSize = ApronSize.ToNative();
         }
-        if (Origin != null)
+        if (Origin != default)
         {
             _internal.origin = Origin.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        TileSize?.Dispose();
+        ApronSize?.Dispose();
+        Origin?.Dispose();
+    }
+
 
     public static implicit operator TilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM t)
     {

@@ -37,12 +37,27 @@ public unsafe partial class MemoryMapInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryMapInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryMapInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.memory = Memory;
-        _internal.offset = Offset;
-        _internal.size = Size;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

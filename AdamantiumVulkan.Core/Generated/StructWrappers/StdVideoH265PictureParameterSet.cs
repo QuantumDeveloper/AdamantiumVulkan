@@ -103,76 +103,163 @@ public unsafe partial class StdVideoH265PictureParameterSet : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoH265PictureParameterSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265PictureParameterSet();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.pps_pic_parameter_set_id = Ps_pic_parameter_set_id;
-        _internal.pps_seq_parameter_set_id = Ps_seq_parameter_set_id;
-        _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
-        _internal.num_extra_slice_header_bits = Num_extra_slice_header_bits;
-        _internal.num_ref_idx_l0_default_active_minus1 = Num_ref_idx_l0_default_active_minus1;
-        _internal.num_ref_idx_l1_default_active_minus1 = Num_ref_idx_l1_default_active_minus1;
-        _internal.init_qp_minus26 = Init_qp_minus26;
-        _internal.diff_cu_qp_delta_depth = Diff_cu_qp_delta_depth;
-        _internal.pps_cb_qp_offset = Ps_cb_qp_offset;
-        _internal.pps_cr_qp_offset = Ps_cr_qp_offset;
-        _internal.pps_beta_offset_div2 = Ps_beta_offset_div2;
-        _internal.pps_tc_offset_div2 = Ps_tc_offset_div2;
-        _internal.log2_parallel_merge_level_minus2 = Log2_parallel_merge_level_minus2;
-        _internal.log2_max_transform_skip_block_size_minus2 = Log2_max_transform_skip_block_size_minus2;
-        _internal.diff_cu_chroma_qp_offset_depth = Diff_cu_chroma_qp_offset_depth;
-        _internal.chroma_qp_offset_list_len_minus1 = Chroma_qp_offset_list_len_minus1;
-        if(Cb_qp_offset_list != null)
+        if (Ps_pic_parameter_set_id != default)
+        {
+            _internal.pps_pic_parameter_set_id = Ps_pic_parameter_set_id;
+        }
+        if (Ps_seq_parameter_set_id != default)
+        {
+            _internal.pps_seq_parameter_set_id = Ps_seq_parameter_set_id;
+        }
+        if (Sps_video_parameter_set_id != default)
+        {
+            _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
+        }
+        if (Num_extra_slice_header_bits != default)
+        {
+            _internal.num_extra_slice_header_bits = Num_extra_slice_header_bits;
+        }
+        if (Num_ref_idx_l0_default_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l0_default_active_minus1 = Num_ref_idx_l0_default_active_minus1;
+        }
+        if (Num_ref_idx_l1_default_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l1_default_active_minus1 = Num_ref_idx_l1_default_active_minus1;
+        }
+        if (Init_qp_minus26 != default)
+        {
+            _internal.init_qp_minus26 = Init_qp_minus26;
+        }
+        if (Diff_cu_qp_delta_depth != default)
+        {
+            _internal.diff_cu_qp_delta_depth = Diff_cu_qp_delta_depth;
+        }
+        if (Ps_cb_qp_offset != default)
+        {
+            _internal.pps_cb_qp_offset = Ps_cb_qp_offset;
+        }
+        if (Ps_cr_qp_offset != default)
+        {
+            _internal.pps_cr_qp_offset = Ps_cr_qp_offset;
+        }
+        if (Ps_beta_offset_div2 != default)
+        {
+            _internal.pps_beta_offset_div2 = Ps_beta_offset_div2;
+        }
+        if (Ps_tc_offset_div2 != default)
+        {
+            _internal.pps_tc_offset_div2 = Ps_tc_offset_div2;
+        }
+        if (Log2_parallel_merge_level_minus2 != default)
+        {
+            _internal.log2_parallel_merge_level_minus2 = Log2_parallel_merge_level_minus2;
+        }
+        if (Log2_max_transform_skip_block_size_minus2 != default)
+        {
+            _internal.log2_max_transform_skip_block_size_minus2 = Log2_max_transform_skip_block_size_minus2;
+        }
+        if (Diff_cu_chroma_qp_offset_depth != default)
+        {
+            _internal.diff_cu_chroma_qp_offset_depth = Diff_cu_chroma_qp_offset_depth;
+        }
+        if (Chroma_qp_offset_list_len_minus1 != default)
+        {
+            _internal.chroma_qp_offset_list_len_minus1 = Chroma_qp_offset_list_len_minus1;
+        }
+        if (Cb_qp_offset_list != default)
         {
             if (Cb_qp_offset_list.Length > 6)
                 throw new System.ArgumentOutOfRangeException(nameof(Cb_qp_offset_list), "Array is out of bounds. Size should not be more than 6");
 
             NativeUtils.StringToFixedArray(_internal.cb_qp_offset_list, 6, Cb_qp_offset_list, false);
         }
-        if(Cr_qp_offset_list != null)
+        if (Cr_qp_offset_list != default)
         {
             if (Cr_qp_offset_list.Length > 6)
                 throw new System.ArgumentOutOfRangeException(nameof(Cr_qp_offset_list), "Array is out of bounds. Size should not be more than 6");
 
             NativeUtils.StringToFixedArray(_internal.cr_qp_offset_list, 6, Cr_qp_offset_list, false);
         }
-        _internal.log2_sao_offset_scale_luma = Log2_sao_offset_scale_luma;
-        _internal.log2_sao_offset_scale_chroma = Log2_sao_offset_scale_chroma;
-        _internal.pps_act_y_qp_offset_plus5 = Ps_act_y_qp_offset_plus5;
-        _internal.pps_act_cb_qp_offset_plus5 = Ps_act_cb_qp_offset_plus5;
-        _internal.pps_act_cr_qp_offset_plus3 = Ps_act_cr_qp_offset_plus3;
-        _internal.pps_num_palette_predictor_initializers = Ps_num_palette_predictor_initializers;
-        _internal.luma_bit_depth_entry_minus8 = Luma_bit_depth_entry_minus8;
-        _internal.chroma_bit_depth_entry_minus8 = Chroma_bit_depth_entry_minus8;
-        _internal.num_tile_columns_minus1 = Num_tile_columns_minus1;
-        _internal.num_tile_rows_minus1 = Num_tile_rows_minus1;
-        _internal.reserved1 = Reserved1;
-        _internal.reserved2 = Reserved2;
-        if(Column_width_minus1 != null)
+        if (Log2_sao_offset_scale_luma != default)
+        {
+            _internal.log2_sao_offset_scale_luma = Log2_sao_offset_scale_luma;
+        }
+        if (Log2_sao_offset_scale_chroma != default)
+        {
+            _internal.log2_sao_offset_scale_chroma = Log2_sao_offset_scale_chroma;
+        }
+        if (Ps_act_y_qp_offset_plus5 != default)
+        {
+            _internal.pps_act_y_qp_offset_plus5 = Ps_act_y_qp_offset_plus5;
+        }
+        if (Ps_act_cb_qp_offset_plus5 != default)
+        {
+            _internal.pps_act_cb_qp_offset_plus5 = Ps_act_cb_qp_offset_plus5;
+        }
+        if (Ps_act_cr_qp_offset_plus3 != default)
+        {
+            _internal.pps_act_cr_qp_offset_plus3 = Ps_act_cr_qp_offset_plus3;
+        }
+        if (Ps_num_palette_predictor_initializers != default)
+        {
+            _internal.pps_num_palette_predictor_initializers = Ps_num_palette_predictor_initializers;
+        }
+        if (Luma_bit_depth_entry_minus8 != default)
+        {
+            _internal.luma_bit_depth_entry_minus8 = Luma_bit_depth_entry_minus8;
+        }
+        if (Chroma_bit_depth_entry_minus8 != default)
+        {
+            _internal.chroma_bit_depth_entry_minus8 = Chroma_bit_depth_entry_minus8;
+        }
+        if (Num_tile_columns_minus1 != default)
+        {
+            _internal.num_tile_columns_minus1 = Num_tile_columns_minus1;
+        }
+        if (Num_tile_rows_minus1 != default)
+        {
+            _internal.num_tile_rows_minus1 = Num_tile_rows_minus1;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
+        if (Reserved2 != default)
+        {
+            _internal.reserved2 = Reserved2;
+        }
+        if (Column_width_minus1 != default)
         {
             if (Column_width_minus1.Length > 19)
                 throw new System.ArgumentOutOfRangeException(nameof(Column_width_minus1), "Array is out of bounds. Size should not be more than 19");
 
             NativeUtils.PrimitiveToFixedArray(_internal.column_width_minus1, 19, Column_width_minus1);
         }
-        if(Row_height_minus1 != null)
+        if (Row_height_minus1 != default)
         {
             if (Row_height_minus1.Length > 21)
                 throw new System.ArgumentOutOfRangeException(nameof(Row_height_minus1), "Array is out of bounds. Size should not be more than 21");
 
             NativeUtils.PrimitiveToFixedArray(_internal.row_height_minus1, 21, Row_height_minus1);
         }
-        _internal.reserved3 = Reserved3;
+        if (Reserved3 != default)
+        {
+            _internal.reserved3 = Reserved3;
+        }
         _pScalingLists.Dispose();
-        if (PScalingLists != null)
+        if (PScalingLists != default)
         {
             var struct0 = PScalingLists.ToNative();
             _pScalingLists = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>(struct0);
             _internal.pScalingLists = _pScalingLists.Handle;
         }
         _pPredictorPaletteEntries.Dispose();
-        if (PredictorPaletteEntries != null)
+        if (PredictorPaletteEntries != default)
         {
             var struct1 = PredictorPaletteEntries.ToNative();
             _pPredictorPaletteEntries = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries>(struct1);
@@ -185,6 +272,7 @@ public unsafe partial class StdVideoH265PictureParameterSet : QBDisposableObject
     {
         _pScalingLists.Dispose();
         _pPredictorPaletteEntries.Dispose();
+        Flags?.Dispose();
     }
 
 

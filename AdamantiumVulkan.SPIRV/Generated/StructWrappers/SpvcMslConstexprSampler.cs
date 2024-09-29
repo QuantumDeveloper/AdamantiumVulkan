@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcMslConstexprSampler
+public unsafe partial class SpvcMslConstexprSampler : QBDisposableObject
 {
     public SpvcMslConstexprSampler()
     {
@@ -65,21 +65,66 @@ public unsafe partial class SpvcMslConstexprSampler
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler();
-        _internal.coord = Coord;
-        _internal.min_filter = Min_filter;
-        _internal.mag_filter = Mag_filter;
-        _internal.mip_filter = Mip_filter;
-        _internal.s_address = S_address;
-        _internal.t_address = T_address;
-        _internal.r_address = R_address;
-        _internal.compare_func = Compare_func;
-        _internal.border_color = Border_color;
-        _internal.lod_clamp_min = Lod_clamp_min;
-        _internal.lod_clamp_max = Lod_clamp_max;
-        _internal.max_anisotropy = Max_anisotropy;
-        _internal.compare_enable = Compare_enable;
-        _internal.lod_clamp_enable = Lod_clamp_enable;
-        _internal.anisotropy_enable = Anisotropy_enable;
+        if (Coord != default)
+        {
+            _internal.coord = Coord;
+        }
+        if (Min_filter != default)
+        {
+            _internal.min_filter = Min_filter;
+        }
+        if (Mag_filter != default)
+        {
+            _internal.mag_filter = Mag_filter;
+        }
+        if (Mip_filter != default)
+        {
+            _internal.mip_filter = Mip_filter;
+        }
+        if (S_address != default)
+        {
+            _internal.s_address = S_address;
+        }
+        if (T_address != default)
+        {
+            _internal.t_address = T_address;
+        }
+        if (R_address != default)
+        {
+            _internal.r_address = R_address;
+        }
+        if (Compare_func != default)
+        {
+            _internal.compare_func = Compare_func;
+        }
+        if (Border_color != default)
+        {
+            _internal.border_color = Border_color;
+        }
+        if (Lod_clamp_min != default)
+        {
+            _internal.lod_clamp_min = Lod_clamp_min;
+        }
+        if (Lod_clamp_max != default)
+        {
+            _internal.lod_clamp_max = Lod_clamp_max;
+        }
+        if (Max_anisotropy != default)
+        {
+            _internal.max_anisotropy = Max_anisotropy;
+        }
+        if (Compare_enable != (bool)default)
+        {
+            _internal.compare_enable = Compare_enable;
+        }
+        if (Lod_clamp_enable != (bool)default)
+        {
+            _internal.lod_clamp_enable = Lod_clamp_enable;
+        }
+        if (Anisotropy_enable != (bool)default)
+        {
+            _internal.anisotropy_enable = Anisotropy_enable;
+        }
         return _internal;
     }
 

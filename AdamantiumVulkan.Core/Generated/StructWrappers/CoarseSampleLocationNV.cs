@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class CoarseSampleLocationNV
+public unsafe partial class CoarseSampleLocationNV : QBDisposableObject
 {
     public CoarseSampleLocationNV()
     {
@@ -31,9 +31,18 @@ public unsafe partial class CoarseSampleLocationNV
     public AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV();
-        _internal.pixelX = PixelX;
-        _internal.pixelY = PixelY;
-        _internal.sample = Sample;
+        if (PixelX != default)
+        {
+            _internal.pixelX = PixelX;
+        }
+        if (PixelY != default)
+        {
+            _internal.pixelY = PixelY;
+        }
+        if (Sample != default)
+        {
+            _internal.sample = Sample;
+        }
         return _internal;
     }
 

@@ -37,12 +37,24 @@ public unsafe partial class PerformanceValueDataINTEL : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL();
-        _internal.value32 = Value32;
-        _internal.value64 = Value64;
-        _internal.valueFloat = ValueFloat;
-        _internal.valueBool = ValueBool;
+        if (Value32 != default)
+        {
+            _internal.value32 = Value32;
+        }
+        if (Value64 != default)
+        {
+            _internal.value64 = Value64;
+        }
+        if (ValueFloat != default)
+        {
+            _internal.valueFloat = ValueFloat;
+        }
+        if (ValueBool != (uint)default)
+        {
+            _internal.valueBool = ValueBool;
+        }
         _valueString.Dispose();
-        if (ValueString != null)
+        if (ValueString != default)
         {
             _valueString = new MarshaledString(ValueString, false);
             _internal.valueString = (sbyte*)_valueString;

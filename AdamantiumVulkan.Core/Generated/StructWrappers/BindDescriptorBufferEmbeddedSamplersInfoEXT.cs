@@ -35,11 +35,23 @@ public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stageFlags = StageFlags;
-        _internal.layout = Layout;
-        _internal.set = Set;
+        if (StageFlags != (uint)default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (Set != default)
+        {
+            _internal.set = Set;
+        }
         return _internal;
     }
 

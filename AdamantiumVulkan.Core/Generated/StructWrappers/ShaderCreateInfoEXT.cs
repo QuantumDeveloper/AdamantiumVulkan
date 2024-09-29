@@ -60,7 +60,7 @@ public unsafe partial class ShaderCreateInfoEXT : QBDisposableObject
     public void* PNext { get; set; }
     public VkShaderCreateFlagsEXT Flags { get; set; }
     public ShaderStageFlagBits Stage { get; set; }
-    public VkShaderStageFlags NextStage { get; set; }
+    public ShaderStageFlagBits NextStage { get; set; }
     public ShaderCodeTypeEXT CodeType { get; set; }
     public ulong CodeSize { get; set; }
     public byte[] PCode { get; set; }
@@ -74,15 +74,33 @@ public unsafe partial class ShaderCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.stage = Stage;
-        _internal.nextStage = NextStage;
-        _internal.codeType = CodeType;
-        _internal.codeSize = CodeSize;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Stage != default)
+        {
+            _internal.stage = Stage;
+        }
+        if (NextStage != default)
+        {
+            _internal.nextStage = NextStage;
+        }
+        if (CodeType != default)
+        {
+            _internal.codeType = CodeType;
+        }
+        if (CodeSize != default)
+        {
+            _internal.codeSize = CodeSize;
+        }
         _pCode.Dispose();
-        if (PCode != null)
+        if (PCode != default)
         {
             var tmpArray0 = new byte[PCode.Length];
             for (int i = 0; i < PCode.Length; ++i)
@@ -93,14 +111,17 @@ public unsafe partial class ShaderCreateInfoEXT : QBDisposableObject
             _internal.pCode = _pCode.Handle;
         }
         _pName.Dispose();
-        if (PName != null)
+        if (PName != default)
         {
             _pName = new MarshaledString(PName, false);
             _internal.pName = (sbyte*)_pName;
         }
-        _internal.setLayoutCount = SetLayoutCount;
+        if (SetLayoutCount != default)
+        {
+            _internal.setLayoutCount = SetLayoutCount;
+        }
         _pSetLayouts.Dispose();
-        if (PSetLayouts != null)
+        if (PSetLayouts != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
             for (int i = 0; i < PSetLayouts.Length; ++i)
@@ -110,9 +131,12 @@ public unsafe partial class ShaderCreateInfoEXT : QBDisposableObject
             _pSetLayouts = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>(tmpArray1);
             _internal.pSetLayouts = _pSetLayouts.Handle;
         }
-        _internal.pushConstantRangeCount = PushConstantRangeCount;
+        if (PushConstantRangeCount != default)
+        {
+            _internal.pushConstantRangeCount = PushConstantRangeCount;
+        }
         _pPushConstantRanges.Dispose();
-        if (PushConstantRanges != null)
+        if (PushConstantRanges != default)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkPushConstantRange[PushConstantRanges.Length];
             for (int i = 0; i < PushConstantRanges.Length; ++i)
@@ -123,7 +147,7 @@ public unsafe partial class ShaderCreateInfoEXT : QBDisposableObject
             _internal.pPushConstantRanges = _pPushConstantRanges.Handle;
         }
         _pSpecializationInfo.Dispose();
-        if (PSpecializationInfo != null)
+        if (PSpecializationInfo != default)
         {
             var struct0 = PSpecializationInfo.ToNative();
             _pSpecializationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(struct0);

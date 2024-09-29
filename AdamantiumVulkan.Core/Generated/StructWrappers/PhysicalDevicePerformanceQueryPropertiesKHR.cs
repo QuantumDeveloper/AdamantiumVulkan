@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePerformanceQueryPropertiesKHR : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerformanceQueryPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerformanceQueryPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.allowCommandBufferQueryCopies = AllowCommandBufferQueryCopies;
+        if (AllowCommandBufferQueryCopies != (uint)default)
+        {
+            _internal.allowCommandBufferQueryCopies = AllowCommandBufferQueryCopies;
+        }
         return _internal;
     }
 

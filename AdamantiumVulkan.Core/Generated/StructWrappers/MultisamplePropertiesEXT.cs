@@ -30,14 +30,23 @@ public unsafe partial class MultisamplePropertiesEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (MaxSampleLocationGridSize != null)
+        if (MaxSampleLocationGridSize != default)
         {
             _internal.maxSampleLocationGridSize = MaxSampleLocationGridSize.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MaxSampleLocationGridSize?.Dispose();
+    }
+
 
     public static implicit operator MultisamplePropertiesEXT(AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT m)
     {

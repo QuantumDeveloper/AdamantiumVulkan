@@ -53,20 +53,59 @@ public unsafe partial class PhysicalDeviceShaderAtomicFloat2FeaturesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderBufferFloat16Atomics = ShaderBufferFloat16Atomics;
-        _internal.shaderBufferFloat16AtomicAdd = ShaderBufferFloat16AtomicAdd;
-        _internal.shaderBufferFloat16AtomicMinMax = ShaderBufferFloat16AtomicMinMax;
-        _internal.shaderBufferFloat32AtomicMinMax = ShaderBufferFloat32AtomicMinMax;
-        _internal.shaderBufferFloat64AtomicMinMax = ShaderBufferFloat64AtomicMinMax;
-        _internal.shaderSharedFloat16Atomics = ShaderSharedFloat16Atomics;
-        _internal.shaderSharedFloat16AtomicAdd = ShaderSharedFloat16AtomicAdd;
-        _internal.shaderSharedFloat16AtomicMinMax = ShaderSharedFloat16AtomicMinMax;
-        _internal.shaderSharedFloat32AtomicMinMax = ShaderSharedFloat32AtomicMinMax;
-        _internal.shaderSharedFloat64AtomicMinMax = ShaderSharedFloat64AtomicMinMax;
-        _internal.shaderImageFloat32AtomicMinMax = ShaderImageFloat32AtomicMinMax;
-        _internal.sparseImageFloat32AtomicMinMax = SparseImageFloat32AtomicMinMax;
+        if (ShaderBufferFloat16Atomics != (uint)default)
+        {
+            _internal.shaderBufferFloat16Atomics = ShaderBufferFloat16Atomics;
+        }
+        if (ShaderBufferFloat16AtomicAdd != (uint)default)
+        {
+            _internal.shaderBufferFloat16AtomicAdd = ShaderBufferFloat16AtomicAdd;
+        }
+        if (ShaderBufferFloat16AtomicMinMax != (uint)default)
+        {
+            _internal.shaderBufferFloat16AtomicMinMax = ShaderBufferFloat16AtomicMinMax;
+        }
+        if (ShaderBufferFloat32AtomicMinMax != (uint)default)
+        {
+            _internal.shaderBufferFloat32AtomicMinMax = ShaderBufferFloat32AtomicMinMax;
+        }
+        if (ShaderBufferFloat64AtomicMinMax != (uint)default)
+        {
+            _internal.shaderBufferFloat64AtomicMinMax = ShaderBufferFloat64AtomicMinMax;
+        }
+        if (ShaderSharedFloat16Atomics != (uint)default)
+        {
+            _internal.shaderSharedFloat16Atomics = ShaderSharedFloat16Atomics;
+        }
+        if (ShaderSharedFloat16AtomicAdd != (uint)default)
+        {
+            _internal.shaderSharedFloat16AtomicAdd = ShaderSharedFloat16AtomicAdd;
+        }
+        if (ShaderSharedFloat16AtomicMinMax != (uint)default)
+        {
+            _internal.shaderSharedFloat16AtomicMinMax = ShaderSharedFloat16AtomicMinMax;
+        }
+        if (ShaderSharedFloat32AtomicMinMax != (uint)default)
+        {
+            _internal.shaderSharedFloat32AtomicMinMax = ShaderSharedFloat32AtomicMinMax;
+        }
+        if (ShaderSharedFloat64AtomicMinMax != (uint)default)
+        {
+            _internal.shaderSharedFloat64AtomicMinMax = ShaderSharedFloat64AtomicMinMax;
+        }
+        if (ShaderImageFloat32AtomicMinMax != (uint)default)
+        {
+            _internal.shaderImageFloat32AtomicMinMax = ShaderImageFloat32AtomicMinMax;
+        }
+        if (SparseImageFloat32AtomicMinMax != (uint)default)
+        {
+            _internal.sparseImageFloat32AtomicMinMax = SparseImageFloat32AtomicMinMax;
+        }
         return _internal;
     }
 

@@ -35,11 +35,20 @@ public unsafe partial class SpvcReflectedResource : QBDisposableObject
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource();
-        _internal.id = Id;
-        _internal.base_type_id = Base_type_id;
-        _internal.type_id = Type_id;
+        if (Id != (uint)default)
+        {
+            _internal.id = Id;
+        }
+        if (Base_type_id != (uint)default)
+        {
+            _internal.base_type_id = Base_type_id;
+        }
+        if (Type_id != (uint)default)
+        {
+            _internal.type_id = Type_id;
+        }
         _name.Dispose();
-        if (Name != null)
+        if (Name != default)
         {
             _name = new MarshaledString(Name, false);
             _internal.name = (sbyte*)_name;

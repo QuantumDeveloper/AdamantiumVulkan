@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ExternalMemoryProperties
+public unsafe partial class ExternalMemoryProperties : QBDisposableObject
 {
     public ExternalMemoryProperties()
     {
@@ -31,9 +31,18 @@ public unsafe partial class ExternalMemoryProperties
     public AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties();
-        _internal.externalMemoryFeatures = ExternalMemoryFeatures;
-        _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
-        _internal.compatibleHandleTypes = CompatibleHandleTypes;
+        if (ExternalMemoryFeatures != (uint)default)
+        {
+            _internal.externalMemoryFeatures = ExternalMemoryFeatures;
+        }
+        if (ExportFromImportedHandleTypes != (uint)default)
+        {
+            _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
+        }
+        if (CompatibleHandleTypes != (uint)default)
+        {
+            _internal.compatibleHandleTypes = CompatibleHandleTypes;
+        }
         return _internal;
     }
 

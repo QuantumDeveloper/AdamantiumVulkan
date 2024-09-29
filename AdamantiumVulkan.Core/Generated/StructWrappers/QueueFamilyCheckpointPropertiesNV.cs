@@ -30,9 +30,15 @@ public unsafe partial class QueueFamilyCheckpointPropertiesNV : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.checkpointExecutionStageMask = CheckpointExecutionStageMask;
+        if (CheckpointExecutionStageMask != (uint)default)
+        {
+            _internal.checkpointExecutionStageMask = CheckpointExecutionStageMask;
+        }
         return _internal;
     }
 

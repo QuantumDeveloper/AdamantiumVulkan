@@ -30,9 +30,15 @@ public unsafe partial class DedicatedAllocationImageCreateInfoNV : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dedicatedAllocation = DedicatedAllocation;
+        if (DedicatedAllocation != (uint)default)
+        {
+            _internal.dedicatedAllocation = DedicatedAllocation;
+        }
         return _internal;
     }
 

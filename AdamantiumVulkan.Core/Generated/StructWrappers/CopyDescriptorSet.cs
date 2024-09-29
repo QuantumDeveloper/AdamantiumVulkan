@@ -42,15 +42,39 @@ public unsafe partial class CopyDescriptorSet : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcSet = SrcSet;
-        _internal.srcBinding = SrcBinding;
-        _internal.srcArrayElement = SrcArrayElement;
-        _internal.dstSet = DstSet;
-        _internal.dstBinding = DstBinding;
-        _internal.dstArrayElement = DstArrayElement;
-        _internal.descriptorCount = DescriptorCount;
+        if (SrcSet != default)
+        {
+            _internal.srcSet = SrcSet;
+        }
+        if (SrcBinding != default)
+        {
+            _internal.srcBinding = SrcBinding;
+        }
+        if (SrcArrayElement != default)
+        {
+            _internal.srcArrayElement = SrcArrayElement;
+        }
+        if (DstSet != default)
+        {
+            _internal.dstSet = DstSet;
+        }
+        if (DstBinding != default)
+        {
+            _internal.dstBinding = DstBinding;
+        }
+        if (DstArrayElement != default)
+        {
+            _internal.dstArrayElement = DstArrayElement;
+        }
+        if (DescriptorCount != default)
+        {
+            _internal.descriptorCount = DescriptorCount;
+        }
         return _internal;
     }
 

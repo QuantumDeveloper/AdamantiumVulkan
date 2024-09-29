@@ -30,14 +30,23 @@ public unsafe partial class SparseImageFormatProperties2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (Properties != null)
+        if (Properties != default)
         {
             _internal.properties = Properties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Properties?.Dispose();
+    }
+
 
     public static implicit operator SparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 s)
     {

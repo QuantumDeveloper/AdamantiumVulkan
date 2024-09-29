@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesK
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.workgroupMemoryExplicitLayout = WorkgroupMemoryExplicitLayout;
-        _internal.workgroupMemoryExplicitLayoutScalarBlockLayout = WorkgroupMemoryExplicitLayoutScalarBlockLayout;
-        _internal.workgroupMemoryExplicitLayout8BitAccess = WorkgroupMemoryExplicitLayout8BitAccess;
-        _internal.workgroupMemoryExplicitLayout16BitAccess = WorkgroupMemoryExplicitLayout16BitAccess;
+        if (WorkgroupMemoryExplicitLayout != (uint)default)
+        {
+            _internal.workgroupMemoryExplicitLayout = WorkgroupMemoryExplicitLayout;
+        }
+        if (WorkgroupMemoryExplicitLayoutScalarBlockLayout != (uint)default)
+        {
+            _internal.workgroupMemoryExplicitLayoutScalarBlockLayout = WorkgroupMemoryExplicitLayoutScalarBlockLayout;
+        }
+        if (WorkgroupMemoryExplicitLayout8BitAccess != (uint)default)
+        {
+            _internal.workgroupMemoryExplicitLayout8BitAccess = WorkgroupMemoryExplicitLayout8BitAccess;
+        }
+        if (WorkgroupMemoryExplicitLayout16BitAccess != (uint)default)
+        {
+            _internal.workgroupMemoryExplicitLayout16BitAccess = WorkgroupMemoryExplicitLayout16BitAccess;
+        }
         return _internal;
     }
 

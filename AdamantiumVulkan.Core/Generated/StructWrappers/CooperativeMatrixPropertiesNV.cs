@@ -44,16 +44,43 @@ public unsafe partial class CooperativeMatrixPropertiesNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.MSize = MSize;
-        _internal.NSize = NSize;
-        _internal.KSize = KSize;
-        _internal.AType = AType;
-        _internal.BType = BType;
-        _internal.CType = CType;
-        _internal.DType = DType;
-        _internal.scope = Scope;
+        if (MSize != default)
+        {
+            _internal.MSize = MSize;
+        }
+        if (NSize != default)
+        {
+            _internal.NSize = NSize;
+        }
+        if (KSize != default)
+        {
+            _internal.KSize = KSize;
+        }
+        if (AType != default)
+        {
+            _internal.AType = AType;
+        }
+        if (BType != default)
+        {
+            _internal.BType = BType;
+        }
+        if (CType != default)
+        {
+            _internal.CType = CType;
+        }
+        if (DType != default)
+        {
+            _internal.DType = DType;
+        }
+        if (Scope != default)
+        {
+            _internal.scope = Scope;
+        }
         return _internal;
     }
 

@@ -36,11 +36,17 @@ public unsafe partial class VideoReferenceSlotInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.slotIndex = SlotIndex;
+        if (SlotIndex != default)
+        {
+            _internal.slotIndex = SlotIndex;
+        }
         _pPictureResource.Dispose();
-        if (PictureResource != null)
+        if (PictureResource != default)
         {
             var struct0 = PictureResource.ToNative();
             _pPictureResource = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR>(struct0);

@@ -12,7 +12,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcMslShaderInterfaceVar2
+public unsafe partial class SpvcMslShaderInterfaceVar2 : QBDisposableObject
 {
     public SpvcMslShaderInterfaceVar2()
     {
@@ -46,11 +46,26 @@ public unsafe partial class SpvcMslShaderInterfaceVar2
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2();
-        _internal.location = Location;
-        _internal.format = Format;
-        _internal.builtin = Builtin;
-        _internal.vecsize = Vecsize;
-        _internal.rate = Rate;
+        if (Location != default)
+        {
+            _internal.location = Location;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Builtin != default)
+        {
+            _internal.builtin = Builtin;
+        }
+        if (Vecsize != default)
+        {
+            _internal.vecsize = Vecsize;
+        }
+        if (Rate != default)
+        {
+            _internal.rate = Rate;
+        }
         return _internal;
     }
 

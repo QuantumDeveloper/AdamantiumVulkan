@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265ShortTermRefPicSet
+public unsafe partial class StdVideoH265ShortTermRefPicSet : QBDisposableObject
 {
     public StdVideoH265ShortTermRefPicSet()
     {
@@ -53,29 +53,62 @@ public unsafe partial class StdVideoH265ShortTermRefPicSet
     public AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.delta_idx_minus1 = Delta_idx_minus1;
-        _internal.use_delta_flag = Use_delta_flag;
-        _internal.abs_delta_rps_minus1 = Abs_delta_rps_minus1;
-        _internal.used_by_curr_pic_flag = Used_by_curr_pic_flag;
-        _internal.used_by_curr_pic_s0_flag = Used_by_curr_pic_s0_flag;
-        _internal.used_by_curr_pic_s1_flag = Used_by_curr_pic_s1_flag;
-        _internal.reserved1 = Reserved1;
-        _internal.reserved2 = Reserved2;
-        _internal.reserved3 = Reserved3;
-        _internal.num_negative_pics = Num_negative_pics;
-        _internal.num_positive_pics = Num_positive_pics;
-        if(Delta_poc_s0_minus1 != null)
+        if (Delta_idx_minus1 != default)
+        {
+            _internal.delta_idx_minus1 = Delta_idx_minus1;
+        }
+        if (Use_delta_flag != default)
+        {
+            _internal.use_delta_flag = Use_delta_flag;
+        }
+        if (Abs_delta_rps_minus1 != default)
+        {
+            _internal.abs_delta_rps_minus1 = Abs_delta_rps_minus1;
+        }
+        if (Used_by_curr_pic_flag != default)
+        {
+            _internal.used_by_curr_pic_flag = Used_by_curr_pic_flag;
+        }
+        if (Used_by_curr_pic_s0_flag != default)
+        {
+            _internal.used_by_curr_pic_s0_flag = Used_by_curr_pic_s0_flag;
+        }
+        if (Used_by_curr_pic_s1_flag != default)
+        {
+            _internal.used_by_curr_pic_s1_flag = Used_by_curr_pic_s1_flag;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
+        if (Reserved2 != default)
+        {
+            _internal.reserved2 = Reserved2;
+        }
+        if (Reserved3 != default)
+        {
+            _internal.reserved3 = Reserved3;
+        }
+        if (Num_negative_pics != default)
+        {
+            _internal.num_negative_pics = Num_negative_pics;
+        }
+        if (Num_positive_pics != default)
+        {
+            _internal.num_positive_pics = Num_positive_pics;
+        }
+        if (Delta_poc_s0_minus1 != default)
         {
             if (Delta_poc_s0_minus1.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_poc_s0_minus1), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.delta_poc_s0_minus1, 16, Delta_poc_s0_minus1);
         }
-        if(Delta_poc_s1_minus1 != null)
+        if (Delta_poc_s1_minus1 != default)
         {
             if (Delta_poc_s1_minus1.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_poc_s1_minus1), "Array is out of bounds. Size should not be more than 16");
@@ -84,6 +117,12 @@ public unsafe partial class StdVideoH265ShortTermRefPicSet
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoH265ShortTermRefPicSet(AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet s)
     {

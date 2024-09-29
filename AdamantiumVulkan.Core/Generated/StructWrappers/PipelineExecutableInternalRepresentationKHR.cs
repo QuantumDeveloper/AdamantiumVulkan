@@ -39,24 +39,33 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(Name != null)
+        if (Name != default)
         {
             if (Name.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Name), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.name, 256, Name, false);
         }
-        if(Description != null)
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
-        _internal.isText = IsText;
-        _internal.dataSize = DataSize;
+        if (IsText != (uint)default)
+        {
+            _internal.isText = IsText;
+        }
+        if (DataSize != default)
+        {
+            _internal.dataSize = DataSize;
+        }
         _internal.pData = PData;
         return _internal;
     }

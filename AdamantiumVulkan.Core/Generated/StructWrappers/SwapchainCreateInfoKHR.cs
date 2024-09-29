@@ -64,23 +64,53 @@ public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.surface = Surface;
-        _internal.minImageCount = MinImageCount;
-        _internal.imageFormat = ImageFormat;
-        _internal.imageColorSpace = ImageColorSpace;
-        if (ImageExtent != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Surface != default)
+        {
+            _internal.surface = Surface;
+        }
+        if (MinImageCount != default)
+        {
+            _internal.minImageCount = MinImageCount;
+        }
+        if (ImageFormat != default)
+        {
+            _internal.imageFormat = ImageFormat;
+        }
+        if (ImageColorSpace != default)
+        {
+            _internal.imageColorSpace = ImageColorSpace;
+        }
+        if (ImageExtent != default)
         {
             _internal.imageExtent = ImageExtent.ToNative();
         }
-        _internal.imageArrayLayers = ImageArrayLayers;
-        _internal.imageUsage = ImageUsage;
-        _internal.imageSharingMode = ImageSharingMode;
-        _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        if (ImageArrayLayers != default)
+        {
+            _internal.imageArrayLayers = ImageArrayLayers;
+        }
+        if (ImageUsage != default)
+        {
+            _internal.imageUsage = ImageUsage;
+        }
+        if (ImageSharingMode != default)
+        {
+            _internal.imageSharingMode = ImageSharingMode;
+        }
+        if (QueueFamilyIndexCount != default)
+        {
+            _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        }
         _pQueueFamilyIndices.Dispose();
-        if (PQueueFamilyIndices != null)
+        if (PQueueFamilyIndices != default)
         {
             var tmpArray0 = new uint[PQueueFamilyIndices.Length];
             for (int i = 0; i < PQueueFamilyIndices.Length; ++i)
@@ -90,17 +120,33 @@ public unsafe partial class SwapchainCreateInfoKHR : QBDisposableObject
             _pQueueFamilyIndices = new NativeStructArray<uint>(tmpArray0);
             _internal.pQueueFamilyIndices = _pQueueFamilyIndices.Handle;
         }
-        _internal.preTransform = PreTransform;
-        _internal.compositeAlpha = CompositeAlpha;
-        _internal.presentMode = PresentMode;
-        _internal.clipped = Clipped;
-        _internal.oldSwapchain = OldSwapchain;
+        if (PreTransform != default)
+        {
+            _internal.preTransform = PreTransform;
+        }
+        if (CompositeAlpha != default)
+        {
+            _internal.compositeAlpha = CompositeAlpha;
+        }
+        if (PresentMode != default)
+        {
+            _internal.presentMode = PresentMode;
+        }
+        if (Clipped != (uint)default)
+        {
+            _internal.clipped = Clipped;
+        }
+        if (OldSwapchain != default)
+        {
+            _internal.oldSwapchain = OldSwapchain;
+        }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
         _pQueueFamilyIndices.Dispose();
+        ImageExtent?.Dispose();
     }
 
 

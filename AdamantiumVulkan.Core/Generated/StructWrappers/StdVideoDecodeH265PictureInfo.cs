@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoDecodeH265PictureInfo
+public unsafe partial class StdVideoDecodeH265PictureInfo : QBDisposableObject
 {
     public StdVideoDecodeH265PictureInfo()
     {
@@ -47,32 +47,53 @@ public unsafe partial class StdVideoDecodeH265PictureInfo
     public AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
-        _internal.pps_seq_parameter_set_id = Ps_seq_parameter_set_id;
-        _internal.pps_pic_parameter_set_id = Ps_pic_parameter_set_id;
-        _internal.NumDeltaPocsOfRefRpsIdx = NumDeltaPocsOfRefRpsIdx;
-        _internal.PicOrderCntVal = PicOrderCntVal;
-        _internal.NumBitsForSTRefPicSetInSlice = NumBitsForSTRefPicSetInSlice;
-        _internal.reserved = Reserved;
-        if(RefPicSetStCurrBefore != null)
+        if (Sps_video_parameter_set_id != default)
+        {
+            _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
+        }
+        if (Ps_seq_parameter_set_id != default)
+        {
+            _internal.pps_seq_parameter_set_id = Ps_seq_parameter_set_id;
+        }
+        if (Ps_pic_parameter_set_id != default)
+        {
+            _internal.pps_pic_parameter_set_id = Ps_pic_parameter_set_id;
+        }
+        if (NumDeltaPocsOfRefRpsIdx != default)
+        {
+            _internal.NumDeltaPocsOfRefRpsIdx = NumDeltaPocsOfRefRpsIdx;
+        }
+        if (PicOrderCntVal != default)
+        {
+            _internal.PicOrderCntVal = PicOrderCntVal;
+        }
+        if (NumBitsForSTRefPicSetInSlice != default)
+        {
+            _internal.NumBitsForSTRefPicSetInSlice = NumBitsForSTRefPicSetInSlice;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
+        if (RefPicSetStCurrBefore != default)
         {
             if (RefPicSetStCurrBefore.Length > 8)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicSetStCurrBefore), "Array is out of bounds. Size should not be more than 8");
 
             NativeUtils.PrimitiveToFixedArray(_internal.RefPicSetStCurrBefore, 8, RefPicSetStCurrBefore);
         }
-        if(RefPicSetStCurrAfter != null)
+        if (RefPicSetStCurrAfter != default)
         {
             if (RefPicSetStCurrAfter.Length > 8)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicSetStCurrAfter), "Array is out of bounds. Size should not be more than 8");
 
             NativeUtils.PrimitiveToFixedArray(_internal.RefPicSetStCurrAfter, 8, RefPicSetStCurrAfter);
         }
-        if(RefPicSetLtCurr != null)
+        if (RefPicSetLtCurr != default)
         {
             if (RefPicSetLtCurr.Length > 8)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicSetLtCurr), "Array is out of bounds. Size should not be more than 8");
@@ -81,6 +102,12 @@ public unsafe partial class StdVideoDecodeH265PictureInfo
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoDecodeH265PictureInfo(AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo s)
     {

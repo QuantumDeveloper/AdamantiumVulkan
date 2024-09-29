@@ -63,36 +63,89 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (MinFragmentShadingRateAttachmentTexelSize != null)
+        if (MinFragmentShadingRateAttachmentTexelSize != default)
         {
             _internal.minFragmentShadingRateAttachmentTexelSize = MinFragmentShadingRateAttachmentTexelSize.ToNative();
         }
-        if (MaxFragmentShadingRateAttachmentTexelSize != null)
+        if (MaxFragmentShadingRateAttachmentTexelSize != default)
         {
             _internal.maxFragmentShadingRateAttachmentTexelSize = MaxFragmentShadingRateAttachmentTexelSize.ToNative();
         }
-        _internal.maxFragmentShadingRateAttachmentTexelSizeAspectRatio = MaxFragmentShadingRateAttachmentTexelSizeAspectRatio;
-        _internal.primitiveFragmentShadingRateWithMultipleViewports = PrimitiveFragmentShadingRateWithMultipleViewports;
-        _internal.layeredShadingRateAttachments = LayeredShadingRateAttachments;
-        _internal.fragmentShadingRateNonTrivialCombinerOps = FragmentShadingRateNonTrivialCombinerOps;
-        if (MaxFragmentSize != null)
+        if (MaxFragmentShadingRateAttachmentTexelSizeAspectRatio != default)
+        {
+            _internal.maxFragmentShadingRateAttachmentTexelSizeAspectRatio = MaxFragmentShadingRateAttachmentTexelSizeAspectRatio;
+        }
+        if (PrimitiveFragmentShadingRateWithMultipleViewports != (uint)default)
+        {
+            _internal.primitiveFragmentShadingRateWithMultipleViewports = PrimitiveFragmentShadingRateWithMultipleViewports;
+        }
+        if (LayeredShadingRateAttachments != (uint)default)
+        {
+            _internal.layeredShadingRateAttachments = LayeredShadingRateAttachments;
+        }
+        if (FragmentShadingRateNonTrivialCombinerOps != (uint)default)
+        {
+            _internal.fragmentShadingRateNonTrivialCombinerOps = FragmentShadingRateNonTrivialCombinerOps;
+        }
+        if (MaxFragmentSize != default)
         {
             _internal.maxFragmentSize = MaxFragmentSize.ToNative();
         }
-        _internal.maxFragmentSizeAspectRatio = MaxFragmentSizeAspectRatio;
-        _internal.maxFragmentShadingRateCoverageSamples = MaxFragmentShadingRateCoverageSamples;
-        _internal.maxFragmentShadingRateRasterizationSamples = MaxFragmentShadingRateRasterizationSamples;
-        _internal.fragmentShadingRateWithShaderDepthStencilWrites = FragmentShadingRateWithShaderDepthStencilWrites;
-        _internal.fragmentShadingRateWithSampleMask = FragmentShadingRateWithSampleMask;
-        _internal.fragmentShadingRateWithShaderSampleMask = FragmentShadingRateWithShaderSampleMask;
-        _internal.fragmentShadingRateWithConservativeRasterization = FragmentShadingRateWithConservativeRasterization;
-        _internal.fragmentShadingRateWithFragmentShaderInterlock = FragmentShadingRateWithFragmentShaderInterlock;
-        _internal.fragmentShadingRateWithCustomSampleLocations = FragmentShadingRateWithCustomSampleLocations;
-        _internal.fragmentShadingRateStrictMultiplyCombiner = FragmentShadingRateStrictMultiplyCombiner;
+        if (MaxFragmentSizeAspectRatio != default)
+        {
+            _internal.maxFragmentSizeAspectRatio = MaxFragmentSizeAspectRatio;
+        }
+        if (MaxFragmentShadingRateCoverageSamples != default)
+        {
+            _internal.maxFragmentShadingRateCoverageSamples = MaxFragmentShadingRateCoverageSamples;
+        }
+        if (MaxFragmentShadingRateRasterizationSamples != default)
+        {
+            _internal.maxFragmentShadingRateRasterizationSamples = MaxFragmentShadingRateRasterizationSamples;
+        }
+        if (FragmentShadingRateWithShaderDepthStencilWrites != (uint)default)
+        {
+            _internal.fragmentShadingRateWithShaderDepthStencilWrites = FragmentShadingRateWithShaderDepthStencilWrites;
+        }
+        if (FragmentShadingRateWithSampleMask != (uint)default)
+        {
+            _internal.fragmentShadingRateWithSampleMask = FragmentShadingRateWithSampleMask;
+        }
+        if (FragmentShadingRateWithShaderSampleMask != (uint)default)
+        {
+            _internal.fragmentShadingRateWithShaderSampleMask = FragmentShadingRateWithShaderSampleMask;
+        }
+        if (FragmentShadingRateWithConservativeRasterization != (uint)default)
+        {
+            _internal.fragmentShadingRateWithConservativeRasterization = FragmentShadingRateWithConservativeRasterization;
+        }
+        if (FragmentShadingRateWithFragmentShaderInterlock != (uint)default)
+        {
+            _internal.fragmentShadingRateWithFragmentShaderInterlock = FragmentShadingRateWithFragmentShaderInterlock;
+        }
+        if (FragmentShadingRateWithCustomSampleLocations != (uint)default)
+        {
+            _internal.fragmentShadingRateWithCustomSampleLocations = FragmentShadingRateWithCustomSampleLocations;
+        }
+        if (FragmentShadingRateStrictMultiplyCombiner != (uint)default)
+        {
+            _internal.fragmentShadingRateStrictMultiplyCombiner = FragmentShadingRateStrictMultiplyCombiner;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MinFragmentShadingRateAttachmentTexelSize?.Dispose();
+        MaxFragmentShadingRateAttachmentTexelSize?.Dispose();
+        MaxFragmentSize?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceFragmentShadingRatePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR p)
     {

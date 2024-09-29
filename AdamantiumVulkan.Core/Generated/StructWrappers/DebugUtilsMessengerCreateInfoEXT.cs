@@ -38,12 +38,27 @@ public unsafe partial class DebugUtilsMessengerCreateInfoEXT : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.messageSeverity = MessageSeverity;
-        _internal.messageType = MessageType;
-        _internal.pfnUserCallback = PfnUserCallback;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (MessageSeverity != default)
+        {
+            _internal.messageSeverity = MessageSeverity;
+        }
+        if (MessageType != default)
+        {
+            _internal.messageType = MessageType;
+        }
+        if (PfnUserCallback != default)
+        {
+            _internal.pfnUserCallback = PfnUserCallback;
+        }
         _internal.pUserData = PUserData;
         return _internal;
     }

@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceShaderAtomicInt64Features : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderBufferInt64Atomics = ShaderBufferInt64Atomics;
-        _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
+        if (ShaderBufferInt64Atomics != (uint)default)
+        {
+            _internal.shaderBufferInt64Atomics = ShaderBufferInt64Atomics;
+        }
+        if (ShaderSharedInt64Atomics != (uint)default)
+        {
+            _internal.shaderSharedInt64Atomics = ShaderSharedInt64Atomics;
+        }
         return _internal;
     }
 

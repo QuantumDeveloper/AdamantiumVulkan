@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceSparseProperties
+public unsafe partial class PhysicalDeviceSparseProperties : QBDisposableObject
 {
     public PhysicalDeviceSparseProperties()
     {
@@ -35,11 +35,26 @@ public unsafe partial class PhysicalDeviceSparseProperties
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties();
-        _internal.residencyStandard2DBlockShape = ResidencyStandard2DBlockShape;
-        _internal.residencyStandard2DMultisampleBlockShape = ResidencyStandard2DMultisampleBlockShape;
-        _internal.residencyStandard3DBlockShape = ResidencyStandard3DBlockShape;
-        _internal.residencyAlignedMipSize = ResidencyAlignedMipSize;
-        _internal.residencyNonResidentStrict = ResidencyNonResidentStrict;
+        if (ResidencyStandard2DBlockShape != (uint)default)
+        {
+            _internal.residencyStandard2DBlockShape = ResidencyStandard2DBlockShape;
+        }
+        if (ResidencyStandard2DMultisampleBlockShape != (uint)default)
+        {
+            _internal.residencyStandard2DMultisampleBlockShape = ResidencyStandard2DMultisampleBlockShape;
+        }
+        if (ResidencyStandard3DBlockShape != (uint)default)
+        {
+            _internal.residencyStandard3DBlockShape = ResidencyStandard3DBlockShape;
+        }
+        if (ResidencyAlignedMipSize != (uint)default)
+        {
+            _internal.residencyAlignedMipSize = ResidencyAlignedMipSize;
+        }
+        if (ResidencyNonResidentStrict != (uint)default)
+        {
+            _internal.residencyNonResidentStrict = ResidencyNonResidentStrict;
+        }
         return _internal;
     }
 

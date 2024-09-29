@@ -40,19 +40,25 @@ public unsafe partial class ShadercIncludeResult : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult();
         _source_name.Dispose();
-        if (Source_name != null)
+        if (Source_name != default)
         {
             _source_name = new MarshaledString(Source_name, false);
             _internal.source_name = (sbyte*)_source_name;
         }
-        _internal.source_name_length = Source_name_length;
+        if (Source_name_length != default)
+        {
+            _internal.source_name_length = Source_name_length;
+        }
         _content.Dispose();
-        if (Content != null)
+        if (Content != default)
         {
             _content = new MarshaledString(Content, false);
             _internal.content = (sbyte*)_content;
         }
-        _internal.content_length = Content_length;
+        if (Content_length != default)
+        {
+            _internal.content_length = Content_length;
+        }
         _internal.user_data = User_data;
         return _internal;
     }

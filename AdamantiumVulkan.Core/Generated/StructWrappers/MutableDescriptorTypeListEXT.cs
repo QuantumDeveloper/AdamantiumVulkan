@@ -31,7 +31,10 @@ public unsafe partial class MutableDescriptorTypeListEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT();
-        _internal.descriptorTypeCount = DescriptorTypeCount;
+        if (DescriptorTypeCount != default)
+        {
+            _internal.descriptorTypeCount = DescriptorTypeCount;
+        }
         _pDescriptorTypes.Dispose();
         if (PDescriptorTypes.HasValue)
         {

@@ -54,13 +54,28 @@ public unsafe partial class Spv_parsed_instruction_t : QBDisposableObject
             _words = new NativeStruct<uint>(Words.Value);
             _internal.words = _words.Handle;
         }
-        _internal.num_words = Num_words;
-        _internal.opcode = Opcode;
-        _internal.ext_inst_type = Ext_inst_type;
-        _internal.type_id = Type_id;
-        _internal.result_id = Result_id;
+        if (Num_words != default)
+        {
+            _internal.num_words = Num_words;
+        }
+        if (Opcode != default)
+        {
+            _internal.opcode = Opcode;
+        }
+        if (Ext_inst_type != default)
+        {
+            _internal.ext_inst_type = Ext_inst_type;
+        }
+        if (Type_id != default)
+        {
+            _internal.type_id = Type_id;
+        }
+        if (Result_id != default)
+        {
+            _internal.result_id = Result_id;
+        }
         _operands.Dispose();
-        if (Operands != null)
+        if (Operands != default)
         {
             var tmpArray0 = new AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t[Operands.Length];
             for (int i = 0; i < Operands.Length; ++i)
@@ -70,7 +85,10 @@ public unsafe partial class Spv_parsed_instruction_t : QBDisposableObject
             _operands = new NativeStructArray<AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t>(tmpArray0);
             _internal.operands = _operands.Handle;
         }
-        _internal.num_operands = Num_operands;
+        if (Num_operands != default)
+        {
+            _internal.num_operands = Num_operands;
+        }
         return _internal;
     }
 

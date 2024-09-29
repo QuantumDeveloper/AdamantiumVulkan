@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineLibraryGroupHandles = PipelineLibraryGroupHandles;
+        if (PipelineLibraryGroupHandles != (uint)default)
+        {
+            _internal.pipelineLibraryGroupHandles = PipelineLibraryGroupHandles;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceColorWriteEnableFeaturesEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceColorWriteEnableFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceColorWriteEnableFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.colorWriteEnable = ColorWriteEnable;
+        if (ColorWriteEnable != (uint)default)
+        {
+            _internal.colorWriteEnable = ColorWriteEnable;
+        }
         return _internal;
     }
 

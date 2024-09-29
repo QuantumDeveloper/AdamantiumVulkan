@@ -63,43 +63,61 @@ public unsafe partial class BindSparseInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindSparseInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindSparseInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        if (WaitSemaphoreCount != default)
+        {
+            _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        }
         _pWaitSemaphores.Dispose();
-        if (PWaitSemaphores != null)
+        if (PWaitSemaphores != default)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = PWaitSemaphores;
             _pWaitSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct0);
             _internal.pWaitSemaphores = _pWaitSemaphores.Handle;
         }
-        _internal.bufferBindCount = BufferBindCount;
+        if (BufferBindCount != default)
+        {
+            _internal.bufferBindCount = BufferBindCount;
+        }
         _pBufferBinds.Dispose();
-        if (PBufferBinds != null)
+        if (PBufferBinds != default)
         {
             var struct1 = PBufferBinds.ToNative();
             _pBufferBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo>(struct1);
             _internal.pBufferBinds = _pBufferBinds.Handle;
         }
-        _internal.imageOpaqueBindCount = ImageOpaqueBindCount;
+        if (ImageOpaqueBindCount != default)
+        {
+            _internal.imageOpaqueBindCount = ImageOpaqueBindCount;
+        }
         _pImageOpaqueBinds.Dispose();
-        if (PImageOpaqueBinds != null)
+        if (PImageOpaqueBinds != default)
         {
             var struct2 = PImageOpaqueBinds.ToNative();
             _pImageOpaqueBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(struct2);
             _internal.pImageOpaqueBinds = _pImageOpaqueBinds.Handle;
         }
-        _internal.imageBindCount = ImageBindCount;
+        if (ImageBindCount != default)
+        {
+            _internal.imageBindCount = ImageBindCount;
+        }
         _pImageBinds.Dispose();
-        if (PImageBinds != null)
+        if (PImageBinds != default)
         {
             var struct3 = PImageBinds.ToNative();
             _pImageBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo>(struct3);
             _internal.pImageBinds = _pImageBinds.Handle;
         }
-        _internal.signalSemaphoreCount = SignalSemaphoreCount;
+        if (SignalSemaphoreCount != default)
+        {
+            _internal.signalSemaphoreCount = SignalSemaphoreCount;
+        }
         _pSignalSemaphores.Dispose();
-        if (PSignalSemaphores != null)
+        if (PSignalSemaphores != default)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct4 = PSignalSemaphores;
             _pSignalSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct4);

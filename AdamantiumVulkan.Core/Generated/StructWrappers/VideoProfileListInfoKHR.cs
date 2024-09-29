@@ -36,11 +36,17 @@ public unsafe partial class VideoProfileListInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.profileCount = ProfileCount;
+        if (ProfileCount != default)
+        {
+            _internal.profileCount = ProfileCount;
+        }
         _pProfiles.Dispose();
-        if (Profiles != null)
+        if (Profiles != default)
         {
             var struct0 = Profiles.ToNative();
             _pProfiles = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(struct0);

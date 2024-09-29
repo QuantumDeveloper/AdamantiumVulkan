@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ClearValue
+public unsafe partial class ClearValue : QBDisposableObject
 {
     public ClearValue()
     {
@@ -29,16 +29,23 @@ public unsafe partial class ClearValue
     public AdamantiumVulkan.Core.Interop.VkClearValue ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkClearValue();
-        if (Color != null)
+        if (Color != default)
         {
             _internal.color = Color.ToNative();
         }
-        if (DepthStencil != null)
+        if (DepthStencil != default)
         {
             _internal.depthStencil = DepthStencil.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Color?.Dispose();
+        DepthStencil?.Dispose();
+    }
+
 
     public static implicit operator ClearValue(AdamantiumVulkan.Core.Interop.VkClearValue c)
     {

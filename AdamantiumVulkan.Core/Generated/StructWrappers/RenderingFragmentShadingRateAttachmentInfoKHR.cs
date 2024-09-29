@@ -35,16 +35,31 @@ public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : QBDi
     public AdamantiumVulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageView = ImageView;
-        _internal.imageLayout = ImageLayout;
-        if (ShadingRateAttachmentTexelSize != null)
+        if (ImageView != default)
+        {
+            _internal.imageView = ImageView;
+        }
+        if (ImageLayout != default)
+        {
+            _internal.imageLayout = ImageLayout;
+        }
+        if (ShadingRateAttachmentTexelSize != default)
         {
             _internal.shadingRateAttachmentTexelSize = ShadingRateAttachmentTexelSize.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ShadingRateAttachmentTexelSize?.Dispose();
+    }
+
 
     public static implicit operator RenderingFragmentShadingRateAttachmentInfoKHR(AdamantiumVulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR r)
     {

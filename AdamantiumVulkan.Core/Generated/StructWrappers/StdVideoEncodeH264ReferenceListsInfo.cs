@@ -58,30 +58,45 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : QBDisposableO
     public AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceListsInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceListsInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.num_ref_idx_l0_active_minus1 = Num_ref_idx_l0_active_minus1;
-        _internal.num_ref_idx_l1_active_minus1 = Num_ref_idx_l1_active_minus1;
-        if(RefPicList0 != null)
+        if (Num_ref_idx_l0_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l0_active_minus1 = Num_ref_idx_l0_active_minus1;
+        }
+        if (Num_ref_idx_l1_active_minus1 != default)
+        {
+            _internal.num_ref_idx_l1_active_minus1 = Num_ref_idx_l1_active_minus1;
+        }
+        if (RefPicList0 != default)
         {
             if (RefPicList0.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicList0), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.RefPicList0, 32, RefPicList0);
         }
-        if(RefPicList1 != null)
+        if (RefPicList1 != default)
         {
             if (RefPicList1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(RefPicList1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.RefPicList1, 32, RefPicList1);
         }
-        _internal.refList0ModOpCount = RefList0ModOpCount;
-        _internal.refList1ModOpCount = RefList1ModOpCount;
-        _internal.refPicMarkingOpCount = RefPicMarkingOpCount;
-        if(Reserved1 != null)
+        if (RefList0ModOpCount != default)
+        {
+            _internal.refList0ModOpCount = RefList0ModOpCount;
+        }
+        if (RefList1ModOpCount != default)
+        {
+            _internal.refList1ModOpCount = RefList1ModOpCount;
+        }
+        if (RefPicMarkingOpCount != default)
+        {
+            _internal.refPicMarkingOpCount = RefPicMarkingOpCount;
+        }
+        if (Reserved1 != default)
         {
             if (Reserved1.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Reserved1), "Array is out of bounds. Size should not be more than 7");
@@ -89,21 +104,21 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : QBDisposableO
             NativeUtils.PrimitiveToFixedArray(_internal.reserved1, 7, Reserved1);
         }
         _pRefList0ModOperations.Dispose();
-        if (PRefList0ModOperations != null)
+        if (PRefList0ModOperations != default)
         {
             var struct0 = PRefList0ModOperations.ToNative();
             _pRefList0ModOperations = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry>(struct0);
             _internal.pRefList0ModOperations = _pRefList0ModOperations.Handle;
         }
         _pRefList1ModOperations.Dispose();
-        if (PRefList1ModOperations != null)
+        if (PRefList1ModOperations != default)
         {
             var struct1 = PRefList1ModOperations.ToNative();
             _pRefList1ModOperations = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry>(struct1);
             _internal.pRefList1ModOperations = _pRefList1ModOperations.Handle;
         }
         _pRefPicMarkingOperations.Dispose();
-        if (PRefPicMarkingOperations != null)
+        if (PRefPicMarkingOperations != default)
         {
             var struct2 = PRefPicMarkingOperations.ToNative();
             _pRefPicMarkingOperations = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry>(struct2);
@@ -117,6 +132,7 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : QBDisposableO
         _pRefList0ModOperations.Dispose();
         _pRefList1ModOperations.Dispose();
         _pRefPicMarkingOperations.Dispose();
+        Flags?.Dispose();
     }
 
 

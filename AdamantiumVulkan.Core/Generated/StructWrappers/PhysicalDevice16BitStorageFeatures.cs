@@ -36,12 +36,27 @@ public unsafe partial class PhysicalDevice16BitStorageFeatures : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.storageBuffer16BitAccess = StorageBuffer16BitAccess;
-        _internal.uniformAndStorageBuffer16BitAccess = UniformAndStorageBuffer16BitAccess;
-        _internal.storagePushConstant16 = StoragePushConstant16;
-        _internal.storageInputOutput16 = StorageInputOutput16;
+        if (StorageBuffer16BitAccess != (uint)default)
+        {
+            _internal.storageBuffer16BitAccess = StorageBuffer16BitAccess;
+        }
+        if (UniformAndStorageBuffer16BitAccess != (uint)default)
+        {
+            _internal.uniformAndStorageBuffer16BitAccess = UniformAndStorageBuffer16BitAccess;
+        }
+        if (StoragePushConstant16 != (uint)default)
+        {
+            _internal.storagePushConstant16 = StoragePushConstant16;
+        }
+        if (StorageInputOutput16 != (uint)default)
+        {
+            _internal.storageInputOutput16 = StorageInputOutput16;
+        }
         return _internal;
     }
 

@@ -30,9 +30,15 @@ public unsafe partial class DeviceGroupSwapchainCreateInfoKHR : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.modes = Modes;
+        if (Modes != (uint)default)
+        {
+            _internal.modes = Modes;
+        }
         return _internal;
     }
 

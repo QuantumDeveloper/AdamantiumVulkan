@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlFeatures : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.subgroupSizeControl = SubgroupSizeControl;
-        _internal.computeFullSubgroups = ComputeFullSubgroups;
+        if (SubgroupSizeControl != (uint)default)
+        {
+            _internal.subgroupSizeControl = SubgroupSizeControl;
+        }
+        if (ComputeFullSubgroups != (uint)default)
+        {
+            _internal.computeFullSubgroups = ComputeFullSubgroups;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMemoryDecompressionFeaturesNV : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryDecompressionFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryDecompressionFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memoryDecompression = MemoryDecompression;
+        if (MemoryDecompression != (uint)default)
+        {
+            _internal.memoryDecompression = MemoryDecompression;
+        }
         return _internal;
     }
 

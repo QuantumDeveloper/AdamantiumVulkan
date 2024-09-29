@@ -39,9 +39,15 @@ public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : QBDispos
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.bindingCount = BindingCount;
+        if (BindingCount != default)
+        {
+            _internal.bindingCount = BindingCount;
+        }
         _pBindingFlags.Dispose();
         if (PBindingFlags.HasValue)
         {

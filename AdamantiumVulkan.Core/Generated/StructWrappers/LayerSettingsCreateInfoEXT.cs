@@ -36,11 +36,17 @@ public unsafe partial class LayerSettingsCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkLayerSettingsCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLayerSettingsCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.settingCount = SettingCount;
+        if (SettingCount != default)
+        {
+            _internal.settingCount = SettingCount;
+        }
         _pSettings.Dispose();
-        if (PSettings != null)
+        if (PSettings != default)
         {
             var struct0 = PSettings.ToNative();
             _pSettings = new NativeStruct<AdamantiumVulkan.Core.Interop.VkLayerSettingEXT>(struct0);

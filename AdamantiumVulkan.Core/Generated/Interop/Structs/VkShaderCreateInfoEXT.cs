@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18310 Column: 16
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18565 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkShaderCreateInfoEXT
 {
@@ -20,7 +20,7 @@ public unsafe partial struct VkShaderCreateInfoEXT
     public void* pNext;
     public VkShaderCreateFlagsEXT flags;
     public ShaderStageFlagBits stage;
-    public VkShaderStageFlags nextStage;
+    public ShaderStageFlagBits nextStage;
     public ShaderCodeTypeEXT codeType;
     public ulong codeSize;
     public byte* pCode;

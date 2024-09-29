@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AccelerationStructureBuildRangeInfoKHR
+public unsafe partial class AccelerationStructureBuildRangeInfoKHR : QBDisposableObject
 {
     public AccelerationStructureBuildRangeInfoKHR()
     {
@@ -33,10 +33,22 @@ public unsafe partial class AccelerationStructureBuildRangeInfoKHR
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR();
-        _internal.primitiveCount = PrimitiveCount;
-        _internal.primitiveOffset = PrimitiveOffset;
-        _internal.firstVertex = FirstVertex;
-        _internal.transformOffset = TransformOffset;
+        if (PrimitiveCount != default)
+        {
+            _internal.primitiveCount = PrimitiveCount;
+        }
+        if (PrimitiveOffset != default)
+        {
+            _internal.primitiveOffset = PrimitiveOffset;
+        }
+        if (FirstVertex != default)
+        {
+            _internal.firstVertex = FirstVertex;
+        }
+        if (TransformOffset != default)
+        {
+            _internal.transformOffset = TransformOffset;
+        }
         return _internal;
     }
 

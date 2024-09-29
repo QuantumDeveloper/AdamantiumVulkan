@@ -69,28 +69,91 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingFeatures : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderInputAttachmentArrayDynamicIndexing = ShaderInputAttachmentArrayDynamicIndexing;
-        _internal.shaderUniformTexelBufferArrayDynamicIndexing = ShaderUniformTexelBufferArrayDynamicIndexing;
-        _internal.shaderStorageTexelBufferArrayDynamicIndexing = ShaderStorageTexelBufferArrayDynamicIndexing;
-        _internal.shaderUniformBufferArrayNonUniformIndexing = ShaderUniformBufferArrayNonUniformIndexing;
-        _internal.shaderSampledImageArrayNonUniformIndexing = ShaderSampledImageArrayNonUniformIndexing;
-        _internal.shaderStorageBufferArrayNonUniformIndexing = ShaderStorageBufferArrayNonUniformIndexing;
-        _internal.shaderStorageImageArrayNonUniformIndexing = ShaderStorageImageArrayNonUniformIndexing;
-        _internal.shaderInputAttachmentArrayNonUniformIndexing = ShaderInputAttachmentArrayNonUniformIndexing;
-        _internal.shaderUniformTexelBufferArrayNonUniformIndexing = ShaderUniformTexelBufferArrayNonUniformIndexing;
-        _internal.shaderStorageTexelBufferArrayNonUniformIndexing = ShaderStorageTexelBufferArrayNonUniformIndexing;
-        _internal.descriptorBindingUniformBufferUpdateAfterBind = DescriptorBindingUniformBufferUpdateAfterBind;
-        _internal.descriptorBindingSampledImageUpdateAfterBind = DescriptorBindingSampledImageUpdateAfterBind;
-        _internal.descriptorBindingStorageImageUpdateAfterBind = DescriptorBindingStorageImageUpdateAfterBind;
-        _internal.descriptorBindingStorageBufferUpdateAfterBind = DescriptorBindingStorageBufferUpdateAfterBind;
-        _internal.descriptorBindingUniformTexelBufferUpdateAfterBind = DescriptorBindingUniformTexelBufferUpdateAfterBind;
-        _internal.descriptorBindingStorageTexelBufferUpdateAfterBind = DescriptorBindingStorageTexelBufferUpdateAfterBind;
-        _internal.descriptorBindingUpdateUnusedWhilePending = DescriptorBindingUpdateUnusedWhilePending;
-        _internal.descriptorBindingPartiallyBound = DescriptorBindingPartiallyBound;
-        _internal.descriptorBindingVariableDescriptorCount = DescriptorBindingVariableDescriptorCount;
-        _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
+        if (ShaderInputAttachmentArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderInputAttachmentArrayDynamicIndexing = ShaderInputAttachmentArrayDynamicIndexing;
+        }
+        if (ShaderUniformTexelBufferArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderUniformTexelBufferArrayDynamicIndexing = ShaderUniformTexelBufferArrayDynamicIndexing;
+        }
+        if (ShaderStorageTexelBufferArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderStorageTexelBufferArrayDynamicIndexing = ShaderStorageTexelBufferArrayDynamicIndexing;
+        }
+        if (ShaderUniformBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderUniformBufferArrayNonUniformIndexing = ShaderUniformBufferArrayNonUniformIndexing;
+        }
+        if (ShaderSampledImageArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderSampledImageArrayNonUniformIndexing = ShaderSampledImageArrayNonUniformIndexing;
+        }
+        if (ShaderStorageBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderStorageBufferArrayNonUniformIndexing = ShaderStorageBufferArrayNonUniformIndexing;
+        }
+        if (ShaderStorageImageArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderStorageImageArrayNonUniformIndexing = ShaderStorageImageArrayNonUniformIndexing;
+        }
+        if (ShaderInputAttachmentArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderInputAttachmentArrayNonUniformIndexing = ShaderInputAttachmentArrayNonUniformIndexing;
+        }
+        if (ShaderUniformTexelBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderUniformTexelBufferArrayNonUniformIndexing = ShaderUniformTexelBufferArrayNonUniformIndexing;
+        }
+        if (ShaderStorageTexelBufferArrayNonUniformIndexing != (uint)default)
+        {
+            _internal.shaderStorageTexelBufferArrayNonUniformIndexing = ShaderStorageTexelBufferArrayNonUniformIndexing;
+        }
+        if (DescriptorBindingUniformBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingUniformBufferUpdateAfterBind = DescriptorBindingUniformBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingSampledImageUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingSampledImageUpdateAfterBind = DescriptorBindingSampledImageUpdateAfterBind;
+        }
+        if (DescriptorBindingStorageImageUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingStorageImageUpdateAfterBind = DescriptorBindingStorageImageUpdateAfterBind;
+        }
+        if (DescriptorBindingStorageBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingStorageBufferUpdateAfterBind = DescriptorBindingStorageBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingUniformTexelBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingUniformTexelBufferUpdateAfterBind = DescriptorBindingUniformTexelBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingStorageTexelBufferUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingStorageTexelBufferUpdateAfterBind = DescriptorBindingStorageTexelBufferUpdateAfterBind;
+        }
+        if (DescriptorBindingUpdateUnusedWhilePending != (uint)default)
+        {
+            _internal.descriptorBindingUpdateUnusedWhilePending = DescriptorBindingUpdateUnusedWhilePending;
+        }
+        if (DescriptorBindingPartiallyBound != (uint)default)
+        {
+            _internal.descriptorBindingPartiallyBound = DescriptorBindingPartiallyBound;
+        }
+        if (DescriptorBindingVariableDescriptorCount != (uint)default)
+        {
+            _internal.descriptorBindingVariableDescriptorCount = DescriptorBindingVariableDescriptorCount;
+        }
+        if (RuntimeDescriptorArray != (uint)default)
+        {
+            _internal.runtimeDescriptorArray = RuntimeDescriptorArray;
+        }
         return _internal;
     }
 

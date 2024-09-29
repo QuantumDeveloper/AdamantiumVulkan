@@ -43,20 +43,47 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.rateControlModes = RateControlModes;
-        _internal.maxRateControlLayers = MaxRateControlLayers;
-        _internal.maxBitrate = MaxBitrate;
-        _internal.maxQualityLevels = MaxQualityLevels;
-        if (EncodeInputPictureGranularity != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (RateControlModes != (uint)default)
+        {
+            _internal.rateControlModes = RateControlModes;
+        }
+        if (MaxRateControlLayers != default)
+        {
+            _internal.maxRateControlLayers = MaxRateControlLayers;
+        }
+        if (MaxBitrate != default)
+        {
+            _internal.maxBitrate = MaxBitrate;
+        }
+        if (MaxQualityLevels != default)
+        {
+            _internal.maxQualityLevels = MaxQualityLevels;
+        }
+        if (EncodeInputPictureGranularity != default)
         {
             _internal.encodeInputPictureGranularity = EncodeInputPictureGranularity.ToNative();
         }
-        _internal.supportedEncodeFeedbackFlags = SupportedEncodeFeedbackFlags;
+        if (SupportedEncodeFeedbackFlags != (uint)default)
+        {
+            _internal.supportedEncodeFeedbackFlags = SupportedEncodeFeedbackFlags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        EncodeInputPictureGranularity?.Dispose();
+    }
+
 
     public static implicit operator VideoEncodeCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR v)
     {

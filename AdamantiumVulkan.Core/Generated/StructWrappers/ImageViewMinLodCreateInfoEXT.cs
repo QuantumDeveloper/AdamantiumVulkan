@@ -31,9 +31,15 @@ public unsafe partial class ImageViewMinLodCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewMinLodCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewMinLodCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.minLod = MinLod;
+        if (MinLod != default)
+        {
+            _internal.minLod = MinLod;
+        }
         return _internal;
     }
 

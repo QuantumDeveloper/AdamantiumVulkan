@@ -47,17 +47,47 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.width = Width;
-        _internal.height = Height;
-        _internal.imageFormat = ImageFormat;
-        _internal.flowVectorFormat = FlowVectorFormat;
-        _internal.costFormat = CostFormat;
-        _internal.outputGridSize = OutputGridSize;
-        _internal.hintGridSize = HintGridSize;
-        _internal.performanceLevel = PerformanceLevel;
-        _internal.flags = Flags;
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
+        if (ImageFormat != default)
+        {
+            _internal.imageFormat = ImageFormat;
+        }
+        if (FlowVectorFormat != default)
+        {
+            _internal.flowVectorFormat = FlowVectorFormat;
+        }
+        if (CostFormat != default)
+        {
+            _internal.costFormat = CostFormat;
+        }
+        if (OutputGridSize != (uint)default)
+        {
+            _internal.outputGridSize = OutputGridSize;
+        }
+        if (HintGridSize != (uint)default)
+        {
+            _internal.hintGridSize = HintGridSize;
+        }
+        if (PerformanceLevel != default)
+        {
+            _internal.performanceLevel = PerformanceLevel;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

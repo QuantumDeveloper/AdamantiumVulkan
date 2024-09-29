@@ -45,18 +45,27 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceIndexCount = DeviceIndexCount;
+        if (DeviceIndexCount != default)
+        {
+            _internal.deviceIndexCount = DeviceIndexCount;
+        }
         _pDeviceIndices.Dispose();
         if (PDeviceIndices.HasValue)
         {
             _pDeviceIndices = new NativeStruct<uint>(PDeviceIndices.Value);
             _internal.pDeviceIndices = _pDeviceIndices.Handle;
         }
-        _internal.splitInstanceBindRegionCount = SplitInstanceBindRegionCount;
+        if (SplitInstanceBindRegionCount != default)
+        {
+            _internal.splitInstanceBindRegionCount = SplitInstanceBindRegionCount;
+        }
         _pSplitInstanceBindRegions.Dispose();
-        if (PSplitInstanceBindRegions != null)
+        if (PSplitInstanceBindRegions != default)
         {
             var struct1 = PSplitInstanceBindRegions.ToNative();
             _pSplitInstanceBindRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct1);

@@ -38,9 +38,15 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.drmFormatModifierCount = DrmFormatModifierCount;
+        if (DrmFormatModifierCount != default)
+        {
+            _internal.drmFormatModifierCount = DrmFormatModifierCount;
+        }
         _pDrmFormatModifiers.Dispose();
         if (PDrmFormatModifiers.HasValue)
         {

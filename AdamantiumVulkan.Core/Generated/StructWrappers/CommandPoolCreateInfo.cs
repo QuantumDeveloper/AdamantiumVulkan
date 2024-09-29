@@ -32,10 +32,19 @@ public unsafe partial class CommandPoolCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.queueFamilyIndex = QueueFamilyIndex;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (QueueFamilyIndex != default)
+        {
+            _internal.queueFamilyIndex = QueueFamilyIndex;
+        }
         return _internal;
     }
 

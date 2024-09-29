@@ -35,11 +35,23 @@ public unsafe partial class AccelerationStructureBuildSizesInfoKHR : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.accelerationStructureSize = AccelerationStructureSize;
-        _internal.updateScratchSize = UpdateScratchSize;
-        _internal.buildScratchSize = BuildScratchSize;
+        if (AccelerationStructureSize != (ulong)default)
+        {
+            _internal.accelerationStructureSize = AccelerationStructureSize;
+        }
+        if (UpdateScratchSize != (ulong)default)
+        {
+            _internal.updateScratchSize = UpdateScratchSize;
+        }
+        if (BuildScratchSize != (ulong)default)
+        {
+            _internal.buildScratchSize = BuildScratchSize;
+        }
         return _internal;
     }
 

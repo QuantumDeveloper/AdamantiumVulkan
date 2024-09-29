@@ -34,11 +34,23 @@ public unsafe partial class ExternalFenceProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExternalFenceProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalFenceProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
-        _internal.compatibleHandleTypes = CompatibleHandleTypes;
-        _internal.externalFenceFeatures = ExternalFenceFeatures;
+        if (ExportFromImportedHandleTypes != (uint)default)
+        {
+            _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
+        }
+        if (CompatibleHandleTypes != (uint)default)
+        {
+            _internal.compatibleHandleTypes = CompatibleHandleTypes;
+        }
+        if (ExternalFenceFeatures != (uint)default)
+        {
+            _internal.externalFenceFeatures = ExternalFenceFeatures;
+        }
         return _internal;
     }
 

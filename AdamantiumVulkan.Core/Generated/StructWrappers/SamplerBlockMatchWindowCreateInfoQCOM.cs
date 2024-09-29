@@ -33,15 +33,27 @@ public unsafe partial class SamplerBlockMatchWindowCreateInfoQCOM : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (WindowExtent != null)
+        if (WindowExtent != default)
         {
             _internal.windowExtent = WindowExtent.ToNative();
         }
-        _internal.windowCompareMode = WindowCompareMode;
+        if (WindowCompareMode != default)
+        {
+            _internal.windowCompareMode = WindowCompareMode;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        WindowExtent?.Dispose();
+    }
+
 
     public static implicit operator SamplerBlockMatchWindowCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM s)
     {

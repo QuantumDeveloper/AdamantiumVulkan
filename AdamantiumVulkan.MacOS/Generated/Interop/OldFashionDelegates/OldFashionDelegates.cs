@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.MacOS.Interop;
 
 public static unsafe class Delegates
 {
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 30
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateMacOSSurfaceMVK(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 }

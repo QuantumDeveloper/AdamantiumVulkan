@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceMaintenance3Properties : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxPerSetDescriptors = MaxPerSetDescriptors;
-        _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
+        if (MaxPerSetDescriptors != default)
+        {
+            _internal.maxPerSetDescriptors = MaxPerSetDescriptors;
+        }
+        if (MaxMemoryAllocationSize != (ulong)default)
+        {
+            _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
+        }
         return _internal;
     }
 

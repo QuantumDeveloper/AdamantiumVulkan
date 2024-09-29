@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceImageViewImageFormatInfoEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageViewType = ImageViewType;
+        if (ImageViewType != default)
+        {
+            _internal.imageViewType = ImageViewType;
+        }
         return _internal;
     }
 

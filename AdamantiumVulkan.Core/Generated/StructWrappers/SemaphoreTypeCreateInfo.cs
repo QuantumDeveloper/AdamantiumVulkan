@@ -33,10 +33,19 @@ public unsafe partial class SemaphoreTypeCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.semaphoreType = SemaphoreType;
-        _internal.initialValue = InitialValue;
+        if (SemaphoreType != default)
+        {
+            _internal.semaphoreType = SemaphoreType;
+        }
+        if (InitialValue != default)
+        {
+            _internal.initialValue = InitialValue;
+        }
         return _internal;
     }
 

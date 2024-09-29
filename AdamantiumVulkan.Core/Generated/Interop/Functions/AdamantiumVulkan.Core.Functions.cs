@@ -18,2495 +18,2507 @@ internal static unsafe partial class VulkanInterop
 {
     public const string LibraryPath = "vulkan-1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15452 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15707 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAcquireDrmDisplayEXT", ExactSpelling = true)]
     internal static extern Result vkAcquireDrmDisplayEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, int drmFd, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7780 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7816 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAcquireNextImage2KHR", ExactSpelling = true)]
     internal static extern Result vkAcquireNextImage2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, uint* pImageIndex);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7753 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7789 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAcquireNextImageKHR", ExactSpelling = true)]
     internal static extern Result vkAcquireNextImageKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, uint* pImageIndex);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14180 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14439 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAcquirePerformanceConfigurationINTEL", ExactSpelling = true)]
     internal static extern Result vkAcquirePerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T pConfiguration);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9564 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9601 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAcquireProfilingLockKHR", ExactSpelling = true)]
     internal static extern Result vkAcquireProfilingLockKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4532 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4566 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAllocateCommandBuffers", ExactSpelling = true)]
     internal static extern Result vkAllocateCommandBuffers(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4471 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4505 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAllocateDescriptorSets", ExactSpelling = true)]
     internal static extern Result vkAllocateDescriptorSets(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T* pDescriptorSets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4153 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4187 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkAllocateMemory", ExactSpelling = true)]
     internal static extern Result vkAllocateMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDeviceMemory_T pMemory);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4543 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4577 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBeginCommandBuffer", ExactSpelling = true)]
     internal static extern Result vkBeginCommandBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo* pBeginInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13575 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13834 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindAccelerationStructureMemoryNV", ExactSpelling = true)]
     internal static extern Result vkBindAccelerationStructureMemoryNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV* pBindInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4191 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4225 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindBufferMemory", ExactSpelling = true)]
     internal static extern Result vkBindBufferMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5574 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5610 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindBufferMemory2", ExactSpelling = true)]
     internal static extern Result vkBindBufferMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo* pBindInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9828 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9865 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindBufferMemory2KHR", ExactSpelling = true)]
     internal static extern Result vkBindBufferMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo* pBindInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4197 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4231 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindImageMemory", ExactSpelling = true)]
     internal static extern Result vkBindImageMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5579 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5615 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindImageMemory2", ExactSpelling = true)]
     internal static extern Result vkBindImageMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo* pBindInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9833 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9870 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindImageMemory2KHR", ExactSpelling = true)]
     internal static extern Result vkBindImageMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo* pBindInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18236 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18491 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindOpticalFlowSessionImageNV", ExactSpelling = true)]
     internal static extern Result vkBindOpticalFlowSessionImageNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, OpticalFlowSessionBindingPointNV bindingPoint, AdamantiumVulkan.Core.Interop.VkImageView_T view, ImageLayout layout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8195 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8232 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBindVideoSessionMemoryKHR", ExactSpelling = true)]
     internal static extern Result vkBindVideoSessionMemoryKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, uint bindSessionMemoryInfoCount, AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19068 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19359 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBuildAccelerationStructuresKHR", ExactSpelling = true)]
     internal static extern Result vkBuildAccelerationStructuresKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17120 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17375 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkBuildMicromapsEXT", ExactSpelling = true)]
     internal static extern Result vkBuildMicromapsEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12208 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12467 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginConditionalRenderingEXT", ExactSpelling = true)]
     internal static extern void vkCmdBeginConditionalRenderingEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12763 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13022 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginDebugUtilsLabelEXT", ExactSpelling = true)]
     internal static extern void vkCmdBeginDebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4791 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4825 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginQuery", ExactSpelling = true)]
     internal static extern void vkCmdBeginQuery(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11755 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12014 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginQueryIndexedEXT", ExactSpelling = true)]
     internal static extern void vkCmdBeginQueryIndexedEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags, uint index);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7415 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7451 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRendering", ExactSpelling = true)]
     internal static extern void vkCmdBeginRendering(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8824 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8861 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderingKHR", ExactSpelling = true)]
     internal static extern void vkCmdBeginRenderingKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4832 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4866 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass", ExactSpelling = true)]
     internal static extern void vkCmdBeginRenderPass(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, SubpassContents contents);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6428 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6464 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass2", ExactSpelling = true)]
     internal static extern void vkCmdBeginRenderPass2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9324 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9361 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginRenderPass2KHR", ExactSpelling = true)]
     internal static extern void vkCmdBeginRenderPass2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11741 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12000 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginTransformFeedbackEXT", ExactSpelling = true)]
     internal static extern void vkCmdBeginTransformFeedbackEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstCounterBuffer, uint counterBufferCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pCounterBuffers, ulong* pCounterBufferOffsets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8217 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8254 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBeginVideoCodingKHR", ExactSpelling = true)]
     internal static extern void vkCmdBeginVideoCodingKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoBeginCodingInfoKHR* pBeginInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11439 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11698 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindDescriptorBufferEmbeddedSamplers2EXT", ExactSpelling = true)]
     internal static extern void vkCmdBindDescriptorBufferEmbeddedSamplers2EXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT* pBindDescriptorBufferEmbeddedSamplersInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15914 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16169 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindDescriptorBufferEmbeddedSamplersEXT", ExactSpelling = true)]
     internal static extern void vkCmdBindDescriptorBufferEmbeddedSamplersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15900 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16155 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindDescriptorBuffersEXT", ExactSpelling = true)]
     internal static extern void vkCmdBindDescriptorBuffersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint bufferCount, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT* pBindingInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4605 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4639 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindDescriptorSets", ExactSpelling = true)]
     internal static extern void vkCmdBindDescriptorSets(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint firstSet, uint descriptorSetCount, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T* pDescriptorSets, uint dynamicOffsetCount, uint* pDynamicOffsets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11419 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11678 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindDescriptorSets2KHR", ExactSpelling = true)]
     internal static extern void vkCmdBindDescriptorSets2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR* pBindDescriptorSetsInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4615 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4649 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindIndexBuffer", ExactSpelling = true)]
     internal static extern void vkCmdBindIndexBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, IndexType indexType);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11119 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11239 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindIndexBuffer2KHR", ExactSpelling = true)]
     internal static extern void vkCmdBindIndexBuffer2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, VkDeviceSize size, IndexType indexType);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16595 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16850 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindInvocationMaskHUAWEI", ExactSpelling = true)]
     internal static extern void vkCmdBindInvocationMaskHUAWEI(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, ImageLayout imageLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4554 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4588 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindPipeline", ExactSpelling = true)]
     internal static extern void vkCmdBindPipeline(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15282 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15537 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindPipelineShaderGroupNV", ExactSpelling = true)]
     internal static extern void vkCmdBindPipelineShaderGroupNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint groupIndex);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18353 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18608 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindShadersEXT", ExactSpelling = true)]
     internal static extern void vkCmdBindShadersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint stageCount, ShaderStageFlagBits* pStages, AdamantiumVulkan.Core.Interop.VkShaderEXT_T* pShaders);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13261 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13520 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindShadingRateImageNV", ExactSpelling = true)]
     internal static extern void vkCmdBindShadingRateImageNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, ImageLayout imageLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11733 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11992 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindTransformFeedbackBuffersEXT", ExactSpelling = true)]
     internal static extern void vkCmdBindTransformFeedbackBuffersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, ulong* pOffsets, ulong* pSizes);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4621 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4655 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers", ExactSpelling = true)]
     internal static extern void vkCmdBindVertexBuffers(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, ulong* pOffsets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7444 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7480 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers2", ExactSpelling = true)]
     internal static extern void vkCmdBindVertexBuffers2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes, VkDeviceSize* pStrides);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14797 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15026 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBindVertexBuffers2EXT", ExactSpelling = true)]
     internal static extern void vkCmdBindVertexBuffers2EXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes, VkDeviceSize* pStrides);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4684 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4718 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage", ExactSpelling = true)]
     internal static extern void vkCmdBlitImage(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageBlit* pRegions, Filter filter);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7407 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7443 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage2", ExactSpelling = true)]
     internal static extern void vkCmdBlitImage2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBlitImageInfo2* pBlitImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10879 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10977 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBlitImage2KHR", ExactSpelling = true)]
     internal static extern void vkCmdBlitImage2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBlitImageInfo2* pBlitImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13580 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13839 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBuildAccelerationStructureNV", ExactSpelling = true)]
     internal static extern void vkCmdBuildAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, VkDeviceSize instanceOffset, VkBool32 update, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, VkDeviceSize scratchOffset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19060 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19351 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBuildAccelerationStructuresIndirectKHR", ExactSpelling = true)]
     internal static extern void vkCmdBuildAccelerationStructuresIndirectKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, uint** ppMaxPrimitiveCounts);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19054 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19345 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBuildAccelerationStructuresKHR", ExactSpelling = true)]
     internal static extern void vkCmdBuildAccelerationStructuresKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17115 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17370 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdBuildMicromapsEXT", ExactSpelling = true)]
     internal static extern void vkCmdBuildMicromapsEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4740 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4774 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdClearAttachments", ExactSpelling = true)]
     internal static extern void vkCmdClearAttachments(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkClearAttachment* pAttachments, uint rectCount, AdamantiumVulkan.Core.Interop.VkClearRect* pRects);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4724 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4758 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdClearColorImage", ExactSpelling = true)]
     internal static extern void vkCmdClearColorImage(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue* pColor, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4732 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4766 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdClearDepthStencilImage", ExactSpelling = true)]
     internal static extern void vkCmdClearDepthStencilImage(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue* pDepthStencil, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8225 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8262 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdControlVideoCodingKHR", ExactSpelling = true)]
     internal static extern void vkCmdControlVideoCodingKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoCodingControlInfoKHR* pCodingControlInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19099 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19390 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyAccelerationStructureKHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13591 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13850 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyAccelerationStructureNV", ExactSpelling = true)]
     internal static extern void vkCmdCopyAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, CopyAccelerationStructureModeKHR mode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19103 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19394 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyAccelerationStructureToMemoryKHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyAccelerationStructureToMemoryKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4668 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4702 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer", ExactSpelling = true)]
     internal static extern void vkCmdCopyBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferCopy* pRegions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7391 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7427 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer2", ExactSpelling = true)]
     internal static extern void vkCmdCopyBuffer2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2* pCopyBufferInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10863 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10961 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBuffer2KHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyBuffer2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2* pCopyBufferInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4694 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4728 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBufferToImage", ExactSpelling = true)]
     internal static extern void vkCmdCopyBufferToImage(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T srcBuffer, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferImageCopy* pRegions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7399 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7435 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBufferToImage2", ExactSpelling = true)]
     internal static extern void vkCmdCopyBufferToImage2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2* pCopyBufferToImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10871 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10969 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyBufferToImage2KHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyBufferToImage2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2* pCopyBufferToImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4675 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4709 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImage", ExactSpelling = true)]
     internal static extern void vkCmdCopyImage(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageCopy* pRegions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7395 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7431 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImage2", ExactSpelling = true)]
     internal static extern void vkCmdCopyImage2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyImageInfo2* pCopyImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10867 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10965 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImage2KHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyImage2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyImageInfo2* pCopyImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4702 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4736 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImageToBuffer", ExactSpelling = true)]
     internal static extern void vkCmdCopyImageToBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferImageCopy* pRegions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7403 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7439 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImageToBuffer2", ExactSpelling = true)]
     internal static extern void vkCmdCopyImageToBuffer2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2* pCopyImageToBufferInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10875 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10973 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyImageToBuffer2KHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyImageToBuffer2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2* pCopyImageToBufferInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17499 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17754 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyMemoryIndirectNV", ExactSpelling = true)]
     internal static extern void vkCmdCopyMemoryIndirectNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19107 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19398 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyMemoryToAccelerationStructureKHR", ExactSpelling = true)]
     internal static extern void vkCmdCopyMemoryToAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17505 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17760 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyMemoryToImageIndirectNV", ExactSpelling = true)]
     internal static extern void vkCmdCopyMemoryToImageIndirectNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers* pImageSubresources);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17158 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17413 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyMemoryToMicromapEXT", ExactSpelling = true)]
     internal static extern void vkCmdCopyMemoryToMicromapEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17150 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17405 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyMicromapEXT", ExactSpelling = true)]
     internal static extern void vkCmdCopyMicromapEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMicromapInfoEXT* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17154 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17409 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyMicromapToMemoryEXT", ExactSpelling = true)]
     internal static extern void vkCmdCopyMicromapToMemoryEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4814 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4848 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCopyQueryPoolResults", ExactSpelling = true)]
     internal static extern void vkCmdCopyQueryPoolResults(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15716 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15971 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCudaLaunchKernelNV", ExactSpelling = true)]
     internal static extern void vkCmdCudaLaunchKernelNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCudaLaunchInfoNV* pLaunchInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11845 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12104 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdCuLaunchKernelNVX", ExactSpelling = true)]
     internal static extern void vkCmdCuLaunchKernelNVX(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX* pLaunchInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11647 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11906 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDebugMarkerBeginEXT", ExactSpelling = true)]
     internal static extern void vkCmdDebugMarkerBeginEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT* pMarkerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11651 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11910 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDebugMarkerEndEXT", ExactSpelling = true)]
     internal static extern void vkCmdDebugMarkerEndEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11654 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11913 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDebugMarkerInsertEXT", ExactSpelling = true)]
     internal static extern void vkCmdDebugMarkerInsertEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT* pMarkerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8280 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8317 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDecodeVideoKHR", ExactSpelling = true)]
     internal static extern void vkCmdDecodeVideoKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR* pDecodeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17556 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17811 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDecompressMemoryIndirectCountNV", ExactSpelling = true)]
     internal static extern void vkCmdDecompressMemoryIndirectCountNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17551 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17806 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDecompressMemoryNV", ExactSpelling = true)]
     internal static extern void vkCmdDecompressMemoryNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint decompressRegionCount, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV* pDecompressMemoryRegions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4657 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4691 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDispatch", ExactSpelling = true)]
     internal static extern void vkCmdDispatch(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint groupCountX, uint groupCountY, uint groupCountZ);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5595 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5631 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDispatchBase", ExactSpelling = true)]
     internal static extern void vkCmdDispatchBase(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint baseGroupX, uint baseGroupY, uint baseGroupZ, uint groupCountX, uint groupCountY, uint groupCountZ);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8953 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8990 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDispatchBaseKHR", ExactSpelling = true)]
     internal static extern void vkCmdDispatchBaseKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint baseGroupX, uint baseGroupY, uint baseGroupZ, uint groupCountX, uint groupCountY, uint groupCountZ);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4663 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4697 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDispatchIndirect", ExactSpelling = true)]
     internal static extern void vkCmdDispatchIndirect(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4628 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4662 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDraw", ExactSpelling = true)]
     internal static extern void vkCmdDraw(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17219 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17474 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawClusterHUAWEI", ExactSpelling = true)]
     internal static extern void vkCmdDrawClusterHUAWEI(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint groupCountX, uint groupCountY, uint groupCountZ);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17225 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17480 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawClusterIndirectHUAWEI", ExactSpelling = true)]
     internal static extern void vkCmdDrawClusterIndirectHUAWEI(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4635 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4669 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexed", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndexed(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint indexCount, uint instanceCount, uint firstIndex, int vertexOffset, uint firstInstance);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4650 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4684 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirect", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndexedIndirect(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6413 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6449 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCount", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndexedIndirectCount(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11902 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12161 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCountAMD", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndexedIndirectCountAMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9877 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9914 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndexedIndirectCountKHR", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndexedIndirectCountKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4643 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4677 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirect", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndirect(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11768 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12027 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectByteCountEXT", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndirectByteCountEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint instanceCount, uint firstInstance, AdamantiumVulkan.Core.Interop.VkBuffer_T counterBuffer, VkDeviceSize counterBufferOffset, uint counterOffset, uint vertexStride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6404 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6440 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCount", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndirectCount(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11893 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12152 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCountAMD", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndirectCountAMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9868 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9905 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawIndirectCountKHR", ExactSpelling = true)]
     internal static extern void vkCmdDrawIndirectCountKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19344 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19635 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksEXT", ExactSpelling = true)]
     internal static extern void vkCmdDrawMeshTasksEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint groupCountX, uint groupCountY, uint groupCountZ);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19357 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19648 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksIndirectCountEXT", ExactSpelling = true)]
     internal static extern void vkCmdDrawMeshTasksIndirectCountEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13951 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14210 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksIndirectCountNV", ExactSpelling = true)]
     internal static extern void vkCmdDrawMeshTasksIndirectCountNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19350 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19641 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksIndirectEXT", ExactSpelling = true)]
     internal static extern void vkCmdDrawMeshTasksIndirectEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13944 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14203 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksIndirectNV", ExactSpelling = true)]
     internal static extern void vkCmdDrawMeshTasksIndirectNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, uint drawCount, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13939 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14198 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMeshTasksNV", ExactSpelling = true)]
     internal static extern void vkCmdDrawMeshTasksNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint taskCount, uint firstTask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16857 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17112 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMultiEXT", ExactSpelling = true)]
     internal static extern void vkCmdDrawMultiEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint drawCount, AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT* pVertexInfo, uint instanceCount, uint firstInstance, uint stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16865 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17120 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdDrawMultiIndexedEXT", ExactSpelling = true)]
     internal static extern void vkCmdDrawMultiIndexedEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint drawCount, AdamantiumVulkan.Core.Interop.VkMultiDrawIndexedInfoEXT* pIndexInfo, uint instanceCount, uint firstInstance, uint stride, int* pVertexOffset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10669 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10767 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEncodeVideoKHR", ExactSpelling = true)]
     internal static extern void vkCmdEncodeVideoKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoEncodeInfoKHR* pEncodeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12212 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12471 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndConditionalRenderingEXT", ExactSpelling = true)]
     internal static extern void vkCmdEndConditionalRenderingEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12767 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13026 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndDebugUtilsLabelEXT", ExactSpelling = true)]
     internal static extern void vkCmdEndDebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4797 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4831 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndQuery", ExactSpelling = true)]
     internal static extern void vkCmdEndQuery(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11762 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12021 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndQueryIndexedEXT", ExactSpelling = true)]
     internal static extern void vkCmdEndQueryIndexedEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, uint index);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7419 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7455 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndRendering", ExactSpelling = true)]
     internal static extern void vkCmdEndRendering(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8828 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8865 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderingKHR", ExactSpelling = true)]
     internal static extern void vkCmdEndRenderingKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4841 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4875 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass", ExactSpelling = true)]
     internal static extern void vkCmdEndRenderPass(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6438 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6474 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass2", ExactSpelling = true)]
     internal static extern void vkCmdEndRenderPass2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9334 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9371 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndRenderPass2KHR", ExactSpelling = true)]
     internal static extern void vkCmdEndRenderPass2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11748 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12007 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndTransformFeedbackEXT", ExactSpelling = true)]
     internal static extern void vkCmdEndTransformFeedbackEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstCounterBuffer, uint counterBufferCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pCounterBuffers, ulong* pCounterBufferOffsets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8221 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8258 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdEndVideoCodingKHR", ExactSpelling = true)]
     internal static extern void vkCmdEndVideoCodingKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoEndCodingInfoKHR* pEndCodingInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4844 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4878 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdExecuteCommands", ExactSpelling = true)]
     internal static extern void vkCmdExecuteCommands(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint commandBufferCount, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15277 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15532 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdExecuteGeneratedCommandsNV", ExactSpelling = true)]
     internal static extern void vkCmdExecuteGeneratedCommandsNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 isPreprocessed, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4717 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4751 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdFillBuffer", ExactSpelling = true)]
     internal static extern void vkCmdFillBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize size, uint data);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12770 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13029 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdInsertDebugUtilsLabelEXT", ExactSpelling = true)]
     internal static extern void vkCmdInsertDebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4837 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4871 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass", ExactSpelling = true)]
     internal static extern void vkCmdNextSubpass(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SubpassContents contents);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6433 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6469 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass2", ExactSpelling = true)]
     internal static extern void vkCmdNextSubpass2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9329 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9366 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdNextSubpass2KHR", ExactSpelling = true)]
     internal static extern void vkCmdNextSubpass2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo* pSubpassBeginInfo, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18243 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18498 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdOpticalFlowExecuteNV", ExactSpelling = true)]
     internal static extern void vkCmdOpticalFlowExecuteNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV* pExecuteInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4779 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4813 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier", ExactSpelling = true)]
     internal static extern void vkCmdPipelineBarrier(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7375 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7411 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier2", ExactSpelling = true)]
     internal static extern void vkCmdPipelineBarrier2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10746 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10844 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPipelineBarrier2KHR", ExactSpelling = true)]
     internal static extern void vkCmdPipelineBarrier2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15273 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15528 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPreprocessGeneratedCommandsNV", ExactSpelling = true)]
     internal static extern void vkCmdPreprocessGeneratedCommandsNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4824 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4858 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushConstants", ExactSpelling = true)]
     internal static extern void vkCmdPushConstants(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11423 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11682 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushConstants2KHR", ExactSpelling = true)]
     internal static extern void vkCmdPushConstants2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPushConstantsInfoKHR* pPushConstantsInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11427 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11686 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSet2KHR", ExactSpelling = true)]
     internal static extern void vkCmdPushDescriptorSet2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfoKHR* pPushDescriptorSetInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9183 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9220 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetKHR", ExactSpelling = true)]
     internal static extern void vkCmdPushDescriptorSetKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11431 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11690 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplate2KHR", ExactSpelling = true)]
     internal static extern void vkCmdPushDescriptorSetWithTemplate2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfoKHR* pPushDescriptorSetWithTemplateInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9191 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9228 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplateKHR", ExactSpelling = true)]
     internal static extern void vkCmdPushDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4761 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4795 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResetEvent", ExactSpelling = true)]
     internal static extern void vkCmdResetEvent(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags stageMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7364 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7400 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResetEvent2", ExactSpelling = true)]
     internal static extern void vkCmdResetEvent2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags2 stageMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10735 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10833 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResetEvent2KHR", ExactSpelling = true)]
     internal static extern void vkCmdResetEvent2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags2 stageMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4802 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4836 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResetQueryPool", ExactSpelling = true)]
     internal static extern void vkCmdResetQueryPool(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4747 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4781 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResolveImage", ExactSpelling = true)]
     internal static extern void vkCmdResolveImage(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageResolve* pRegions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7411 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7447 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResolveImage2", ExactSpelling = true)]
     internal static extern void vkCmdResolveImage2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2* pResolveImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10883 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10981 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResolveImage2KHR", ExactSpelling = true)]
     internal static extern void vkCmdResolveImage2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2* pResolveImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17826 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18077 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetAlphaToCoverageEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetAlphaToCoverageEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 alphaToCoverageEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17830 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18081 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetAlphaToOneEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetAlphaToOneEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 alphaToOneEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18825 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19080 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetAttachmentFeedbackLoopEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetAttachmentFeedbackLoopEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkImageAspectFlags aspectMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4581 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4615 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetBlendConstants", ExactSpelling = true)]
     internal static extern void vkCmdSetBlendConstants(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float[] blendConstants);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14038 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14297 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCheckpointNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCheckpointNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13272 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13531 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoarseSampleOrderNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoarseSampleOrderNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoarseSampleOrderTypeNV sampleOrderType, uint customSampleOrderCount, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV* pCustomSampleOrders);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17876 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18131 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetColorBlendAdvancedEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetColorBlendAdvancedEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT* pColorBlendAdvanced);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17838 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18089 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetColorBlendEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetColorBlendEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkBool32* pColorBlendEnables);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17844 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18095 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetColorBlendEquationEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetColorBlendEquationEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT* pColorBlendEquations);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16776 Column: 63
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17031 Column: 63
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetColorWriteEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetColorWriteEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, VkBool32* pColorWriteEnables);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17850 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18101 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetColorWriteMaskEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetColorWriteMaskEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorComponentFlags* pColorWriteMasks);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17860 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18115 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetConservativeRasterizationModeEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetConservativeRasterizationModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ConservativeRasterizationModeEXT conservativeRasterizationMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17916 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18171 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoverageModulationModeNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoverageModulationModeNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoverageModulationModeNV coverageModulationMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17920 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18175 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoverageModulationTableEnableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoverageModulationTableEnableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 coverageModulationTableEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17924 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18179 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoverageModulationTableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoverageModulationTableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint coverageModulationTableCount, float* pCoverageModulationTable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17937 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18192 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoverageReductionModeNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoverageReductionModeNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoverageReductionModeNV coverageReductionMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17908 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18163 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoverageToColorEnableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoverageToColorEnableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 coverageToColorEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17912 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18167 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoverageToColorLocationNV", ExactSpelling = true)]
     internal static extern void vkCmdSetCoverageToColorLocationNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint coverageToColorLocation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7422 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7458 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCullMode", ExactSpelling = true)]
     internal static extern void vkCmdSetCullMode(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14775 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15004 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCullModeEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetCullModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4575 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4609 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBias", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBias(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15392 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15647 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBias2EXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBias2EXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDepthBiasInfoEXT* pDepthBiasInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7485 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7521 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBiasEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBiasEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthBiasEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16742 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16997 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBiasEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBiasEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthBiasEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4585 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4619 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBounds", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBounds(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float minDepthBounds, float maxDepthBounds);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7465 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7501 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBoundsTestEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBoundsTestEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthBoundsTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14818 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15047 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthBoundsTestEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthBoundsTestEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthBoundsTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17809 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18060 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthClampEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthClampEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthClampEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17868 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18123 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthClipEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthClipEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthClipEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17894 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18149 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthClipNegativeOneToOneEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthClipNegativeOneToOneEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 negativeOneToOne);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7461 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7497 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthCompareOp", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthCompareOp(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14814 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15043 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthCompareOpEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthCompareOpEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7453 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7489 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthTestEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthTestEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14806 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15035 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthTestEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthTestEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7457 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7493 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthWriteEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthWriteEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthWriteEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14810 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15039 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDepthWriteEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDepthWriteEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthWriteEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11435 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11694 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDescriptorBufferOffsets2EXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDescriptorBufferOffsets2EXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT* pSetDescriptorBufferOffsetsInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15905 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16160 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDescriptorBufferOffsetsEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDescriptorBufferOffsetsEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, VkDeviceSize* pOffsets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5591 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5627 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDeviceMask", ExactSpelling = true)]
     internal static extern void vkCmdSetDeviceMask(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint deviceMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8949 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8986 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDeviceMaskKHR", ExactSpelling = true)]
     internal static extern void vkCmdSetDeviceMaskKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint deviceMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12520 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12779 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDiscardRectangleEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDiscardRectangleEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 discardRectangleEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12514 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12773 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDiscardRectangleEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDiscardRectangleEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstDiscardRectangle, uint discardRectangleCount, AdamantiumVulkan.Core.Interop.VkRect2D* pDiscardRectangles);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12524 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12783 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetDiscardRectangleModeEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetDiscardRectangleModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, DiscardRectangleModeEXT discardRectangleMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4756 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4790 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetEvent", ExactSpelling = true)]
     internal static extern void vkCmdSetEvent(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags stageMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7359 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7395 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetEvent2", ExactSpelling = true)]
     internal static extern void vkCmdSetEvent2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10730 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10828 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetEvent2KHR", ExactSpelling = true)]
     internal static extern void vkCmdSetEvent2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14003 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14262 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetExclusiveScissorEnableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetExclusiveScissorEnableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, VkBool32* pExclusiveScissorEnables);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14009 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14268 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetExclusiveScissorNV", ExactSpelling = true)]
     internal static extern void vkCmdSetExclusiveScissorNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17864 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18119 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetExtraPrimitiveOverestimationSizeEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetExtraPrimitiveOverestimationSizeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float extraPrimitiveOverestimationSize);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16044 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16299 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetFragmentShadingRateEnumNV", ExactSpelling = true)]
     internal static extern void vkCmdSetFragmentShadingRateEnumNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR[] combinerOps);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10192 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10229 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetFragmentShadingRateKHR", ExactSpelling = true)]
     internal static extern void vkCmdSetFragmentShadingRateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkExtent2D* pFragmentSize, FragmentShadingRateCombinerOpKHR[] combinerOps);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7426 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7462 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetFrontFace", ExactSpelling = true)]
     internal static extern void vkCmdSetFrontFace(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FrontFace frontFace);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14779 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15008 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetFrontFaceEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetFrontFaceEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FrontFace frontFace);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17886 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18141 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineRasterizationModeEXT", ExactSpelling = true)]
-    internal static extern void vkCmdSetLineRasterizationModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LineRasterizationModeEXT lineRasterizationMode);
+    internal static extern void vkCmdSetLineRasterizationModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LineRasterizationModeKHR lineRasterizationMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17890 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18145 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineStippleEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetLineStippleEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 stippledLineEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14692 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14925 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineStippleEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetLineStippleEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4571 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11527 Column: 28
+    [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineStippleKHR", ExactSpelling = true)]
+    internal static extern void vkCmdSetLineStippleKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern);
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4605 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetLineWidth", ExactSpelling = true)]
     internal static extern void vkCmdSetLineWidth(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float lineWidth);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17834 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18085 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetLogicOpEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetLogicOpEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 logicOpEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16746 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17001 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetLogicOpEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetLogicOpEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LogicOp logicOp);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16734 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16989 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPatchControlPointsEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetPatchControlPointsEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint patchControlPoints);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14168 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14427 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceMarkerINTEL", ExactSpelling = true)]
     internal static extern Result vkCmdSetPerformanceMarkerINTEL(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL* pMarkerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14176 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14435 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceOverrideINTEL", ExactSpelling = true)]
     internal static extern Result vkCmdSetPerformanceOverrideINTEL(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL* pOverrideInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14172 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14431 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPerformanceStreamMarkerINTEL", ExactSpelling = true)]
     internal static extern Result vkCmdSetPerformanceStreamMarkerINTEL(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL* pMarkerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17813 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18064 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPolygonModeEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetPolygonModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PolygonMode polygonMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7489 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7525 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPrimitiveRestartEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetPrimitiveRestartEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 primitiveRestartEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16750 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17005 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPrimitiveRestartEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetPrimitiveRestartEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 primitiveRestartEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7430 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7466 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPrimitiveTopology", ExactSpelling = true)]
     internal static extern void vkCmdSetPrimitiveTopology(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PrimitiveTopology primitiveTopology);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14783 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15012 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetPrimitiveTopologyEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetPrimitiveTopologyEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PrimitiveTopology primitiveTopology);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17882 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18137 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetProvokingVertexModeEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetProvokingVertexModeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ProvokingVertexModeEXT provokingVertexMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17817 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18068 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetRasterizationSamplesEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetRasterizationSamplesEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SampleCountFlagBits rasterizationSamples);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17856 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18111 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetRasterizationStreamEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetRasterizationStreamEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint rasterizationStream);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7481 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7517 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetRasterizerDiscardEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetRasterizerDiscardEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 rasterizerDiscardEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16738 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16993 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetRasterizerDiscardEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetRasterizerDiscardEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 rasterizerDiscardEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19268 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19559 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetRayTracingPipelineStackSizeKHR", ExactSpelling = true)]
     internal static extern void vkCmdSetRayTracingPipelineStackSizeKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint pipelineStackSize);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17933 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10266 Column: 28
+    [DllImport(LibraryPath, EntryPoint = "vkCmdSetRenderingAttachmentLocationsKHR", ExactSpelling = true)]
+    internal static extern void vkCmdSetRenderingAttachmentLocationsKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfoKHR* pLocationInfo);
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10270 Column: 28
+    [DllImport(LibraryPath, EntryPoint = "vkCmdSetRenderingInputAttachmentIndicesKHR", ExactSpelling = true)]
+    internal static extern void vkCmdSetRenderingInputAttachmentIndicesKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfoKHR* pLocationInfo);
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18188 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetRepresentativeFragmentTestEnableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetRepresentativeFragmentTestEnableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 representativeFragmentTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17872 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18127 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetSampleLocationsEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetSampleLocationsEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 sampleLocationsEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12907 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13166 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetSampleLocationsEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT* pSampleLocationsInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17821 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18072 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetSampleMaskEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetSampleMaskEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SampleCountFlagBits samples, VkSampleMask* pSampleMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4565 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4599 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissor", ExactSpelling = true)]
     internal static extern void vkCmdSetScissor(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstScissor, uint scissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pScissors);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7439 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7475 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissorWithCount", ExactSpelling = true)]
     internal static extern void vkCmdSetScissorWithCount(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint scissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pScissors);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14792 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15021 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetScissorWithCountEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetScissorWithCountEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint scissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pScissors);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17929 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18184 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetShadingRateImageEnableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetShadingRateImageEnableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 shadingRateImageEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4590 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4624 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilCompareMask", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilCompareMask(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint compareMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7473 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7509 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilOp", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilOp(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14826 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15055 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilOpEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilOpEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4600 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4634 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilReference", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilReference(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint reference);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7469 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7505 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilTestEnable", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilTestEnable(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 stencilTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14822 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15051 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilTestEnableEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilTestEnableEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 stencilTestEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4595 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4629 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetStencilWriteMask", ExactSpelling = true)]
     internal static extern void vkCmdSetStencilWriteMask(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint writeMask);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17805 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18107 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetTessellationDomainOriginEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetTessellationDomainOriginEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, TessellationDomainOrigin domainOrigin);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16455 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16710 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetVertexInputEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetVertexInputEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint vertexBindingDescriptionCount, AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT* pVertexBindingDescriptions, uint vertexAttributeDescriptionCount, AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT* pVertexAttributeDescriptions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4559 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4593 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewport", ExactSpelling = true)]
     internal static extern void vkCmdSetViewport(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewport* pViewports);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13266 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13525 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportShadingRatePaletteNV", ExactSpelling = true)]
     internal static extern void vkCmdSetViewportShadingRatePaletteNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV* pShadingRatePalettes);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17902 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18157 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportSwizzleNV", ExactSpelling = true)]
     internal static extern void vkCmdSetViewportSwizzleNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV* pViewportSwizzles);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7434 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7470 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWithCount", ExactSpelling = true)]
     internal static extern void vkCmdSetViewportWithCount(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewport* pViewports);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14787 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15016 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWithCountEXT", ExactSpelling = true)]
     internal static extern void vkCmdSetViewportWithCountEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewport* pViewports);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17898 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18153 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWScalingEnableNV", ExactSpelling = true)]
     internal static extern void vkCmdSetViewportWScalingEnableNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 viewportWScalingEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12237 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12496 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetViewportWScalingNV", ExactSpelling = true)]
     internal static extern void vkCmdSetViewportWScalingNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV* pViewportWScalings);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16577 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16832 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSubpassShadingHUAWEI", ExactSpelling = true)]
     internal static extern void vkCmdSubpassShadingHUAWEI(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10932 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11030 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdTraceRaysIndirect2KHR", ExactSpelling = true)]
     internal static extern void vkCmdTraceRaysIndirect2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress indirectDeviceAddress);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19254 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19545 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdTraceRaysIndirectKHR", ExactSpelling = true)]
     internal static extern void vkCmdTraceRaysIndirectKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, VkDeviceAddress indirectDeviceAddress);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19227 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19518 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdTraceRaysKHR", ExactSpelling = true)]
     internal static extern void vkCmdTraceRaysKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, uint width, uint height, uint depth);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13597 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13856 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdTraceRaysNV", ExactSpelling = true)]
     internal static extern void vkCmdTraceRaysNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T raygenShaderBindingTableBuffer, VkDeviceSize raygenShaderBindingOffset, AdamantiumVulkan.Core.Interop.VkBuffer_T missShaderBindingTableBuffer, VkDeviceSize missShaderBindingOffset, VkDeviceSize missShaderBindingStride, AdamantiumVulkan.Core.Interop.VkBuffer_T hitShaderBindingTableBuffer, VkDeviceSize hitShaderBindingOffset, VkDeviceSize hitShaderBindingStride, AdamantiumVulkan.Core.Interop.VkBuffer_T callableShaderBindingTableBuffer, VkDeviceSize callableShaderBindingOffset, VkDeviceSize callableShaderBindingStride, uint width, uint height, uint depth);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4710 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4744 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdUpdateBuffer", ExactSpelling = true)]
     internal static extern void vkCmdUpdateBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17605 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17860 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdUpdatePipelineIndirectBufferNV", ExactSpelling = true)]
     internal static extern void vkCmdUpdatePipelineIndirectBufferNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4766 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4800 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWaitEvents", ExactSpelling = true)]
     internal static extern void vkCmdWaitEvents(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7369 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7405 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWaitEvents2", ExactSpelling = true)]
     internal static extern void vkCmdWaitEvents2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10740 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10838 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWaitEvents2KHR", ExactSpelling = true)]
     internal static extern void vkCmdWaitEvents2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfos);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19115 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19406 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteAccelerationStructuresPropertiesKHR", ExactSpelling = true)]
     internal static extern void vkCmdWriteAccelerationStructuresPropertiesKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13644 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13903 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteAccelerationStructuresPropertiesNV", ExactSpelling = true)]
     internal static extern void vkCmdWriteAccelerationStructuresPropertiesNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T* pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10762 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10860 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteBufferMarker2AMD", ExactSpelling = true)]
     internal static extern void vkCmdWriteBufferMarker2AMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13753 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14012 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteBufferMarkerAMD", ExactSpelling = true)]
     internal static extern void vkCmdWriteBufferMarkerAMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineStageFlagBits pipelineStage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17162 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17417 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteMicromapsPropertiesEXT", ExactSpelling = true)]
     internal static extern void vkCmdWriteMicromapsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4808 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4842 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteTimestamp", ExactSpelling = true)]
     internal static extern void vkCmdWriteTimestamp(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineStageFlagBits pipelineStage, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7379 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7415 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteTimestamp2", ExactSpelling = true)]
     internal static extern void vkCmdWriteTimestamp2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10750 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10848 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdWriteTimestamp2KHR", ExactSpelling = true)]
     internal static extern void vkCmdWriteTimestamp2KHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13652 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13911 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCompileDeferredNV", ExactSpelling = true)]
     internal static extern Result vkCompileDeferredNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint shader);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19075 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19366 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyAccelerationStructureKHR", ExactSpelling = true)]
     internal static extern Result vkCopyAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19080 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19371 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyAccelerationStructureToMemoryKHR", ExactSpelling = true)]
     internal static extern Result vkCopyAccelerationStructureToMemoryKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14958 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15187 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyImageToImageEXT", ExactSpelling = true)]
     internal static extern Result vkCopyImageToImageEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfoEXT* pCopyImageToImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14954 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15183 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyImageToMemoryEXT", ExactSpelling = true)]
     internal static extern Result vkCopyImageToMemoryEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToMemoryInfoEXT* pCopyImageToMemoryInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19085 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19376 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyMemoryToAccelerationStructureKHR", ExactSpelling = true)]
     internal static extern Result vkCopyMemoryToAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14950 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15179 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyMemoryToImageEXT", ExactSpelling = true)]
     internal static extern Result vkCopyMemoryToImageEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfoEXT* pCopyMemoryToImageInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17136 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17391 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyMemoryToMicromapEXT", ExactSpelling = true)]
     internal static extern Result vkCopyMemoryToMicromapEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17126 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17381 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyMicromapEXT", ExactSpelling = true)]
     internal static extern Result vkCopyMicromapEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMicromapInfoEXT* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17131 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17386 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCopyMicromapToMemoryEXT", ExactSpelling = true)]
     internal static extern Result vkCopyMicromapToMemoryEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19043 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19334 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateAccelerationStructureKHR", ExactSpelling = true)]
     internal static extern Result vkCreateAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T pAccelerationStructure);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13559 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13818 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateAccelerationStructureNV", ExactSpelling = true)]
     internal static extern Result vkCreateAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T pAccelerationStructure);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4317 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4351 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateBuffer", ExactSpelling = true)]
     internal static extern Result vkCreateBuffer(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4328 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4362 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateBufferView", ExactSpelling = true)]
     internal static extern Result vkCreateBufferView(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkBufferView_T pView);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4516 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4550 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateCommandPool", ExactSpelling = true)]
     internal static extern Result vkCreateCommandPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCommandPool_T pCommandPool);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4409 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4443 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateComputePipelines", ExactSpelling = true)]
     internal static extern Result vkCreateComputePipelines(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkPipeline_T* pPipelines);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15700 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15955 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateCudaFunctionNV", ExactSpelling = true)]
     internal static extern Result vkCreateCudaFunctionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaFunctionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCudaFunctionNV_T pFunction);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15688 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15943 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateCudaModuleNV", ExactSpelling = true)]
     internal static extern Result vkCreateCudaModuleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T pModule);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11829 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12088 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateCuFunctionNVX", ExactSpelling = true)]
     internal static extern Result vkCreateCuFunctionNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T pFunction);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11823 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12082 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateCuModuleNVX", ExactSpelling = true)]
     internal static extern Result vkCreateCuModuleNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCuModuleNVX_T pModule);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11532 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11791 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDebugReportCallbackEXT", ExactSpelling = true)]
     internal static extern Result vkCreateDebugReportCallbackEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12774 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13033 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDebugUtilsMessengerEXT", ExactSpelling = true)]
     internal static extern Result vkCreateDebugUtilsMessengerEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T pMessenger);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10303 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10392 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDeferredOperationKHR", ExactSpelling = true)]
     internal static extern Result vkCreateDeferredOperationKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T pDeferredOperation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4455 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4489 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorPool", ExactSpelling = true)]
     internal static extern Result vkCreateDescriptorPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T pDescriptorPool);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4444 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4478 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorSetLayout", ExactSpelling = true)]
     internal static extern Result vkCreateDescriptorSetLayout(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T pSetLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5679 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5715 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorUpdateTemplate", ExactSpelling = true)]
     internal static extern Result vkCreateDescriptorUpdateTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T pDescriptorUpdateTemplate);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9261 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9298 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDescriptorUpdateTemplateKHR", ExactSpelling = true)]
     internal static extern Result vkCreateDescriptorUpdateTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T pDescriptorUpdateTemplate);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4105 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4139 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDevice", ExactSpelling = true)]
     internal static extern Result vkCreateDevice(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7892 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7928 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDisplayModeKHR", ExactSpelling = true)]
     internal static extern Result vkCreateDisplayModeKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T pMode);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7905 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7941 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateDisplayPlaneSurfaceKHR", ExactSpelling = true)]
     internal static extern Result vkCreateDisplayPlaneSurfaceKHR(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4273 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4307 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateEvent", ExactSpelling = true)]
     internal static extern Result vkCreateEvent(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEventCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkEvent_T pEvent);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4235 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4269 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateFence", ExactSpelling = true)]
     internal static extern Result vkCreateFence(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4489 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4523 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateFramebuffer", ExactSpelling = true)]
     internal static extern Result vkCreateFramebuffer(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFramebuffer_T pFramebuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4401 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4435 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateGraphicsPipelines", ExactSpelling = true)]
     internal static extern Result vkCreateGraphicsPipelines(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkPipeline_T* pPipelines);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14643 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14902 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateHeadlessSurfaceEXT", ExactSpelling = true)]
     internal static extern Result vkCreateHeadlessSurfaceEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4339 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4373 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateImage", ExactSpelling = true)]
     internal static extern Result vkCreateImage(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkImage_T pImage);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4356 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4390 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateImageView", ExactSpelling = true)]
     internal static extern Result vkCreateImageView(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkImageView_T pView);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15288 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15543 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateIndirectCommandsLayoutNV", ExactSpelling = true)]
     internal static extern Result vkCreateIndirectCommandsLayoutNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4052 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4086 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateInstance", ExactSpelling = true)]
     internal static extern Result vkCreateInstance(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17104 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17359 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateMicromapEXT", ExactSpelling = true)]
     internal static extern Result vkCreateMicromapEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkMicromapEXT_T pMicromap);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18225 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18480 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateOpticalFlowSessionNV", ExactSpelling = true)]
     internal static extern Result vkCreateOpticalFlowSessionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T pSession);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4378 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4412 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreatePipelineCache", ExactSpelling = true)]
     internal static extern Result vkCreatePipelineCache(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipelineCache_T pPipelineCache);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4422 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4456 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreatePipelineLayout", ExactSpelling = true)]
     internal static extern Result vkCreatePipelineLayout(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pPipelineLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7334 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7370 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreatePrivateDataSlot", ExactSpelling = true)]
     internal static extern Result vkCreatePrivateDataSlot(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T pPrivateDataSlot);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15562 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15817 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreatePrivateDataSlotEXT", ExactSpelling = true)]
     internal static extern Result vkCreatePrivateDataSlotEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T pPrivateDataSlot);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4296 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4330 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateQueryPool", ExactSpelling = true)]
     internal static extern Result vkCreateQueryPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkQueryPool_T pQueryPool);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19237 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19528 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateRayTracingPipelinesKHR", ExactSpelling = true)]
     internal static extern Result vkCreateRayTracingPipelinesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13614 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13873 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateRayTracingPipelinesNV", ExactSpelling = true)]
     internal static extern Result vkCreateRayTracingPipelinesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4500 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4534 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass", ExactSpelling = true)]
     internal static extern Result vkCreateRenderPass(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6422 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6458 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass2", ExactSpelling = true)]
     internal static extern Result vkCreateRenderPass2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9318 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9355 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateRenderPass2KHR", ExactSpelling = true)]
     internal static extern Result vkCreateRenderPass2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4433 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4467 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateSampler", ExactSpelling = true)]
     internal static extern Result vkCreateSampler(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSampler_T pSampler);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5668 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5704 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateSamplerYcbcrConversion", ExactSpelling = true)]
     internal static extern Result vkCreateSamplerYcbcrConversion(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T pYcbcrConversion);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9803 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9840 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateSamplerYcbcrConversionKHR", ExactSpelling = true)]
     internal static extern Result vkCreateSamplerYcbcrConversionKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T pYcbcrConversion);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4262 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4296 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateSemaphore", ExactSpelling = true)]
     internal static extern Result vkCreateSemaphore(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSemaphore_T pSemaphore);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4367 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4401 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateShaderModule", ExactSpelling = true)]
     internal static extern Result vkCreateShaderModule(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkShaderModule_T pShaderModule);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18335 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18590 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateShadersEXT", ExactSpelling = true)]
     internal static extern Result vkCreateShadersEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkShaderEXT_T* pShaders);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7928 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7964 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateSharedSwapchainsKHR", ExactSpelling = true)]
     internal static extern Result vkCreateSharedSwapchainsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchains);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7736 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7772 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateSwapchainKHR", ExactSpelling = true)]
     internal static extern Result vkCreateSwapchainKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchain);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13128 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13387 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateValidationCacheEXT", ExactSpelling = true)]
     internal static extern Result vkCreateValidationCacheEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T pValidationCache);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8178 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8215 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateVideoSessionKHR", ExactSpelling = true)]
     internal static extern Result vkCreateVideoSessionKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T pVideoSession);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8201 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8238 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkCreateVideoSessionParametersKHR", ExactSpelling = true)]
     internal static extern Result vkCreateVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T pVideoSessionParameters);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11643 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11902 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkDebugMarkerSetObjectNameEXT", ExactSpelling = true)]
     internal static extern Result vkDebugMarkerSetObjectNameEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT* pNameInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11639 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11898 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkDebugMarkerSetObjectTagEXT", ExactSpelling = true)]
     internal static extern Result vkDebugMarkerSetObjectTagEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT* pTagInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11543 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11802 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDebugReportMessageEXT", ExactSpelling = true)]
     internal static extern void vkDebugReportMessageEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10321 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10410 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkDeferredOperationJoinKHR", ExactSpelling = true)]
     internal static extern Result vkDeferredOperationJoinKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19049 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19340 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyAccelerationStructureKHR", ExactSpelling = true)]
     internal static extern void vkDestroyAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T accelerationStructure, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13565 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13824 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyAccelerationStructureNV", ExactSpelling = true)]
     internal static extern void vkDestroyAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4323 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4357 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyBuffer", ExactSpelling = true)]
     internal static extern void vkDestroyBuffer(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4334 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4368 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyBufferView", ExactSpelling = true)]
     internal static extern void vkDestroyBufferView(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferView_T bufferView, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4522 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4556 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyCommandPool", ExactSpelling = true)]
     internal static extern void vkDestroyCommandPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15711 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15966 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyCudaFunctionNV", ExactSpelling = true)]
     internal static extern void vkDestroyCudaFunctionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaFunctionNV_T function, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15706 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15961 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyCudaModuleNV", ExactSpelling = true)]
     internal static extern void vkDestroyCudaModuleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11840 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12099 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyCuFunctionNVX", ExactSpelling = true)]
     internal static extern void vkDestroyCuFunctionNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T function, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11835 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12094 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyCuModuleNVX", ExactSpelling = true)]
     internal static extern void vkDestroyCuModuleNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuModuleNVX_T module, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11538 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11797 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDebugReportCallbackEXT", ExactSpelling = true)]
     internal static extern void vkDestroyDebugReportCallbackEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T callback, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12780 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13039 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDebugUtilsMessengerEXT", ExactSpelling = true)]
     internal static extern void vkDestroyDebugUtilsMessengerEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T messenger, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10308 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10397 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDeferredOperationKHR", ExactSpelling = true)]
     internal static extern void vkDestroyDeferredOperationKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4461 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4495 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorPool", ExactSpelling = true)]
     internal static extern void vkDestroyDescriptorPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4450 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4484 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorSetLayout", ExactSpelling = true)]
     internal static extern void vkDestroyDescriptorSetLayout(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T descriptorSetLayout, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5685 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5721 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorUpdateTemplate", ExactSpelling = true)]
     internal static extern void vkDestroyDescriptorUpdateTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9267 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9304 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDescriptorUpdateTemplateKHR", ExactSpelling = true)]
     internal static extern void vkDestroyDescriptorUpdateTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4111 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4145 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyDevice", ExactSpelling = true)]
     internal static extern void vkDestroyDevice(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4279 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4313 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyEvent", ExactSpelling = true)]
     internal static extern void vkDestroyEvent(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEvent_T @event, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4241 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4275 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyFence", ExactSpelling = true)]
     internal static extern void vkDestroyFence(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFence_T fence, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4495 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4529 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyFramebuffer", ExactSpelling = true)]
     internal static extern void vkDestroyFramebuffer(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4345 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4379 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyImage", ExactSpelling = true)]
     internal static extern void vkDestroyImage(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4362 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4396 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyImageView", ExactSpelling = true)]
     internal static extern void vkDestroyImageView(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15294 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15549 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyIndirectCommandsLayoutNV", ExactSpelling = true)]
     internal static extern void vkDestroyIndirectCommandsLayoutNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T indirectCommandsLayout, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4057 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4091 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyInstance", ExactSpelling = true)]
     internal static extern void vkDestroyInstance(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17110 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17365 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyMicromapEXT", ExactSpelling = true)]
     internal static extern void vkDestroyMicromapEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T micromap, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18231 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18486 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyOpticalFlowSessionNV", ExactSpelling = true)]
     internal static extern void vkDestroyOpticalFlowSessionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4417 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4451 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyPipeline", ExactSpelling = true)]
     internal static extern void vkDestroyPipeline(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4384 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4418 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyPipelineCache", ExactSpelling = true)]
     internal static extern void vkDestroyPipelineCache(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4428 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4462 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyPipelineLayout", ExactSpelling = true)]
     internal static extern void vkDestroyPipelineLayout(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T pipelineLayout, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7340 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7376 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyPrivateDataSlot", ExactSpelling = true)]
     internal static extern void vkDestroyPrivateDataSlot(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15568 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15823 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyPrivateDataSlotEXT", ExactSpelling = true)]
     internal static extern void vkDestroyPrivateDataSlotEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4302 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4336 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyQueryPool", ExactSpelling = true)]
     internal static extern void vkDestroyQueryPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4506 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4540 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyRenderPass", ExactSpelling = true)]
     internal static extern void vkDestroyRenderPass(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4439 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4473 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroySampler", ExactSpelling = true)]
     internal static extern void vkDestroySampler(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSampler_T sampler, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5674 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5710 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroySamplerYcbcrConversion", ExactSpelling = true)]
     internal static extern void vkDestroySamplerYcbcrConversion(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T ycbcrConversion, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9809 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9846 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroySamplerYcbcrConversionKHR", ExactSpelling = true)]
     internal static extern void vkDestroySamplerYcbcrConversionKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T ycbcrConversion, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4268 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4302 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroySemaphore", ExactSpelling = true)]
     internal static extern void vkDestroySemaphore(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18342 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18597 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyShaderEXT", ExactSpelling = true)]
     internal static extern void vkDestroyShaderEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4373 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4407 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyShaderModule", ExactSpelling = true)]
     internal static extern void vkDestroyShaderModule(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7596 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7632 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroySurfaceKHR", ExactSpelling = true)]
     internal static extern void vkDestroySurfaceKHR(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7742 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7778 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroySwapchainKHR", ExactSpelling = true)]
     internal static extern void vkDestroySwapchainKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13134 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13393 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyValidationCacheEXT", ExactSpelling = true)]
     internal static extern void vkDestroyValidationCacheEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8184 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8221 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyVideoSessionKHR", ExactSpelling = true)]
     internal static extern void vkDestroyVideoSessionKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8212 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8249 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkDestroyVideoSessionParametersKHR", ExactSpelling = true)]
     internal static extern void vkDestroyVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T videoSessionParameters, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4150 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4184 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkDeviceWaitIdle", ExactSpelling = true)]
     internal static extern Result vkDeviceWaitIdle(AdamantiumVulkan.Core.Interop.VkDevice_T device);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12346 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12605 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkDisplayPowerControlEXT", ExactSpelling = true)]
     internal static extern Result vkDisplayPowerControlEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT* pDisplayPowerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4547 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4581 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEndCommandBuffer", ExactSpelling = true)]
     internal static extern Result vkEndCommandBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4120 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4154 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateDeviceExtensionProperties", ExactSpelling = true)]
     internal static extern Result vkEnumerateDeviceExtensionProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4130 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4164 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateDeviceLayerProperties", ExactSpelling = true)]
     internal static extern Result vkEnumerateDeviceLayerProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4115 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4149 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceExtensionProperties", ExactSpelling = true)]
     internal static extern Result vkEnumerateInstanceExtensionProperties(sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4126 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4160 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceLayerProperties", ExactSpelling = true)]
     internal static extern Result vkEnumerateInstanceLayerProperties(uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5571 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5607 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceVersion", ExactSpelling = true)]
     internal static extern Result vkEnumerateInstanceVersion(uint* pApiVersion);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5604 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5640 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceGroups", ExactSpelling = true)]
     internal static extern Result vkEnumeratePhysicalDeviceGroups(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9000 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9037 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceGroupsKHR", ExactSpelling = true)]
     internal static extern Result vkEnumeratePhysicalDeviceGroupsKHR(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9552 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9589 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR", ExactSpelling = true)]
     internal static extern Result vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, uint* pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4061 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4095 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDevices", ExactSpelling = true)]
     internal static extern Result vkEnumeratePhysicalDevices(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceCount, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T* pPhysicalDevices);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4176 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4210 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkFlushMappedMemoryRanges", ExactSpelling = true)]
     internal static extern Result vkFlushMappedMemoryRanges(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint memoryRangeCount, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange* pMemoryRanges);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4537 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4571 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkFreeCommandBuffers", ExactSpelling = true)]
     internal static extern void vkFreeCommandBuffers(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, uint commandBufferCount, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4476 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4510 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkFreeDescriptorSets", ExactSpelling = true)]
     internal static extern Result vkFreeDescriptorSets(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, uint descriptorSetCount, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T* pDescriptorSets);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4159 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4193 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkFreeMemory", ExactSpelling = true)]
     internal static extern void vkFreeMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19128 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19419 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureBuildSizesKHR", ExactSpelling = true)]
     internal static extern void vkGetAccelerationStructureBuildSizesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pBuildInfo, uint* pMaxPrimitiveCounts, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR* pSizeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19111 Column: 39
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19402 Column: 39
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureDeviceAddressKHR", ExactSpelling = true)]
     internal static extern VkDeviceAddress vkGetAccelerationStructureDeviceAddressKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13638 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13897 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureHandleNV", ExactSpelling = true)]
     internal static extern Result vkGetAccelerationStructureHandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13570 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13829 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureMemoryRequirementsNV", ExactSpelling = true)]
     internal static extern void vkGetAccelerationStructureMemoryRequirementsNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15940 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16195 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6462 Column: 39
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6498 Column: 39
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddress", ExactSpelling = true)]
     internal static extern VkDeviceAddress vkGetBufferDeviceAddress(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14414 Column: 39
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14673 Column: 39
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddressEXT", ExactSpelling = true)]
     internal static extern VkDeviceAddress vkGetBufferDeviceAddressEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10277 Column: 39
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10366 Column: 39
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddressKHR", ExactSpelling = true)]
     internal static extern VkDeviceAddress vkGetBufferDeviceAddressKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4203 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4237 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements", ExactSpelling = true)]
     internal static extern void vkGetBufferMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, out AdamantiumVulkan.Core.Interop.VkMemoryRequirements pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5614 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5650 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements2", ExactSpelling = true)]
     internal static extern void vkGetBufferMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9754 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9791 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferMemoryRequirements2KHR", ExactSpelling = true)]
     internal static extern void vkGetBufferMemoryRequirements2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6466 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6502 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferOpaqueCaptureAddress", ExactSpelling = true)]
     internal static extern ulong vkGetBufferOpaqueCaptureAddress(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10281 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10370 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferOpaqueCaptureAddressKHR", ExactSpelling = true)]
     internal static extern ulong vkGetBufferOpaqueCaptureAddressKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15920 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16175 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetBufferOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13796 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14055 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetCalibratedTimestampsEXT", ExactSpelling = true)]
     internal static extern Result vkGetCalibratedTimestampsEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ulong* pTimestamps, ulong* pMaxDeviation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11318 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11565 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetCalibratedTimestampsKHR", ExactSpelling = true)]
     internal static extern Result vkGetCalibratedTimestampsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ulong* pTimestamps, ulong* pMaxDeviation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15694 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15949 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetCudaModuleCacheNV", ExactSpelling = true)]
     internal static extern Result vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, ulong* pCacheSize, void* pCacheData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10313 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10402 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeferredOperationMaxConcurrencyKHR", ExactSpelling = true)]
     internal static extern uint vkGetDeferredOperationMaxConcurrencyKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10317 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10406 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeferredOperationResultKHR", ExactSpelling = true)]
     internal static extern Result vkGetDeferredOperationResultKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15894 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16149 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorEXT", ExactSpelling = true)]
     internal static extern void vkGetDescriptorEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, void* pDescriptor);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17369 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17624 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetHostMappingVALVE", ExactSpelling = true)]
     internal static extern void vkGetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15888 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16143 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutBindingOffsetEXT", ExactSpelling = true)]
     internal static extern void vkGetDescriptorSetLayoutBindingOffsetEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, VkDeviceSize* pOffset);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17364 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17619 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutHostMappingInfoVALVE", ExactSpelling = true)]
     internal static extern void vkGetDescriptorSetLayoutHostMappingInfoVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE* pBindingReference, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15883 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16138 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutSizeEXT", ExactSpelling = true)]
     internal static extern void vkGetDescriptorSetLayoutSizeEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, VkDeviceSize* pLayoutSizeInBytes);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5711 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5747 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutSupport", ExactSpelling = true)]
     internal static extern void vkGetDescriptorSetLayoutSupport(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport* pSupport);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9853 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9890 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutSupportKHR", ExactSpelling = true)]
     internal static extern void vkGetDescriptorSetLayoutSupportKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport* pSupport);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19123 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19414 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceAccelerationStructureCompatibilityKHR", ExactSpelling = true)]
     internal static extern void vkGetDeviceAccelerationStructureCompatibilityKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR* pVersionInfo, AccelerationStructureCompatibilityKHR* pCompatibility);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7493 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7529 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceBufferMemoryRequirements", ExactSpelling = true)]
     internal static extern void vkGetDeviceBufferMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10961 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11059 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceBufferMemoryRequirementsKHR", ExactSpelling = true)]
     internal static extern void vkGetDeviceBufferMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16359 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16614 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceFaultInfoEXT", ExactSpelling = true)]
     internal static extern Result vkGetDeviceFaultInfoEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT* pFaultCounts, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT* pFaultInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5584 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5620 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupPeerMemoryFeatures", ExactSpelling = true)]
     internal static extern void vkGetDeviceGroupPeerMemoryFeatures(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, VkPeerMemoryFeatureFlags* pPeerMemoryFeatures);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8942 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8979 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupPeerMemoryFeaturesKHR", ExactSpelling = true)]
     internal static extern void vkGetDeviceGroupPeerMemoryFeaturesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, VkPeerMemoryFeatureFlags* pPeerMemoryFeatures);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7765 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7801 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupPresentCapabilitiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetDeviceGroupPresentCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7769 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7805 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceGroupSurfacePresentModesKHR", ExactSpelling = true)]
     internal static extern Result vkGetDeviceGroupSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, VkDeviceGroupPresentModeFlagsKHR* pModes);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7498 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7534 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageMemoryRequirements", ExactSpelling = true)]
     internal static extern void vkGetDeviceImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10966 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11064 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageMemoryRequirementsKHR", ExactSpelling = true)]
     internal static extern void vkGetDeviceImageMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7503 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7539 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageSparseMemoryRequirements", ExactSpelling = true)]
     internal static extern void vkGetDeviceImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10971 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11069 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageSparseMemoryRequirementsKHR", ExactSpelling = true)]
     internal static extern void vkGetDeviceImageSparseMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11131 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11251 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageSubresourceLayoutKHR", ExactSpelling = true)]
     internal static extern void vkGetDeviceImageSubresourceLayoutKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR* pLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4186 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4220 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryCommitment", ExactSpelling = true)]
     internal static extern void vkGetDeviceMemoryCommitment(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize* pCommittedMemoryInBytes);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6470 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6506 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryOpaqueCaptureAddress", ExactSpelling = true)]
     internal static extern ulong vkGetDeviceMemoryOpaqueCaptureAddress(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10285 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10374 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMemoryOpaqueCaptureAddressKHR", ExactSpelling = true)]
     internal static extern ulong vkGetDeviceMemoryOpaqueCaptureAddressKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17170 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17425 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceMicromapCompatibilityEXT", ExactSpelling = true)]
     internal static extern void vkGetDeviceMicromapCompatibilityEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, AccelerationStructureCompatibilityKHR* pCompatibility);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4101 Column: 42
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4135 Column: 42
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceProcAddr", ExactSpelling = true)]
     internal static extern void* vkGetDeviceProcAddr(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4135 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4169 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceQueue", ExactSpelling = true)]
     internal static extern void vkGetDeviceQueue(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint queueFamilyIndex, uint queueIndex, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5663 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5699 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceQueue2", ExactSpelling = true)]
     internal static extern void vkGetDeviceQueue2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16572 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16827 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI", ExactSpelling = true)]
     internal static extern Result vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderpass, AdamantiumVulkan.Core.Interop.VkExtent2D* pMaxWorkgroupSize);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9695 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9732 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayModeProperties2KHR", ExactSpelling = true)]
     internal static extern Result vkGetDisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7886 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7922 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayModePropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetDisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9701 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9738 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneCapabilities2KHR", ExactSpelling = true)]
     internal static extern Result vkGetDisplayPlaneCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR* pCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7899 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7935 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneCapabilitiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetDisplayPlaneCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T mode, uint planeIndex, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR* pCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7880 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7916 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneSupportedDisplaysKHR", ExactSpelling = true)]
     internal static extern Result vkGetDisplayPlaneSupportedDisplaysKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, uint* pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15457 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15712 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDrmDisplayEXT", ExactSpelling = true)]
     internal static extern Result vkGetDrmDisplayEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, int drmFd, uint connectorId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18389 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18644 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDynamicRenderingTilePropertiesQCOM", ExactSpelling = true)]
     internal static extern Result vkGetDynamicRenderingTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10662 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10760 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetEncodedVideoSessionParametersKHR", ExactSpelling = true)]
     internal static extern Result vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ulong* pDataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4284 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4318 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetEventStatus", ExactSpelling = true)]
     internal static extern Result vkGetEventStatus(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEvent_T @event);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9425 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9462 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetFenceFdKHR", ExactSpelling = true)]
     internal static extern Result vkGetFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4251 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4285 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetFenceStatus", ExactSpelling = true)]
     internal static extern Result vkGetFenceStatus(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18383 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18638 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetFramebufferTilePropertiesQCOM", ExactSpelling = true)]
     internal static extern Result vkGetFramebufferTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15268 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15523 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetGeneratedCommandsMemoryRequirementsNV", ExactSpelling = true)]
     internal static extern void vkGetGeneratedCommandsMemoryRequirementsNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13090 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13349 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageDrmFormatModifierPropertiesEXT", ExactSpelling = true)]
     internal static extern Result vkGetImageDrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4208 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4242 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageMemoryRequirements", ExactSpelling = true)]
     internal static extern void vkGetImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, out AdamantiumVulkan.Core.Interop.VkMemoryRequirements pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5609 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5645 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageMemoryRequirements2", ExactSpelling = true)]
     internal static extern void vkGetImageMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9749 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9786 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageMemoryRequirements2KHR", ExactSpelling = true)]
     internal static extern void vkGetImageMemoryRequirements2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15925 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16180 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetImageOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT* pInfo, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4213 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4247 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements", ExactSpelling = true)]
     internal static extern void vkGetImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5619 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5655 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements2", ExactSpelling = true)]
     internal static extern void vkGetImageSparseMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9759 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9796 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements2KHR", ExactSpelling = true)]
     internal static extern void vkGetImageSparseMemoryRequirements2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4350 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4384 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSubresourceLayout", ExactSpelling = true)]
     internal static extern void vkGetImageSubresourceLayout(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageSubresource* pSubresource, AdamantiumVulkan.Core.Interop.VkSubresourceLayout* pLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14967 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15196 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSubresourceLayout2EXT", ExactSpelling = true)]
     internal static extern void vkGetImageSubresourceLayout2EXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageSubresource2KHR* pSubresource, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR* pLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11136 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11256 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSubresourceLayout2KHR", ExactSpelling = true)]
     internal static extern void vkGetImageSubresourceLayout2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageSubresource2KHR* pSubresource, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR* pLayout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11878 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12137 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageViewAddressNVX", ExactSpelling = true)]
     internal static extern Result vkGetImageViewAddressNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11874 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12133 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageViewHandleNVX", ExactSpelling = true)]
     internal static extern uint vkGetImageViewHandleNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15930 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16185 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageViewOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetImageViewOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT* pInfo, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4097 Column: 42
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4131 Column: 42
     [DllImport(LibraryPath, EntryPoint = "vkGetInstanceProcAddr", ExactSpelling = true)]
     internal static extern void* vkGetInstanceProcAddr(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18675 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18930 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetLatencyTimingsNV", ExactSpelling = true)]
     internal static extern void vkGetLatencyTimingsNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV* pLatencyMarkerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9083 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9120 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryFdKHR", ExactSpelling = true)]
     internal static extern Result vkGetMemoryFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR* pGetFdInfo, int* pFd);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9088 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9125 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryFdPropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetMemoryFdPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR* pMemoryFdProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13738 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13997 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryHostPointerPropertiesEXT", ExactSpelling = true)]
     internal static extern Result vkGetMemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, void* pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16623 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16878 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryRemoteAddressNV", ExactSpelling = true)]
     internal static extern Result vkGetMemoryRemoteAddressNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl pAddress);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17175 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17430 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetMicromapBuildSizesEXT", ExactSpelling = true)]
     internal static extern void vkGetMicromapBuildSizesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pBuildInfo, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT* pSizeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12409 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12668 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPastPresentationTimingGOOGLE", ExactSpelling = true)]
     internal static extern Result vkGetPastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14193 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14452 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPerformanceParameterINTEL", ExactSpelling = true)]
     internal static extern Result vkGetPerformanceParameterINTEL(AdamantiumVulkan.Core.Interop.VkDevice_T device, PerformanceParameterTypeINTEL parameter, AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL* pValue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13791 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14050 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11313 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11560 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11228 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11348 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14521 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14780 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9690 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9727 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceDisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7875 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7911 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceDisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9685 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9722 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayProperties2KHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceDisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7870 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7906 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceDisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5696 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5732 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalBufferProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties* pExternalBufferProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9035 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9072 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalBufferPropertiesKHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceExternalBufferPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties* pExternalBufferProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5701 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5737 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalFenceProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceExternalFenceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties* pExternalFenceProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9378 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9415 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalFencePropertiesKHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceExternalFencePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties* pExternalFenceProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12040 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12299 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalImageFormatPropertiesNV", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceExternalImageFormatPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5706 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5742 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalSemaphoreProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceExternalSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties* pExternalSemaphoreProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9115 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9152 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties* pExternalSemaphoreProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4066 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4100 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures pFeatures);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5625 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5661 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 pFeatures);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8876 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8913 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2KHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFeatures2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 pFeatures);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4070 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4104 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, AdamantiumVulkan.Core.Interop.VkFormatProperties* pFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5633 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5669 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties2", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, AdamantiumVulkan.Core.Interop.VkFormatProperties2* pFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8884 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8921 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties2KHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceFormatProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, AdamantiumVulkan.Core.Interop.VkFormatProperties2* pFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10187 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10224 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFragmentShadingRatesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceFragmentShadingRatesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4075 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4109 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceImageFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, AdamantiumVulkan.Core.Interop.VkImageFormatProperties* pImageFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5638 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5674 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties2", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2* pImageFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8889 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8926 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties2KHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceImageFormatProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2* pImageFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4093 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4127 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMemoryProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties pMemoryProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5648 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5684 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMemoryProperties2", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceMemoryProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 pMemoryProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8899 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8936 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMemoryProperties2KHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceMemoryProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 pMemoryProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12911 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13170 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceMultisamplePropertiesEXT", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceMultisamplePropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, SampleCountFlagBits samples, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT* pMultisampleProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18219 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18474 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceOpticalFlowImageFormatsNV", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceOpticalFlowImageFormatsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, uint* pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7774 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7810 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDevicePresentRectanglesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4084 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4118 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5629 Column: 28
-    [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties2", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2* pProperties);
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5665 Column: 28
+    [DllImport(LibraryPath, EntryPoint = "VkGetPhysicalDeviceProperties2", ExactSpelling = true)]
+    internal static extern void VkGetPhysicalDeviceProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8880 Column: 28
-    [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties2KHR", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2* pProperties);
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8917 Column: 28
+    [DllImport(LibraryPath, EntryPoint = "VkGetPhysicalDeviceProperties2KHR", ExactSpelling = true)]
+    internal static extern void VkGetPhysicalDeviceProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9559 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9596 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, uint* pNumPasses);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4088 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4122 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceQueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5643 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5679 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2* pQueueFamilyProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8894 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8931 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2KHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2* pQueueFamilyProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4219 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4253 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5652 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5688 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties2", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8903 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8940 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties2KHR", ExactSpelling = true)]
     internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14564 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14823 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12288 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12547 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilities2EXT", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT* pSurfaceCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9621 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9658 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilities2KHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfaceCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR* pSurfaceCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7607 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7643 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilitiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, out AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR pSurfaceCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9626 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9663 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormats2KHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfaceFormats2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7612 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7648 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormatsKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7618 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7654 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pPresentModeCount, PresentModeKHR* pPresentModes);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7601 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7637 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceSupportKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceSurfaceSupportKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, out VkBool32 pSupported);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7329 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7365 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceToolProperties", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14433 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14692 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceToolPropertiesEXT", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceToolPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8167 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8204 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceVideoCapabilitiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceVideoCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR* pVideoProfile, AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR* pCapabilities);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10657 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10755 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR* pQualityLevelInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR* pQualityLevelProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8172 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8209 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceVideoFormatPropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPhysicalDeviceVideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4389 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4423 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineCacheData", ExactSpelling = true)]
     internal static extern Result vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ulong* pDataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10410 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10499 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableInternalRepresentationsKHR", ExactSpelling = true)]
     internal static extern Result vkGetPipelineExecutableInternalRepresentationsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10398 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10487 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutablePropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkGetPipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, uint* pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10404 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10493 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableStatisticsKHR", ExactSpelling = true)]
     internal static extern Result vkGetPipelineExecutableStatisticsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17610 Column: 39
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17865 Column: 39
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineIndirectDeviceAddressNV", ExactSpelling = true)]
     internal static extern VkDeviceAddress vkGetPipelineIndirectDeviceAddressNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17600 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17855 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineIndirectMemoryRequirementsNV", ExactSpelling = true)]
     internal static extern void vkGetPipelineIndirectMemoryRequirementsNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16651 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16906 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelinePropertiesEXT", ExactSpelling = true)]
     internal static extern Result vkGetPipelinePropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, AdamantiumVulkan.Core.Interop.VkBaseOutStructure* pPipelineProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7352 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7388 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPrivateData", ExactSpelling = true)]
     internal static extern void vkGetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15580 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15835 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPrivateDataEXT", ExactSpelling = true)]
     internal static extern void vkGetPrivateDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4307 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4341 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetQueryPoolResults", ExactSpelling = true)]
     internal static extern Result vkGetQueryPoolResults(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, ulong dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10769 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10867 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointData2NV", ExactSpelling = true)]
     internal static extern void vkGetQueueCheckpointData2NV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14042 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14301 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointDataNV", ExactSpelling = true)]
     internal static extern void vkGetQueueCheckpointDataNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19246 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19537 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR", ExactSpelling = true)]
     internal static extern Result vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13622 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13881 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesKHR", ExactSpelling = true)]
     internal static extern Result vkGetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13630 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13889 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesNV", ExactSpelling = true)]
     internal static extern Result vkGetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19262 Column: 36
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19553 Column: 36
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupStackSizeKHR", ExactSpelling = true)]
     internal static extern VkDeviceSize vkGetRayTracingShaderGroupStackSizeKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint group, ShaderGroupShaderKHR groupShader);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12404 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12663 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRefreshCycleDurationGOOGLE", ExactSpelling = true)]
     internal static extern Result vkGetRefreshCycleDurationGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4511 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4545 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetRenderAreaGranularity", ExactSpelling = true)]
     internal static extern void vkGetRenderAreaGranularity(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderPass, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11126 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11246 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetRenderingAreaGranularityKHR", ExactSpelling = true)]
     internal static extern void vkGetRenderingAreaGranularityKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfoKHR* pRenderingAreaInfo, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15935 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16190 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSamplerOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetSamplerOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT* pInfo, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6448 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6484 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreCounterValue", ExactSpelling = true)]
     internal static extern Result vkGetSemaphoreCounterValue(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ulong* pValue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10087 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10124 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreCounterValueKHR", ExactSpelling = true)]
     internal static extern Result vkGetSemaphoreCounterValueKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ulong* pValue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9162 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9199 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreFdKHR", ExactSpelling = true)]
     internal static extern Result vkGetSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR* pGetFdInfo, int* pFd);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18347 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18602 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderBinaryDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, ulong* pDataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11975 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12234 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderInfoAMD", ExactSpelling = true)]
     internal static extern Result vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ulong* pInfoSize, void* pInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18072 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18327 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderModuleCreateInfoIdentifierEXT", ExactSpelling = true)]
     internal static extern void vkGetShaderModuleCreateInfoIdentifierEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18067 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18322 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderModuleIdentifierEXT", ExactSpelling = true)]
     internal static extern void vkGetShaderModuleIdentifierEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12364 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12623 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainCounterEXT", ExactSpelling = true)]
     internal static extern Result vkGetSwapchainCounterEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ulong* pCounterValue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7747 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7783 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainImagesKHR", ExactSpelling = true)]
     internal static extern Result vkGetSwapchainImagesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9353 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9390 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainStatusKHR", ExactSpelling = true)]
     internal static extern Result vkGetSwapchainStatusKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13145 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13404 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetValidationCacheDataEXT", ExactSpelling = true)]
     internal static extern Result vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ulong* pDataSize, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8189 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8226 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetVideoSessionMemoryRequirementsKHR", ExactSpelling = true)]
     internal static extern Result vkGetVideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9421 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9458 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkImportFenceFdKHR", ExactSpelling = true)]
     internal static extern Result vkImportFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR* pImportFenceFdInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9158 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9195 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkImportSemaphoreFdKHR", ExactSpelling = true)]
     internal static extern Result vkImportSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14161 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14420 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkInitializePerformanceApiINTEL", ExactSpelling = true)]
     internal static extern Result vkInitializePerformanceApiINTEL(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL* pInitializeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4181 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4215 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkInvalidateMappedMemoryRanges", ExactSpelling = true)]
     internal static extern Result vkInvalidateMappedMemoryRanges(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint memoryRangeCount, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange* pMemoryRanges);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18665 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18920 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkLatencySleepNV", ExactSpelling = true)]
     internal static extern Result vkLatencySleepNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV* pSleepInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4164 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4198 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMapMemory", ExactSpelling = true)]
     internal static extern Result vkMapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10443 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10537 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMapMemory2KHR", ExactSpelling = true)]
     internal static extern Result vkMapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfoKHR* pMemoryMapInfo, out void* ppData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4395 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4429 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMergePipelineCaches", ExactSpelling = true)]
     internal static extern Result vkMergePipelineCaches(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkPipelineCache_T* pSrcCaches);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13139 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13398 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMergeValidationCachesEXT", ExactSpelling = true)]
     internal static extern Result vkMergeValidationCachesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T* pSrcCaches);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12752 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13011 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkQueueBeginDebugUtilsLabelEXT", ExactSpelling = true)]
     internal static extern void vkQueueBeginDebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4229 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4263 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueueBindSparse", ExactSpelling = true)]
     internal static extern Result vkQueueBindSparse(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindSparseInfo* pBindInfo, AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12756 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13015 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkQueueEndDebugUtilsLabelEXT", ExactSpelling = true)]
     internal static extern void vkQueueEndDebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkQueue_T queue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12759 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13018 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkQueueInsertDebugUtilsLabelEXT", ExactSpelling = true)]
     internal static extern void vkQueueInsertDebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18680 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18935 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkQueueNotifyOutOfBandNV", ExactSpelling = true)]
     internal static extern void vkQueueNotifyOutOfBandNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV* pQueueTypeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7761 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7797 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueuePresentKHR", ExactSpelling = true)]
     internal static extern Result vkQueuePresentKHR(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR* pPresentInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14189 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14448 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueueSetPerformanceConfigurationINTEL", ExactSpelling = true)]
     internal static extern Result vkQueueSetPerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T configuration);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4141 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4175 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit", ExactSpelling = true)]
     internal static extern Result vkQueueSubmit(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint submitCount, AdamantiumVulkan.Core.Interop.VkSubmitInfo* pSubmits, AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7385 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7421 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit2", ExactSpelling = true)]
     internal static extern Result vkQueueSubmit2(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint submitCount, AdamantiumVulkan.Core.Interop.VkSubmitInfo2* pSubmits, AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10756 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10854 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueueSubmit2KHR", ExactSpelling = true)]
     internal static extern Result vkQueueSubmit2KHR(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint submitCount, AdamantiumVulkan.Core.Interop.VkSubmitInfo2* pSubmits, AdamantiumVulkan.Core.Interop.VkFence_T fence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4147 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4181 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkQueueWaitIdle", ExactSpelling = true)]
     internal static extern Result vkQueueWaitIdle(AdamantiumVulkan.Core.Interop.VkQueue_T queue);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12351 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12610 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkRegisterDeviceEventEXT", ExactSpelling = true)]
     internal static extern Result vkRegisterDeviceEventEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT* pDeviceEventInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12357 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12616 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkRegisterDisplayEventEXT", ExactSpelling = true)]
     internal static extern Result vkRegisterDisplayEventEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT* pDisplayEventInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFence_T pFence);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12252 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12511 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkReleaseDisplayEXT", ExactSpelling = true)]
     internal static extern Result vkReleaseDisplayEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14185 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14444 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkReleasePerformanceConfigurationINTEL", ExactSpelling = true)]
     internal static extern Result vkReleasePerformanceConfigurationINTEL(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T configuration);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9568 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9605 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkReleaseProfilingLockKHR", ExactSpelling = true)]
     internal static extern void vkReleaseProfilingLockKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15093 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15348 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkReleaseSwapchainImagesEXT", ExactSpelling = true)]
     internal static extern Result vkReleaseSwapchainImagesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT* pReleaseInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4550 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4584 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkResetCommandBuffer", ExactSpelling = true)]
     internal static extern Result vkResetCommandBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCommandBufferResetFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4527 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4561 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkResetCommandPool", ExactSpelling = true)]
     internal static extern Result vkResetCommandPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolResetFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4466 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4500 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkResetDescriptorPool", ExactSpelling = true)]
     internal static extern Result vkResetDescriptorPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, VkDescriptorPoolResetFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4292 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4326 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkResetEvent", ExactSpelling = true)]
     internal static extern Result vkResetEvent(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEvent_T @event);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4246 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4280 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkResetFences", ExactSpelling = true)]
     internal static extern Result vkResetFences(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6442 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6478 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkResetQueryPool", ExactSpelling = true)]
     internal static extern void vkResetQueryPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14731 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14964 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkResetQueryPoolEXT", ExactSpelling = true)]
     internal static extern void vkResetQueryPoolEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12744 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13003 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSetDebugUtilsObjectNameEXT", ExactSpelling = true)]
     internal static extern Result vkSetDebugUtilsObjectNameEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT* pNameInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12748 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13007 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSetDebugUtilsObjectTagEXT", ExactSpelling = true)]
     internal static extern Result vkSetDebugUtilsObjectTagEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT* pTagInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17265 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17520 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkSetDeviceMemoryPriorityEXT", ExactSpelling = true)]
     internal static extern void vkSetDeviceMemoryPriorityEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, float priority);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4288 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4322 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSetEvent", ExactSpelling = true)]
     internal static extern Result vkSetEvent(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkEvent_T @event);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12617 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12876 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkSetHdrMetadataEXT", ExactSpelling = true)]
     internal static extern void vkSetHdrMetadataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T* pSwapchains, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT* pMetadata);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18670 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18925 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkSetLatencyMarkerNV", ExactSpelling = true)]
     internal static extern void vkSetLatencyMarkerNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkSetLatencyMarkerInfoNV* pLatencyMarkerInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18660 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18915 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSetLatencySleepModeNV", ExactSpelling = true)]
     internal static extern Result vkSetLatencySleepModeNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkLatencySleepModeInfoNV* pSleepModeInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14234 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14493 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkSetLocalDimmingAMD", ExactSpelling = true)]
     internal static extern void vkSetLocalDimmingAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7345 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7381 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSetPrivateData", ExactSpelling = true)]
     internal static extern Result vkSetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong data);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15573 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15828 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSetPrivateDataEXT", ExactSpelling = true)]
     internal static extern Result vkSetPrivateDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong data);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6458 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6494 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSignalSemaphore", ExactSpelling = true)]
     internal static extern Result vkSignalSemaphore(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo* pSignalInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10097 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10134 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkSignalSemaphoreKHR", ExactSpelling = true)]
     internal static extern Result vkSignalSemaphoreKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo* pSignalInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12785 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13044 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkSubmitDebugUtilsMessageEXT", ExactSpelling = true)]
     internal static extern void vkSubmitDebugUtilsMessageEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14962 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15191 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkTransitionImageLayoutEXT", ExactSpelling = true)]
     internal static extern Result vkTransitionImageLayoutEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint transitionCount, AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfoEXT* pTransitions);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5658 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5694 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkTrimCommandPool", ExactSpelling = true)]
     internal static extern void vkTrimCommandPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8981 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9018 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkTrimCommandPoolKHR", ExactSpelling = true)]
     internal static extern void vkTrimCommandPoolKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14165 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14424 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUninitializePerformanceApiINTEL", ExactSpelling = true)]
     internal static extern void vkUninitializePerformanceApiINTEL(AdamantiumVulkan.Core.Interop.VkDevice_T device);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4172 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4206 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUnmapMemory", ExactSpelling = true)]
     internal static extern void vkUnmapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10448 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10542 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkUnmapMemory2KHR", ExactSpelling = true)]
     internal static extern Result vkUnmapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfoKHR* pMemoryUnmapInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4482 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4516 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSets", ExactSpelling = true)]
     internal static extern void vkUpdateDescriptorSets(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites, uint descriptorCopyCount, AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet* pDescriptorCopies);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5690 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5726 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSetWithTemplate", ExactSpelling = true)]
     internal static extern void vkUpdateDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9272 Column: 28
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9309 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSetWithTemplateKHR", ExactSpelling = true)]
     internal static extern void vkUpdateDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8207 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8244 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkUpdateVideoSessionParametersKHR", ExactSpelling = true)]
     internal static extern Result vkUpdateVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T videoSessionParameters, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4255 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4289 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWaitForFences", ExactSpelling = true)]
     internal static extern Result vkWaitForFences(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences, VkBool32 waitAll, ulong timeout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10242 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10331 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWaitForPresentKHR", ExactSpelling = true)]
     internal static extern Result vkWaitForPresentKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong presentId, ulong timeout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6453 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6489 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWaitSemaphores", ExactSpelling = true)]
     internal static extern Result vkWaitSemaphores(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo* pWaitInfo, ulong timeout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10092 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10129 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWaitSemaphoresKHR", ExactSpelling = true)]
     internal static extern Result vkWaitSemaphoresKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo* pWaitInfo, ulong timeout);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19090 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19381 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWriteAccelerationStructuresPropertiesKHR", ExactSpelling = true)]
     internal static extern Result vkWriteAccelerationStructuresPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, void* pData, ulong stride);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17141 Column: 32
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17396 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWriteMicromapsPropertiesEXT", ExactSpelling = true)]
     internal static extern Result vkWriteMicromapsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride);
 

@@ -33,10 +33,19 @@ public unsafe partial class MultisampledRenderToSingleSampledInfoEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkMultisampledRenderToSingleSampledInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMultisampledRenderToSingleSampledInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.multisampledRenderToSingleSampledEnable = MultisampledRenderToSingleSampledEnable;
-        _internal.rasterizationSamples = RasterizationSamples;
+        if (MultisampledRenderToSingleSampledEnable != (uint)default)
+        {
+            _internal.multisampledRenderToSingleSampledEnable = MultisampledRenderToSingleSampledEnable;
+        }
+        if (RasterizationSamples != default)
+        {
+            _internal.rasterizationSamples = RasterizationSamples;
+        }
         return _internal;
     }
 

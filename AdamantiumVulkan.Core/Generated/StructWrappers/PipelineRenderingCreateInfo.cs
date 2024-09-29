@@ -41,18 +41,33 @@ public unsafe partial class PipelineRenderingCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineRenderingCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRenderingCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.viewMask = ViewMask;
-        _internal.colorAttachmentCount = ColorAttachmentCount;
+        if (ViewMask != default)
+        {
+            _internal.viewMask = ViewMask;
+        }
+        if (ColorAttachmentCount != default)
+        {
+            _internal.colorAttachmentCount = ColorAttachmentCount;
+        }
         _pColorAttachmentFormats.Dispose();
         if (PColorAttachmentFormats != null)
         {
             _pColorAttachmentFormats = new NativeStructArray<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats);
             _internal.pColorAttachmentFormats = _pColorAttachmentFormats.Handle;
         }
-        _internal.depthAttachmentFormat = DepthAttachmentFormat;
-        _internal.stencilAttachmentFormat = StencilAttachmentFormat;
+        if (DepthAttachmentFormat != default)
+        {
+            _internal.depthAttachmentFormat = DepthAttachmentFormat;
+        }
+        if (StencilAttachmentFormat != default)
+        {
+            _internal.stencilAttachmentFormat = StencilAttachmentFormat;
+        }
         return _internal;
     }
 

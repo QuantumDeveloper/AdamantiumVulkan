@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.advancedBlendCoherentOperations = AdvancedBlendCoherentOperations;
+        if (AdvancedBlendCoherentOperations != (uint)default)
+        {
+            _internal.advancedBlendCoherentOperations = AdvancedBlendCoherentOperations;
+        }
         return _internal;
     }
 

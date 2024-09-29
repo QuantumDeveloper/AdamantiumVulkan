@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PerformanceCounterResultKHR
+public unsafe partial class PerformanceCounterResultKHR : QBDisposableObject
 {
     public PerformanceCounterResultKHR()
     {
@@ -37,12 +37,30 @@ public unsafe partial class PerformanceCounterResultKHR
     public AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR();
-        _internal.int32 = Int32;
-        _internal.int64 = Int64;
-        _internal.uint32 = Uint32;
-        _internal.uint64 = Uint64;
-        _internal.float32 = Float32;
-        _internal.float64 = Float64;
+        if (Int32 != default)
+        {
+            _internal.int32 = Int32;
+        }
+        if (Int64 != default)
+        {
+            _internal.int64 = Int64;
+        }
+        if (Uint32 != default)
+        {
+            _internal.uint32 = Uint32;
+        }
+        if (Uint64 != default)
+        {
+            _internal.uint64 = Uint64;
+        }
+        if (Float32 != default)
+        {
+            _internal.float32 = Float32;
+        }
+        if (Float64 != default)
+        {
+            _internal.float64 = Float64;
+        }
         return _internal;
     }
 

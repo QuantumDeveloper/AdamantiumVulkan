@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcSpecializationConstant
+public unsafe partial class SpvcSpecializationConstant : QBDisposableObject
 {
     public SpvcSpecializationConstant()
     {
@@ -29,8 +29,14 @@ public unsafe partial class SpvcSpecializationConstant
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant();
-        _internal.id = Id;
-        _internal.constant_id = Constant_id;
+        if (Id != (uint)default)
+        {
+            _internal.id = Id;
+        }
+        if (Constant_id != default)
+        {
+            _internal.constant_id = Constant_id;
+        }
         return _internal;
     }
 

@@ -46,16 +46,22 @@ public unsafe partial class VideoDecodeH265PictureInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pStdPictureInfo.Dispose();
-        if (PStdPictureInfo != null)
+        if (PStdPictureInfo != default)
         {
             var struct0 = PStdPictureInfo.ToNative();
             _pStdPictureInfo = new NativeStruct<AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo>(struct0);
             _internal.pStdPictureInfo = _pStdPictureInfo.Handle;
         }
-        _internal.sliceSegmentCount = SliceSegmentCount;
+        if (SliceSegmentCount != default)
+        {
+            _internal.sliceSegmentCount = SliceSegmentCount;
+        }
         _pSliceSegmentOffsets.Dispose();
         if (PSliceSegmentOffsets.HasValue)
         {

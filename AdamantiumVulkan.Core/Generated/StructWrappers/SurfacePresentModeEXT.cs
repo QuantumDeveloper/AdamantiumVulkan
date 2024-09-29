@@ -31,9 +31,15 @@ public unsafe partial class SurfacePresentModeEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSurfacePresentModeEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfacePresentModeEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentMode = PresentMode;
+        if (PresentMode != default)
+        {
+            _internal.presentMode = PresentMode;
+        }
         return _internal;
     }
 

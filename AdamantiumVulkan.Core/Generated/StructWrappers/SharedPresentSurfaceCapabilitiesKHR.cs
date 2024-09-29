@@ -30,9 +30,15 @@ public unsafe partial class SharedPresentSurfaceCapabilitiesKHR : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sharedPresentSupportedUsageFlags = SharedPresentSupportedUsageFlags;
+        if (SharedPresentSupportedUsageFlags != (uint)default)
+        {
+            _internal.sharedPresentSupportedUsageFlags = SharedPresentSupportedUsageFlags;
+        }
         return _internal;
     }
 

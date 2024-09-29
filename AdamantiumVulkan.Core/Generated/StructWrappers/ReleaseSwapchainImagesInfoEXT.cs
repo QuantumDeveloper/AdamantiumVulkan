@@ -41,10 +41,19 @@ public unsafe partial class ReleaseSwapchainImagesInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchain = Swapchain;
-        _internal.imageIndexCount = ImageIndexCount;
+        if (Swapchain != default)
+        {
+            _internal.swapchain = Swapchain;
+        }
+        if (ImageIndexCount != default)
+        {
+            _internal.imageIndexCount = ImageIndexCount;
+        }
         _pImageIndices.Dispose();
         if (PImageIndices.HasValue)
         {

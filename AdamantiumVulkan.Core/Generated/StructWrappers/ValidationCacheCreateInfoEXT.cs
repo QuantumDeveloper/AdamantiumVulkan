@@ -34,10 +34,19 @@ public unsafe partial class ValidationCacheCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.initialDataSize = InitialDataSize;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (InitialDataSize != default)
+        {
+            _internal.initialDataSize = InitialDataSize;
+        }
         _internal.pInitialData = PInitialData;
         return _internal;
     }

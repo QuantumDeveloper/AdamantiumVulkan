@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.surface = Surface;
+        if (Surface != default)
+        {
+            _internal.surface = Surface;
+        }
         return _internal;
     }
 

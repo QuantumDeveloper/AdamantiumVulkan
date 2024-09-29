@@ -35,11 +35,23 @@ public unsafe partial class BufferCopy2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBufferCopy2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferCopy2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcOffset = SrcOffset;
-        _internal.dstOffset = DstOffset;
-        _internal.size = Size;
+        if (SrcOffset != (ulong)default)
+        {
+            _internal.srcOffset = SrcOffset;
+        }
+        if (DstOffset != (ulong)default)
+        {
+            _internal.dstOffset = DstOffset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

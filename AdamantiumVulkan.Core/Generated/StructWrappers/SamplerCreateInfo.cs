@@ -60,24 +60,75 @@ public unsafe partial class SamplerCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.magFilter = MagFilter;
-        _internal.minFilter = MinFilter;
-        _internal.mipmapMode = MipmapMode;
-        _internal.addressModeU = AddressModeU;
-        _internal.addressModeV = AddressModeV;
-        _internal.addressModeW = AddressModeW;
-        _internal.mipLodBias = MipLodBias;
-        _internal.anisotropyEnable = AnisotropyEnable;
-        _internal.maxAnisotropy = MaxAnisotropy;
-        _internal.compareEnable = CompareEnable;
-        _internal.compareOp = CompareOp;
-        _internal.minLod = MinLod;
-        _internal.maxLod = MaxLod;
-        _internal.borderColor = BorderColor;
-        _internal.unnormalizedCoordinates = UnnormalizedCoordinates;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (MagFilter != default)
+        {
+            _internal.magFilter = MagFilter;
+        }
+        if (MinFilter != default)
+        {
+            _internal.minFilter = MinFilter;
+        }
+        if (MipmapMode != default)
+        {
+            _internal.mipmapMode = MipmapMode;
+        }
+        if (AddressModeU != default)
+        {
+            _internal.addressModeU = AddressModeU;
+        }
+        if (AddressModeV != default)
+        {
+            _internal.addressModeV = AddressModeV;
+        }
+        if (AddressModeW != default)
+        {
+            _internal.addressModeW = AddressModeW;
+        }
+        if (MipLodBias != default)
+        {
+            _internal.mipLodBias = MipLodBias;
+        }
+        if (AnisotropyEnable != (uint)default)
+        {
+            _internal.anisotropyEnable = AnisotropyEnable;
+        }
+        if (MaxAnisotropy != default)
+        {
+            _internal.maxAnisotropy = MaxAnisotropy;
+        }
+        if (CompareEnable != (uint)default)
+        {
+            _internal.compareEnable = CompareEnable;
+        }
+        if (CompareOp != default)
+        {
+            _internal.compareOp = CompareOp;
+        }
+        if (MinLod != default)
+        {
+            _internal.minLod = MinLod;
+        }
+        if (MaxLod != default)
+        {
+            _internal.maxLod = MaxLod;
+        }
+        if (BorderColor != default)
+        {
+            _internal.borderColor = BorderColor;
+        }
+        if (UnnormalizedCoordinates != (uint)default)
+        {
+            _internal.unnormalizedCoordinates = UnnormalizedCoordinates;
+        }
         return _internal;
     }
 

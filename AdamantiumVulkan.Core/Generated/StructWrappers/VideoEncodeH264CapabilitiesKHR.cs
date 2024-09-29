@@ -56,21 +56,63 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.maxLevelIdc = MaxLevelIdc;
-        _internal.maxSliceCount = MaxSliceCount;
-        _internal.maxPPictureL0ReferenceCount = MaxPPictureL0ReferenceCount;
-        _internal.maxBPictureL0ReferenceCount = MaxBPictureL0ReferenceCount;
-        _internal.maxL1ReferenceCount = MaxL1ReferenceCount;
-        _internal.maxTemporalLayerCount = MaxTemporalLayerCount;
-        _internal.expectDyadicTemporalLayerPattern = ExpectDyadicTemporalLayerPattern;
-        _internal.minQp = MinQp;
-        _internal.maxQp = MaxQp;
-        _internal.prefersGopRemainingFrames = PrefersGopRemainingFrames;
-        _internal.requiresGopRemainingFrames = RequiresGopRemainingFrames;
-        _internal.stdSyntaxFlags = StdSyntaxFlags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (MaxLevelIdc != default)
+        {
+            _internal.maxLevelIdc = MaxLevelIdc;
+        }
+        if (MaxSliceCount != default)
+        {
+            _internal.maxSliceCount = MaxSliceCount;
+        }
+        if (MaxPPictureL0ReferenceCount != default)
+        {
+            _internal.maxPPictureL0ReferenceCount = MaxPPictureL0ReferenceCount;
+        }
+        if (MaxBPictureL0ReferenceCount != default)
+        {
+            _internal.maxBPictureL0ReferenceCount = MaxBPictureL0ReferenceCount;
+        }
+        if (MaxL1ReferenceCount != default)
+        {
+            _internal.maxL1ReferenceCount = MaxL1ReferenceCount;
+        }
+        if (MaxTemporalLayerCount != default)
+        {
+            _internal.maxTemporalLayerCount = MaxTemporalLayerCount;
+        }
+        if (ExpectDyadicTemporalLayerPattern != (uint)default)
+        {
+            _internal.expectDyadicTemporalLayerPattern = ExpectDyadicTemporalLayerPattern;
+        }
+        if (MinQp != default)
+        {
+            _internal.minQp = MinQp;
+        }
+        if (MaxQp != default)
+        {
+            _internal.maxQp = MaxQp;
+        }
+        if (PrefersGopRemainingFrames != (uint)default)
+        {
+            _internal.prefersGopRemainingFrames = PrefersGopRemainingFrames;
+        }
+        if (RequiresGopRemainingFrames != (uint)default)
+        {
+            _internal.requiresGopRemainingFrames = RequiresGopRemainingFrames;
+        }
+        if (StdSyntaxFlags != (uint)default)
+        {
+            _internal.stdSyntaxFlags = StdSyntaxFlags;
+        }
         return _internal;
     }
 

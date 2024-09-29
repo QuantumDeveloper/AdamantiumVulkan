@@ -53,28 +53,49 @@ public unsafe partial class FrameBoundaryEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.frameID = FrameID;
-        _internal.imageCount = ImageCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (FrameID != default)
+        {
+            _internal.frameID = FrameID;
+        }
+        if (ImageCount != default)
+        {
+            _internal.imageCount = ImageCount;
+        }
         _pImages.Dispose();
-        if (PImages != null)
+        if (PImages != default)
         {
             AdamantiumVulkan.Core.Interop.VkImage_T struct0 = PImages;
             _pImages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImage_T>(struct0);
             _internal.pImages = _pImages.Handle;
         }
-        _internal.bufferCount = BufferCount;
+        if (BufferCount != default)
+        {
+            _internal.bufferCount = BufferCount;
+        }
         _pBuffers.Dispose();
-        if (PBuffers != null)
+        if (PBuffers != default)
         {
             AdamantiumVulkan.Core.Interop.VkBuffer_T struct1 = PBuffers;
             _pBuffers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBuffer_T>(struct1);
             _internal.pBuffers = _pBuffers.Handle;
         }
-        _internal.tagName = TagName;
-        _internal.tagSize = TagSize;
+        if (TagName != default)
+        {
+            _internal.tagName = TagName;
+        }
+        if (TagSize != default)
+        {
+            _internal.tagSize = TagSize;
+        }
         _internal.pTag = PTag;
         return _internal;
     }

@@ -37,29 +37,41 @@ public unsafe partial class PhysicalDeviceDriverProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.driverID = DriverID;
-        if(DriverName != null)
+        if (DriverID != default)
+        {
+            _internal.driverID = DriverID;
+        }
+        if (DriverName != default)
         {
             if (DriverName.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(DriverName), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.driverName, 256, DriverName, false);
         }
-        if(DriverInfo != null)
+        if (DriverInfo != default)
         {
             if (DriverInfo.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(DriverInfo), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.driverInfo, 256, DriverInfo, false);
         }
-        if (ConformanceVersion != null)
+        if (ConformanceVersion != default)
         {
             _internal.conformanceVersion = ConformanceVersion.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ConformanceVersion?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceDriverProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverProperties p)
     {

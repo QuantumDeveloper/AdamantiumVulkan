@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDevice8BitStorageFeatures : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.storageBuffer8BitAccess = StorageBuffer8BitAccess;
-        _internal.uniformAndStorageBuffer8BitAccess = UniformAndStorageBuffer8BitAccess;
-        _internal.storagePushConstant8 = StoragePushConstant8;
+        if (StorageBuffer8BitAccess != (uint)default)
+        {
+            _internal.storageBuffer8BitAccess = StorageBuffer8BitAccess;
+        }
+        if (UniformAndStorageBuffer8BitAccess != (uint)default)
+        {
+            _internal.uniformAndStorageBuffer8BitAccess = UniformAndStorageBuffer8BitAccess;
+        }
+        if (StoragePushConstant8 != (uint)default)
+        {
+            _internal.storagePushConstant8 = StoragePushConstant8;
+        }
         return _internal;
     }
 

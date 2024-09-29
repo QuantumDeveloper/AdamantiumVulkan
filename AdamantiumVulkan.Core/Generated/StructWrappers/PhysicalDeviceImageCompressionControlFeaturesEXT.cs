@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceImageCompressionControlFeaturesEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageCompressionControl = ImageCompressionControl;
+        if (ImageCompressionControl != (uint)default)
+        {
+            _internal.imageCompressionControl = ImageCompressionControl;
+        }
         return _internal;
     }
 

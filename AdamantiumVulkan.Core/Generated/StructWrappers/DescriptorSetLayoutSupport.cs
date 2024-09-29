@@ -30,9 +30,15 @@ public unsafe partial class DescriptorSetLayoutSupport : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supported = Supported;
+        if (Supported != (uint)default)
+        {
+            _internal.supported = Supported;
+        }
         return _internal;
     }
 

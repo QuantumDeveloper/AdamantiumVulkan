@@ -33,10 +33,19 @@ public unsafe partial class SetLatencyMarkerInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSetLatencyMarkerInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSetLatencyMarkerInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentID = PresentID;
-        _internal.marker = Marker;
+        if (PresentID != default)
+        {
+            _internal.presentID = PresentID;
+        }
+        if (Marker != default)
+        {
+            _internal.marker = Marker;
+        }
         return _internal;
     }
 

@@ -36,11 +36,23 @@ public unsafe partial class ImportMemoryWin32HandleInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleType = HandleType;
-        _internal.handle = Handle;
-        _internal.name = Name;
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
+        if (Handle != default)
+        {
+            _internal.handle = Handle;
+        }
+        if (Name != default)
+        {
+            _internal.name = Name;
+        }
         return _internal;
     }
 

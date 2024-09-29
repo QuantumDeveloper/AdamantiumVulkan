@@ -36,12 +36,27 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.subgroupSize = SubgroupSize;
-        _internal.supportedStages = SupportedStages;
-        _internal.supportedOperations = SupportedOperations;
-        _internal.quadOperationsInAllStages = QuadOperationsInAllStages;
+        if (SubgroupSize != default)
+        {
+            _internal.subgroupSize = SubgroupSize;
+        }
+        if (SupportedStages != (uint)default)
+        {
+            _internal.supportedStages = SupportedStages;
+        }
+        if (SupportedOperations != (uint)default)
+        {
+            _internal.supportedOperations = SupportedOperations;
+        }
+        if (QuadOperationsInAllStages != (uint)default)
+        {
+            _internal.quadOperationsInAllStages = QuadOperationsInAllStages;
+        }
         return _internal;
     }
 

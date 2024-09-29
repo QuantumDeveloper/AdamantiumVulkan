@@ -31,7 +31,10 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _internal.opaqueCaptureDescriptorData = OpaqueCaptureDescriptorData;
         return _internal;

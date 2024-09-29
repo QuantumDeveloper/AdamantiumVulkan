@@ -37,12 +37,27 @@ public unsafe partial class GeneratedCommandsMemoryRequirementsInfoNV : QBDispos
     public AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineBindPoint = PipelineBindPoint;
-        _internal.pipeline = Pipeline;
-        _internal.indirectCommandsLayout = IndirectCommandsLayout;
-        _internal.maxSequencesCount = MaxSequencesCount;
+        if (PipelineBindPoint != default)
+        {
+            _internal.pipelineBindPoint = PipelineBindPoint;
+        }
+        if (Pipeline != default)
+        {
+            _internal.pipeline = Pipeline;
+        }
+        if (IndirectCommandsLayout != default)
+        {
+            _internal.indirectCommandsLayout = IndirectCommandsLayout;
+        }
+        if (MaxSequencesCount != default)
+        {
+            _internal.maxSequencesCount = MaxSequencesCount;
+        }
         return _internal;
     }
 

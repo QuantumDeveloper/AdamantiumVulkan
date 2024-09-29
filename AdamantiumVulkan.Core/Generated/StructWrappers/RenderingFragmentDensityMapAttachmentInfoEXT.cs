@@ -33,10 +33,19 @@ public unsafe partial class RenderingFragmentDensityMapAttachmentInfoEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkRenderingFragmentDensityMapAttachmentInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderingFragmentDensityMapAttachmentInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageView = ImageView;
-        _internal.imageLayout = ImageLayout;
+        if (ImageView != default)
+        {
+            _internal.imageView = ImageView;
+        }
+        if (ImageLayout != default)
+        {
+            _internal.imageLayout = ImageLayout;
+        }
         return _internal;
     }
 

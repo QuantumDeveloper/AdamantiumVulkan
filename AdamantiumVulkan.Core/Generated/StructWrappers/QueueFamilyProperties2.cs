@@ -30,14 +30,23 @@ public unsafe partial class QueueFamilyProperties2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (QueueFamilyProperties != null)
+        if (QueueFamilyProperties != default)
         {
             _internal.queueFamilyProperties = QueueFamilyProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        QueueFamilyProperties?.Dispose();
+    }
+
 
     public static implicit operator QueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 q)
     {

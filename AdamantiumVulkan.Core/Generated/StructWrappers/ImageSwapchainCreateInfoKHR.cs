@@ -30,9 +30,15 @@ public unsafe partial class ImageSwapchainCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchain = Swapchain;
+        if (Swapchain != default)
+        {
+            _internal.swapchain = Swapchain;
+        }
         return _internal;
     }
 

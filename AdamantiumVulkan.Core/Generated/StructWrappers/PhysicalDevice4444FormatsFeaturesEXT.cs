@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.formatA4R4G4B4 = FormatA4R4G4B4;
-        _internal.formatA4B4G4R4 = FormatA4B4G4R4;
+        if (FormatA4R4G4B4 != (uint)default)
+        {
+            _internal.formatA4R4G4B4 = FormatA4R4G4B4;
+        }
+        if (FormatA4B4G4R4 != (uint)default)
+        {
+            _internal.formatA4B4G4R4 = FormatA4B4G4R4;
+        }
         return _internal;
     }
 

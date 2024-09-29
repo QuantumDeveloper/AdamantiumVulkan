@@ -19,7 +19,6 @@ public unsafe partial class VertexInputAttributeDescription2EXT : QBDisposableOb
 
     public VertexInputAttributeDescription2EXT(AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT _internal)
     {
-        SType = _internal.sType;
         PNext = _internal.pNext;
         Location = _internal.location;
         Binding = _internal.binding;
@@ -27,7 +26,7 @@ public unsafe partial class VertexInputAttributeDescription2EXT : QBDisposableOb
         Offset = _internal.offset;
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VertexInputAttributeDescription2Ext;
     public void* PNext { get; set; }
     public uint Location { get; set; }
     public uint Binding { get; set; }
@@ -37,12 +36,27 @@ public unsafe partial class VertexInputAttributeDescription2EXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.location = Location;
-        _internal.binding = Binding;
-        _internal.format = Format;
-        _internal.offset = Offset;
+        if (Location != default)
+        {
+            _internal.location = Location;
+        }
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
         return _internal;
     }
 

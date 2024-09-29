@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross/spirv.h Line: 1222 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 1227 Column: 14
 public enum SpvOp : uint
 {
     Nop = 0,
@@ -753,6 +753,14 @@ public enum SpvOp : uint
     RayQueryProceedKHR = 4477,
 
     RayQueryGetIntersectionTypeKHR = 4479,
+
+    ImageSampleWeightedQCOM = 4480,
+
+    ImageBoxFilterQCOM = 4481,
+
+    ImageBlockMatchSSDQCOM = 4482,
+
+    ImageBlockMatchSADQCOM = 4483,
 
     GroupIAddNonUniformAMD = 5000,
 

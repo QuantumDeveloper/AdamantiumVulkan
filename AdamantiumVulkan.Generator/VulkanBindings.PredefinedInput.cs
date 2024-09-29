@@ -306,6 +306,9 @@ public static partial class VulkanBindings
             predefinedValues.Add(CreatePredefinedInput("VkPhysicalDeviceShaderObjectFeaturesEXT", "sType", "StructureType.PhysicalDeviceShaderObjectFeaturesExt"));
             predefinedValues.Add(CreatePredefinedInput("VkShaderCreateInfoEXT", "sType", "StructureType.ShaderCreateInfoExt"));
             
+            predefinedValues.Add(CreatePredefinedInput("VkVertexInputBindingDescription2EXT", "sType", "StructureType.VertexInputBindingDescription2Ext"));
+            predefinedValues.Add(CreatePredefinedInput("VkVertexInputAttributeDescription2EXT", "sType", "StructureType.VertexInputAttributeDescription2Ext"));
+            
             return predefinedValues;
         }
     }

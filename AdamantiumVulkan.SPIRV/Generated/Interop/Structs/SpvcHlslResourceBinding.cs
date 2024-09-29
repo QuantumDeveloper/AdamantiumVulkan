@@ -12,7 +12,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 590 Column: 16
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 590 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcHlslResourceBinding
 {

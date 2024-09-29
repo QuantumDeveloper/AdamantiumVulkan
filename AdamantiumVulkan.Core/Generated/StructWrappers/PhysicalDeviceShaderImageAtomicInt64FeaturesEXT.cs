@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceShaderImageAtomicInt64FeaturesEXT : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderImageInt64Atomics = ShaderImageInt64Atomics;
-        _internal.sparseImageInt64Atomics = SparseImageInt64Atomics;
+        if (ShaderImageInt64Atomics != (uint)default)
+        {
+            _internal.shaderImageInt64Atomics = ShaderImageInt64Atomics;
+        }
+        if (SparseImageInt64Atomics != (uint)default)
+        {
+            _internal.sparseImageInt64Atomics = SparseImageInt64Atomics;
+        }
         return _internal;
     }
 

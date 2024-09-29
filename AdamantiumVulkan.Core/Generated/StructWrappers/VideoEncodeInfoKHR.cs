@@ -53,32 +53,53 @@ public unsafe partial class VideoEncodeInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.dstBuffer = DstBuffer;
-        _internal.dstBufferOffset = DstBufferOffset;
-        _internal.dstBufferRange = DstBufferRange;
-        if (SrcPictureResource != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DstBuffer != default)
+        {
+            _internal.dstBuffer = DstBuffer;
+        }
+        if (DstBufferOffset != (ulong)default)
+        {
+            _internal.dstBufferOffset = DstBufferOffset;
+        }
+        if (DstBufferRange != (ulong)default)
+        {
+            _internal.dstBufferRange = DstBufferRange;
+        }
+        if (SrcPictureResource != default)
         {
             _internal.srcPictureResource = SrcPictureResource.ToNative();
         }
         _pSetupReferenceSlot.Dispose();
-        if (PSetupReferenceSlot != null)
+        if (PSetupReferenceSlot != default)
         {
             var struct0 = PSetupReferenceSlot.ToNative();
             _pSetupReferenceSlot = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>(struct0);
             _internal.pSetupReferenceSlot = _pSetupReferenceSlot.Handle;
         }
-        _internal.referenceSlotCount = ReferenceSlotCount;
+        if (ReferenceSlotCount != default)
+        {
+            _internal.referenceSlotCount = ReferenceSlotCount;
+        }
         _pReferenceSlots.Dispose();
-        if (PReferenceSlots != null)
+        if (PReferenceSlots != default)
         {
             var struct1 = PReferenceSlots.ToNative();
             _pReferenceSlots = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>(struct1);
             _internal.pReferenceSlots = _pReferenceSlots.Handle;
         }
-        _internal.precedingExternallyEncodedBytes = PrecedingExternallyEncodedBytes;
+        if (PrecedingExternallyEncodedBytes != default)
+        {
+            _internal.precedingExternallyEncodedBytes = PrecedingExternallyEncodedBytes;
+        }
         return _internal;
     }
 
@@ -86,6 +107,7 @@ public unsafe partial class VideoEncodeInfoKHR : QBDisposableObject
     {
         _pSetupReferenceSlot.Dispose();
         _pReferenceSlots.Dispose();
+        SrcPictureResource?.Dispose();
     }
 
 

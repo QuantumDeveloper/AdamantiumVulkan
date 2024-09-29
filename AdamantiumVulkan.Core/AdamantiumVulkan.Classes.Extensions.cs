@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core.Interop;
+using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core
 {
@@ -248,6 +250,41 @@ namespace AdamantiumVulkan.Core
 
     public unsafe partial class Device
     {
+        protected PFN_vkCreateShadersEXT CreateShadersDelegate { get; private set; }
+        
+        protected PFN_vkCmdBindShadersEXT BindShadersDelegate { get; private set; }
+
+        protected PFN_vkGetDescriptorSetLayoutSizeEXT DescriptorSetLayoutSizeDelegate { get; private set; }
+        
+        protected PFN_vkGetDescriptorSetLayoutBindingOffsetEXT DescriptorSetLayoutOffsetDelegate { get; private set; }
+        
+        protected PFN_vkGetDescriptorEXT GetDescriptorDelegate { get; private set; }
+        
+        protected PFN_vkCmdBindDescriptorBuffersEXT BindDescriptorBuffersDelegate { get; private set; }
+        
+        protected PFN_vkCmdSetDescriptorBufferOffsetsEXT SetDescriptorBufferOffsetsDelegate { get; private set; }
+        
+        protected PFN_vkCmdSetViewportWithCountEXT SetViewportWithCountDelegate { get; set; }
+        
+        protected PFN_vkCmdSetScissorWithCountEXT SetScissorWithCountDelegate { get; set; }
+
+        public void InitializeExtensions()
+        {
+            CreateShadersDelegate = (PFN_vkCreateShadersEXT)GetDeviceProcAddr("vkCreateShadersEXT");
+            BindShadersDelegate = (PFN_vkCmdBindShadersEXT)GetDeviceProcAddr("vkCmdBindShadersEXT");
+            DescriptorSetLayoutSizeDelegate =
+                (PFN_vkGetDescriptorSetLayoutSizeEXT)GetDeviceProcAddr("vkGetDescriptorSetLayoutSizeEXT");
+            DescriptorSetLayoutOffsetDelegate =
+                (PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)GetDeviceProcAddr(
+                    "vkGetDescriptorSetLayoutBindingOffsetEXT");
+            GetDescriptorDelegate = (PFN_vkGetDescriptorEXT)GetDeviceProcAddr("vkGetDescriptorEXT");
+            BindDescriptorBuffersDelegate = (PFN_vkCmdBindDescriptorBuffersEXT)GetDeviceProcAddr("vkCmdBindDescriptorBuffersEXT");
+            SetDescriptorBufferOffsetsDelegate = (PFN_vkCmdSetDescriptorBufferOffsetsEXT)GetDeviceProcAddr("vkCmdSetDescriptorBufferOffsetsEXT");
+            SetViewportWithCountDelegate =
+                (PFN_vkCmdSetViewportWithCountEXT)GetDeviceProcAddr("vkCmdSetViewportWithCountEXT");
+            SetScissorWithCountDelegate = (PFN_vkCmdSetScissorWithCountEXT)GetDeviceProcAddr("vkCmdSetScissorWithCountEXT");
+        }
+        
         public Queue GetDeviceQueue(uint queueFamilyIndex, uint queueIndex)
         {
             GetDeviceQueue(queueFamilyIndex, queueIndex, out Queue queue);
@@ -471,16 +508,82 @@ namespace AdamantiumVulkan.Core
         
         public ShaderEXT CreateShader(ShaderCreateInfoEXT createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateShadersEXT(1, createInfo, allocator, out var shaders);
+            VkShaderCreateInfoEXT* createInfoPtr = NativeUtils.StructOrEnumToPointer(createInfo.ToNative());
+            var shaders = new VkShaderEXT_T[1];
+            var arrayPtr = NativeUtils.ManagedArrayToPointer(shaders);
+            var result = CreateShadersDelegate.Invoke(this, 1, createInfoPtr, null, arrayPtr);
             ResultHelper.CheckResult(result, nameof(CreateShader));
+            shaders = NativeUtils.PointerToManagedArray(arrayPtr, 1);
             return shaders[0];
         }
         
         public ShaderEXT[] CreateShaders(ShaderCreateInfoEXT[] createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateShadersEXT((uint)createInfo.Length, createInfo, allocator, out var shaders);
+            VkShaderCreateInfoEXT[] nativeCreateInfo = new VkShaderCreateInfoEXT[createInfo.Length];
+            for (int i = 0; i < createInfo.Length; i++)
+            {
+                nativeCreateInfo[i] = createInfo[i].ToNative();
+            }
+            VkShaderCreateInfoEXT* createInfoPtr = NativeUtils.ManagedArrayToPointer(nativeCreateInfo);
+            var nativeShaders = new VkShaderEXT_T[createInfo.Length];
+            var arrayPtr = NativeUtils.ManagedArrayToPointer(nativeShaders);
+            var result = CreateShadersDelegate.Invoke(this, (uint)createInfo.Length, createInfoPtr, null, arrayPtr);
             ResultHelper.CheckResult(result, nameof(CreateShader));
+            nativeShaders = NativeUtils.PointerToManagedArray(arrayPtr, (uint)createInfo.Length);
+            ShaderEXT[] shaders = new ShaderEXT[createInfo.Length];
+            for (int i = 0; i < createInfo.Length; i++)
+            {
+                shaders[i] = nativeShaders[i];
+            }
             return shaders;
+        }
+
+        public void BindShader(CommandBuffer cmd, ShaderStageFlagBits stage, ShaderEXT shader)
+        {
+            var stagePtr = NativeUtils.StructOrEnumToPointer(stage);
+            VkShaderEXT_T* shadersPtr = NativeUtils.ManagedArrayToPointer(new VkShaderEXT_T[] { shader });
+            BindShadersDelegate.Invoke(cmd, 1, stagePtr, shadersPtr);
+        }
+
+        public uint GetDescriptorSetLayoutSize(DescriptorSetLayout layout)
+        {
+            DescriptorSetLayoutSizeDelegate.Invoke(this, layout, out var deviceSize);
+            return (uint)deviceSize;
+        }
+        
+        public uint GetDescriptorSetLayoutOffset(DescriptorSetLayout layout, uint bindingSlot)
+        {
+            DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, out var offsetSize);
+            return (uint)offsetSize;
+        }
+
+        public void GetDescriptor(DescriptorGetInfoEXT descriptorInfo, uint descriptorSize, void* descriptorPtr)
+        {
+            var infoPtr = NativeUtils.StructOrEnumToPointer(descriptorInfo.ToNative()); 
+            GetDescriptorDelegate.Invoke(this, infoPtr, descriptorSize, descriptorPtr);
+            NativeMemory.Free(infoPtr);
+            descriptorInfo?.Dispose();
+        }
+        
+        public void BindDescriptorBuffers(CommandBuffer commandBuffer, DescriptorBufferBindingInfoEXT[] bindingInfos)
+        {
+            var infos = new VkDescriptorBufferBindingInfoEXT[bindingInfos.Length];
+            for (int i = 0; i < bindingInfos.Length; i++)
+            {
+                infos[i] = bindingInfos[i].ToNative();
+            }
+            var arrayPtr = NativeUtils.ManagedArrayToPointer(infos); 
+            BindDescriptorBuffersDelegate.Invoke(commandBuffer, (uint)bindingInfos.Length, arrayPtr);
+            NativeMemory.Free(arrayPtr);
+        }
+
+        public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, VkDeviceSize[] offsets)
+        {
+            uint* indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
+            VkDeviceSize* offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
+            SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
+            NativeMemory.Free(indicesPtr);
+            NativeMemory.Free(offsetsPtr);
         }
     }
 

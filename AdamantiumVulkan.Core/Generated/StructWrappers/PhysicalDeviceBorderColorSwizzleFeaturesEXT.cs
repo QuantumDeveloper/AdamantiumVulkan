@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceBorderColorSwizzleFeaturesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.borderColorSwizzle = BorderColorSwizzle;
-        _internal.borderColorSwizzleFromImage = BorderColorSwizzleFromImage;
+        if (BorderColorSwizzle != (uint)default)
+        {
+            _internal.borderColorSwizzle = BorderColorSwizzle;
+        }
+        if (BorderColorSwizzleFromImage != (uint)default)
+        {
+            _internal.borderColorSwizzleFromImage = BorderColorSwizzleFromImage;
+        }
         return _internal;
     }
 

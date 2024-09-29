@@ -31,9 +31,12 @@ public unsafe partial class PipelinePropertiesIdentifierEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelinePropertiesIdentifierEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelinePropertiesIdentifierEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(PipelineIdentifier != null)
+        if (PipelineIdentifier != default)
         {
             if (PipelineIdentifier.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(PipelineIdentifier), "Array is out of bounds. Size should not be more than 16");

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PipelineCreationFeedback
+public unsafe partial class PipelineCreationFeedback : QBDisposableObject
 {
     public PipelineCreationFeedback()
     {
@@ -29,8 +29,14 @@ public unsafe partial class PipelineCreationFeedback
     public AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback();
-        _internal.flags = Flags;
-        _internal.duration = Duration;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Duration != default)
+        {
+            _internal.duration = Duration;
+        }
         return _internal;
     }
 

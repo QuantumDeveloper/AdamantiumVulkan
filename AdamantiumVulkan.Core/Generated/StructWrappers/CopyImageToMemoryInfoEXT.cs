@@ -42,14 +42,29 @@ public unsafe partial class CopyImageToMemoryInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCopyImageToMemoryInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyImageToMemoryInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.srcImage = SrcImage;
-        _internal.srcImageLayout = SrcImageLayout;
-        _internal.regionCount = RegionCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (SrcImage != default)
+        {
+            _internal.srcImage = SrcImage;
+        }
+        if (SrcImageLayout != default)
+        {
+            _internal.srcImageLayout = SrcImageLayout;
+        }
+        if (RegionCount != default)
+        {
+            _internal.regionCount = RegionCount;
+        }
         _pRegions.Dispose();
-        if (PRegions != null)
+        if (PRegions != default)
         {
             var struct0 = PRegions.ToNative();
             _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageToMemoryCopyEXT>(struct0);

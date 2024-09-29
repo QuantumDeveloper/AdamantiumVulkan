@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ShaderResourceUsageAMD
+public unsafe partial class ShaderResourceUsageAMD : QBDisposableObject
 {
     public ShaderResourceUsageAMD()
     {
@@ -35,11 +35,26 @@ public unsafe partial class ShaderResourceUsageAMD
     public AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD();
-        _internal.numUsedVgprs = NumUsedVgprs;
-        _internal.numUsedSgprs = NumUsedSgprs;
-        _internal.ldsSizePerLocalWorkGroup = LdsSizePerLocalWorkGroup;
-        _internal.ldsUsageSizeInBytes = LdsUsageSizeInBytes;
-        _internal.scratchMemUsageInBytes = ScratchMemUsageInBytes;
+        if (NumUsedVgprs != default)
+        {
+            _internal.numUsedVgprs = NumUsedVgprs;
+        }
+        if (NumUsedSgprs != default)
+        {
+            _internal.numUsedSgprs = NumUsedSgprs;
+        }
+        if (LdsSizePerLocalWorkGroup != default)
+        {
+            _internal.ldsSizePerLocalWorkGroup = LdsSizePerLocalWorkGroup;
+        }
+        if (LdsUsageSizeInBytes != default)
+        {
+            _internal.ldsUsageSizeInBytes = LdsUsageSizeInBytes;
+        }
+        if (ScratchMemUsageInBytes != default)
+        {
+            _internal.scratchMemUsageInBytes = ScratchMemUsageInBytes;
+        }
         return _internal;
     }
 

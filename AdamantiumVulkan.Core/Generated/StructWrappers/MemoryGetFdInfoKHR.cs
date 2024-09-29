@@ -32,10 +32,19 @@ public unsafe partial class MemoryGetFdInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memory = Memory;
-        _internal.handleType = HandleType;
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

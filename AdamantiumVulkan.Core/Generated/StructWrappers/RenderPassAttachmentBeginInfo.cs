@@ -36,11 +36,17 @@ public unsafe partial class RenderPassAttachmentBeginInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.attachmentCount = AttachmentCount;
+        if (AttachmentCount != default)
+        {
+            _internal.attachmentCount = AttachmentCount;
+        }
         _pAttachments.Dispose();
-        if (PAttachments != null)
+        if (PAttachments != default)
         {
             AdamantiumVulkan.Core.Interop.VkImageView_T struct0 = PAttachments;
             _pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageView_T>(struct0);

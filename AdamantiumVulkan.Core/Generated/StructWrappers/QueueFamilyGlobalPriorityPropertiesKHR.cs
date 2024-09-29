@@ -37,10 +37,16 @@ public unsafe partial class QueueFamilyGlobalPriorityPropertiesKHR : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkQueueFamilyGlobalPriorityPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyGlobalPriorityPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.priorityCount = PriorityCount;
-        if(Priorities != null)
+        if (PriorityCount != default)
+        {
+            _internal.priorityCount = PriorityCount;
+        }
+        if (Priorities != default)
         {
             if (Priorities.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(Priorities), "Array is out of bounds. Size should not be more than 16");

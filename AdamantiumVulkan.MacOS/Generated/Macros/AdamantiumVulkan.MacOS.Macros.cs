@@ -13,16 +13,16 @@ namespace AdamantiumVulkan.MacOS;
 
 public static class Constants
 {
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 2 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_macos.h Line: 2 Column: 9
     public static uint VULKAN_MACOS_H_ => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 23 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_macos.h Line: 23 Column: 9
     public static uint VK_MVK_macos_surface => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 24 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_macos.h Line: 24 Column: 9
     public static uint VK_MVK_MACOS_SURFACE_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 25 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_macos.h Line: 25 Column: 9
     public static string VK_MVK_MACOS_SURFACE_EXTENSION_NAME => "VK_MVK_macos_surface";
 
 }

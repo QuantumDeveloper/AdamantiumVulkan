@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class Offset3D
+public unsafe partial class Offset3D : QBDisposableObject
 {
     public Offset3D()
     {
@@ -31,9 +31,18 @@ public unsafe partial class Offset3D
     public AdamantiumVulkan.Core.Interop.VkOffset3D ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkOffset3D();
-        _internal.x = X;
-        _internal.y = Y;
-        _internal.z = Z;
+        if (X != default)
+        {
+            _internal.x = X;
+        }
+        if (Y != default)
+        {
+            _internal.y = Y;
+        }
+        if (Z != default)
+        {
+            _internal.z = Z;
+        }
         return _internal;
     }
 

@@ -40,13 +40,25 @@ public unsafe partial class VideoDecodeH265SessionParametersCreateInfoKHR : QBDi
     public AdamantiumVulkan.Core.Interop.VkVideoDecodeH265SessionParametersCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoDecodeH265SessionParametersCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxStdVPSCount = MaxStdVPSCount;
-        _internal.maxStdSPSCount = MaxStdSPSCount;
-        _internal.maxStdPPSCount = MaxStdPPSCount;
+        if (MaxStdVPSCount != default)
+        {
+            _internal.maxStdVPSCount = MaxStdVPSCount;
+        }
+        if (MaxStdSPSCount != default)
+        {
+            _internal.maxStdSPSCount = MaxStdSPSCount;
+        }
+        if (MaxStdPPSCount != default)
+        {
+            _internal.maxStdPPSCount = MaxStdPPSCount;
+        }
         _pParametersAddInfo.Dispose();
-        if (ParametersAddInfo != null)
+        if (ParametersAddInfo != default)
         {
             var struct0 = ParametersAddInfo.ToNative();
             _pParametersAddInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoDecodeH265SessionParametersAddInfoKHR>(struct0);

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class VertexInputBindingDescription
+public unsafe partial class VertexInputBindingDescription : QBDisposableObject
 {
     public VertexInputBindingDescription()
     {
@@ -31,9 +31,18 @@ public unsafe partial class VertexInputBindingDescription
     public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription();
-        _internal.binding = Binding;
-        _internal.stride = Stride;
-        _internal.inputRate = InputRate;
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Stride != default)
+        {
+            _internal.stride = Stride;
+        }
+        if (InputRate != default)
+        {
+            _internal.inputRate = InputRate;
+        }
         return _internal;
     }
 

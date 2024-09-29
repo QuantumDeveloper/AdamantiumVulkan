@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class BufferImageCopy
+public unsafe partial class BufferImageCopy : QBDisposableObject
 {
     public BufferImageCopy()
     {
@@ -37,23 +37,40 @@ public unsafe partial class BufferImageCopy
     public AdamantiumVulkan.Core.Interop.VkBufferImageCopy ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferImageCopy();
-        _internal.bufferOffset = BufferOffset;
-        _internal.bufferRowLength = BufferRowLength;
-        _internal.bufferImageHeight = BufferImageHeight;
-        if (ImageSubresource != null)
+        if (BufferOffset != (ulong)default)
+        {
+            _internal.bufferOffset = BufferOffset;
+        }
+        if (BufferRowLength != default)
+        {
+            _internal.bufferRowLength = BufferRowLength;
+        }
+        if (BufferImageHeight != default)
+        {
+            _internal.bufferImageHeight = BufferImageHeight;
+        }
+        if (ImageSubresource != default)
         {
             _internal.imageSubresource = ImageSubresource.ToNative();
         }
-        if (ImageOffset != null)
+        if (ImageOffset != default)
         {
             _internal.imageOffset = ImageOffset.ToNative();
         }
-        if (ImageExtent != null)
+        if (ImageExtent != default)
         {
             _internal.imageExtent = ImageExtent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageSubresource?.Dispose();
+        ImageOffset?.Dispose();
+        ImageExtent?.Dispose();
+    }
+
 
     public static implicit operator BufferImageCopy(AdamantiumVulkan.Core.Interop.VkBufferImageCopy b)
     {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class FormatProperties
+public unsafe partial class FormatProperties : QBDisposableObject
 {
     public FormatProperties()
     {
@@ -31,9 +31,18 @@ public unsafe partial class FormatProperties
     public AdamantiumVulkan.Core.Interop.VkFormatProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFormatProperties();
-        _internal.linearTilingFeatures = LinearTilingFeatures;
-        _internal.optimalTilingFeatures = OptimalTilingFeatures;
-        _internal.bufferFeatures = BufferFeatures;
+        if (LinearTilingFeatures != (uint)default)
+        {
+            _internal.linearTilingFeatures = LinearTilingFeatures;
+        }
+        if (OptimalTilingFeatures != (uint)default)
+        {
+            _internal.optimalTilingFeatures = OptimalTilingFeatures;
+        }
+        if (BufferFeatures != (uint)default)
+        {
+            _internal.bufferFeatures = BufferFeatures;
+        }
         return _internal;
     }
 

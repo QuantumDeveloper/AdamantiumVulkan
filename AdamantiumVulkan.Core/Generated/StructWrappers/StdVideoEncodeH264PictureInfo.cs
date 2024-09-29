@@ -48,18 +48,39 @@ public unsafe partial class StdVideoEncodeH264PictureInfo : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.seq_parameter_set_id = Seq_parameter_set_id;
-        _internal.pic_parameter_set_id = Pic_parameter_set_id;
-        _internal.idr_pic_id = Idr_pic_id;
-        _internal.primary_pic_type = Primary_pic_type;
-        _internal.frame_num = Frame_num;
-        _internal.PicOrderCnt = PicOrderCnt;
-        _internal.temporal_id = Temporal_id;
-        if(Reserved1 != null)
+        if (Seq_parameter_set_id != default)
+        {
+            _internal.seq_parameter_set_id = Seq_parameter_set_id;
+        }
+        if (Pic_parameter_set_id != default)
+        {
+            _internal.pic_parameter_set_id = Pic_parameter_set_id;
+        }
+        if (Idr_pic_id != default)
+        {
+            _internal.idr_pic_id = Idr_pic_id;
+        }
+        if (Primary_pic_type != default)
+        {
+            _internal.primary_pic_type = Primary_pic_type;
+        }
+        if (Frame_num != default)
+        {
+            _internal.frame_num = Frame_num;
+        }
+        if (PicOrderCnt != default)
+        {
+            _internal.PicOrderCnt = PicOrderCnt;
+        }
+        if (Temporal_id != default)
+        {
+            _internal.temporal_id = Temporal_id;
+        }
+        if (Reserved1 != default)
         {
             if (Reserved1.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(Reserved1), "Array is out of bounds. Size should not be more than 3");
@@ -67,7 +88,7 @@ public unsafe partial class StdVideoEncodeH264PictureInfo : QBDisposableObject
             NativeUtils.PrimitiveToFixedArray(_internal.reserved1, 3, Reserved1);
         }
         _pRefLists.Dispose();
-        if (PRefLists != null)
+        if (PRefLists != default)
         {
             var struct0 = PRefLists.ToNative();
             _pRefLists = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceListsInfo>(struct0);
@@ -79,6 +100,7 @@ public unsafe partial class StdVideoEncodeH264PictureInfo : QBDisposableObject
     protected override void UnmanagedDisposeOverride()
     {
         _pRefLists.Dispose();
+        Flags?.Dispose();
     }
 
 

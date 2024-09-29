@@ -38,18 +38,39 @@ public unsafe partial class ComputePipelineCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        if (Stage != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Stage != default)
         {
             _internal.stage = Stage.ToNative();
         }
-        _internal.layout = Layout;
-        _internal.basePipelineHandle = BasePipelineHandle;
-        _internal.basePipelineIndex = BasePipelineIndex;
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (BasePipelineHandle != default)
+        {
+            _internal.basePipelineHandle = BasePipelineHandle;
+        }
+        if (BasePipelineIndex != default)
+        {
+            _internal.basePipelineIndex = BasePipelineIndex;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Stage?.Dispose();
+    }
+
 
     public static implicit operator ComputePipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo c)
     {

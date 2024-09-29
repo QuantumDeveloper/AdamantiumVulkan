@@ -31,9 +31,15 @@ public unsafe partial class DeviceQueueShaderCoreControlCreateInfoARM : QBDispos
     public AdamantiumVulkan.Core.Interop.VkDeviceQueueShaderCoreControlCreateInfoARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceQueueShaderCoreControlCreateInfoARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderCoreCount = ShaderCoreCount;
+        if (ShaderCoreCount != default)
+        {
+            _internal.shaderCoreCount = ShaderCoreCount;
+        }
         return _internal;
     }
 

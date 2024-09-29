@@ -60,35 +60,72 @@ public unsafe partial class ImageCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.imageType = ImageType;
-        _internal.format = Format;
-        if (Extent != null)
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (ImageType != default)
+        {
+            _internal.imageType = ImageType;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Extent != default)
         {
             _internal.extent = Extent.ToNative();
         }
-        _internal.mipLevels = MipLevels;
-        _internal.arrayLayers = ArrayLayers;
-        _internal.samples = Samples;
-        _internal.tiling = Tiling;
-        _internal.usage = Usage;
-        _internal.sharingMode = SharingMode;
-        _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        if (MipLevels != default)
+        {
+            _internal.mipLevels = MipLevels;
+        }
+        if (ArrayLayers != default)
+        {
+            _internal.arrayLayers = ArrayLayers;
+        }
+        if (Samples != default)
+        {
+            _internal.samples = Samples;
+        }
+        if (Tiling != default)
+        {
+            _internal.tiling = Tiling;
+        }
+        if (Usage != default)
+        {
+            _internal.usage = Usage;
+        }
+        if (SharingMode != default)
+        {
+            _internal.sharingMode = SharingMode;
+        }
+        if (QueueFamilyIndexCount != default)
+        {
+            _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        }
         _pQueueFamilyIndices.Dispose();
         if (PQueueFamilyIndices.HasValue)
         {
             _pQueueFamilyIndices = new NativeStruct<uint>(PQueueFamilyIndices.Value);
             _internal.pQueueFamilyIndices = _pQueueFamilyIndices.Handle;
         }
-        _internal.initialLayout = InitialLayout;
+        if (InitialLayout != default)
+        {
+            _internal.initialLayout = InitialLayout;
+        }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
         _pQueueFamilyIndices.Dispose();
+        Extent?.Dispose();
     }
 
 

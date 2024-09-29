@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PresentTimeGOOGLE
+public unsafe partial class PresentTimeGOOGLE : QBDisposableObject
 {
     public PresentTimeGOOGLE()
     {
@@ -29,8 +29,14 @@ public unsafe partial class PresentTimeGOOGLE
     public AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE();
-        _internal.presentID = PresentID;
-        _internal.desiredPresentTime = DesiredPresentTime;
+        if (PresentID != default)
+        {
+            _internal.presentID = PresentID;
+        }
+        if (DesiredPresentTime != default)
+        {
+            _internal.desiredPresentTime = DesiredPresentTime;
+        }
         return _internal;
     }
 

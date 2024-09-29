@@ -68,11 +68,17 @@ public unsafe partial class SubmitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSubmitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubmitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        if (WaitSemaphoreCount != default)
+        {
+            _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        }
         _pWaitSemaphores.Dispose();
-        if (PWaitSemaphores != null)
+        if (PWaitSemaphores != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PWaitSemaphores.Length];
             for (int i = 0; i < PWaitSemaphores.Length; ++i)
@@ -88,9 +94,12 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             _pWaitDstStageMask = new NativeStructArray<AdamantiumVulkan.Core.PipelineStageFlagBits>(PWaitDstStageMask);
             _internal.pWaitDstStageMask = _pWaitDstStageMask.Handle;
         }
-        _internal.commandBufferCount = CommandBufferCount;
+        if (CommandBufferCount != default)
+        {
+            _internal.commandBufferCount = CommandBufferCount;
+        }
         _pCommandBuffers.Dispose();
-        if (PCommandBuffers != null)
+        if (PCommandBuffers != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[PCommandBuffers.Length];
             for (int i = 0; i < PCommandBuffers.Length; ++i)
@@ -100,9 +109,12 @@ public unsafe partial class SubmitInfo : QBDisposableObject
             _pCommandBuffers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>(tmpArray1);
             _internal.pCommandBuffers = _pCommandBuffers.Handle;
         }
-        _internal.signalSemaphoreCount = SignalSemaphoreCount;
+        if (SignalSemaphoreCount != default)
+        {
+            _internal.signalSemaphoreCount = SignalSemaphoreCount;
+        }
         _pSignalSemaphores.Dispose();
-        if (PSignalSemaphores != null)
+        if (PSignalSemaphores != default)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PSignalSemaphores.Length];
             for (int i = 0; i < PSignalSemaphores.Length; ++i)

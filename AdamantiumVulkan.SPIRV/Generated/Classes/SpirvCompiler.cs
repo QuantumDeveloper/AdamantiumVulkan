@@ -15,7 +15,7 @@ using AdamantiumVulkan.Spirv.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 74 Column: 33
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 74 Column: 33
 public unsafe partial class SpirvCompiler
 {
     internal SpvcCompilerS __Instance;
@@ -128,6 +128,7 @@ public unsafe partial class SpirvCompiler
         var arg2 = ReferenceEquals(ranges, null) ? null : (AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange**)NativeUtils.StructOrEnumToPointer(ranges.ToNative());
         var arg3 = NativeUtils.StructOrEnumToPointer(num_ranges);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_active_buffer_ranges(this, id, arg2, arg3);
+        ranges?.Dispose();
         NativeUtils.Free(arg2);
         num_ranges = *arg3;
         NativeUtils.Free(arg3);
@@ -181,6 +182,7 @@ public unsafe partial class SpirvCompiler
         var arg1 = ReferenceEquals(samplers, null) ? null : (AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler**)NativeUtils.StructOrEnumToPointer(samplers.ToNative());
         var arg2 = NativeUtils.StructOrEnumToPointer(num_samplers);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_combined_image_samplers(this, arg1, arg2);
+        samplers?.Dispose();
         NativeUtils.Free(arg1);
         num_samplers = *arg2;
         NativeUtils.Free(arg2);
@@ -355,6 +357,7 @@ public unsafe partial class SpirvCompiler
         var arg1 = ReferenceEquals(constants, null) ? null : (AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant**)NativeUtils.StructOrEnumToPointer(constants.ToNative());
         var arg2 = NativeUtils.StructOrEnumToPointer(num_constants);
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_specialization_constants(this, arg1, arg2);
+        constants?.Dispose();
         NativeUtils.Free(arg1);
         num_constants = *arg2;
         NativeUtils.Free(arg2);
@@ -375,8 +378,11 @@ public unsafe partial class SpirvCompiler
         var arg2 = ReferenceEquals(y, null) ? null : NativeUtils.StructOrEnumToPointer(y.ToNative());
         var arg3 = ReferenceEquals(z, null) ? null : NativeUtils.StructOrEnumToPointer(z.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_work_group_size_specialization_constants(this, arg1, arg2, arg3);
+        x?.Dispose();
         NativeUtils.Free(arg1);
+        y?.Dispose();
         NativeUtils.Free(arg2);
+        z?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }
@@ -400,6 +406,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg1 = ReferenceEquals(binding, null) ? null : NativeUtils.StructOrEnumToPointer(binding.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_add_resource_binding(this, arg1);
+        binding?.Dispose();
         NativeUtils.Free(arg1);
         return result;
     }
@@ -435,6 +442,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg1 = ReferenceEquals(constant_info, null) ? null : NativeUtils.StructOrEnumToPointer(constant_info.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_set_root_constants_layout(this, arg1, count);
+        constant_info?.Dispose();
         NativeUtils.Free(arg1);
         return result;
     }
@@ -477,6 +485,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg1 = ReferenceEquals(binding, null) ? null : NativeUtils.StructOrEnumToPointer(binding.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_resource_binding(this, arg1);
+        binding?.Dispose();
         NativeUtils.Free(arg1);
         return result;
     }
@@ -488,6 +497,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg1 = ReferenceEquals(input, null) ? null : NativeUtils.StructOrEnumToPointer(input.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_input(this, arg1);
+        input?.Dispose();
         NativeUtils.Free(arg1);
         return result;
     }
@@ -496,6 +506,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg1 = ReferenceEquals(input, null) ? null : NativeUtils.StructOrEnumToPointer(input.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_input_2(this, arg1);
+        input?.Dispose();
         NativeUtils.Free(arg1);
         return result;
     }
@@ -523,6 +534,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg1 = ReferenceEquals(attrs, null) ? null : NativeUtils.StructOrEnumToPointer(attrs.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_vertex_attribute(this, arg1);
+        attrs?.Dispose();
         NativeUtils.Free(arg1);
         return result;
     }
@@ -611,6 +623,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg2 = ReferenceEquals(sampler, null) ? null : NativeUtils.StructOrEnumToPointer(sampler.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler(this, id, arg2);
+        sampler?.Dispose();
         NativeUtils.Free(arg2);
         return result;
     }
@@ -619,6 +632,7 @@ public unsafe partial class SpirvCompiler
     {
         var arg3 = ReferenceEquals(sampler, null) ? null : NativeUtils.StructOrEnumToPointer(sampler.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler_by_binding(this, desc_set, binding, arg3);
+        sampler?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }
@@ -628,7 +642,9 @@ public unsafe partial class SpirvCompiler
         var arg3 = ReferenceEquals(sampler, null) ? null : NativeUtils.StructOrEnumToPointer(sampler.ToNative());
         var arg4 = ReferenceEquals(conv, null) ? null : NativeUtils.StructOrEnumToPointer(conv.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr(this, desc_set, binding, arg3, arg4);
+        sampler?.Dispose();
         NativeUtils.Free(arg3);
+        conv?.Dispose();
         NativeUtils.Free(arg4);
         return result;
     }
@@ -638,7 +654,9 @@ public unsafe partial class SpirvCompiler
         var arg2 = ReferenceEquals(sampler, null) ? null : NativeUtils.StructOrEnumToPointer(sampler.ToNative());
         var arg3 = ReferenceEquals(conv, null) ? null : NativeUtils.StructOrEnumToPointer(conv.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler_ycbcr(this, id, arg2, arg3);
+        sampler?.Dispose();
         NativeUtils.Free(arg2);
+        conv?.Dispose();
         NativeUtils.Free(arg3);
         return result;
     }

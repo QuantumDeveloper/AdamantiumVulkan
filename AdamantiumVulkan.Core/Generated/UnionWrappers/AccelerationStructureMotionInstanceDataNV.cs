@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AccelerationStructureMotionInstanceDataNV
+public unsafe partial class AccelerationStructureMotionInstanceDataNV : QBDisposableObject
 {
     public AccelerationStructureMotionInstanceDataNV()
     {
@@ -31,20 +31,28 @@ public unsafe partial class AccelerationStructureMotionInstanceDataNV
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV();
-        if (StaticInstance != null)
+        if (StaticInstance != default)
         {
             _internal.staticInstance = StaticInstance.ToNative();
         }
-        if (MatrixMotionInstance != null)
+        if (MatrixMotionInstance != default)
         {
             _internal.matrixMotionInstance = MatrixMotionInstance.ToNative();
         }
-        if (SrtMotionInstance != null)
+        if (SrtMotionInstance != default)
         {
             _internal.srtMotionInstance = SrtMotionInstance.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        StaticInstance?.Dispose();
+        MatrixMotionInstance?.Dispose();
+        SrtMotionInstance?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureMotionInstanceDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV a)
     {

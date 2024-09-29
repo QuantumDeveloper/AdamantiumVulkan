@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEX
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.primitiveTopologyListRestart = PrimitiveTopologyListRestart;
-        _internal.primitiveTopologyPatchListRestart = PrimitiveTopologyPatchListRestart;
+        if (PrimitiveTopologyListRestart != (uint)default)
+        {
+            _internal.primitiveTopologyListRestart = PrimitiveTopologyListRestart;
+        }
+        if (PrimitiveTopologyPatchListRestart != (uint)default)
+        {
+            _internal.primitiveTopologyPatchListRestart = PrimitiveTopologyPatchListRestart;
+        }
         return _internal;
     }
 

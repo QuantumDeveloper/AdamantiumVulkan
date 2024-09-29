@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.diagnosticsConfig = DiagnosticsConfig;
+        if (DiagnosticsConfig != (uint)default)
+        {
+            _internal.diagnosticsConfig = DiagnosticsConfig;
+        }
         return _internal;
     }
 

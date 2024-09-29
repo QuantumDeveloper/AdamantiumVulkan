@@ -11,7 +11,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-public unsafe partial class Spv_parsed_header_t
+public unsafe partial class Spv_parsed_header_t : QBDisposableObject
 {
     public Spv_parsed_header_t()
     {
@@ -35,11 +35,26 @@ public unsafe partial class Spv_parsed_header_t
     public AdamantiumVulkan.SpirvTools.Interop.spv_parsed_header_t ToNative()
     {
         var _internal = new AdamantiumVulkan.SpirvTools.Interop.spv_parsed_header_t();
-        _internal.magic = Magic;
-        _internal.version = Version;
-        _internal.generator = Generator;
-        _internal.bound = Bound;
-        _internal.reserved = Reserved;
+        if (Magic != default)
+        {
+            _internal.magic = Magic;
+        }
+        if (Version != default)
+        {
+            _internal.version = Version;
+        }
+        if (Generator != default)
+        {
+            _internal.generator = Generator;
+        }
+        if (Bound != default)
+        {
+            _internal.bound = Bound;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
         return _internal;
     }
 

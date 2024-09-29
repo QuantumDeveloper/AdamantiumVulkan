@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderSubgroupUniformControlFlowFeatur
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderSubgroupUniformControlFlow = ShaderSubgroupUniformControlFlow;
+        if (ShaderSubgroupUniformControlFlow != (uint)default)
+        {
+            _internal.shaderSubgroupUniformControlFlow = ShaderSubgroupUniformControlFlow;
+        }
         return _internal;
     }
 

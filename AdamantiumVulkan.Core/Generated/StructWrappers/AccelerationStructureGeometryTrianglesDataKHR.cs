@@ -43,26 +43,49 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : QBDi
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.vertexFormat = VertexFormat;
-        if (VertexData != null)
+        if (VertexFormat != default)
+        {
+            _internal.vertexFormat = VertexFormat;
+        }
+        if (VertexData != default)
         {
             _internal.vertexData = VertexData.ToNative();
         }
-        _internal.vertexStride = VertexStride;
-        _internal.maxVertex = MaxVertex;
-        _internal.indexType = IndexType;
-        if (IndexData != null)
+        if (VertexStride != (ulong)default)
+        {
+            _internal.vertexStride = VertexStride;
+        }
+        if (MaxVertex != default)
+        {
+            _internal.maxVertex = MaxVertex;
+        }
+        if (IndexType != default)
+        {
+            _internal.indexType = IndexType;
+        }
+        if (IndexData != default)
         {
             _internal.indexData = IndexData.ToNative();
         }
-        if (TransformData != null)
+        if (TransformData != default)
         {
             _internal.transformData = TransformData.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        VertexData?.Dispose();
+        IndexData?.Dispose();
+        TransformData?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureGeometryTrianglesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR a)
     {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry
+public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry : QBDisposableObject
 {
     public StdVideoEncodeH264RefPicMarkingEntry()
     {
@@ -35,11 +35,26 @@ public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry
     public AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry();
-        _internal.memory_management_control_operation = Memory_management_control_operation;
-        _internal.difference_of_pic_nums_minus1 = Difference_of_pic_nums_minus1;
-        _internal.long_term_pic_num = Long_term_pic_num;
-        _internal.long_term_frame_idx = Long_term_frame_idx;
-        _internal.max_long_term_frame_idx_plus1 = Max_long_term_frame_idx_plus1;
+        if (Memory_management_control_operation != default)
+        {
+            _internal.memory_management_control_operation = Memory_management_control_operation;
+        }
+        if (Difference_of_pic_nums_minus1 != default)
+        {
+            _internal.difference_of_pic_nums_minus1 = Difference_of_pic_nums_minus1;
+        }
+        if (Long_term_pic_num != default)
+        {
+            _internal.long_term_pic_num = Long_term_pic_num;
+        }
+        if (Long_term_frame_idx != default)
+        {
+            _internal.long_term_frame_idx = Long_term_frame_idx;
+        }
+        if (Max_long_term_frame_idx_plus1 != default)
+        {
+            _internal.max_long_term_frame_idx_plus1 = Max_long_term_frame_idx_plus1;
+        }
         return _internal;
     }
 

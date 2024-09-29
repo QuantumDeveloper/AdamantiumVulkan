@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH264PpsFlags
+public unsafe partial class StdVideoH264PpsFlags : QBDisposableObject
 {
     public StdVideoH264PpsFlags()
     {
@@ -41,14 +41,38 @@ public unsafe partial class StdVideoH264PpsFlags
     public AdamantiumVulkan.Interop.StdVideoH264PpsFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH264PpsFlags();
-        _internal.transform_8x8_mode_flag = Transform_8x8_mode_flag;
-        _internal.redundant_pic_cnt_present_flag = Redundant_pic_cnt_present_flag;
-        _internal.constrained_intra_pred_flag = Constrained_intra_pred_flag;
-        _internal.deblocking_filter_control_present_flag = Deblocking_filter_control_present_flag;
-        _internal.weighted_pred_flag = Weighted_pred_flag;
-        _internal.bottom_field_pic_order_in_frame_present_flag = Bottom_field_pic_order_in_frame_present_flag;
-        _internal.entropy_coding_mode_flag = Entropy_coding_mode_flag;
-        _internal.pic_scaling_matrix_present_flag = Pic_scaling_matrix_present_flag;
+        if (Transform_8x8_mode_flag != default)
+        {
+            _internal.transform_8x8_mode_flag = Transform_8x8_mode_flag;
+        }
+        if (Redundant_pic_cnt_present_flag != default)
+        {
+            _internal.redundant_pic_cnt_present_flag = Redundant_pic_cnt_present_flag;
+        }
+        if (Constrained_intra_pred_flag != default)
+        {
+            _internal.constrained_intra_pred_flag = Constrained_intra_pred_flag;
+        }
+        if (Deblocking_filter_control_present_flag != default)
+        {
+            _internal.deblocking_filter_control_present_flag = Deblocking_filter_control_present_flag;
+        }
+        if (Weighted_pred_flag != default)
+        {
+            _internal.weighted_pred_flag = Weighted_pred_flag;
+        }
+        if (Bottom_field_pic_order_in_frame_present_flag != default)
+        {
+            _internal.bottom_field_pic_order_in_frame_present_flag = Bottom_field_pic_order_in_frame_present_flag;
+        }
+        if (Entropy_coding_mode_flag != default)
+        {
+            _internal.entropy_coding_mode_flag = Entropy_coding_mode_flag;
+        }
+        if (Pic_scaling_matrix_present_flag != default)
+        {
+            _internal.pic_scaling_matrix_present_flag = Pic_scaling_matrix_present_flag;
+        }
         return _internal;
     }
 

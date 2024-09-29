@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SurfaceFormatKHR
+public unsafe partial class SurfaceFormatKHR : QBDisposableObject
 {
     public SurfaceFormatKHR()
     {
@@ -29,8 +29,14 @@ public unsafe partial class SurfaceFormatKHR
     public AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR();
-        _internal.format = Format;
-        _internal.colorSpace = ColorSpace;
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (ColorSpace != default)
+        {
+            _internal.colorSpace = ColorSpace;
+        }
         return _internal;
     }
 

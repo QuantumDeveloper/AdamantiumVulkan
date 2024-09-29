@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265DecPicBufMgr
+public unsafe partial class StdVideoH265DecPicBufMgr : QBDisposableObject
 {
     public StdVideoH265DecPicBufMgr()
     {
@@ -31,21 +31,21 @@ public unsafe partial class StdVideoH265DecPicBufMgr
     public AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr();
-        if(Max_latency_increase_plus1 != null)
+        if (Max_latency_increase_plus1 != default)
         {
             if (Max_latency_increase_plus1.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Max_latency_increase_plus1), "Array is out of bounds. Size should not be more than 7");
 
             NativeUtils.PrimitiveToFixedArray(_internal.max_latency_increase_plus1, 7, Max_latency_increase_plus1);
         }
-        if(Max_dec_pic_buffering_minus1 != null)
+        if (Max_dec_pic_buffering_minus1 != default)
         {
             if (Max_dec_pic_buffering_minus1.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Max_dec_pic_buffering_minus1), "Array is out of bounds. Size should not be more than 7");
 
             NativeUtils.PrimitiveToFixedArray(_internal.max_dec_pic_buffering_minus1, 7, Max_dec_pic_buffering_minus1);
         }
-        if(Max_num_reorder_pics != null)
+        if (Max_num_reorder_pics != default)
         {
             if (Max_num_reorder_pics.Length > 7)
                 throw new System.ArgumentOutOfRangeException(nameof(Max_num_reorder_pics), "Array is out of bounds. Size should not be more than 7");

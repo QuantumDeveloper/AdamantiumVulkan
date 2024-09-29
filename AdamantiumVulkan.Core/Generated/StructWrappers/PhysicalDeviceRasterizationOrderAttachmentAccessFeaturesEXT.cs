@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rasterizationOrderColorAttachmentAccess = RasterizationOrderColorAttachmentAccess;
-        _internal.rasterizationOrderDepthAttachmentAccess = RasterizationOrderDepthAttachmentAccess;
-        _internal.rasterizationOrderStencilAttachmentAccess = RasterizationOrderStencilAttachmentAccess;
+        if (RasterizationOrderColorAttachmentAccess != (uint)default)
+        {
+            _internal.rasterizationOrderColorAttachmentAccess = RasterizationOrderColorAttachmentAccess;
+        }
+        if (RasterizationOrderDepthAttachmentAccess != (uint)default)
+        {
+            _internal.rasterizationOrderDepthAttachmentAccess = RasterizationOrderDepthAttachmentAccess;
+        }
+        if (RasterizationOrderStencilAttachmentAccess != (uint)default)
+        {
+            _internal.rasterizationOrderStencilAttachmentAccess = RasterizationOrderStencilAttachmentAccess;
+        }
         return _internal;
     }
 

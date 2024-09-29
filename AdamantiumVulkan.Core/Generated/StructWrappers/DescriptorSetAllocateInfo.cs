@@ -42,12 +42,21 @@ public unsafe partial class DescriptorSetAllocateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorPool = DescriptorPool;
-        _internal.descriptorSetCount = DescriptorSetCount;
+        if (DescriptorPool != default)
+        {
+            _internal.descriptorPool = DescriptorPool;
+        }
+        if (DescriptorSetCount != default)
+        {
+            _internal.descriptorSetCount = DescriptorSetCount;
+        }
         _pSetLayouts.Dispose();
-        if (PSetLayouts != null)
+        if (PSetLayouts != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[PSetLayouts.Length];
             for (int i = 0; i < PSetLayouts.Length; ++i)

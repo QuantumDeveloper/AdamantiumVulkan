@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderIntegerFunctions2 = ShaderIntegerFunctions2;
+        if (ShaderIntegerFunctions2 != (uint)default)
+        {
+            _internal.shaderIntegerFunctions2 = ShaderIntegerFunctions2;
+        }
         return _internal;
     }
 

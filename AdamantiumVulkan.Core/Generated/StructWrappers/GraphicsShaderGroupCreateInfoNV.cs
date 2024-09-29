@@ -46,25 +46,31 @@ public unsafe partial class GraphicsShaderGroupCreateInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stageCount = StageCount;
+        if (StageCount != default)
+        {
+            _internal.stageCount = StageCount;
+        }
         _pStages.Dispose();
-        if (PStages != null)
+        if (PStages != default)
         {
             var struct0 = PStages.ToNative();
             _pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
             _internal.pStages = _pStages.Handle;
         }
         _pVertexInputState.Dispose();
-        if (PVertexInputState != null)
+        if (PVertexInputState != default)
         {
             var struct1 = PVertexInputState.ToNative();
             _pVertexInputState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>(struct1);
             _internal.pVertexInputState = _pVertexInputState.Handle;
         }
         _pTessellationState.Dispose();
-        if (PTessellationState != null)
+        if (PTessellationState != default)
         {
             var struct2 = PTessellationState.ToNative();
             _pTessellationState = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo>(struct2);

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265SpsVuiFlags
+public unsafe partial class StdVideoH265SpsVuiFlags : QBDisposableObject
 {
     public StdVideoH265SpsVuiFlags()
     {
@@ -61,24 +61,78 @@ public unsafe partial class StdVideoH265SpsVuiFlags
     public AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags();
-        _internal.aspect_ratio_info_present_flag = Aspect_ratio_info_present_flag;
-        _internal.overscan_info_present_flag = Overscan_info_present_flag;
-        _internal.overscan_appropriate_flag = Overscan_appropriate_flag;
-        _internal.video_signal_type_present_flag = Video_signal_type_present_flag;
-        _internal.video_full_range_flag = Video_full_range_flag;
-        _internal.colour_description_present_flag = Colour_description_present_flag;
-        _internal.chroma_loc_info_present_flag = Chroma_loc_info_present_flag;
-        _internal.neutral_chroma_indication_flag = Neutral_chroma_indication_flag;
-        _internal.field_seq_flag = Field_seq_flag;
-        _internal.frame_field_info_present_flag = Frame_field_info_present_flag;
-        _internal.default_display_window_flag = Default_display_window_flag;
-        _internal.vui_timing_info_present_flag = Vui_timing_info_present_flag;
-        _internal.vui_poc_proportional_to_timing_flag = Vui_poc_proportional_to_timing_flag;
-        _internal.vui_hrd_parameters_present_flag = Vui_hrd_parameters_present_flag;
-        _internal.bitstream_restriction_flag = Bitstream_restriction_flag;
-        _internal.tiles_fixed_structure_flag = Tiles_fixed_structure_flag;
-        _internal.motion_vectors_over_pic_boundaries_flag = Motion_vectors_over_pic_boundaries_flag;
-        _internal.restricted_ref_pic_lists_flag = Restricted_ref_pic_lists_flag;
+        if (Aspect_ratio_info_present_flag != default)
+        {
+            _internal.aspect_ratio_info_present_flag = Aspect_ratio_info_present_flag;
+        }
+        if (Overscan_info_present_flag != default)
+        {
+            _internal.overscan_info_present_flag = Overscan_info_present_flag;
+        }
+        if (Overscan_appropriate_flag != default)
+        {
+            _internal.overscan_appropriate_flag = Overscan_appropriate_flag;
+        }
+        if (Video_signal_type_present_flag != default)
+        {
+            _internal.video_signal_type_present_flag = Video_signal_type_present_flag;
+        }
+        if (Video_full_range_flag != default)
+        {
+            _internal.video_full_range_flag = Video_full_range_flag;
+        }
+        if (Colour_description_present_flag != default)
+        {
+            _internal.colour_description_present_flag = Colour_description_present_flag;
+        }
+        if (Chroma_loc_info_present_flag != default)
+        {
+            _internal.chroma_loc_info_present_flag = Chroma_loc_info_present_flag;
+        }
+        if (Neutral_chroma_indication_flag != default)
+        {
+            _internal.neutral_chroma_indication_flag = Neutral_chroma_indication_flag;
+        }
+        if (Field_seq_flag != default)
+        {
+            _internal.field_seq_flag = Field_seq_flag;
+        }
+        if (Frame_field_info_present_flag != default)
+        {
+            _internal.frame_field_info_present_flag = Frame_field_info_present_flag;
+        }
+        if (Default_display_window_flag != default)
+        {
+            _internal.default_display_window_flag = Default_display_window_flag;
+        }
+        if (Vui_timing_info_present_flag != default)
+        {
+            _internal.vui_timing_info_present_flag = Vui_timing_info_present_flag;
+        }
+        if (Vui_poc_proportional_to_timing_flag != default)
+        {
+            _internal.vui_poc_proportional_to_timing_flag = Vui_poc_proportional_to_timing_flag;
+        }
+        if (Vui_hrd_parameters_present_flag != default)
+        {
+            _internal.vui_hrd_parameters_present_flag = Vui_hrd_parameters_present_flag;
+        }
+        if (Bitstream_restriction_flag != default)
+        {
+            _internal.bitstream_restriction_flag = Bitstream_restriction_flag;
+        }
+        if (Tiles_fixed_structure_flag != default)
+        {
+            _internal.tiles_fixed_structure_flag = Tiles_fixed_structure_flag;
+        }
+        if (Motion_vectors_over_pic_boundaries_flag != default)
+        {
+            _internal.motion_vectors_over_pic_boundaries_flag = Motion_vectors_over_pic_boundaries_flag;
+        }
+        if (Restricted_ref_pic_lists_flag != default)
+        {
+            _internal.restricted_ref_pic_lists_flag = Restricted_ref_pic_lists_flag;
+        }
         return _internal;
     }
 

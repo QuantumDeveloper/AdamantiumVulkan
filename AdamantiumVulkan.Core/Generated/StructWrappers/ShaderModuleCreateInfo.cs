@@ -38,12 +38,21 @@ public unsafe partial class ShaderModuleCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.codeSize = CodeSize;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (CodeSize != default)
+        {
+            _internal.codeSize = CodeSize;
+        }
         _pCode.Dispose();
-        if (PCode != null)
+        if (PCode != default)
         {
             var tmpArray0 = new byte[PCode.Length];
             for (int i = 0; i < PCode.Length; ++i)

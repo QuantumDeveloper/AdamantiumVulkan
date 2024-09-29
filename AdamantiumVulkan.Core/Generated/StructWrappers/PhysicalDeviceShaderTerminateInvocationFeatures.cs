@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderTerminateInvocationFeatures : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderTerminateInvocation = ShaderTerminateInvocation;
+        if (ShaderTerminateInvocation != (uint)default)
+        {
+            _internal.shaderTerminateInvocation = ShaderTerminateInvocation;
+        }
         return _internal;
     }
 

@@ -58,23 +58,35 @@ public unsafe partial class RenderPassMultiviewCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.subpassCount = SubpassCount;
+        if (SubpassCount != default)
+        {
+            _internal.subpassCount = SubpassCount;
+        }
         _pViewMasks.Dispose();
         if (PViewMasks.HasValue)
         {
             _pViewMasks = new NativeStruct<uint>(PViewMasks.Value);
             _internal.pViewMasks = _pViewMasks.Handle;
         }
-        _internal.dependencyCount = DependencyCount;
+        if (DependencyCount != default)
+        {
+            _internal.dependencyCount = DependencyCount;
+        }
         _pViewOffsets.Dispose();
         if (PViewOffsets.HasValue)
         {
             _pViewOffsets = new NativeStruct<int>(PViewOffsets.Value);
             _internal.pViewOffsets = _pViewOffsets.Handle;
         }
-        _internal.correlationMaskCount = CorrelationMaskCount;
+        if (CorrelationMaskCount != default)
+        {
+            _internal.correlationMaskCount = CorrelationMaskCount;
+        }
         _pCorrelationMasks.Dispose();
         if (PCorrelationMasks.HasValue)
         {

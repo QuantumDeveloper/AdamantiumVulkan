@@ -31,14 +31,23 @@ public unsafe partial class RenderPassStripeInfoARM : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (StripeArea != null)
+        if (StripeArea != default)
         {
             _internal.stripeArea = StripeArea.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        StripeArea?.Dispose();
+    }
+
 
     public static implicit operator RenderPassStripeInfoARM(AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM r)
     {

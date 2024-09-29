@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMultisampledRenderToSingleSampledFeatu
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.multisampledRenderToSingleSampled = MultisampledRenderToSingleSampled;
+        if (MultisampledRenderToSingleSampled != (uint)default)
+        {
+            _internal.multisampledRenderToSingleSampled = MultisampledRenderToSingleSampled;
+        }
         return _internal;
     }
 

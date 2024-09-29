@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceASTCDecodeFeaturesEXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.decodeModeSharedExponent = DecodeModeSharedExponent;
+        if (DecodeModeSharedExponent != (uint)default)
+        {
+            _internal.decodeModeSharedExponent = DecodeModeSharedExponent;
+        }
         return _internal;
     }
 

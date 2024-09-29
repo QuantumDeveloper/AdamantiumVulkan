@@ -33,10 +33,19 @@ public unsafe partial class ImageViewAddressPropertiesNVX : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceAddress = DeviceAddress;
-        _internal.size = Size;
+        if (DeviceAddress != (ulong)default)
+        {
+            _internal.deviceAddress = DeviceAddress;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

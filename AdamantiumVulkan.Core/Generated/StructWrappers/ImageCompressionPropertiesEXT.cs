@@ -33,10 +33,19 @@ public unsafe partial class ImageCompressionPropertiesEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageCompressionFlags = ImageCompressionFlags;
-        _internal.imageCompressionFixedRateFlags = ImageCompressionFixedRateFlags;
+        if (ImageCompressionFlags != (uint)default)
+        {
+            _internal.imageCompressionFlags = ImageCompressionFlags;
+        }
+        if (ImageCompressionFixedRateFlags != (uint)default)
+        {
+            _internal.imageCompressionFixedRateFlags = ImageCompressionFixedRateFlags;
+        }
         return _internal;
     }
 

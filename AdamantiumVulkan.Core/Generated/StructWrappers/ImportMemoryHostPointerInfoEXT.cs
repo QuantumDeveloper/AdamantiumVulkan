@@ -32,9 +32,15 @@ public unsafe partial class ImportMemoryHostPointerInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleType = HandleType;
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         _internal.pHostPointer = PHostPointer;
         return _internal;
     }

@@ -32,10 +32,19 @@ public unsafe partial class BindImageMemorySwapchainInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchain = Swapchain;
-        _internal.imageIndex = ImageIndex;
+        if (Swapchain != default)
+        {
+            _internal.swapchain = Swapchain;
+        }
+        if (ImageIndex != default)
+        {
+            _internal.imageIndex = ImageIndex;
+        }
         return _internal;
     }
 

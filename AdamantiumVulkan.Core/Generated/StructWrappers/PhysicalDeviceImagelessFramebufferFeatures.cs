@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceImagelessFramebufferFeatures : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imagelessFramebuffer = ImagelessFramebuffer;
+        if (ImagelessFramebuffer != (uint)default)
+        {
+            _internal.imagelessFramebuffer = ImagelessFramebuffer;
+        }
         return _internal;
     }
 

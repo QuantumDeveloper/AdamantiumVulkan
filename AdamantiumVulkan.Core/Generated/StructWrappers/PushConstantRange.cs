@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PushConstantRange
+public unsafe partial class PushConstantRange : QBDisposableObject
 {
     public PushConstantRange()
     {
@@ -31,9 +31,18 @@ public unsafe partial class PushConstantRange
     public AdamantiumVulkan.Core.Interop.VkPushConstantRange ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPushConstantRange();
-        _internal.stageFlags = StageFlags;
-        _internal.offset = Offset;
-        _internal.size = Size;
+        if (StageFlags != (uint)default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

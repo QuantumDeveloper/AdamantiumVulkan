@@ -35,19 +35,32 @@ public unsafe partial class ImageViewSampleWeightCreateInfoQCOM : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (FilterCenter != null)
+        if (FilterCenter != default)
         {
             _internal.filterCenter = FilterCenter.ToNative();
         }
-        if (FilterSize != null)
+        if (FilterSize != default)
         {
             _internal.filterSize = FilterSize.ToNative();
         }
-        _internal.numPhases = NumPhases;
+        if (NumPhases != default)
+        {
+            _internal.numPhases = NumPhases;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FilterCenter?.Dispose();
+        FilterSize?.Dispose();
+    }
+
 
     public static implicit operator ImageViewSampleWeightCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM i)
     {

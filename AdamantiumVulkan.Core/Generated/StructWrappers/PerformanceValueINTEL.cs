@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PerformanceValueINTEL
+public unsafe partial class PerformanceValueINTEL : QBDisposableObject
 {
     public PerformanceValueINTEL()
     {
@@ -29,13 +29,22 @@ public unsafe partial class PerformanceValueINTEL
     public AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL();
-        _internal.type = Type;
-        if (Data != null)
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Data != default)
         {
             _internal.data = Data.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Data?.Dispose();
+    }
+
 
     public static implicit operator PerformanceValueINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL p)
     {

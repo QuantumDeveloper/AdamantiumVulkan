@@ -33,10 +33,19 @@ public unsafe partial class AccelerationStructureCaptureDescriptorDataInfoEXT : 
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.accelerationStructure = AccelerationStructure;
-        _internal.accelerationStructureNV = AccelerationStructureNV;
+        if (AccelerationStructure != default)
+        {
+            _internal.accelerationStructure = AccelerationStructure;
+        }
+        if (AccelerationStructureNV != default)
+        {
+            _internal.accelerationStructureNV = AccelerationStructureNV;
+        }
         return _internal;
     }
 

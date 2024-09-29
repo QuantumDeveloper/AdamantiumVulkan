@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceNestedCommandBufferFeaturesEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.nestedCommandBuffer = NestedCommandBuffer;
-        _internal.nestedCommandBufferRendering = NestedCommandBufferRendering;
-        _internal.nestedCommandBufferSimultaneousUse = NestedCommandBufferSimultaneousUse;
+        if (NestedCommandBuffer != (uint)default)
+        {
+            _internal.nestedCommandBuffer = NestedCommandBuffer;
+        }
+        if (NestedCommandBufferRendering != (uint)default)
+        {
+            _internal.nestedCommandBufferRendering = NestedCommandBufferRendering;
+        }
+        if (NestedCommandBufferSimultaneousUse != (uint)default)
+        {
+            _internal.nestedCommandBufferSimultaneousUse = NestedCommandBufferSimultaneousUse;
+        }
         return _internal;
     }
 

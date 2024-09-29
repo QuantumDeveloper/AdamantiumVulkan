@@ -35,11 +35,17 @@ public unsafe partial class WriteDescriptorSetAccelerationStructureNV : QBDispos
     public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.accelerationStructureCount = AccelerationStructureCount;
+        if (AccelerationStructureCount != default)
+        {
+            _internal.accelerationStructureCount = AccelerationStructureCount;
+        }
         _pAccelerationStructures.Dispose();
-        if (PAccelerationStructures != null)
+        if (PAccelerationStructures != default)
         {
             AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T struct0 = PAccelerationStructures;
             _pAccelerationStructures = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T>(struct0);

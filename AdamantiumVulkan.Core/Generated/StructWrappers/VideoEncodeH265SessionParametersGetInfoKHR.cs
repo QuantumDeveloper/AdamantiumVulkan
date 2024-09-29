@@ -41,14 +41,35 @@ public unsafe partial class VideoEncodeH265SessionParametersGetInfoKHR : QBDispo
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersGetInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersGetInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.writeStdVPS = WriteStdVPS;
-        _internal.writeStdSPS = WriteStdSPS;
-        _internal.writeStdPPS = WriteStdPPS;
-        _internal.stdVPSId = StdVPSId;
-        _internal.stdSPSId = StdSPSId;
-        _internal.stdPPSId = StdPPSId;
+        if (WriteStdVPS != (uint)default)
+        {
+            _internal.writeStdVPS = WriteStdVPS;
+        }
+        if (WriteStdSPS != (uint)default)
+        {
+            _internal.writeStdSPS = WriteStdSPS;
+        }
+        if (WriteStdPPS != (uint)default)
+        {
+            _internal.writeStdPPS = WriteStdPPS;
+        }
+        if (StdVPSId != default)
+        {
+            _internal.stdVPSId = StdVPSId;
+        }
+        if (StdSPSId != default)
+        {
+            _internal.stdSPSId = StdSPSId;
+        }
+        if (StdPPSId != default)
+        {
+            _internal.stdPPSId = StdPPSId;
+        }
         return _internal;
     }
 

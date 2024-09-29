@@ -33,10 +33,19 @@ public unsafe partial class HostImageCopyDevicePerformanceQueryEXT : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkHostImageCopyDevicePerformanceQueryEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkHostImageCopyDevicePerformanceQueryEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.optimalDeviceAccess = OptimalDeviceAccess;
-        _internal.identicalMemoryLayout = IdenticalMemoryLayout;
+        if (OptimalDeviceAccess != (uint)default)
+        {
+            _internal.optimalDeviceAccess = OptimalDeviceAccess;
+        }
+        if (IdenticalMemoryLayout != (uint)default)
+        {
+            _internal.identicalMemoryLayout = IdenticalMemoryLayout;
+        }
         return _internal;
     }
 

@@ -35,19 +35,28 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
 
     public StructureType SType => StructureType.DescriptorSetLayoutCreateInfo;
     public void* PNext { get; set; }
-    public VkDescriptorSetLayoutCreateFlags Flags { get; set; }
+    public DescriptorSetLayoutCreateFlagBits Flags { get; set; }
     public uint BindingCount { get; set; }
     public DescriptorSetLayoutBinding[] PBindings { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.bindingCount = BindingCount;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (BindingCount != default)
+        {
+            _internal.bindingCount = BindingCount;
+        }
         _pBindings.Dispose();
-        if (PBindings != null)
+        if (PBindings != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[PBindings.Length];
             for (int i = 0; i < PBindings.Length; ++i)

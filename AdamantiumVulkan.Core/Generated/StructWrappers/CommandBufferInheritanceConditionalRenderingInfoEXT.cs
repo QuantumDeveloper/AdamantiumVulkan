@@ -30,9 +30,15 @@ public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT 
     public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.conditionalRenderingEnable = ConditionalRenderingEnable;
+        if (ConditionalRenderingEnable != (uint)default)
+        {
+            _internal.conditionalRenderingEnable = ConditionalRenderingEnable;
+        }
         return _internal;
     }
 

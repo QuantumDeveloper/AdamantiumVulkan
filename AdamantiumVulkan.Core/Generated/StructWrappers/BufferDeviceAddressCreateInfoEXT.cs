@@ -30,9 +30,15 @@ public unsafe partial class BufferDeviceAddressCreateInfoEXT : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceAddress = DeviceAddress;
+        if (DeviceAddress != (ulong)default)
+        {
+            _internal.deviceAddress = DeviceAddress;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM : Q
     public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.enableYDegamma = EnableYDegamma;
-        _internal.enableCbCrDegamma = EnableCbCrDegamma;
+        if (EnableYDegamma != (uint)default)
+        {
+            _internal.enableYDegamma = EnableYDegamma;
+        }
+        if (EnableCbCrDegamma != (uint)default)
+        {
+            _internal.enableCbCrDegamma = EnableCbCrDegamma;
+        }
         return _internal;
     }
 

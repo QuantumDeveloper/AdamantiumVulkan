@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePrivateDataFeatures : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrivateDataFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrivateDataFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.privateData = PrivateData;
+        if (PrivateData != (uint)default)
+        {
+            _internal.privateData = PrivateData;
+        }
         return _internal;
     }
 

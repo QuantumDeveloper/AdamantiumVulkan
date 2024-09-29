@@ -12,7 +12,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcMslVertexAttribute
+public unsafe partial class SpvcMslVertexAttribute : QBDisposableObject
 {
     public SpvcMslVertexAttribute()
     {
@@ -50,13 +50,34 @@ public unsafe partial class SpvcMslVertexAttribute
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute();
-        _internal.location = Location;
-        _internal.msl_buffer = Msl_buffer;
-        _internal.msl_offset = Msl_offset;
-        _internal.msl_stride = Msl_stride;
-        _internal.per_instance = Per_instance;
-        _internal.format = Format;
-        _internal.builtin = Builtin;
+        if (Location != default)
+        {
+            _internal.location = Location;
+        }
+        if (Msl_buffer != default)
+        {
+            _internal.msl_buffer = Msl_buffer;
+        }
+        if (Msl_offset != default)
+        {
+            _internal.msl_offset = Msl_offset;
+        }
+        if (Msl_stride != default)
+        {
+            _internal.msl_stride = Msl_stride;
+        }
+        if (Per_instance != (bool)default)
+        {
+            _internal.per_instance = Per_instance;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Builtin != default)
+        {
+            _internal.builtin = Builtin;
+        }
         return _internal;
     }
 

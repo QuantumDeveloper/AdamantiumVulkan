@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceMemoryPriorityFeaturesEXT : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memoryPriority = MemoryPriority;
+        if (MemoryPriority != (uint)default)
+        {
+            _internal.memoryPriority = MemoryPriority;
+        }
         return _internal;
     }
 

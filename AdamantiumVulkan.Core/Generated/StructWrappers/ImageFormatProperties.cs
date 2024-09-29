@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ImageFormatProperties
+public unsafe partial class ImageFormatProperties : QBDisposableObject
 {
     public ImageFormatProperties()
     {
@@ -35,16 +35,34 @@ public unsafe partial class ImageFormatProperties
     public AdamantiumVulkan.Core.Interop.VkImageFormatProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageFormatProperties();
-        if (MaxExtent != null)
+        if (MaxExtent != default)
         {
             _internal.maxExtent = MaxExtent.ToNative();
         }
-        _internal.maxMipLevels = MaxMipLevels;
-        _internal.maxArrayLayers = MaxArrayLayers;
-        _internal.sampleCounts = SampleCounts;
-        _internal.maxResourceSize = MaxResourceSize;
+        if (MaxMipLevels != default)
+        {
+            _internal.maxMipLevels = MaxMipLevels;
+        }
+        if (MaxArrayLayers != default)
+        {
+            _internal.maxArrayLayers = MaxArrayLayers;
+        }
+        if (SampleCounts != (uint)default)
+        {
+            _internal.sampleCounts = SampleCounts;
+        }
+        if (MaxResourceSize != (ulong)default)
+        {
+            _internal.maxResourceSize = MaxResourceSize;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MaxExtent?.Dispose();
+    }
+
 
     public static implicit operator ImageFormatProperties(AdamantiumVulkan.Core.Interop.VkImageFormatProperties i)
     {

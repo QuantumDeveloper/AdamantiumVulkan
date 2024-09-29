@@ -53,14 +53,20 @@ public unsafe partial class Spv_diagnostic : QBDisposableObject
     public AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic ToNative()
     {
         var _internal = new AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic();
-        _internal.position = Position;
+        if (Position != default)
+        {
+            _internal.position = Position;
+        }
         _error.Dispose();
         if (Error.HasValue)
         {
             _error = new NativeStruct<sbyte>(Error.Value);
             _internal.error = _error.Handle;
         }
-        _internal.isTextSource = System.Convert.ToByte(IsTextSource);
+        if (IsTextSource != default)
+        {
+            _internal.isTextSource = System.Convert.ToByte(IsTextSource);
+        }
         return _internal;
     }
 

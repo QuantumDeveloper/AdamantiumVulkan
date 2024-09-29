@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceCudaKernelLaunchPropertiesNV : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCudaKernelLaunchPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCudaKernelLaunchPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.computeCapabilityMinor = ComputeCapabilityMinor;
-        _internal.computeCapabilityMajor = ComputeCapabilityMajor;
+        if (ComputeCapabilityMinor != default)
+        {
+            _internal.computeCapabilityMinor = ComputeCapabilityMinor;
+        }
+        if (ComputeCapabilityMajor != default)
+        {
+            _internal.computeCapabilityMajor = ComputeCapabilityMajor;
+        }
         return _internal;
     }
 

@@ -37,12 +37,21 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.viewportWScalingEnable = ViewportWScalingEnable;
-        _internal.viewportCount = ViewportCount;
+        if (ViewportWScalingEnable != (uint)default)
+        {
+            _internal.viewportWScalingEnable = ViewportWScalingEnable;
+        }
+        if (ViewportCount != default)
+        {
+            _internal.viewportCount = ViewportCount;
+        }
         _pViewportWScalings.Dispose();
-        if (PViewportWScalings != null)
+        if (PViewportWScalings != default)
         {
             var struct0 = PViewportWScalings.ToNative();
             _pViewportWScalings = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(struct0);

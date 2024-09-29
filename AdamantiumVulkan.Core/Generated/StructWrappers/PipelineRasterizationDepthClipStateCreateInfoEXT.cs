@@ -32,10 +32,19 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.depthClipEnable = DepthClipEnable;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DepthClipEnable != (uint)default)
+        {
+            _internal.depthClipEnable = DepthClipEnable;
+        }
         return _internal;
     }
 

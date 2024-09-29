@@ -37,24 +37,30 @@ public unsafe partial class PerformanceCounterDescriptionKHR : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        if(Name != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Name != default)
         {
             if (Name.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Name), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.name, 256, Name, false);
         }
-        if(Category != null)
+        if (Category != default)
         {
             if (Category.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Category), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.category, 256, Category, false);
         }
-        if(Description != null)
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");

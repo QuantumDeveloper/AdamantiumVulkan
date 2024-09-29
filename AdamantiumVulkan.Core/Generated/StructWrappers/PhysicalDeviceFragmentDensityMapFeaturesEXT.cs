@@ -34,11 +34,23 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fragmentDensityMap = FragmentDensityMap;
-        _internal.fragmentDensityMapDynamic = FragmentDensityMapDynamic;
-        _internal.fragmentDensityMapNonSubsampledImages = FragmentDensityMapNonSubsampledImages;
+        if (FragmentDensityMap != (uint)default)
+        {
+            _internal.fragmentDensityMap = FragmentDensityMap;
+        }
+        if (FragmentDensityMapDynamic != (uint)default)
+        {
+            _internal.fragmentDensityMapDynamic = FragmentDensityMapDynamic;
+        }
+        if (FragmentDensityMapNonSubsampledImages != (uint)default)
+        {
+            _internal.fragmentDensityMapNonSubsampledImages = FragmentDensityMapNonSubsampledImages;
+        }
         return _internal;
     }
 

@@ -34,11 +34,23 @@ public unsafe partial class ExternalSemaphoreProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
-        _internal.compatibleHandleTypes = CompatibleHandleTypes;
-        _internal.externalSemaphoreFeatures = ExternalSemaphoreFeatures;
+        if (ExportFromImportedHandleTypes != (uint)default)
+        {
+            _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
+        }
+        if (CompatibleHandleTypes != (uint)default)
+        {
+            _internal.compatibleHandleTypes = CompatibleHandleTypes;
+        }
+        if (ExternalSemaphoreFeatures != (uint)default)
+        {
+            _internal.externalSemaphoreFeatures = ExternalSemaphoreFeatures;
+        }
         return _internal;
     }
 

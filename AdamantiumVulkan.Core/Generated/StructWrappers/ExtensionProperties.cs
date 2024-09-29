@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ExtensionProperties
+public unsafe partial class ExtensionProperties : QBDisposableObject
 {
     public ExtensionProperties()
     {
@@ -29,14 +29,17 @@ public unsafe partial class ExtensionProperties
     public AdamantiumVulkan.Core.Interop.VkExtensionProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExtensionProperties();
-        if(ExtensionName != null)
+        if (ExtensionName != default)
         {
             if (ExtensionName.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(ExtensionName), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.extensionName, 256, ExtensionName, false);
         }
-        _internal.specVersion = SpecVersion;
+        if (SpecVersion != default)
+        {
+            _internal.specVersion = SpecVersion;
+        }
         return _internal;
     }
 

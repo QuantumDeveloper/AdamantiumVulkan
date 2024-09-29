@@ -30,9 +30,15 @@ public unsafe partial class ExternalMemoryImageCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalMemoryImageCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleTypes = HandleTypes;
+        if (HandleTypes != (uint)default)
+        {
+            _internal.handleTypes = HandleTypes;
+        }
         return _internal;
     }
 

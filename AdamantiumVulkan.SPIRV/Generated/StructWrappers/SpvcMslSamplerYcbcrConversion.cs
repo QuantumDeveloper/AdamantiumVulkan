@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcMslSamplerYcbcrConversion
+public unsafe partial class SpvcMslSamplerYcbcrConversion : QBDisposableObject
 {
     public SpvcMslSamplerYcbcrConversion()
     {
@@ -57,12 +57,27 @@ public unsafe partial class SpvcMslSamplerYcbcrConversion
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion();
-        _internal.planes = Planes;
-        _internal.resolution = Resolution;
-        _internal.chroma_filter = Chroma_filter;
-        _internal.x_chroma_offset = X_chroma_offset;
-        _internal.y_chroma_offset = Y_chroma_offset;
-        if(Swizzle != null)
+        if (Planes != default)
+        {
+            _internal.planes = Planes;
+        }
+        if (Resolution != default)
+        {
+            _internal.resolution = Resolution;
+        }
+        if (Chroma_filter != default)
+        {
+            _internal.chroma_filter = Chroma_filter;
+        }
+        if (X_chroma_offset != default)
+        {
+            _internal.x_chroma_offset = X_chroma_offset;
+        }
+        if (Y_chroma_offset != default)
+        {
+            _internal.y_chroma_offset = Y_chroma_offset;
+        }
+        if (Swizzle != default)
         {
             if (Swizzle.Length > 4)
                 throw new System.ArgumentOutOfRangeException(nameof(Swizzle), "Array is out of bounds. Size should not be more than 4");
@@ -72,9 +87,18 @@ public unsafe partial class SpvcMslSamplerYcbcrConversion
                 _internal.swizzle[i] = Swizzle[i];
             }
         }
-        _internal.ycbcr_model = Ycbcr_model;
-        _internal.ycbcr_range = Ycbcr_range;
-        _internal.bpc = Bpc;
+        if (Ycbcr_model != default)
+        {
+            _internal.ycbcr_model = Ycbcr_model;
+        }
+        if (Ycbcr_range != default)
+        {
+            _internal.ycbcr_range = Ycbcr_range;
+        }
+        if (Bpc != default)
+        {
+            _internal.bpc = Bpc;
+        }
         return _internal;
     }
 

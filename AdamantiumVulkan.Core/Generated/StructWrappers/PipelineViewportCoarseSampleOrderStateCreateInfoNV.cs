@@ -37,12 +37,21 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sampleOrderType = SampleOrderType;
-        _internal.customSampleOrderCount = CustomSampleOrderCount;
+        if (SampleOrderType != default)
+        {
+            _internal.sampleOrderType = SampleOrderType;
+        }
+        if (CustomSampleOrderCount != default)
+        {
+            _internal.customSampleOrderCount = CustomSampleOrderCount;
+        }
         _pCustomSampleOrders.Dispose();
-        if (PCustomSampleOrders != null)
+        if (PCustomSampleOrders != default)
         {
             var struct0 = PCustomSampleOrders.ToNative();
             _pCustomSampleOrders = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(struct0);

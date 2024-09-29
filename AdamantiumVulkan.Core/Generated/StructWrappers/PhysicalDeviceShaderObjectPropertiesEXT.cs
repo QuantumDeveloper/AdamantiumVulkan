@@ -33,16 +33,22 @@ public unsafe partial class PhysicalDeviceShaderObjectPropertiesEXT : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(ShaderBinaryUUID != null)
+        if (ShaderBinaryUUID != default)
         {
             if (ShaderBinaryUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(ShaderBinaryUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.shaderBinaryUUID, 16, ShaderBinaryUUID);
         }
-        _internal.shaderBinaryVersion = ShaderBinaryVersion;
+        if (ShaderBinaryVersion != default)
+        {
+            _internal.shaderBinaryVersion = ShaderBinaryVersion;
+        }
         return _internal;
     }
 

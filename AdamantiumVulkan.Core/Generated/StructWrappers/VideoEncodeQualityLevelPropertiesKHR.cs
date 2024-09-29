@@ -33,10 +33,19 @@ public unsafe partial class VideoEncodeQualityLevelPropertiesKHR : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.preferredRateControlMode = PreferredRateControlMode;
-        _internal.preferredRateControlLayerCount = PreferredRateControlLayerCount;
+        if (PreferredRateControlMode != default)
+        {
+            _internal.preferredRateControlMode = PreferredRateControlMode;
+        }
+        if (PreferredRateControlLayerCount != default)
+        {
+            _internal.preferredRateControlLayerCount = PreferredRateControlLayerCount;
+        }
         return _internal;
     }
 

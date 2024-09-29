@@ -50,30 +50,65 @@ public unsafe partial class SurfaceCapabilities2EXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.minImageCount = MinImageCount;
-        _internal.maxImageCount = MaxImageCount;
-        if (CurrentExtent != null)
+        if (MinImageCount != default)
+        {
+            _internal.minImageCount = MinImageCount;
+        }
+        if (MaxImageCount != default)
+        {
+            _internal.maxImageCount = MaxImageCount;
+        }
+        if (CurrentExtent != default)
         {
             _internal.currentExtent = CurrentExtent.ToNative();
         }
-        if (MinImageExtent != null)
+        if (MinImageExtent != default)
         {
             _internal.minImageExtent = MinImageExtent.ToNative();
         }
-        if (MaxImageExtent != null)
+        if (MaxImageExtent != default)
         {
             _internal.maxImageExtent = MaxImageExtent.ToNative();
         }
-        _internal.maxImageArrayLayers = MaxImageArrayLayers;
-        _internal.supportedTransforms = SupportedTransforms;
-        _internal.currentTransform = CurrentTransform;
-        _internal.supportedCompositeAlpha = SupportedCompositeAlpha;
-        _internal.supportedUsageFlags = SupportedUsageFlags;
-        _internal.supportedSurfaceCounters = SupportedSurfaceCounters;
+        if (MaxImageArrayLayers != default)
+        {
+            _internal.maxImageArrayLayers = MaxImageArrayLayers;
+        }
+        if (SupportedTransforms != (uint)default)
+        {
+            _internal.supportedTransforms = SupportedTransforms;
+        }
+        if (CurrentTransform != default)
+        {
+            _internal.currentTransform = CurrentTransform;
+        }
+        if (SupportedCompositeAlpha != (uint)default)
+        {
+            _internal.supportedCompositeAlpha = SupportedCompositeAlpha;
+        }
+        if (SupportedUsageFlags != (uint)default)
+        {
+            _internal.supportedUsageFlags = SupportedUsageFlags;
+        }
+        if (SupportedSurfaceCounters != (uint)default)
+        {
+            _internal.supportedSurfaceCounters = SupportedSurfaceCounters;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        CurrentExtent?.Dispose();
+        MinImageExtent?.Dispose();
+        MaxImageExtent?.Dispose();
+    }
+
 
     public static implicit operator SurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT s)
     {

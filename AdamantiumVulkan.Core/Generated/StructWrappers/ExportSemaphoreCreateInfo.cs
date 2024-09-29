@@ -30,9 +30,15 @@ public unsafe partial class ExportSemaphoreCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleTypes = HandleTypes;
+        if (HandleTypes != (uint)default)
+        {
+            _internal.handleTypes = HandleTypes;
+        }
         return _internal;
     }
 

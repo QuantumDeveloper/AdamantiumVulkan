@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DescriptorImageInfo
+public unsafe partial class DescriptorImageInfo : QBDisposableObject
 {
     public DescriptorImageInfo()
     {
@@ -31,9 +31,18 @@ public unsafe partial class DescriptorImageInfo
     public AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo();
-        _internal.sampler = Sampler;
-        _internal.imageView = ImageView;
-        _internal.imageLayout = ImageLayout;
+        if (Sampler != default)
+        {
+            _internal.sampler = Sampler;
+        }
+        if (ImageView != default)
+        {
+            _internal.imageView = ImageView;
+        }
+        if (ImageLayout != default)
+        {
+            _internal.imageLayout = ImageLayout;
+        }
         return _internal;
     }
 

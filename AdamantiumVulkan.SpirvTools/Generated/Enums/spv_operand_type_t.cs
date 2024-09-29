@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv-tools\libspirv.h Line: 119 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 123 Column: 14
 ///<summary>
 /// The kinds of operands that an instruction may have.
 ///</summary>
@@ -424,9 +424,24 @@ public enum spv_operand_type_t : uint
     OperandTypeStoreCacheControl = 82,
 
     ///<summary>
+    /// Enum type from SPV_INTEL_maximum_registers
+    ///</summary>
+    OperandTypeNamedMaximumNumberOfRegisters = 83,
+
+    ///<summary>
+    /// Enum type from SPV_NV_raw_access_chains
+    ///</summary>
+    OperandTypeRawAccessChainOperands = 84,
+
+    ///<summary>
+    /// Optional enum type from SPV_NV_raw_access_chains
+    ///</summary>
+    OperandTypeOptionalRawAccessChainOperands = 85,
+
+    ///<summary>
     /// This is a sentinel value, and does not represent an operand type. It should come last.
     ///</summary>
-    OperandTypeNumOperandTypes = 83,
+    OperandTypeNumOperandTypes = 86,
 
     Force32bitSpvOperandTypeT = 2147483647,
 

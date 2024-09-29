@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoDecodeH264ReferenceInfoFlags
+public unsafe partial class StdVideoDecodeH264ReferenceInfoFlags : QBDisposableObject
 {
     public StdVideoDecodeH264ReferenceInfoFlags()
     {
@@ -33,10 +33,22 @@ public unsafe partial class StdVideoDecodeH264ReferenceInfoFlags
     public AdamantiumVulkan.Interop.StdVideoDecodeH264ReferenceInfoFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoDecodeH264ReferenceInfoFlags();
-        _internal.top_field_flag = Top_field_flag;
-        _internal.bottom_field_flag = Bottom_field_flag;
-        _internal.used_for_long_term_reference = Used_for_long_term_reference;
-        _internal.is_non_existing = Is_non_existing;
+        if (Top_field_flag != default)
+        {
+            _internal.top_field_flag = Top_field_flag;
+        }
+        if (Bottom_field_flag != default)
+        {
+            _internal.bottom_field_flag = Bottom_field_flag;
+        }
+        if (Used_for_long_term_reference != default)
+        {
+            _internal.used_for_long_term_reference = Used_for_long_term_reference;
+        }
+        if (Is_non_existing != default)
+        {
+            _internal.is_non_existing = Is_non_existing;
+        }
         return _internal;
     }
 

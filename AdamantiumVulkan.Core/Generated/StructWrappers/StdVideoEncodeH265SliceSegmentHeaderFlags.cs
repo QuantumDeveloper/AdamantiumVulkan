@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags
+public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : QBDisposableObject
 {
     public StdVideoEncodeH265SliceSegmentHeaderFlags()
     {
@@ -51,19 +51,58 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags
     public AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags();
-        _internal.first_slice_segment_in_pic_flag = First_slice_segment_in_pic_flag;
-        _internal.dependent_slice_segment_flag = Dependent_slice_segment_flag;
-        _internal.slice_sao_luma_flag = Slice_sao_luma_flag;
-        _internal.slice_sao_chroma_flag = Slice_sao_chroma_flag;
-        _internal.num_ref_idx_active_override_flag = Num_ref_idx_active_override_flag;
-        _internal.mvd_l1_zero_flag = Mvd_l1_zero_flag;
-        _internal.cabac_init_flag = Cabac_init_flag;
-        _internal.cu_chroma_qp_offset_enabled_flag = Cu_chroma_qp_offset_enabled_flag;
-        _internal.deblocking_filter_override_flag = Deblocking_filter_override_flag;
-        _internal.slice_deblocking_filter_disabled_flag = Slice_deblocking_filter_disabled_flag;
-        _internal.collocated_from_l0_flag = Collocated_from_l0_flag;
-        _internal.slice_loop_filter_across_slices_enabled_flag = Slice_loop_filter_across_slices_enabled_flag;
-        _internal.reserved = Reserved;
+        if (First_slice_segment_in_pic_flag != default)
+        {
+            _internal.first_slice_segment_in_pic_flag = First_slice_segment_in_pic_flag;
+        }
+        if (Dependent_slice_segment_flag != default)
+        {
+            _internal.dependent_slice_segment_flag = Dependent_slice_segment_flag;
+        }
+        if (Slice_sao_luma_flag != default)
+        {
+            _internal.slice_sao_luma_flag = Slice_sao_luma_flag;
+        }
+        if (Slice_sao_chroma_flag != default)
+        {
+            _internal.slice_sao_chroma_flag = Slice_sao_chroma_flag;
+        }
+        if (Num_ref_idx_active_override_flag != default)
+        {
+            _internal.num_ref_idx_active_override_flag = Num_ref_idx_active_override_flag;
+        }
+        if (Mvd_l1_zero_flag != default)
+        {
+            _internal.mvd_l1_zero_flag = Mvd_l1_zero_flag;
+        }
+        if (Cabac_init_flag != default)
+        {
+            _internal.cabac_init_flag = Cabac_init_flag;
+        }
+        if (Cu_chroma_qp_offset_enabled_flag != default)
+        {
+            _internal.cu_chroma_qp_offset_enabled_flag = Cu_chroma_qp_offset_enabled_flag;
+        }
+        if (Deblocking_filter_override_flag != default)
+        {
+            _internal.deblocking_filter_override_flag = Deblocking_filter_override_flag;
+        }
+        if (Slice_deblocking_filter_disabled_flag != default)
+        {
+            _internal.slice_deblocking_filter_disabled_flag = Slice_deblocking_filter_disabled_flag;
+        }
+        if (Collocated_from_l0_flag != default)
+        {
+            _internal.collocated_from_l0_flag = Collocated_from_l0_flag;
+        }
+        if (Slice_loop_filter_across_slices_enabled_flag != default)
+        {
+            _internal.slice_loop_filter_across_slices_enabled_flag = Slice_loop_filter_across_slices_enabled_flag;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
         return _internal;
     }
 

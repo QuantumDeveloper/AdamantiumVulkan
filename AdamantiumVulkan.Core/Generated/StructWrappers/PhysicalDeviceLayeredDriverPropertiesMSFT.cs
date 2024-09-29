@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceLayeredDriverPropertiesMSFT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredDriverPropertiesMSFT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredDriverPropertiesMSFT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.underlyingAPI = UnderlyingAPI;
+        if (UnderlyingAPI != default)
+        {
+            _internal.underlyingAPI = UnderlyingAPI;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class AttachmentDescriptionStencilLayout : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkAttachmentDescriptionStencilLayout ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentDescriptionStencilLayout();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stencilInitialLayout = StencilInitialLayout;
-        _internal.stencilFinalLayout = StencilFinalLayout;
+        if (StencilInitialLayout != default)
+        {
+            _internal.stencilInitialLayout = StencilInitialLayout;
+        }
+        if (StencilFinalLayout != default)
+        {
+            _internal.stencilFinalLayout = StencilFinalLayout;
+        }
         return _internal;
     }
 

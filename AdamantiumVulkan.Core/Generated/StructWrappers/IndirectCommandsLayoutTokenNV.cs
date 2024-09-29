@@ -61,19 +61,55 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.tokenType = TokenType;
-        _internal.stream = Stream;
-        _internal.offset = Offset;
-        _internal.vertexBindingUnit = VertexBindingUnit;
-        _internal.vertexDynamicStride = VertexDynamicStride;
-        _internal.pushconstantPipelineLayout = PushconstantPipelineLayout;
-        _internal.pushconstantShaderStageFlags = PushconstantShaderStageFlags;
-        _internal.pushconstantOffset = PushconstantOffset;
-        _internal.pushconstantSize = PushconstantSize;
-        _internal.indirectStateFlags = IndirectStateFlags;
-        _internal.indexTypeCount = IndexTypeCount;
+        if (TokenType != default)
+        {
+            _internal.tokenType = TokenType;
+        }
+        if (Stream != default)
+        {
+            _internal.stream = Stream;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (VertexBindingUnit != default)
+        {
+            _internal.vertexBindingUnit = VertexBindingUnit;
+        }
+        if (VertexDynamicStride != (uint)default)
+        {
+            _internal.vertexDynamicStride = VertexDynamicStride;
+        }
+        if (PushconstantPipelineLayout != default)
+        {
+            _internal.pushconstantPipelineLayout = PushconstantPipelineLayout;
+        }
+        if (PushconstantShaderStageFlags != (uint)default)
+        {
+            _internal.pushconstantShaderStageFlags = PushconstantShaderStageFlags;
+        }
+        if (PushconstantOffset != default)
+        {
+            _internal.pushconstantOffset = PushconstantOffset;
+        }
+        if (PushconstantSize != default)
+        {
+            _internal.pushconstantSize = PushconstantSize;
+        }
+        if (IndirectStateFlags != (uint)default)
+        {
+            _internal.indirectStateFlags = IndirectStateFlags;
+        }
+        if (IndexTypeCount != default)
+        {
+            _internal.indexTypeCount = IndexTypeCount;
+        }
         _pIndexTypes.Dispose();
         if (PIndexTypes != null)
         {
@@ -81,7 +117,7 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : QBDisposableObject
             _internal.pIndexTypes = _pIndexTypes.Handle;
         }
         _pIndexTypeValues.Dispose();
-        if (PIndexTypeValues != null)
+        if (PIndexTypeValues != default)
         {
             var tmpArray0 = new uint[PIndexTypeValues.Length];
             for (int i = 0; i < PIndexTypeValues.Length; ++i)

@@ -54,33 +54,54 @@ public unsafe partial class MicromapBuildInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        _internal.flags = Flags;
-        _internal.mode = Mode;
-        _internal.dstMicromap = DstMicromap;
-        _internal.usageCountsCount = UsageCountsCount;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
+        if (DstMicromap != default)
+        {
+            _internal.dstMicromap = DstMicromap;
+        }
+        if (UsageCountsCount != default)
+        {
+            _internal.usageCountsCount = UsageCountsCount;
+        }
         _pUsageCounts.Dispose();
-        if (PUsageCounts != null)
+        if (PUsageCounts != default)
         {
             var struct0 = PUsageCounts.ToNative();
             _pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
             _internal.pUsageCounts = _pUsageCounts.Handle;
         }
-        if (Data != null)
+        if (Data != default)
         {
             _internal.data = Data.ToNative();
         }
-        if (ScratchData != null)
+        if (ScratchData != default)
         {
             _internal.scratchData = ScratchData.ToNative();
         }
-        if (TriangleArray != null)
+        if (TriangleArray != default)
         {
             _internal.triangleArray = TriangleArray.ToNative();
         }
-        _internal.triangleArrayStride = TriangleArrayStride;
+        if (TriangleArrayStride != (ulong)default)
+        {
+            _internal.triangleArrayStride = TriangleArrayStride;
+        }
         return _internal;
     }
 
@@ -88,6 +109,9 @@ public unsafe partial class MicromapBuildInfoEXT : QBDisposableObject
     {
         _pUsageCounts.Dispose();
         _ppUsageCounts.Dispose();
+        Data?.Dispose();
+        ScratchData?.Dispose();
+        TriangleArray?.Dispose();
     }
 
 

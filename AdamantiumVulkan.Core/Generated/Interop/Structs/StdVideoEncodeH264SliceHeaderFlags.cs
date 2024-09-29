@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 51 Column: 16
+// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 51 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH264SliceHeaderFlags
 {

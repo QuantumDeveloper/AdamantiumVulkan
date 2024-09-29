@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesFeaturesNV : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.computeDerivativeGroupQuads = ComputeDerivativeGroupQuads;
-        _internal.computeDerivativeGroupLinear = ComputeDerivativeGroupLinear;
+        if (ComputeDerivativeGroupQuads != (uint)default)
+        {
+            _internal.computeDerivativeGroupQuads = ComputeDerivativeGroupQuads;
+        }
+        if (ComputeDerivativeGroupLinear != (uint)default)
+        {
+            _internal.computeDerivativeGroupLinear = ComputeDerivativeGroupLinear;
+        }
         return _internal;
     }
 

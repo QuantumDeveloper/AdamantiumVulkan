@@ -34,11 +34,23 @@ public unsafe partial class PipelineColorBlendAdvancedStateCreateInfoEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcPremultiplied = SrcPremultiplied;
-        _internal.dstPremultiplied = DstPremultiplied;
-        _internal.blendOverlap = BlendOverlap;
+        if (SrcPremultiplied != (uint)default)
+        {
+            _internal.srcPremultiplied = SrcPremultiplied;
+        }
+        if (DstPremultiplied != (uint)default)
+        {
+            _internal.dstPremultiplied = DstPremultiplied;
+        }
+        if (BlendOverlap != default)
+        {
+            _internal.blendOverlap = BlendOverlap;
+        }
         return _internal;
     }
 

@@ -37,12 +37,27 @@ public unsafe partial class VideoEncodeRateControlLayerInfoKHR : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.averageBitrate = AverageBitrate;
-        _internal.maxBitrate = MaxBitrate;
-        _internal.frameRateNumerator = FrameRateNumerator;
-        _internal.frameRateDenominator = FrameRateDenominator;
+        if (AverageBitrate != default)
+        {
+            _internal.averageBitrate = AverageBitrate;
+        }
+        if (MaxBitrate != default)
+        {
+            _internal.maxBitrate = MaxBitrate;
+        }
+        if (FrameRateNumerator != default)
+        {
+            _internal.frameRateNumerator = FrameRateNumerator;
+        }
+        if (FrameRateDenominator != default)
+        {
+            _internal.frameRateDenominator = FrameRateDenominator;
+        }
         return _internal;
     }
 

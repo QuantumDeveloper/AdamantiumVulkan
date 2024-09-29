@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceVideoMaintenance1FeaturesKHR : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.videoMaintenance1 = VideoMaintenance1;
+        if (VideoMaintenance1 != (uint)default)
+        {
+            _internal.videoMaintenance1 = VideoMaintenance1;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class PipelineIndirectDeviceAddressInfoNV : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineBindPoint = PipelineBindPoint;
-        _internal.pipeline = Pipeline;
+        if (PipelineBindPoint != default)
+        {
+            _internal.pipelineBindPoint = PipelineBindPoint;
+        }
+        if (Pipeline != default)
+        {
+            _internal.pipeline = Pipeline;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceTimelineSemaphoreProperties : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
+        if (MaxTimelineSemaphoreValueDifference != default)
+        {
+            _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
+        }
         return _internal;
     }
 

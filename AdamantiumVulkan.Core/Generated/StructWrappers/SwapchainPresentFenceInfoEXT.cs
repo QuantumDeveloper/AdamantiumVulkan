@@ -36,11 +36,17 @@ public unsafe partial class SwapchainPresentFenceInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSwapchainPresentFenceInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainPresentFenceInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pFences.Dispose();
-        if (PFences != null)
+        if (PFences != default)
         {
             AdamantiumVulkan.Core.Interop.VkFence_T struct0 = PFences;
             _pFences = new NativeStruct<AdamantiumVulkan.Core.Interop.VkFence_T>(struct0);

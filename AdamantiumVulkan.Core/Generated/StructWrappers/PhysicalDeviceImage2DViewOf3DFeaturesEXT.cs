@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.image2DViewOf3D = Image2DViewOf3D;
-        _internal.sampler2DViewOf3D = Sampler2DViewOf3D;
+        if (Image2DViewOf3D != (uint)default)
+        {
+            _internal.image2DViewOf3D = Image2DViewOf3D;
+        }
+        if (Sampler2DViewOf3D != (uint)default)
+        {
+            _internal.sampler2DViewOf3D = Sampler2DViewOf3D;
+        }
         return _internal;
     }
 

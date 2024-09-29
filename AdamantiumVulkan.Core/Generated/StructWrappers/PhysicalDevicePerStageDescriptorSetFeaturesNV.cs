@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDevicePerStageDescriptorSetFeaturesNV : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerStageDescriptorSetFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerStageDescriptorSetFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.perStageDescriptorSet = PerStageDescriptorSet;
-        _internal.dynamicPipelineLayout = DynamicPipelineLayout;
+        if (PerStageDescriptorSet != (uint)default)
+        {
+            _internal.perStageDescriptorSet = PerStageDescriptorSet;
+        }
+        if (DynamicPipelineLayout != (uint)default)
+        {
+            _internal.dynamicPipelineLayout = DynamicPipelineLayout;
+        }
         return _internal;
     }
 

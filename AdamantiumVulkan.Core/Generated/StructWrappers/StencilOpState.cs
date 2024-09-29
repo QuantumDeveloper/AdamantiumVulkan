@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StencilOpState
+public unsafe partial class StencilOpState : QBDisposableObject
 {
     public StencilOpState()
     {
@@ -39,13 +39,34 @@ public unsafe partial class StencilOpState
     public AdamantiumVulkan.Core.Interop.VkStencilOpState ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkStencilOpState();
-        _internal.failOp = FailOp;
-        _internal.passOp = PassOp;
-        _internal.depthFailOp = DepthFailOp;
-        _internal.compareOp = CompareOp;
-        _internal.compareMask = CompareMask;
-        _internal.writeMask = WriteMask;
-        _internal.reference = Reference;
+        if (FailOp != default)
+        {
+            _internal.failOp = FailOp;
+        }
+        if (PassOp != default)
+        {
+            _internal.passOp = PassOp;
+        }
+        if (DepthFailOp != default)
+        {
+            _internal.depthFailOp = DepthFailOp;
+        }
+        if (CompareOp != default)
+        {
+            _internal.compareOp = CompareOp;
+        }
+        if (CompareMask != default)
+        {
+            _internal.compareMask = CompareMask;
+        }
+        if (WriteMask != default)
+        {
+            _internal.writeMask = WriteMask;
+        }
+        if (Reference != default)
+        {
+            _internal.reference = Reference;
+        }
         return _internal;
     }
 

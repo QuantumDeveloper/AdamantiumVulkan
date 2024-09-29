@@ -34,10 +34,16 @@ public unsafe partial class SparseImageOpaqueMemoryBindInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo();
-        _internal.image = Image;
-        _internal.bindCount = BindCount;
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
+        if (BindCount != default)
+        {
+            _internal.bindCount = BindCount;
+        }
         _pBinds.Dispose();
-        if (PBinds != null)
+        if (PBinds != default)
         {
             var struct0 = PBinds.ToNative();
             _pBinds = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>(struct0);

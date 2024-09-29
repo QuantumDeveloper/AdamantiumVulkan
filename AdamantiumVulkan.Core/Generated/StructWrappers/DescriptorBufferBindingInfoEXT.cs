@@ -28,15 +28,24 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : QBDisposableObject
     public StructureType SType { get; set; }
     public void* PNext { get; set; }
     public VkDeviceAddress Address { get; set; }
-    public VkBufferUsageFlags Usage { get; set; }
+    public BufferUsageFlagBits Usage { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.address = Address;
-        _internal.usage = Usage;
+        if (Address != (ulong)default)
+        {
+            _internal.address = Address;
+        }
+        if (Usage != default)
+        {
+            _internal.usage = Usage;
+        }
         return _internal;
     }
 

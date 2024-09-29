@@ -47,22 +47,55 @@ public unsafe partial class VideoEncodeH264QualityLevelPropertiesKHR : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264QualityLevelPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264QualityLevelPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.preferredRateControlFlags = PreferredRateControlFlags;
-        _internal.preferredGopFrameCount = PreferredGopFrameCount;
-        _internal.preferredIdrPeriod = PreferredIdrPeriod;
-        _internal.preferredConsecutiveBFrameCount = PreferredConsecutiveBFrameCount;
-        _internal.preferredTemporalLayerCount = PreferredTemporalLayerCount;
-        if (PreferredConstantQp != null)
+        if (PreferredRateControlFlags != (uint)default)
+        {
+            _internal.preferredRateControlFlags = PreferredRateControlFlags;
+        }
+        if (PreferredGopFrameCount != default)
+        {
+            _internal.preferredGopFrameCount = PreferredGopFrameCount;
+        }
+        if (PreferredIdrPeriod != default)
+        {
+            _internal.preferredIdrPeriod = PreferredIdrPeriod;
+        }
+        if (PreferredConsecutiveBFrameCount != default)
+        {
+            _internal.preferredConsecutiveBFrameCount = PreferredConsecutiveBFrameCount;
+        }
+        if (PreferredTemporalLayerCount != default)
+        {
+            _internal.preferredTemporalLayerCount = PreferredTemporalLayerCount;
+        }
+        if (PreferredConstantQp != default)
         {
             _internal.preferredConstantQp = PreferredConstantQp.ToNative();
         }
-        _internal.preferredMaxL0ReferenceCount = PreferredMaxL0ReferenceCount;
-        _internal.preferredMaxL1ReferenceCount = PreferredMaxL1ReferenceCount;
-        _internal.preferredStdEntropyCodingModeFlag = PreferredStdEntropyCodingModeFlag;
+        if (PreferredMaxL0ReferenceCount != default)
+        {
+            _internal.preferredMaxL0ReferenceCount = PreferredMaxL0ReferenceCount;
+        }
+        if (PreferredMaxL1ReferenceCount != default)
+        {
+            _internal.preferredMaxL1ReferenceCount = PreferredMaxL1ReferenceCount;
+        }
+        if (PreferredStdEntropyCodingModeFlag != (uint)default)
+        {
+            _internal.preferredStdEntropyCodingModeFlag = PreferredStdEntropyCodingModeFlag;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        PreferredConstantQp?.Dispose();
+    }
+
 
     public static implicit operator VideoEncodeH264QualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264QualityLevelPropertiesKHR v)
     {

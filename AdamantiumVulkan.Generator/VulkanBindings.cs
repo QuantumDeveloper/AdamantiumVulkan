@@ -412,6 +412,13 @@ public static partial class VulkanBindings
         api.Class("VkPipelineColorWriteCreateInfoEXT")
             .WithField("pColorWriteEnables")
             .InterpretAsPointerToArray(new CustomType("VkBool32"), arraySizeSource: "attachmentCount");
+
+        api.Function("vkCmdSetVertexInputEXT")
+            .WithParameterName("pVertexAttributeDescriptions")
+            .InterpretAsPointerToArray(new CustomType("VkVertexInputAttributeDescription2EXT"),
+                arraySizeSource: "vertexAttributeDescriptionCount");
+
+        
         
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").
@@ -606,6 +613,43 @@ public static partial class VulkanBindings
             .WithParameterName("diagnostic")
             .InterpretAsPointerType(new CustomType("spv_diagnostic"), 2)
             .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("VkGetPhysicalDeviceProperties2").
+            WithParameterName("pProperties").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Ref);
+        
+        api.Function("VkGetPhysicalDeviceProperties2KHR").
+            WithParameterName("pProperties").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Ref);
+
+        api.Delegate("PFN_vkCreateShadersEXT").
+            WithParameterName("pShaders").
+            InterpretAsPointerToArray(new CustomType("VkShaderEXT_T")).
+            SetParameterKind(ParameterKind.Ref);
+
+        api.Delegate("PFN_vkGetDescriptorSetLayoutSizeEXT").
+            WithParameterName("pLayoutSizeInBytes").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Out);
+        
+        api.Delegate("PFN_vkGetDescriptorSetLayoutBindingOffsetEXT").
+            WithParameterName("pOffset").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Out);
+        
+        api.Delegate("PFN_vkCmdSetViewportWithCountEXT")
+            .WithParameterName("pViewports")
+            .InterpretAsPointerToArray(new CustomType("VkViewport"),
+                arraySizeSource: "viewportCount");
+        
+        api.Delegate("PFN_vkCmdSetViewportWithCountEXT")
+            .WithParameterName("pViewports")
+            .InterpretAsPointerToArray(new CustomType("VkViewport"),
+                arraySizeSource: "viewportCount");
+        
+        api.Enum("VkShaderStageFlagBits").SetIsFlagsEnum(true);
         
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

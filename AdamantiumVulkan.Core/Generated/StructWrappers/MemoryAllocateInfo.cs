@@ -32,10 +32,19 @@ public unsafe partial class MemoryAllocateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.allocationSize = AllocationSize;
-        _internal.memoryTypeIndex = MemoryTypeIndex;
+        if (AllocationSize != (ulong)default)
+        {
+            _internal.allocationSize = AllocationSize;
+        }
+        if (MemoryTypeIndex != default)
+        {
+            _internal.memoryTypeIndex = MemoryTypeIndex;
+        }
         return _internal;
     }
 

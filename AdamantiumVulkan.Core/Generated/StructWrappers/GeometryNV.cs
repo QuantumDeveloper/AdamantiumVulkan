@@ -34,16 +34,31 @@ public unsafe partial class GeometryNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkGeometryNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.geometryType = GeometryType;
-        if (Geometry != null)
+        if (GeometryType != default)
+        {
+            _internal.geometryType = GeometryType;
+        }
+        if (Geometry != default)
         {
             _internal.geometry = Geometry.ToNative();
         }
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Geometry?.Dispose();
+    }
+
 
     public static implicit operator GeometryNV(AdamantiumVulkan.Core.Interop.VkGeometryNV g)
     {

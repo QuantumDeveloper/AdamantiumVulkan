@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceShadingRateImageFeaturesNV : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shadingRateImage = ShadingRateImage;
-        _internal.shadingRateCoarseSampleOrder = ShadingRateCoarseSampleOrder;
+        if (ShadingRateImage != (uint)default)
+        {
+            _internal.shadingRateImage = ShadingRateImage;
+        }
+        if (ShadingRateCoarseSampleOrder != (uint)default)
+        {
+            _internal.shadingRateCoarseSampleOrder = ShadingRateCoarseSampleOrder;
+        }
         return _internal;
     }
 

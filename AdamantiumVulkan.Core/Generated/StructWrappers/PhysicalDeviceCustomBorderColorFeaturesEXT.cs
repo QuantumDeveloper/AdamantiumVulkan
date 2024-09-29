@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceCustomBorderColorFeaturesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCustomBorderColorFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCustomBorderColorFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.customBorderColors = CustomBorderColors;
-        _internal.customBorderColorWithoutFormat = CustomBorderColorWithoutFormat;
+        if (CustomBorderColors != (uint)default)
+        {
+            _internal.customBorderColors = CustomBorderColors;
+        }
+        if (CustomBorderColorWithoutFormat != (uint)default)
+        {
+            _internal.customBorderColorWithoutFormat = CustomBorderColorWithoutFormat;
+        }
         return _internal;
     }
 

@@ -38,31 +38,40 @@ public unsafe partial class PhysicalDeviceIDProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(DeviceUUID != null)
+        if (DeviceUUID != default)
         {
             if (DeviceUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(DeviceUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.deviceUUID, 16, DeviceUUID);
         }
-        if(DriverUUID != null)
+        if (DriverUUID != default)
         {
             if (DriverUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(DriverUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.driverUUID, 16, DriverUUID);
         }
-        if(DeviceLUID != null)
+        if (DeviceLUID != default)
         {
             if (DeviceLUID.Length > 8)
                 throw new System.ArgumentOutOfRangeException(nameof(DeviceLUID), "Array is out of bounds. Size should not be more than 8");
 
             NativeUtils.PrimitiveToFixedArray(_internal.deviceLUID, 8, DeviceLUID);
         }
-        _internal.deviceNodeMask = DeviceNodeMask;
-        _internal.deviceLUIDValid = DeviceLUIDValid;
+        if (DeviceNodeMask != default)
+        {
+            _internal.deviceNodeMask = DeviceNodeMask;
+        }
+        if (DeviceLUIDValid != (uint)default)
+        {
+            _internal.deviceLUIDValid = DeviceLUIDValid;
+        }
         return _internal;
     }
 

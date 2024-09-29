@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class BindVertexBufferIndirectCommandNV
+public unsafe partial class BindVertexBufferIndirectCommandNV : QBDisposableObject
 {
     public BindVertexBufferIndirectCommandNV()
     {
@@ -31,9 +31,18 @@ public unsafe partial class BindVertexBufferIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkBindVertexBufferIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindVertexBufferIndirectCommandNV();
-        _internal.bufferAddress = BufferAddress;
-        _internal.size = Size;
-        _internal.stride = Stride;
+        if (BufferAddress != (ulong)default)
+        {
+            _internal.bufferAddress = BufferAddress;
+        }
+        if (Size != default)
+        {
+            _internal.size = Size;
+        }
+        if (Stride != default)
+        {
+            _internal.stride = Stride;
+        }
         return _internal;
     }
 

@@ -37,12 +37,21 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceMask = DeviceMask;
-        _internal.deviceRenderAreaCount = DeviceRenderAreaCount;
+        if (DeviceMask != default)
+        {
+            _internal.deviceMask = DeviceMask;
+        }
+        if (DeviceRenderAreaCount != default)
+        {
+            _internal.deviceRenderAreaCount = DeviceRenderAreaCount;
+        }
         _pDeviceRenderAreas.Dispose();
-        if (PDeviceRenderAreas != null)
+        if (PDeviceRenderAreas != default)
         {
             var struct0 = PDeviceRenderAreas.ToNative();
             _pDeviceRenderAreas = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);

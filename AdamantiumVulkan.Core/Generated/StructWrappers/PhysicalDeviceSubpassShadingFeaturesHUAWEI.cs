@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceSubpassShadingFeaturesHUAWEI : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassShadingFeaturesHUAWEI ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassShadingFeaturesHUAWEI();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.subpassShading = SubpassShading;
+        if (SubpassShading != (uint)default)
+        {
+            _internal.subpassShading = SubpassShading;
+        }
         return _internal;
     }
 

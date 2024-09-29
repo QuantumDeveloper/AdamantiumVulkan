@@ -36,16 +36,22 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pVideoProfile.Dispose();
-        if (PVideoProfile != null)
+        if (PVideoProfile != default)
         {
             var struct0 = PVideoProfile.ToNative();
             _pVideoProfile = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(struct0);
             _internal.pVideoProfile = _pVideoProfile.Handle;
         }
-        _internal.qualityLevel = QualityLevel;
+        if (QualityLevel != default)
+        {
+            _internal.qualityLevel = QualityLevel;
+        }
         return _internal;
     }
 

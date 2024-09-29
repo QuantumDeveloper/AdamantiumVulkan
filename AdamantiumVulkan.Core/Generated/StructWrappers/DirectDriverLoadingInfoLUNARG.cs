@@ -33,10 +33,19 @@ public unsafe partial class DirectDriverLoadingInfoLUNARG : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.pfnGetInstanceProcAddr = PfnGetInstanceProcAddr;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (PfnGetInstanceProcAddr != default)
+        {
+            _internal.pfnGetInstanceProcAddr = PfnGetInstanceProcAddr;
+        }
         return _internal;
     }
 

@@ -50,13 +50,25 @@ public unsafe partial class FramebufferCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.renderPass = RenderPass;
-        _internal.attachmentCount = AttachmentCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (RenderPass != default)
+        {
+            _internal.renderPass = RenderPass;
+        }
+        if (AttachmentCount != default)
+        {
+            _internal.attachmentCount = AttachmentCount;
+        }
         _pAttachments.Dispose();
-        if (PAttachments != null)
+        if (PAttachments != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[PAttachments.Length];
             for (int i = 0; i < PAttachments.Length; ++i)
@@ -66,9 +78,18 @@ public unsafe partial class FramebufferCreateInfo : QBDisposableObject
             _pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageView_T>(tmpArray0);
             _internal.pAttachments = _pAttachments.Handle;
         }
-        _internal.width = Width;
-        _internal.height = Height;
-        _internal.layers = Layers;
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
+        if (Layers != default)
+        {
+            _internal.layers = Layers;
+        }
         return _internal;
     }
 

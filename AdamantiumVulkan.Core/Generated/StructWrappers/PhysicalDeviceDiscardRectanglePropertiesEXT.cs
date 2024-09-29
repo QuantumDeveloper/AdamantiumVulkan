@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceDiscardRectanglePropertiesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxDiscardRectangles = MaxDiscardRectangles;
+        if (MaxDiscardRectangles != default)
+        {
+            _internal.maxDiscardRectangles = MaxDiscardRectangles;
+        }
         return _internal;
     }
 

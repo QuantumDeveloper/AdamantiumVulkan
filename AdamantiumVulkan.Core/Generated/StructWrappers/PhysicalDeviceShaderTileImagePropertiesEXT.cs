@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceShaderTileImagePropertiesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTileImagePropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTileImagePropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderTileImageCoherentReadAccelerated = ShaderTileImageCoherentReadAccelerated;
-        _internal.shaderTileImageReadSampleFromPixelRateInvocation = ShaderTileImageReadSampleFromPixelRateInvocation;
-        _internal.shaderTileImageReadFromHelperInvocation = ShaderTileImageReadFromHelperInvocation;
+        if (ShaderTileImageCoherentReadAccelerated != (uint)default)
+        {
+            _internal.shaderTileImageCoherentReadAccelerated = ShaderTileImageCoherentReadAccelerated;
+        }
+        if (ShaderTileImageReadSampleFromPixelRateInvocation != (uint)default)
+        {
+            _internal.shaderTileImageReadSampleFromPixelRateInvocation = ShaderTileImageReadSampleFromPixelRateInvocation;
+        }
+        if (ShaderTileImageReadFromHelperInvocation != (uint)default)
+        {
+            _internal.shaderTileImageReadFromHelperInvocation = ShaderTileImageReadFromHelperInvocation;
+        }
         return _internal;
     }
 

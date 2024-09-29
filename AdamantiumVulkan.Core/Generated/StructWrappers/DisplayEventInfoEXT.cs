@@ -31,9 +31,15 @@ public unsafe partial class DisplayEventInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.displayEvent = DisplayEvent;
+        if (DisplayEvent != default)
+        {
+            _internal.displayEvent = DisplayEvent;
+        }
         return _internal;
     }
 

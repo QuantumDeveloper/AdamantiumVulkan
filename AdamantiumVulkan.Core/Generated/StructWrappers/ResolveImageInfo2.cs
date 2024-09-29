@@ -44,15 +44,33 @@ public unsafe partial class ResolveImageInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkResolveImageInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkResolveImageInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcImage = SrcImage;
-        _internal.srcImageLayout = SrcImageLayout;
-        _internal.dstImage = DstImage;
-        _internal.dstImageLayout = DstImageLayout;
-        _internal.regionCount = RegionCount;
+        if (SrcImage != default)
+        {
+            _internal.srcImage = SrcImage;
+        }
+        if (SrcImageLayout != default)
+        {
+            _internal.srcImageLayout = SrcImageLayout;
+        }
+        if (DstImage != default)
+        {
+            _internal.dstImage = DstImage;
+        }
+        if (DstImageLayout != default)
+        {
+            _internal.dstImageLayout = DstImageLayout;
+        }
+        if (RegionCount != default)
+        {
+            _internal.regionCount = RegionCount;
+        }
         _pRegions.Dispose();
-        if (PRegions != null)
+        if (PRegions != default)
         {
             var struct0 = PRegions.ToNative();
             _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageResolve2>(struct0);

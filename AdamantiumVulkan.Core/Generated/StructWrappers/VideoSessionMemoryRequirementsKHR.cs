@@ -33,15 +33,27 @@ public unsafe partial class VideoSessionMemoryRequirementsKHR : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memoryBindIndex = MemoryBindIndex;
-        if (MemoryRequirements != null)
+        if (MemoryBindIndex != default)
+        {
+            _internal.memoryBindIndex = MemoryBindIndex;
+        }
+        if (MemoryRequirements != default)
         {
             _internal.memoryRequirements = MemoryRequirements.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MemoryRequirements?.Dispose();
+    }
+
 
     public static implicit operator VideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR v)
     {

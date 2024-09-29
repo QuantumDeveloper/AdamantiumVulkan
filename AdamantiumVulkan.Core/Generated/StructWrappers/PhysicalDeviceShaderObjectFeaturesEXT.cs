@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceShaderObjectFeaturesEXT : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderObjectFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderObjectFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderObject = ShaderObject;
+        if (ShaderObject != (uint)default)
+        {
+            _internal.shaderObject = ShaderObject;
+        }
         return _internal;
     }
 

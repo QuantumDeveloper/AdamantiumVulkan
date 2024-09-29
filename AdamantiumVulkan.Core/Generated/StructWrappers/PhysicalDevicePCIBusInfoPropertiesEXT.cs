@@ -36,12 +36,27 @@ public unsafe partial class PhysicalDevicePCIBusInfoPropertiesEXT : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pciDomain = PciDomain;
-        _internal.pciBus = PciBus;
-        _internal.pciDevice = PciDevice;
-        _internal.pciFunction = PciFunction;
+        if (PciDomain != default)
+        {
+            _internal.pciDomain = PciDomain;
+        }
+        if (PciBus != default)
+        {
+            _internal.pciBus = PciBus;
+        }
+        if (PciDevice != default)
+        {
+            _internal.pciDevice = PciDevice;
+        }
+        if (PciFunction != default)
+        {
+            _internal.pciFunction = PciFunction;
+        }
         return _internal;
     }
 

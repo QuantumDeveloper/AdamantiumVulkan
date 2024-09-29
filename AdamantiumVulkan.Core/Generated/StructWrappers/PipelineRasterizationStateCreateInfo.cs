@@ -50,19 +50,55 @@ public unsafe partial class PipelineRasterizationStateCreateInfo : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.depthClampEnable = DepthClampEnable;
-        _internal.rasterizerDiscardEnable = RasterizerDiscardEnable;
-        _internal.polygonMode = PolygonMode;
-        _internal.cullMode = CullMode;
-        _internal.frontFace = FrontFace;
-        _internal.depthBiasEnable = DepthBiasEnable;
-        _internal.depthBiasConstantFactor = DepthBiasConstantFactor;
-        _internal.depthBiasClamp = DepthBiasClamp;
-        _internal.depthBiasSlopeFactor = DepthBiasSlopeFactor;
-        _internal.lineWidth = LineWidth;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DepthClampEnable != (uint)default)
+        {
+            _internal.depthClampEnable = DepthClampEnable;
+        }
+        if (RasterizerDiscardEnable != (uint)default)
+        {
+            _internal.rasterizerDiscardEnable = RasterizerDiscardEnable;
+        }
+        if (PolygonMode != default)
+        {
+            _internal.polygonMode = PolygonMode;
+        }
+        if (CullMode != default)
+        {
+            _internal.cullMode = CullMode;
+        }
+        if (FrontFace != default)
+        {
+            _internal.frontFace = FrontFace;
+        }
+        if (DepthBiasEnable != (uint)default)
+        {
+            _internal.depthBiasEnable = DepthBiasEnable;
+        }
+        if (DepthBiasConstantFactor != default)
+        {
+            _internal.depthBiasConstantFactor = DepthBiasConstantFactor;
+        }
+        if (DepthBiasClamp != default)
+        {
+            _internal.depthBiasClamp = DepthBiasClamp;
+        }
+        if (DepthBiasSlopeFactor != default)
+        {
+            _internal.depthBiasSlopeFactor = DepthBiasSlopeFactor;
+        }
+        if (LineWidth != default)
+        {
+            _internal.lineWidth = LineWidth;
+        }
         return _internal;
     }
 

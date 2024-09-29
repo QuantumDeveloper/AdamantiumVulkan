@@ -41,30 +41,44 @@ public unsafe partial class DisplayPropertiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR();
-        _internal.display = Display;
+        if (Display != default)
+        {
+            _internal.display = Display;
+        }
         _displayName.Dispose();
-        if (DisplayName != null)
+        if (DisplayName != default)
         {
             _displayName = new MarshaledString(DisplayName, false);
             _internal.displayName = (sbyte*)_displayName;
         }
-        if (PhysicalDimensions != null)
+        if (PhysicalDimensions != default)
         {
             _internal.physicalDimensions = PhysicalDimensions.ToNative();
         }
-        if (PhysicalResolution != null)
+        if (PhysicalResolution != default)
         {
             _internal.physicalResolution = PhysicalResolution.ToNative();
         }
-        _internal.supportedTransforms = SupportedTransforms;
-        _internal.planeReorderPossible = PlaneReorderPossible;
-        _internal.persistentContent = PersistentContent;
+        if (SupportedTransforms != (uint)default)
+        {
+            _internal.supportedTransforms = SupportedTransforms;
+        }
+        if (PlaneReorderPossible != (uint)default)
+        {
+            _internal.planeReorderPossible = PlaneReorderPossible;
+        }
+        if (PersistentContent != (uint)default)
+        {
+            _internal.persistentContent = PersistentContent;
+        }
         return _internal;
     }
 
     protected override void UnmanagedDisposeOverride()
     {
         _displayName.Dispose();
+        PhysicalDimensions?.Dispose();
+        PhysicalResolution?.Dispose();
     }
 
 

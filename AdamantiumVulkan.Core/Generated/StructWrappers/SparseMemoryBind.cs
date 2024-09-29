@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SparseMemoryBind
+public unsafe partial class SparseMemoryBind : QBDisposableObject
 {
     public SparseMemoryBind()
     {
@@ -35,11 +35,26 @@ public unsafe partial class SparseMemoryBind
     public AdamantiumVulkan.Core.Interop.VkSparseMemoryBind ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseMemoryBind();
-        _internal.resourceOffset = ResourceOffset;
-        _internal.size = Size;
-        _internal.memory = Memory;
-        _internal.memoryOffset = MemoryOffset;
-        _internal.flags = Flags;
+        if (ResourceOffset != (ulong)default)
+        {
+            _internal.resourceOffset = ResourceOffset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (MemoryOffset != (ulong)default)
+        {
+            _internal.memoryOffset = MemoryOffset;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

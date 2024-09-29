@@ -35,11 +35,17 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : QBDispos
     public AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.aspectReferenceCount = AspectReferenceCount;
+        if (AspectReferenceCount != default)
+        {
+            _internal.aspectReferenceCount = AspectReferenceCount;
+        }
         _pAspectReferences.Dispose();
-        if (PAspectReferences != null)
+        if (PAspectReferences != default)
         {
             var struct0 = PAspectReferences.ToNative();
             _pAspectReferences = new NativeStruct<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(struct0);

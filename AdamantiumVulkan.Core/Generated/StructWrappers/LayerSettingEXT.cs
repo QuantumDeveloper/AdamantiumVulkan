@@ -40,19 +40,25 @@ public unsafe partial class LayerSettingEXT : QBDisposableObject
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLayerSettingEXT();
         _pLayerName.Dispose();
-        if (PLayerName != null)
+        if (PLayerName != default)
         {
             _pLayerName = new MarshaledString(PLayerName, false);
             _internal.pLayerName = (sbyte*)_pLayerName;
         }
         _pSettingName.Dispose();
-        if (PSettingName != null)
+        if (PSettingName != default)
         {
             _pSettingName = new MarshaledString(PSettingName, false);
             _internal.pSettingName = (sbyte*)_pSettingName;
         }
-        _internal.type = Type;
-        _internal.valueCount = ValueCount;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (ValueCount != default)
+        {
+            _internal.valueCount = ValueCount;
+        }
         _internal.pValues = PValues;
         return _internal;
     }

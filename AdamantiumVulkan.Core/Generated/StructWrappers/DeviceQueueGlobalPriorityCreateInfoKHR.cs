@@ -31,9 +31,15 @@ public unsafe partial class DeviceQueueGlobalPriorityCreateInfoKHR : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.globalPriority = GlobalPriority;
+        if (GlobalPriority != default)
+        {
+            _internal.globalPriority = GlobalPriority;
+        }
         return _internal;
     }
 

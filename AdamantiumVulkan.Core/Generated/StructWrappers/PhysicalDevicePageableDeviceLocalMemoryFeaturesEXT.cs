@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pageableDeviceLocalMemory = PageableDeviceLocalMemory;
+        if (PageableDeviceLocalMemory != (uint)default)
+        {
+            _internal.pageableDeviceLocalMemory = PageableDeviceLocalMemory;
+        }
         return _internal;
     }
 

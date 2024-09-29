@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceExternalFenceInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleType = HandleType;
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

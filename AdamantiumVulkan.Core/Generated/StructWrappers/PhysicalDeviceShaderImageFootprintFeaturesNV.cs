@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceShaderImageFootprintFeaturesNV : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageFootprint = ImageFootprint;
+        if (ImageFootprint != (uint)default)
+        {
+            _internal.imageFootprint = ImageFootprint;
+        }
         return _internal;
     }
 

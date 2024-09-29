@@ -37,7 +37,10 @@ public unsafe partial class MicromapVersionInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pVersionData.Dispose();
         if (PVersionData.HasValue)

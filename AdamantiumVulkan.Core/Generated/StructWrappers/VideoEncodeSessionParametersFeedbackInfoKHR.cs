@@ -31,9 +31,15 @@ public unsafe partial class VideoEncodeSessionParametersFeedbackInfoKHR : QBDisp
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hasOverrides = HasOverrides;
+        if (HasOverrides != (uint)default)
+        {
+            _internal.hasOverrides = HasOverrides;
+        }
         return _internal;
     }
 

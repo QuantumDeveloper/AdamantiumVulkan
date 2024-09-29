@@ -31,9 +31,15 @@ public unsafe partial class DevicePrivateDataCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDevicePrivateDataCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDevicePrivateDataCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.privateDataSlotRequestCount = PrivateDataSlotRequestCount;
+        if (PrivateDataSlotRequestCount != default)
+        {
+            _internal.privateDataSlotRequestCount = PrivateDataSlotRequestCount;
+        }
         return _internal;
     }
 

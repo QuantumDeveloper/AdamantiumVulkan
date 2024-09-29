@@ -44,21 +44,51 @@ public unsafe partial class DisplaySurfaceCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.displayMode = DisplayMode;
-        _internal.planeIndex = PlaneIndex;
-        _internal.planeStackIndex = PlaneStackIndex;
-        _internal.transform = Transform;
-        _internal.globalAlpha = GlobalAlpha;
-        _internal.alphaMode = AlphaMode;
-        if (ImageExtent != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DisplayMode != default)
+        {
+            _internal.displayMode = DisplayMode;
+        }
+        if (PlaneIndex != default)
+        {
+            _internal.planeIndex = PlaneIndex;
+        }
+        if (PlaneStackIndex != default)
+        {
+            _internal.planeStackIndex = PlaneStackIndex;
+        }
+        if (Transform != default)
+        {
+            _internal.transform = Transform;
+        }
+        if (GlobalAlpha != default)
+        {
+            _internal.globalAlpha = GlobalAlpha;
+        }
+        if (AlphaMode != default)
+        {
+            _internal.alphaMode = AlphaMode;
+        }
+        if (ImageExtent != default)
         {
             _internal.imageExtent = ImageExtent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageExtent?.Dispose();
+    }
+
 
     public static implicit operator DisplaySurfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR d)
     {

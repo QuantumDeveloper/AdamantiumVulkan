@@ -31,14 +31,23 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (FragmentDensityOffsetGranularity != null)
+        if (FragmentDensityOffsetGranularity != default)
         {
             _internal.fragmentDensityOffsetGranularity = FragmentDensityOffsetGranularity.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FragmentDensityOffsetGranularity?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM p)
     {

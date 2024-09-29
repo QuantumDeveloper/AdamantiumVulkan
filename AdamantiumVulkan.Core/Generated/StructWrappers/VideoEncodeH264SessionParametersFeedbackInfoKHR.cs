@@ -33,10 +33,19 @@ public unsafe partial class VideoEncodeH264SessionParametersFeedbackInfoKHR : QB
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionParametersFeedbackInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionParametersFeedbackInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hasStdSPSOverrides = HasStdSPSOverrides;
-        _internal.hasStdPPSOverrides = HasStdPPSOverrides;
+        if (HasStdSPSOverrides != (uint)default)
+        {
+            _internal.hasStdSPSOverrides = HasStdSPSOverrides;
+        }
+        if (HasStdPPSOverrides != (uint)default)
+        {
+            _internal.hasStdPPSOverrides = HasStdPPSOverrides;
+        }
         return _internal;
     }
 

@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceImageProcessingFeaturesQCOM : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.textureSampleWeighted = TextureSampleWeighted;
-        _internal.textureBoxFilter = TextureBoxFilter;
-        _internal.textureBlockMatch = TextureBlockMatch;
+        if (TextureSampleWeighted != (uint)default)
+        {
+            _internal.textureSampleWeighted = TextureSampleWeighted;
+        }
+        if (TextureBoxFilter != (uint)default)
+        {
+            _internal.textureBoxFilter = TextureBoxFilter;
+        }
+        if (TextureBlockMatch != (uint)default)
+        {
+            _internal.textureBlockMatch = TextureBlockMatch;
+        }
         return _internal;
     }
 

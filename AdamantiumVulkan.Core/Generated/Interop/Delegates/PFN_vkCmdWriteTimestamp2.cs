@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7299 Column: 26
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7335 Column: 26
 public unsafe struct PFN_vkCmdWriteTimestamp2
 {
     public PFN_vkCmdWriteTimestamp2(void* ptr)

@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.graphicsPipelineLibraryFastLinking = GraphicsPipelineLibraryFastLinking;
-        _internal.graphicsPipelineLibraryIndependentInterpolationDecoration = GraphicsPipelineLibraryIndependentInterpolationDecoration;
+        if (GraphicsPipelineLibraryFastLinking != (uint)default)
+        {
+            _internal.graphicsPipelineLibraryFastLinking = GraphicsPipelineLibraryFastLinking;
+        }
+        if (GraphicsPipelineLibraryIndependentInterpolationDecoration != (uint)default)
+        {
+            _internal.graphicsPipelineLibraryIndependentInterpolationDecoration = GraphicsPipelineLibraryIndependentInterpolationDecoration;
+        }
         return _internal;
     }
 

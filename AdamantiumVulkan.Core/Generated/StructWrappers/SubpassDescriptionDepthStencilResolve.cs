@@ -38,12 +38,21 @@ public unsafe partial class SubpassDescriptionDepthStencilResolve : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolve ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolve();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.depthResolveMode = DepthResolveMode;
-        _internal.stencilResolveMode = StencilResolveMode;
+        if (DepthResolveMode != default)
+        {
+            _internal.depthResolveMode = DepthResolveMode;
+        }
+        if (StencilResolveMode != default)
+        {
+            _internal.stencilResolveMode = StencilResolveMode;
+        }
         _pDepthStencilResolveAttachment.Dispose();
-        if (PDepthStencilResolveAttachment != null)
+        if (PDepthStencilResolveAttachment != default)
         {
             var struct0 = PDepthStencilResolveAttachment.ToNative();
             _pDepthStencilResolveAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);

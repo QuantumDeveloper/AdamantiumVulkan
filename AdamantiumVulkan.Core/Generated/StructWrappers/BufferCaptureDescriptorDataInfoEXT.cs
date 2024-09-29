@@ -31,9 +31,15 @@ public unsafe partial class BufferCaptureDescriptorDataInfoEXT : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.buffer = Buffer;
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
         return _internal;
     }
 

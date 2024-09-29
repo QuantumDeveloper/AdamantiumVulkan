@@ -37,11 +37,23 @@ public unsafe partial class PushDescriptorSetWithTemplateInfoKHR : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorUpdateTemplate = DescriptorUpdateTemplate;
-        _internal.layout = Layout;
-        _internal.set = Set;
+        if (DescriptorUpdateTemplate != default)
+        {
+            _internal.descriptorUpdateTemplate = DescriptorUpdateTemplate;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (Set != default)
+        {
+            _internal.set = Set;
+        }
         _internal.pData = PData;
         return _internal;
     }

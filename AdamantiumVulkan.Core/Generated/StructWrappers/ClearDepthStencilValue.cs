@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ClearDepthStencilValue
+public unsafe partial class ClearDepthStencilValue : QBDisposableObject
 {
     public ClearDepthStencilValue()
     {
@@ -29,8 +29,14 @@ public unsafe partial class ClearDepthStencilValue
     public AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue();
-        _internal.depth = Depth;
-        _internal.stencil = Stencil;
+        if (Depth != default)
+        {
+            _internal.depth = Depth;
+        }
+        if (Stencil != default)
+        {
+            _internal.stencil = Stencil;
+        }
         return _internal;
     }
 

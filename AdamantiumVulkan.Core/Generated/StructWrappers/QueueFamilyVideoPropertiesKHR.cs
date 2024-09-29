@@ -31,9 +31,15 @@ public unsafe partial class QueueFamilyVideoPropertiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkQueueFamilyVideoPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyVideoPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.videoCodecOperations = VideoCodecOperations;
+        if (VideoCodecOperations != (uint)default)
+        {
+            _internal.videoCodecOperations = VideoCodecOperations;
+        }
         return _internal;
     }
 

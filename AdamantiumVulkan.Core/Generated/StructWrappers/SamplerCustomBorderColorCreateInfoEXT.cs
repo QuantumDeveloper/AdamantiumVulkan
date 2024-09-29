@@ -33,15 +33,27 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (CustomBorderColor != null)
+        if (CustomBorderColor != default)
         {
             _internal.customBorderColor = CustomBorderColor.ToNative();
         }
-        _internal.format = Format;
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        CustomBorderColor?.Dispose();
+    }
+
 
     public static implicit operator SamplerCustomBorderColorCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT s)
     {

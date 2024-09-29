@@ -30,14 +30,23 @@ public unsafe partial class ImageFormatProperties2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageFormatProperties2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (ImageFormatProperties != null)
+        if (ImageFormatProperties != default)
         {
             _internal.imageFormatProperties = ImageFormatProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageFormatProperties?.Dispose();
+    }
+
 
     public static implicit operator ImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 i)
     {

@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2PropertiesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.subsampledLoads = SubsampledLoads;
-        _internal.subsampledCoarseReconstructionEarlyAccess = SubsampledCoarseReconstructionEarlyAccess;
-        _internal.maxSubsampledArrayLayers = MaxSubsampledArrayLayers;
-        _internal.maxDescriptorSetSubsampledSamplers = MaxDescriptorSetSubsampledSamplers;
+        if (SubsampledLoads != (uint)default)
+        {
+            _internal.subsampledLoads = SubsampledLoads;
+        }
+        if (SubsampledCoarseReconstructionEarlyAccess != (uint)default)
+        {
+            _internal.subsampledCoarseReconstructionEarlyAccess = SubsampledCoarseReconstructionEarlyAccess;
+        }
+        if (MaxSubsampledArrayLayers != default)
+        {
+            _internal.maxSubsampledArrayLayers = MaxSubsampledArrayLayers;
+        }
+        if (MaxDescriptorSetSubsampledSamplers != default)
+        {
+            _internal.maxDescriptorSetSubsampledSamplers = MaxDescriptorSetSubsampledSamplers;
+        }
         return _internal;
     }
 

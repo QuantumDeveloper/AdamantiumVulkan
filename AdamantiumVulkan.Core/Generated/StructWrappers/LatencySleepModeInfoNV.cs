@@ -35,11 +35,23 @@ public unsafe partial class LatencySleepModeInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkLatencySleepModeInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLatencySleepModeInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.lowLatencyMode = LowLatencyMode;
-        _internal.lowLatencyBoost = LowLatencyBoost;
-        _internal.minimumIntervalUs = MinimumIntervalUs;
+        if (LowLatencyMode != (uint)default)
+        {
+            _internal.lowLatencyMode = LowLatencyMode;
+        }
+        if (LowLatencyBoost != (uint)default)
+        {
+            _internal.lowLatencyBoost = LowLatencyBoost;
+        }
+        if (MinimumIntervalUs != default)
+        {
+            _internal.minimumIntervalUs = MinimumIntervalUs;
+        }
         return _internal;
     }
 

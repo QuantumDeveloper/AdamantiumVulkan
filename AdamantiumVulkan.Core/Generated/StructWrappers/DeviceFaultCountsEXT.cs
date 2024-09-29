@@ -35,11 +35,23 @@ public unsafe partial class DeviceFaultCountsEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.addressInfoCount = AddressInfoCount;
-        _internal.vendorInfoCount = VendorInfoCount;
-        _internal.vendorBinarySize = VendorBinarySize;
+        if (AddressInfoCount != default)
+        {
+            _internal.addressInfoCount = AddressInfoCount;
+        }
+        if (VendorInfoCount != default)
+        {
+            _internal.vendorInfoCount = VendorInfoCount;
+        }
+        if (VendorBinarySize != (ulong)default)
+        {
+            _internal.vendorBinarySize = VendorBinarySize;
+        }
         return _internal;
     }
 

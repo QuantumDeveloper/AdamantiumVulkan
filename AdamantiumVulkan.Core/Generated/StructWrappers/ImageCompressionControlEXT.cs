@@ -41,10 +41,19 @@ public unsafe partial class ImageCompressionControlEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.compressionControlPlaneCount = CompressionControlPlaneCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (CompressionControlPlaneCount != default)
+        {
+            _internal.compressionControlPlaneCount = CompressionControlPlaneCount;
+        }
         _pFixedRateFlags.Dispose();
         if (PFixedRateFlags.HasValue)
         {

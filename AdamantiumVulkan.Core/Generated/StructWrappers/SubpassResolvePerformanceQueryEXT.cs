@@ -31,9 +31,15 @@ public unsafe partial class SubpassResolvePerformanceQueryEXT : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkSubpassResolvePerformanceQueryEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassResolvePerformanceQueryEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.optimal = Optimal;
+        if (Optimal != (uint)default)
+        {
+            _internal.optimal = Optimal;
+        }
         return _internal;
     }
 

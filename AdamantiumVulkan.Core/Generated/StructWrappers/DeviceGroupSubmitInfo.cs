@@ -58,23 +58,35 @@ public unsafe partial class DeviceGroupSubmitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        if (WaitSemaphoreCount != default)
+        {
+            _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        }
         _pWaitSemaphoreDeviceIndices.Dispose();
         if (PWaitSemaphoreDeviceIndices.HasValue)
         {
             _pWaitSemaphoreDeviceIndices = new NativeStruct<uint>(PWaitSemaphoreDeviceIndices.Value);
             _internal.pWaitSemaphoreDeviceIndices = _pWaitSemaphoreDeviceIndices.Handle;
         }
-        _internal.commandBufferCount = CommandBufferCount;
+        if (CommandBufferCount != default)
+        {
+            _internal.commandBufferCount = CommandBufferCount;
+        }
         _pCommandBufferDeviceMasks.Dispose();
         if (PCommandBufferDeviceMasks.HasValue)
         {
             _pCommandBufferDeviceMasks = new NativeStruct<uint>(PCommandBufferDeviceMasks.Value);
             _internal.pCommandBufferDeviceMasks = _pCommandBufferDeviceMasks.Handle;
         }
-        _internal.signalSemaphoreCount = SignalSemaphoreCount;
+        if (SignalSemaphoreCount != default)
+        {
+            _internal.signalSemaphoreCount = SignalSemaphoreCount;
+        }
         _pSignalSemaphoreDeviceIndices.Dispose();
         if (PSignalSemaphoreDeviceIndices.HasValue)
         {

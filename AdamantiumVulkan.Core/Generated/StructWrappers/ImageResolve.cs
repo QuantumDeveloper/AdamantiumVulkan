@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ImageResolve
+public unsafe partial class ImageResolve : QBDisposableObject
 {
     public ImageResolve()
     {
@@ -35,28 +35,38 @@ public unsafe partial class ImageResolve
     public AdamantiumVulkan.Core.Interop.VkImageResolve ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageResolve();
-        if (SrcSubresource != null)
+        if (SrcSubresource != default)
         {
             _internal.srcSubresource = SrcSubresource.ToNative();
         }
-        if (SrcOffset != null)
+        if (SrcOffset != default)
         {
             _internal.srcOffset = SrcOffset.ToNative();
         }
-        if (DstSubresource != null)
+        if (DstSubresource != default)
         {
             _internal.dstSubresource = DstSubresource.ToNative();
         }
-        if (DstOffset != null)
+        if (DstOffset != default)
         {
             _internal.dstOffset = DstOffset.ToNative();
         }
-        if (Extent != null)
+        if (Extent != default)
         {
             _internal.extent = Extent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SrcSubresource?.Dispose();
+        SrcOffset?.Dispose();
+        DstSubresource?.Dispose();
+        DstOffset?.Dispose();
+        Extent?.Dispose();
+    }
+
 
     public static implicit operator ImageResolve(AdamantiumVulkan.Core.Interop.VkImageResolve i)
     {

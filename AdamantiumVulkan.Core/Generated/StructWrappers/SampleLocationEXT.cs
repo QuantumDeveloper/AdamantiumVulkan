@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SampleLocationEXT
+public unsafe partial class SampleLocationEXT : QBDisposableObject
 {
     public SampleLocationEXT()
     {
@@ -29,8 +29,14 @@ public unsafe partial class SampleLocationEXT
     public AdamantiumVulkan.Core.Interop.VkSampleLocationEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSampleLocationEXT();
-        _internal.x = X;
-        _internal.y = Y;
+        if (X != default)
+        {
+            _internal.x = X;
+        }
+        if (Y != default)
+        {
+            _internal.y = Y;
+        }
         return _internal;
     }
 

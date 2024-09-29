@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateEnumsPropertiesNV :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxFragmentShadingRateInvocationCount = MaxFragmentShadingRateInvocationCount;
+        if (MaxFragmentShadingRateInvocationCount != default)
+        {
+            _internal.maxFragmentShadingRateInvocationCount = MaxFragmentShadingRateInvocationCount;
+        }
         return _internal;
     }
 

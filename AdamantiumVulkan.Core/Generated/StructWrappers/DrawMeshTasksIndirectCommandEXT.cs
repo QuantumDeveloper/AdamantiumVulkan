@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DrawMeshTasksIndirectCommandEXT
+public unsafe partial class DrawMeshTasksIndirectCommandEXT : QBDisposableObject
 {
     public DrawMeshTasksIndirectCommandEXT()
     {
@@ -31,9 +31,18 @@ public unsafe partial class DrawMeshTasksIndirectCommandEXT
     public AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandEXT();
-        _internal.groupCountX = GroupCountX;
-        _internal.groupCountY = GroupCountY;
-        _internal.groupCountZ = GroupCountZ;
+        if (GroupCountX != default)
+        {
+            _internal.groupCountX = GroupCountX;
+        }
+        if (GroupCountY != default)
+        {
+            _internal.groupCountY = GroupCountY;
+        }
+        if (GroupCountZ != default)
+        {
+            _internal.groupCountZ = GroupCountZ;
+        }
         return _internal;
     }
 

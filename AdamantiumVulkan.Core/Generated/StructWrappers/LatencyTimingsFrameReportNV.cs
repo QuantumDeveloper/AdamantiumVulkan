@@ -57,22 +57,67 @@ public unsafe partial class LatencyTimingsFrameReportNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentID = PresentID;
-        _internal.inputSampleTimeUs = InputSampleTimeUs;
-        _internal.simStartTimeUs = SimStartTimeUs;
-        _internal.simEndTimeUs = SimEndTimeUs;
-        _internal.renderSubmitStartTimeUs = RenderSubmitStartTimeUs;
-        _internal.renderSubmitEndTimeUs = RenderSubmitEndTimeUs;
-        _internal.presentStartTimeUs = PresentStartTimeUs;
-        _internal.presentEndTimeUs = PresentEndTimeUs;
-        _internal.driverStartTimeUs = DriverStartTimeUs;
-        _internal.driverEndTimeUs = DriverEndTimeUs;
-        _internal.osRenderQueueStartTimeUs = OsRenderQueueStartTimeUs;
-        _internal.osRenderQueueEndTimeUs = OsRenderQueueEndTimeUs;
-        _internal.gpuRenderStartTimeUs = GpuRenderStartTimeUs;
-        _internal.gpuRenderEndTimeUs = GpuRenderEndTimeUs;
+        if (PresentID != default)
+        {
+            _internal.presentID = PresentID;
+        }
+        if (InputSampleTimeUs != default)
+        {
+            _internal.inputSampleTimeUs = InputSampleTimeUs;
+        }
+        if (SimStartTimeUs != default)
+        {
+            _internal.simStartTimeUs = SimStartTimeUs;
+        }
+        if (SimEndTimeUs != default)
+        {
+            _internal.simEndTimeUs = SimEndTimeUs;
+        }
+        if (RenderSubmitStartTimeUs != default)
+        {
+            _internal.renderSubmitStartTimeUs = RenderSubmitStartTimeUs;
+        }
+        if (RenderSubmitEndTimeUs != default)
+        {
+            _internal.renderSubmitEndTimeUs = RenderSubmitEndTimeUs;
+        }
+        if (PresentStartTimeUs != default)
+        {
+            _internal.presentStartTimeUs = PresentStartTimeUs;
+        }
+        if (PresentEndTimeUs != default)
+        {
+            _internal.presentEndTimeUs = PresentEndTimeUs;
+        }
+        if (DriverStartTimeUs != default)
+        {
+            _internal.driverStartTimeUs = DriverStartTimeUs;
+        }
+        if (DriverEndTimeUs != default)
+        {
+            _internal.driverEndTimeUs = DriverEndTimeUs;
+        }
+        if (OsRenderQueueStartTimeUs != default)
+        {
+            _internal.osRenderQueueStartTimeUs = OsRenderQueueStartTimeUs;
+        }
+        if (OsRenderQueueEndTimeUs != default)
+        {
+            _internal.osRenderQueueEndTimeUs = OsRenderQueueEndTimeUs;
+        }
+        if (GpuRenderStartTimeUs != default)
+        {
+            _internal.gpuRenderStartTimeUs = GpuRenderStartTimeUs;
+        }
+        if (GpuRenderEndTimeUs != default)
+        {
+            _internal.gpuRenderEndTimeUs = GpuRenderEndTimeUs;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class MultiviewPerViewAttributesInfoNVX : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.perViewAttributes = PerViewAttributes;
-        _internal.perViewAttributesPositionXOnly = PerViewAttributesPositionXOnly;
+        if (PerViewAttributes != (uint)default)
+        {
+            _internal.perViewAttributes = PerViewAttributes;
+        }
+        if (PerViewAttributesPositionXOnly != (uint)default)
+        {
+            _internal.perViewAttributesPositionXOnly = PerViewAttributesPositionXOnly;
+        }
         return _internal;
     }
 

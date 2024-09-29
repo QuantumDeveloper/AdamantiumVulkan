@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AttachmentReference
+public unsafe partial class AttachmentReference : QBDisposableObject
 {
     public AttachmentReference()
     {
@@ -29,8 +29,14 @@ public unsafe partial class AttachmentReference
     public AdamantiumVulkan.Core.Interop.VkAttachmentReference ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentReference();
-        _internal.attachment = Attachment;
-        _internal.layout = Layout;
+        if (Attachment != default)
+        {
+            _internal.attachment = Attachment;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
         return _internal;
     }
 

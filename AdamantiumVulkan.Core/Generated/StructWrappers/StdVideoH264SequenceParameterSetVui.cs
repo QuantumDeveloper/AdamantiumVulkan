@@ -60,26 +60,68 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : QBDisposableOb
     public AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.aspect_ratio_idc = Aspect_ratio_idc;
-        _internal.sar_width = Sar_width;
-        _internal.sar_height = Sar_height;
-        _internal.video_format = Video_format;
-        _internal.colour_primaries = Colour_primaries;
-        _internal.transfer_characteristics = Transfer_characteristics;
-        _internal.matrix_coefficients = Matrix_coefficients;
-        _internal.num_units_in_tick = Num_units_in_tick;
-        _internal.time_scale = Time_scale;
-        _internal.max_num_reorder_frames = Max_num_reorder_frames;
-        _internal.max_dec_frame_buffering = Max_dec_frame_buffering;
-        _internal.chroma_sample_loc_type_top_field = Chroma_sample_loc_type_top_field;
-        _internal.chroma_sample_loc_type_bottom_field = Chroma_sample_loc_type_bottom_field;
-        _internal.reserved1 = Reserved1;
+        if (Aspect_ratio_idc != default)
+        {
+            _internal.aspect_ratio_idc = Aspect_ratio_idc;
+        }
+        if (Sar_width != default)
+        {
+            _internal.sar_width = Sar_width;
+        }
+        if (Sar_height != default)
+        {
+            _internal.sar_height = Sar_height;
+        }
+        if (Video_format != default)
+        {
+            _internal.video_format = Video_format;
+        }
+        if (Colour_primaries != default)
+        {
+            _internal.colour_primaries = Colour_primaries;
+        }
+        if (Transfer_characteristics != default)
+        {
+            _internal.transfer_characteristics = Transfer_characteristics;
+        }
+        if (Matrix_coefficients != default)
+        {
+            _internal.matrix_coefficients = Matrix_coefficients;
+        }
+        if (Num_units_in_tick != default)
+        {
+            _internal.num_units_in_tick = Num_units_in_tick;
+        }
+        if (Time_scale != default)
+        {
+            _internal.time_scale = Time_scale;
+        }
+        if (Max_num_reorder_frames != default)
+        {
+            _internal.max_num_reorder_frames = Max_num_reorder_frames;
+        }
+        if (Max_dec_frame_buffering != default)
+        {
+            _internal.max_dec_frame_buffering = Max_dec_frame_buffering;
+        }
+        if (Chroma_sample_loc_type_top_field != default)
+        {
+            _internal.chroma_sample_loc_type_top_field = Chroma_sample_loc_type_top_field;
+        }
+        if (Chroma_sample_loc_type_bottom_field != default)
+        {
+            _internal.chroma_sample_loc_type_bottom_field = Chroma_sample_loc_type_bottom_field;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
         _pHrdParameters.Dispose();
-        if (PHrdParameters != null)
+        if (PHrdParameters != default)
         {
             var struct0 = PHrdParameters.ToNative();
             _pHrdParameters = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH264HrdParameters>(struct0);
@@ -91,6 +133,7 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : QBDisposableOb
     protected override void UnmanagedDisposeOverride()
     {
         _pHrdParameters.Dispose();
+        Flags?.Dispose();
     }
 
 

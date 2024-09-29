@@ -38,12 +38,27 @@ public unsafe partial class DebugUtilsObjectTagInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.objectType = ObjectType;
-        _internal.objectHandle = ObjectHandle;
-        _internal.tagName = TagName;
-        _internal.tagSize = TagSize;
+        if (ObjectType != default)
+        {
+            _internal.objectType = ObjectType;
+        }
+        if (ObjectHandle != default)
+        {
+            _internal.objectHandle = ObjectHandle;
+        }
+        if (TagName != default)
+        {
+            _internal.tagName = TagName;
+        }
+        if (TagSize != default)
+        {
+            _internal.tagSize = TagSize;
+        }
         _internal.pTag = PTag;
         return _internal;
     }

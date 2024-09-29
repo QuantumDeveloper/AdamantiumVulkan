@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceNonSeamlessCubeMapFeaturesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.nonSeamlessCubeMap = NonSeamlessCubeMap;
+        if (NonSeamlessCubeMap != (uint)default)
+        {
+            _internal.nonSeamlessCubeMap = NonSeamlessCubeMap;
+        }
         return _internal;
     }
 

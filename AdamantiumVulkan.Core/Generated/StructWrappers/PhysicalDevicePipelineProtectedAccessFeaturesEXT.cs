@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePipelineProtectedAccessFeaturesEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineProtectedAccessFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineProtectedAccessFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineProtectedAccess = PipelineProtectedAccess;
+        if (PipelineProtectedAccess != (uint)default)
+        {
+            _internal.pipelineProtectedAccess = PipelineProtectedAccess;
+        }
         return _internal;
     }
 

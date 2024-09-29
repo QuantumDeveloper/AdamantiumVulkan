@@ -35,10 +35,19 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : QBDispos
     public AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.id = Id;
-        _internal.size = Size;
+        if (Id != default)
+        {
+            _internal.id = Id;
+        }
+        if (Size != default)
+        {
+            _internal.size = Size;
+        }
         _internal.pPrivateData = PrivateData;
         return _internal;
     }

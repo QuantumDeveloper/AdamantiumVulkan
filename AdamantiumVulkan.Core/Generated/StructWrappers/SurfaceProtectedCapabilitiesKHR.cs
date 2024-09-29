@@ -31,9 +31,15 @@ public unsafe partial class SurfaceProtectedCapabilitiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supportsProtected = SupportsProtected;
+        if (SupportsProtected != (uint)default)
+        {
+            _internal.supportsProtected = SupportsProtected;
+        }
         return _internal;
     }
 

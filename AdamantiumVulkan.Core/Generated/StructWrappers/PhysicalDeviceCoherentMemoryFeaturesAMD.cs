@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceCoherentMemoryFeaturesAMD : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceCoherentMemory = DeviceCoherentMemory;
+        if (DeviceCoherentMemory != (uint)default)
+        {
+            _internal.deviceCoherentMemory = DeviceCoherentMemory;
+        }
         return _internal;
     }
 

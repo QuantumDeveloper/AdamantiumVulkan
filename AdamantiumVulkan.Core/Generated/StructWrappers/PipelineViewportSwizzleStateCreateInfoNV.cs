@@ -37,12 +37,21 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.viewportCount = ViewportCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (ViewportCount != default)
+        {
+            _internal.viewportCount = ViewportCount;
+        }
         _pViewportSwizzles.Dispose();
-        if (PViewportSwizzles != null)
+        if (PViewportSwizzles != default)
         {
             var struct0 = PViewportSwizzles.ToNative();
             _pViewportSwizzles = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV>(struct0);

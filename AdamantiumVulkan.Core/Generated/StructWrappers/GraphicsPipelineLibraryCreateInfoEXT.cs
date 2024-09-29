@@ -31,9 +31,15 @@ public unsafe partial class GraphicsPipelineLibraryCreateInfoEXT : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkGraphicsPipelineLibraryCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGraphicsPipelineLibraryCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

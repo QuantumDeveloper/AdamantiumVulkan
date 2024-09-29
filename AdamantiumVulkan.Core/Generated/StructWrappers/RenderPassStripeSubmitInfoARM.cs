@@ -36,11 +36,17 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stripeSemaphoreInfoCount = StripeSemaphoreInfoCount;
+        if (StripeSemaphoreInfoCount != default)
+        {
+            _internal.stripeSemaphoreInfoCount = StripeSemaphoreInfoCount;
+        }
         _pStripeSemaphoreInfos.Dispose();
-        if (PStripeSemaphoreInfos != null)
+        if (PStripeSemaphoreInfos != default)
         {
             var struct0 = PStripeSemaphoreInfos.ToNative();
             _pStripeSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct0);

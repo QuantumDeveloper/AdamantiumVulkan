@@ -32,10 +32,19 @@ public unsafe partial class FenceGetFdInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fence = Fence;
-        _internal.handleType = HandleType;
+        if (Fence != default)
+        {
+            _internal.fence = Fence;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SparseImageFormatProperties
+public unsafe partial class SparseImageFormatProperties : QBDisposableObject
 {
     public SparseImageFormatProperties()
     {
@@ -31,14 +31,26 @@ public unsafe partial class SparseImageFormatProperties
     public AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties();
-        _internal.aspectMask = AspectMask;
-        if (ImageGranularity != null)
+        if (AspectMask != (uint)default)
+        {
+            _internal.aspectMask = AspectMask;
+        }
+        if (ImageGranularity != default)
         {
             _internal.imageGranularity = ImageGranularity.ToNative();
         }
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageGranularity?.Dispose();
+    }
+
 
     public static implicit operator SparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties s)
     {

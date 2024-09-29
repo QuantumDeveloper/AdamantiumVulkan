@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class BufferCopy
+public unsafe partial class BufferCopy : QBDisposableObject
 {
     public BufferCopy()
     {
@@ -31,9 +31,18 @@ public unsafe partial class BufferCopy
     public AdamantiumVulkan.Core.Interop.VkBufferCopy ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferCopy();
-        _internal.srcOffset = SrcOffset;
-        _internal.dstOffset = DstOffset;
-        _internal.size = Size;
+        if (SrcOffset != (ulong)default)
+        {
+            _internal.srcOffset = SrcOffset;
+        }
+        if (DstOffset != (ulong)default)
+        {
+            _internal.dstOffset = DstOffset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

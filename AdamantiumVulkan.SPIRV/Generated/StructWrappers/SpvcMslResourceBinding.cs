@@ -12,7 +12,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcMslResourceBinding
+public unsafe partial class SpvcMslResourceBinding : QBDisposableObject
 {
     public SpvcMslResourceBinding()
     {
@@ -48,12 +48,30 @@ public unsafe partial class SpvcMslResourceBinding
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding();
-        _internal.stage = Stage;
-        _internal.desc_set = Desc_set;
-        _internal.binding = Binding;
-        _internal.msl_buffer = Msl_buffer;
-        _internal.msl_texture = Msl_texture;
-        _internal.msl_sampler = Msl_sampler;
+        if (Stage != default)
+        {
+            _internal.stage = Stage;
+        }
+        if (Desc_set != default)
+        {
+            _internal.desc_set = Desc_set;
+        }
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Msl_buffer != default)
+        {
+            _internal.msl_buffer = Msl_buffer;
+        }
+        if (Msl_texture != default)
+        {
+            _internal.msl_texture = Msl_texture;
+        }
+        if (Msl_sampler != default)
+        {
+            _internal.msl_sampler = Msl_sampler;
+        }
         return _internal;
     }
 

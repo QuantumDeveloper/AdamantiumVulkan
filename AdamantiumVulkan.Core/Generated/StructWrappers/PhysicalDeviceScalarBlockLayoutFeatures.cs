@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceScalarBlockLayoutFeatures : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.scalarBlockLayout = ScalarBlockLayout;
+        if (ScalarBlockLayout != (uint)default)
+        {
+            _internal.scalarBlockLayout = ScalarBlockLayout;
+        }
         return _internal;
     }
 

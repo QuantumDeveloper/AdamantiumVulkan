@@ -63,25 +63,79 @@ public unsafe partial class PhysicalDeviceFloatControlsProperties : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.denormBehaviorIndependence = DenormBehaviorIndependence;
-        _internal.roundingModeIndependence = RoundingModeIndependence;
-        _internal.shaderSignedZeroInfNanPreserveFloat16 = ShaderSignedZeroInfNanPreserveFloat16;
-        _internal.shaderSignedZeroInfNanPreserveFloat32 = ShaderSignedZeroInfNanPreserveFloat32;
-        _internal.shaderSignedZeroInfNanPreserveFloat64 = ShaderSignedZeroInfNanPreserveFloat64;
-        _internal.shaderDenormPreserveFloat16 = ShaderDenormPreserveFloat16;
-        _internal.shaderDenormPreserveFloat32 = ShaderDenormPreserveFloat32;
-        _internal.shaderDenormPreserveFloat64 = ShaderDenormPreserveFloat64;
-        _internal.shaderDenormFlushToZeroFloat16 = ShaderDenormFlushToZeroFloat16;
-        _internal.shaderDenormFlushToZeroFloat32 = ShaderDenormFlushToZeroFloat32;
-        _internal.shaderDenormFlushToZeroFloat64 = ShaderDenormFlushToZeroFloat64;
-        _internal.shaderRoundingModeRTEFloat16 = ShaderRoundingModeRTEFloat16;
-        _internal.shaderRoundingModeRTEFloat32 = ShaderRoundingModeRTEFloat32;
-        _internal.shaderRoundingModeRTEFloat64 = ShaderRoundingModeRTEFloat64;
-        _internal.shaderRoundingModeRTZFloat16 = ShaderRoundingModeRTZFloat16;
-        _internal.shaderRoundingModeRTZFloat32 = ShaderRoundingModeRTZFloat32;
-        _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
+        if (DenormBehaviorIndependence != default)
+        {
+            _internal.denormBehaviorIndependence = DenormBehaviorIndependence;
+        }
+        if (RoundingModeIndependence != default)
+        {
+            _internal.roundingModeIndependence = RoundingModeIndependence;
+        }
+        if (ShaderSignedZeroInfNanPreserveFloat16 != (uint)default)
+        {
+            _internal.shaderSignedZeroInfNanPreserveFloat16 = ShaderSignedZeroInfNanPreserveFloat16;
+        }
+        if (ShaderSignedZeroInfNanPreserveFloat32 != (uint)default)
+        {
+            _internal.shaderSignedZeroInfNanPreserveFloat32 = ShaderSignedZeroInfNanPreserveFloat32;
+        }
+        if (ShaderSignedZeroInfNanPreserveFloat64 != (uint)default)
+        {
+            _internal.shaderSignedZeroInfNanPreserveFloat64 = ShaderSignedZeroInfNanPreserveFloat64;
+        }
+        if (ShaderDenormPreserveFloat16 != (uint)default)
+        {
+            _internal.shaderDenormPreserveFloat16 = ShaderDenormPreserveFloat16;
+        }
+        if (ShaderDenormPreserveFloat32 != (uint)default)
+        {
+            _internal.shaderDenormPreserveFloat32 = ShaderDenormPreserveFloat32;
+        }
+        if (ShaderDenormPreserveFloat64 != (uint)default)
+        {
+            _internal.shaderDenormPreserveFloat64 = ShaderDenormPreserveFloat64;
+        }
+        if (ShaderDenormFlushToZeroFloat16 != (uint)default)
+        {
+            _internal.shaderDenormFlushToZeroFloat16 = ShaderDenormFlushToZeroFloat16;
+        }
+        if (ShaderDenormFlushToZeroFloat32 != (uint)default)
+        {
+            _internal.shaderDenormFlushToZeroFloat32 = ShaderDenormFlushToZeroFloat32;
+        }
+        if (ShaderDenormFlushToZeroFloat64 != (uint)default)
+        {
+            _internal.shaderDenormFlushToZeroFloat64 = ShaderDenormFlushToZeroFloat64;
+        }
+        if (ShaderRoundingModeRTEFloat16 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTEFloat16 = ShaderRoundingModeRTEFloat16;
+        }
+        if (ShaderRoundingModeRTEFloat32 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTEFloat32 = ShaderRoundingModeRTEFloat32;
+        }
+        if (ShaderRoundingModeRTEFloat64 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTEFloat64 = ShaderRoundingModeRTEFloat64;
+        }
+        if (ShaderRoundingModeRTZFloat16 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTZFloat16 = ShaderRoundingModeRTZFloat16;
+        }
+        if (ShaderRoundingModeRTZFloat32 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTZFloat32 = ShaderRoundingModeRTZFloat32;
+        }
+        if (ShaderRoundingModeRTZFloat64 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
+        }
         return _internal;
     }
 
