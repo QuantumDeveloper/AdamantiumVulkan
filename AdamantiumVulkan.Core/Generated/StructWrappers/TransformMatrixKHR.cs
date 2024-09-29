@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class TransformMatrixKHR
+public unsafe partial class TransformMatrixKHR : QBDisposableObject
 {
     public TransformMatrixKHR()
     {
@@ -27,7 +27,7 @@ public unsafe partial class TransformMatrixKHR
     public AdamantiumVulkan.Core.Interop.VkTransformMatrixKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkTransformMatrixKHR();
-        if(Matrix != null)
+        if (Matrix != default)
         {
             if (Matrix.Length > 12)
                 throw new System.ArgumentOutOfRangeException(nameof(Matrix), "Array is out of bounds. Size should not be more than 12");

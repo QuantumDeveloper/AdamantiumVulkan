@@ -62,29 +62,83 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.maxLevelIdc = MaxLevelIdc;
-        _internal.maxSliceSegmentCount = MaxSliceSegmentCount;
-        if (MaxTiles != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (MaxLevelIdc != default)
+        {
+            _internal.maxLevelIdc = MaxLevelIdc;
+        }
+        if (MaxSliceSegmentCount != default)
+        {
+            _internal.maxSliceSegmentCount = MaxSliceSegmentCount;
+        }
+        if (MaxTiles != default)
         {
             _internal.maxTiles = MaxTiles.ToNative();
         }
-        _internal.ctbSizes = CtbSizes;
-        _internal.transformBlockSizes = TransformBlockSizes;
-        _internal.maxPPictureL0ReferenceCount = MaxPPictureL0ReferenceCount;
-        _internal.maxBPictureL0ReferenceCount = MaxBPictureL0ReferenceCount;
-        _internal.maxL1ReferenceCount = MaxL1ReferenceCount;
-        _internal.maxSubLayerCount = MaxSubLayerCount;
-        _internal.expectDyadicTemporalSubLayerPattern = ExpectDyadicTemporalSubLayerPattern;
-        _internal.minQp = MinQp;
-        _internal.maxQp = MaxQp;
-        _internal.prefersGopRemainingFrames = PrefersGopRemainingFrames;
-        _internal.requiresGopRemainingFrames = RequiresGopRemainingFrames;
-        _internal.stdSyntaxFlags = StdSyntaxFlags;
+        if (CtbSizes != (uint)default)
+        {
+            _internal.ctbSizes = CtbSizes;
+        }
+        if (TransformBlockSizes != (uint)default)
+        {
+            _internal.transformBlockSizes = TransformBlockSizes;
+        }
+        if (MaxPPictureL0ReferenceCount != default)
+        {
+            _internal.maxPPictureL0ReferenceCount = MaxPPictureL0ReferenceCount;
+        }
+        if (MaxBPictureL0ReferenceCount != default)
+        {
+            _internal.maxBPictureL0ReferenceCount = MaxBPictureL0ReferenceCount;
+        }
+        if (MaxL1ReferenceCount != default)
+        {
+            _internal.maxL1ReferenceCount = MaxL1ReferenceCount;
+        }
+        if (MaxSubLayerCount != default)
+        {
+            _internal.maxSubLayerCount = MaxSubLayerCount;
+        }
+        if (ExpectDyadicTemporalSubLayerPattern != (uint)default)
+        {
+            _internal.expectDyadicTemporalSubLayerPattern = ExpectDyadicTemporalSubLayerPattern;
+        }
+        if (MinQp != default)
+        {
+            _internal.minQp = MinQp;
+        }
+        if (MaxQp != default)
+        {
+            _internal.maxQp = MaxQp;
+        }
+        if (PrefersGopRemainingFrames != (uint)default)
+        {
+            _internal.prefersGopRemainingFrames = PrefersGopRemainingFrames;
+        }
+        if (RequiresGopRemainingFrames != (uint)default)
+        {
+            _internal.requiresGopRemainingFrames = RequiresGopRemainingFrames;
+        }
+        if (StdSyntaxFlags != (uint)default)
+        {
+            _internal.stdSyntaxFlags = StdSyntaxFlags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MaxTiles?.Dispose();
+    }
+
 
     public static implicit operator VideoEncodeH265CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR v)
     {

@@ -32,16 +32,19 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(HeapBudget != null)
+        if (HeapBudget != default)
         {
             if (HeapBudget.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(HeapBudget), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.heapBudget, 16, HeapBudget);
         }
-        if(HeapUsage != null)
+        if (HeapUsage != default)
         {
             if (HeapUsage.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(HeapUsage), "Array is out of bounds. Size should not be more than 16");

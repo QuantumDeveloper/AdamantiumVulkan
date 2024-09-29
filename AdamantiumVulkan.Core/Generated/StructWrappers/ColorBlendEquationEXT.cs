@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ColorBlendEquationEXT
+public unsafe partial class ColorBlendEquationEXT : QBDisposableObject
 {
     public ColorBlendEquationEXT()
     {
@@ -37,12 +37,30 @@ public unsafe partial class ColorBlendEquationEXT
     public AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT();
-        _internal.srcColorBlendFactor = SrcColorBlendFactor;
-        _internal.dstColorBlendFactor = DstColorBlendFactor;
-        _internal.colorBlendOp = ColorBlendOp;
-        _internal.srcAlphaBlendFactor = SrcAlphaBlendFactor;
-        _internal.dstAlphaBlendFactor = DstAlphaBlendFactor;
-        _internal.alphaBlendOp = AlphaBlendOp;
+        if (SrcColorBlendFactor != default)
+        {
+            _internal.srcColorBlendFactor = SrcColorBlendFactor;
+        }
+        if (DstColorBlendFactor != default)
+        {
+            _internal.dstColorBlendFactor = DstColorBlendFactor;
+        }
+        if (ColorBlendOp != default)
+        {
+            _internal.colorBlendOp = ColorBlendOp;
+        }
+        if (SrcAlphaBlendFactor != default)
+        {
+            _internal.srcAlphaBlendFactor = SrcAlphaBlendFactor;
+        }
+        if (DstAlphaBlendFactor != default)
+        {
+            _internal.dstAlphaBlendFactor = DstAlphaBlendFactor;
+        }
+        if (AlphaBlendOp != default)
+        {
+            _internal.alphaBlendOp = AlphaBlendOp;
+        }
         return _internal;
     }
 

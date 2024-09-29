@@ -32,10 +32,19 @@ public unsafe partial class SemaphoreGetFdInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.semaphore = Semaphore;
-        _internal.handleType = HandleType;
+        if (Semaphore != default)
+        {
+            _internal.semaphore = Semaphore;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

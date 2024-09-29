@@ -30,9 +30,15 @@ public unsafe partial class DeviceEventInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceEvent = DeviceEvent;
+        if (DeviceEvent != default)
+        {
+            _internal.deviceEvent = DeviceEvent;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StridedDeviceAddressRegionKHR
+public unsafe partial class StridedDeviceAddressRegionKHR : QBDisposableObject
 {
     public StridedDeviceAddressRegionKHR()
     {
@@ -31,9 +31,18 @@ public unsafe partial class StridedDeviceAddressRegionKHR
     public AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR();
-        _internal.deviceAddress = DeviceAddress;
-        _internal.stride = Stride;
-        _internal.size = Size;
+        if (DeviceAddress != (ulong)default)
+        {
+            _internal.deviceAddress = DeviceAddress;
+        }
+        if (Stride != (ulong)default)
+        {
+            _internal.stride = Stride;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

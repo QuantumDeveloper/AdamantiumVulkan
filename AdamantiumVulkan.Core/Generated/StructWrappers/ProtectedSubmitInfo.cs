@@ -30,9 +30,15 @@ public unsafe partial class ProtectedSubmitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.protectedSubmit = ProtectedSubmit;
+        if (ProtectedSubmit != (uint)default)
+        {
+            _internal.protectedSubmit = ProtectedSubmit;
+        }
         return _internal;
     }
 

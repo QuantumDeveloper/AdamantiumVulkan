@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 1809 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1835 Column: 14
 public enum BlendOp : uint
 {
     Add = 0,

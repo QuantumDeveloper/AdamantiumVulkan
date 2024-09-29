@@ -35,11 +35,23 @@ public unsafe partial class VideoEncodeH265SessionParametersFeedbackInfoKHR : QB
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersFeedbackInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersFeedbackInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hasStdVPSOverrides = HasStdVPSOverrides;
-        _internal.hasStdSPSOverrides = HasStdSPSOverrides;
-        _internal.hasStdPPSOverrides = HasStdPPSOverrides;
+        if (HasStdVPSOverrides != (uint)default)
+        {
+            _internal.hasStdVPSOverrides = HasStdVPSOverrides;
+        }
+        if (HasStdSPSOverrides != (uint)default)
+        {
+            _internal.hasStdSPSOverrides = HasStdSPSOverrides;
+        }
+        if (HasStdPPSOverrides != (uint)default)
+        {
+            _internal.hasStdPPSOverrides = HasStdPPSOverrides;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class BufferOpaqueCaptureAddressCreateInfo : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.opaqueCaptureAddress = OpaqueCaptureAddress;
+        if (OpaqueCaptureAddress != default)
+        {
+            _internal.opaqueCaptureAddress = OpaqueCaptureAddress;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ViewportWScalingNV
+public unsafe partial class ViewportWScalingNV : QBDisposableObject
 {
     public ViewportWScalingNV()
     {
@@ -29,8 +29,14 @@ public unsafe partial class ViewportWScalingNV
     public AdamantiumVulkan.Core.Interop.VkViewportWScalingNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkViewportWScalingNV();
-        _internal.xcoeff = Xcoeff;
-        _internal.ycoeff = Ycoeff;
+        if (Xcoeff != default)
+        {
+            _internal.xcoeff = Xcoeff;
+        }
+        if (Ycoeff != default)
+        {
+            _internal.ycoeff = Ycoeff;
+        }
         return _internal;
     }
 

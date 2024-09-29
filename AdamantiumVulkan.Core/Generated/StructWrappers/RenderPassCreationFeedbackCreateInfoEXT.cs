@@ -34,10 +34,13 @@ public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pRenderPassFeedback.Dispose();
-        if (PRenderPassFeedback != null)
+        if (PRenderPassFeedback != default)
         {
             var struct0 = PRenderPassFeedback.ToNative();
             _pRenderPassFeedback = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT>(struct0);

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SparseImageMemoryRequirements
+public unsafe partial class SparseImageMemoryRequirements : QBDisposableObject
 {
     public SparseImageMemoryRequirements()
     {
@@ -35,16 +35,34 @@ public unsafe partial class SparseImageMemoryRequirements
     public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements();
-        if (FormatProperties != null)
+        if (FormatProperties != default)
         {
             _internal.formatProperties = FormatProperties.ToNative();
         }
-        _internal.imageMipTailFirstLod = ImageMipTailFirstLod;
-        _internal.imageMipTailSize = ImageMipTailSize;
-        _internal.imageMipTailOffset = ImageMipTailOffset;
-        _internal.imageMipTailStride = ImageMipTailStride;
+        if (ImageMipTailFirstLod != default)
+        {
+            _internal.imageMipTailFirstLod = ImageMipTailFirstLod;
+        }
+        if (ImageMipTailSize != (ulong)default)
+        {
+            _internal.imageMipTailSize = ImageMipTailSize;
+        }
+        if (ImageMipTailOffset != (ulong)default)
+        {
+            _internal.imageMipTailOffset = ImageMipTailOffset;
+        }
+        if (ImageMipTailStride != (ulong)default)
+        {
+            _internal.imageMipTailStride = ImageMipTailStride;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FormatProperties?.Dispose();
+    }
+
 
     public static implicit operator SparseImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements s)
     {

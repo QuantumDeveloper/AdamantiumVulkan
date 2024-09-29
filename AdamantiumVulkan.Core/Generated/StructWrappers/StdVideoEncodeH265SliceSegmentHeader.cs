@@ -58,25 +58,64 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeader : QBDisposableO
     public AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.slice_type = Slice_type;
-        _internal.slice_segment_address = Slice_segment_address;
-        _internal.collocated_ref_idx = Collocated_ref_idx;
-        _internal.MaxNumMergeCand = MaxNumMergeCand;
-        _internal.slice_cb_qp_offset = Slice_cb_qp_offset;
-        _internal.slice_cr_qp_offset = Slice_cr_qp_offset;
-        _internal.slice_beta_offset_div2 = Slice_beta_offset_div2;
-        _internal.slice_tc_offset_div2 = Slice_tc_offset_div2;
-        _internal.slice_act_y_qp_offset = Slice_act_y_qp_offset;
-        _internal.slice_act_cb_qp_offset = Slice_act_cb_qp_offset;
-        _internal.slice_act_cr_qp_offset = Slice_act_cr_qp_offset;
-        _internal.slice_qp_delta = Slice_qp_delta;
-        _internal.reserved1 = Reserved1;
+        if (Slice_type != default)
+        {
+            _internal.slice_type = Slice_type;
+        }
+        if (Slice_segment_address != default)
+        {
+            _internal.slice_segment_address = Slice_segment_address;
+        }
+        if (Collocated_ref_idx != default)
+        {
+            _internal.collocated_ref_idx = Collocated_ref_idx;
+        }
+        if (MaxNumMergeCand != default)
+        {
+            _internal.MaxNumMergeCand = MaxNumMergeCand;
+        }
+        if (Slice_cb_qp_offset != default)
+        {
+            _internal.slice_cb_qp_offset = Slice_cb_qp_offset;
+        }
+        if (Slice_cr_qp_offset != default)
+        {
+            _internal.slice_cr_qp_offset = Slice_cr_qp_offset;
+        }
+        if (Slice_beta_offset_div2 != default)
+        {
+            _internal.slice_beta_offset_div2 = Slice_beta_offset_div2;
+        }
+        if (Slice_tc_offset_div2 != default)
+        {
+            _internal.slice_tc_offset_div2 = Slice_tc_offset_div2;
+        }
+        if (Slice_act_y_qp_offset != default)
+        {
+            _internal.slice_act_y_qp_offset = Slice_act_y_qp_offset;
+        }
+        if (Slice_act_cb_qp_offset != default)
+        {
+            _internal.slice_act_cb_qp_offset = Slice_act_cb_qp_offset;
+        }
+        if (Slice_act_cr_qp_offset != default)
+        {
+            _internal.slice_act_cr_qp_offset = Slice_act_cr_qp_offset;
+        }
+        if (Slice_qp_delta != default)
+        {
+            _internal.slice_qp_delta = Slice_qp_delta;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
         _pWeightTable.Dispose();
-        if (PWeightTable != null)
+        if (PWeightTable != default)
         {
             var struct0 = PWeightTable.ToNative();
             _pWeightTable = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable>(struct0);
@@ -88,6 +127,7 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeader : QBDisposableO
     protected override void UnmanagedDisposeOverride()
     {
         _pWeightTable.Dispose();
+        Flags?.Dispose();
     }
 
 

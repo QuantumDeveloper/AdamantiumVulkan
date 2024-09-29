@@ -52,29 +52,53 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.stageCount = StageCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (StageCount != default)
+        {
+            _internal.stageCount = StageCount;
+        }
         _pStages.Dispose();
-        if (PStages != null)
+        if (PStages != default)
         {
             var struct0 = PStages.ToNative();
             _pStages = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(struct0);
             _internal.pStages = _pStages.Handle;
         }
-        _internal.groupCount = GroupCount;
+        if (GroupCount != default)
+        {
+            _internal.groupCount = GroupCount;
+        }
         _pGroups.Dispose();
-        if (PGroups != null)
+        if (PGroups != default)
         {
             var struct1 = PGroups.ToNative();
             _pGroups = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>(struct1);
             _internal.pGroups = _pGroups.Handle;
         }
-        _internal.maxRecursionDepth = MaxRecursionDepth;
-        _internal.layout = Layout;
-        _internal.basePipelineHandle = BasePipelineHandle;
-        _internal.basePipelineIndex = BasePipelineIndex;
+        if (MaxRecursionDepth != default)
+        {
+            _internal.maxRecursionDepth = MaxRecursionDepth;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (BasePipelineHandle != default)
+        {
+            _internal.basePipelineHandle = BasePipelineHandle;
+        }
+        if (BasePipelineIndex != default)
+        {
+            _internal.basePipelineIndex = BasePipelineIndex;
+        }
         return _internal;
     }
 

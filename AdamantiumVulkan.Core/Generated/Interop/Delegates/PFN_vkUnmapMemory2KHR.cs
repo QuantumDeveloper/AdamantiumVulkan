@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10440 Column: 30
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10534 Column: 30
 public unsafe struct PFN_vkUnmapMemory2KHR
 {
     public PFN_vkUnmapMemory2KHR(void* ptr)

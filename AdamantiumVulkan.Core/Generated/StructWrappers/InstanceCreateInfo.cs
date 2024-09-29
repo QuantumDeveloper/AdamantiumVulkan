@@ -47,27 +47,39 @@ public unsafe partial class InstanceCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         _pApplicationInfo.Dispose();
-        if (PApplicationInfo != null)
+        if (PApplicationInfo != default)
         {
             var struct0 = PApplicationInfo.ToNative();
             _pApplicationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkApplicationInfo>(struct0);
             _internal.pApplicationInfo = _pApplicationInfo.Handle;
         }
-        _internal.enabledLayerCount = EnabledLayerCount;
+        if (EnabledLayerCount != default)
+        {
+            _internal.enabledLayerCount = EnabledLayerCount;
+        }
         _ppEnabledLayerNames.Dispose();
-        if (PEnabledLayerNames != null)
+        if (PEnabledLayerNames != default)
         {
             _ppEnabledLayerNames = new MarshaledStringArray(PEnabledLayerNames, false);
             _internal.ppEnabledLayerNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledLayerNames.Length, false);
             _ppEnabledLayerNames.Fill(_internal.ppEnabledLayerNames);
         }
-        _internal.enabledExtensionCount = EnabledExtensionCount;
+        if (EnabledExtensionCount != default)
+        {
+            _internal.enabledExtensionCount = EnabledExtensionCount;
+        }
         _ppEnabledExtensionNames.Dispose();
-        if (PEnabledExtensionNames != null)
+        if (PEnabledExtensionNames != default)
         {
             _ppEnabledExtensionNames = new MarshaledStringArray(PEnabledExtensionNames, false);
             _internal.ppEnabledExtensionNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledExtensionNames.Length, false);

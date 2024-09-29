@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264RefListModEntry
+public unsafe partial class StdVideoEncodeH264RefListModEntry : QBDisposableObject
 {
     public StdVideoEncodeH264RefListModEntry()
     {
@@ -31,9 +31,18 @@ public unsafe partial class StdVideoEncodeH264RefListModEntry
     public AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry();
-        _internal.modification_of_pic_nums_idc = Modification_of_pic_nums_idc;
-        _internal.abs_diff_pic_num_minus1 = Abs_diff_pic_num_minus1;
-        _internal.long_term_pic_num = Long_term_pic_num;
+        if (Modification_of_pic_nums_idc != default)
+        {
+            _internal.modification_of_pic_nums_idc = Modification_of_pic_nums_idc;
+        }
+        if (Abs_diff_pic_num_minus1 != default)
+        {
+            _internal.abs_diff_pic_num_minus1 = Abs_diff_pic_num_minus1;
+        }
+        if (Long_term_pic_num != default)
+        {
+            _internal.long_term_pic_num = Long_term_pic_num;
+        }
         return _internal;
     }
 

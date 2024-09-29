@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceExternalImageFormatInfo : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleType = HandleType;
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

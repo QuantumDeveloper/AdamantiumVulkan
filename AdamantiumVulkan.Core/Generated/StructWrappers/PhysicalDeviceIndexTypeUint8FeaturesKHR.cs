@@ -11,13 +11,13 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : QBDisposableObject
+public unsafe partial class PhysicalDeviceIndexTypeUint8FeaturesKHR : QBDisposableObject
 {
-    public PhysicalDeviceIndexTypeUint8FeaturesEXT()
+    public PhysicalDeviceIndexTypeUint8FeaturesKHR()
     {
     }
 
-    public PhysicalDeviceIndexTypeUint8FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT _internal)
+    public PhysicalDeviceIndexTypeUint8FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesKHR _internal)
     {
         SType = _internal.sType;
         PNext = _internal.pNext;
@@ -28,18 +28,24 @@ public unsafe partial class PhysicalDeviceIndexTypeUint8FeaturesEXT : QBDisposab
     public void* PNext { get; set; }
     public VkBool32 IndexTypeUint8 { get; set; }
 
-    public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT ToNative()
+    public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesKHR ToNative()
     {
-        var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT();
-        _internal.sType = SType;
+        var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesKHR();
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.indexTypeUint8 = IndexTypeUint8;
+        if (IndexTypeUint8 != (uint)default)
+        {
+            _internal.indexTypeUint8 = IndexTypeUint8;
+        }
         return _internal;
     }
 
-    public static implicit operator PhysicalDeviceIndexTypeUint8FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesEXT p)
+    public static implicit operator PhysicalDeviceIndexTypeUint8FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8FeaturesKHR p)
     {
-        return new PhysicalDeviceIndexTypeUint8FeaturesEXT(p);
+        return new PhysicalDeviceIndexTypeUint8FeaturesKHR(p);
     }
 
 }

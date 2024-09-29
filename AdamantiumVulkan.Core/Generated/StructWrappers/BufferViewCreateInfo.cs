@@ -38,13 +38,31 @@ public unsafe partial class BufferViewCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.buffer = Buffer;
-        _internal.format = Format;
-        _internal.offset = Offset;
-        _internal.range = Range;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Range != (ulong)default)
+        {
+            _internal.range = Range;
+        }
         return _internal;
     }
 

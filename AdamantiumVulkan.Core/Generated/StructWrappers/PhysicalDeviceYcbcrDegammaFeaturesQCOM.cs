@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.ycbcrDegamma = YcbcrDegamma;
+        if (YcbcrDegamma != (uint)default)
+        {
+            _internal.ycbcrDegamma = YcbcrDegamma;
+        }
         return _internal;
     }
 

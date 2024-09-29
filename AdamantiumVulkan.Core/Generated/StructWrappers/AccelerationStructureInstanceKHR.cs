@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AccelerationStructureInstanceKHR
+public unsafe partial class AccelerationStructureInstanceKHR : QBDisposableObject
 {
     public AccelerationStructureInstanceKHR()
     {
@@ -37,17 +37,38 @@ public unsafe partial class AccelerationStructureInstanceKHR
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureInstanceKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureInstanceKHR();
-        if (Transform != null)
+        if (Transform != default)
         {
             _internal.transform = Transform.ToNative();
         }
-        _internal.instanceCustomIndex = InstanceCustomIndex;
-        _internal.mask = Mask;
-        _internal.instanceShaderBindingTableRecordOffset = InstanceShaderBindingTableRecordOffset;
-        _internal.flags = Flags;
-        _internal.accelerationStructureReference = AccelerationStructureReference;
+        if (InstanceCustomIndex != default)
+        {
+            _internal.instanceCustomIndex = InstanceCustomIndex;
+        }
+        if (Mask != default)
+        {
+            _internal.mask = Mask;
+        }
+        if (InstanceShaderBindingTableRecordOffset != default)
+        {
+            _internal.instanceShaderBindingTableRecordOffset = InstanceShaderBindingTableRecordOffset;
+        }
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (AccelerationStructureReference != default)
+        {
+            _internal.accelerationStructureReference = AccelerationStructureReference;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Transform?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureInstanceKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInstanceKHR a)
     {

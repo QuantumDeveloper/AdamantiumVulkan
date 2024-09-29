@@ -38,24 +38,42 @@ public unsafe partial class PhysicalDeviceSampleLocationsPropertiesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sampleLocationSampleCounts = SampleLocationSampleCounts;
-        if (MaxSampleLocationGridSize != null)
+        if (SampleLocationSampleCounts != (uint)default)
+        {
+            _internal.sampleLocationSampleCounts = SampleLocationSampleCounts;
+        }
+        if (MaxSampleLocationGridSize != default)
         {
             _internal.maxSampleLocationGridSize = MaxSampleLocationGridSize.ToNative();
         }
-        if(SampleLocationCoordinateRange != null)
+        if (SampleLocationCoordinateRange != default)
         {
             if (SampleLocationCoordinateRange.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(SampleLocationCoordinateRange), "Array is out of bounds. Size should not be more than 2");
 
             NativeUtils.PrimitiveToFixedArray(_internal.sampleLocationCoordinateRange, 2, SampleLocationCoordinateRange);
         }
-        _internal.sampleLocationSubPixelBits = SampleLocationSubPixelBits;
-        _internal.variableSampleLocations = VariableSampleLocations;
+        if (SampleLocationSubPixelBits != default)
+        {
+            _internal.sampleLocationSubPixelBits = SampleLocationSubPixelBits;
+        }
+        if (VariableSampleLocations != (uint)default)
+        {
+            _internal.variableSampleLocations = VariableSampleLocations;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MaxSampleLocationGridSize?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceSampleLocationsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT p)
     {

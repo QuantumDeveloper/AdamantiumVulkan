@@ -31,9 +31,15 @@ public unsafe partial class AccelerationStructureDeviceAddressInfoKHR : QBDispos
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.accelerationStructure = AccelerationStructure;
+        if (AccelerationStructure != default)
+        {
+            _internal.accelerationStructure = AccelerationStructure;
+        }
         return _internal;
     }
 

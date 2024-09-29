@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceTilePropertiesFeaturesQCOM : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTilePropertiesFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTilePropertiesFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.tileProperties = TileProperties;
+        if (TileProperties != (uint)default)
+        {
+            _internal.tileProperties = TileProperties;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceGlobalPriorityQueryFeaturesKHR : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.globalPriorityQuery = GlobalPriorityQuery;
+        if (GlobalPriorityQuery != (uint)default)
+        {
+            _internal.globalPriorityQuery = GlobalPriorityQuery;
+        }
         return _internal;
     }
 

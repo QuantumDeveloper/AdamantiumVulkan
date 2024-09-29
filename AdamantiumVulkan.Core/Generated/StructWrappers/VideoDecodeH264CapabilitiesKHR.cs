@@ -34,15 +34,27 @@ public unsafe partial class VideoDecodeH264CapabilitiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoDecodeH264CapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoDecodeH264CapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxLevelIdc = MaxLevelIdc;
-        if (FieldOffsetGranularity != null)
+        if (MaxLevelIdc != default)
+        {
+            _internal.maxLevelIdc = MaxLevelIdc;
+        }
+        if (FieldOffsetGranularity != default)
         {
             _internal.fieldOffsetGranularity = FieldOffsetGranularity.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FieldOffsetGranularity?.Dispose();
+    }
+
 
     public static implicit operator VideoDecodeH264CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264CapabilitiesKHR v)
     {

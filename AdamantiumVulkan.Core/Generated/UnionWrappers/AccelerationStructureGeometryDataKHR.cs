@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AccelerationStructureGeometryDataKHR
+public unsafe partial class AccelerationStructureGeometryDataKHR : QBDisposableObject
 {
     public AccelerationStructureGeometryDataKHR()
     {
@@ -31,20 +31,28 @@ public unsafe partial class AccelerationStructureGeometryDataKHR
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR();
-        if (Triangles != null)
+        if (Triangles != default)
         {
             _internal.triangles = Triangles.ToNative();
         }
-        if (Aabbs != null)
+        if (Aabbs != default)
         {
             _internal.aabbs = Aabbs.ToNative();
         }
-        if (Instances != null)
+        if (Instances != default)
         {
             _internal.instances = Instances.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Triangles?.Dispose();
+        Aabbs?.Dispose();
+        Instances?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureGeometryDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR a)
     {

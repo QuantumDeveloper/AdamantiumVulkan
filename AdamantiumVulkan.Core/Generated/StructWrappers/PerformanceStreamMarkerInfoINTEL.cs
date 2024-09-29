@@ -31,9 +31,15 @@ public unsafe partial class PerformanceStreamMarkerInfoINTEL : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.marker = Marker;
+        if (Marker != default)
+        {
+            _internal.marker = Marker;
+        }
         return _internal;
     }
 

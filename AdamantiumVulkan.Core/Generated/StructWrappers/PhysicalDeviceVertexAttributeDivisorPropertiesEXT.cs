@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
+        if (MaxVertexAttribDivisor != default)
+        {
+            _internal.maxVertexAttribDivisor = MaxVertexAttribDivisor;
+        }
         return _internal;
     }
 

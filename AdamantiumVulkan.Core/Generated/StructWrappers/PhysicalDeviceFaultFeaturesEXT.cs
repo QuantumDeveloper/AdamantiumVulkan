@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceFaultFeaturesEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceFault = DeviceFault;
-        _internal.deviceFaultVendorBinary = DeviceFaultVendorBinary;
+        if (DeviceFault != (uint)default)
+        {
+            _internal.deviceFault = DeviceFault;
+        }
+        if (DeviceFaultVendorBinary != (uint)default)
+        {
+            _internal.deviceFaultVendorBinary = DeviceFaultVendorBinary;
+        }
         return _internal;
     }
 

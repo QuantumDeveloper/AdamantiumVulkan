@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265HrdFlags
+public unsafe partial class StdVideoH265HrdFlags : QBDisposableObject
 {
     public StdVideoH265HrdFlags()
     {
@@ -39,13 +39,34 @@ public unsafe partial class StdVideoH265HrdFlags
     public AdamantiumVulkan.Interop.StdVideoH265HrdFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265HrdFlags();
-        _internal.nal_hrd_parameters_present_flag = Nal_hrd_parameters_present_flag;
-        _internal.vcl_hrd_parameters_present_flag = Vcl_hrd_parameters_present_flag;
-        _internal.sub_pic_hrd_params_present_flag = Sub_pic_hrd_params_present_flag;
-        _internal.sub_pic_cpb_params_in_pic_timing_sei_flag = Sub_pic_cpb_params_in_pic_timing_sei_flag;
-        _internal.fixed_pic_rate_general_flag = Fixed_pic_rate_general_flag;
-        _internal.fixed_pic_rate_within_cvs_flag = Fixed_pic_rate_within_cvs_flag;
-        _internal.low_delay_hrd_flag = Low_delay_hrd_flag;
+        if (Nal_hrd_parameters_present_flag != default)
+        {
+            _internal.nal_hrd_parameters_present_flag = Nal_hrd_parameters_present_flag;
+        }
+        if (Vcl_hrd_parameters_present_flag != default)
+        {
+            _internal.vcl_hrd_parameters_present_flag = Vcl_hrd_parameters_present_flag;
+        }
+        if (Sub_pic_hrd_params_present_flag != default)
+        {
+            _internal.sub_pic_hrd_params_present_flag = Sub_pic_hrd_params_present_flag;
+        }
+        if (Sub_pic_cpb_params_in_pic_timing_sei_flag != default)
+        {
+            _internal.sub_pic_cpb_params_in_pic_timing_sei_flag = Sub_pic_cpb_params_in_pic_timing_sei_flag;
+        }
+        if (Fixed_pic_rate_general_flag != default)
+        {
+            _internal.fixed_pic_rate_general_flag = Fixed_pic_rate_general_flag;
+        }
+        if (Fixed_pic_rate_within_cvs_flag != default)
+        {
+            _internal.fixed_pic_rate_within_cvs_flag = Fixed_pic_rate_within_cvs_flag;
+        }
+        if (Low_delay_hrd_flag != default)
+        {
+            _internal.low_delay_hrd_flag = Low_delay_hrd_flag;
+        }
         return _internal;
     }
 

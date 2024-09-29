@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DrawMeshTasksIndirectCommandNV
+public unsafe partial class DrawMeshTasksIndirectCommandNV : QBDisposableObject
 {
     public DrawMeshTasksIndirectCommandNV()
     {
@@ -29,8 +29,14 @@ public unsafe partial class DrawMeshTasksIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV();
-        _internal.taskCount = TaskCount;
-        _internal.firstTask = FirstTask;
+        if (TaskCount != default)
+        {
+            _internal.taskCount = TaskCount;
+        }
+        if (FirstTask != default)
+        {
+            _internal.firstTask = FirstTask;
+        }
         return _internal;
     }
 

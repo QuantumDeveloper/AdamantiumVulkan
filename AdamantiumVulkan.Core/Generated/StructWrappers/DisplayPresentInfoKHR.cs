@@ -34,19 +34,32 @@ public unsafe partial class DisplayPresentInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (SrcRect != null)
+        if (SrcRect != default)
         {
             _internal.srcRect = SrcRect.ToNative();
         }
-        if (DstRect != null)
+        if (DstRect != default)
         {
             _internal.dstRect = DstRect.ToNative();
         }
-        _internal.persistent = Persistent;
+        if (Persistent != (uint)default)
+        {
+            _internal.persistent = Persistent;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SrcRect?.Dispose();
+        DstRect?.Dispose();
+    }
+
 
     public static implicit operator DisplayPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR d)
     {

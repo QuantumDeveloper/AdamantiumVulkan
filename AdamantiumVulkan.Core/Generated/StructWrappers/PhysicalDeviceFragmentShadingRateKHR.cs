@@ -33,15 +33,27 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateKHR : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sampleCounts = SampleCounts;
-        if (FragmentSize != null)
+        if (SampleCounts != (uint)default)
+        {
+            _internal.sampleCounts = SampleCounts;
+        }
+        if (FragmentSize != default)
         {
             _internal.fragmentSize = FragmentSize.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FragmentSize?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceFragmentShadingRateKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR p)
     {

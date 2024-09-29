@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceUniformBufferStandardLayoutFeatures : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.uniformBufferStandardLayout = UniformBufferStandardLayout;
+        if (UniformBufferStandardLayout != (uint)default)
+        {
+            _internal.uniformBufferStandardLayout = UniformBufferStandardLayout;
+        }
         return _internal;
     }
 

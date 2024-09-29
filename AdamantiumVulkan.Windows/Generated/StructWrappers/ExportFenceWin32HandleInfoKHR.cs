@@ -36,11 +36,20 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _internal.pAttributes = PAttributes;
-        _internal.dwAccess = DwAccess;
-        _internal.name = Name;
+        if (DwAccess != default)
+        {
+            _internal.dwAccess = DwAccess;
+        }
+        if (Name != default)
+        {
+            _internal.name = Name;
+        }
         return _internal;
     }
 

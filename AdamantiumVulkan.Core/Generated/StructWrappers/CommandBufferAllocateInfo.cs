@@ -34,11 +34,23 @@ public unsafe partial class CommandBufferAllocateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.commandPool = CommandPool;
-        _internal.level = Level;
-        _internal.commandBufferCount = CommandBufferCount;
+        if (CommandPool != default)
+        {
+            _internal.commandPool = CommandPool;
+        }
+        if (Level != default)
+        {
+            _internal.level = Level;
+        }
+        if (CommandBufferCount != default)
+        {
+            _internal.commandBufferCount = CommandBufferCount;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class RenderPassCreationControlEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassCreationControlEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreationControlEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.disallowMerging = DisallowMerging;
+        if (DisallowMerging != (uint)default)
+        {
+            _internal.disallowMerging = DisallowMerging;
+        }
         return _internal;
     }
 

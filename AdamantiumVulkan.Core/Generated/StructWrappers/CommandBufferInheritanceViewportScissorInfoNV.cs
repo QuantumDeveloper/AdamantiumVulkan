@@ -38,12 +38,21 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : QBDi
     public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceViewportScissorInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceViewportScissorInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.viewportScissor2D = ViewportScissor2D;
-        _internal.viewportDepthCount = ViewportDepthCount;
+        if (ViewportScissor2D != (uint)default)
+        {
+            _internal.viewportScissor2D = ViewportScissor2D;
+        }
+        if (ViewportDepthCount != default)
+        {
+            _internal.viewportDepthCount = ViewportDepthCount;
+        }
         _pViewportDepths.Dispose();
-        if (PViewportDepths != null)
+        if (PViewportDepths != default)
         {
             var struct0 = PViewportDepths.ToNative();
             _pViewportDepths = new NativeStruct<AdamantiumVulkan.Core.Interop.VkViewport>(struct0);

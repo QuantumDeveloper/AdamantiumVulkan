@@ -62,11 +62,17 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPresentInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPresentInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        if (WaitSemaphoreCount != default)
+        {
+            _internal.waitSemaphoreCount = WaitSemaphoreCount;
+        }
         _pWaitSemaphores.Dispose();
-        if (PWaitSemaphores != null)
+        if (PWaitSemaphores != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[PWaitSemaphores.Length];
             for (int i = 0; i < PWaitSemaphores.Length; ++i)
@@ -76,9 +82,12 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
             _pWaitSemaphores = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(tmpArray0);
             _internal.pWaitSemaphores = _pWaitSemaphores.Handle;
         }
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pSwapchains.Dispose();
-        if (PSwapchains != null)
+        if (PSwapchains != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T[PSwapchains.Length];
             for (int i = 0; i < PSwapchains.Length; ++i)
@@ -89,7 +98,7 @@ public unsafe partial class PresentInfoKHR : QBDisposableObject
             _internal.pSwapchains = _pSwapchains.Handle;
         }
         _pImageIndices.Dispose();
-        if (PImageIndices != null)
+        if (PImageIndices != default)
         {
             var tmpArray2 = new uint[PImageIndices.Length];
             for (int i = 0; i < PImageIndices.Length; ++i)

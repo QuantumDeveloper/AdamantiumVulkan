@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceRayTracingMaintenance1FeaturesKHR : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rayTracingMaintenance1 = RayTracingMaintenance1;
-        _internal.rayTracingPipelineTraceRaysIndirect2 = RayTracingPipelineTraceRaysIndirect2;
+        if (RayTracingMaintenance1 != (uint)default)
+        {
+            _internal.rayTracingMaintenance1 = RayTracingMaintenance1;
+        }
+        if (RayTracingPipelineTraceRaysIndirect2 != (uint)default)
+        {
+            _internal.rayTracingPipelineTraceRaysIndirect2 = RayTracingPipelineTraceRaysIndirect2;
+        }
         return _internal;
     }
 

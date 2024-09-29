@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceShaderClockFeaturesKHR : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderSubgroupClock = ShaderSubgroupClock;
-        _internal.shaderDeviceClock = ShaderDeviceClock;
+        if (ShaderSubgroupClock != (uint)default)
+        {
+            _internal.shaderSubgroupClock = ShaderSubgroupClock;
+        }
+        if (ShaderDeviceClock != (uint)default)
+        {
+            _internal.shaderDeviceClock = ShaderDeviceClock;
+        }
         return _internal;
     }
 

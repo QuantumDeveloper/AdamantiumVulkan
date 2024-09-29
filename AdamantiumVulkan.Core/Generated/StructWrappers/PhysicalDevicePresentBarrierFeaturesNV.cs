@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePresentBarrierFeaturesNV : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentBarrier = PresentBarrier;
+        if (PresentBarrier != (uint)default)
+        {
+            _internal.presentBarrier = PresentBarrier;
+        }
         return _internal;
     }
 

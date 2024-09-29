@@ -32,7 +32,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.3.275.0\Include";
+            string vulkanBasePath = @"C:\VulkanSDK\1.3.283.0\Include";
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
@@ -159,7 +159,7 @@ namespace AdamantiumVulkan.Generator
             spivToolsModule.WrapInteropObjects = true;
             spivToolsModule.CharAsBoolForMethods = true;
             spivToolsModule.OutputPath = spirvToolsPath;
-
+            
             options.AddModule(vkMainModule);
             options.AddModule(shaderModule);
             options.AddModule(spivCrossModule);
@@ -187,7 +187,7 @@ namespace AdamantiumVulkan.Generator
             
             context.AddPreGeneratorPass(functionToInstance, ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.Winapi), ExecutionPassKind.PerTranslationUnit);
-            context.AddPreGeneratorPass(new CheckFlagEnumsPass(), ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new CheckFlagsEnumsPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsCleanupPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsRenamePass(CasePattern.PascalCase, "VkFormat"), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsExcludePass(ExcludeCheck.StartsWithIgnoreCase, "BeginRange", "EndRange"), ExecutionPassKind.PerTranslationUnit);
@@ -279,7 +279,7 @@ namespace AdamantiumVulkan.Generator
             macroAction.SubstitutionList.Add("VP_KHR_ROADMAP_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 3, 204));
             macroAction.SubstitutionList.Add("VP_LUNARG_DESKTOP_BASELINE_2022_MIN_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeProfileVersionFunction(1, 1, 139));
             
-            // Soirv constansts part
+            // Spirv constansts part
             macroAction.IgnoreList.Add("SPVC_PUBLIC_API");
             macroAction.IgnoreList.Add("SPVC_TRUE");
             macroAction.IgnoreList.Add("SPVC_FALSE");

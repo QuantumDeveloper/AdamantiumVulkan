@@ -46,13 +46,31 @@ public unsafe partial class BufferCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBufferCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.size = Size;
-        _internal.usage = Usage;
-        _internal.sharingMode = SharingMode;
-        _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (Usage != default)
+        {
+            _internal.usage = Usage;
+        }
+        if (SharingMode != default)
+        {
+            _internal.sharingMode = SharingMode;
+        }
+        if (QueueFamilyIndexCount != default)
+        {
+            _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        }
         _pQueueFamilyIndices.Dispose();
         if (PQueueFamilyIndices.HasValue)
         {

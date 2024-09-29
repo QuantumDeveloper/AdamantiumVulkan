@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceRenderPassStripedFeaturesARM : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedFeaturesARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedFeaturesARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.renderPassStriped = RenderPassStriped;
+        if (RenderPassStriped != (uint)default)
+        {
+            _internal.renderPassStriped = RenderPassStriped;
+        }
         return _internal;
     }
 

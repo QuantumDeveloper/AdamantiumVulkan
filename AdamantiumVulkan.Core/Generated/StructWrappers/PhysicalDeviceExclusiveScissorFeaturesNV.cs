@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceExclusiveScissorFeaturesNV : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.exclusiveScissor = ExclusiveScissor;
+        if (ExclusiveScissor != (uint)default)
+        {
+            _internal.exclusiveScissor = ExclusiveScissor;
+        }
         return _internal;
     }
 

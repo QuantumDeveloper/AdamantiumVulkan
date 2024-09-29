@@ -37,13 +37,16 @@ public unsafe partial class PipelineFragmentShadingRateStateCreateInfoKHR : QBDi
     public AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (FragmentSize != null)
+        if (FragmentSize != default)
         {
             _internal.fragmentSize = FragmentSize.ToNative();
         }
-        if(CombinerOps != null)
+        if (CombinerOps != default)
         {
             if (CombinerOps.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(CombinerOps), "Array is out of bounds. Size should not be more than 2");
@@ -55,6 +58,12 @@ public unsafe partial class PipelineFragmentShadingRateStateCreateInfoKHR : QBDi
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FragmentSize?.Dispose();
+    }
+
 
     public static implicit operator PipelineFragmentShadingRateStateCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR p)
     {

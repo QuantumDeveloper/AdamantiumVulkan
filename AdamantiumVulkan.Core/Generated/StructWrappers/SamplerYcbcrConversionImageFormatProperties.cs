@@ -30,9 +30,15 @@ public unsafe partial class SamplerYcbcrConversionImageFormatProperties : QBDisp
     public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.combinedImageSamplerDescriptorCount = CombinedImageSamplerDescriptorCount;
+        if (CombinedImageSamplerDescriptorCount != default)
+        {
+            _internal.combinedImageSamplerDescriptorCount = CombinedImageSamplerDescriptorCount;
+        }
         return _internal;
     }
 

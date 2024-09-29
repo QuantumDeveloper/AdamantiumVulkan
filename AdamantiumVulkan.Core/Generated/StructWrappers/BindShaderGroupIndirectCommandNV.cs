@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class BindShaderGroupIndirectCommandNV
+public unsafe partial class BindShaderGroupIndirectCommandNV : QBDisposableObject
 {
     public BindShaderGroupIndirectCommandNV()
     {
@@ -27,7 +27,10 @@ public unsafe partial class BindShaderGroupIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkBindShaderGroupIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindShaderGroupIndirectCommandNV();
-        _internal.groupIndex = GroupIndex;
+        if (GroupIndex != default)
+        {
+            _internal.groupIndex = GroupIndex;
+        }
         return _internal;
     }
 

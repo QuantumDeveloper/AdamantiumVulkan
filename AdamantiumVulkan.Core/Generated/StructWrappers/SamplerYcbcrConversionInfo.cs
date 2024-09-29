@@ -30,9 +30,15 @@ public unsafe partial class SamplerYcbcrConversionInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.conversion = Conversion;
+        if (Conversion != default)
+        {
+            _internal.conversion = Conversion;
+        }
         return _internal;
     }
 

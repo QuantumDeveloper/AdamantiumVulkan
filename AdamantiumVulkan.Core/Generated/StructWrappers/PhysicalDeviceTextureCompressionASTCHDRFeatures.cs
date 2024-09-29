@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTCHDRFeatures : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.textureCompressionASTC_HDR = TextureCompressionASTC_HDR;
+        if (TextureCompressionASTC_HDR != (uint)default)
+        {
+            _internal.textureCompressionASTC_HDR = TextureCompressionASTC_HDR;
+        }
         return _internal;
     }
 

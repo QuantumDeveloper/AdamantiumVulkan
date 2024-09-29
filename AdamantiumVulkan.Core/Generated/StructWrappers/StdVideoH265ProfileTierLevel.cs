@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265ProfileTierLevel
+public unsafe partial class StdVideoH265ProfileTierLevel : QBDisposableObject
 {
     public StdVideoH265ProfileTierLevel()
     {
@@ -31,14 +31,26 @@ public unsafe partial class StdVideoH265ProfileTierLevel
     public AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.general_profile_idc = General_profile_idc;
-        _internal.general_level_idc = General_level_idc;
+        if (General_profile_idc != default)
+        {
+            _internal.general_profile_idc = General_profile_idc;
+        }
+        if (General_level_idc != default)
+        {
+            _internal.general_level_idc = General_level_idc;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoH265ProfileTierLevel(AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel s)
     {

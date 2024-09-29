@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpacePropertiesNV
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.extendedSparseAddressSpaceSize = ExtendedSparseAddressSpaceSize;
-        _internal.extendedSparseImageUsageFlags = ExtendedSparseImageUsageFlags;
-        _internal.extendedSparseBufferUsageFlags = ExtendedSparseBufferUsageFlags;
+        if (ExtendedSparseAddressSpaceSize != (ulong)default)
+        {
+            _internal.extendedSparseAddressSpaceSize = ExtendedSparseAddressSpaceSize;
+        }
+        if (ExtendedSparseImageUsageFlags != (uint)default)
+        {
+            _internal.extendedSparseImageUsageFlags = ExtendedSparseImageUsageFlags;
+        }
+        if (ExtendedSparseBufferUsageFlags != (uint)default)
+        {
+            _internal.extendedSparseBufferUsageFlags = ExtendedSparseBufferUsageFlags;
+        }
         return _internal;
     }
 

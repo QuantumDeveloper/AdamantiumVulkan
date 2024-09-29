@@ -52,27 +52,39 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : QBDispo
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stdVPSCount = StdVPSCount;
+        if (StdVPSCount != default)
+        {
+            _internal.stdVPSCount = StdVPSCount;
+        }
         _pStdVPSs.Dispose();
-        if (PStdVPSs != null)
+        if (PStdVPSs != default)
         {
             var struct0 = PStdVPSs.ToNative();
             _pStdVPSs = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265VideoParameterSet>(struct0);
             _internal.pStdVPSs = _pStdVPSs.Handle;
         }
-        _internal.stdSPSCount = StdSPSCount;
+        if (StdSPSCount != default)
+        {
+            _internal.stdSPSCount = StdSPSCount;
+        }
         _pStdSPSs.Dispose();
-        if (PStdSPSs != null)
+        if (PStdSPSs != default)
         {
             var struct1 = PStdSPSs.ToNative();
             _pStdSPSs = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet>(struct1);
             _internal.pStdSPSs = _pStdSPSs.Handle;
         }
-        _internal.stdPPSCount = StdPPSCount;
+        if (StdPPSCount != default)
+        {
+            _internal.stdPPSCount = StdPPSCount;
+        }
         _pStdPPSs.Dispose();
-        if (PStdPPSs != null)
+        if (PStdPPSs != default)
         {
             var struct2 = PStdPPSs.ToNative();
             _pStdPPSs = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265PictureParameterSet>(struct2);

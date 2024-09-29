@@ -33,15 +33,27 @@ public unsafe partial class SamplerBorderColorComponentMappingCreateInfoEXT : QB
     public AdamantiumVulkan.Core.Interop.VkSamplerBorderColorComponentMappingCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerBorderColorComponentMappingCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (Components != null)
+        if (Components != default)
         {
             _internal.components = Components.ToNative();
         }
-        _internal.srgb = Srgb;
+        if (Srgb != (uint)default)
+        {
+            _internal.srgb = Srgb;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Components?.Dispose();
+    }
+
 
     public static implicit operator SamplerBorderColorComponentMappingCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerBorderColorComponentMappingCreateInfoEXT s)
     {

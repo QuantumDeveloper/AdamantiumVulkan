@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class CopyMemoryToImageIndirectCommandNV
+public unsafe partial class CopyMemoryToImageIndirectCommandNV : QBDisposableObject
 {
     public CopyMemoryToImageIndirectCommandNV()
     {
@@ -37,23 +37,40 @@ public unsafe partial class CopyMemoryToImageIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageIndirectCommandNV();
-        _internal.srcAddress = SrcAddress;
-        _internal.bufferRowLength = BufferRowLength;
-        _internal.bufferImageHeight = BufferImageHeight;
-        if (ImageSubresource != null)
+        if (SrcAddress != (ulong)default)
+        {
+            _internal.srcAddress = SrcAddress;
+        }
+        if (BufferRowLength != default)
+        {
+            _internal.bufferRowLength = BufferRowLength;
+        }
+        if (BufferImageHeight != default)
+        {
+            _internal.bufferImageHeight = BufferImageHeight;
+        }
+        if (ImageSubresource != default)
         {
             _internal.imageSubresource = ImageSubresource.ToNative();
         }
-        if (ImageOffset != null)
+        if (ImageOffset != default)
         {
             _internal.imageOffset = ImageOffset.ToNative();
         }
-        if (ImageExtent != null)
+        if (ImageExtent != default)
         {
             _internal.imageExtent = ImageExtent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageSubresource?.Dispose();
+        ImageOffset?.Dispose();
+        ImageExtent?.Dispose();
+    }
+
 
     public static implicit operator CopyMemoryToImageIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageIndirectCommandNV c)
     {

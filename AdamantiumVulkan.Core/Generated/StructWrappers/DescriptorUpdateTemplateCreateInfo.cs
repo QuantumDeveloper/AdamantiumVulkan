@@ -47,22 +47,46 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.descriptorUpdateEntryCount = DescriptorUpdateEntryCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DescriptorUpdateEntryCount != default)
+        {
+            _internal.descriptorUpdateEntryCount = DescriptorUpdateEntryCount;
+        }
         _pDescriptorUpdateEntries.Dispose();
-        if (PDescriptorUpdateEntries != null)
+        if (PDescriptorUpdateEntries != default)
         {
             var struct0 = PDescriptorUpdateEntries.ToNative();
             _pDescriptorUpdateEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(struct0);
             _internal.pDescriptorUpdateEntries = _pDescriptorUpdateEntries.Handle;
         }
-        _internal.templateType = TemplateType;
-        _internal.descriptorSetLayout = DescriptorSetLayout;
-        _internal.pipelineBindPoint = PipelineBindPoint;
-        _internal.pipelineLayout = PipelineLayout;
-        _internal.set = Set;
+        if (TemplateType != default)
+        {
+            _internal.templateType = TemplateType;
+        }
+        if (DescriptorSetLayout != default)
+        {
+            _internal.descriptorSetLayout = DescriptorSetLayout;
+        }
+        if (PipelineBindPoint != default)
+        {
+            _internal.pipelineBindPoint = PipelineBindPoint;
+        }
+        if (PipelineLayout != default)
+        {
+            _internal.pipelineLayout = PipelineLayout;
+        }
+        if (Set != default)
+        {
+            _internal.set = Set;
+        }
         return _internal;
     }
 

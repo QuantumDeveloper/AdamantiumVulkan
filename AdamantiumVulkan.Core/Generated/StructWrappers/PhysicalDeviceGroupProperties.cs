@@ -38,10 +38,16 @@ public unsafe partial class PhysicalDeviceGroupProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.physicalDeviceCount = PhysicalDeviceCount;
-        if(PhysicalDevices != null)
+        if (PhysicalDeviceCount != default)
+        {
+            _internal.physicalDeviceCount = PhysicalDeviceCount;
+        }
+        if (PhysicalDevices != default)
         {
             if (PhysicalDevices.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(PhysicalDevices), "Array is out of bounds. Size should not be more than 32");
@@ -51,7 +57,10 @@ public unsafe partial class PhysicalDeviceGroupProperties : QBDisposableObject
                 _internal.physicalDevices[i] = (AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T)PhysicalDevices[i];
             }
         }
-        _internal.subsetAllocation = SubsetAllocation;
+        if (SubsetAllocation != (uint)default)
+        {
+            _internal.subsetAllocation = SubsetAllocation;
+        }
         return _internal;
     }
 

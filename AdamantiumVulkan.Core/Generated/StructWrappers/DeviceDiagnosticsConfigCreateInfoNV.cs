@@ -31,9 +31,15 @@ public unsafe partial class DeviceDiagnosticsConfigCreateInfoNV : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkDeviceDiagnosticsConfigCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceDiagnosticsConfigCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

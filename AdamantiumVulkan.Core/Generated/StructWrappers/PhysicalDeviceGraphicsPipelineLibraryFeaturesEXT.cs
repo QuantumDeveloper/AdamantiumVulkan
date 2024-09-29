@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.graphicsPipelineLibrary = GraphicsPipelineLibrary;
+        if (GraphicsPipelineLibrary != (uint)default)
+        {
+            _internal.graphicsPipelineLibrary = GraphicsPipelineLibrary;
+        }
         return _internal;
     }
 

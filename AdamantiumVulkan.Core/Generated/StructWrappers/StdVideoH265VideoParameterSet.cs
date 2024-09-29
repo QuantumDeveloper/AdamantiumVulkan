@@ -58,34 +58,58 @@ public unsafe partial class StdVideoH265VideoParameterSet : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoH265VideoParameterSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265VideoParameterSet();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.vps_video_parameter_set_id = Vps_video_parameter_set_id;
-        _internal.vps_max_sub_layers_minus1 = Vps_max_sub_layers_minus1;
-        _internal.reserved1 = Reserved1;
-        _internal.reserved2 = Reserved2;
-        _internal.vps_num_units_in_tick = Vps_num_units_in_tick;
-        _internal.vps_time_scale = Vps_time_scale;
-        _internal.vps_num_ticks_poc_diff_one_minus1 = Vps_num_ticks_poc_diff_one_minus1;
-        _internal.reserved3 = Reserved3;
+        if (Vps_video_parameter_set_id != default)
+        {
+            _internal.vps_video_parameter_set_id = Vps_video_parameter_set_id;
+        }
+        if (Vps_max_sub_layers_minus1 != default)
+        {
+            _internal.vps_max_sub_layers_minus1 = Vps_max_sub_layers_minus1;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
+        if (Reserved2 != default)
+        {
+            _internal.reserved2 = Reserved2;
+        }
+        if (Vps_num_units_in_tick != default)
+        {
+            _internal.vps_num_units_in_tick = Vps_num_units_in_tick;
+        }
+        if (Vps_time_scale != default)
+        {
+            _internal.vps_time_scale = Vps_time_scale;
+        }
+        if (Vps_num_ticks_poc_diff_one_minus1 != default)
+        {
+            _internal.vps_num_ticks_poc_diff_one_minus1 = Vps_num_ticks_poc_diff_one_minus1;
+        }
+        if (Reserved3 != default)
+        {
+            _internal.reserved3 = Reserved3;
+        }
         _pDecPicBufMgr.Dispose();
-        if (PDecPicBufMgr != null)
+        if (PDecPicBufMgr != default)
         {
             var struct0 = PDecPicBufMgr.ToNative();
             _pDecPicBufMgr = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>(struct0);
             _internal.pDecPicBufMgr = _pDecPicBufMgr.Handle;
         }
         _pHrdParameters.Dispose();
-        if (PHrdParameters != null)
+        if (PHrdParameters != default)
         {
             var struct1 = PHrdParameters.ToNative();
             _pHrdParameters = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265HrdParameters>(struct1);
             _internal.pHrdParameters = _pHrdParameters.Handle;
         }
         _pProfileTierLevel.Dispose();
-        if (ProfileTierLevel != null)
+        if (ProfileTierLevel != default)
         {
             var struct2 = ProfileTierLevel.ToNative();
             _pProfileTierLevel = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel>(struct2);
@@ -99,6 +123,7 @@ public unsafe partial class StdVideoH265VideoParameterSet : QBDisposableObject
         _pDecPicBufMgr.Dispose();
         _pHrdParameters.Dispose();
         _pProfileTierLevel.Dispose();
+        Flags?.Dispose();
     }
 
 

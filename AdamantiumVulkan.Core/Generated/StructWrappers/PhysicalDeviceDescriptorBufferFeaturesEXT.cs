@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDeviceDescriptorBufferFeaturesEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorBuffer = DescriptorBuffer;
-        _internal.descriptorBufferCaptureReplay = DescriptorBufferCaptureReplay;
-        _internal.descriptorBufferImageLayoutIgnored = DescriptorBufferImageLayoutIgnored;
-        _internal.descriptorBufferPushDescriptors = DescriptorBufferPushDescriptors;
+        if (DescriptorBuffer != (uint)default)
+        {
+            _internal.descriptorBuffer = DescriptorBuffer;
+        }
+        if (DescriptorBufferCaptureReplay != (uint)default)
+        {
+            _internal.descriptorBufferCaptureReplay = DescriptorBufferCaptureReplay;
+        }
+        if (DescriptorBufferImageLayoutIgnored != (uint)default)
+        {
+            _internal.descriptorBufferImageLayoutIgnored = DescriptorBufferImageLayoutIgnored;
+        }
+        if (DescriptorBufferPushDescriptors != (uint)default)
+        {
+            _internal.descriptorBufferPushDescriptors = DescriptorBufferPushDescriptors;
+        }
         return _internal;
     }
 

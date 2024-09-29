@@ -47,17 +47,47 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxGraphicsShaderGroupCount = MaxGraphicsShaderGroupCount;
-        _internal.maxIndirectSequenceCount = MaxIndirectSequenceCount;
-        _internal.maxIndirectCommandsTokenCount = MaxIndirectCommandsTokenCount;
-        _internal.maxIndirectCommandsStreamCount = MaxIndirectCommandsStreamCount;
-        _internal.maxIndirectCommandsTokenOffset = MaxIndirectCommandsTokenOffset;
-        _internal.maxIndirectCommandsStreamStride = MaxIndirectCommandsStreamStride;
-        _internal.minSequencesCountBufferOffsetAlignment = MinSequencesCountBufferOffsetAlignment;
-        _internal.minSequencesIndexBufferOffsetAlignment = MinSequencesIndexBufferOffsetAlignment;
-        _internal.minIndirectCommandsBufferOffsetAlignment = MinIndirectCommandsBufferOffsetAlignment;
+        if (MaxGraphicsShaderGroupCount != default)
+        {
+            _internal.maxGraphicsShaderGroupCount = MaxGraphicsShaderGroupCount;
+        }
+        if (MaxIndirectSequenceCount != default)
+        {
+            _internal.maxIndirectSequenceCount = MaxIndirectSequenceCount;
+        }
+        if (MaxIndirectCommandsTokenCount != default)
+        {
+            _internal.maxIndirectCommandsTokenCount = MaxIndirectCommandsTokenCount;
+        }
+        if (MaxIndirectCommandsStreamCount != default)
+        {
+            _internal.maxIndirectCommandsStreamCount = MaxIndirectCommandsStreamCount;
+        }
+        if (MaxIndirectCommandsTokenOffset != default)
+        {
+            _internal.maxIndirectCommandsTokenOffset = MaxIndirectCommandsTokenOffset;
+        }
+        if (MaxIndirectCommandsStreamStride != default)
+        {
+            _internal.maxIndirectCommandsStreamStride = MaxIndirectCommandsStreamStride;
+        }
+        if (MinSequencesCountBufferOffsetAlignment != default)
+        {
+            _internal.minSequencesCountBufferOffsetAlignment = MinSequencesCountBufferOffsetAlignment;
+        }
+        if (MinSequencesIndexBufferOffsetAlignment != default)
+        {
+            _internal.minSequencesIndexBufferOffsetAlignment = MinSequencesIndexBufferOffsetAlignment;
+        }
+        if (MinIndirectCommandsBufferOffsetAlignment != default)
+        {
+            _internal.minIndirectCommandsBufferOffsetAlignment = MinIndirectCommandsBufferOffsetAlignment;
+        }
         return _internal;
     }
 

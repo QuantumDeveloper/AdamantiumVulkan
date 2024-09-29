@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderFeaturesHUAWEI : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.clustercullingShader = ClustercullingShader;
-        _internal.multiviewClusterCullingShader = MultiviewClusterCullingShader;
+        if (ClustercullingShader != (uint)default)
+        {
+            _internal.clustercullingShader = ClustercullingShader;
+        }
+        if (MultiviewClusterCullingShader != (uint)default)
+        {
+            _internal.multiviewClusterCullingShader = MultiviewClusterCullingShader;
+        }
         return _internal;
     }
 

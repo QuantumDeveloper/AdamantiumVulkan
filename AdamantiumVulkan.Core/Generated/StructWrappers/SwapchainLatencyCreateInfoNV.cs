@@ -31,9 +31,15 @@ public unsafe partial class SwapchainLatencyCreateInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSwapchainLatencyCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainLatencyCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.latencyModeEnable = LatencyModeEnable;
+        if (LatencyModeEnable != (uint)default)
+        {
+            _internal.latencyModeEnable = LatencyModeEnable;
+        }
         return _internal;
     }
 

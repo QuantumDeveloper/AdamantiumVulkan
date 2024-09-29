@@ -75,31 +75,103 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxUpdateAfterBindDescriptorsInAllPools = MaxUpdateAfterBindDescriptorsInAllPools;
-        _internal.shaderUniformBufferArrayNonUniformIndexingNative = ShaderUniformBufferArrayNonUniformIndexingNative;
-        _internal.shaderSampledImageArrayNonUniformIndexingNative = ShaderSampledImageArrayNonUniformIndexingNative;
-        _internal.shaderStorageBufferArrayNonUniformIndexingNative = ShaderStorageBufferArrayNonUniformIndexingNative;
-        _internal.shaderStorageImageArrayNonUniformIndexingNative = ShaderStorageImageArrayNonUniformIndexingNative;
-        _internal.shaderInputAttachmentArrayNonUniformIndexingNative = ShaderInputAttachmentArrayNonUniformIndexingNative;
-        _internal.robustBufferAccessUpdateAfterBind = RobustBufferAccessUpdateAfterBind;
-        _internal.quadDivergentImplicitLod = QuadDivergentImplicitLod;
-        _internal.maxPerStageDescriptorUpdateAfterBindSamplers = MaxPerStageDescriptorUpdateAfterBindSamplers;
-        _internal.maxPerStageDescriptorUpdateAfterBindUniformBuffers = MaxPerStageDescriptorUpdateAfterBindUniformBuffers;
-        _internal.maxPerStageDescriptorUpdateAfterBindStorageBuffers = MaxPerStageDescriptorUpdateAfterBindStorageBuffers;
-        _internal.maxPerStageDescriptorUpdateAfterBindSampledImages = MaxPerStageDescriptorUpdateAfterBindSampledImages;
-        _internal.maxPerStageDescriptorUpdateAfterBindStorageImages = MaxPerStageDescriptorUpdateAfterBindStorageImages;
-        _internal.maxPerStageDescriptorUpdateAfterBindInputAttachments = MaxPerStageDescriptorUpdateAfterBindInputAttachments;
-        _internal.maxPerStageUpdateAfterBindResources = MaxPerStageUpdateAfterBindResources;
-        _internal.maxDescriptorSetUpdateAfterBindSamplers = MaxDescriptorSetUpdateAfterBindSamplers;
-        _internal.maxDescriptorSetUpdateAfterBindUniformBuffers = MaxDescriptorSetUpdateAfterBindUniformBuffers;
-        _internal.maxDescriptorSetUpdateAfterBindUniformBuffersDynamic = MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
-        _internal.maxDescriptorSetUpdateAfterBindStorageBuffers = MaxDescriptorSetUpdateAfterBindStorageBuffers;
-        _internal.maxDescriptorSetUpdateAfterBindStorageBuffersDynamic = MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
-        _internal.maxDescriptorSetUpdateAfterBindSampledImages = MaxDescriptorSetUpdateAfterBindSampledImages;
-        _internal.maxDescriptorSetUpdateAfterBindStorageImages = MaxDescriptorSetUpdateAfterBindStorageImages;
-        _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
+        if (MaxUpdateAfterBindDescriptorsInAllPools != default)
+        {
+            _internal.maxUpdateAfterBindDescriptorsInAllPools = MaxUpdateAfterBindDescriptorsInAllPools;
+        }
+        if (ShaderUniformBufferArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderUniformBufferArrayNonUniformIndexingNative = ShaderUniformBufferArrayNonUniformIndexingNative;
+        }
+        if (ShaderSampledImageArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderSampledImageArrayNonUniformIndexingNative = ShaderSampledImageArrayNonUniformIndexingNative;
+        }
+        if (ShaderStorageBufferArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderStorageBufferArrayNonUniformIndexingNative = ShaderStorageBufferArrayNonUniformIndexingNative;
+        }
+        if (ShaderStorageImageArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderStorageImageArrayNonUniformIndexingNative = ShaderStorageImageArrayNonUniformIndexingNative;
+        }
+        if (ShaderInputAttachmentArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderInputAttachmentArrayNonUniformIndexingNative = ShaderInputAttachmentArrayNonUniformIndexingNative;
+        }
+        if (RobustBufferAccessUpdateAfterBind != (uint)default)
+        {
+            _internal.robustBufferAccessUpdateAfterBind = RobustBufferAccessUpdateAfterBind;
+        }
+        if (QuadDivergentImplicitLod != (uint)default)
+        {
+            _internal.quadDivergentImplicitLod = QuadDivergentImplicitLod;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindSamplers != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindSamplers = MaxPerStageDescriptorUpdateAfterBindSamplers;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindUniformBuffers != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindUniformBuffers = MaxPerStageDescriptorUpdateAfterBindUniformBuffers;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindStorageBuffers != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindStorageBuffers = MaxPerStageDescriptorUpdateAfterBindStorageBuffers;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindSampledImages != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindSampledImages = MaxPerStageDescriptorUpdateAfterBindSampledImages;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindStorageImages != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindStorageImages = MaxPerStageDescriptorUpdateAfterBindStorageImages;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindInputAttachments != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindInputAttachments = MaxPerStageDescriptorUpdateAfterBindInputAttachments;
+        }
+        if (MaxPerStageUpdateAfterBindResources != default)
+        {
+            _internal.maxPerStageUpdateAfterBindResources = MaxPerStageUpdateAfterBindResources;
+        }
+        if (MaxDescriptorSetUpdateAfterBindSamplers != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindSamplers = MaxDescriptorSetUpdateAfterBindSamplers;
+        }
+        if (MaxDescriptorSetUpdateAfterBindUniformBuffers != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindUniformBuffers = MaxDescriptorSetUpdateAfterBindUniformBuffers;
+        }
+        if (MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindUniformBuffersDynamic = MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
+        }
+        if (MaxDescriptorSetUpdateAfterBindStorageBuffers != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindStorageBuffers = MaxDescriptorSetUpdateAfterBindStorageBuffers;
+        }
+        if (MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindStorageBuffersDynamic = MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
+        }
+        if (MaxDescriptorSetUpdateAfterBindSampledImages != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindSampledImages = MaxDescriptorSetUpdateAfterBindSampledImages;
+        }
+        if (MaxDescriptorSetUpdateAfterBindStorageImages != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindStorageImages = MaxDescriptorSetUpdateAfterBindStorageImages;
+        }
+        if (MaxDescriptorSetUpdateAfterBindInputAttachments != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
+        }
         return _internal;
     }
 

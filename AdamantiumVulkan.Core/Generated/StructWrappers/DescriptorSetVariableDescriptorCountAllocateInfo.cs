@@ -39,9 +39,15 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : Q
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorSetCount = DescriptorSetCount;
+        if (DescriptorSetCount != default)
+        {
+            _internal.descriptorSetCount = DescriptorSetCount;
+        }
         _pDescriptorCounts.Dispose();
         if (PDescriptorCounts.HasValue)
         {

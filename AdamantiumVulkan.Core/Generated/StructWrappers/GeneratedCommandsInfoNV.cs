@@ -58,27 +58,66 @@ public unsafe partial class GeneratedCommandsInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineBindPoint = PipelineBindPoint;
-        _internal.pipeline = Pipeline;
-        _internal.indirectCommandsLayout = IndirectCommandsLayout;
-        _internal.streamCount = StreamCount;
+        if (PipelineBindPoint != default)
+        {
+            _internal.pipelineBindPoint = PipelineBindPoint;
+        }
+        if (Pipeline != default)
+        {
+            _internal.pipeline = Pipeline;
+        }
+        if (IndirectCommandsLayout != default)
+        {
+            _internal.indirectCommandsLayout = IndirectCommandsLayout;
+        }
+        if (StreamCount != default)
+        {
+            _internal.streamCount = StreamCount;
+        }
         _pStreams.Dispose();
-        if (PStreams != null)
+        if (PStreams != default)
         {
             var struct0 = PStreams.ToNative();
             _pStreams = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>(struct0);
             _internal.pStreams = _pStreams.Handle;
         }
-        _internal.sequencesCount = SequencesCount;
-        _internal.preprocessBuffer = PreprocessBuffer;
-        _internal.preprocessOffset = PreprocessOffset;
-        _internal.preprocessSize = PreprocessSize;
-        _internal.sequencesCountBuffer = SequencesCountBuffer;
-        _internal.sequencesCountOffset = SequencesCountOffset;
-        _internal.sequencesIndexBuffer = SequencesIndexBuffer;
-        _internal.sequencesIndexOffset = SequencesIndexOffset;
+        if (SequencesCount != default)
+        {
+            _internal.sequencesCount = SequencesCount;
+        }
+        if (PreprocessBuffer != default)
+        {
+            _internal.preprocessBuffer = PreprocessBuffer;
+        }
+        if (PreprocessOffset != (ulong)default)
+        {
+            _internal.preprocessOffset = PreprocessOffset;
+        }
+        if (PreprocessSize != (ulong)default)
+        {
+            _internal.preprocessSize = PreprocessSize;
+        }
+        if (SequencesCountBuffer != default)
+        {
+            _internal.sequencesCountBuffer = SequencesCountBuffer;
+        }
+        if (SequencesCountOffset != (ulong)default)
+        {
+            _internal.sequencesCountOffset = SequencesCountOffset;
+        }
+        if (SequencesIndexBuffer != default)
+        {
+            _internal.sequencesIndexBuffer = SequencesIndexBuffer;
+        }
+        if (SequencesIndexOffset != (ulong)default)
+        {
+            _internal.sequencesIndexOffset = SequencesIndexOffset;
+        }
         return _internal;
     }
 

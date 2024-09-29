@@ -33,9 +33,15 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : QBDisposableObject
     public AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK ToNative()
     {
         var _internal = new AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         _internal.pView = PView;
         return _internal;
     }

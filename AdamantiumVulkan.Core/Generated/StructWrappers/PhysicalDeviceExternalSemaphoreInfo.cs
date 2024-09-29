@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceExternalSemaphoreInfo : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleType = HandleType;
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

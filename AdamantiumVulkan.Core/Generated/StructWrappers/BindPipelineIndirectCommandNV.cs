@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class BindPipelineIndirectCommandNV
+public unsafe partial class BindPipelineIndirectCommandNV : QBDisposableObject
 {
     public BindPipelineIndirectCommandNV()
     {
@@ -27,7 +27,10 @@ public unsafe partial class BindPipelineIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkBindPipelineIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindPipelineIndirectCommandNV();
-        _internal.pipelineAddress = PipelineAddress;
+        if (PipelineAddress != (ulong)default)
+        {
+            _internal.pipelineAddress = PipelineAddress;
+        }
         return _internal;
     }
 

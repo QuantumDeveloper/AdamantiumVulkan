@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3PropertiesEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dynamicPrimitiveTopologyUnrestricted = DynamicPrimitiveTopologyUnrestricted;
+        if (DynamicPrimitiveTopologyUnrestricted != (uint)default)
+        {
+            _internal.dynamicPrimitiveTopologyUnrestricted = DynamicPrimitiveTopologyUnrestricted;
+        }
         return _internal;
     }
 

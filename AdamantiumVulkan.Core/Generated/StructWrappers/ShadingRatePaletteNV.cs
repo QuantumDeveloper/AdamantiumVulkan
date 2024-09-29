@@ -31,7 +31,10 @@ public unsafe partial class ShadingRatePaletteNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV();
-        _internal.shadingRatePaletteEntryCount = ShadingRatePaletteEntryCount;
+        if (ShadingRatePaletteEntryCount != default)
+        {
+            _internal.shadingRatePaletteEntryCount = ShadingRatePaletteEntryCount;
+        }
         _pShadingRatePaletteEntries.Dispose();
         if (PShadingRatePaletteEntries != null)
         {

@@ -42,23 +42,35 @@ public unsafe partial class ApplicationInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkApplicationInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkApplicationInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pApplicationName.Dispose();
-        if (PApplicationName != null)
+        if (PApplicationName != default)
         {
             _pApplicationName = new MarshaledString(PApplicationName, false);
             _internal.pApplicationName = (sbyte*)_pApplicationName;
         }
-        _internal.applicationVersion = ApplicationVersion;
+        if (ApplicationVersion != default)
+        {
+            _internal.applicationVersion = ApplicationVersion;
+        }
         _pEngineName.Dispose();
-        if (PEngineName != null)
+        if (PEngineName != default)
         {
             _pEngineName = new MarshaledString(PEngineName, false);
             _internal.pEngineName = (sbyte*)_pEngineName;
         }
-        _internal.engineVersion = EngineVersion;
-        _internal.apiVersion = ApiVersion;
+        if (EngineVersion != default)
+        {
+            _internal.engineVersion = EngineVersion;
+        }
+        if (ApiVersion != default)
+        {
+            _internal.apiVersion = ApiVersion;
+        }
         return _internal;
     }
 

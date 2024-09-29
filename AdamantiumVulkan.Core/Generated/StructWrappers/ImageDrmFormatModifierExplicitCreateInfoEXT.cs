@@ -37,12 +37,21 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.drmFormatModifier = DrmFormatModifier;
-        _internal.drmFormatModifierPlaneCount = DrmFormatModifierPlaneCount;
+        if (DrmFormatModifier != default)
+        {
+            _internal.drmFormatModifier = DrmFormatModifier;
+        }
+        if (DrmFormatModifierPlaneCount != default)
+        {
+            _internal.drmFormatModifierPlaneCount = DrmFormatModifierPlaneCount;
+        }
         _pPlaneLayouts.Dispose();
-        if (PlaneLayouts != null)
+        if (PlaneLayouts != default)
         {
             var struct0 = PlaneLayouts.ToNative();
             _pPlaneLayouts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(struct0);

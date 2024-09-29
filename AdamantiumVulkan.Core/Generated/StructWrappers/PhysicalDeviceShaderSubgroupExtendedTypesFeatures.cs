@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderSubgroupExtendedTypesFeatures : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderSubgroupExtendedTypes = ShaderSubgroupExtendedTypes;
+        if (ShaderSubgroupExtendedTypes != (uint)default)
+        {
+            _internal.shaderSubgroupExtendedTypes = ShaderSubgroupExtendedTypes;
+        }
         return _internal;
     }
 

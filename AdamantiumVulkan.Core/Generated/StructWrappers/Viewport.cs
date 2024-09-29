@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class Viewport
+public unsafe partial class Viewport : QBDisposableObject
 {
     public Viewport()
     {
@@ -37,12 +37,30 @@ public unsafe partial class Viewport
     public AdamantiumVulkan.Core.Interop.VkViewport ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkViewport();
-        _internal.x = X;
-        _internal.y = Y;
-        _internal.width = Width;
-        _internal.height = Height;
-        _internal.minDepth = MinDepth;
-        _internal.maxDepth = MaxDepth;
+        if (X != default)
+        {
+            _internal.x = X;
+        }
+        if (Y != default)
+        {
+            _internal.y = Y;
+        }
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
+        if (MinDepth != default)
+        {
+            _internal.minDepth = MinDepth;
+        }
+        if (MaxDepth != default)
+        {
+            _internal.maxDepth = MaxDepth;
+        }
         return _internal;
     }
 

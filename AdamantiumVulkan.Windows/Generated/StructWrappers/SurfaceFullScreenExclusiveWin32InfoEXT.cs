@@ -32,9 +32,15 @@ public unsafe partial class SurfaceFullScreenExclusiveWin32InfoEXT : QBDisposabl
     public AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hmonitor = Hmonitor;
+        if (Hmonitor != default)
+        {
+            _internal.hmonitor = Hmonitor;
+        }
         return _internal;
     }
 

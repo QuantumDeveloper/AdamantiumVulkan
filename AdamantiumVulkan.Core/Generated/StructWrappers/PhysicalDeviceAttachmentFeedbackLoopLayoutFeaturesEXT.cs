@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEX
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.attachmentFeedbackLoopLayout = AttachmentFeedbackLoopLayout;
+        if (AttachmentFeedbackLoopLayout != (uint)default)
+        {
+            _internal.attachmentFeedbackLoopLayout = AttachmentFeedbackLoopLayout;
+        }
         return _internal;
     }
 

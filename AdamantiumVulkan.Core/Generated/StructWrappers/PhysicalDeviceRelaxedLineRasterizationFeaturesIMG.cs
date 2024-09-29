@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceRelaxedLineRasterizationFeaturesIMG : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.relaxedLineRasterization = RelaxedLineRasterization;
+        if (RelaxedLineRasterization != (uint)default)
+        {
+            _internal.relaxedLineRasterization = RelaxedLineRasterization;
+        }
         return _internal;
     }
 

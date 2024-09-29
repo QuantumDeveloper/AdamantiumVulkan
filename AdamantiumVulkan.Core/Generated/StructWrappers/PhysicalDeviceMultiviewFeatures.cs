@@ -34,11 +34,23 @@ public unsafe partial class PhysicalDeviceMultiviewFeatures : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.multiview = Multiview;
-        _internal.multiviewGeometryShader = MultiviewGeometryShader;
-        _internal.multiviewTessellationShader = MultiviewTessellationShader;
+        if (Multiview != (uint)default)
+        {
+            _internal.multiview = Multiview;
+        }
+        if (MultiviewGeometryShader != (uint)default)
+        {
+            _internal.multiviewGeometryShader = MultiviewGeometryShader;
+        }
+        if (MultiviewTessellationShader != (uint)default)
+        {
+            _internal.multiviewTessellationShader = MultiviewTessellationShader;
+        }
         return _internal;
     }
 

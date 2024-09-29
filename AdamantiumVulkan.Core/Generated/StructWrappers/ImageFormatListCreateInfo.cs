@@ -35,9 +35,15 @@ public unsafe partial class ImageFormatListCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.viewFormatCount = ViewFormatCount;
+        if (ViewFormatCount != default)
+        {
+            _internal.viewFormatCount = ViewFormatCount;
+        }
         _pViewFormats.Dispose();
         if (PViewFormats != null)
         {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceFeatures
+public unsafe partial class PhysicalDeviceFeatures : QBDisposableObject
 {
     public PhysicalDeviceFeatures()
     {
@@ -135,61 +135,226 @@ public unsafe partial class PhysicalDeviceFeatures
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures();
-        _internal.robustBufferAccess = RobustBufferAccess;
-        _internal.fullDrawIndexUint32 = FullDrawIndexUint32;
-        _internal.imageCubeArray = ImageCubeArray;
-        _internal.independentBlend = IndependentBlend;
-        _internal.geometryShader = GeometryShader;
-        _internal.tessellationShader = TessellationShader;
-        _internal.sampleRateShading = SampleRateShading;
-        _internal.dualSrcBlend = DualSrcBlend;
-        _internal.logicOp = LogicOp;
-        _internal.multiDrawIndirect = MultiDrawIndirect;
-        _internal.drawIndirectFirstInstance = DrawIndirectFirstInstance;
-        _internal.depthClamp = DepthClamp;
-        _internal.depthBiasClamp = DepthBiasClamp;
-        _internal.fillModeNonSolid = FillModeNonSolid;
-        _internal.depthBounds = DepthBounds;
-        _internal.wideLines = WideLines;
-        _internal.largePoints = LargePoints;
-        _internal.alphaToOne = AlphaToOne;
-        _internal.multiViewport = MultiViewport;
-        _internal.samplerAnisotropy = SamplerAnisotropy;
-        _internal.textureCompressionETC2 = TextureCompressionETC2;
-        _internal.textureCompressionASTC_LDR = TextureCompressionASTC_LDR;
-        _internal.textureCompressionBC = TextureCompressionBC;
-        _internal.occlusionQueryPrecise = OcclusionQueryPrecise;
-        _internal.pipelineStatisticsQuery = PipelineStatisticsQuery;
-        _internal.vertexPipelineStoresAndAtomics = VertexPipelineStoresAndAtomics;
-        _internal.fragmentStoresAndAtomics = FragmentStoresAndAtomics;
-        _internal.shaderTessellationAndGeometryPointSize = ShaderTessellationAndGeometryPointSize;
-        _internal.shaderImageGatherExtended = ShaderImageGatherExtended;
-        _internal.shaderStorageImageExtendedFormats = ShaderStorageImageExtendedFormats;
-        _internal.shaderStorageImageMultisample = ShaderStorageImageMultisample;
-        _internal.shaderStorageImageReadWithoutFormat = ShaderStorageImageReadWithoutFormat;
-        _internal.shaderStorageImageWriteWithoutFormat = ShaderStorageImageWriteWithoutFormat;
-        _internal.shaderUniformBufferArrayDynamicIndexing = ShaderUniformBufferArrayDynamicIndexing;
-        _internal.shaderSampledImageArrayDynamicIndexing = ShaderSampledImageArrayDynamicIndexing;
-        _internal.shaderStorageBufferArrayDynamicIndexing = ShaderStorageBufferArrayDynamicIndexing;
-        _internal.shaderStorageImageArrayDynamicIndexing = ShaderStorageImageArrayDynamicIndexing;
-        _internal.shaderClipDistance = ShaderClipDistance;
-        _internal.shaderCullDistance = ShaderCullDistance;
-        _internal.shaderFloat64 = ShaderFloat64;
-        _internal.shaderInt64 = ShaderInt64;
-        _internal.shaderInt16 = ShaderInt16;
-        _internal.shaderResourceResidency = ShaderResourceResidency;
-        _internal.shaderResourceMinLod = ShaderResourceMinLod;
-        _internal.sparseBinding = SparseBinding;
-        _internal.sparseResidencyBuffer = SparseResidencyBuffer;
-        _internal.sparseResidencyImage2D = SparseResidencyImage2D;
-        _internal.sparseResidencyImage3D = SparseResidencyImage3D;
-        _internal.sparseResidency2Samples = SparseResidency2Samples;
-        _internal.sparseResidency4Samples = SparseResidency4Samples;
-        _internal.sparseResidency8Samples = SparseResidency8Samples;
-        _internal.sparseResidency16Samples = SparseResidency16Samples;
-        _internal.sparseResidencyAliased = SparseResidencyAliased;
-        _internal.variableMultisampleRate = VariableMultisampleRate;
-        _internal.inheritedQueries = InheritedQueries;
+        if (RobustBufferAccess != (uint)default)
+        {
+            _internal.robustBufferAccess = RobustBufferAccess;
+        }
+        if (FullDrawIndexUint32 != (uint)default)
+        {
+            _internal.fullDrawIndexUint32 = FullDrawIndexUint32;
+        }
+        if (ImageCubeArray != (uint)default)
+        {
+            _internal.imageCubeArray = ImageCubeArray;
+        }
+        if (IndependentBlend != (uint)default)
+        {
+            _internal.independentBlend = IndependentBlend;
+        }
+        if (GeometryShader != (uint)default)
+        {
+            _internal.geometryShader = GeometryShader;
+        }
+        if (TessellationShader != (uint)default)
+        {
+            _internal.tessellationShader = TessellationShader;
+        }
+        if (SampleRateShading != (uint)default)
+        {
+            _internal.sampleRateShading = SampleRateShading;
+        }
+        if (DualSrcBlend != (uint)default)
+        {
+            _internal.dualSrcBlend = DualSrcBlend;
+        }
+        if (LogicOp != (uint)default)
+        {
+            _internal.logicOp = LogicOp;
+        }
+        if (MultiDrawIndirect != (uint)default)
+        {
+            _internal.multiDrawIndirect = MultiDrawIndirect;
+        }
+        if (DrawIndirectFirstInstance != (uint)default)
+        {
+            _internal.drawIndirectFirstInstance = DrawIndirectFirstInstance;
+        }
+        if (DepthClamp != (uint)default)
+        {
+            _internal.depthClamp = DepthClamp;
+        }
+        if (DepthBiasClamp != (uint)default)
+        {
+            _internal.depthBiasClamp = DepthBiasClamp;
+        }
+        if (FillModeNonSolid != (uint)default)
+        {
+            _internal.fillModeNonSolid = FillModeNonSolid;
+        }
+        if (DepthBounds != (uint)default)
+        {
+            _internal.depthBounds = DepthBounds;
+        }
+        if (WideLines != (uint)default)
+        {
+            _internal.wideLines = WideLines;
+        }
+        if (LargePoints != (uint)default)
+        {
+            _internal.largePoints = LargePoints;
+        }
+        if (AlphaToOne != (uint)default)
+        {
+            _internal.alphaToOne = AlphaToOne;
+        }
+        if (MultiViewport != (uint)default)
+        {
+            _internal.multiViewport = MultiViewport;
+        }
+        if (SamplerAnisotropy != (uint)default)
+        {
+            _internal.samplerAnisotropy = SamplerAnisotropy;
+        }
+        if (TextureCompressionETC2 != (uint)default)
+        {
+            _internal.textureCompressionETC2 = TextureCompressionETC2;
+        }
+        if (TextureCompressionASTC_LDR != (uint)default)
+        {
+            _internal.textureCompressionASTC_LDR = TextureCompressionASTC_LDR;
+        }
+        if (TextureCompressionBC != (uint)default)
+        {
+            _internal.textureCompressionBC = TextureCompressionBC;
+        }
+        if (OcclusionQueryPrecise != (uint)default)
+        {
+            _internal.occlusionQueryPrecise = OcclusionQueryPrecise;
+        }
+        if (PipelineStatisticsQuery != (uint)default)
+        {
+            _internal.pipelineStatisticsQuery = PipelineStatisticsQuery;
+        }
+        if (VertexPipelineStoresAndAtomics != (uint)default)
+        {
+            _internal.vertexPipelineStoresAndAtomics = VertexPipelineStoresAndAtomics;
+        }
+        if (FragmentStoresAndAtomics != (uint)default)
+        {
+            _internal.fragmentStoresAndAtomics = FragmentStoresAndAtomics;
+        }
+        if (ShaderTessellationAndGeometryPointSize != (uint)default)
+        {
+            _internal.shaderTessellationAndGeometryPointSize = ShaderTessellationAndGeometryPointSize;
+        }
+        if (ShaderImageGatherExtended != (uint)default)
+        {
+            _internal.shaderImageGatherExtended = ShaderImageGatherExtended;
+        }
+        if (ShaderStorageImageExtendedFormats != (uint)default)
+        {
+            _internal.shaderStorageImageExtendedFormats = ShaderStorageImageExtendedFormats;
+        }
+        if (ShaderStorageImageMultisample != (uint)default)
+        {
+            _internal.shaderStorageImageMultisample = ShaderStorageImageMultisample;
+        }
+        if (ShaderStorageImageReadWithoutFormat != (uint)default)
+        {
+            _internal.shaderStorageImageReadWithoutFormat = ShaderStorageImageReadWithoutFormat;
+        }
+        if (ShaderStorageImageWriteWithoutFormat != (uint)default)
+        {
+            _internal.shaderStorageImageWriteWithoutFormat = ShaderStorageImageWriteWithoutFormat;
+        }
+        if (ShaderUniformBufferArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderUniformBufferArrayDynamicIndexing = ShaderUniformBufferArrayDynamicIndexing;
+        }
+        if (ShaderSampledImageArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderSampledImageArrayDynamicIndexing = ShaderSampledImageArrayDynamicIndexing;
+        }
+        if (ShaderStorageBufferArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderStorageBufferArrayDynamicIndexing = ShaderStorageBufferArrayDynamicIndexing;
+        }
+        if (ShaderStorageImageArrayDynamicIndexing != (uint)default)
+        {
+            _internal.shaderStorageImageArrayDynamicIndexing = ShaderStorageImageArrayDynamicIndexing;
+        }
+        if (ShaderClipDistance != (uint)default)
+        {
+            _internal.shaderClipDistance = ShaderClipDistance;
+        }
+        if (ShaderCullDistance != (uint)default)
+        {
+            _internal.shaderCullDistance = ShaderCullDistance;
+        }
+        if (ShaderFloat64 != (uint)default)
+        {
+            _internal.shaderFloat64 = ShaderFloat64;
+        }
+        if (ShaderInt64 != (uint)default)
+        {
+            _internal.shaderInt64 = ShaderInt64;
+        }
+        if (ShaderInt16 != (uint)default)
+        {
+            _internal.shaderInt16 = ShaderInt16;
+        }
+        if (ShaderResourceResidency != (uint)default)
+        {
+            _internal.shaderResourceResidency = ShaderResourceResidency;
+        }
+        if (ShaderResourceMinLod != (uint)default)
+        {
+            _internal.shaderResourceMinLod = ShaderResourceMinLod;
+        }
+        if (SparseBinding != (uint)default)
+        {
+            _internal.sparseBinding = SparseBinding;
+        }
+        if (SparseResidencyBuffer != (uint)default)
+        {
+            _internal.sparseResidencyBuffer = SparseResidencyBuffer;
+        }
+        if (SparseResidencyImage2D != (uint)default)
+        {
+            _internal.sparseResidencyImage2D = SparseResidencyImage2D;
+        }
+        if (SparseResidencyImage3D != (uint)default)
+        {
+            _internal.sparseResidencyImage3D = SparseResidencyImage3D;
+        }
+        if (SparseResidency2Samples != (uint)default)
+        {
+            _internal.sparseResidency2Samples = SparseResidency2Samples;
+        }
+        if (SparseResidency4Samples != (uint)default)
+        {
+            _internal.sparseResidency4Samples = SparseResidency4Samples;
+        }
+        if (SparseResidency8Samples != (uint)default)
+        {
+            _internal.sparseResidency8Samples = SparseResidency8Samples;
+        }
+        if (SparseResidency16Samples != (uint)default)
+        {
+            _internal.sparseResidency16Samples = SparseResidency16Samples;
+        }
+        if (SparseResidencyAliased != (uint)default)
+        {
+            _internal.sparseResidencyAliased = SparseResidencyAliased;
+        }
+        if (VariableMultisampleRate != (uint)default)
+        {
+            _internal.variableMultisampleRate = VariableMultisampleRate;
+        }
+        if (InheritedQueries != (uint)default)
+        {
+            _internal.inheritedQueries = InheritedQueries;
+        }
         return _internal;
     }
 

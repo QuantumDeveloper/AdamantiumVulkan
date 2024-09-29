@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsComputeFeatures
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceGeneratedCompute = DeviceGeneratedCompute;
-        _internal.deviceGeneratedComputePipelines = DeviceGeneratedComputePipelines;
-        _internal.deviceGeneratedComputeCaptureReplay = DeviceGeneratedComputeCaptureReplay;
+        if (DeviceGeneratedCompute != (uint)default)
+        {
+            _internal.deviceGeneratedCompute = DeviceGeneratedCompute;
+        }
+        if (DeviceGeneratedComputePipelines != (uint)default)
+        {
+            _internal.deviceGeneratedComputePipelines = DeviceGeneratedComputePipelines;
+        }
+        if (DeviceGeneratedComputeCaptureReplay != (uint)default)
+        {
+            _internal.deviceGeneratedComputeCaptureReplay = DeviceGeneratedComputeCaptureReplay;
+        }
         return _internal;
     }
 

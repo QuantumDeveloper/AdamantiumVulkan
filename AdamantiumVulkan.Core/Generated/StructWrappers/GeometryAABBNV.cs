@@ -36,12 +36,27 @@ public unsafe partial class GeometryAABBNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkGeometryAABBNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryAABBNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.aabbData = AabbData;
-        _internal.numAABBs = NumAABBs;
-        _internal.stride = Stride;
-        _internal.offset = Offset;
+        if (AabbData != default)
+        {
+            _internal.aabbData = AabbData;
+        }
+        if (NumAABBs != default)
+        {
+            _internal.numAABBs = NumAABBs;
+        }
+        if (Stride != default)
+        {
+            _internal.stride = Stride;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
         return _internal;
     }
 

@@ -34,11 +34,23 @@ public unsafe partial class MappedMemoryRange : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMappedMemoryRange ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMappedMemoryRange();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memory = Memory;
-        _internal.offset = Offset;
-        _internal.size = Size;
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

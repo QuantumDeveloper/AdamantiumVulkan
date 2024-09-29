@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AttachmentSampleLocationsEXT
+public unsafe partial class AttachmentSampleLocationsEXT : QBDisposableObject
 {
     public AttachmentSampleLocationsEXT()
     {
@@ -29,13 +29,22 @@ public unsafe partial class AttachmentSampleLocationsEXT
     public AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT();
-        _internal.attachmentIndex = AttachmentIndex;
-        if (SampleLocationsInfo != null)
+        if (AttachmentIndex != default)
+        {
+            _internal.attachmentIndex = AttachmentIndex;
+        }
+        if (SampleLocationsInfo != default)
         {
             _internal.sampleLocationsInfo = SampleLocationsInfo.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SampleLocationsInfo?.Dispose();
+    }
+
 
     public static implicit operator AttachmentSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT a)
     {

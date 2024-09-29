@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceCooperativeMatrixFeaturesNV : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.cooperativeMatrix = CooperativeMatrix;
-        _internal.cooperativeMatrixRobustBufferAccess = CooperativeMatrixRobustBufferAccess;
+        if (CooperativeMatrix != (uint)default)
+        {
+            _internal.cooperativeMatrix = CooperativeMatrix;
+        }
+        if (CooperativeMatrixRobustBufferAccess != (uint)default)
+        {
+            _internal.cooperativeMatrixRobustBufferAccess = CooperativeMatrixRobustBufferAccess;
+        }
         return _internal;
     }
 

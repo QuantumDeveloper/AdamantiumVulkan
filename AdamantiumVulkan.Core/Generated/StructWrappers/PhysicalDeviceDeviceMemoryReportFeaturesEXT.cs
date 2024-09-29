@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDeviceMemoryReportFeaturesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceMemoryReport = DeviceMemoryReport;
+        if (DeviceMemoryReport != (uint)default)
+        {
+            _internal.deviceMemoryReport = DeviceMemoryReport;
+        }
         return _internal;
     }
 

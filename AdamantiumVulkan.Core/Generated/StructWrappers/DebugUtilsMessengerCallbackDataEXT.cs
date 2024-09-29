@@ -61,41 +61,59 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         _pMessageIdName.Dispose();
-        if (PMessageIdName != null)
+        if (PMessageIdName != default)
         {
             _pMessageIdName = new MarshaledString(PMessageIdName, false);
             _internal.pMessageIdName = (sbyte*)_pMessageIdName;
         }
-        _internal.messageIdNumber = MessageIdNumber;
+        if (MessageIdNumber != default)
+        {
+            _internal.messageIdNumber = MessageIdNumber;
+        }
         _pMessage.Dispose();
-        if (PMessage != null)
+        if (PMessage != default)
         {
             _pMessage = new MarshaledString(PMessage, false);
             _internal.pMessage = (sbyte*)_pMessage;
         }
-        _internal.queueLabelCount = QueueLabelCount;
+        if (QueueLabelCount != default)
+        {
+            _internal.queueLabelCount = QueueLabelCount;
+        }
         _pQueueLabels.Dispose();
-        if (PQueueLabels != null)
+        if (PQueueLabels != default)
         {
             var struct0 = PQueueLabels.ToNative();
             _pQueueLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct0);
             _internal.pQueueLabels = _pQueueLabels.Handle;
         }
-        _internal.cmdBufLabelCount = CmdBufLabelCount;
+        if (CmdBufLabelCount != default)
+        {
+            _internal.cmdBufLabelCount = CmdBufLabelCount;
+        }
         _pCmdBufLabels.Dispose();
-        if (PCmdBufLabels != null)
+        if (PCmdBufLabels != default)
         {
             var struct1 = PCmdBufLabels.ToNative();
             _pCmdBufLabels = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(struct1);
             _internal.pCmdBufLabels = _pCmdBufLabels.Handle;
         }
-        _internal.objectCount = ObjectCount;
+        if (ObjectCount != default)
+        {
+            _internal.objectCount = ObjectCount;
+        }
         _pObjects.Dispose();
-        if (PObjects != null)
+        if (PObjects != default)
         {
             var struct2 = PObjects.ToNative();
             _pObjects = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(struct2);

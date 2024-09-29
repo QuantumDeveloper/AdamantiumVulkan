@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 1876 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1902 Column: 14
 public enum DynamicState : uint
 {
     Viewport = 0,
@@ -84,8 +84,6 @@ public enum DynamicState : uint
 
     FragmentShadingRateKhr = 1000226000,
 
-    LineStippleExt = 1000259000,
-
     VertexInputExt = 1000352000,
 
     PatchControlPointsExt = 1000377000,
@@ -93,8 +91,6 @@ public enum DynamicState : uint
     LogicOpExt = 1000377003,
 
     ColorWriteEnableExt = 1000381000,
-
-    TessellationDomainOriginExt = 1000455002,
 
     DepthClampEnableExt = 1000455003,
 
@@ -115,6 +111,8 @@ public enum DynamicState : uint
     ColorBlendEquationExt = 1000455011,
 
     ColorWriteMaskExt = 1000455012,
+
+    TessellationDomainOriginExt = 1000455002,
 
     RasterizationStreamExt = 1000455013,
 
@@ -157,6 +155,8 @@ public enum DynamicState : uint
     CoverageReductionModeNv = 1000455032,
 
     AttachmentFeedbackLoopEnableExt = 1000524000,
+
+    LineStippleKhr = 1000259000,
 
     MaxEnum = 2147483647,
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH265LongTermRefPics
+public unsafe partial class StdVideoEncodeH265LongTermRefPics : QBDisposableObject
 {
     public StdVideoEncodeH265LongTermRefPics()
     {
@@ -39,31 +39,40 @@ public unsafe partial class StdVideoEncodeH265LongTermRefPics
     public AdamantiumVulkan.Interop.StdVideoEncodeH265LongTermRefPics ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265LongTermRefPics();
-        _internal.num_long_term_sps = Num_long_term_sps;
-        _internal.num_long_term_pics = Num_long_term_pics;
-        if(Lt_idx_sps != null)
+        if (Num_long_term_sps != default)
+        {
+            _internal.num_long_term_sps = Num_long_term_sps;
+        }
+        if (Num_long_term_pics != default)
+        {
+            _internal.num_long_term_pics = Num_long_term_pics;
+        }
+        if (Lt_idx_sps != default)
         {
             if (Lt_idx_sps.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Lt_idx_sps), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.lt_idx_sps, 32, Lt_idx_sps);
         }
-        if(Poc_lsb_lt != null)
+        if (Poc_lsb_lt != default)
         {
             if (Poc_lsb_lt.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(Poc_lsb_lt), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.poc_lsb_lt, 16, Poc_lsb_lt);
         }
-        _internal.used_by_curr_pic_lt_flag = Used_by_curr_pic_lt_flag;
-        if(Delta_poc_msb_present_flag != null)
+        if (Used_by_curr_pic_lt_flag != default)
+        {
+            _internal.used_by_curr_pic_lt_flag = Used_by_curr_pic_lt_flag;
+        }
+        if (Delta_poc_msb_present_flag != default)
         {
             if (Delta_poc_msb_present_flag.Length > 48)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_poc_msb_present_flag), "Array is out of bounds. Size should not be more than 48");
 
             NativeUtils.PrimitiveToFixedArray(_internal.delta_poc_msb_present_flag, 48, Delta_poc_msb_present_flag);
         }
-        if(Delta_poc_msb_cycle_lt != null)
+        if (Delta_poc_msb_cycle_lt != default)
         {
             if (Delta_poc_msb_cycle_lt.Length > 48)
                 throw new System.ArgumentOutOfRangeException(nameof(Delta_poc_msb_cycle_lt), "Array is out of bounds. Size should not be more than 48");

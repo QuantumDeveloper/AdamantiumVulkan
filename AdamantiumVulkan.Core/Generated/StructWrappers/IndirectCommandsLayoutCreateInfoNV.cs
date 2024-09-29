@@ -50,19 +50,34 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.pipelineBindPoint = PipelineBindPoint;
-        _internal.tokenCount = TokenCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (PipelineBindPoint != default)
+        {
+            _internal.pipelineBindPoint = PipelineBindPoint;
+        }
+        if (TokenCount != default)
+        {
+            _internal.tokenCount = TokenCount;
+        }
         _pTokens.Dispose();
-        if (PTokens != null)
+        if (PTokens != default)
         {
             var struct0 = PTokens.ToNative();
             _pTokens = new NativeStruct<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(struct0);
             _internal.pTokens = _pTokens.Handle;
         }
-        _internal.streamCount = StreamCount;
+        if (StreamCount != default)
+        {
+            _internal.streamCount = StreamCount;
+        }
         _pStreamStrides.Dispose();
         if (PStreamStrides.HasValue)
         {

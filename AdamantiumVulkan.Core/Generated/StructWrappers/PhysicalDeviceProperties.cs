@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceProperties
+public unsafe partial class PhysicalDeviceProperties : QBDisposableObject
 {
     public PhysicalDeviceProperties()
     {
@@ -43,35 +43,57 @@ public unsafe partial class PhysicalDeviceProperties
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties();
-        _internal.apiVersion = ApiVersion;
-        _internal.driverVersion = DriverVersion;
-        _internal.vendorID = VendorID;
-        _internal.deviceID = DeviceID;
-        _internal.deviceType = DeviceType;
-        if(DeviceName != null)
+        if (ApiVersion != default)
+        {
+            _internal.apiVersion = ApiVersion;
+        }
+        if (DriverVersion != default)
+        {
+            _internal.driverVersion = DriverVersion;
+        }
+        if (VendorID != default)
+        {
+            _internal.vendorID = VendorID;
+        }
+        if (DeviceID != default)
+        {
+            _internal.deviceID = DeviceID;
+        }
+        if (DeviceType != default)
+        {
+            _internal.deviceType = DeviceType;
+        }
+        if (DeviceName != default)
         {
             if (DeviceName.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(DeviceName), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.deviceName, 256, DeviceName, false);
         }
-        if(PipelineCacheUUID != null)
+        if (PipelineCacheUUID != default)
         {
             if (PipelineCacheUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(PipelineCacheUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.pipelineCacheUUID, 16, PipelineCacheUUID);
         }
-        if (Limits != null)
+        if (Limits != default)
         {
             _internal.limits = Limits.ToNative();
         }
-        if (SparseProperties != null)
+        if (SparseProperties != default)
         {
             _internal.sparseProperties = SparseProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Limits?.Dispose();
+        SparseProperties?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties p)
     {

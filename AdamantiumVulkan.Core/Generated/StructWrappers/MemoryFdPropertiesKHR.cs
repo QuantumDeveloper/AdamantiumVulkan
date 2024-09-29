@@ -30,9 +30,15 @@ public unsafe partial class MemoryFdPropertiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memoryTypeBits = MemoryTypeBits;
+        if (MemoryTypeBits != default)
+        {
+            _internal.memoryTypeBits = MemoryTypeBits;
+        }
         return _internal;
     }
 

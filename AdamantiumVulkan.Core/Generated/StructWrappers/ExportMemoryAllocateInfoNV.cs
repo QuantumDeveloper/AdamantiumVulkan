@@ -30,9 +30,15 @@ public unsafe partial class ExportMemoryAllocateInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.handleTypes = HandleTypes;
+        if (HandleTypes != (uint)default)
+        {
+            _internal.handleTypes = HandleTypes;
+        }
         return _internal;
     }
 

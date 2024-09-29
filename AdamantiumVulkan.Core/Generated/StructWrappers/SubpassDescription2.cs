@@ -69,42 +69,63 @@ public unsafe partial class SubpassDescription2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSubpassDescription2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDescription2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.pipelineBindPoint = PipelineBindPoint;
-        _internal.viewMask = ViewMask;
-        _internal.inputAttachmentCount = InputAttachmentCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (PipelineBindPoint != default)
+        {
+            _internal.pipelineBindPoint = PipelineBindPoint;
+        }
+        if (ViewMask != default)
+        {
+            _internal.viewMask = ViewMask;
+        }
+        if (InputAttachmentCount != default)
+        {
+            _internal.inputAttachmentCount = InputAttachmentCount;
+        }
         _pInputAttachments.Dispose();
-        if (PInputAttachments != null)
+        if (PInputAttachments != default)
         {
             var struct0 = PInputAttachments.ToNative();
             _pInputAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);
             _internal.pInputAttachments = _pInputAttachments.Handle;
         }
-        _internal.colorAttachmentCount = ColorAttachmentCount;
+        if (ColorAttachmentCount != default)
+        {
+            _internal.colorAttachmentCount = ColorAttachmentCount;
+        }
         _pColorAttachments.Dispose();
-        if (PColorAttachments != null)
+        if (PColorAttachments != default)
         {
             var struct1 = PColorAttachments.ToNative();
             _pColorAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct1);
             _internal.pColorAttachments = _pColorAttachments.Handle;
         }
         _pResolveAttachments.Dispose();
-        if (PResolveAttachments != null)
+        if (PResolveAttachments != default)
         {
             var struct2 = PResolveAttachments.ToNative();
             _pResolveAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct2);
             _internal.pResolveAttachments = _pResolveAttachments.Handle;
         }
         _pDepthStencilAttachment.Dispose();
-        if (PDepthStencilAttachment != null)
+        if (PDepthStencilAttachment != default)
         {
             var struct3 = PDepthStencilAttachment.ToNative();
             _pDepthStencilAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct3);
             _internal.pDepthStencilAttachment = _pDepthStencilAttachment.Handle;
         }
-        _internal.preserveAttachmentCount = PreserveAttachmentCount;
+        if (PreserveAttachmentCount != default)
+        {
+            _internal.preserveAttachmentCount = PreserveAttachmentCount;
+        }
         _pPreserveAttachments.Dispose();
         if (PreserveAttachments.HasValue)
         {

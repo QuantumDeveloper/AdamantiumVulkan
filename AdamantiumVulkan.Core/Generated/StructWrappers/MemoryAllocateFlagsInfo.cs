@@ -32,10 +32,19 @@ public unsafe partial class MemoryAllocateFlagsInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.deviceMask = DeviceMask;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DeviceMask != default)
+        {
+            _internal.deviceMask = DeviceMask;
+        }
         return _internal;
     }
 

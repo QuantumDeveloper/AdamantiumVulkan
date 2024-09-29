@@ -35,11 +35,23 @@ public unsafe partial class MicromapBuildSizesInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.micromapSize = MicromapSize;
-        _internal.buildScratchSize = BuildScratchSize;
-        _internal.discardable = Discardable;
+        if (MicromapSize != (ulong)default)
+        {
+            _internal.micromapSize = MicromapSize;
+        }
+        if (BuildScratchSize != (ulong)default)
+        {
+            _internal.buildScratchSize = BuildScratchSize;
+        }
+        if (Discardable != (uint)default)
+        {
+            _internal.discardable = Discardable;
+        }
         return _internal;
     }
 

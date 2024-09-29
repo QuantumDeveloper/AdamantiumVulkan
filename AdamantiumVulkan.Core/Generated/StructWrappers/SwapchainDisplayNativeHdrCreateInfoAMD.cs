@@ -31,9 +31,15 @@ public unsafe partial class SwapchainDisplayNativeHdrCreateInfoAMD : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.localDimmingEnable = LocalDimmingEnable;
+        if (LocalDimmingEnable != (uint)default)
+        {
+            _internal.localDimmingEnable = LocalDimmingEnable;
+        }
         return _internal;
     }
 

@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceVariablePointersFeatures : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.variablePointersStorageBuffer = VariablePointersStorageBuffer;
-        _internal.variablePointers = VariablePointers;
+        if (VariablePointersStorageBuffer != (uint)default)
+        {
+            _internal.variablePointersStorageBuffer = VariablePointersStorageBuffer;
+        }
+        if (VariablePointers != (uint)default)
+        {
+            _internal.variablePointers = VariablePointers;
+        }
         return _internal;
     }
 

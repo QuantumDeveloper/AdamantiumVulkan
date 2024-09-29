@@ -38,13 +38,31 @@ public unsafe partial class AcquireNextImageInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchain = Swapchain;
-        _internal.timeout = Timeout;
-        _internal.semaphore = Semaphore;
-        _internal.fence = Fence;
-        _internal.deviceMask = DeviceMask;
+        if (Swapchain != default)
+        {
+            _internal.swapchain = Swapchain;
+        }
+        if (Timeout != default)
+        {
+            _internal.timeout = Timeout;
+        }
+        if (Semaphore != default)
+        {
+            _internal.semaphore = Semaphore;
+        }
+        if (Fence != default)
+        {
+            _internal.fence = Fence;
+        }
+        if (DeviceMask != default)
+        {
+            _internal.deviceMask = DeviceMask;
+        }
         return _internal;
     }
 

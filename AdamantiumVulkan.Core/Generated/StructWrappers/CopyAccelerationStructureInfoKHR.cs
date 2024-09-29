@@ -35,11 +35,23 @@ public unsafe partial class CopyAccelerationStructureInfoKHR : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.src = Src;
-        _internal.dst = Dst;
-        _internal.mode = Mode;
+        if (Src != default)
+        {
+            _internal.src = Src;
+        }
+        if (Dst != default)
+        {
+            _internal.dst = Dst;
+        }
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
         return _internal;
     }
 

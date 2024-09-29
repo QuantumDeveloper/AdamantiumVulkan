@@ -31,9 +31,15 @@ public unsafe partial class SurfaceCapabilitiesPresentBarrierNV : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesPresentBarrierNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesPresentBarrierNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentBarrierSupported = PresentBarrierSupported;
+        if (PresentBarrierSupported != (uint)default)
+        {
+            _internal.presentBarrierSupported = PresentBarrierSupported;
+        }
         return _internal;
     }
 

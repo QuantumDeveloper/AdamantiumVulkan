@@ -31,9 +31,15 @@ public unsafe partial class CopyCommandTransformInfoQCOM : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.transform = Transform;
+        if (Transform != default)
+        {
+            _internal.transform = Transform;
+        }
         return _internal;
     }
 

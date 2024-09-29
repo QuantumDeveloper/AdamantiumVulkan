@@ -45,16 +45,43 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderGroupHandleSize = ShaderGroupHandleSize;
-        _internal.maxRayRecursionDepth = MaxRayRecursionDepth;
-        _internal.maxShaderGroupStride = MaxShaderGroupStride;
-        _internal.shaderGroupBaseAlignment = ShaderGroupBaseAlignment;
-        _internal.shaderGroupHandleCaptureReplaySize = ShaderGroupHandleCaptureReplaySize;
-        _internal.maxRayDispatchInvocationCount = MaxRayDispatchInvocationCount;
-        _internal.shaderGroupHandleAlignment = ShaderGroupHandleAlignment;
-        _internal.maxRayHitAttributeSize = MaxRayHitAttributeSize;
+        if (ShaderGroupHandleSize != default)
+        {
+            _internal.shaderGroupHandleSize = ShaderGroupHandleSize;
+        }
+        if (MaxRayRecursionDepth != default)
+        {
+            _internal.maxRayRecursionDepth = MaxRayRecursionDepth;
+        }
+        if (MaxShaderGroupStride != default)
+        {
+            _internal.maxShaderGroupStride = MaxShaderGroupStride;
+        }
+        if (ShaderGroupBaseAlignment != default)
+        {
+            _internal.shaderGroupBaseAlignment = ShaderGroupBaseAlignment;
+        }
+        if (ShaderGroupHandleCaptureReplaySize != default)
+        {
+            _internal.shaderGroupHandleCaptureReplaySize = ShaderGroupHandleCaptureReplaySize;
+        }
+        if (MaxRayDispatchInvocationCount != default)
+        {
+            _internal.maxRayDispatchInvocationCount = MaxRayDispatchInvocationCount;
+        }
+        if (ShaderGroupHandleAlignment != default)
+        {
+            _internal.shaderGroupHandleAlignment = ShaderGroupHandleAlignment;
+        }
+        if (MaxRayHitAttributeSize != default)
+        {
+            _internal.maxRayHitAttributeSize = MaxRayHitAttributeSize;
+        }
         return _internal;
     }
 

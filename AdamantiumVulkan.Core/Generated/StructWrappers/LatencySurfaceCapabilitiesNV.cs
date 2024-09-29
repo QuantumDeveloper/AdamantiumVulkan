@@ -35,9 +35,15 @@ public unsafe partial class LatencySurfaceCapabilitiesNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkLatencySurfaceCapabilitiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLatencySurfaceCapabilitiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentModeCount = PresentModeCount;
+        if (PresentModeCount != default)
+        {
+            _internal.presentModeCount = PresentModeCount;
+        }
         _pPresentModes.Dispose();
         if (PresentModes.HasValue)
         {

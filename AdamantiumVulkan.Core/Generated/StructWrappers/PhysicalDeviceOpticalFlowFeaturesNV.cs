@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceOpticalFlowFeaturesNV : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpticalFlowFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpticalFlowFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.opticalFlow = OpticalFlow;
+        if (OpticalFlow != (uint)default)
+        {
+            _internal.opticalFlow = OpticalFlow;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class VideoEncodeH264QpKHR
+public unsafe partial class VideoEncodeH264QpKHR : QBDisposableObject
 {
     public VideoEncodeH264QpKHR()
     {
@@ -31,9 +31,18 @@ public unsafe partial class VideoEncodeH264QpKHR
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264QpKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264QpKHR();
-        _internal.qpI = QpI;
-        _internal.qpP = QpP;
-        _internal.qpB = QpB;
+        if (QpI != default)
+        {
+            _internal.qpI = QpI;
+        }
+        if (QpP != default)
+        {
+            _internal.qpP = QpP;
+        }
+        if (QpB != default)
+        {
+            _internal.qpB = QpB;
+        }
         return _internal;
     }
 

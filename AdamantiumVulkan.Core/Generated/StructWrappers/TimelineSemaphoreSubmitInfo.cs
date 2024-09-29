@@ -49,16 +49,25 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.waitSemaphoreValueCount = WaitSemaphoreValueCount;
+        if (WaitSemaphoreValueCount != default)
+        {
+            _internal.waitSemaphoreValueCount = WaitSemaphoreValueCount;
+        }
         _pWaitSemaphoreValues.Dispose();
         if (PWaitSemaphoreValues.HasValue)
         {
             _pWaitSemaphoreValues = new NativeStruct<ulong>(PWaitSemaphoreValues.Value);
             _internal.pWaitSemaphoreValues = _pWaitSemaphoreValues.Handle;
         }
-        _internal.signalSemaphoreValueCount = SignalSemaphoreValueCount;
+        if (SignalSemaphoreValueCount != default)
+        {
+            _internal.signalSemaphoreValueCount = SignalSemaphoreValueCount;
+        }
         _pSignalSemaphoreValues.Dispose();
         if (PSignalSemaphoreValues.HasValue)
         {

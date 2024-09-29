@@ -40,16 +40,25 @@ public unsafe partial class ValidationFeaturesEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.enabledValidationFeatureCount = EnabledValidationFeatureCount;
+        if (EnabledValidationFeatureCount != default)
+        {
+            _internal.enabledValidationFeatureCount = EnabledValidationFeatureCount;
+        }
         _pEnabledValidationFeatures.Dispose();
         if (PEnabledValidationFeatures != null)
         {
             _pEnabledValidationFeatures = new NativeStructArray<AdamantiumVulkan.Core.ValidationFeatureEnableEXT>(PEnabledValidationFeatures);
             _internal.pEnabledValidationFeatures = _pEnabledValidationFeatures.Handle;
         }
-        _internal.disabledValidationFeatureCount = DisabledValidationFeatureCount;
+        if (DisabledValidationFeatureCount != default)
+        {
+            _internal.disabledValidationFeatureCount = DisabledValidationFeatureCount;
+        }
         _pDisabledValidationFeatures.Dispose();
         if (PDisabledValidationFeatures != null)
         {

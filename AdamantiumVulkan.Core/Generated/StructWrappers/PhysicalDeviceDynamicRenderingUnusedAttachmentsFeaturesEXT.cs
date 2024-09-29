@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDynamicRenderingUnusedAttachmentsFeatu
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dynamicRenderingUnusedAttachments = DynamicRenderingUnusedAttachments;
+        if (DynamicRenderingUnusedAttachments != (uint)default)
+        {
+            _internal.dynamicRenderingUnusedAttachments = DynamicRenderingUnusedAttachments;
+        }
         return _internal;
     }
 

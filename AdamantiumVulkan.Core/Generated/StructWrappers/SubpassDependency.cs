@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SubpassDependency
+public unsafe partial class SubpassDependency : QBDisposableObject
 {
     public SubpassDependency()
     {
@@ -39,13 +39,34 @@ public unsafe partial class SubpassDependency
     public AdamantiumVulkan.Core.Interop.VkSubpassDependency ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassDependency();
-        _internal.srcSubpass = SrcSubpass;
-        _internal.dstSubpass = DstSubpass;
-        _internal.srcStageMask = SrcStageMask;
-        _internal.dstStageMask = DstStageMask;
-        _internal.srcAccessMask = SrcAccessMask;
-        _internal.dstAccessMask = DstAccessMask;
-        _internal.dependencyFlags = DependencyFlags;
+        if (SrcSubpass != default)
+        {
+            _internal.srcSubpass = SrcSubpass;
+        }
+        if (DstSubpass != default)
+        {
+            _internal.dstSubpass = DstSubpass;
+        }
+        if (SrcStageMask != (uint)default)
+        {
+            _internal.srcStageMask = SrcStageMask;
+        }
+        if (DstStageMask != (uint)default)
+        {
+            _internal.dstStageMask = DstStageMask;
+        }
+        if (SrcAccessMask != (uint)default)
+        {
+            _internal.srcAccessMask = SrcAccessMask;
+        }
+        if (DstAccessMask != (uint)default)
+        {
+            _internal.dstAccessMask = DstAccessMask;
+        }
+        if (DependencyFlags != (uint)default)
+        {
+            _internal.dependencyFlags = DependencyFlags;
+        }
         return _internal;
     }
 

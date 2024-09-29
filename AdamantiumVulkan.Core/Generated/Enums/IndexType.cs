@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2129 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 2157 Column: 14
 public enum IndexType : uint
 {
     Uint16 = 0,
@@ -20,7 +20,7 @@ public enum IndexType : uint
 
     NoneKhr = 1000165000,
 
-    Uint8Ext = 1000265000,
+    Uint8Khr = 1000265000,
 
     MaxEnum = 2147483647,
 

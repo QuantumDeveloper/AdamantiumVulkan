@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceSynchronization2Features : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.synchronization2 = Synchronization2;
+        if (Synchronization2 != (uint)default)
+        {
+            _internal.synchronization2 = Synchronization2;
+        }
         return _internal;
     }
 

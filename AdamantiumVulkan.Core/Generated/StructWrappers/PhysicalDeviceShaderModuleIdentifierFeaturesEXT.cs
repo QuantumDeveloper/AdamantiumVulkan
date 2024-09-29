@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderModuleIdentifierFeaturesEXT : QB
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderModuleIdentifier = ShaderModuleIdentifier;
+        if (ShaderModuleIdentifier != (uint)default)
+        {
+            _internal.shaderModuleIdentifier = ShaderModuleIdentifier;
+        }
         return _internal;
     }
 

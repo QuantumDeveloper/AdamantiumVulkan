@@ -55,16 +55,37 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        _internal.flags = Flags;
-        _internal.mode = Mode;
-        _internal.srcAccelerationStructure = SrcAccelerationStructure;
-        _internal.dstAccelerationStructure = DstAccelerationStructure;
-        _internal.geometryCount = GeometryCount;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
+        if (SrcAccelerationStructure != default)
+        {
+            _internal.srcAccelerationStructure = SrcAccelerationStructure;
+        }
+        if (DstAccelerationStructure != default)
+        {
+            _internal.dstAccelerationStructure = DstAccelerationStructure;
+        }
+        if (GeometryCount != default)
+        {
+            _internal.geometryCount = GeometryCount;
+        }
         _pGeometries.Dispose();
-        if (PGeometries != null)
+        if (PGeometries != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR[PGeometries.Length];
             for (int i = 0; i < PGeometries.Length; ++i)
@@ -74,7 +95,7 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
             _pGeometries = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR>(tmpArray0);
             _internal.pGeometries = _pGeometries.Handle;
         }
-        if (ScratchData != null)
+        if (ScratchData != default)
         {
             _internal.scratchData = ScratchData.ToNative();
         }
@@ -85,6 +106,7 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : QBDispos
     {
         _pGeometries.Dispose();
         _ppGeometries.Dispose();
+        ScratchData?.Dispose();
     }
 
 

@@ -39,13 +39,25 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.discardRectangleMode = DiscardRectangleMode;
-        _internal.discardRectangleCount = DiscardRectangleCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DiscardRectangleMode != default)
+        {
+            _internal.discardRectangleMode = DiscardRectangleMode;
+        }
+        if (DiscardRectangleCount != default)
+        {
+            _internal.discardRectangleCount = DiscardRectangleCount;
+        }
         _pDiscardRectangles.Dispose();
-        if (PDiscardRectangles != null)
+        if (PDiscardRectangles != default)
         {
             var struct0 = PDiscardRectangles.ToNative();
             _pDiscardRectangles = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);

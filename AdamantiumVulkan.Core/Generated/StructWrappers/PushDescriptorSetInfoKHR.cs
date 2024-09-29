@@ -42,14 +42,29 @@ public unsafe partial class PushDescriptorSetInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stageFlags = StageFlags;
-        _internal.layout = Layout;
-        _internal.set = Set;
-        _internal.descriptorWriteCount = DescriptorWriteCount;
+        if (StageFlags != (uint)default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (Set != default)
+        {
+            _internal.set = Set;
+        }
+        if (DescriptorWriteCount != default)
+        {
+            _internal.descriptorWriteCount = DescriptorWriteCount;
+        }
         _pDescriptorWrites.Dispose();
-        if (PDescriptorWrites != null)
+        if (PDescriptorWrites != default)
         {
             var struct0 = PDescriptorWrites.ToNative();
             _pDescriptorWrites = new NativeStruct<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet>(struct0);

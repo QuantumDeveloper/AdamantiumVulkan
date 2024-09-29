@@ -34,11 +34,23 @@ public unsafe partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.bufferDeviceAddress = BufferDeviceAddress;
-        _internal.bufferDeviceAddressCaptureReplay = BufferDeviceAddressCaptureReplay;
-        _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
+        if (BufferDeviceAddress != (uint)default)
+        {
+            _internal.bufferDeviceAddress = BufferDeviceAddress;
+        }
+        if (BufferDeviceAddressCaptureReplay != (uint)default)
+        {
+            _internal.bufferDeviceAddressCaptureReplay = BufferDeviceAddressCaptureReplay;
+        }
+        if (BufferDeviceAddressMultiDevice != (uint)default)
+        {
+            _internal.bufferDeviceAddressMultiDevice = BufferDeviceAddressMultiDevice;
+        }
         return _internal;
     }
 

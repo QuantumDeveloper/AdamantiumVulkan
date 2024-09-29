@@ -31,9 +31,15 @@ public unsafe partial class SamplerCaptureDescriptorDataInfoEXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sampler = Sampler;
+        if (Sampler != default)
+        {
+            _internal.sampler = Sampler;
+        }
         return _internal;
     }
 

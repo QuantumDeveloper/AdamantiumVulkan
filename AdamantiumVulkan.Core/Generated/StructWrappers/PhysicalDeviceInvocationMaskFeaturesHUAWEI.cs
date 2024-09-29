@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceInvocationMaskFeaturesHUAWEI : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInvocationMaskFeaturesHUAWEI ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInvocationMaskFeaturesHUAWEI();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.invocationMask = InvocationMask;
+        if (InvocationMask != (uint)default)
+        {
+            _internal.invocationMask = InvocationMask;
+        }
         return _internal;
     }
 

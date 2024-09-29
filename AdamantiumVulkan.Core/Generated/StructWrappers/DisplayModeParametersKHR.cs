@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DisplayModeParametersKHR
+public unsafe partial class DisplayModeParametersKHR : QBDisposableObject
 {
     public DisplayModeParametersKHR()
     {
@@ -29,13 +29,22 @@ public unsafe partial class DisplayModeParametersKHR
     public AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR();
-        if (VisibleRegion != null)
+        if (VisibleRegion != default)
         {
             _internal.visibleRegion = VisibleRegion.ToNative();
         }
-        _internal.refreshRate = RefreshRate;
+        if (RefreshRate != default)
+        {
+            _internal.refreshRate = RefreshRate;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        VisibleRegion?.Dispose();
+    }
+
 
     public static implicit operator DisplayModeParametersKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR d)
     {

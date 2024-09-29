@@ -36,16 +36,19 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pFragmentShadingRateAttachment.Dispose();
-        if (PFragmentShadingRateAttachment != null)
+        if (PFragmentShadingRateAttachment != default)
         {
             var struct0 = PFragmentShadingRateAttachment.ToNative();
             _pFragmentShadingRateAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(struct0);
             _internal.pFragmentShadingRateAttachment = _pFragmentShadingRateAttachment.Handle;
         }
-        if (ShadingRateAttachmentTexelSize != null)
+        if (ShadingRateAttachmentTexelSize != default)
         {
             _internal.shadingRateAttachmentTexelSize = ShadingRateAttachmentTexelSize.ToNative();
         }
@@ -55,6 +58,7 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : QBDisposableO
     protected override void UnmanagedDisposeOverride()
     {
         _pFragmentShadingRateAttachment.Dispose();
+        ShadingRateAttachmentTexelSize?.Dispose();
     }
 
 

@@ -31,9 +31,15 @@ public unsafe partial class CalibratedTimestampInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.timeDomain = TimeDomain;
+        if (TimeDomain != default)
+        {
+            _internal.timeDomain = TimeDomain;
+        }
         return _internal;
     }
 

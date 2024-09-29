@@ -39,17 +39,20 @@ public unsafe partial class DeviceImageSubresourceInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pCreateInfo.Dispose();
-        if (PCreateInfo != null)
+        if (PCreateInfo != default)
         {
             var struct0 = PCreateInfo.ToNative();
             _pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(struct0);
             _internal.pCreateInfo = _pCreateInfo.Handle;
         }
         _pSubresource.Dispose();
-        if (PSubresource != null)
+        if (PSubresource != default)
         {
             var struct1 = PSubresource.ToNative();
             _pSubresource = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageSubresource2KHR>(struct1);

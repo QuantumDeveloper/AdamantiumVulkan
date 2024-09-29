@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265PredictorPaletteEntries
+public unsafe partial class StdVideoH265PredictorPaletteEntries : QBDisposableObject
 {
     public StdVideoH265PredictorPaletteEntries()
     {
@@ -27,7 +27,7 @@ public unsafe partial class StdVideoH265PredictorPaletteEntries
     public AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries();
-        if(PredictorPaletteEntries != null)
+        if (PredictorPaletteEntries != default)
         {
             if (PredictorPaletteEntries.Length > 384)
                 throw new System.ArgumentOutOfRangeException(nameof(PredictorPaletteEntries), "Array is out of bounds. Size should not be more than 384");

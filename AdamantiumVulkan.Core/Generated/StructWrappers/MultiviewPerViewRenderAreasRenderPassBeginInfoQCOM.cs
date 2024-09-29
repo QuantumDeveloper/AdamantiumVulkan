@@ -36,11 +36,17 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
     public AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.perViewRenderAreaCount = PerViewRenderAreaCount;
+        if (PerViewRenderAreaCount != default)
+        {
+            _internal.perViewRenderAreaCount = PerViewRenderAreaCount;
+        }
         _pPerViewRenderAreas.Dispose();
-        if (PerViewRenderAreas != null)
+        if (PerViewRenderAreas != default)
         {
             var struct0 = PerViewRenderAreas.ToNative();
             _pPerViewRenderAreas = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRect2D>(struct0);

@@ -35,10 +35,19 @@ public unsafe partial class DeviceDeviceMemoryReportCreateInfoEXT : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.pfnUserCallback = PfnUserCallback;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (PfnUserCallback != default)
+        {
+            _internal.pfnUserCallback = PfnUserCallback;
+        }
         _internal.pUserData = PUserData;
         return _internal;
     }

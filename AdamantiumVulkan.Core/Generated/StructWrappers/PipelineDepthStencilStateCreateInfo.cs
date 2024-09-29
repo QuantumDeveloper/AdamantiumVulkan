@@ -48,26 +48,60 @@ public unsafe partial class PipelineDepthStencilStateCreateInfo : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.depthTestEnable = DepthTestEnable;
-        _internal.depthWriteEnable = DepthWriteEnable;
-        _internal.depthCompareOp = DepthCompareOp;
-        _internal.depthBoundsTestEnable = DepthBoundsTestEnable;
-        _internal.stencilTestEnable = StencilTestEnable;
-        if (Front != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DepthTestEnable != (uint)default)
+        {
+            _internal.depthTestEnable = DepthTestEnable;
+        }
+        if (DepthWriteEnable != (uint)default)
+        {
+            _internal.depthWriteEnable = DepthWriteEnable;
+        }
+        if (DepthCompareOp != default)
+        {
+            _internal.depthCompareOp = DepthCompareOp;
+        }
+        if (DepthBoundsTestEnable != (uint)default)
+        {
+            _internal.depthBoundsTestEnable = DepthBoundsTestEnable;
+        }
+        if (StencilTestEnable != (uint)default)
+        {
+            _internal.stencilTestEnable = StencilTestEnable;
+        }
+        if (Front != default)
         {
             _internal.front = Front.ToNative();
         }
-        if (Back != null)
+        if (Back != default)
         {
             _internal.back = Back.ToNative();
         }
-        _internal.minDepthBounds = MinDepthBounds;
-        _internal.maxDepthBounds = MaxDepthBounds;
+        if (MinDepthBounds != default)
+        {
+            _internal.minDepthBounds = MinDepthBounds;
+        }
+        if (MaxDepthBounds != default)
+        {
+            _internal.maxDepthBounds = MaxDepthBounds;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Front?.Dispose();
+        Back?.Dispose();
+    }
+
 
     public static implicit operator PipelineDepthStencilStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo p)
     {

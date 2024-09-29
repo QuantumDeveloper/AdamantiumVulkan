@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ClearColorValue
+public unsafe partial class ClearColorValue : QBDisposableObject
 {
     public ClearColorValue()
     {
@@ -31,21 +31,21 @@ public unsafe partial class ClearColorValue
     public AdamantiumVulkan.Core.Interop.VkClearColorValue ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkClearColorValue();
-        if(Float32 != null)
+        if (Float32 != default)
         {
             if (Float32.Length > 4)
                 throw new System.ArgumentOutOfRangeException(nameof(Float32), "Array is out of bounds. Size should not be more than 4");
 
             NativeUtils.PrimitiveToFixedArray(_internal.float32, 4, Float32);
         }
-        if(Int32 != null)
+        if (Int32 != default)
         {
             if (Int32.Length > 4)
                 throw new System.ArgumentOutOfRangeException(nameof(Int32), "Array is out of bounds. Size should not be more than 4");
 
             NativeUtils.PrimitiveToFixedArray(_internal.int32, 4, Int32);
         }
-        if(Uint32 != null)
+        if (Uint32 != default)
         {
             if (Uint32.Length > 4)
                 throw new System.ArgumentOutOfRangeException(nameof(Uint32), "Array is out of bounds. Size should not be more than 4");

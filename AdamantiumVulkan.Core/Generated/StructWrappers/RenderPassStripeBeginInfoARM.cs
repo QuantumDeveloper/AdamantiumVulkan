@@ -36,11 +36,17 @@ public unsafe partial class RenderPassStripeBeginInfoARM : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stripeInfoCount = StripeInfoCount;
+        if (StripeInfoCount != default)
+        {
+            _internal.stripeInfoCount = StripeInfoCount;
+        }
         _pStripeInfos.Dispose();
-        if (PStripeInfos != null)
+        if (PStripeInfos != default)
         {
             var struct0 = PStripeInfos.ToNative();
             _pStripeInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM>(struct0);

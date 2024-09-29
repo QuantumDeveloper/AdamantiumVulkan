@@ -35,16 +35,31 @@ public unsafe partial class AccelerationStructureGeometryKHR : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.geometryType = GeometryType;
-        if (Geometry != null)
+        if (GeometryType != default)
+        {
+            _internal.geometryType = GeometryType;
+        }
+        if (Geometry != default)
         {
             _internal.geometry = Geometry.ToNative();
         }
-        _internal.flags = Flags;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Geometry?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureGeometryKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR a)
     {

@@ -31,9 +31,15 @@ public unsafe partial class PipelineInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipeline = Pipeline;
+        if (Pipeline != default)
+        {
+            _internal.pipeline = Pipeline;
+        }
         return _internal;
     }
 

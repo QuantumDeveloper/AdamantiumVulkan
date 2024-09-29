@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceMemoryDecompressionPropertiesNV : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryDecompressionPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryDecompressionPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.decompressionMethods = DecompressionMethods;
-        _internal.maxDecompressionIndirectCount = MaxDecompressionIndirectCount;
+        if (DecompressionMethods != (ulong)default)
+        {
+            _internal.decompressionMethods = DecompressionMethods;
+        }
+        if (MaxDecompressionIndirectCount != default)
+        {
+            _internal.maxDecompressionIndirectCount = MaxDecompressionIndirectCount;
+        }
         return _internal;
     }
 

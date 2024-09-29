@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceCubicWeightsFeaturesQCOM : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCubicWeightsFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCubicWeightsFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.selectableCubicWeights = SelectableCubicWeights;
+        if (SelectableCubicWeights != (uint)default)
+        {
+            _internal.selectableCubicWeights = SelectableCubicWeights;
+        }
         return _internal;
     }
 

@@ -62,34 +62,52 @@ public unsafe partial class RenderPassCreateInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.attachmentCount = AttachmentCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (AttachmentCount != default)
+        {
+            _internal.attachmentCount = AttachmentCount;
+        }
         _pAttachments.Dispose();
-        if (PAttachments != null)
+        if (PAttachments != default)
         {
             var struct0 = PAttachments.ToNative();
             _pAttachments = new NativeStruct<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>(struct0);
             _internal.pAttachments = _pAttachments.Handle;
         }
-        _internal.subpassCount = SubpassCount;
+        if (SubpassCount != default)
+        {
+            _internal.subpassCount = SubpassCount;
+        }
         _pSubpasses.Dispose();
-        if (PSubpasses != null)
+        if (PSubpasses != default)
         {
             var struct1 = PSubpasses.ToNative();
             _pSubpasses = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDescription2>(struct1);
             _internal.pSubpasses = _pSubpasses.Handle;
         }
-        _internal.dependencyCount = DependencyCount;
+        if (DependencyCount != default)
+        {
+            _internal.dependencyCount = DependencyCount;
+        }
         _pDependencies.Dispose();
-        if (PDependencies != null)
+        if (PDependencies != default)
         {
             var struct2 = PDependencies.ToNative();
             _pDependencies = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(struct2);
             _internal.pDependencies = _pDependencies.Handle;
         }
-        _internal.correlatedViewMaskCount = CorrelatedViewMaskCount;
+        if (CorrelatedViewMaskCount != default)
+        {
+            _internal.correlatedViewMaskCount = CorrelatedViewMaskCount;
+        }
         _pCorrelatedViewMasks.Dispose();
         if (PCorrelatedViewMasks.HasValue)
         {

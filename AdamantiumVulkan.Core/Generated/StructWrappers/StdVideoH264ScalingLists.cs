@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH264ScalingLists
+public unsafe partial class StdVideoH264ScalingLists : QBDisposableObject
 {
     public StdVideoH264ScalingLists()
     {
@@ -33,16 +33,22 @@ public unsafe partial class StdVideoH264ScalingLists
     public AdamantiumVulkan.Interop.StdVideoH264ScalingLists ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH264ScalingLists();
-        _internal.scaling_list_present_mask = Scaling_list_present_mask;
-        _internal.use_default_scaling_matrix_mask = Use_default_scaling_matrix_mask;
-        if(ScalingList4x4 != null)
+        if (Scaling_list_present_mask != default)
+        {
+            _internal.scaling_list_present_mask = Scaling_list_present_mask;
+        }
+        if (Use_default_scaling_matrix_mask != default)
+        {
+            _internal.use_default_scaling_matrix_mask = Use_default_scaling_matrix_mask;
+        }
+        if (ScalingList4x4 != default)
         {
             if (ScalingList4x4.Length > 96)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingList4x4), "Array is out of bounds. Size should not be more than 96");
 
             NativeUtils.PrimitiveToFixedArray(_internal.ScalingList4x4, 96, ScalingList4x4);
         }
-        if(ScalingList8x8 != null)
+        if (ScalingList8x8 != default)
         {
             if (ScalingList8x8.Length > 384)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingList8x8), "Array is out of bounds. Size should not be more than 384");

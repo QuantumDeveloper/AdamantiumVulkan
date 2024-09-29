@@ -12,7 +12,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcHlslResourceBinding
+public unsafe partial class SpvcHlslResourceBinding : QBDisposableObject
 {
     public SpvcHlslResourceBinding()
     {
@@ -50,27 +50,45 @@ public unsafe partial class SpvcHlslResourceBinding
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding();
-        _internal.stage = Stage;
-        _internal.desc_set = Desc_set;
-        _internal.binding = Binding;
-        if (Cbv != null)
+        if (Stage != default)
+        {
+            _internal.stage = Stage;
+        }
+        if (Desc_set != default)
+        {
+            _internal.desc_set = Desc_set;
+        }
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Cbv != default)
         {
             _internal.cbv = Cbv.ToNative();
         }
-        if (Uav != null)
+        if (Uav != default)
         {
             _internal.uav = Uav.ToNative();
         }
-        if (Srv != null)
+        if (Srv != default)
         {
             _internal.srv = Srv.ToNative();
         }
-        if (Sampler != null)
+        if (Sampler != default)
         {
             _internal.sampler = Sampler.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Cbv?.Dispose();
+        Uav?.Dispose();
+        Srv?.Dispose();
+        Sampler?.Dispose();
+    }
+
 
     public static implicit operator SpvcHlslResourceBinding(AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding s)
     {

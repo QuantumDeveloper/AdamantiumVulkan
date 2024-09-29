@@ -33,15 +33,27 @@ public unsafe partial class CommandBufferInheritanceRenderPassTransformInfoQCOM 
     public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderPassTransformInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderPassTransformInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.transform = Transform;
-        if (RenderArea != null)
+        if (Transform != default)
+        {
+            _internal.transform = Transform;
+        }
+        if (RenderArea != default)
         {
             _internal.renderArea = RenderArea.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        RenderArea?.Dispose();
+    }
+
 
     public static implicit operator CommandBufferInheritanceRenderPassTransformInfoQCOM(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderPassTransformInfoQCOM c)
     {

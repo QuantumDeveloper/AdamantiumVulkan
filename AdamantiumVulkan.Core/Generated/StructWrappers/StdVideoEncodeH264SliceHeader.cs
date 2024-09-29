@@ -48,20 +48,44 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : QBDisposableObject
     public AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.first_mb_in_slice = First_mb_in_slice;
-        _internal.slice_type = Slice_type;
-        _internal.slice_alpha_c0_offset_div2 = Slice_alpha_c0_offset_div2;
-        _internal.slice_beta_offset_div2 = Slice_beta_offset_div2;
-        _internal.slice_qp_delta = Slice_qp_delta;
-        _internal.reserved1 = Reserved1;
-        _internal.cabac_init_idc = Cabac_init_idc;
-        _internal.disable_deblocking_filter_idc = Disable_deblocking_filter_idc;
+        if (First_mb_in_slice != default)
+        {
+            _internal.first_mb_in_slice = First_mb_in_slice;
+        }
+        if (Slice_type != default)
+        {
+            _internal.slice_type = Slice_type;
+        }
+        if (Slice_alpha_c0_offset_div2 != default)
+        {
+            _internal.slice_alpha_c0_offset_div2 = Slice_alpha_c0_offset_div2;
+        }
+        if (Slice_beta_offset_div2 != default)
+        {
+            _internal.slice_beta_offset_div2 = Slice_beta_offset_div2;
+        }
+        if (Slice_qp_delta != default)
+        {
+            _internal.slice_qp_delta = Slice_qp_delta;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
+        if (Cabac_init_idc != default)
+        {
+            _internal.cabac_init_idc = Cabac_init_idc;
+        }
+        if (Disable_deblocking_filter_idc != default)
+        {
+            _internal.disable_deblocking_filter_idc = Disable_deblocking_filter_idc;
+        }
         _pWeightTable.Dispose();
-        if (PWeightTable != null)
+        if (PWeightTable != default)
         {
             var struct0 = PWeightTable.ToNative();
             _pWeightTable = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable>(struct0);
@@ -73,6 +97,7 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : QBDisposableObject
     protected override void UnmanagedDisposeOverride()
     {
         _pWeightTable.Dispose();
+        Flags?.Dispose();
     }
 
 

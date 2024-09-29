@@ -85,60 +85,135 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxTaskWorkGroupTotalCount = MaxTaskWorkGroupTotalCount;
-        if(MaxTaskWorkGroupCount != null)
+        if (MaxTaskWorkGroupTotalCount != default)
+        {
+            _internal.maxTaskWorkGroupTotalCount = MaxTaskWorkGroupTotalCount;
+        }
+        if (MaxTaskWorkGroupCount != default)
         {
             if (MaxTaskWorkGroupCount.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxTaskWorkGroupCount), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxTaskWorkGroupCount, 3, MaxTaskWorkGroupCount);
         }
-        _internal.maxTaskWorkGroupInvocations = MaxTaskWorkGroupInvocations;
-        if(MaxTaskWorkGroupSize != null)
+        if (MaxTaskWorkGroupInvocations != default)
+        {
+            _internal.maxTaskWorkGroupInvocations = MaxTaskWorkGroupInvocations;
+        }
+        if (MaxTaskWorkGroupSize != default)
         {
             if (MaxTaskWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxTaskWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxTaskWorkGroupSize, 3, MaxTaskWorkGroupSize);
         }
-        _internal.maxTaskPayloadSize = MaxTaskPayloadSize;
-        _internal.maxTaskSharedMemorySize = MaxTaskSharedMemorySize;
-        _internal.maxTaskPayloadAndSharedMemorySize = MaxTaskPayloadAndSharedMemorySize;
-        _internal.maxMeshWorkGroupTotalCount = MaxMeshWorkGroupTotalCount;
-        if(MaxMeshWorkGroupCount != null)
+        if (MaxTaskPayloadSize != default)
+        {
+            _internal.maxTaskPayloadSize = MaxTaskPayloadSize;
+        }
+        if (MaxTaskSharedMemorySize != default)
+        {
+            _internal.maxTaskSharedMemorySize = MaxTaskSharedMemorySize;
+        }
+        if (MaxTaskPayloadAndSharedMemorySize != default)
+        {
+            _internal.maxTaskPayloadAndSharedMemorySize = MaxTaskPayloadAndSharedMemorySize;
+        }
+        if (MaxMeshWorkGroupTotalCount != default)
+        {
+            _internal.maxMeshWorkGroupTotalCount = MaxMeshWorkGroupTotalCount;
+        }
+        if (MaxMeshWorkGroupCount != default)
         {
             if (MaxMeshWorkGroupCount.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxMeshWorkGroupCount), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxMeshWorkGroupCount, 3, MaxMeshWorkGroupCount);
         }
-        _internal.maxMeshWorkGroupInvocations = MaxMeshWorkGroupInvocations;
-        if(MaxMeshWorkGroupSize != null)
+        if (MaxMeshWorkGroupInvocations != default)
+        {
+            _internal.maxMeshWorkGroupInvocations = MaxMeshWorkGroupInvocations;
+        }
+        if (MaxMeshWorkGroupSize != default)
         {
             if (MaxMeshWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxMeshWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxMeshWorkGroupSize, 3, MaxMeshWorkGroupSize);
         }
-        _internal.maxMeshSharedMemorySize = MaxMeshSharedMemorySize;
-        _internal.maxMeshPayloadAndSharedMemorySize = MaxMeshPayloadAndSharedMemorySize;
-        _internal.maxMeshOutputMemorySize = MaxMeshOutputMemorySize;
-        _internal.maxMeshPayloadAndOutputMemorySize = MaxMeshPayloadAndOutputMemorySize;
-        _internal.maxMeshOutputComponents = MaxMeshOutputComponents;
-        _internal.maxMeshOutputVertices = MaxMeshOutputVertices;
-        _internal.maxMeshOutputPrimitives = MaxMeshOutputPrimitives;
-        _internal.maxMeshOutputLayers = MaxMeshOutputLayers;
-        _internal.maxMeshMultiviewViewCount = MaxMeshMultiviewViewCount;
-        _internal.meshOutputPerVertexGranularity = MeshOutputPerVertexGranularity;
-        _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
-        _internal.maxPreferredTaskWorkGroupInvocations = MaxPreferredTaskWorkGroupInvocations;
-        _internal.maxPreferredMeshWorkGroupInvocations = MaxPreferredMeshWorkGroupInvocations;
-        _internal.prefersLocalInvocationVertexOutput = PrefersLocalInvocationVertexOutput;
-        _internal.prefersLocalInvocationPrimitiveOutput = PrefersLocalInvocationPrimitiveOutput;
-        _internal.prefersCompactVertexOutput = PrefersCompactVertexOutput;
-        _internal.prefersCompactPrimitiveOutput = PrefersCompactPrimitiveOutput;
+        if (MaxMeshSharedMemorySize != default)
+        {
+            _internal.maxMeshSharedMemorySize = MaxMeshSharedMemorySize;
+        }
+        if (MaxMeshPayloadAndSharedMemorySize != default)
+        {
+            _internal.maxMeshPayloadAndSharedMemorySize = MaxMeshPayloadAndSharedMemorySize;
+        }
+        if (MaxMeshOutputMemorySize != default)
+        {
+            _internal.maxMeshOutputMemorySize = MaxMeshOutputMemorySize;
+        }
+        if (MaxMeshPayloadAndOutputMemorySize != default)
+        {
+            _internal.maxMeshPayloadAndOutputMemorySize = MaxMeshPayloadAndOutputMemorySize;
+        }
+        if (MaxMeshOutputComponents != default)
+        {
+            _internal.maxMeshOutputComponents = MaxMeshOutputComponents;
+        }
+        if (MaxMeshOutputVertices != default)
+        {
+            _internal.maxMeshOutputVertices = MaxMeshOutputVertices;
+        }
+        if (MaxMeshOutputPrimitives != default)
+        {
+            _internal.maxMeshOutputPrimitives = MaxMeshOutputPrimitives;
+        }
+        if (MaxMeshOutputLayers != default)
+        {
+            _internal.maxMeshOutputLayers = MaxMeshOutputLayers;
+        }
+        if (MaxMeshMultiviewViewCount != default)
+        {
+            _internal.maxMeshMultiviewViewCount = MaxMeshMultiviewViewCount;
+        }
+        if (MeshOutputPerVertexGranularity != default)
+        {
+            _internal.meshOutputPerVertexGranularity = MeshOutputPerVertexGranularity;
+        }
+        if (MeshOutputPerPrimitiveGranularity != default)
+        {
+            _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
+        }
+        if (MaxPreferredTaskWorkGroupInvocations != default)
+        {
+            _internal.maxPreferredTaskWorkGroupInvocations = MaxPreferredTaskWorkGroupInvocations;
+        }
+        if (MaxPreferredMeshWorkGroupInvocations != default)
+        {
+            _internal.maxPreferredMeshWorkGroupInvocations = MaxPreferredMeshWorkGroupInvocations;
+        }
+        if (PrefersLocalInvocationVertexOutput != (uint)default)
+        {
+            _internal.prefersLocalInvocationVertexOutput = PrefersLocalInvocationVertexOutput;
+        }
+        if (PrefersLocalInvocationPrimitiveOutput != (uint)default)
+        {
+            _internal.prefersLocalInvocationPrimitiveOutput = PrefersLocalInvocationPrimitiveOutput;
+        }
+        if (PrefersCompactVertexOutput != (uint)default)
+        {
+            _internal.prefersCompactVertexOutput = PrefersCompactVertexOutput;
+        }
+        if (PrefersCompactPrimitiveOutput != (uint)default)
+        {
+            _internal.prefersCompactPrimitiveOutput = PrefersCompactPrimitiveOutput;
+        }
         return _internal;
     }
 

@@ -34,11 +34,23 @@ public unsafe partial class PipelineRasterizationConservativeStateCreateInfoEXT 
     public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.conservativeRasterizationMode = ConservativeRasterizationMode;
-        _internal.extraPrimitiveOverestimationSize = ExtraPrimitiveOverestimationSize;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (ConservativeRasterizationMode != default)
+        {
+            _internal.conservativeRasterizationMode = ConservativeRasterizationMode;
+        }
+        if (ExtraPrimitiveOverestimationSize != default)
+        {
+            _internal.extraPrimitiveOverestimationSize = ExtraPrimitiveOverestimationSize;
+        }
         return _internal;
     }
 

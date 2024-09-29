@@ -31,9 +31,15 @@ public unsafe partial class OutOfBandQueueTypeInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.queueType = QueueType;
+        if (QueueType != default)
+        {
+            _internal.queueType = QueueType;
+        }
         return _internal;
     }
 

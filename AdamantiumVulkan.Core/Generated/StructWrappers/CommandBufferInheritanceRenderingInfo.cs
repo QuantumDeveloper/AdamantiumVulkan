@@ -45,20 +45,41 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.viewMask = ViewMask;
-        _internal.colorAttachmentCount = ColorAttachmentCount;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (ViewMask != default)
+        {
+            _internal.viewMask = ViewMask;
+        }
+        if (ColorAttachmentCount != default)
+        {
+            _internal.colorAttachmentCount = ColorAttachmentCount;
+        }
         _pColorAttachmentFormats.Dispose();
         if (PColorAttachmentFormats.HasValue)
         {
             _pColorAttachmentFormats = new NativeStruct<AdamantiumVulkan.Core.Format>(PColorAttachmentFormats.Value);
             _internal.pColorAttachmentFormats = _pColorAttachmentFormats.Handle;
         }
-        _internal.depthAttachmentFormat = DepthAttachmentFormat;
-        _internal.stencilAttachmentFormat = StencilAttachmentFormat;
-        _internal.rasterizationSamples = RasterizationSamples;
+        if (DepthAttachmentFormat != default)
+        {
+            _internal.depthAttachmentFormat = DepthAttachmentFormat;
+        }
+        if (StencilAttachmentFormat != default)
+        {
+            _internal.stencilAttachmentFormat = StencilAttachmentFormat;
+        }
+        if (RasterizationSamples != default)
+        {
+            _internal.rasterizationSamples = RasterizationSamples;
+        }
         return _internal;
     }
 

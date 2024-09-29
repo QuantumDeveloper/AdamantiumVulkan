@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.triStripVertexOrderIndependentOfProvokingVertex = TriStripVertexOrderIndependentOfProvokingVertex;
+        if (TriStripVertexOrderIndependentOfProvokingVertex != (uint)default)
+        {
+            _internal.triStripVertexOrderIndependentOfProvokingVertex = TriStripVertexOrderIndependentOfProvokingVertex;
+        }
         return _internal;
     }
 

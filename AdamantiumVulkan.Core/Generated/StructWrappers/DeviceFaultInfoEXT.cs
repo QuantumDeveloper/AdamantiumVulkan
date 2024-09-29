@@ -43,9 +43,12 @@ public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(Description != null)
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");
@@ -53,14 +56,14 @@ public unsafe partial class DeviceFaultInfoEXT : QBDisposableObject
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
         _pAddressInfos.Dispose();
-        if (PAddressInfos != null)
+        if (PAddressInfos != default)
         {
             var struct0 = PAddressInfos.ToNative();
             _pAddressInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT>(struct0);
             _internal.pAddressInfos = _pAddressInfos.Handle;
         }
         _pVendorInfos.Dispose();
-        if (PVendorInfos != null)
+        if (PVendorInfos != default)
         {
             var struct1 = PVendorInfos.ToNative();
             _pVendorInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT>(struct1);

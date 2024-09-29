@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.ycbcrImageArrays = YcbcrImageArrays;
+        if (YcbcrImageArrays != (uint)default)
+        {
+            _internal.ycbcrImageArrays = YcbcrImageArrays;
+        }
         return _internal;
     }
 

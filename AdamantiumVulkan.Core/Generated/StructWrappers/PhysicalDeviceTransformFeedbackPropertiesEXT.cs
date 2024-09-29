@@ -48,18 +48,51 @@ public unsafe partial class PhysicalDeviceTransformFeedbackPropertiesEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxTransformFeedbackStreams = MaxTransformFeedbackStreams;
-        _internal.maxTransformFeedbackBuffers = MaxTransformFeedbackBuffers;
-        _internal.maxTransformFeedbackBufferSize = MaxTransformFeedbackBufferSize;
-        _internal.maxTransformFeedbackStreamDataSize = MaxTransformFeedbackStreamDataSize;
-        _internal.maxTransformFeedbackBufferDataSize = MaxTransformFeedbackBufferDataSize;
-        _internal.maxTransformFeedbackBufferDataStride = MaxTransformFeedbackBufferDataStride;
-        _internal.transformFeedbackQueries = TransformFeedbackQueries;
-        _internal.transformFeedbackStreamsLinesTriangles = TransformFeedbackStreamsLinesTriangles;
-        _internal.transformFeedbackRasterizationStreamSelect = TransformFeedbackRasterizationStreamSelect;
-        _internal.transformFeedbackDraw = TransformFeedbackDraw;
+        if (MaxTransformFeedbackStreams != default)
+        {
+            _internal.maxTransformFeedbackStreams = MaxTransformFeedbackStreams;
+        }
+        if (MaxTransformFeedbackBuffers != default)
+        {
+            _internal.maxTransformFeedbackBuffers = MaxTransformFeedbackBuffers;
+        }
+        if (MaxTransformFeedbackBufferSize != (ulong)default)
+        {
+            _internal.maxTransformFeedbackBufferSize = MaxTransformFeedbackBufferSize;
+        }
+        if (MaxTransformFeedbackStreamDataSize != default)
+        {
+            _internal.maxTransformFeedbackStreamDataSize = MaxTransformFeedbackStreamDataSize;
+        }
+        if (MaxTransformFeedbackBufferDataSize != default)
+        {
+            _internal.maxTransformFeedbackBufferDataSize = MaxTransformFeedbackBufferDataSize;
+        }
+        if (MaxTransformFeedbackBufferDataStride != default)
+        {
+            _internal.maxTransformFeedbackBufferDataStride = MaxTransformFeedbackBufferDataStride;
+        }
+        if (TransformFeedbackQueries != (uint)default)
+        {
+            _internal.transformFeedbackQueries = TransformFeedbackQueries;
+        }
+        if (TransformFeedbackStreamsLinesTriangles != (uint)default)
+        {
+            _internal.transformFeedbackStreamsLinesTriangles = TransformFeedbackStreamsLinesTriangles;
+        }
+        if (TransformFeedbackRasterizationStreamSelect != (uint)default)
+        {
+            _internal.transformFeedbackRasterizationStreamSelect = TransformFeedbackRasterizationStreamSelect;
+        }
+        if (TransformFeedbackDraw != (uint)default)
+        {
+            _internal.transformFeedbackDraw = TransformFeedbackDraw;
+        }
         return _internal;
     }
 

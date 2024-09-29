@@ -38,13 +38,31 @@ public unsafe partial class PhysicalDeviceSparseImageFormatInfo2 : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.format = Format;
-        _internal.type = Type;
-        _internal.samples = Samples;
-        _internal.usage = Usage;
-        _internal.tiling = Tiling;
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Samples != default)
+        {
+            _internal.samples = Samples;
+        }
+        if (Usage != (uint)default)
+        {
+            _internal.usage = Usage;
+        }
+        if (Tiling != default)
+        {
+            _internal.tiling = Tiling;
+        }
         return _internal;
     }
 

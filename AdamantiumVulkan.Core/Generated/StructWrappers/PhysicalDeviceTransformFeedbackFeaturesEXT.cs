@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceTransformFeedbackFeaturesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.transformFeedback = TransformFeedback;
-        _internal.geometryStreams = GeometryStreams;
+        if (TransformFeedback != (uint)default)
+        {
+            _internal.transformFeedback = TransformFeedback;
+        }
+        if (GeometryStreams != (uint)default)
+        {
+            _internal.geometryStreams = GeometryStreams;
+        }
         return _internal;
     }
 

@@ -35,16 +35,31 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.src = Src;
-        if (Dst != null)
+        if (Src != default)
+        {
+            _internal.src = Src;
+        }
+        if (Dst != default)
         {
             _internal.dst = Dst.ToNative();
         }
-        _internal.mode = Mode;
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Dst?.Dispose();
+    }
+
 
     public static implicit operator CopyMicromapToMemoryInfoEXT(AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT c)
     {

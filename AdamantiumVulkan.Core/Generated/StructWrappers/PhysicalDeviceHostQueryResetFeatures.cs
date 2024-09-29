@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceHostQueryResetFeatures : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hostQueryReset = HostQueryReset;
+        if (HostQueryReset != (uint)default)
+        {
+            _internal.hostQueryReset = HostQueryReset;
+        }
         return _internal;
     }
 

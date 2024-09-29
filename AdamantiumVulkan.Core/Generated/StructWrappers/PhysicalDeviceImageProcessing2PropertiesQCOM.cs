@@ -31,14 +31,23 @@ public unsafe partial class PhysicalDeviceImageProcessing2PropertiesQCOM : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessing2PropertiesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessing2PropertiesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (MaxBlockMatchWindow != null)
+        if (MaxBlockMatchWindow != default)
         {
             _internal.maxBlockMatchWindow = MaxBlockMatchWindow.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MaxBlockMatchWindow?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceImageProcessing2PropertiesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessing2PropertiesQCOM p)
     {

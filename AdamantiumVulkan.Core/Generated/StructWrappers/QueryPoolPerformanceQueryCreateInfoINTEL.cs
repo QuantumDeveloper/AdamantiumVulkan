@@ -31,9 +31,15 @@ public unsafe partial class QueryPoolPerformanceQueryCreateInfoINTEL : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceQueryCreateInfoINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceQueryCreateInfoINTEL();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.performanceCountersSampling = PerformanceCountersSampling;
+        if (PerformanceCountersSampling != default)
+        {
+            _internal.performanceCountersSampling = PerformanceCountersSampling;
+        }
         return _internal;
     }
 

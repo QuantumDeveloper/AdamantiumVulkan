@@ -37,12 +37,27 @@ public unsafe partial class VideoEncodeH265GopRemainingFrameInfoKHR : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH265GopRemainingFrameInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265GopRemainingFrameInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.useGopRemainingFrames = UseGopRemainingFrames;
-        _internal.gopRemainingI = GopRemainingI;
-        _internal.gopRemainingP = GopRemainingP;
-        _internal.gopRemainingB = GopRemainingB;
+        if (UseGopRemainingFrames != (uint)default)
+        {
+            _internal.useGopRemainingFrames = UseGopRemainingFrames;
+        }
+        if (GopRemainingI != default)
+        {
+            _internal.gopRemainingI = GopRemainingI;
+        }
+        if (GopRemainingP != default)
+        {
+            _internal.gopRemainingP = GopRemainingP;
+        }
+        if (GopRemainingB != default)
+        {
+            _internal.gopRemainingB = GopRemainingB;
+        }
         return _internal;
     }
 

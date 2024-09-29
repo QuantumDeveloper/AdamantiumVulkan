@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDevicePerformanceQueryFeaturesKHR : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.performanceCounterQueryPools = PerformanceCounterQueryPools;
-        _internal.performanceCounterMultipleQueryPools = PerformanceCounterMultipleQueryPools;
+        if (PerformanceCounterQueryPools != (uint)default)
+        {
+            _internal.performanceCounterQueryPools = PerformanceCounterQueryPools;
+        }
+        if (PerformanceCounterMultipleQueryPools != (uint)default)
+        {
+            _internal.performanceCounterMultipleQueryPools = PerformanceCounterMultipleQueryPools;
+        }
         return _internal;
     }
 

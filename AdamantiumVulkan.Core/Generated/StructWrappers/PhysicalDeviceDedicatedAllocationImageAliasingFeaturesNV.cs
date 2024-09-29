@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceDedicatedAllocationImageAliasingFeatur
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dedicatedAllocationImageAliasing = DedicatedAllocationImageAliasing;
+        if (DedicatedAllocationImageAliasing != (uint)default)
+        {
+            _internal.dedicatedAllocationImageAliasing = DedicatedAllocationImageAliasing;
+        }
         return _internal;
     }
 

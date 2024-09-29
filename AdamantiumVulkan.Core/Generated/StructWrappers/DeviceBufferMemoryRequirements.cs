@@ -34,10 +34,13 @@ public unsafe partial class DeviceBufferMemoryRequirements : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pCreateInfo.Dispose();
-        if (PCreateInfo != null)
+        if (PCreateInfo != default)
         {
             var struct0 = PCreateInfo.ToNative();
             _pCreateInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferCreateInfo>(struct0);

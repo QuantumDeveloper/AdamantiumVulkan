@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PastPresentationTimingGOOGLE
+public unsafe partial class PastPresentationTimingGOOGLE : QBDisposableObject
 {
     public PastPresentationTimingGOOGLE()
     {
@@ -35,11 +35,26 @@ public unsafe partial class PastPresentationTimingGOOGLE
     public AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE();
-        _internal.presentID = PresentID;
-        _internal.desiredPresentTime = DesiredPresentTime;
-        _internal.actualPresentTime = ActualPresentTime;
-        _internal.earliestPresentTime = EarliestPresentTime;
-        _internal.presentMargin = PresentMargin;
+        if (PresentID != default)
+        {
+            _internal.presentID = PresentID;
+        }
+        if (DesiredPresentTime != default)
+        {
+            _internal.desiredPresentTime = DesiredPresentTime;
+        }
+        if (ActualPresentTime != default)
+        {
+            _internal.actualPresentTime = ActualPresentTime;
+        }
+        if (EarliestPresentTime != default)
+        {
+            _internal.earliestPresentTime = EarliestPresentTime;
+        }
+        if (PresentMargin != default)
+        {
+            _internal.presentMargin = PresentMargin;
+        }
         return _internal;
     }
 

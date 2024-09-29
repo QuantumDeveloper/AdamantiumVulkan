@@ -37,12 +37,27 @@ public unsafe partial class BindVideoSessionMemoryInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memoryBindIndex = MemoryBindIndex;
-        _internal.memory = Memory;
-        _internal.memoryOffset = MemoryOffset;
-        _internal.memorySize = MemorySize;
+        if (MemoryBindIndex != default)
+        {
+            _internal.memoryBindIndex = MemoryBindIndex;
+        }
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (MemoryOffset != (ulong)default)
+        {
+            _internal.memoryOffset = MemoryOffset;
+        }
+        if (MemorySize != (ulong)default)
+        {
+            _internal.memorySize = MemorySize;
+        }
         return _internal;
     }
 

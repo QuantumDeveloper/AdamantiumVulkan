@@ -37,29 +37,41 @@ public unsafe partial class PipelineExecutableStatisticKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(Name != null)
+        if (Name != default)
         {
             if (Name.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Name), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.name, 256, Name, false);
         }
-        if(Description != null)
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
-        _internal.format = Format;
-        if (Value != null)
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Value != default)
         {
             _internal.value = Value.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Value?.Dispose();
+    }
+
 
     public static implicit operator PipelineExecutableStatisticKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR p)
     {

@@ -45,19 +45,28 @@ public unsafe partial class VideoEncodeH264SessionParametersAddInfoKHR : QBDispo
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionParametersAddInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionParametersAddInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stdSPSCount = StdSPSCount;
+        if (StdSPSCount != default)
+        {
+            _internal.stdSPSCount = StdSPSCount;
+        }
         _pStdSPSs.Dispose();
-        if (PStdSPSs != null)
+        if (PStdSPSs != default)
         {
             var struct0 = PStdSPSs.ToNative();
             _pStdSPSs = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet>(struct0);
             _internal.pStdSPSs = _pStdSPSs.Handle;
         }
-        _internal.stdPPSCount = StdPPSCount;
+        if (StdPPSCount != default)
+        {
+            _internal.stdPPSCount = StdPPSCount;
+        }
         _pStdPPSs.Dispose();
-        if (PStdPPSs != null)
+        if (PStdPPSs != default)
         {
             var struct1 = PStdPPSs.ToNative();
             _pStdPPSs = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet>(struct1);

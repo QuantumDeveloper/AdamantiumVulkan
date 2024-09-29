@@ -30,9 +30,15 @@ public unsafe partial class ImageViewUsageCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.usage = Usage;
+        if (Usage != (uint)default)
+        {
+            _internal.usage = Usage;
+        }
         return _internal;
     }
 

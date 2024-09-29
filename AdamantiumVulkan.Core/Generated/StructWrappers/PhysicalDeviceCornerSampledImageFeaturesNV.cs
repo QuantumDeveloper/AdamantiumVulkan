@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceCornerSampledImageFeaturesNV : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.cornerSampledImage = CornerSampledImage;
+        if (CornerSampledImage != (uint)default)
+        {
+            _internal.cornerSampledImage = CornerSampledImage;
+        }
         return _internal;
     }
 

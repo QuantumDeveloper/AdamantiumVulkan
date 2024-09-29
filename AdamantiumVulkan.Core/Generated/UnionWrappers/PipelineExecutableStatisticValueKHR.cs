@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PipelineExecutableStatisticValueKHR
+public unsafe partial class PipelineExecutableStatisticValueKHR : QBDisposableObject
 {
     public PipelineExecutableStatisticValueKHR()
     {
@@ -33,10 +33,22 @@ public unsafe partial class PipelineExecutableStatisticValueKHR
     public AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR();
-        _internal.b32 = B32;
-        _internal.i64 = I64;
-        _internal.u64 = U64;
-        _internal.f64 = F64;
+        if (B32 != (uint)default)
+        {
+            _internal.b32 = B32;
+        }
+        if (I64 != default)
+        {
+            _internal.i64 = I64;
+        }
+        if (U64 != default)
+        {
+            _internal.u64 = U64;
+        }
+        if (F64 != default)
+        {
+            _internal.f64 = F64;
+        }
         return _internal;
     }
 

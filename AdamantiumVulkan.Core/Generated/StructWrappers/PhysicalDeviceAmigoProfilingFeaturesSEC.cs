@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceAmigoProfilingFeaturesSEC : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAmigoProfilingFeaturesSEC ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAmigoProfilingFeaturesSEC();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.amigoProfiling = AmigoProfiling;
+        if (AmigoProfiling != (uint)default)
+        {
+            _internal.amigoProfiling = AmigoProfiling;
+        }
         return _internal;
     }
 

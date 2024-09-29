@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265ScalingLists
+public unsafe partial class StdVideoH265ScalingLists : QBDisposableObject
 {
     public StdVideoH265ScalingLists()
     {
@@ -37,42 +37,42 @@ public unsafe partial class StdVideoH265ScalingLists
     public AdamantiumVulkan.Interop.StdVideoH265ScalingLists ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265ScalingLists();
-        if(ScalingList4x4 != null)
+        if (ScalingList4x4 != default)
         {
             if (ScalingList4x4.Length > 96)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingList4x4), "Array is out of bounds. Size should not be more than 96");
 
             NativeUtils.PrimitiveToFixedArray(_internal.ScalingList4x4, 96, ScalingList4x4);
         }
-        if(ScalingList8x8 != null)
+        if (ScalingList8x8 != default)
         {
             if (ScalingList8x8.Length > 384)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingList8x8), "Array is out of bounds. Size should not be more than 384");
 
             NativeUtils.PrimitiveToFixedArray(_internal.ScalingList8x8, 384, ScalingList8x8);
         }
-        if(ScalingList16x16 != null)
+        if (ScalingList16x16 != default)
         {
             if (ScalingList16x16.Length > 384)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingList16x16), "Array is out of bounds. Size should not be more than 384");
 
             NativeUtils.PrimitiveToFixedArray(_internal.ScalingList16x16, 384, ScalingList16x16);
         }
-        if(ScalingList32x32 != null)
+        if (ScalingList32x32 != default)
         {
             if (ScalingList32x32.Length > 128)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingList32x32), "Array is out of bounds. Size should not be more than 128");
 
             NativeUtils.PrimitiveToFixedArray(_internal.ScalingList32x32, 128, ScalingList32x32);
         }
-        if(ScalingListDCCoef16x16 != null)
+        if (ScalingListDCCoef16x16 != default)
         {
             if (ScalingListDCCoef16x16.Length > 6)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingListDCCoef16x16), "Array is out of bounds. Size should not be more than 6");
 
             NativeUtils.PrimitiveToFixedArray(_internal.ScalingListDCCoef16x16, 6, ScalingListDCCoef16x16);
         }
-        if(ScalingListDCCoef32x32 != null)
+        if (ScalingListDCCoef32x32 != default)
         {
             if (ScalingListDCCoef32x32.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(ScalingListDCCoef32x32), "Array is out of bounds. Size should not be more than 2");

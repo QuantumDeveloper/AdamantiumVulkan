@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PipelineColorBlendAttachmentState
+public unsafe partial class PipelineColorBlendAttachmentState : QBDisposableObject
 {
     public PipelineColorBlendAttachmentState()
     {
@@ -41,14 +41,38 @@ public unsafe partial class PipelineColorBlendAttachmentState
     public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState();
-        _internal.blendEnable = BlendEnable;
-        _internal.srcColorBlendFactor = SrcColorBlendFactor;
-        _internal.dstColorBlendFactor = DstColorBlendFactor;
-        _internal.colorBlendOp = ColorBlendOp;
-        _internal.srcAlphaBlendFactor = SrcAlphaBlendFactor;
-        _internal.dstAlphaBlendFactor = DstAlphaBlendFactor;
-        _internal.alphaBlendOp = AlphaBlendOp;
-        _internal.colorWriteMask = ColorWriteMask;
+        if (BlendEnable != (uint)default)
+        {
+            _internal.blendEnable = BlendEnable;
+        }
+        if (SrcColorBlendFactor != default)
+        {
+            _internal.srcColorBlendFactor = SrcColorBlendFactor;
+        }
+        if (DstColorBlendFactor != default)
+        {
+            _internal.dstColorBlendFactor = DstColorBlendFactor;
+        }
+        if (ColorBlendOp != default)
+        {
+            _internal.colorBlendOp = ColorBlendOp;
+        }
+        if (SrcAlphaBlendFactor != default)
+        {
+            _internal.srcAlphaBlendFactor = SrcAlphaBlendFactor;
+        }
+        if (DstAlphaBlendFactor != default)
+        {
+            _internal.dstAlphaBlendFactor = DstAlphaBlendFactor;
+        }
+        if (AlphaBlendOp != default)
+        {
+            _internal.alphaBlendOp = AlphaBlendOp;
+        }
+        if (ColorWriteMask != default)
+        {
+            _internal.colorWriteMask = ColorWriteMask;
+        }
         return _internal;
     }
 

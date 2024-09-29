@@ -39,13 +39,31 @@ public unsafe partial class PhysicalDeviceMeshShaderFeaturesEXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.taskShader = TaskShader;
-        _internal.meshShader = MeshShader;
-        _internal.multiviewMeshShader = MultiviewMeshShader;
-        _internal.primitiveFragmentShadingRateMeshShader = PrimitiveFragmentShadingRateMeshShader;
-        _internal.meshShaderQueries = MeshShaderQueries;
+        if (TaskShader != (uint)default)
+        {
+            _internal.taskShader = TaskShader;
+        }
+        if (MeshShader != (uint)default)
+        {
+            _internal.meshShader = MeshShader;
+        }
+        if (MultiviewMeshShader != (uint)default)
+        {
+            _internal.multiviewMeshShader = MultiviewMeshShader;
+        }
+        if (PrimitiveFragmentShadingRateMeshShader != (uint)default)
+        {
+            _internal.primitiveFragmentShadingRateMeshShader = PrimitiveFragmentShadingRateMeshShader;
+        }
+        if (MeshShaderQueries != (uint)default)
+        {
+            _internal.meshShaderQueries = MeshShaderQueries;
+        }
         return _internal;
     }
 

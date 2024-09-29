@@ -9,20 +9,22 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan.Core;
+namespace AdamantiumVulkan;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14656 Column: 14
-public enum LineRasterizationModeEXT : uint
+// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 106 Column: 14
+public enum StdVideoAV1InterpolationFilter : uint
 {
-    DefaultExt = 0,
+    Eighttap = 0,
 
-    RectangularExt = 1,
+    EighttapSmooth = 1,
 
-    BresenhamExt = 2,
+    EighttapSharp = 2,
 
-    RectangularSmoothExt = 3,
+    Bilinear = 3,
 
-    MaxEnumExt = 2147483647,
+    Switchable = 4,
+
+    Invalid = 2147483647,
 
 }
 

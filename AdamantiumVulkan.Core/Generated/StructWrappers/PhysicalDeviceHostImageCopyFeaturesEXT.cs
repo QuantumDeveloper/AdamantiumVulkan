@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceHostImageCopyFeaturesEXT : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostImageCopyFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostImageCopyFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hostImageCopy = HostImageCopy;
+        if (HostImageCopy != (uint)default)
+        {
+            _internal.hostImageCopy = HostImageCopy;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKH
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineExecutableInfo = PipelineExecutableInfo;
+        if (PipelineExecutableInfo != (uint)default)
+        {
+            _internal.pipelineExecutableInfo = PipelineExecutableInfo;
+        }
         return _internal;
     }
 

@@ -33,15 +33,27 @@ public unsafe partial class PhysicalDeviceRenderPassStripedPropertiesARM : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (RenderPassStripeGranularity != null)
+        if (RenderPassStripeGranularity != default)
         {
             _internal.renderPassStripeGranularity = RenderPassStripeGranularity.ToNative();
         }
-        _internal.maxRenderPassStripes = MaxRenderPassStripes;
+        if (MaxRenderPassStripes != default)
+        {
+            _internal.maxRenderPassStripes = MaxRenderPassStripes;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        RenderPassStripeGranularity?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceRenderPassStripedPropertiesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM p)
     {

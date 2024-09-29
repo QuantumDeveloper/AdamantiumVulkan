@@ -133,77 +133,233 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.driverID = DriverID;
-        if(DriverName != null)
+        if (DriverID != default)
+        {
+            _internal.driverID = DriverID;
+        }
+        if (DriverName != default)
         {
             if (DriverName.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(DriverName), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.driverName, 256, DriverName, false);
         }
-        if(DriverInfo != null)
+        if (DriverInfo != default)
         {
             if (DriverInfo.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(DriverInfo), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.driverInfo, 256, DriverInfo, false);
         }
-        if (ConformanceVersion != null)
+        if (ConformanceVersion != default)
         {
             _internal.conformanceVersion = ConformanceVersion.ToNative();
         }
-        _internal.denormBehaviorIndependence = DenormBehaviorIndependence;
-        _internal.roundingModeIndependence = RoundingModeIndependence;
-        _internal.shaderSignedZeroInfNanPreserveFloat16 = ShaderSignedZeroInfNanPreserveFloat16;
-        _internal.shaderSignedZeroInfNanPreserveFloat32 = ShaderSignedZeroInfNanPreserveFloat32;
-        _internal.shaderSignedZeroInfNanPreserveFloat64 = ShaderSignedZeroInfNanPreserveFloat64;
-        _internal.shaderDenormPreserveFloat16 = ShaderDenormPreserveFloat16;
-        _internal.shaderDenormPreserveFloat32 = ShaderDenormPreserveFloat32;
-        _internal.shaderDenormPreserveFloat64 = ShaderDenormPreserveFloat64;
-        _internal.shaderDenormFlushToZeroFloat16 = ShaderDenormFlushToZeroFloat16;
-        _internal.shaderDenormFlushToZeroFloat32 = ShaderDenormFlushToZeroFloat32;
-        _internal.shaderDenormFlushToZeroFloat64 = ShaderDenormFlushToZeroFloat64;
-        _internal.shaderRoundingModeRTEFloat16 = ShaderRoundingModeRTEFloat16;
-        _internal.shaderRoundingModeRTEFloat32 = ShaderRoundingModeRTEFloat32;
-        _internal.shaderRoundingModeRTEFloat64 = ShaderRoundingModeRTEFloat64;
-        _internal.shaderRoundingModeRTZFloat16 = ShaderRoundingModeRTZFloat16;
-        _internal.shaderRoundingModeRTZFloat32 = ShaderRoundingModeRTZFloat32;
-        _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
-        _internal.maxUpdateAfterBindDescriptorsInAllPools = MaxUpdateAfterBindDescriptorsInAllPools;
-        _internal.shaderUniformBufferArrayNonUniformIndexingNative = ShaderUniformBufferArrayNonUniformIndexingNative;
-        _internal.shaderSampledImageArrayNonUniformIndexingNative = ShaderSampledImageArrayNonUniformIndexingNative;
-        _internal.shaderStorageBufferArrayNonUniformIndexingNative = ShaderStorageBufferArrayNonUniformIndexingNative;
-        _internal.shaderStorageImageArrayNonUniformIndexingNative = ShaderStorageImageArrayNonUniformIndexingNative;
-        _internal.shaderInputAttachmentArrayNonUniformIndexingNative = ShaderInputAttachmentArrayNonUniformIndexingNative;
-        _internal.robustBufferAccessUpdateAfterBind = RobustBufferAccessUpdateAfterBind;
-        _internal.quadDivergentImplicitLod = QuadDivergentImplicitLod;
-        _internal.maxPerStageDescriptorUpdateAfterBindSamplers = MaxPerStageDescriptorUpdateAfterBindSamplers;
-        _internal.maxPerStageDescriptorUpdateAfterBindUniformBuffers = MaxPerStageDescriptorUpdateAfterBindUniformBuffers;
-        _internal.maxPerStageDescriptorUpdateAfterBindStorageBuffers = MaxPerStageDescriptorUpdateAfterBindStorageBuffers;
-        _internal.maxPerStageDescriptorUpdateAfterBindSampledImages = MaxPerStageDescriptorUpdateAfterBindSampledImages;
-        _internal.maxPerStageDescriptorUpdateAfterBindStorageImages = MaxPerStageDescriptorUpdateAfterBindStorageImages;
-        _internal.maxPerStageDescriptorUpdateAfterBindInputAttachments = MaxPerStageDescriptorUpdateAfterBindInputAttachments;
-        _internal.maxPerStageUpdateAfterBindResources = MaxPerStageUpdateAfterBindResources;
-        _internal.maxDescriptorSetUpdateAfterBindSamplers = MaxDescriptorSetUpdateAfterBindSamplers;
-        _internal.maxDescriptorSetUpdateAfterBindUniformBuffers = MaxDescriptorSetUpdateAfterBindUniformBuffers;
-        _internal.maxDescriptorSetUpdateAfterBindUniformBuffersDynamic = MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
-        _internal.maxDescriptorSetUpdateAfterBindStorageBuffers = MaxDescriptorSetUpdateAfterBindStorageBuffers;
-        _internal.maxDescriptorSetUpdateAfterBindStorageBuffersDynamic = MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
-        _internal.maxDescriptorSetUpdateAfterBindSampledImages = MaxDescriptorSetUpdateAfterBindSampledImages;
-        _internal.maxDescriptorSetUpdateAfterBindStorageImages = MaxDescriptorSetUpdateAfterBindStorageImages;
-        _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
-        _internal.supportedDepthResolveModes = SupportedDepthResolveModes;
-        _internal.supportedStencilResolveModes = SupportedStencilResolveModes;
-        _internal.independentResolveNone = IndependentResolveNone;
-        _internal.independentResolve = IndependentResolve;
-        _internal.filterMinmaxSingleComponentFormats = FilterMinmaxSingleComponentFormats;
-        _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
-        _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
-        _internal.framebufferIntegerColorSampleCounts = FramebufferIntegerColorSampleCounts;
+        if (DenormBehaviorIndependence != default)
+        {
+            _internal.denormBehaviorIndependence = DenormBehaviorIndependence;
+        }
+        if (RoundingModeIndependence != default)
+        {
+            _internal.roundingModeIndependence = RoundingModeIndependence;
+        }
+        if (ShaderSignedZeroInfNanPreserveFloat16 != (uint)default)
+        {
+            _internal.shaderSignedZeroInfNanPreserveFloat16 = ShaderSignedZeroInfNanPreserveFloat16;
+        }
+        if (ShaderSignedZeroInfNanPreserveFloat32 != (uint)default)
+        {
+            _internal.shaderSignedZeroInfNanPreserveFloat32 = ShaderSignedZeroInfNanPreserveFloat32;
+        }
+        if (ShaderSignedZeroInfNanPreserveFloat64 != (uint)default)
+        {
+            _internal.shaderSignedZeroInfNanPreserveFloat64 = ShaderSignedZeroInfNanPreserveFloat64;
+        }
+        if (ShaderDenormPreserveFloat16 != (uint)default)
+        {
+            _internal.shaderDenormPreserveFloat16 = ShaderDenormPreserveFloat16;
+        }
+        if (ShaderDenormPreserveFloat32 != (uint)default)
+        {
+            _internal.shaderDenormPreserveFloat32 = ShaderDenormPreserveFloat32;
+        }
+        if (ShaderDenormPreserveFloat64 != (uint)default)
+        {
+            _internal.shaderDenormPreserveFloat64 = ShaderDenormPreserveFloat64;
+        }
+        if (ShaderDenormFlushToZeroFloat16 != (uint)default)
+        {
+            _internal.shaderDenormFlushToZeroFloat16 = ShaderDenormFlushToZeroFloat16;
+        }
+        if (ShaderDenormFlushToZeroFloat32 != (uint)default)
+        {
+            _internal.shaderDenormFlushToZeroFloat32 = ShaderDenormFlushToZeroFloat32;
+        }
+        if (ShaderDenormFlushToZeroFloat64 != (uint)default)
+        {
+            _internal.shaderDenormFlushToZeroFloat64 = ShaderDenormFlushToZeroFloat64;
+        }
+        if (ShaderRoundingModeRTEFloat16 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTEFloat16 = ShaderRoundingModeRTEFloat16;
+        }
+        if (ShaderRoundingModeRTEFloat32 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTEFloat32 = ShaderRoundingModeRTEFloat32;
+        }
+        if (ShaderRoundingModeRTEFloat64 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTEFloat64 = ShaderRoundingModeRTEFloat64;
+        }
+        if (ShaderRoundingModeRTZFloat16 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTZFloat16 = ShaderRoundingModeRTZFloat16;
+        }
+        if (ShaderRoundingModeRTZFloat32 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTZFloat32 = ShaderRoundingModeRTZFloat32;
+        }
+        if (ShaderRoundingModeRTZFloat64 != (uint)default)
+        {
+            _internal.shaderRoundingModeRTZFloat64 = ShaderRoundingModeRTZFloat64;
+        }
+        if (MaxUpdateAfterBindDescriptorsInAllPools != default)
+        {
+            _internal.maxUpdateAfterBindDescriptorsInAllPools = MaxUpdateAfterBindDescriptorsInAllPools;
+        }
+        if (ShaderUniformBufferArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderUniformBufferArrayNonUniformIndexingNative = ShaderUniformBufferArrayNonUniformIndexingNative;
+        }
+        if (ShaderSampledImageArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderSampledImageArrayNonUniformIndexingNative = ShaderSampledImageArrayNonUniformIndexingNative;
+        }
+        if (ShaderStorageBufferArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderStorageBufferArrayNonUniformIndexingNative = ShaderStorageBufferArrayNonUniformIndexingNative;
+        }
+        if (ShaderStorageImageArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderStorageImageArrayNonUniformIndexingNative = ShaderStorageImageArrayNonUniformIndexingNative;
+        }
+        if (ShaderInputAttachmentArrayNonUniformIndexingNative != (uint)default)
+        {
+            _internal.shaderInputAttachmentArrayNonUniformIndexingNative = ShaderInputAttachmentArrayNonUniformIndexingNative;
+        }
+        if (RobustBufferAccessUpdateAfterBind != (uint)default)
+        {
+            _internal.robustBufferAccessUpdateAfterBind = RobustBufferAccessUpdateAfterBind;
+        }
+        if (QuadDivergentImplicitLod != (uint)default)
+        {
+            _internal.quadDivergentImplicitLod = QuadDivergentImplicitLod;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindSamplers != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindSamplers = MaxPerStageDescriptorUpdateAfterBindSamplers;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindUniformBuffers != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindUniformBuffers = MaxPerStageDescriptorUpdateAfterBindUniformBuffers;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindStorageBuffers != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindStorageBuffers = MaxPerStageDescriptorUpdateAfterBindStorageBuffers;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindSampledImages != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindSampledImages = MaxPerStageDescriptorUpdateAfterBindSampledImages;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindStorageImages != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindStorageImages = MaxPerStageDescriptorUpdateAfterBindStorageImages;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindInputAttachments != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindInputAttachments = MaxPerStageDescriptorUpdateAfterBindInputAttachments;
+        }
+        if (MaxPerStageUpdateAfterBindResources != default)
+        {
+            _internal.maxPerStageUpdateAfterBindResources = MaxPerStageUpdateAfterBindResources;
+        }
+        if (MaxDescriptorSetUpdateAfterBindSamplers != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindSamplers = MaxDescriptorSetUpdateAfterBindSamplers;
+        }
+        if (MaxDescriptorSetUpdateAfterBindUniformBuffers != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindUniformBuffers = MaxDescriptorSetUpdateAfterBindUniformBuffers;
+        }
+        if (MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindUniformBuffersDynamic = MaxDescriptorSetUpdateAfterBindUniformBuffersDynamic;
+        }
+        if (MaxDescriptorSetUpdateAfterBindStorageBuffers != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindStorageBuffers = MaxDescriptorSetUpdateAfterBindStorageBuffers;
+        }
+        if (MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindStorageBuffersDynamic = MaxDescriptorSetUpdateAfterBindStorageBuffersDynamic;
+        }
+        if (MaxDescriptorSetUpdateAfterBindSampledImages != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindSampledImages = MaxDescriptorSetUpdateAfterBindSampledImages;
+        }
+        if (MaxDescriptorSetUpdateAfterBindStorageImages != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindStorageImages = MaxDescriptorSetUpdateAfterBindStorageImages;
+        }
+        if (MaxDescriptorSetUpdateAfterBindInputAttachments != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindInputAttachments = MaxDescriptorSetUpdateAfterBindInputAttachments;
+        }
+        if (SupportedDepthResolveModes != (uint)default)
+        {
+            _internal.supportedDepthResolveModes = SupportedDepthResolveModes;
+        }
+        if (SupportedStencilResolveModes != (uint)default)
+        {
+            _internal.supportedStencilResolveModes = SupportedStencilResolveModes;
+        }
+        if (IndependentResolveNone != (uint)default)
+        {
+            _internal.independentResolveNone = IndependentResolveNone;
+        }
+        if (IndependentResolve != (uint)default)
+        {
+            _internal.independentResolve = IndependentResolve;
+        }
+        if (FilterMinmaxSingleComponentFormats != (uint)default)
+        {
+            _internal.filterMinmaxSingleComponentFormats = FilterMinmaxSingleComponentFormats;
+        }
+        if (FilterMinmaxImageComponentMapping != (uint)default)
+        {
+            _internal.filterMinmaxImageComponentMapping = FilterMinmaxImageComponentMapping;
+        }
+        if (MaxTimelineSemaphoreValueDifference != default)
+        {
+            _internal.maxTimelineSemaphoreValueDifference = MaxTimelineSemaphoreValueDifference;
+        }
+        if (FramebufferIntegerColorSampleCounts != (uint)default)
+        {
+            _internal.framebufferIntegerColorSampleCounts = FramebufferIntegerColorSampleCounts;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ConformanceVersion?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceVulkan12Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties p)
     {

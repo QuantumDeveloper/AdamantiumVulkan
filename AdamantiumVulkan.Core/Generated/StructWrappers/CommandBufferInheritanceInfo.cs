@@ -40,14 +40,35 @@ public unsafe partial class CommandBufferInheritanceInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.renderPass = RenderPass;
-        _internal.subpass = Subpass;
-        _internal.framebuffer = Framebuffer;
-        _internal.occlusionQueryEnable = OcclusionQueryEnable;
-        _internal.queryFlags = QueryFlags;
-        _internal.pipelineStatistics = PipelineStatistics;
+        if (RenderPass != default)
+        {
+            _internal.renderPass = RenderPass;
+        }
+        if (Subpass != default)
+        {
+            _internal.subpass = Subpass;
+        }
+        if (Framebuffer != default)
+        {
+            _internal.framebuffer = Framebuffer;
+        }
+        if (OcclusionQueryEnable != (uint)default)
+        {
+            _internal.occlusionQueryEnable = OcclusionQueryEnable;
+        }
+        if (QueryFlags != (uint)default)
+        {
+            _internal.queryFlags = QueryFlags;
+        }
+        if (PipelineStatistics != (uint)default)
+        {
+            _internal.pipelineStatistics = PipelineStatistics;
+        }
         return _internal;
     }
 

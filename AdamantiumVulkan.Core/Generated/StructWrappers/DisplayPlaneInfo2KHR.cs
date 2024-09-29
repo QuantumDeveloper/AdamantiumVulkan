@@ -32,10 +32,19 @@ public unsafe partial class DisplayPlaneInfo2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.mode = Mode;
-        _internal.planeIndex = PlaneIndex;
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
+        if (PlaneIndex != default)
+        {
+            _internal.planeIndex = PlaneIndex;
+        }
         return _internal;
     }
 

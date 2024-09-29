@@ -31,9 +31,15 @@ public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.acquireUnmodifiedMemory = AcquireUnmodifiedMemory;
+        if (AcquireUnmodifiedMemory != (uint)default)
+        {
+            _internal.acquireUnmodifiedMemory = AcquireUnmodifiedMemory;
+        }
         return _internal;
     }
 

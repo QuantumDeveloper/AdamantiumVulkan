@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ColorBlendAdvancedEXT
+public unsafe partial class ColorBlendAdvancedEXT : QBDisposableObject
 {
     public ColorBlendAdvancedEXT()
     {
@@ -35,11 +35,26 @@ public unsafe partial class ColorBlendAdvancedEXT
     public AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT();
-        _internal.advancedBlendOp = AdvancedBlendOp;
-        _internal.srcPremultiplied = SrcPremultiplied;
-        _internal.dstPremultiplied = DstPremultiplied;
-        _internal.blendOverlap = BlendOverlap;
-        _internal.clampResults = ClampResults;
+        if (AdvancedBlendOp != default)
+        {
+            _internal.advancedBlendOp = AdvancedBlendOp;
+        }
+        if (SrcPremultiplied != (uint)default)
+        {
+            _internal.srcPremultiplied = SrcPremultiplied;
+        }
+        if (DstPremultiplied != (uint)default)
+        {
+            _internal.dstPremultiplied = DstPremultiplied;
+        }
+        if (BlendOverlap != default)
+        {
+            _internal.blendOverlap = BlendOverlap;
+        }
+        if (ClampResults != (uint)default)
+        {
+            _internal.clampResults = ClampResults;
+        }
         return _internal;
     }
 

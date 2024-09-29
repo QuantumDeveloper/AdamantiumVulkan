@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SetStateFlagsIndirectCommandNV
+public unsafe partial class SetStateFlagsIndirectCommandNV : QBDisposableObject
 {
     public SetStateFlagsIndirectCommandNV()
     {
@@ -27,7 +27,10 @@ public unsafe partial class SetStateFlagsIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkSetStateFlagsIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSetStateFlagsIndirectCommandNV();
-        _internal.data = Data;
+        if (Data != default)
+        {
+            _internal.data = Data;
+        }
         return _internal;
     }
 

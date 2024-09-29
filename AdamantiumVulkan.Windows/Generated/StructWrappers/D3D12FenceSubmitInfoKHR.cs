@@ -50,16 +50,25 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.waitSemaphoreValuesCount = WaitSemaphoreValuesCount;
+        if (WaitSemaphoreValuesCount != default)
+        {
+            _internal.waitSemaphoreValuesCount = WaitSemaphoreValuesCount;
+        }
         _pWaitSemaphoreValues.Dispose();
         if (PWaitSemaphoreValues.HasValue)
         {
             _pWaitSemaphoreValues = new NativeStruct<ulong>(PWaitSemaphoreValues.Value);
             _internal.pWaitSemaphoreValues = _pWaitSemaphoreValues.Handle;
         }
-        _internal.signalSemaphoreValuesCount = SignalSemaphoreValuesCount;
+        if (SignalSemaphoreValuesCount != default)
+        {
+            _internal.signalSemaphoreValuesCount = SignalSemaphoreValuesCount;
+        }
         _pSignalSemaphoreValues.Dispose();
         if (PSignalSemaphoreValues.HasValue)
         {

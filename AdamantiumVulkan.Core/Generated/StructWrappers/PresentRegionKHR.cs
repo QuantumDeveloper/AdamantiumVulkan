@@ -32,9 +32,12 @@ public unsafe partial class PresentRegionKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPresentRegionKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPresentRegionKHR();
-        _internal.rectangleCount = RectangleCount;
+        if (RectangleCount != default)
+        {
+            _internal.rectangleCount = RectangleCount;
+        }
         _pRectangles.Dispose();
-        if (PRectangles != null)
+        if (PRectangles != default)
         {
             var struct0 = PRectangles.ToNative();
             _pRectangles = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRectLayerKHR>(struct0);

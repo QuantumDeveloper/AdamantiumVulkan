@@ -41,13 +41,31 @@ public unsafe partial class ImportSemaphoreWin32HandleInfoKHR : QBDisposableObje
     public AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.semaphore = Semaphore;
-        _internal.flags = Flags;
-        _internal.handleType = HandleType;
-        _internal.handle = Handle;
-        _internal.name = Name;
+        if (Semaphore != default)
+        {
+            _internal.semaphore = Semaphore;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
+        if (Handle != default)
+        {
+            _internal.handle = Handle;
+        }
+        if (Name != default)
+        {
+            _internal.name = Name;
+        }
         return _internal;
     }
 

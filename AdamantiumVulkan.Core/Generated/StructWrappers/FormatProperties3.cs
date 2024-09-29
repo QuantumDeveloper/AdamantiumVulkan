@@ -35,11 +35,23 @@ public unsafe partial class FormatProperties3 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFormatProperties3 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFormatProperties3();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.linearTilingFeatures = LinearTilingFeatures;
-        _internal.optimalTilingFeatures = OptimalTilingFeatures;
-        _internal.bufferFeatures = BufferFeatures;
+        if (LinearTilingFeatures != (ulong)default)
+        {
+            _internal.linearTilingFeatures = LinearTilingFeatures;
+        }
+        if (OptimalTilingFeatures != (ulong)default)
+        {
+            _internal.optimalTilingFeatures = OptimalTilingFeatures;
+        }
+        if (BufferFeatures != (ulong)default)
+        {
+            _internal.bufferFeatures = BufferFeatures;
+        }
         return _internal;
     }
 

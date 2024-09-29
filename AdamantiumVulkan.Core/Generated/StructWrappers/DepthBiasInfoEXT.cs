@@ -35,11 +35,23 @@ public unsafe partial class DepthBiasInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDepthBiasInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDepthBiasInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.depthBiasConstantFactor = DepthBiasConstantFactor;
-        _internal.depthBiasClamp = DepthBiasClamp;
-        _internal.depthBiasSlopeFactor = DepthBiasSlopeFactor;
+        if (DepthBiasConstantFactor != default)
+        {
+            _internal.depthBiasConstantFactor = DepthBiasConstantFactor;
+        }
+        if (DepthBiasClamp != default)
+        {
+            _internal.depthBiasClamp = DepthBiasClamp;
+        }
+        if (DepthBiasSlopeFactor != default)
+        {
+            _internal.depthBiasSlopeFactor = DepthBiasSlopeFactor;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class VideoCodingControlInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoCodingControlInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoCodingControlInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

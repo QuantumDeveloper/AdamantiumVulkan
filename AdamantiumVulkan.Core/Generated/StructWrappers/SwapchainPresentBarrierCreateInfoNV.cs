@@ -31,9 +31,15 @@ public unsafe partial class SwapchainPresentBarrierCreateInfoNV : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkSwapchainPresentBarrierCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainPresentBarrierCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentBarrierEnable = PresentBarrierEnable;
+        if (PresentBarrierEnable != (uint)default)
+        {
+            _internal.presentBarrierEnable = PresentBarrierEnable;
+        }
         return _internal;
     }
 

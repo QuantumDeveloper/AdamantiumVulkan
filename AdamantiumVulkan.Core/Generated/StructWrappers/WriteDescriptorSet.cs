@@ -68,15 +68,33 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dstSet = DstSet;
-        _internal.dstBinding = DstBinding;
-        _internal.dstArrayElement = DstArrayElement;
-        _internal.descriptorCount = DescriptorCount;
-        _internal.descriptorType = DescriptorType;
+        if (DstSet != default)
+        {
+            _internal.dstSet = DstSet;
+        }
+        if (DstBinding != default)
+        {
+            _internal.dstBinding = DstBinding;
+        }
+        if (DstArrayElement != default)
+        {
+            _internal.dstArrayElement = DstArrayElement;
+        }
+        if (DescriptorCount != default)
+        {
+            _internal.descriptorCount = DescriptorCount;
+        }
+        if (DescriptorType != default)
+        {
+            _internal.descriptorType = DescriptorType;
+        }
         _pImageInfo.Dispose();
-        if (PImageInfo != null)
+        if (PImageInfo != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo[PImageInfo.Length];
             for (int i = 0; i < PImageInfo.Length; ++i)
@@ -87,7 +105,7 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             _internal.pImageInfo = _pImageInfo.Handle;
         }
         _pBufferInfo.Dispose();
-        if (PBufferInfo != null)
+        if (PBufferInfo != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo[PBufferInfo.Length];
             for (int i = 0; i < PBufferInfo.Length; ++i)
@@ -98,7 +116,7 @@ public unsafe partial class WriteDescriptorSet : QBDisposableObject
             _internal.pBufferInfo = _pBufferInfo.Handle;
         }
         _pTexelBufferView.Dispose();
-        if (PTexelBufferView != null)
+        if (PTexelBufferView != default)
         {
             var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkBufferView_T[PTexelBufferView.Length];
             for (int i = 0; i < PTexelBufferView.Length; ++i)

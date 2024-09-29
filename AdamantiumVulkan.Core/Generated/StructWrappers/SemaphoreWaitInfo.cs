@@ -46,12 +46,21 @@ public unsafe partial class SemaphoreWaitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.semaphoreCount = SemaphoreCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (SemaphoreCount != default)
+        {
+            _internal.semaphoreCount = SemaphoreCount;
+        }
         _pSemaphores.Dispose();
-        if (PSemaphores != null)
+        if (PSemaphores != default)
         {
             AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = PSemaphores;
             _pSemaphores = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphore_T>(struct0);

@@ -33,10 +33,19 @@ public unsafe partial class RayTracingPipelineInterfaceCreateInfoKHR : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxPipelineRayPayloadSize = MaxPipelineRayPayloadSize;
-        _internal.maxPipelineRayHitAttributeSize = MaxPipelineRayHitAttributeSize;
+        if (MaxPipelineRayPayloadSize != default)
+        {
+            _internal.maxPipelineRayPayloadSize = MaxPipelineRayPayloadSize;
+        }
+        if (MaxPipelineRayHitAttributeSize != default)
+        {
+            _internal.maxPipelineRayHitAttributeSize = MaxPipelineRayHitAttributeSize;
+        }
         return _internal;
     }
 

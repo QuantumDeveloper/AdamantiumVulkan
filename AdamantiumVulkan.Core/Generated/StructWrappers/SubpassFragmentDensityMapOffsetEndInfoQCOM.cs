@@ -36,11 +36,17 @@ public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : QBDispo
     public AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fragmentDensityOffsetCount = FragmentDensityOffsetCount;
+        if (FragmentDensityOffsetCount != default)
+        {
+            _internal.fragmentDensityOffsetCount = FragmentDensityOffsetCount;
+        }
         _pFragmentDensityOffsets.Dispose();
-        if (PFragmentDensityOffsets != null)
+        if (PFragmentDensityOffsets != default)
         {
             var struct0 = PFragmentDensityOffsets.ToNative();
             _pFragmentDensityOffsets = new NativeStruct<AdamantiumVulkan.Core.Interop.VkOffset2D>(struct0);

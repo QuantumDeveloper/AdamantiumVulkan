@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv-tools\libspirv.h Line: 56 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 60 Column: 14
 ///<summary>
 /// Enumerations
 ///</summary>

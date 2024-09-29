@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\shaderc\shaderc.h Line: 216 Column: 9
+// File: C:\VulkanSDK\1.3.283.0\Include\shaderc\shaderc.h Line: 216 Column: 9
 ///<summary>
 /// Uniform resource kinds. In Vulkan, uniform resources are bound to the pipeline via descriptors with numbered bindings and sets.
 ///</summary>

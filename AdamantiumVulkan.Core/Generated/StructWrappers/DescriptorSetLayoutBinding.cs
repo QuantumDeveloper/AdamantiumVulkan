@@ -38,12 +38,24 @@ public unsafe partial class DescriptorSetLayoutBinding : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding();
-        _internal.binding = Binding;
-        _internal.descriptorType = DescriptorType;
-        _internal.descriptorCount = DescriptorCount;
-        _internal.stageFlags = StageFlags;
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (DescriptorType != default)
+        {
+            _internal.descriptorType = DescriptorType;
+        }
+        if (DescriptorCount != default)
+        {
+            _internal.descriptorCount = DescriptorCount;
+        }
+        if (StageFlags != default)
+        {
+            _internal.stageFlags = StageFlags;
+        }
         _pImmutableSamplers.Dispose();
-        if (PImmutableSamplers != null)
+        if (PImmutableSamplers != default)
         {
             AdamantiumVulkan.Core.Interop.VkSampler_T struct0 = PImmutableSamplers;
             _pImmutableSamplers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampler_T>(struct0);

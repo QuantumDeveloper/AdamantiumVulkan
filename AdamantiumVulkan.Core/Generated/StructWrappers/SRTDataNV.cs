@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SRTDataNV
+public unsafe partial class SRTDataNV : QBDisposableObject
 {
     public SRTDataNV()
     {
@@ -57,22 +57,70 @@ public unsafe partial class SRTDataNV
     public AdamantiumVulkan.Core.Interop.VkSRTDataNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSRTDataNV();
-        _internal.sx = Sx;
-        _internal.a = A;
-        _internal.b = B;
-        _internal.pvx = Pvx;
-        _internal.sy = Sy;
-        _internal.c = C;
-        _internal.pvy = Pvy;
-        _internal.sz = Sz;
-        _internal.pvz = Pvz;
-        _internal.qx = Qx;
-        _internal.qy = Qy;
-        _internal.qz = Qz;
-        _internal.qw = Qw;
-        _internal.tx = Tx;
-        _internal.ty = Ty;
-        _internal.tz = Tz;
+        if (Sx != default)
+        {
+            _internal.sx = Sx;
+        }
+        if (A != default)
+        {
+            _internal.a = A;
+        }
+        if (B != default)
+        {
+            _internal.b = B;
+        }
+        if (Pvx != default)
+        {
+            _internal.pvx = Pvx;
+        }
+        if (Sy != default)
+        {
+            _internal.sy = Sy;
+        }
+        if (C != default)
+        {
+            _internal.c = C;
+        }
+        if (Pvy != default)
+        {
+            _internal.pvy = Pvy;
+        }
+        if (Sz != default)
+        {
+            _internal.sz = Sz;
+        }
+        if (Pvz != default)
+        {
+            _internal.pvz = Pvz;
+        }
+        if (Qx != default)
+        {
+            _internal.qx = Qx;
+        }
+        if (Qy != default)
+        {
+            _internal.qy = Qy;
+        }
+        if (Qz != default)
+        {
+            _internal.qz = Qz;
+        }
+        if (Qw != default)
+        {
+            _internal.qw = Qw;
+        }
+        if (Tx != default)
+        {
+            _internal.tx = Tx;
+        }
+        if (Ty != default)
+        {
+            _internal.ty = Ty;
+        }
+        if (Tz != default)
+        {
+            _internal.tz = Tz;
+        }
         return _internal;
     }
 

@@ -30,14 +30,23 @@ public unsafe partial class DisplayPlaneProperties2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (DisplayPlaneProperties != null)
+        if (DisplayPlaneProperties != default)
         {
             _internal.displayPlaneProperties = DisplayPlaneProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        DisplayPlaneProperties?.Dispose();
+    }
+
 
     public static implicit operator DisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR d)
     {

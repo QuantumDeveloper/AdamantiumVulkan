@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceCudaKernelLaunchFeaturesNV : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCudaKernelLaunchFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCudaKernelLaunchFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.cudaKernelLaunchFeatures = CudaKernelLaunchFeatures;
+        if (CudaKernelLaunchFeatures != (uint)default)
+        {
+            _internal.cudaKernelLaunchFeatures = CudaKernelLaunchFeatures;
+        }
         return _internal;
     }
 

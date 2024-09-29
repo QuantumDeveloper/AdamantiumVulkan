@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceAddressBindingReportFeaturesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.reportAddressBinding = ReportAddressBinding;
+        if (ReportAddressBinding != (uint)default)
+        {
+            _internal.reportAddressBinding = ReportAddressBinding;
+        }
         return _internal;
     }
 

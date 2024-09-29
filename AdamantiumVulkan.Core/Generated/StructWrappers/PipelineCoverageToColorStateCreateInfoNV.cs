@@ -34,11 +34,23 @@ public unsafe partial class PipelineCoverageToColorStateCreateInfoNV : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.coverageToColorEnable = CoverageToColorEnable;
-        _internal.coverageToColorLocation = CoverageToColorLocation;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (CoverageToColorEnable != (uint)default)
+        {
+            _internal.coverageToColorEnable = CoverageToColorEnable;
+        }
+        if (CoverageToColorLocation != default)
+        {
+            _internal.coverageToColorLocation = CoverageToColorLocation;
+        }
         return _internal;
     }
 

@@ -31,7 +31,10 @@ public unsafe partial class InitializePerformanceApiInfoINTEL : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _internal.pUserData = PUserData;
         return _internal;

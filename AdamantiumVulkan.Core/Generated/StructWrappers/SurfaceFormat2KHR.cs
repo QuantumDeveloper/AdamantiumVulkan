@@ -30,14 +30,23 @@ public unsafe partial class SurfaceFormat2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (SurfaceFormat != null)
+        if (SurfaceFormat != default)
         {
             _internal.surfaceFormat = SurfaceFormat.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SurfaceFormat?.Dispose();
+    }
+
 
     public static implicit operator SurfaceFormat2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR s)
     {

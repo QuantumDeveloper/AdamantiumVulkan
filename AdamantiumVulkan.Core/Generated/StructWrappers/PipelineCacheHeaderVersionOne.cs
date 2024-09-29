@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PipelineCacheHeaderVersionOne
+public unsafe partial class PipelineCacheHeaderVersionOne : QBDisposableObject
 {
     public PipelineCacheHeaderVersionOne()
     {
@@ -35,11 +35,23 @@ public unsafe partial class PipelineCacheHeaderVersionOne
     public AdamantiumVulkan.Core.Interop.VkPipelineCacheHeaderVersionOne ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCacheHeaderVersionOne();
-        _internal.headerSize = HeaderSize;
-        _internal.headerVersion = HeaderVersion;
-        _internal.vendorID = VendorID;
-        _internal.deviceID = DeviceID;
-        if(PipelineCacheUUID != null)
+        if (HeaderSize != default)
+        {
+            _internal.headerSize = HeaderSize;
+        }
+        if (HeaderVersion != default)
+        {
+            _internal.headerVersion = HeaderVersion;
+        }
+        if (VendorID != default)
+        {
+            _internal.vendorID = VendorID;
+        }
+        if (DeviceID != default)
+        {
+            _internal.deviceID = DeviceID;
+        }
+        if (PipelineCacheUUID != default)
         {
             if (PipelineCacheUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(PipelineCacheUUID), "Array is out of bounds. Size should not be more than 16");

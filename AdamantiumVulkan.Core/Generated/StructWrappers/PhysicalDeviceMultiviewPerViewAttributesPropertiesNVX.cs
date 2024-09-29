@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNV
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.perViewPositionAllComponents = PerViewPositionAllComponents;
+        if (PerViewPositionAllComponents != (uint)default)
+        {
+            _internal.perViewPositionAllComponents = PerViewPositionAllComponents;
+        }
         return _internal;
     }
 

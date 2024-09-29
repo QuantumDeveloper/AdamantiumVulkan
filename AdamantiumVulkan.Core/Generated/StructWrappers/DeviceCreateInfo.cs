@@ -59,12 +59,21 @@ public unsafe partial class DeviceCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.queueCreateInfoCount = QueueCreateInfoCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (QueueCreateInfoCount != default)
+        {
+            _internal.queueCreateInfoCount = QueueCreateInfoCount;
+        }
         _pQueueCreateInfos.Dispose();
-        if (PQueueCreateInfos != null)
+        if (PQueueCreateInfos != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo[PQueueCreateInfos.Length];
             for (int i = 0; i < PQueueCreateInfos.Length; ++i)
@@ -74,24 +83,30 @@ public unsafe partial class DeviceCreateInfo : QBDisposableObject
             _pQueueCreateInfos = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo>(tmpArray0);
             _internal.pQueueCreateInfos = _pQueueCreateInfos.Handle;
         }
-        _internal.enabledLayerCount = EnabledLayerCount;
+        if (EnabledLayerCount != default)
+        {
+            _internal.enabledLayerCount = EnabledLayerCount;
+        }
         _ppEnabledLayerNames.Dispose();
-        if (PEnabledLayerNames != null)
+        if (PEnabledLayerNames != default)
         {
             _ppEnabledLayerNames = new MarshaledStringArray(PEnabledLayerNames, false);
             _internal.ppEnabledLayerNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledLayerNames.Length, false);
             _ppEnabledLayerNames.Fill(_internal.ppEnabledLayerNames);
         }
-        _internal.enabledExtensionCount = EnabledExtensionCount;
+        if (EnabledExtensionCount != default)
+        {
+            _internal.enabledExtensionCount = EnabledExtensionCount;
+        }
         _ppEnabledExtensionNames.Dispose();
-        if (PEnabledExtensionNames != null)
+        if (PEnabledExtensionNames != default)
         {
             _ppEnabledExtensionNames = new MarshaledStringArray(PEnabledExtensionNames, false);
             _internal.ppEnabledExtensionNames = (sbyte**)NativeUtils.GetPointerToStringArray((uint)PEnabledExtensionNames.Length, false);
             _ppEnabledExtensionNames.Fill(_internal.ppEnabledExtensionNames);
         }
         _pEnabledFeatures.Dispose();
-        if (PEnabledFeatures != null)
+        if (PEnabledFeatures != default)
         {
             var struct0 = PEnabledFeatures.ToNative();
             _pEnabledFeatures = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures>(struct0);

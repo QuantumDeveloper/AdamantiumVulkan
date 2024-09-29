@@ -48,20 +48,41 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.rasterizationSamples = RasterizationSamples;
-        _internal.sampleShadingEnable = SampleShadingEnable;
-        _internal.minSampleShading = MinSampleShading;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (RasterizationSamples != default)
+        {
+            _internal.rasterizationSamples = RasterizationSamples;
+        }
+        if (SampleShadingEnable != (uint)default)
+        {
+            _internal.sampleShadingEnable = SampleShadingEnable;
+        }
+        if (MinSampleShading != default)
+        {
+            _internal.minSampleShading = MinSampleShading;
+        }
         _pSampleMask.Dispose();
         if (PSampleMask.HasValue)
         {
             _pSampleMask = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleMask>(PSampleMask.Value);
             _internal.pSampleMask = _pSampleMask.Handle;
         }
-        _internal.alphaToCoverageEnable = AlphaToCoverageEnable;
-        _internal.alphaToOneEnable = AlphaToOneEnable;
+        if (AlphaToCoverageEnable != (uint)default)
+        {
+            _internal.alphaToCoverageEnable = AlphaToCoverageEnable;
+        }
+        if (AlphaToOneEnable != (uint)default)
+        {
+            _internal.alphaToOneEnable = AlphaToOneEnable;
+        }
         return _internal;
     }
 

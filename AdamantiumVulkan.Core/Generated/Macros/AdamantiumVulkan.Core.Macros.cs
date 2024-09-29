@@ -13,3101 +13,3230 @@ namespace AdamantiumVulkan.Core;
 
 public static class Constants
 {
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 23 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 23 Column: 9
     public static uint VK_VERSION_1_0 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 31 Column: 17
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 31 Column: 17
     public static uint VK_USE_64_BIT_PTR_DEFINES => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 62 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 62 Column: 9
     public static uint VK_MAKE_API_VERSION(uint variant, uint major, uint minor, uint patch)
     {
         var version = (((variant) << 29) | ((major) << 22) | ((minor) << 12) | ((uint)(patch)));
         return (uint)version;
     }
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 69 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 69 Column: 9
     public static uint VK_API_VERSION_1_0 => VK_MAKE_API_VERSION(0,1,0,0);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 72 Column: 9
-    public static uint VK_HEADER_VERSION => 275;
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 72 Column: 9
+    public static uint VK_HEADER_VERSION => 283;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 75 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 75 Column: 9
     public static uint VK_HEADER_VERSION_COMPLETE => VK_MAKE_API_VERSION(0,1,3,VK_HEADER_VERSION);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 90 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 90 Column: 9
     public static uint VK_API_VERSION_VARIANT(byte variant)
     {
         return (uint)(variant>>22);
     }
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 91 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 91 Column: 9
     public static uint VK_API_VERSION_MAJOR(byte major)
     {
         return (uint)(major>>22);
     }
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 92 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 92 Column: 9
     public static uint VK_API_VERSION_MINOR(byte minor)
     {
         return (uint)(minor>>22);
     }
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 93 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 93 Column: 9
     public static uint VK_API_VERSION_PATCH(byte patch)
     {
         return (uint)(patch>>22);
     }
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 124 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 124 Column: 9
     public static uint VK_ATTACHMENT_UNUSED => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 125 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 125 Column: 9
     public static uint VK_FALSE => 0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 126 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 126 Column: 9
     public static float VK_LOD_CLAMP_NONE => 1000.0F;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 127 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 127 Column: 9
     public static uint VK_QUEUE_FAMILY_IGNORED => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 128 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 128 Column: 9
     public static uint VK_REMAINING_ARRAY_LAYERS => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 129 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 129 Column: 9
     public static uint VK_REMAINING_MIP_LEVELS => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 130 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 130 Column: 9
     public static uint VK_SUBPASS_EXTERNAL => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 131 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 131 Column: 9
     public static uint VK_TRUE => 1U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 132 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 132 Column: 9
     public static ulong VK_WHOLE_SIZE => ~0UL;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 133 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 133 Column: 9
     public static uint VK_MAX_MEMORY_TYPES => 32U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 134 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 134 Column: 9
     public static uint VK_MAX_PHYSICAL_DEVICE_NAME_SIZE => 256U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 135 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 135 Column: 9
     public static uint VK_UUID_SIZE => 16U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 136 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 136 Column: 9
     public static uint VK_MAX_EXTENSION_NAME_SIZE => 256U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 137 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 137 Column: 9
     public static uint VK_MAX_DESCRIPTION_SIZE => 256U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 138 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 138 Column: 9
     public static uint VK_MAX_MEMORY_HEAPS => 16U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4852 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4886 Column: 9
     public static uint VK_VERSION_1_1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4854 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4888 Column: 9
     public static uint VK_API_VERSION_1_1 => VK_MAKE_API_VERSION(0,1,1,0);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4858 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4892 Column: 9
     public static uint VK_MAX_DEVICE_GROUP_SIZE => 32U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4859 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4893 Column: 9
     public static uint VK_LUID_SIZE => 8U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 4860 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4894 Column: 9
     public static uint VK_QUEUE_FAMILY_EXTERNAL => ~1U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5719 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5755 Column: 9
     public static uint VK_VERSION_1_2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5721 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5757 Column: 9
     public static uint VK_API_VERSION_1_2 => VK_MAKE_API_VERSION(0,1,2,0);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5723 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5759 Column: 9
     public static uint VK_MAX_DRIVER_NAME_SIZE => 256U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 5724 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 5760 Column: 9
     public static uint VK_MAX_DRIVER_INFO_SIZE => 256U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6477 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6513 Column: 9
     public static uint VK_VERSION_1_3 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 6479 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6515 Column: 9
     public static uint VK_API_VERSION_1_3 => VK_MAKE_API_VERSION(0,1,3,0);
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7512 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7548 Column: 9
     public static uint VK_KHR_surface => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7514 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7550 Column: 9
     public static uint VK_KHR_SURFACE_SPEC_VERSION => 25;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7515 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7551 Column: 9
     public static string VK_KHR_SURFACE_EXTENSION_NAME => "VK_KHR_surface";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7627 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7663 Column: 9
     public static uint VK_KHR_swapchain => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7629 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7665 Column: 9
     public static uint VK_KHR_SWAPCHAIN_SPEC_VERSION => 70;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7630 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7666 Column: 9
     public static string VK_KHR_SWAPCHAIN_EXTENSION_NAME => "VK_KHR_swapchain";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7788 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7824 Column: 9
     public static uint VK_KHR_display => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7791 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7827 Column: 9
     public static uint VK_KHR_DISPLAY_SPEC_VERSION => 23;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7792 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7828 Column: 9
     public static string VK_KHR_DISPLAY_EXTENSION_NAME => "VK_KHR_display";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7914 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7950 Column: 9
     public static uint VK_KHR_display_swapchain => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7915 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7951 Column: 9
     public static uint VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION => 10;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7916 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7952 Column: 9
     public static string VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME => "VK_KHR_display_swapchain";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7938 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7974 Column: 9
     public static uint VK_KHR_sampler_mirror_clamp_to_edge => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7939 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7975 Column: 9
     public static uint VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7940 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7976 Column: 9
     public static string VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME => "VK_KHR_sampler_mirror_clamp_to_edge";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7944 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7980 Column: 9
     public static uint VK_KHR_video_queue => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7947 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7983 Column: 9
     public static uint VK_KHR_VIDEO_QUEUE_SPEC_VERSION => 8;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 7948 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7984 Column: 9
     public static string VK_KHR_VIDEO_QUEUE_EXTENSION_NAME => "VK_KHR_video_queue";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8232 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8269 Column: 9
     public static uint VK_KHR_video_decode_queue => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8233 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8270 Column: 9
     public static uint VK_KHR_VIDEO_DECODE_QUEUE_SPEC_VERSION => 8;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8234 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8271 Column: 9
     public static string VK_KHR_VIDEO_DECODE_QUEUE_EXTENSION_NAME => "VK_KHR_video_decode_queue";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8287 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8324 Column: 9
     public static uint VK_KHR_video_encode_h264 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8290 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8327 Column: 9
     public static uint VK_KHR_VIDEO_ENCODE_H264_SPEC_VERSION => 14;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8291 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8328 Column: 9
     public static string VK_KHR_VIDEO_ENCODE_H264_EXTENSION_NAME => "VK_KHR_video_encode_h264";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8486 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8523 Column: 9
     public static uint VK_KHR_video_encode_h265 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8489 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8526 Column: 9
     public static uint VK_KHR_VIDEO_ENCODE_H265_SPEC_VERSION => 14;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8490 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8527 Column: 9
     public static string VK_KHR_VIDEO_ENCODE_H265_EXTENSION_NAME => "VK_KHR_video_encode_h265";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8711 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8748 Column: 9
     public static uint VK_KHR_video_decode_h264 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8713 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8750 Column: 9
     public static uint VK_KHR_VIDEO_DECODE_H264_SPEC_VERSION => 9;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8714 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8751 Column: 9
     public static string VK_KHR_VIDEO_DECODE_H264_EXTENSION_NAME => "VK_KHR_video_decode_h264";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8771 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8808 Column: 9
     public static uint VK_KHR_dynamic_rendering => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8772 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8809 Column: 9
     public static uint VK_KHR_DYNAMIC_RENDERING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8773 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8810 Column: 9
     public static string VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME => "VK_KHR_dynamic_rendering";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8834 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8871 Column: 9
     public static uint VK_KHR_multiview => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8835 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8872 Column: 9
     public static uint VK_KHR_MULTIVIEW_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8836 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8873 Column: 9
     public static string VK_KHR_MULTIVIEW_EXTENSION_NAME => "VK_KHR_multiview";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8846 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8883 Column: 9
     public static uint VK_KHR_get_physical_device_properties2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8847 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8884 Column: 9
     public static uint VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8848 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8885 Column: 9
     public static string VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME => "VK_KHR_get_physical_device_properties2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8912 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8949 Column: 9
     public static uint VK_KHR_device_group => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8913 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8950 Column: 9
     public static uint VK_KHR_DEVICE_GROUP_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8914 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8951 Column: 9
     public static string VK_KHR_DEVICE_GROUP_EXTENSION_NAME => "VK_KHR_device_group";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8965 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9002 Column: 9
     public static uint VK_KHR_shader_draw_parameters => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8966 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9003 Column: 9
     public static uint VK_KHR_SHADER_DRAW_PARAMETERS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8967 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9004 Column: 9
     public static string VK_KHR_SHADER_DRAW_PARAMETERS_EXTENSION_NAME => "VK_KHR_shader_draw_parameters";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8971 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9008 Column: 9
     public static uint VK_KHR_maintenance1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8972 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9009 Column: 9
     public static uint VK_KHR_MAINTENANCE_1_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8973 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9010 Column: 9
     public static string VK_KHR_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_maintenance1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8974 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9011 Column: 9
     public static uint VK_KHR_MAINTENANCE1_SPEC_VERSION => VK_KHR_MAINTENANCE_1_SPEC_VERSION;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8975 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9012 Column: 9
     public static string VK_KHR_MAINTENANCE1_EXTENSION_NAME => VK_KHR_MAINTENANCE_1_EXTENSION_NAME;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8989 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9026 Column: 9
     public static uint VK_KHR_device_group_creation => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8990 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9027 Column: 9
     public static uint VK_KHR_DEVICE_GROUP_CREATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8991 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9028 Column: 9
     public static string VK_KHR_DEVICE_GROUP_CREATION_EXTENSION_NAME => "VK_KHR_device_group_creation";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 8992 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9029 Column: 9
     public static uint VK_MAX_DEVICE_GROUP_SIZE_KHR => VK_MAX_DEVICE_GROUP_SIZE;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9008 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9045 Column: 9
     public static uint VK_KHR_external_memory_capabilities => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9009 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9046 Column: 9
     public static uint VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9010 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9047 Column: 9
     public static string VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_memory_capabilities";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9011 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9048 Column: 9
     public static uint VK_LUID_SIZE_KHR => VK_LUID_SIZE;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9043 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9080 Column: 9
     public static uint VK_KHR_external_memory => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9044 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9081 Column: 9
     public static uint VK_KHR_EXTERNAL_MEMORY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9045 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9082 Column: 9
     public static string VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_KHR_external_memory";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9046 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9083 Column: 9
     public static uint VK_QUEUE_FAMILY_EXTERNAL_KHR => VK_QUEUE_FAMILY_EXTERNAL;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9056 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9093 Column: 9
     public static uint VK_KHR_external_memory_fd => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9057 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9094 Column: 9
     public static uint VK_KHR_EXTERNAL_MEMORY_FD_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9058 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9095 Column: 9
     public static string VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME => "VK_KHR_external_memory_fd";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9097 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9134 Column: 9
     public static uint VK_KHR_external_semaphore_capabilities => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9098 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9135 Column: 9
     public static uint VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9099 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9136 Column: 9
     public static string VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_semaphore_capabilities";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9123 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9160 Column: 9
     public static uint VK_KHR_external_semaphore => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9124 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9161 Column: 9
     public static uint VK_KHR_EXTERNAL_SEMAPHORE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9125 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9162 Column: 9
     public static string VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME => "VK_KHR_external_semaphore";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9135 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9172 Column: 9
     public static uint VK_KHR_external_semaphore_fd => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9136 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9173 Column: 9
     public static uint VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9137 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9174 Column: 9
     public static string VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME => "VK_KHR_external_semaphore_fd";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9170 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9207 Column: 9
     public static uint VK_KHR_push_descriptor => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9171 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9208 Column: 9
     public static uint VK_KHR_PUSH_DESCRIPTOR_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9172 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9209 Column: 9
     public static string VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME => "VK_KHR_push_descriptor";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9201 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9238 Column: 9
     public static uint VK_KHR_shader_float16_int8 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9202 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9239 Column: 9
     public static uint VK_KHR_SHADER_FLOAT16_INT8_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9203 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9240 Column: 9
     public static string VK_KHR_SHADER_FLOAT16_INT8_EXTENSION_NAME => "VK_KHR_shader_float16_int8";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9211 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9248 Column: 9
     public static uint VK_KHR_16bit_storage => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9212 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9249 Column: 9
     public static uint VK_KHR_16BIT_STORAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9213 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9250 Column: 9
     public static string VK_KHR_16BIT_STORAGE_EXTENSION_NAME => "VK_KHR_16bit_storage";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9219 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9256 Column: 9
     public static uint VK_KHR_incremental_present => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9220 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9257 Column: 9
     public static uint VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9221 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9258 Column: 9
     public static string VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME => "VK_KHR_incremental_present";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9243 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9280 Column: 9
     public static uint VK_KHR_descriptor_update_template => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9246 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9283 Column: 9
     public static uint VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9247 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9284 Column: 9
     public static string VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME => "VK_KHR_descriptor_update_template";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9281 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9318 Column: 9
     public static uint VK_KHR_imageless_framebuffer => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9282 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9319 Column: 9
     public static uint VK_KHR_IMAGELESS_FRAMEBUFFER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9283 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9320 Column: 9
     public static string VK_KHR_IMAGELESS_FRAMEBUFFER_EXTENSION_NAME => "VK_KHR_imageless_framebuffer";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9295 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9332 Column: 9
     public static uint VK_KHR_create_renderpass2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9296 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9333 Column: 9
     public static uint VK_KHR_CREATE_RENDERPASS_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9297 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9334 Column: 9
     public static string VK_KHR_CREATE_RENDERPASS_2_EXTENSION_NAME => "VK_KHR_create_renderpass2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9341 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9378 Column: 9
     public static uint VK_KHR_shared_presentable_image => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9342 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9379 Column: 9
     public static uint VK_KHR_SHARED_PRESENTABLE_IMAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9343 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9380 Column: 9
     public static string VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME => "VK_KHR_shared_presentable_image";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9360 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9397 Column: 9
     public static uint VK_KHR_external_fence_capabilities => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9361 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9398 Column: 9
     public static uint VK_KHR_EXTERNAL_FENCE_CAPABILITIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9362 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9399 Column: 9
     public static string VK_KHR_EXTERNAL_FENCE_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_fence_capabilities";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9386 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9423 Column: 9
     public static uint VK_KHR_external_fence => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9387 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9424 Column: 9
     public static uint VK_KHR_EXTERNAL_FENCE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9388 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9425 Column: 9
     public static string VK_KHR_EXTERNAL_FENCE_EXTENSION_NAME => "VK_KHR_external_fence";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9398 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9435 Column: 9
     public static uint VK_KHR_external_fence_fd => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9399 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9436 Column: 9
     public static uint VK_KHR_EXTERNAL_FENCE_FD_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9400 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9437 Column: 9
     public static string VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME => "VK_KHR_external_fence_fd";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9433 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9470 Column: 9
     public static uint VK_KHR_performance_query => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9434 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9471 Column: 9
     public static uint VK_KHR_PERFORMANCE_QUERY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9435 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9472 Column: 9
     public static string VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME => "VK_KHR_performance_query";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9574 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9611 Column: 9
     public static uint VK_KHR_maintenance2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9575 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9612 Column: 9
     public static uint VK_KHR_MAINTENANCE_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9576 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9613 Column: 9
     public static string VK_KHR_MAINTENANCE_2_EXTENSION_NAME => "VK_KHR_maintenance2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9577 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9614 Column: 9
     public static uint VK_KHR_MAINTENANCE2_SPEC_VERSION => VK_KHR_MAINTENANCE_2_SPEC_VERSION;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9578 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9615 Column: 9
     public static string VK_KHR_MAINTENANCE2_EXTENSION_NAME => VK_KHR_MAINTENANCE_2_EXTENSION_NAME;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9596 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9633 Column: 9
     public static uint VK_KHR_get_surface_capabilities2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9597 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9634 Column: 9
     public static uint VK_KHR_GET_SURFACE_CAPABILITIES_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9598 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9635 Column: 9
     public static string VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME => "VK_KHR_get_surface_capabilities2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9635 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9672 Column: 9
     public static uint VK_KHR_variable_pointers => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9636 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9673 Column: 9
     public static uint VK_KHR_VARIABLE_POINTERS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9637 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9674 Column: 9
     public static string VK_KHR_VARIABLE_POINTERS_EXTENSION_NAME => "VK_KHR_variable_pointers";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9645 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9682 Column: 9
     public static uint VK_KHR_get_display_properties2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9646 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9683 Column: 9
     public static uint VK_KHR_GET_DISPLAY_PROPERTIES_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9647 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9684 Column: 9
     public static string VK_KHR_GET_DISPLAY_PROPERTIES_2_EXTENSION_NAME => "VK_KHR_get_display_properties2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9709 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9746 Column: 9
     public static uint VK_KHR_dedicated_allocation => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9710 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9747 Column: 9
     public static uint VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9711 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9748 Column: 9
     public static string VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME => "VK_KHR_dedicated_allocation";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9719 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9756 Column: 9
     public static uint VK_KHR_storage_buffer_storage_class => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9720 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9757 Column: 9
     public static uint VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9721 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9758 Column: 9
     public static string VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_EXTENSION_NAME => "VK_KHR_storage_buffer_storage_class";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9725 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9762 Column: 9
     public static uint VK_KHR_relaxed_block_layout => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9726 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9763 Column: 9
     public static uint VK_KHR_RELAXED_BLOCK_LAYOUT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9727 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9764 Column: 9
     public static string VK_KHR_RELAXED_BLOCK_LAYOUT_EXTENSION_NAME => "VK_KHR_relaxed_block_layout";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9731 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9768 Column: 9
     public static uint VK_KHR_get_memory_requirements2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9732 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9769 Column: 9
     public static uint VK_KHR_GET_MEMORY_REQUIREMENTS_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9733 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9770 Column: 9
     public static string VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME => "VK_KHR_get_memory_requirements2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9768 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9805 Column: 9
     public static uint VK_KHR_image_format_list => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9769 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9806 Column: 9
     public static uint VK_KHR_IMAGE_FORMAT_LIST_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9770 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9807 Column: 9
     public static string VK_KHR_IMAGE_FORMAT_LIST_EXTENSION_NAME => "VK_KHR_image_format_list";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9776 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9813 Column: 9
     public static uint VK_KHR_sampler_ycbcr_conversion => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9779 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9816 Column: 9
     public static uint VK_KHR_SAMPLER_YCBCR_CONVERSION_SPEC_VERSION => 14;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9780 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9817 Column: 9
     public static string VK_KHR_SAMPLER_YCBCR_CONVERSION_EXTENSION_NAME => "VK_KHR_sampler_ycbcr_conversion";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9817 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9854 Column: 9
     public static uint VK_KHR_bind_memory2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9818 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9855 Column: 9
     public static uint VK_KHR_BIND_MEMORY_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9819 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9856 Column: 9
     public static string VK_KHR_BIND_MEMORY_2_EXTENSION_NAME => "VK_KHR_bind_memory2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9841 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9878 Column: 9
     public static uint VK_KHR_maintenance3 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9842 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9879 Column: 9
     public static uint VK_KHR_MAINTENANCE_3_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9843 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9880 Column: 9
     public static string VK_KHR_MAINTENANCE_3_EXTENSION_NAME => "VK_KHR_maintenance3";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9844 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9881 Column: 9
     public static uint VK_KHR_MAINTENANCE3_SPEC_VERSION => VK_KHR_MAINTENANCE_3_SPEC_VERSION;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9845 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9882 Column: 9
     public static string VK_KHR_MAINTENANCE3_EXTENSION_NAME => VK_KHR_MAINTENANCE_3_EXTENSION_NAME;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9861 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9898 Column: 9
     public static uint VK_KHR_draw_indirect_count => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9862 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9899 Column: 9
     public static uint VK_KHR_DRAW_INDIRECT_COUNT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9863 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9900 Column: 9
     public static string VK_KHR_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_KHR_draw_indirect_count";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9889 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9926 Column: 9
     public static uint VK_KHR_shader_subgroup_extended_types => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9890 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9927 Column: 9
     public static uint VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9891 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9928 Column: 9
     public static string VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_EXTENSION_NAME => "VK_KHR_shader_subgroup_extended_types";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9897 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9934 Column: 9
     public static uint VK_KHR_8bit_storage => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9898 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9935 Column: 9
     public static uint VK_KHR_8BIT_STORAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9899 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9936 Column: 9
     public static string VK_KHR_8BIT_STORAGE_EXTENSION_NAME => "VK_KHR_8bit_storage";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9905 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9942 Column: 9
     public static uint VK_KHR_shader_atomic_int64 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9906 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9943 Column: 9
     public static uint VK_KHR_SHADER_ATOMIC_INT64_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9907 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9944 Column: 9
     public static string VK_KHR_SHADER_ATOMIC_INT64_EXTENSION_NAME => "VK_KHR_shader_atomic_int64";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9913 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9950 Column: 9
     public static uint VK_KHR_shader_clock => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9914 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9951 Column: 9
     public static uint VK_KHR_SHADER_CLOCK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9915 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9952 Column: 9
     public static string VK_KHR_SHADER_CLOCK_EXTENSION_NAME => "VK_KHR_shader_clock";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9926 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9963 Column: 9
     public static uint VK_KHR_video_decode_h265 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9928 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9965 Column: 9
     public static uint VK_KHR_VIDEO_DECODE_H265_SPEC_VERSION => 8;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9929 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9966 Column: 9
     public static string VK_KHR_VIDEO_DECODE_H265_EXTENSION_NAME => "VK_KHR_video_decode_h265";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9979 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10016 Column: 9
     public static uint VK_KHR_global_priority => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9980 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10017 Column: 9
     public static uint VK_MAX_GLOBAL_PRIORITY_SIZE_KHR => 16U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9981 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10018 Column: 9
     public static uint VK_KHR_GLOBAL_PRIORITY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 9982 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10019 Column: 9
     public static string VK_KHR_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_KHR_global_priority";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10017 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10054 Column: 9
     public static uint VK_KHR_driver_properties => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10018 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10055 Column: 9
     public static uint VK_KHR_DRIVER_PROPERTIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10019 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10056 Column: 9
     public static string VK_KHR_DRIVER_PROPERTIES_EXTENSION_NAME => "VK_KHR_driver_properties";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10020 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10057 Column: 9
     public static uint VK_MAX_DRIVER_NAME_SIZE_KHR => VK_MAX_DRIVER_NAME_SIZE;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10021 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10058 Column: 9
     public static uint VK_MAX_DRIVER_INFO_SIZE_KHR => VK_MAX_DRIVER_INFO_SIZE;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10031 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10068 Column: 9
     public static uint VK_KHR_shader_float_controls => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10032 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10069 Column: 9
     public static uint VK_KHR_SHADER_FLOAT_CONTROLS_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10033 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10070 Column: 9
     public static string VK_KHR_SHADER_FLOAT_CONTROLS_EXTENSION_NAME => "VK_KHR_shader_float_controls";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10041 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10078 Column: 9
     public static uint VK_KHR_depth_stencil_resolve => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10042 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10079 Column: 9
     public static uint VK_KHR_DEPTH_STENCIL_RESOLVE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10043 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10080 Column: 9
     public static string VK_KHR_DEPTH_STENCIL_RESOLVE_EXTENSION_NAME => "VK_KHR_depth_stencil_resolve";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10055 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10092 Column: 9
     public static uint VK_KHR_swapchain_mutable_format => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10056 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10093 Column: 9
     public static uint VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10057 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10094 Column: 9
     public static string VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_EXTENSION_NAME => "VK_KHR_swapchain_mutable_format";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10061 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10098 Column: 9
     public static uint VK_KHR_timeline_semaphore => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10062 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10099 Column: 9
     public static uint VK_KHR_TIMELINE_SEMAPHORE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10063 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10100 Column: 9
     public static string VK_KHR_TIMELINE_SEMAPHORE_EXTENSION_NAME => "VK_KHR_timeline_semaphore";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10104 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10141 Column: 9
     public static uint VK_KHR_vulkan_memory_model => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10105 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10142 Column: 9
     public static uint VK_KHR_VULKAN_MEMORY_MODEL_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10106 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10143 Column: 9
     public static string VK_KHR_VULKAN_MEMORY_MODEL_EXTENSION_NAME => "VK_KHR_vulkan_memory_model";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10112 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10149 Column: 9
     public static uint VK_KHR_shader_terminate_invocation => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10113 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10150 Column: 9
     public static uint VK_KHR_SHADER_TERMINATE_INVOCATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10114 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10151 Column: 9
     public static string VK_KHR_SHADER_TERMINATE_INVOCATION_EXTENSION_NAME => "VK_KHR_shader_terminate_invocation";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10120 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10157 Column: 9
     public static uint VK_KHR_fragment_shading_rate => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10121 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10158 Column: 9
     public static uint VK_KHR_FRAGMENT_SHADING_RATE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10122 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10159 Column: 9
     public static string VK_KHR_FRAGMENT_SHADING_RATE_EXTENSION_NAME => "VK_KHR_fragment_shading_rate";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10200 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10237 Column: 9
+    public static uint VK_KHR_dynamic_rendering_local_read => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10238 Column: 9
+    public static uint VK_KHR_DYNAMIC_RENDERING_LOCAL_READ_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10239 Column: 9
+    public static string VK_KHR_DYNAMIC_RENDERING_LOCAL_READ_EXTENSION_NAME => "VK_KHR_dynamic_rendering_local_read";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10277 Column: 9
+    public static uint VK_KHR_shader_quad_control => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10278 Column: 9
+    public static uint VK_KHR_SHADER_QUAD_CONTROL_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10279 Column: 9
+    public static string VK_KHR_SHADER_QUAD_CONTROL_EXTENSION_NAME => "VK_KHR_shader_quad_control";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10289 Column: 9
     public static uint VK_KHR_spirv_1_4 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10201 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10290 Column: 9
     public static uint VK_KHR_SPIRV_1_4_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10202 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10291 Column: 9
     public static string VK_KHR_SPIRV_1_4_EXTENSION_NAME => "VK_KHR_spirv_1_4";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10206 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10295 Column: 9
     public static uint VK_KHR_surface_protected_capabilities => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10207 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10296 Column: 9
     public static uint VK_KHR_SURFACE_PROTECTED_CAPABILITIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10208 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10297 Column: 9
     public static string VK_KHR_SURFACE_PROTECTED_CAPABILITIES_EXTENSION_NAME => "VK_KHR_surface_protected_capabilities";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10218 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10307 Column: 9
     public static uint VK_KHR_separate_depth_stencil_layouts => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10219 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10308 Column: 9
     public static uint VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10220 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10309 Column: 9
     public static string VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_EXTENSION_NAME => "VK_KHR_separate_depth_stencil_layouts";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10230 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10319 Column: 9
     public static uint VK_KHR_present_wait => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10231 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10320 Column: 9
     public static uint VK_KHR_PRESENT_WAIT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10232 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10321 Column: 9
     public static string VK_KHR_PRESENT_WAIT_EXTENSION_NAME => "VK_KHR_present_wait";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10251 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10340 Column: 9
     public static uint VK_KHR_uniform_buffer_standard_layout => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10252 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10341 Column: 9
     public static uint VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10253 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10342 Column: 9
     public static string VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_EXTENSION_NAME => "VK_KHR_uniform_buffer_standard_layout";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10259 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10348 Column: 9
     public static uint VK_KHR_buffer_device_address => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10260 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10349 Column: 9
     public static uint VK_KHR_BUFFER_DEVICE_ADDRESS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10261 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10350 Column: 9
     public static string VK_KHR_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_KHR_buffer_device_address";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10292 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10381 Column: 9
     public static uint VK_KHR_deferred_host_operations => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10294 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10383 Column: 9
     public static uint VK_KHR_DEFERRED_HOST_OPERATIONS_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10295 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10384 Column: 9
     public static string VK_KHR_DEFERRED_HOST_OPERATIONS_EXTENSION_NAME => "VK_KHR_deferred_host_operations";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10328 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10417 Column: 9
     public static uint VK_KHR_pipeline_executable_properties => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10329 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10418 Column: 9
     public static uint VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10330 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10419 Column: 9
     public static string VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NAME => "VK_KHR_pipeline_executable_properties";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10419 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10508 Column: 9
     public static uint VK_KHR_map_memory2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10420 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10509 Column: 9
     public static uint VK_KHR_MAP_MEMORY_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10421 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10510 Column: 9
     public static string VK_KHR_MAP_MEMORY_2_EXTENSION_NAME => "VK_KHR_map_memory2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10455 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10549 Column: 9
     public static uint VK_KHR_shader_integer_dot_product => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10456 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10550 Column: 9
     public static uint VK_KHR_SHADER_INTEGER_DOT_PRODUCT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10457 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10551 Column: 9
     public static string VK_KHR_SHADER_INTEGER_DOT_PRODUCT_EXTENSION_NAME => "VK_KHR_shader_integer_dot_product";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10465 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10559 Column: 9
     public static uint VK_KHR_pipeline_library => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10466 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10560 Column: 9
     public static uint VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10467 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10561 Column: 9
     public static string VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_KHR_pipeline_library";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10478 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10572 Column: 9
     public static uint VK_KHR_shader_non_semantic_info => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10479 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10573 Column: 9
     public static uint VK_KHR_SHADER_NON_SEMANTIC_INFO_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10480 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10574 Column: 9
     public static string VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME => "VK_KHR_shader_non_semantic_info";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10484 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10578 Column: 9
     public static uint VK_KHR_present_id => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10485 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10579 Column: 9
     public static uint VK_KHR_PRESENT_ID_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10486 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10580 Column: 9
     public static string VK_KHR_PRESENT_ID_EXTENSION_NAME => "VK_KHR_present_id";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10503 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10597 Column: 9
     public static uint VK_KHR_video_encode_queue => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10504 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10598 Column: 9
     public static uint VK_KHR_VIDEO_ENCODE_QUEUE_SPEC_VERSION => 12;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10505 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10599 Column: 9
     public static string VK_KHR_VIDEO_ENCODE_QUEUE_EXTENSION_NAME => "VK_KHR_video_encode_queue";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10676 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10774 Column: 9
     public static uint VK_KHR_synchronization2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10677 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10775 Column: 9
     public static uint VK_KHR_SYNCHRONIZATION_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10678 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10776 Column: 9
     public static string VK_KHR_SYNCHRONIZATION_2_EXTENSION_NAME => "VK_KHR_synchronization2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10777 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10875 Column: 9
     public static uint VK_KHR_fragment_shader_barycentric => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10778 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10876 Column: 9
     public static uint VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10779 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10877 Column: 9
     public static string VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_KHR_fragment_shader_barycentric";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10795 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10893 Column: 9
     public static uint VK_KHR_shader_subgroup_uniform_control_flow => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10796 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10894 Column: 9
     public static uint VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10797 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10895 Column: 9
     public static string VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_EXTENSION_NAME => "VK_KHR_shader_subgroup_uniform_control_flow";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10807 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10905 Column: 9
     public static uint VK_KHR_zero_initialize_workgroup_memory => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10808 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10906 Column: 9
     public static uint VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10809 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10907 Column: 9
     public static string VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_EXTENSION_NAME => "VK_KHR_zero_initialize_workgroup_memory";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10815 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10913 Column: 9
     public static uint VK_KHR_workgroup_memory_explicit_layout => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10816 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10914 Column: 9
     public static uint VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10817 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10915 Column: 9
     public static string VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_EXTENSION_NAME => "VK_KHR_workgroup_memory_explicit_layout";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10830 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10928 Column: 9
     public static uint VK_KHR_copy_commands2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10831 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10929 Column: 9
     public static uint VK_KHR_COPY_COMMANDS_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10832 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10930 Column: 9
     public static string VK_KHR_COPY_COMMANDS_2_EXTENSION_NAME => "VK_KHR_copy_commands2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10890 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10988 Column: 9
     public static uint VK_KHR_format_feature_flags2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10891 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10989 Column: 9
     public static uint VK_KHR_FORMAT_FEATURE_FLAGS_2_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10892 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10990 Column: 9
     public static string VK_KHR_FORMAT_FEATURE_FLAGS_2_EXTENSION_NAME => "VK_KHR_format_feature_flags2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10902 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11000 Column: 9
     public static uint VK_KHR_ray_tracing_maintenance1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10903 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11001 Column: 9
     public static uint VK_KHR_RAY_TRACING_MAINTENANCE_1_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10904 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11002 Column: 9
     public static string VK_KHR_RAY_TRACING_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_ray_tracing_maintenance1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10939 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11037 Column: 9
     public static uint VK_KHR_portability_enumeration => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10940 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11038 Column: 9
     public static uint VK_KHR_PORTABILITY_ENUMERATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10941 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11039 Column: 9
     public static string VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME => "VK_KHR_portability_enumeration";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10945 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11043 Column: 9
     public static uint VK_KHR_maintenance4 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10946 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11044 Column: 9
     public static uint VK_KHR_MAINTENANCE_4_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10947 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11045 Column: 9
     public static string VK_KHR_MAINTENANCE_4_EXTENSION_NAME => "VK_KHR_maintenance4";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10980 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11078 Column: 9
+    public static uint VK_KHR_shader_subgroup_rotate => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11079 Column: 9
+    public static uint VK_KHR_SHADER_SUBGROUP_ROTATE_SPEC_VERSION => 2;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11080 Column: 9
+    public static string VK_KHR_SHADER_SUBGROUP_ROTATE_EXTENSION_NAME => "VK_KHR_shader_subgroup_rotate";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11091 Column: 9
+    public static uint VK_KHR_shader_maximal_reconvergence => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11092 Column: 9
+    public static uint VK_KHR_SHADER_MAXIMAL_RECONVERGENCE_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11093 Column: 9
+    public static string VK_KHR_SHADER_MAXIMAL_RECONVERGENCE_EXTENSION_NAME => "VK_KHR_shader_maximal_reconvergence";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11103 Column: 9
     public static uint VK_KHR_maintenance5 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10981 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11104 Column: 9
     public static uint VK_KHR_MAINTENANCE_5_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 10982 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11105 Column: 9
     public static string VK_KHR_MAINTENANCE_5_EXTENSION_NAME => "VK_KHR_maintenance5";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11145 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11265 Column: 9
     public static uint VK_KHR_ray_tracing_position_fetch => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11146 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11266 Column: 9
     public static uint VK_KHR_RAY_TRACING_POSITION_FETCH_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11147 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11267 Column: 9
     public static string VK_KHR_RAY_TRACING_POSITION_FETCH_EXTENSION_NAME => "VK_KHR_ray_tracing_position_fetch";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11157 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11277 Column: 9
     public static uint VK_KHR_cooperative_matrix => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11158 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11278 Column: 9
     public static uint VK_KHR_COOPERATIVE_MATRIX_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11159 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11279 Column: 9
     public static string VK_KHR_COOPERATIVE_MATRIX_EXTENSION_NAME => "VK_KHR_cooperative_matrix";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11236 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11356 Column: 9
+    public static uint VK_KHR_video_decode_av1 => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11359 Column: 9
+    public static uint VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR => 7U;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11360 Column: 9
+    public static uint VK_KHR_VIDEO_DECODE_AV1_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11361 Column: 9
+    public static string VK_KHR_VIDEO_DECODE_AV1_EXTENSION_NAME => "VK_KHR_video_decode_av1";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11401 Column: 9
     public static uint VK_KHR_video_maintenance1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11237 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11402 Column: 9
     public static uint VK_KHR_VIDEO_MAINTENANCE_1_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11238 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11403 Column: 9
     public static string VK_KHR_VIDEO_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_video_maintenance1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11256 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11421 Column: 9
     public static uint VK_KHR_vertex_attribute_divisor => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11257 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11422 Column: 9
     public static uint VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11258 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11423 Column: 9
     public static string VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME => "VK_KHR_vertex_attribute_divisor";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11288 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11453 Column: 9
+    public static uint VK_KHR_load_store_op_none => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11454 Column: 9
+    public static uint VK_KHR_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11455 Column: 9
+    public static string VK_KHR_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_KHR_load_store_op_none";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11459 Column: 9
+    public static uint VK_KHR_shader_float_controls2 => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11460 Column: 9
+    public static uint VK_KHR_SHADER_FLOAT_CONTROLS_2_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11461 Column: 9
+    public static string VK_KHR_SHADER_FLOAT_CONTROLS_2_EXTENSION_NAME => "VK_KHR_shader_float_controls2";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11471 Column: 9
+    public static uint VK_KHR_index_type_uint8 => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11472 Column: 9
+    public static uint VK_KHR_INDEX_TYPE_UINT8_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11473 Column: 9
+    public static string VK_KHR_INDEX_TYPE_UINT8_EXTENSION_NAME => "VK_KHR_index_type_uint8";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11483 Column: 9
+    public static uint VK_KHR_line_rasterization => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11484 Column: 9
+    public static uint VK_KHR_LINE_RASTERIZATION_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11485 Column: 9
+    public static string VK_KHR_LINE_RASTERIZATION_EXTENSION_NAME => "VK_KHR_line_rasterization";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11535 Column: 9
     public static uint VK_KHR_calibrated_timestamps => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11289 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11536 Column: 9
     public static uint VK_KHR_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11290 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11537 Column: 9
     public static string VK_KHR_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_KHR_calibrated_timestamps";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11328 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11575 Column: 9
+    public static uint VK_KHR_shader_expect_assume => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11576 Column: 9
+    public static uint VK_KHR_SHADER_EXPECT_ASSUME_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11577 Column: 9
+    public static string VK_KHR_SHADER_EXPECT_ASSUME_EXTENSION_NAME => "VK_KHR_shader_expect_assume";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11587 Column: 9
     public static uint VK_KHR_maintenance6 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11329 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11588 Column: 9
     public static uint VK_KHR_MAINTENANCE_6_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11330 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11589 Column: 9
     public static string VK_KHR_MAINTENANCE_6_EXTENSION_NAME => "VK_KHR_maintenance6";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11446 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11705 Column: 9
     public static uint VK_EXT_debug_report => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11448 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11707 Column: 9
     public static uint VK_EXT_DEBUG_REPORT_SPEC_VERSION => 10;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11449 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11708 Column: 9
     public static string VK_EXT_DEBUG_REPORT_EXTENSION_NAME => "VK_EXT_debug_report";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11556 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11815 Column: 9
     public static uint VK_NV_glsl_shader => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11557 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11816 Column: 9
     public static uint VK_NV_GLSL_SHADER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11558 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11817 Column: 9
     public static string VK_NV_GLSL_SHADER_EXTENSION_NAME => "VK_NV_glsl_shader";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11562 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11821 Column: 9
     public static uint VK_EXT_depth_range_unrestricted => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11563 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11822 Column: 9
     public static uint VK_EXT_DEPTH_RANGE_UNRESTRICTED_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11564 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11823 Column: 9
     public static string VK_EXT_DEPTH_RANGE_UNRESTRICTED_EXTENSION_NAME => "VK_EXT_depth_range_unrestricted";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11568 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11827 Column: 9
     public static uint VK_IMG_filter_cubic => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11569 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11828 Column: 9
     public static uint VK_IMG_FILTER_CUBIC_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11570 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11829 Column: 9
     public static string VK_IMG_FILTER_CUBIC_EXTENSION_NAME => "VK_IMG_filter_cubic";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11574 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11833 Column: 9
     public static uint VK_AMD_rasterization_order => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11575 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11834 Column: 9
     public static uint VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11576 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11835 Column: 9
     public static string VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME => "VK_AMD_rasterization_order";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11592 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11851 Column: 9
     public static uint VK_AMD_shader_trinary_minmax => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11593 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11852 Column: 9
     public static uint VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11594 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11853 Column: 9
     public static string VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME => "VK_AMD_shader_trinary_minmax";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11598 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11857 Column: 9
     public static uint VK_AMD_shader_explicit_vertex_parameter => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11599 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11858 Column: 9
     public static uint VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11600 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11859 Column: 9
     public static string VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_EXTENSION_NAME => "VK_AMD_shader_explicit_vertex_parameter";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11604 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11863 Column: 9
     public static uint VK_EXT_debug_marker => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11605 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11864 Column: 9
     public static uint VK_EXT_DEBUG_MARKER_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11606 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11865 Column: 9
     public static string VK_EXT_DEBUG_MARKER_EXTENSION_NAME => "VK_EXT_debug_marker";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11661 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11920 Column: 9
     public static uint VK_AMD_gcn_shader => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11662 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11921 Column: 9
     public static uint VK_AMD_GCN_SHADER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11663 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11922 Column: 9
     public static string VK_AMD_GCN_SHADER_EXTENSION_NAME => "VK_AMD_gcn_shader";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11667 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11926 Column: 9
     public static uint VK_NV_dedicated_allocation => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11668 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11927 Column: 9
     public static uint VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11669 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11928 Column: 9
     public static string VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME => "VK_NV_dedicated_allocation";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11692 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11951 Column: 9
     public static uint VK_EXT_transform_feedback => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11693 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11952 Column: 9
     public static uint VK_EXT_TRANSFORM_FEEDBACK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11694 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11953 Column: 9
     public static string VK_EXT_TRANSFORM_FEEDBACK_EXTENSION_NAME => "VK_EXT_transform_feedback";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11780 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12039 Column: 9
     public static uint VK_NVX_binary_import => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11783 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12042 Column: 9
     public static uint VK_NVX_BINARY_IMPORT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11784 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12043 Column: 9
     public static string VK_NVX_BINARY_IMPORT_EXTENSION_NAME => "VK_NVX_binary_import";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11852 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12111 Column: 9
     public static uint VK_NVX_image_view_handle => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11853 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12112 Column: 9
     public static uint VK_NVX_IMAGE_VIEW_HANDLE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11854 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12113 Column: 9
     public static string VK_NVX_IMAGE_VIEW_HANDLE_EXTENSION_NAME => "VK_NVX_image_view_handle";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11886 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12145 Column: 9
     public static uint VK_AMD_draw_indirect_count => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11887 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12146 Column: 9
     public static uint VK_AMD_DRAW_INDIRECT_COUNT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11888 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12147 Column: 9
     public static string VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_AMD_draw_indirect_count";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11914 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12173 Column: 9
     public static uint VK_AMD_negative_viewport_height => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11915 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12174 Column: 9
     public static uint VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11916 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12175 Column: 9
     public static string VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_EXTENSION_NAME => "VK_AMD_negative_viewport_height";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11920 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12179 Column: 9
     public static uint VK_AMD_gpu_shader_half_float => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11921 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12180 Column: 9
     public static uint VK_AMD_GPU_SHADER_HALF_FLOAT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11922 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12181 Column: 9
     public static string VK_AMD_GPU_SHADER_HALF_FLOAT_EXTENSION_NAME => "VK_AMD_gpu_shader_half_float";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11926 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12185 Column: 9
     public static uint VK_AMD_shader_ballot => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11927 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12186 Column: 9
     public static uint VK_AMD_SHADER_BALLOT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11928 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12187 Column: 9
     public static string VK_AMD_SHADER_BALLOT_EXTENSION_NAME => "VK_AMD_shader_ballot";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11932 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12191 Column: 9
     public static uint VK_AMD_texture_gather_bias_lod => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11933 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12192 Column: 9
     public static uint VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11934 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12193 Column: 9
     public static string VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME => "VK_AMD_texture_gather_bias_lod";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11944 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12203 Column: 9
     public static uint VK_AMD_shader_info => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11945 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12204 Column: 9
     public static uint VK_AMD_SHADER_INFO_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11946 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12205 Column: 9
     public static string VK_AMD_SHADER_INFO_EXTENSION_NAME => "VK_AMD_shader_info";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11986 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12245 Column: 9
     public static uint VK_AMD_shader_image_load_store_lod => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11987 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12246 Column: 9
     public static uint VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11988 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12247 Column: 9
     public static string VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_EXTENSION_NAME => "VK_AMD_shader_image_load_store_lod";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11992 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12251 Column: 9
     public static uint VK_NV_corner_sampled_image => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11993 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12252 Column: 9
     public static uint VK_NV_CORNER_SAMPLED_IMAGE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 11994 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12253 Column: 9
     public static string VK_NV_CORNER_SAMPLED_IMAGE_EXTENSION_NAME => "VK_NV_corner_sampled_image";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12004 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12263 Column: 9
     public static uint VK_IMG_format_pvrtc => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12005 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12264 Column: 9
     public static uint VK_IMG_FORMAT_PVRTC_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12006 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12265 Column: 9
     public static string VK_IMG_FORMAT_PVRTC_EXTENSION_NAME => "VK_IMG_format_pvrtc";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12010 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12269 Column: 9
     public static uint VK_NV_external_memory_capabilities => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12011 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12270 Column: 9
     public static uint VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12012 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12271 Column: 9
     public static string VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME => "VK_NV_external_memory_capabilities";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12053 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12312 Column: 9
     public static uint VK_NV_external_memory => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12054 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12313 Column: 9
     public static uint VK_NV_EXTERNAL_MEMORY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12055 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12314 Column: 9
     public static string VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_NV_external_memory";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12071 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12330 Column: 9
     public static uint VK_EXT_validation_flags => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12072 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12331 Column: 9
     public static uint VK_EXT_VALIDATION_FLAGS_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12073 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12332 Column: 9
     public static string VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME => "VK_EXT_validation_flags";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12090 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12349 Column: 9
     public static uint VK_EXT_shader_subgroup_ballot => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12091 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12350 Column: 9
     public static uint VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12092 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12351 Column: 9
     public static string VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME => "VK_EXT_shader_subgroup_ballot";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12096 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12355 Column: 9
     public static uint VK_EXT_shader_subgroup_vote => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12097 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12356 Column: 9
     public static uint VK_EXT_SHADER_SUBGROUP_VOTE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12098 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12357 Column: 9
     public static string VK_EXT_SHADER_SUBGROUP_VOTE_EXTENSION_NAME => "VK_EXT_shader_subgroup_vote";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12102 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12361 Column: 9
     public static uint VK_EXT_texture_compression_astc_hdr => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12103 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12362 Column: 9
     public static uint VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12104 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12363 Column: 9
     public static string VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_EXTENSION_NAME => "VK_EXT_texture_compression_astc_hdr";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12110 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12369 Column: 9
     public static uint VK_EXT_astc_decode_mode => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12111 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12370 Column: 9
     public static uint VK_EXT_ASTC_DECODE_MODE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12112 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12371 Column: 9
     public static string VK_EXT_ASTC_DECODE_MODE_EXTENSION_NAME => "VK_EXT_astc_decode_mode";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12128 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12387 Column: 9
     public static uint VK_EXT_pipeline_robustness => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12129 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12388 Column: 9
     public static uint VK_EXT_PIPELINE_ROBUSTNESS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12130 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12389 Column: 9
     public static string VK_EXT_PIPELINE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_pipeline_robustness";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12174 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12433 Column: 9
     public static uint VK_EXT_conditional_rendering => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12175 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12434 Column: 9
     public static uint VK_EXT_CONDITIONAL_RENDERING_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12176 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12435 Column: 9
     public static string VK_EXT_CONDITIONAL_RENDERING_EXTENSION_NAME => "VK_EXT_conditional_rendering";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12218 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12477 Column: 9
     public static uint VK_NV_clip_space_w_scaling => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12219 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12478 Column: 9
     public static uint VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12220 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12479 Column: 9
     public static string VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME => "VK_NV_clip_space_w_scaling";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12246 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12505 Column: 9
     public static uint VK_EXT_direct_mode_display => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12247 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12506 Column: 9
     public static uint VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12248 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12507 Column: 9
     public static string VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME => "VK_EXT_direct_mode_display";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12259 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12518 Column: 9
     public static uint VK_EXT_display_surface_counter => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12260 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12519 Column: 9
     public static uint VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12261 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12520 Column: 9
     public static string VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME => "VK_EXT_display_surface_counter";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12296 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12555 Column: 9
     public static uint VK_EXT_display_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12297 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12556 Column: 9
     public static uint VK_EXT_DISPLAY_CONTROL_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12298 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12557 Column: 9
     public static string VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME => "VK_EXT_display_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12373 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12632 Column: 9
     public static uint VK_GOOGLE_display_timing => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12374 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12633 Column: 9
     public static uint VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12375 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12634 Column: 9
     public static string VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME => "VK_GOOGLE_display_timing";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12418 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12677 Column: 9
     public static uint VK_NV_sample_mask_override_coverage => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12419 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12678 Column: 9
     public static uint VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12420 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12679 Column: 9
     public static string VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_EXTENSION_NAME => "VK_NV_sample_mask_override_coverage";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12424 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12683 Column: 9
     public static uint VK_NV_geometry_shader_passthrough => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12425 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12684 Column: 9
     public static uint VK_NV_GEOMETRY_SHADER_PASSTHROUGH_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12426 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12685 Column: 9
     public static string VK_NV_GEOMETRY_SHADER_PASSTHROUGH_EXTENSION_NAME => "VK_NV_geometry_shader_passthrough";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12430 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12689 Column: 9
     public static uint VK_NV_viewport_array2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12431 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12690 Column: 9
     public static uint VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12432 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12691 Column: 9
     public static string VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME => "VK_NV_viewport_array2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12433 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12692 Column: 9
     public static uint VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION => VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12434 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12693 Column: 9
     public static string VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME => VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12438 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12697 Column: 9
     public static uint VK_NVX_multiview_per_view_attributes => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12439 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12698 Column: 9
     public static uint VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12440 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12699 Column: 9
     public static string VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME => "VK_NVX_multiview_per_view_attributes";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12450 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12709 Column: 9
     public static uint VK_NV_viewport_swizzle => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12451 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12710 Column: 9
     public static uint VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12452 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12711 Column: 9
     public static string VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME => "VK_NV_viewport_swizzle";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12484 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12743 Column: 9
     public static uint VK_EXT_discard_rectangles => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12485 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12744 Column: 9
     public static uint VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12486 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12745 Column: 9
     public static string VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME => "VK_EXT_discard_rectangles";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12531 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12790 Column: 9
     public static uint VK_EXT_conservative_rasterization => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12532 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12791 Column: 9
     public static uint VK_EXT_CONSERVATIVE_RASTERIZATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12533 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12792 Column: 9
     public static string VK_EXT_CONSERVATIVE_RASTERIZATION_EXTENSION_NAME => "VK_EXT_conservative_rasterization";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12567 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12826 Column: 9
     public static uint VK_EXT_depth_clip_enable => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12568 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12827 Column: 9
     public static uint VK_EXT_DEPTH_CLIP_ENABLE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12569 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12828 Column: 9
     public static string VK_EXT_DEPTH_CLIP_ENABLE_EXTENSION_NAME => "VK_EXT_depth_clip_enable";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12587 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12846 Column: 9
     public static uint VK_EXT_swapchain_colorspace => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12588 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12847 Column: 9
     public static uint VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12589 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12848 Column: 9
     public static string VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME => "VK_EXT_swapchain_colorspace";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12593 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12852 Column: 9
     public static uint VK_EXT_hdr_metadata => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12594 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12853 Column: 9
     public static uint VK_EXT_HDR_METADATA_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12595 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12854 Column: 9
     public static string VK_EXT_HDR_METADATA_EXTENSION_NAME => "VK_EXT_hdr_metadata";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12626 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12885 Column: 9
     public static uint VK_IMG_relaxed_line_rasterization => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12627 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12886 Column: 9
     public static uint VK_IMG_RELAXED_LINE_RASTERIZATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12628 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12887 Column: 9
     public static string VK_IMG_RELAXED_LINE_RASTERIZATION_EXTENSION_NAME => "VK_IMG_relaxed_line_rasterization";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12638 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12897 Column: 9
     public static uint VK_EXT_external_memory_dma_buf => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12639 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12898 Column: 9
     public static uint VK_EXT_EXTERNAL_MEMORY_DMA_BUF_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12640 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12899 Column: 9
     public static string VK_EXT_EXTERNAL_MEMORY_DMA_BUF_EXTENSION_NAME => "VK_EXT_external_memory_dma_buf";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12644 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12903 Column: 9
     public static uint VK_EXT_queue_family_foreign => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12645 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12904 Column: 9
     public static uint VK_EXT_QUEUE_FAMILY_FOREIGN_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12646 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12905 Column: 9
     public static string VK_EXT_QUEUE_FAMILY_FOREIGN_EXTENSION_NAME => "VK_EXT_queue_family_foreign";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12647 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12906 Column: 9
     public static uint VK_QUEUE_FAMILY_FOREIGN_EXT => ~2U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12651 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12910 Column: 9
     public static uint VK_EXT_debug_utils => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12653 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12912 Column: 9
     public static uint VK_EXT_DEBUG_UTILS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12654 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 12913 Column: 9
     public static string VK_EXT_DEBUG_UTILS_EXTENSION_NAME => "VK_EXT_debug_utils";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12794 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13053 Column: 9
     public static uint VK_EXT_sampler_filter_minmax => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12795 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13054 Column: 9
     public static uint VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12796 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13055 Column: 9
     public static string VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME => "VK_EXT_sampler_filter_minmax";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12806 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13065 Column: 9
     public static uint VK_AMD_gpu_shader_int16 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12807 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13066 Column: 9
     public static uint VK_AMD_GPU_SHADER_INT16_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12808 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13067 Column: 9
     public static string VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME => "VK_AMD_gpu_shader_int16";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12812 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13071 Column: 9
     public static uint VK_AMD_mixed_attachment_samples => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12813 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13072 Column: 9
     public static uint VK_AMD_MIXED_ATTACHMENT_SAMPLES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12814 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13073 Column: 9
     public static string VK_AMD_MIXED_ATTACHMENT_SAMPLES_EXTENSION_NAME => "VK_AMD_mixed_attachment_samples";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12818 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13077 Column: 9
     public static uint VK_AMD_shader_fragment_mask => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12819 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13078 Column: 9
     public static uint VK_AMD_SHADER_FRAGMENT_MASK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12820 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13079 Column: 9
     public static string VK_AMD_SHADER_FRAGMENT_MASK_EXTENSION_NAME => "VK_AMD_shader_fragment_mask";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12824 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13083 Column: 9
     public static uint VK_EXT_inline_uniform_block => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12825 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13084 Column: 9
     public static uint VK_EXT_INLINE_UNIFORM_BLOCK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12826 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13085 Column: 9
     public static string VK_EXT_INLINE_UNIFORM_BLOCK_EXTENSION_NAME => "VK_EXT_inline_uniform_block";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12838 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13097 Column: 9
     public static uint VK_EXT_shader_stencil_export => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12839 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13098 Column: 9
     public static uint VK_EXT_SHADER_STENCIL_EXPORT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12840 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13099 Column: 9
     public static string VK_EXT_SHADER_STENCIL_EXPORT_EXTENSION_NAME => "VK_EXT_shader_stencil_export";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12844 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13103 Column: 9
     public static uint VK_EXT_sample_locations => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12845 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13104 Column: 9
     public static uint VK_EXT_SAMPLE_LOCATIONS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12846 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13105 Column: 9
     public static string VK_EXT_SAMPLE_LOCATIONS_EXTENSION_NAME => "VK_EXT_sample_locations";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12919 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13178 Column: 9
     public static uint VK_EXT_blend_operation_advanced => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12920 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13179 Column: 9
     public static uint VK_EXT_BLEND_OPERATION_ADVANCED_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12921 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13180 Column: 9
     public static string VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME => "VK_EXT_blend_operation_advanced";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12957 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13216 Column: 9
     public static uint VK_NV_fragment_coverage_to_color => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12958 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13217 Column: 9
     public static uint VK_NV_FRAGMENT_COVERAGE_TO_COLOR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12959 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13218 Column: 9
     public static string VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME => "VK_NV_fragment_coverage_to_color";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12972 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13231 Column: 9
     public static uint VK_NV_framebuffer_mixed_samples => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12973 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13232 Column: 9
     public static uint VK_NV_FRAMEBUFFER_MIXED_SAMPLES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12974 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13233 Column: 9
     public static string VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME => "VK_NV_framebuffer_mixed_samples";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12997 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13256 Column: 9
     public static uint VK_NV_fill_rectangle => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12998 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13257 Column: 9
     public static uint VK_NV_FILL_RECTANGLE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 12999 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13258 Column: 9
     public static string VK_NV_FILL_RECTANGLE_EXTENSION_NAME => "VK_NV_fill_rectangle";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13003 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13262 Column: 9
     public static uint VK_NV_shader_sm_builtins => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13004 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13263 Column: 9
     public static uint VK_NV_SHADER_SM_BUILTINS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13005 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13264 Column: 9
     public static string VK_NV_SHADER_SM_BUILTINS_EXTENSION_NAME => "VK_NV_shader_sm_builtins";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13022 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13281 Column: 9
     public static uint VK_EXT_post_depth_coverage => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13023 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13282 Column: 9
     public static uint VK_EXT_POST_DEPTH_COVERAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13024 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13283 Column: 9
     public static string VK_EXT_POST_DEPTH_COVERAGE_EXTENSION_NAME => "VK_EXT_post_depth_coverage";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13028 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13287 Column: 9
     public static uint VK_EXT_image_drm_format_modifier => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13029 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13288 Column: 9
     public static uint VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13030 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13289 Column: 9
     public static string VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME => "VK_EXT_image_drm_format_modifier";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13098 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13357 Column: 9
     public static uint VK_EXT_validation_cache => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13100 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13359 Column: 9
     public static uint VK_EXT_VALIDATION_CACHE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13101 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13360 Column: 9
     public static string VK_EXT_VALIDATION_CACHE_EXTENSION_NAME => "VK_EXT_validation_cache";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13154 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13413 Column: 9
     public static uint VK_EXT_descriptor_indexing => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13155 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13414 Column: 9
     public static uint VK_EXT_DESCRIPTOR_INDEXING_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13156 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13415 Column: 9
     public static string VK_EXT_DESCRIPTOR_INDEXING_EXTENSION_NAME => "VK_EXT_descriptor_indexing";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13174 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13433 Column: 9
     public static uint VK_EXT_shader_viewport_index_layer => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13175 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13434 Column: 9
     public static uint VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13176 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13435 Column: 9
     public static string VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_EXTENSION_NAME => "VK_EXT_shader_viewport_index_layer";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13180 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13439 Column: 9
     public static uint VK_NV_shading_rate_image => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13181 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13440 Column: 9
     public static uint VK_NV_SHADING_RATE_IMAGE_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13182 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13441 Column: 9
     public static string VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME => "VK_NV_shading_rate_image";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13281 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13540 Column: 9
     public static uint VK_NV_ray_tracing => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13283 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13542 Column: 9
     public static uint VK_NV_RAY_TRACING_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13284 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13543 Column: 9
     public static string VK_NV_RAY_TRACING_EXTENSION_NAME => "VK_NV_ray_tracing";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13285 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13544 Column: 9
     public static uint VK_SHADER_UNUSED_KHR => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13286 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13545 Column: 9
     public static uint VK_SHADER_UNUSED_NV => VK_SHADER_UNUSED_KHR;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13660 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13919 Column: 9
     public static uint VK_NV_representative_fragment_test => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13661 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13920 Column: 9
     public static uint VK_NV_REPRESENTATIVE_FRAGMENT_TEST_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13662 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13921 Column: 9
     public static string VK_NV_REPRESENTATIVE_FRAGMENT_TEST_EXTENSION_NAME => "VK_NV_representative_fragment_test";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13678 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13937 Column: 9
     public static uint VK_EXT_filter_cubic => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13679 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13938 Column: 9
     public static uint VK_EXT_FILTER_CUBIC_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13680 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13939 Column: 9
     public static string VK_EXT_FILTER_CUBIC_EXTENSION_NAME => "VK_EXT_filter_cubic";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13697 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13956 Column: 9
     public static uint VK_QCOM_render_pass_shader_resolve => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13698 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13957 Column: 9
     public static uint VK_QCOM_RENDER_PASS_SHADER_RESOLVE_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13699 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13958 Column: 9
     public static string VK_QCOM_RENDER_PASS_SHADER_RESOLVE_EXTENSION_NAME => "VK_QCOM_render_pass_shader_resolve";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13703 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13962 Column: 9
     public static uint VK_EXT_global_priority => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13704 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13963 Column: 9
     public static uint VK_EXT_GLOBAL_PRIORITY_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13705 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13964 Column: 9
     public static string VK_EXT_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_EXT_global_priority";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13713 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13972 Column: 9
     public static uint VK_EXT_external_memory_host => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13714 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13973 Column: 9
     public static uint VK_EXT_EXTERNAL_MEMORY_HOST_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13715 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 13974 Column: 9
     public static string VK_EXT_EXTERNAL_MEMORY_HOST_EXTENSION_NAME => "VK_EXT_external_memory_host";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13747 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14006 Column: 9
     public static uint VK_AMD_buffer_marker => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13748 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14007 Column: 9
     public static uint VK_AMD_BUFFER_MARKER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13749 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14008 Column: 9
     public static string VK_AMD_BUFFER_MARKER_EXTENSION_NAME => "VK_AMD_buffer_marker";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13763 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14022 Column: 9
     public static uint VK_AMD_pipeline_compiler_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13764 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14023 Column: 9
     public static uint VK_AMD_PIPELINE_COMPILER_CONTROL_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13765 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14024 Column: 9
     public static string VK_AMD_PIPELINE_COMPILER_CONTROL_EXTENSION_NAME => "VK_AMD_pipeline_compiler_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13780 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14039 Column: 9
     public static uint VK_EXT_calibrated_timestamps => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13781 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14040 Column: 9
     public static uint VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13782 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14041 Column: 9
     public static string VK_EXT_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_EXT_calibrated_timestamps";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13806 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14065 Column: 9
     public static uint VK_AMD_shader_core_properties => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13807 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14066 Column: 9
     public static uint VK_AMD_SHADER_CORE_PROPERTIES_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13808 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14067 Column: 9
     public static string VK_AMD_SHADER_CORE_PROPERTIES_EXTENSION_NAME => "VK_AMD_shader_core_properties";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13831 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14090 Column: 9
     public static uint VK_AMD_memory_overallocation_behavior => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13832 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14091 Column: 9
     public static uint VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13833 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14092 Column: 9
     public static string VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME => "VK_AMD_memory_overallocation_behavior";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13850 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14109 Column: 9
     public static uint VK_EXT_vertex_attribute_divisor => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13851 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14110 Column: 9
     public static uint VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13852 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14111 Column: 9
     public static string VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME => "VK_EXT_vertex_attribute_divisor";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13868 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14127 Column: 9
     public static uint VK_EXT_pipeline_creation_feedback => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13869 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14128 Column: 9
     public static uint VK_EXT_PIPELINE_CREATION_FEEDBACK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13870 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14129 Column: 9
     public static string VK_EXT_PIPELINE_CREATION_FEEDBACK_EXTENSION_NAME => "VK_EXT_pipeline_creation_feedback";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13882 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14141 Column: 9
     public static uint VK_NV_shader_subgroup_partitioned => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13883 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14142 Column: 9
     public static uint VK_NV_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13884 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14143 Column: 9
     public static string VK_NV_SHADER_SUBGROUP_PARTITIONED_EXTENSION_NAME => "VK_NV_shader_subgroup_partitioned";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13888 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14147 Column: 9
     public static uint VK_NV_compute_shader_derivatives => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13889 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14148 Column: 9
     public static uint VK_NV_COMPUTE_SHADER_DERIVATIVES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13890 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14149 Column: 9
     public static string VK_NV_COMPUTE_SHADER_DERIVATIVES_EXTENSION_NAME => "VK_NV_compute_shader_derivatives";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13901 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14160 Column: 9
     public static uint VK_NV_mesh_shader => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13902 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14161 Column: 9
     public static uint VK_NV_MESH_SHADER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13903 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14162 Column: 9
     public static string VK_NV_MESH_SHADER_EXTENSION_NAME => "VK_NV_mesh_shader";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13963 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14222 Column: 9
     public static uint VK_NV_fragment_shader_barycentric => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13964 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14223 Column: 9
     public static uint VK_NV_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13965 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14224 Column: 9
     public static string VK_NV_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_NV_fragment_shader_barycentric";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13971 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14230 Column: 9
     public static uint VK_NV_shader_image_footprint => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13972 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14231 Column: 9
     public static uint VK_NV_SHADER_IMAGE_FOOTPRINT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13973 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14232 Column: 9
     public static string VK_NV_SHADER_IMAGE_FOOTPRINT_EXTENSION_NAME => "VK_NV_shader_image_footprint";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13983 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14242 Column: 9
     public static uint VK_NV_scissor_exclusive => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13984 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14243 Column: 9
     public static uint VK_NV_SCISSOR_EXCLUSIVE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 13985 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14244 Column: 9
     public static string VK_NV_SCISSOR_EXCLUSIVE_EXTENSION_NAME => "VK_NV_scissor_exclusive";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14018 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14277 Column: 9
     public static uint VK_NV_device_diagnostic_checkpoints => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14019 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14278 Column: 9
     public static uint VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14020 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14279 Column: 9
     public static string VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_EXTENSION_NAME => "VK_NV_device_diagnostic_checkpoints";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14050 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14309 Column: 9
     public static uint VK_INTEL_shader_integer_functions2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14051 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14310 Column: 9
     public static uint VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14052 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14311 Column: 9
     public static string VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_EXTENSION_NAME => "VK_INTEL_shader_integer_functions2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14062 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14321 Column: 9
     public static uint VK_INTEL_performance_query => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14064 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14323 Column: 9
     public static uint VK_INTEL_PERFORMANCE_QUERY_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14065 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14324 Column: 9
     public static string VK_INTEL_PERFORMANCE_QUERY_EXTENSION_NAME => "VK_INTEL_performance_query";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14201 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14460 Column: 9
     public static uint VK_EXT_pci_bus_info => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14202 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14461 Column: 9
     public static uint VK_EXT_PCI_BUS_INFO_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14203 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14462 Column: 9
     public static string VK_EXT_PCI_BUS_INFO_EXTENSION_NAME => "VK_EXT_pci_bus_info";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14216 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14475 Column: 9
     public static uint VK_AMD_display_native_hdr => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14217 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14476 Column: 9
     public static uint VK_AMD_DISPLAY_NATIVE_HDR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14218 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14477 Column: 9
     public static string VK_AMD_DISPLAY_NATIVE_HDR_EXTENSION_NAME => "VK_AMD_display_native_hdr";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14242 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14501 Column: 9
     public static uint VK_EXT_fragment_density_map => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14243 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14502 Column: 9
     public static uint VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14244 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14503 Column: 9
     public static string VK_EXT_FRAGMENT_DENSITY_MAP_EXTENSION_NAME => "VK_EXT_fragment_density_map";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14270 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14529 Column: 9
     public static uint VK_EXT_scalar_block_layout => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14271 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14530 Column: 9
     public static uint VK_EXT_SCALAR_BLOCK_LAYOUT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14272 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14531 Column: 9
     public static string VK_EXT_SCALAR_BLOCK_LAYOUT_EXTENSION_NAME => "VK_EXT_scalar_block_layout";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14278 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14537 Column: 9
     public static uint VK_GOOGLE_hlsl_functionality1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14279 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14538 Column: 9
     public static uint VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14280 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14539 Column: 9
     public static string VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME => "VK_GOOGLE_hlsl_functionality1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14281 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14540 Column: 9
     public static uint VK_GOOGLE_HLSL_FUNCTIONALITY1_SPEC_VERSION => VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14282 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14541 Column: 9
     public static string VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME => VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14286 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14545 Column: 9
     public static uint VK_GOOGLE_decorate_string => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14287 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14546 Column: 9
     public static uint VK_GOOGLE_DECORATE_STRING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14288 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14547 Column: 9
     public static string VK_GOOGLE_DECORATE_STRING_EXTENSION_NAME => "VK_GOOGLE_decorate_string";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14292 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14551 Column: 9
     public static uint VK_EXT_subgroup_size_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14293 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14552 Column: 9
     public static uint VK_EXT_SUBGROUP_SIZE_CONTROL_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14294 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14553 Column: 9
     public static string VK_EXT_SUBGROUP_SIZE_CONTROL_EXTENSION_NAME => "VK_EXT_subgroup_size_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14304 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14563 Column: 9
     public static uint VK_AMD_shader_core_properties2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14305 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14564 Column: 9
     public static uint VK_AMD_SHADER_CORE_PROPERTIES_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14306 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14565 Column: 9
     public static string VK_AMD_SHADER_CORE_PROPERTIES_2_EXTENSION_NAME => "VK_AMD_shader_core_properties2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14322 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14581 Column: 9
     public static uint VK_AMD_device_coherent_memory => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14323 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14582 Column: 9
     public static uint VK_AMD_DEVICE_COHERENT_MEMORY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14324 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14583 Column: 9
     public static string VK_AMD_DEVICE_COHERENT_MEMORY_EXTENSION_NAME => "VK_AMD_device_coherent_memory";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14334 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14593 Column: 9
     public static uint VK_EXT_shader_image_atomic_int64 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14335 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14594 Column: 9
     public static uint VK_EXT_SHADER_IMAGE_ATOMIC_INT64_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14336 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14595 Column: 9
     public static string VK_EXT_SHADER_IMAGE_ATOMIC_INT64_EXTENSION_NAME => "VK_EXT_shader_image_atomic_int64";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14347 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14606 Column: 9
     public static uint VK_EXT_memory_budget => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14348 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14607 Column: 9
     public static uint VK_EXT_MEMORY_BUDGET_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14349 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14608 Column: 9
     public static string VK_EXT_MEMORY_BUDGET_EXTENSION_NAME => "VK_EXT_memory_budget";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14360 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14619 Column: 9
     public static uint VK_EXT_memory_priority => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14361 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14620 Column: 9
     public static uint VK_EXT_MEMORY_PRIORITY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14362 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14621 Column: 9
     public static string VK_EXT_MEMORY_PRIORITY_EXTENSION_NAME => "VK_EXT_memory_priority";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14378 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14637 Column: 9
     public static uint VK_NV_dedicated_allocation_image_aliasing => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14379 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14638 Column: 9
     public static uint VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14380 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14639 Column: 9
     public static string VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_EXTENSION_NAME => "VK_NV_dedicated_allocation_image_aliasing";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14390 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14649 Column: 9
     public static uint VK_EXT_buffer_device_address => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14391 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14650 Column: 9
     public static uint VK_EXT_BUFFER_DEVICE_ADDRESS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14392 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14651 Column: 9
     public static string VK_EXT_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_EXT_buffer_device_address";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14421 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14680 Column: 9
     public static uint VK_EXT_tooling_info => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14422 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14681 Column: 9
     public static uint VK_EXT_TOOLING_INFO_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14423 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14682 Column: 9
     public static string VK_EXT_TOOLING_INFO_EXTENSION_NAME => "VK_EXT_tooling_info";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14441 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14700 Column: 9
     public static uint VK_EXT_separate_stencil_usage => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14442 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14701 Column: 9
     public static uint VK_EXT_SEPARATE_STENCIL_USAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14443 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14702 Column: 9
     public static string VK_EXT_SEPARATE_STENCIL_USAGE_EXTENSION_NAME => "VK_EXT_separate_stencil_usage";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14449 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14708 Column: 9
     public static uint VK_EXT_validation_features => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14450 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14709 Column: 9
     public static uint VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 6;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14451 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14710 Column: 9
     public static string VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME => "VK_EXT_validation_features";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14485 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14744 Column: 9
     public static uint VK_NV_cooperative_matrix => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14486 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14745 Column: 9
     public static uint VK_NV_COOPERATIVE_MATRIX_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14487 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14746 Column: 9
     public static string VK_NV_COOPERATIVE_MATRIX_EXTENSION_NAME => "VK_NV_cooperative_matrix";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14529 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14788 Column: 9
     public static uint VK_NV_coverage_reduction_mode => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14530 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14789 Column: 9
     public static uint VK_NV_COVERAGE_REDUCTION_MODE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14531 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14790 Column: 9
     public static string VK_NV_COVERAGE_REDUCTION_MODE_EXTENSION_NAME => "VK_NV_coverage_reduction_mode";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14572 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14831 Column: 9
     public static uint VK_EXT_fragment_shader_interlock => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14573 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14832 Column: 9
     public static uint VK_EXT_FRAGMENT_SHADER_INTERLOCK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14574 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14833 Column: 9
     public static string VK_EXT_FRAGMENT_SHADER_INTERLOCK_EXTENSION_NAME => "VK_EXT_fragment_shader_interlock";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14586 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14845 Column: 9
     public static uint VK_EXT_ycbcr_image_arrays => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14587 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14846 Column: 9
     public static uint VK_EXT_YCBCR_IMAGE_ARRAYS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14588 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14847 Column: 9
     public static string VK_EXT_YCBCR_IMAGE_ARRAYS_EXTENSION_NAME => "VK_EXT_ycbcr_image_arrays";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14598 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14857 Column: 9
     public static uint VK_EXT_provoking_vertex => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14599 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14858 Column: 9
     public static uint VK_EXT_PROVOKING_VERTEX_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14600 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14859 Column: 9
     public static string VK_EXT_PROVOKING_VERTEX_EXTENSION_NAME => "VK_EXT_provoking_vertex";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14630 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14889 Column: 9
     public static uint VK_EXT_headless_surface => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14631 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14890 Column: 9
     public static uint VK_EXT_HEADLESS_SURFACE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14632 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14891 Column: 9
     public static string VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME => "VK_EXT_headless_surface";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14652 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14911 Column: 9
     public static uint VK_EXT_line_rasterization => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14653 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14912 Column: 9
     public static uint VK_EXT_LINE_RASTERIZATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14654 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14913 Column: 9
     public static string VK_EXT_LINE_RASTERIZATION_EXTENSION_NAME => "VK_EXT_line_rasterization";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14700 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14933 Column: 9
     public static uint VK_EXT_shader_atomic_float => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14701 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14934 Column: 9
     public static uint VK_EXT_SHADER_ATOMIC_FLOAT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14702 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14935 Column: 9
     public static string VK_EXT_SHADER_ATOMIC_FLOAT_EXTENSION_NAME => "VK_EXT_shader_atomic_float";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14723 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14956 Column: 9
     public static uint VK_EXT_host_query_reset => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14724 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14957 Column: 9
     public static uint VK_EXT_HOST_QUERY_RESET_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14725 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14958 Column: 9
     public static string VK_EXT_HOST_QUERY_RESET_EXTENSION_NAME => "VK_EXT_host_query_reset";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14740 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14973 Column: 9
     public static uint VK_EXT_index_type_uint8 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14741 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14974 Column: 9
     public static uint VK_EXT_INDEX_TYPE_UINT8_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14742 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14975 Column: 9
     public static string VK_EXT_INDEX_TYPE_UINT8_EXTENSION_NAME => "VK_EXT_index_type_uint8";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14752 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14981 Column: 9
     public static uint VK_EXT_extended_dynamic_state => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14753 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14982 Column: 9
     public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14754 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 14983 Column: 9
     public static string VK_EXT_EXTENDED_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_extended_dynamic_state";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14837 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15066 Column: 9
     public static uint VK_EXT_host_image_copy => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14838 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15067 Column: 9
     public static uint VK_EXT_HOST_IMAGE_COPY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14839 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15068 Column: 9
     public static string VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME => "VK_EXT_host_image_copy";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14976 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15205 Column: 9
+    public static uint VK_EXT_map_memory_placed => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15206 Column: 9
+    public static uint VK_EXT_MAP_MEMORY_PLACED_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15207 Column: 9
+    public static string VK_EXT_MAP_MEMORY_PLACED_EXTENSION_NAME => "VK_EXT_map_memory_placed";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15231 Column: 9
     public static uint VK_EXT_shader_atomic_float2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14977 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15232 Column: 9
     public static uint VK_EXT_SHADER_ATOMIC_FLOAT_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14978 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15233 Column: 9
     public static string VK_EXT_SHADER_ATOMIC_FLOAT_2_EXTENSION_NAME => "VK_EXT_shader_atomic_float2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 14999 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15254 Column: 9
     public static uint VK_EXT_surface_maintenance1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15000 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15255 Column: 9
     public static uint VK_EXT_SURFACE_MAINTENANCE_1_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15001 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15256 Column: 9
     public static string VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME => "VK_EXT_surface_maintenance1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15044 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15299 Column: 9
     public static uint VK_EXT_swapchain_maintenance1 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15045 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15300 Column: 9
     public static uint VK_EXT_SWAPCHAIN_MAINTENANCE_1_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15046 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15301 Column: 9
     public static string VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME => "VK_EXT_swapchain_maintenance1";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15100 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15355 Column: 9
     public static uint VK_EXT_shader_demote_to_helper_invocation => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15101 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15356 Column: 9
     public static uint VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15102 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15357 Column: 9
     public static string VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_EXTENSION_NAME => "VK_EXT_shader_demote_to_helper_invocation";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15108 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15363 Column: 9
     public static uint VK_NV_device_generated_commands => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15110 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15365 Column: 9
     public static uint VK_NV_DEVICE_GENERATED_COMMANDS_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15111 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15366 Column: 9
     public static string VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_NV_device_generated_commands";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15302 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15557 Column: 9
     public static uint VK_NV_inherited_viewport_scissor => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15303 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15558 Column: 9
     public static uint VK_NV_INHERITED_VIEWPORT_SCISSOR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15304 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15559 Column: 9
     public static string VK_NV_INHERITED_VIEWPORT_SCISSOR_EXTENSION_NAME => "VK_NV_inherited_viewport_scissor";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15322 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15577 Column: 9
     public static uint VK_EXT_texel_buffer_alignment => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15323 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15578 Column: 9
     public static uint VK_EXT_TEXEL_BUFFER_ALIGNMENT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15324 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15579 Column: 9
     public static string VK_EXT_TEXEL_BUFFER_ALIGNMENT_EXTENSION_NAME => "VK_EXT_texel_buffer_alignment";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15336 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15591 Column: 9
     public static uint VK_QCOM_render_pass_transform => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15337 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15592 Column: 9
     public static uint VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15338 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15593 Column: 9
     public static string VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME => "VK_QCOM_render_pass_transform";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15355 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15610 Column: 9
     public static uint VK_EXT_depth_bias_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15356 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15611 Column: 9
     public static uint VK_EXT_DEPTH_BIAS_CONTROL_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15357 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15612 Column: 9
     public static string VK_EXT_DEPTH_BIAS_CONTROL_EXTENSION_NAME => "VK_EXT_depth_bias_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15399 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15654 Column: 9
     public static uint VK_EXT_device_memory_report => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15400 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15655 Column: 9
     public static uint VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15401 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15656 Column: 9
     public static string VK_EXT_DEVICE_MEMORY_REPORT_EXTENSION_NAME => "VK_EXT_device_memory_report";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15445 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15700 Column: 9
     public static uint VK_EXT_acquire_drm_display => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15446 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15701 Column: 9
     public static uint VK_EXT_ACQUIRE_DRM_DISPLAY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15447 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15702 Column: 9
     public static string VK_EXT_ACQUIRE_DRM_DISPLAY_EXTENSION_NAME => "VK_EXT_acquire_drm_display";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15466 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15721 Column: 9
     public static uint VK_EXT_robustness2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15467 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15722 Column: 9
     public static uint VK_EXT_ROBUSTNESS_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15468 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15723 Column: 9
     public static string VK_EXT_ROBUSTNESS_2_EXTENSION_NAME => "VK_EXT_robustness2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15487 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15742 Column: 9
     public static uint VK_EXT_custom_border_color => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15488 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15743 Column: 9
     public static uint VK_EXT_CUSTOM_BORDER_COLOR_SPEC_VERSION => 12;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15489 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15744 Column: 9
     public static string VK_EXT_CUSTOM_BORDER_COLOR_EXTENSION_NAME => "VK_EXT_custom_border_color";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15513 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15768 Column: 9
     public static uint VK_GOOGLE_user_type => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15514 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15769 Column: 9
     public static uint VK_GOOGLE_USER_TYPE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15515 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15770 Column: 9
     public static string VK_GOOGLE_USER_TYPE_EXTENSION_NAME => "VK_GOOGLE_user_type";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15519 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15774 Column: 9
     public static uint VK_NV_present_barrier => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15520 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15775 Column: 9
     public static uint VK_NV_PRESENT_BARRIER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15521 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15776 Column: 9
     public static string VK_NV_PRESENT_BARRIER_EXTENSION_NAME => "VK_NV_present_barrier";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15543 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15798 Column: 9
     public static uint VK_EXT_private_data => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15546 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15801 Column: 9
     public static uint VK_EXT_PRIVATE_DATA_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15547 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15802 Column: 9
     public static string VK_EXT_PRIVATE_DATA_EXTENSION_NAME => "VK_EXT_private_data";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15590 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15845 Column: 9
     public static uint VK_EXT_pipeline_creation_cache_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15591 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15846 Column: 9
     public static uint VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15592 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15847 Column: 9
     public static string VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_EXTENSION_NAME => "VK_EXT_pipeline_creation_cache_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15598 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15853 Column: 9
     public static uint VK_NV_device_diagnostics_config => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15599 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15854 Column: 9
     public static uint VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15600 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15855 Column: 9
     public static string VK_NV_DEVICE_DIAGNOSTICS_CONFIG_EXTENSION_NAME => "VK_NV_device_diagnostics_config";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15625 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15880 Column: 9
     public static uint VK_QCOM_render_pass_store_ops => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15626 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15881 Column: 9
     public static uint VK_QCOM_RENDER_PASS_STORE_OPS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15627 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15882 Column: 9
     public static string VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME => "VK_QCOM_render_pass_store_ops";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15631 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15886 Column: 9
     public static uint VK_NV_cuda_kernel_launch => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15634 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15889 Column: 9
     public static uint VK_NV_CUDA_KERNEL_LAUNCH_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15635 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15890 Column: 9
     public static string VK_NV_CUDA_KERNEL_LAUNCH_EXTENSION_NAME => "VK_NV_cuda_kernel_launch";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15723 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15978 Column: 9
     public static uint VK_NV_low_latency => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15724 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15979 Column: 9
     public static uint VK_NV_LOW_LATENCY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15725 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15980 Column: 9
     public static string VK_NV_LOW_LATENCY_EXTENSION_NAME => "VK_NV_low_latency";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15735 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15990 Column: 9
     public static uint VK_EXT_descriptor_buffer => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15737 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15992 Column: 9
     public static uint VK_EXT_DESCRIPTOR_BUFFER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15738 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15993 Column: 9
     public static string VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME => "VK_EXT_descriptor_buffer";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15948 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16203 Column: 9
     public static uint VK_EXT_graphics_pipeline_library => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15949 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16204 Column: 9
     public static uint VK_EXT_GRAPHICS_PIPELINE_LIBRARY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15950 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16205 Column: 9
     public static string VK_EXT_GRAPHICS_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_EXT_graphics_pipeline_library";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15982 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16237 Column: 9
     public static uint VK_AMD_shader_early_and_late_fragment_tests => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15983 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16238 Column: 9
     public static uint VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15984 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16239 Column: 9
     public static string VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_EXTENSION_NAME => "VK_AMD_shader_early_and_late_fragment_tests";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15994 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16249 Column: 9
     public static uint VK_NV_fragment_shading_rate_enums => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15995 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16250 Column: 9
     public static uint VK_NV_FRAGMENT_SHADING_RATE_ENUMS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15996 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16251 Column: 9
     public static string VK_NV_FRAGMENT_SHADING_RATE_ENUMS_EXTENSION_NAME => "VK_NV_fragment_shading_rate_enums";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16052 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16307 Column: 9
     public static uint VK_NV_ray_tracing_motion_blur => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16053 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16308 Column: 9
     public static uint VK_NV_RAY_TRACING_MOTION_BLUR_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16054 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16309 Column: 9
     public static string VK_NV_RAY_TRACING_MOTION_BLUR_EXTENSION_NAME => "VK_NV_ray_tracing_motion_blur";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16143 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16398 Column: 9
     public static uint VK_EXT_ycbcr_2plane_444_formats => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16144 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16399 Column: 9
     public static uint VK_EXT_YCBCR_2PLANE_444_FORMATS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16145 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16400 Column: 9
     public static string VK_EXT_YCBCR_2PLANE_444_FORMATS_EXTENSION_NAME => "VK_EXT_ycbcr_2plane_444_formats";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16155 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16410 Column: 9
     public static uint VK_EXT_fragment_density_map2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16156 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16411 Column: 9
     public static uint VK_EXT_FRAGMENT_DENSITY_MAP_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16157 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16412 Column: 9
     public static string VK_EXT_FRAGMENT_DENSITY_MAP_2_EXTENSION_NAME => "VK_EXT_fragment_density_map2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16176 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16431 Column: 9
     public static uint VK_QCOM_rotated_copy_commands => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16177 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16432 Column: 9
     public static uint VK_QCOM_ROTATED_COPY_COMMANDS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16178 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16433 Column: 9
     public static string VK_QCOM_ROTATED_COPY_COMMANDS_EXTENSION_NAME => "VK_QCOM_rotated_copy_commands";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16188 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16443 Column: 9
     public static uint VK_EXT_image_robustness => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16189 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16444 Column: 9
     public static uint VK_EXT_IMAGE_ROBUSTNESS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16190 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16445 Column: 9
     public static string VK_EXT_IMAGE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_image_robustness";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16196 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16451 Column: 9
     public static uint VK_EXT_image_compression_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16197 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16452 Column: 9
     public static uint VK_EXT_IMAGE_COMPRESSION_CONTROL_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16198 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16453 Column: 9
     public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_EXTENSION_NAME => "VK_EXT_image_compression_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16262 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16517 Column: 9
     public static uint VK_EXT_attachment_feedback_loop_layout => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16263 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16518 Column: 9
     public static uint VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16264 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16519 Column: 9
     public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_layout";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16274 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16529 Column: 9
     public static uint VK_EXT_4444_formats => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16275 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16530 Column: 9
     public static uint VK_EXT_4444_FORMATS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16276 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16531 Column: 9
     public static string VK_EXT_4444_FORMATS_EXTENSION_NAME => "VK_EXT_4444_formats";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16287 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16542 Column: 9
     public static uint VK_EXT_device_fault => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16288 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16543 Column: 9
     public static uint VK_EXT_DEVICE_FAULT_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16289 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16544 Column: 9
     public static string VK_EXT_DEVICE_FAULT_EXTENSION_NAME => "VK_EXT_device_fault";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16367 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16622 Column: 9
     public static uint VK_ARM_rasterization_order_attachment_access => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16368 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16623 Column: 9
     public static uint VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16369 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16624 Column: 9
     public static string VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_ARM_rasterization_order_attachment_access";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16383 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16638 Column: 9
     public static uint VK_EXT_rgba10x6_formats => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16384 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16639 Column: 9
     public static uint VK_EXT_RGBA10X6_FORMATS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16385 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16640 Column: 9
     public static string VK_EXT_RGBA10X6_FORMATS_EXTENSION_NAME => "VK_EXT_rgba10x6_formats";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16395 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16650 Column: 9
     public static uint VK_VALVE_mutable_descriptor_type => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16396 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16651 Column: 9
     public static uint VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16397 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16652 Column: 9
     public static string VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_VALVE_mutable_descriptor_type";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16425 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16680 Column: 9
     public static uint VK_EXT_vertex_input_dynamic_state => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16426 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16681 Column: 9
     public static uint VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16427 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16682 Column: 9
     public static string VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_vertex_input_dynamic_state";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16465 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16720 Column: 9
     public static uint VK_EXT_physical_device_drm => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16466 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16721 Column: 9
     public static uint VK_EXT_PHYSICAL_DEVICE_DRM_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16467 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16722 Column: 9
     public static string VK_EXT_PHYSICAL_DEVICE_DRM_EXTENSION_NAME => "VK_EXT_physical_device_drm";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16482 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16737 Column: 9
     public static uint VK_EXT_device_address_binding_report => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16483 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16738 Column: 9
     public static uint VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16484 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16739 Column: 9
     public static string VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_EXTENSION_NAME => "VK_EXT_device_address_binding_report";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16515 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16770 Column: 9
     public static uint VK_EXT_depth_clip_control => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16516 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16771 Column: 9
     public static uint VK_EXT_DEPTH_CLIP_CONTROL_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16517 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16772 Column: 9
     public static string VK_EXT_DEPTH_CLIP_CONTROL_EXTENSION_NAME => "VK_EXT_depth_clip_control";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16533 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16788 Column: 9
     public static uint VK_EXT_primitive_topology_list_restart => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16534 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16789 Column: 9
     public static uint VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16535 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16790 Column: 9
     public static string VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_EXTENSION_NAME => "VK_EXT_primitive_topology_list_restart";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16546 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16801 Column: 9
     public static uint VK_HUAWEI_subpass_shading => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16547 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16802 Column: 9
     public static uint VK_HUAWEI_SUBPASS_SHADING_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16548 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16803 Column: 9
     public static string VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME => "VK_HUAWEI_subpass_shading";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16583 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16838 Column: 9
     public static uint VK_HUAWEI_invocation_mask => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16584 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16839 Column: 9
     public static uint VK_HUAWEI_INVOCATION_MASK_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16585 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16840 Column: 9
     public static string VK_HUAWEI_INVOCATION_MASK_EXTENSION_NAME => "VK_HUAWEI_invocation_mask";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16603 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16858 Column: 9
     public static uint VK_NV_external_memory_rdma => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16605 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16860 Column: 9
     public static uint VK_NV_EXTERNAL_MEMORY_RDMA_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16606 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16861 Column: 9
     public static string VK_NV_EXTERNAL_MEMORY_RDMA_EXTENSION_NAME => "VK_NV_external_memory_rdma";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16631 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16886 Column: 9
     public static uint VK_EXT_pipeline_properties => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16632 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16887 Column: 9
     public static uint VK_EXT_PIPELINE_PROPERTIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16633 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16888 Column: 9
     public static string VK_EXT_PIPELINE_PROPERTIES_EXTENSION_NAME => "VK_EXT_pipeline_properties";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16659 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16914 Column: 9
     public static uint VK_EXT_frame_boundary => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16660 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16915 Column: 9
     public static uint VK_EXT_FRAME_BOUNDARY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16661 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16916 Column: 9
     public static string VK_EXT_FRAME_BOUNDARY_EXTENSION_NAME => "VK_EXT_frame_boundary";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16691 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16946 Column: 9
     public static uint VK_EXT_multisampled_render_to_single_sampled => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16692 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16947 Column: 9
     public static uint VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16693 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16948 Column: 9
     public static string VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_EXTENSION_NAME => "VK_EXT_multisampled_render_to_single_sampled";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16716 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16971 Column: 9
     public static uint VK_EXT_extended_dynamic_state2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16717 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16972 Column: 9
     public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16718 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16973 Column: 9
     public static string VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME => "VK_EXT_extended_dynamic_state2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16757 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17012 Column: 9
     public static uint VK_EXT_color_write_enable => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16758 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17013 Column: 9
     public static uint VK_EXT_COLOR_WRITE_ENABLE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16759 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17014 Column: 9
     public static string VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME => "VK_EXT_color_write_enable";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16784 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17039 Column: 9
     public static uint VK_EXT_primitives_generated_query => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16785 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17040 Column: 9
     public static uint VK_EXT_PRIMITIVES_GENERATED_QUERY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16786 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17041 Column: 9
     public static string VK_EXT_PRIMITIVES_GENERATED_QUERY_EXTENSION_NAME => "VK_EXT_primitives_generated_query";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16798 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17053 Column: 9
     public static uint VK_EXT_global_priority_query => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16799 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17054 Column: 9
     public static uint VK_EXT_GLOBAL_PRIORITY_QUERY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16800 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17055 Column: 9
     public static string VK_EXT_GLOBAL_PRIORITY_QUERY_EXTENSION_NAME => "VK_EXT_global_priority_query";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16801 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17056 Column: 9
     public static uint VK_MAX_GLOBAL_PRIORITY_SIZE_EXT => VK_MAX_GLOBAL_PRIORITY_SIZE_KHR;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16809 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17064 Column: 9
     public static uint VK_EXT_image_view_min_lod => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16810 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17065 Column: 9
     public static uint VK_EXT_IMAGE_VIEW_MIN_LOD_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16811 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17066 Column: 9
     public static string VK_EXT_IMAGE_VIEW_MIN_LOD_EXTENSION_NAME => "VK_EXT_image_view_min_lod";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16827 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17082 Column: 9
     public static uint VK_EXT_multi_draw => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16828 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17083 Column: 9
     public static uint VK_EXT_MULTI_DRAW_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16829 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17084 Column: 9
     public static string VK_EXT_MULTI_DRAW_EXTENSION_NAME => "VK_EXT_multi_draw";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16877 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17132 Column: 9
     public static uint VK_EXT_image_2d_view_of_3d => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16878 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17133 Column: 9
     public static uint VK_EXT_IMAGE_2D_VIEW_OF_3D_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16879 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17134 Column: 9
     public static string VK_EXT_IMAGE_2D_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_2d_view_of_3d";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16890 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17145 Column: 9
     public static uint VK_EXT_shader_tile_image => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16891 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17146 Column: 9
     public static uint VK_EXT_SHADER_TILE_IMAGE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16892 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17147 Column: 9
     public static string VK_EXT_SHADER_TILE_IMAGE_EXTENSION_NAME => "VK_EXT_shader_tile_image";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16912 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17167 Column: 9
     public static uint VK_EXT_opacity_micromap => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16914 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17169 Column: 9
     public static uint VK_EXT_OPACITY_MICROMAP_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 16915 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17170 Column: 9
     public static string VK_EXT_OPACITY_MICROMAP_EXTENSION_NAME => "VK_EXT_opacity_micromap";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17184 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17439 Column: 9
     public static uint VK_EXT_load_store_op_none => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17185 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17440 Column: 9
     public static uint VK_EXT_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17186 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17441 Column: 9
     public static string VK_EXT_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_EXT_load_store_op_none";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17190 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17445 Column: 9
     public static uint VK_HUAWEI_cluster_culling_shader => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17191 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17446 Column: 9
     public static uint VK_HUAWEI_CLUSTER_CULLING_SHADER_SPEC_VERSION => 3;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17192 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17447 Column: 9
     public static string VK_HUAWEI_CLUSTER_CULLING_SHADER_EXTENSION_NAME => "VK_HUAWEI_cluster_culling_shader";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17233 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17488 Column: 9
     public static uint VK_EXT_border_color_swizzle => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17234 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17489 Column: 9
     public static uint VK_EXT_BORDER_COLOR_SWIZZLE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17235 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17490 Column: 9
     public static string VK_EXT_BORDER_COLOR_SWIZZLE_EXTENSION_NAME => "VK_EXT_border_color_swizzle";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17253 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17508 Column: 9
     public static uint VK_EXT_pageable_device_local_memory => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17254 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17509 Column: 9
     public static uint VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17255 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17510 Column: 9
     public static string VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_EXTENSION_NAME => "VK_EXT_pageable_device_local_memory";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17273 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17528 Column: 9
     public static uint VK_ARM_shader_core_properties => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17274 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17529 Column: 9
     public static uint VK_ARM_SHADER_CORE_PROPERTIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17275 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17530 Column: 9
     public static string VK_ARM_SHADER_CORE_PROPERTIES_EXTENSION_NAME => "VK_ARM_shader_core_properties";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17287 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17542 Column: 9
     public static uint VK_ARM_scheduling_controls => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17288 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17543 Column: 9
     public static uint VK_ARM_SCHEDULING_CONTROLS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17289 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17544 Column: 9
     public static string VK_ARM_SCHEDULING_CONTROLS_EXTENSION_NAME => "VK_ARM_scheduling_controls";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17317 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17572 Column: 9
     public static uint VK_EXT_image_sliced_view_of_3d => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17318 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17573 Column: 9
     public static uint VK_EXT_IMAGE_SLICED_VIEW_OF_3D_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17319 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17574 Column: 9
     public static string VK_EXT_IMAGE_SLICED_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_sliced_view_of_3d";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17320 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17575 Column: 9
     public static uint VK_REMAINING_3D_SLICES_EXT => ~0U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17337 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17592 Column: 9
     public static uint VK_VALVE_descriptor_set_host_mapping => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17338 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17593 Column: 9
     public static uint VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17339 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17594 Column: 9
     public static string VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_EXTENSION_NAME => "VK_VALVE_descriptor_set_host_mapping";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17377 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17632 Column: 9
     public static uint VK_EXT_depth_clamp_zero_one => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17378 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17633 Column: 9
     public static uint VK_EXT_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17379 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17634 Column: 9
     public static string VK_EXT_DEPTH_CLAMP_ZERO_ONE_EXTENSION_NAME => "VK_EXT_depth_clamp_zero_one";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17389 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17644 Column: 9
     public static uint VK_EXT_non_seamless_cube_map => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17390 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17645 Column: 9
     public static uint VK_EXT_NON_SEAMLESS_CUBE_MAP_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17391 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17646 Column: 9
     public static string VK_EXT_NON_SEAMLESS_CUBE_MAP_EXTENSION_NAME => "VK_EXT_non_seamless_cube_map";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17401 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17656 Column: 9
     public static uint VK_ARM_render_pass_striped => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17402 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17657 Column: 9
     public static uint VK_ARM_RENDER_PASS_STRIPED_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17403 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17658 Column: 9
     public static string VK_ARM_RENDER_PASS_STRIPED_EXTENSION_NAME => "VK_ARM_render_pass_striped";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17440 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17695 Column: 9
     public static uint VK_QCOM_fragment_density_map_offset => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17441 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17696 Column: 9
     public static uint VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17442 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17697 Column: 9
     public static string VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_EXTENSION_NAME => "VK_QCOM_fragment_density_map_offset";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17465 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17720 Column: 9
     public static uint VK_NV_copy_memory_indirect => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17466 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17721 Column: 9
     public static uint VK_NV_COPY_MEMORY_INDIRECT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17467 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17722 Column: 9
     public static string VK_NV_COPY_MEMORY_INDIRECT_EXTENSION_NAME => "VK_NV_copy_memory_indirect";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17517 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17772 Column: 9
     public static uint VK_NV_memory_decompression => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17518 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17773 Column: 9
     public static uint VK_NV_MEMORY_DECOMPRESSION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17519 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17774 Column: 9
     public static string VK_NV_MEMORY_DECOMPRESSION_EXTENSION_NAME => "VK_NV_memory_decompression";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17565 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17820 Column: 9
     public static uint VK_NV_device_generated_commands_compute => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17566 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17821 Column: 9
     public static uint VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17567 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17822 Column: 9
     public static string VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_EXTENSION_NAME => "VK_NV_device_generated_commands_compute";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17617 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17872 Column: 9
     public static uint VK_NV_linear_color_attachment => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17618 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17873 Column: 9
     public static uint VK_NV_LINEAR_COLOR_ATTACHMENT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17619 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17874 Column: 9
     public static string VK_NV_LINEAR_COLOR_ATTACHMENT_EXTENSION_NAME => "VK_NV_linear_color_attachment";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17629 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17884 Column: 9
     public static uint VK_GOOGLE_surfaceless_query => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17630 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17885 Column: 9
     public static uint VK_GOOGLE_SURFACELESS_QUERY_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17631 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17886 Column: 9
     public static string VK_GOOGLE_SURFACELESS_QUERY_EXTENSION_NAME => "VK_GOOGLE_surfaceless_query";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17635 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17890 Column: 9
     public static uint VK_EXT_image_compression_control_swapchain => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17636 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17891 Column: 9
     public static uint VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17637 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17892 Column: 9
     public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_EXTENSION_NAME => "VK_EXT_image_compression_control_swapchain";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17647 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17902 Column: 9
     public static uint VK_QCOM_image_processing => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17648 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17903 Column: 9
     public static uint VK_QCOM_IMAGE_PROCESSING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17649 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17904 Column: 9
     public static string VK_QCOM_IMAGE_PROCESSING_EXTENSION_NAME => "VK_QCOM_image_processing";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17678 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17933 Column: 9
     public static uint VK_EXT_nested_command_buffer => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17679 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17934 Column: 9
     public static uint VK_EXT_NESTED_COMMAND_BUFFER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17680 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17935 Column: 9
     public static string VK_EXT_NESTED_COMMAND_BUFFER_EXTENSION_NAME => "VK_EXT_nested_command_buffer";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17698 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17953 Column: 9
     public static uint VK_EXT_external_memory_acquire_unmodified => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17699 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17954 Column: 9
     public static uint VK_EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17700 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17955 Column: 9
     public static string VK_EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXTENSION_NAME => "VK_EXT_external_memory_acquire_unmodified";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17710 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17965 Column: 9
     public static uint VK_EXT_extended_dynamic_state3 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17711 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17966 Column: 9
     public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_3_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17712 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17967 Column: 9
     public static string VK_EXT_EXTENDED_DYNAMIC_STATE_3_EXTENSION_NAME => "VK_EXT_extended_dynamic_state3";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17944 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18199 Column: 9
     public static uint VK_EXT_subpass_merge_feedback => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17945 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18200 Column: 9
     public static uint VK_EXT_SUBPASS_MERGE_FEEDBACK_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17946 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18201 Column: 9
     public static string VK_EXT_SUBPASS_MERGE_FEEDBACK_EXTENSION_NAME => "VK_EXT_subpass_merge_feedback";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18002 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18257 Column: 9
     public static uint VK_LUNARG_direct_driver_loading => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18003 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18258 Column: 9
     public static uint VK_LUNARG_DIRECT_DRIVER_LOADING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18004 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18259 Column: 9
     public static string VK_LUNARG_DIRECT_DRIVER_LOADING_EXTENSION_NAME => "VK_LUNARG_direct_driver_loading";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18033 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18288 Column: 9
     public static uint VK_EXT_shader_module_identifier => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18034 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18289 Column: 9
     public static uint VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT => 32U;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18035 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18290 Column: 9
     public static uint VK_EXT_SHADER_MODULE_IDENTIFIER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18036 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18291 Column: 9
     public static string VK_EXT_SHADER_MODULE_IDENTIFIER_EXTENSION_NAME => "VK_EXT_shader_module_identifier";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18080 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18335 Column: 9
     public static uint VK_EXT_rasterization_order_attachment_access => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18081 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18336 Column: 9
     public static uint VK_EXT_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18082 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18337 Column: 9
     public static string VK_EXT_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_EXT_rasterization_order_attachment_access";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18086 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18341 Column: 9
     public static uint VK_NV_optical_flow => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18088 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18343 Column: 9
     public static uint VK_NV_OPTICAL_FLOW_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18089 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18344 Column: 9
     public static string VK_NV_OPTICAL_FLOW_EXTENSION_NAME => "VK_NV_optical_flow";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18251 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18506 Column: 9
     public static uint VK_EXT_legacy_dithering => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18252 Column: 9
-    public static uint VK_EXT_LEGACY_DITHERING_SPEC_VERSION => 1;
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18507 Column: 9
+    public static uint VK_EXT_LEGACY_DITHERING_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18253 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18508 Column: 9
     public static string VK_EXT_LEGACY_DITHERING_EXTENSION_NAME => "VK_EXT_legacy_dithering";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18263 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18518 Column: 9
     public static uint VK_EXT_pipeline_protected_access => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18264 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18519 Column: 9
     public static uint VK_EXT_PIPELINE_PROTECTED_ACCESS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18265 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18520 Column: 9
     public static string VK_EXT_PIPELINE_PROTECTED_ACCESS_EXTENSION_NAME => "VK_EXT_pipeline_protected_access";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18275 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18530 Column: 9
     public static uint VK_EXT_shader_object => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18277 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18532 Column: 9
     public static uint VK_EXT_SHADER_OBJECT_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18278 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18533 Column: 9
     public static string VK_EXT_SHADER_OBJECT_EXTENSION_NAME => "VK_EXT_shader_object";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18362 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18617 Column: 9
     public static uint VK_QCOM_tile_properties => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18363 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18618 Column: 9
     public static uint VK_QCOM_TILE_PROPERTIES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18364 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18619 Column: 9
     public static string VK_QCOM_TILE_PROPERTIES_EXTENSION_NAME => "VK_QCOM_tile_properties";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18397 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18652 Column: 9
     public static uint VK_SEC_amigo_profiling => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18398 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18653 Column: 9
     public static uint VK_SEC_AMIGO_PROFILING_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18399 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18654 Column: 9
     public static string VK_SEC_AMIGO_PROFILING_EXTENSION_NAME => "VK_SEC_amigo_profiling";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18416 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18671 Column: 9
     public static uint VK_QCOM_multiview_per_view_viewports => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18417 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18672 Column: 9
     public static uint VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18418 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18673 Column: 9
     public static string VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_EXTENSION_NAME => "VK_QCOM_multiview_per_view_viewports";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18428 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18683 Column: 9
     public static uint VK_NV_ray_tracing_invocation_reorder => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18429 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18684 Column: 9
     public static uint VK_NV_RAY_TRACING_INVOCATION_REORDER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18430 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18685 Column: 9
     public static string VK_NV_RAY_TRACING_INVOCATION_REORDER_EXTENSION_NAME => "VK_NV_ray_tracing_invocation_reorder";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18452 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18707 Column: 9
     public static uint VK_NV_extended_sparse_address_space => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18453 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18708 Column: 9
     public static uint VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18454 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18709 Column: 9
     public static string VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_EXTENSION_NAME => "VK_NV_extended_sparse_address_space";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18472 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18727 Column: 9
     public static uint VK_EXT_mutable_descriptor_type => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18473 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18728 Column: 9
     public static uint VK_EXT_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18474 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18729 Column: 9
     public static string VK_EXT_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_EXT_mutable_descriptor_type";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18478 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18733 Column: 9
     public static uint VK_EXT_layer_settings => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18479 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18734 Column: 9
     public static uint VK_EXT_LAYER_SETTINGS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18480 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18735 Column: 9
     public static string VK_EXT_LAYER_SETTINGS_EXTENSION_NAME => "VK_EXT_layer_settings";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18511 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18766 Column: 9
     public static uint VK_ARM_shader_core_builtins => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18512 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18767 Column: 9
     public static uint VK_ARM_SHADER_CORE_BUILTINS_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18513 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18768 Column: 9
     public static string VK_ARM_SHADER_CORE_BUILTINS_EXTENSION_NAME => "VK_ARM_shader_core_builtins";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18531 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18786 Column: 9
     public static uint VK_EXT_pipeline_library_group_handles => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18532 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18787 Column: 9
     public static uint VK_EXT_PIPELINE_LIBRARY_GROUP_HANDLES_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18533 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18788 Column: 9
     public static string VK_EXT_PIPELINE_LIBRARY_GROUP_HANDLES_EXTENSION_NAME => "VK_EXT_pipeline_library_group_handles";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18543 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18798 Column: 9
     public static uint VK_EXT_dynamic_rendering_unused_attachments => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18544 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18799 Column: 9
     public static uint VK_EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18545 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18800 Column: 9
     public static string VK_EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_EXTENSION_NAME => "VK_EXT_dynamic_rendering_unused_attachments";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18555 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18810 Column: 9
     public static uint VK_NV_low_latency2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18556 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18811 Column: 9
     public static uint VK_NV_LOW_LATENCY_2_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18557 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18812 Column: 9
     public static string VK_NV_LOW_LATENCY_2_EXTENSION_NAME => "VK_NV_low_latency2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18687 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18942 Column: 9
     public static uint VK_QCOM_multiview_per_view_render_areas => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18688 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18943 Column: 9
     public static uint VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18689 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18944 Column: 9
     public static string VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_EXTENSION_NAME => "VK_QCOM_multiview_per_view_render_areas";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18706 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18961 Column: 9
     public static uint VK_NV_per_stage_descriptor_set => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18707 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18962 Column: 9
     public static uint VK_NV_PER_STAGE_DESCRIPTOR_SET_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18708 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18963 Column: 9
     public static string VK_NV_PER_STAGE_DESCRIPTOR_SET_EXTENSION_NAME => "VK_NV_per_stage_descriptor_set";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18719 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18974 Column: 9
     public static uint VK_QCOM_image_processing2 => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18720 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18975 Column: 9
     public static uint VK_QCOM_IMAGE_PROCESSING_2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18721 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18976 Column: 9
     public static string VK_QCOM_IMAGE_PROCESSING_2_EXTENSION_NAME => "VK_QCOM_image_processing2";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18750 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19005 Column: 9
     public static uint VK_QCOM_filter_cubic_weights => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18751 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19006 Column: 9
     public static uint VK_QCOM_FILTER_CUBIC_WEIGHTS_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18752 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19007 Column: 9
     public static string VK_QCOM_FILTER_CUBIC_WEIGHTS_EXTENSION_NAME => "VK_QCOM_filter_cubic_weights";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18782 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19037 Column: 9
     public static uint VK_QCOM_ycbcr_degamma => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18783 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19038 Column: 9
     public static uint VK_QCOM_YCBCR_DEGAMMA_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18784 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19039 Column: 9
     public static string VK_QCOM_YCBCR_DEGAMMA_EXTENSION_NAME => "VK_QCOM_ycbcr_degamma";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18801 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19056 Column: 9
     public static uint VK_QCOM_filter_cubic_clamp => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18802 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19057 Column: 9
     public static uint VK_QCOM_FILTER_CUBIC_CLAMP_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18803 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19058 Column: 9
     public static string VK_QCOM_FILTER_CUBIC_CLAMP_EXTENSION_NAME => "VK_QCOM_filter_cubic_clamp";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18813 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19068 Column: 9
     public static uint VK_EXT_attachment_feedback_loop_dynamic_state => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18814 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19069 Column: 9
     public static uint VK_EXT_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18815 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19070 Column: 9
     public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_dynamic_state";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18832 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19087 Column: 9
     public static uint VK_MSFT_layered_driver => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18833 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19088 Column: 9
     public static uint VK_MSFT_LAYERED_DRIVER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18834 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19089 Column: 9
     public static string VK_MSFT_LAYERED_DRIVER_EXTENSION_NAME => "VK_MSFT_layered_driver";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18850 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19105 Column: 9
     public static uint VK_NV_descriptor_pool_overallocation => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18851 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19106 Column: 9
     public static uint VK_NV_DESCRIPTOR_POOL_OVERALLOCATION_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18852 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19107 Column: 9
     public static string VK_NV_DESCRIPTOR_POOL_OVERALLOCATION_EXTENSION_NAME => "VK_NV_descriptor_pool_overallocation";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18862 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19117 Column: 9
+    public static uint VK_NV_raw_access_chains => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19118 Column: 9
+    public static uint VK_NV_RAW_ACCESS_CHAINS_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19119 Column: 9
+    public static string VK_NV_RAW_ACCESS_CHAINS_EXTENSION_NAME => "VK_NV_raw_access_chains";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19129 Column: 9
+    public static uint VK_NV_shader_atomic_float16_vector => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19130 Column: 9
+    public static uint VK_NV_SHADER_ATOMIC_FLOAT16_VECTOR_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19131 Column: 9
+    public static string VK_NV_SHADER_ATOMIC_FLOAT16_VECTOR_EXTENSION_NAME => "VK_NV_shader_atomic_float16_vector";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19141 Column: 9
+    public static uint VK_NV_ray_tracing_validation => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19142 Column: 9
+    public static uint VK_NV_RAY_TRACING_VALIDATION_SPEC_VERSION => 1;
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19143 Column: 9
+    public static string VK_NV_RAY_TRACING_VALIDATION_EXTENSION_NAME => "VK_NV_ray_tracing_validation";
+
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19153 Column: 9
     public static uint VK_KHR_acceleration_structure => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18863 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19154 Column: 9
     public static uint VK_KHR_ACCELERATION_STRUCTURE_SPEC_VERSION => 13;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 18864 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19155 Column: 9
     public static string VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_KHR_acceleration_structure";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19138 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19429 Column: 9
     public static uint VK_KHR_ray_tracing_pipeline => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19139 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19430 Column: 9
     public static uint VK_KHR_RAY_TRACING_PIPELINE_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19140 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19431 Column: 9
     public static string VK_KHR_RAY_TRACING_PIPELINE_EXTENSION_NAME => "VK_KHR_ray_tracing_pipeline";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19275 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19566 Column: 9
     public static uint VK_KHR_ray_query => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19276 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19567 Column: 9
     public static uint VK_KHR_RAY_QUERY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19277 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19568 Column: 9
     public static string VK_KHR_RAY_QUERY_EXTENSION_NAME => "VK_KHR_ray_query";
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19287 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19578 Column: 9
     public static uint VK_EXT_mesh_shader => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19288 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19579 Column: 9
     public static uint VK_EXT_MESH_SHADER_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 19289 Column: 9
+    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19580 Column: 9
     public static string VK_EXT_MESH_SHADER_EXTENSION_NAME => "VK_EXT_mesh_shader";
 
 }

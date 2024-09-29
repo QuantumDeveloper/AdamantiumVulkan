@@ -32,10 +32,19 @@ public unsafe partial class PipelineTessellationStateCreateInfo : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.patchControlPoints = PatchControlPoints;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (PatchControlPoints != default)
+        {
+            _internal.patchControlPoints = PatchControlPoints;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DeviceFaultAddressInfoEXT
+public unsafe partial class DeviceFaultAddressInfoEXT : QBDisposableObject
 {
     public DeviceFaultAddressInfoEXT()
     {
@@ -31,9 +31,18 @@ public unsafe partial class DeviceFaultAddressInfoEXT
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT();
-        _internal.addressType = AddressType;
-        _internal.reportedAddress = ReportedAddress;
-        _internal.addressPrecision = AddressPrecision;
+        if (AddressType != default)
+        {
+            _internal.addressType = AddressType;
+        }
+        if (ReportedAddress != (ulong)default)
+        {
+            _internal.reportedAddress = ReportedAddress;
+        }
+        if (AddressPrecision != (ulong)default)
+        {
+            _internal.addressPrecision = AddressPrecision;
+        }
         return _internal;
     }
 

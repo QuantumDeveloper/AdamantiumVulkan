@@ -45,24 +45,33 @@ public unsafe partial class VideoEncodeH264PictureInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264PictureInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH264PictureInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.naluSliceEntryCount = NaluSliceEntryCount;
+        if (NaluSliceEntryCount != default)
+        {
+            _internal.naluSliceEntryCount = NaluSliceEntryCount;
+        }
         _pNaluSliceEntries.Dispose();
-        if (PNaluSliceEntries != null)
+        if (PNaluSliceEntries != default)
         {
             var struct0 = PNaluSliceEntries.ToNative();
             _pNaluSliceEntries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoEncodeH264NaluSliceInfoKHR>(struct0);
             _internal.pNaluSliceEntries = _pNaluSliceEntries.Handle;
         }
         _pStdPictureInfo.Dispose();
-        if (PStdPictureInfo != null)
+        if (PStdPictureInfo != default)
         {
             var struct1 = PStdPictureInfo.ToNative();
             _pStdPictureInfo = new NativeStruct<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfo>(struct1);
             _internal.pStdPictureInfo = _pStdPictureInfo.Handle;
         }
-        _internal.generatePrefixNalu = GeneratePrefixNalu;
+        if (GeneratePrefixNalu != (uint)default)
+        {
+            _internal.generatePrefixNalu = GeneratePrefixNalu;
+        }
         return _internal;
     }
 

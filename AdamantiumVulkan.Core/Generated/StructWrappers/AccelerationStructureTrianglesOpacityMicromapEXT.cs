@@ -48,24 +48,42 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : Q
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureTrianglesOpacityMicromapEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureTrianglesOpacityMicromapEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.indexType = IndexType;
-        if (IndexBuffer != null)
+        if (IndexType != default)
+        {
+            _internal.indexType = IndexType;
+        }
+        if (IndexBuffer != default)
         {
             _internal.indexBuffer = IndexBuffer.ToNative();
         }
-        _internal.indexStride = IndexStride;
-        _internal.baseTriangle = BaseTriangle;
-        _internal.usageCountsCount = UsageCountsCount;
+        if (IndexStride != (ulong)default)
+        {
+            _internal.indexStride = IndexStride;
+        }
+        if (BaseTriangle != default)
+        {
+            _internal.baseTriangle = BaseTriangle;
+        }
+        if (UsageCountsCount != default)
+        {
+            _internal.usageCountsCount = UsageCountsCount;
+        }
         _pUsageCounts.Dispose();
-        if (PUsageCounts != null)
+        if (PUsageCounts != default)
         {
             var struct0 = PUsageCounts.ToNative();
             _pUsageCounts = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(struct0);
             _internal.pUsageCounts = _pUsageCounts.Handle;
         }
-        _internal.micromap = Micromap;
+        if (Micromap != default)
+        {
+            _internal.micromap = Micromap;
+        }
         return _internal;
     }
 
@@ -73,6 +91,7 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : Q
     {
         _pUsageCounts.Dispose();
         _ppUsageCounts.Dispose();
+        IndexBuffer?.Dispose();
     }
 
 

@@ -30,14 +30,23 @@ public unsafe partial class PhysicalDeviceMemoryProperties2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (MemoryProperties != null)
+        if (MemoryProperties != default)
         {
             _internal.memoryProperties = MemoryProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MemoryProperties?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceMemoryProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 p)
     {

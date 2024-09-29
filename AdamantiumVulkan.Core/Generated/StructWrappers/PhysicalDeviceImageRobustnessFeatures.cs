@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceImageRobustnessFeatures : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.robustImageAccess = RobustImageAccess;
+        if (RobustImageAccess != (uint)default)
+        {
+            _internal.robustImageAccess = RobustImageAccess;
+        }
         return _internal;
     }
 

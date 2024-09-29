@@ -29,7 +29,10 @@ public unsafe partial class SubpassEndInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSubpassEndInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubpassEndInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         return _internal;
     }

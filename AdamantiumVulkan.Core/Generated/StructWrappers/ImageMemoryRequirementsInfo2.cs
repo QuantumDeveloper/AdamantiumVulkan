@@ -30,9 +30,15 @@ public unsafe partial class ImageMemoryRequirementsInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.image = Image;
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
         return _internal;
     }
 

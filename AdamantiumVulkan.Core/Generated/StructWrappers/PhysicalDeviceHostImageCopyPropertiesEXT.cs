@@ -45,30 +45,42 @@ public unsafe partial class PhysicalDeviceHostImageCopyPropertiesEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostImageCopyPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostImageCopyPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.copySrcLayoutCount = CopySrcLayoutCount;
+        if (CopySrcLayoutCount != default)
+        {
+            _internal.copySrcLayoutCount = CopySrcLayoutCount;
+        }
         _pCopySrcLayouts.Dispose();
         if (PCopySrcLayouts.HasValue)
         {
             _pCopySrcLayouts = new NativeStruct<AdamantiumVulkan.Core.ImageLayout>(PCopySrcLayouts.Value);
             _internal.pCopySrcLayouts = _pCopySrcLayouts.Handle;
         }
-        _internal.copyDstLayoutCount = CopyDstLayoutCount;
+        if (CopyDstLayoutCount != default)
+        {
+            _internal.copyDstLayoutCount = CopyDstLayoutCount;
+        }
         _pCopyDstLayouts.Dispose();
         if (PCopyDstLayouts.HasValue)
         {
             _pCopyDstLayouts = new NativeStruct<AdamantiumVulkan.Core.ImageLayout>(PCopyDstLayouts.Value);
             _internal.pCopyDstLayouts = _pCopyDstLayouts.Handle;
         }
-        if(OptimalTilingLayoutUUID != null)
+        if (OptimalTilingLayoutUUID != default)
         {
             if (OptimalTilingLayoutUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(OptimalTilingLayoutUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.optimalTilingLayoutUUID, 16, OptimalTilingLayoutUUID);
         }
-        _internal.identicalMemoryTypeRequirements = IdenticalMemoryTypeRequirements;
+        if (IdenticalMemoryTypeRequirements != (uint)default)
+        {
+            _internal.identicalMemoryTypeRequirements = IdenticalMemoryTypeRequirements;
+        }
         return _internal;
     }
 

@@ -32,9 +32,12 @@ public unsafe partial class BaseOutStructure : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBaseOutStructure ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBaseOutStructure();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _pNext.Dispose();
-        if (PNext != null)
+        if (PNext != default)
         {
             var struct0 = PNext.ToNative();
             _pNext = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBaseOutStructure>(struct0);

@@ -39,13 +39,31 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockProperties : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxInlineUniformBlockSize = MaxInlineUniformBlockSize;
-        _internal.maxPerStageDescriptorInlineUniformBlocks = MaxPerStageDescriptorInlineUniformBlocks;
-        _internal.maxPerStageDescriptorUpdateAfterBindInlineUniformBlocks = MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks;
-        _internal.maxDescriptorSetInlineUniformBlocks = MaxDescriptorSetInlineUniformBlocks;
-        _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
+        if (MaxInlineUniformBlockSize != default)
+        {
+            _internal.maxInlineUniformBlockSize = MaxInlineUniformBlockSize;
+        }
+        if (MaxPerStageDescriptorInlineUniformBlocks != default)
+        {
+            _internal.maxPerStageDescriptorInlineUniformBlocks = MaxPerStageDescriptorInlineUniformBlocks;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindInlineUniformBlocks = MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks;
+        }
+        if (MaxDescriptorSetInlineUniformBlocks != default)
+        {
+            _internal.maxDescriptorSetInlineUniformBlocks = MaxDescriptorSetInlineUniformBlocks;
+        }
+        if (MaxDescriptorSetUpdateAfterBindInlineUniformBlocks != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindInlineUniformBlocks = MaxDescriptorSetUpdateAfterBindInlineUniformBlocks;
+        }
         return _internal;
     }
 

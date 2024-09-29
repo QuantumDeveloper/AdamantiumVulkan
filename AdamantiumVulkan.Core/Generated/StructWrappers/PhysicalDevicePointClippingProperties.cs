@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDevicePointClippingProperties : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pointClippingBehavior = PointClippingBehavior;
+        if (PointClippingBehavior != default)
+        {
+            _internal.pointClippingBehavior = PointClippingBehavior;
+        }
         return _internal;
     }
 

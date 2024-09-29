@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.ycbcr2plane444Formats = Ycbcr2plane444Formats;
+        if (Ycbcr2plane444Formats != (uint)default)
+        {
+            _internal.ycbcr2plane444Formats = Ycbcr2plane444Formats;
+        }
         return _internal;
     }
 

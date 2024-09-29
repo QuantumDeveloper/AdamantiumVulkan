@@ -31,9 +31,15 @@ public unsafe partial class ImageViewCaptureDescriptorDataInfoEXT : QBDisposable
     public AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageView = ImageView;
+        if (ImageView != default)
+        {
+            _internal.imageView = ImageView;
+        }
         return _internal;
     }
 

@@ -41,13 +41,31 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fence = Fence;
-        _internal.flags = Flags;
-        _internal.handleType = HandleType;
-        _internal.handle = Handle;
-        _internal.name = Name;
+        if (Fence != default)
+        {
+            _internal.fence = Fence;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
+        if (Handle != default)
+        {
+            _internal.handle = Handle;
+        }
+        if (Name != default)
+        {
+            _internal.name = Name;
+        }
         return _internal;
     }
 

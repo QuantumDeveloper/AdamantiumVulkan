@@ -35,11 +35,23 @@ public unsafe partial class ImageViewHandleInfoNVX : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageView = ImageView;
-        _internal.descriptorType = DescriptorType;
-        _internal.sampler = Sampler;
+        if (ImageView != default)
+        {
+            _internal.imageView = ImageView;
+        }
+        if (DescriptorType != default)
+        {
+            _internal.descriptorType = DescriptorType;
+        }
+        if (Sampler != default)
+        {
+            _internal.sampler = Sampler;
+        }
         return _internal;
     }
 

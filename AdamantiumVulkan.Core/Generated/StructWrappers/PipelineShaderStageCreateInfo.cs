@@ -43,19 +43,31 @@ public unsafe partial class PipelineShaderStageCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.stage = Stage;
-        _internal.module = Module;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Stage != default)
+        {
+            _internal.stage = Stage;
+        }
+        if (Module != default)
+        {
+            _internal.module = Module;
+        }
         _pName.Dispose();
-        if (PName != null)
+        if (PName != default)
         {
             _pName = new MarshaledString(PName, false);
             _internal.pName = (sbyte*)_pName;
         }
         _pSpecializationInfo.Dispose();
-        if (PSpecializationInfo != null)
+        if (PSpecializationInfo != default)
         {
             var struct0 = PSpecializationInfo.ToNative();
             _pSpecializationInfo = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(struct0);

@@ -32,10 +32,19 @@ public unsafe partial class DeviceGroupBindSparseInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.resourceDeviceIndex = ResourceDeviceIndex;
-        _internal.memoryDeviceIndex = MemoryDeviceIndex;
+        if (ResourceDeviceIndex != default)
+        {
+            _internal.resourceDeviceIndex = ResourceDeviceIndex;
+        }
+        if (MemoryDeviceIndex != default)
+        {
+            _internal.memoryDeviceIndex = MemoryDeviceIndex;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceOpacityMicromapPropertiesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpacityMicromapPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpacityMicromapPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxOpacity2StateSubdivisionLevel = MaxOpacity2StateSubdivisionLevel;
-        _internal.maxOpacity4StateSubdivisionLevel = MaxOpacity4StateSubdivisionLevel;
+        if (MaxOpacity2StateSubdivisionLevel != default)
+        {
+            _internal.maxOpacity2StateSubdivisionLevel = MaxOpacity2StateSubdivisionLevel;
+        }
+        if (MaxOpacity4StateSubdivisionLevel != default)
+        {
+            _internal.maxOpacity4StateSubdivisionLevel = MaxOpacity4StateSubdivisionLevel;
+        }
         return _internal;
     }
 

@@ -35,11 +35,23 @@ public unsafe partial class SwapchainPresentScalingCreateInfoEXT : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkSwapchainPresentScalingCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainPresentScalingCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.scalingBehavior = ScalingBehavior;
-        _internal.presentGravityX = PresentGravityX;
-        _internal.presentGravityY = PresentGravityY;
+        if (ScalingBehavior != (uint)default)
+        {
+            _internal.scalingBehavior = ScalingBehavior;
+        }
+        if (PresentGravityX != (uint)default)
+        {
+            _internal.presentGravityX = PresentGravityX;
+        }
+        if (PresentGravityY != (uint)default)
+        {
+            _internal.presentGravityY = PresentGravityY;
+        }
         return _internal;
     }
 

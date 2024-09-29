@@ -44,21 +44,51 @@ public unsafe partial class SamplerYcbcrConversionCreateInfo : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.format = Format;
-        _internal.ycbcrModel = YcbcrModel;
-        _internal.ycbcrRange = YcbcrRange;
-        if (Components != null)
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (YcbcrModel != default)
+        {
+            _internal.ycbcrModel = YcbcrModel;
+        }
+        if (YcbcrRange != default)
+        {
+            _internal.ycbcrRange = YcbcrRange;
+        }
+        if (Components != default)
         {
             _internal.components = Components.ToNative();
         }
-        _internal.xChromaOffset = XChromaOffset;
-        _internal.yChromaOffset = YChromaOffset;
-        _internal.chromaFilter = ChromaFilter;
-        _internal.forceExplicitReconstruction = ForceExplicitReconstruction;
+        if (XChromaOffset != default)
+        {
+            _internal.xChromaOffset = XChromaOffset;
+        }
+        if (YChromaOffset != default)
+        {
+            _internal.yChromaOffset = YChromaOffset;
+        }
+        if (ChromaFilter != default)
+        {
+            _internal.chromaFilter = ChromaFilter;
+        }
+        if (ForceExplicitReconstruction != (uint)default)
+        {
+            _internal.forceExplicitReconstruction = ForceExplicitReconstruction;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Components?.Dispose();
+    }
+
 
     public static implicit operator SamplerYcbcrConversionCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo s)
     {

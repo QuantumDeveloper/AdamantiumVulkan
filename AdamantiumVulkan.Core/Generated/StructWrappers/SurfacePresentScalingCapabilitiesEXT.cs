@@ -39,21 +39,40 @@ public unsafe partial class SurfacePresentScalingCapabilitiesEXT : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supportedPresentScaling = SupportedPresentScaling;
-        _internal.supportedPresentGravityX = SupportedPresentGravityX;
-        _internal.supportedPresentGravityY = SupportedPresentGravityY;
-        if (MinScaledImageExtent != null)
+        if (SupportedPresentScaling != (uint)default)
+        {
+            _internal.supportedPresentScaling = SupportedPresentScaling;
+        }
+        if (SupportedPresentGravityX != (uint)default)
+        {
+            _internal.supportedPresentGravityX = SupportedPresentGravityX;
+        }
+        if (SupportedPresentGravityY != (uint)default)
+        {
+            _internal.supportedPresentGravityY = SupportedPresentGravityY;
+        }
+        if (MinScaledImageExtent != default)
         {
             _internal.minScaledImageExtent = MinScaledImageExtent.ToNative();
         }
-        if (MaxScaledImageExtent != null)
+        if (MaxScaledImageExtent != default)
         {
             _internal.maxScaledImageExtent = MaxScaledImageExtent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MinScaledImageExtent?.Dispose();
+        MaxScaledImageExtent?.Dispose();
+    }
+
 
     public static implicit operator SurfacePresentScalingCapabilitiesEXT(AdamantiumVulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesEXT s)
     {

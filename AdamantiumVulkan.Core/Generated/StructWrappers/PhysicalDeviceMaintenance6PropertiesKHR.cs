@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceMaintenance6PropertiesKHR : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6PropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6PropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.blockTexelViewCompatibleMultipleLayers = BlockTexelViewCompatibleMultipleLayers;
-        _internal.maxCombinedImageSamplerDescriptorCount = MaxCombinedImageSamplerDescriptorCount;
-        _internal.fragmentShadingRateClampCombinerInputs = FragmentShadingRateClampCombinerInputs;
+        if (BlockTexelViewCompatibleMultipleLayers != (uint)default)
+        {
+            _internal.blockTexelViewCompatibleMultipleLayers = BlockTexelViewCompatibleMultipleLayers;
+        }
+        if (MaxCombinedImageSamplerDescriptorCount != default)
+        {
+            _internal.maxCombinedImageSamplerDescriptorCount = MaxCombinedImageSamplerDescriptorCount;
+        }
+        if (FragmentShadingRateClampCombinerInputs != (uint)default)
+        {
+            _internal.fragmentShadingRateClampCombinerInputs = FragmentShadingRateClampCombinerInputs;
+        }
         return _internal;
     }
 

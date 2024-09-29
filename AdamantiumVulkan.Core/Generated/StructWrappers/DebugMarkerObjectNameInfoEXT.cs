@@ -36,12 +36,21 @@ public unsafe partial class DebugMarkerObjectNameInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectNameInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.objectType = ObjectType;
-        _internal.@object = Object;
+        if (ObjectType != default)
+        {
+            _internal.objectType = ObjectType;
+        }
+        if (Object != default)
+        {
+            _internal.@object = Object;
+        }
         _pObjectName.Dispose();
-        if (PObjectName != null)
+        if (PObjectName != default)
         {
             _pObjectName = new MarshaledString(PObjectName, false);
             _internal.pObjectName = (sbyte*)_pObjectName;

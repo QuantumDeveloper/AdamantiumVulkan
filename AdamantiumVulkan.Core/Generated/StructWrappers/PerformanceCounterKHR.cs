@@ -37,12 +37,24 @@ public unsafe partial class PerformanceCounterKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.unit = Unit;
-        _internal.scope = Scope;
-        _internal.storage = Storage;
-        if(Uuid != null)
+        if (Unit != default)
+        {
+            _internal.unit = Unit;
+        }
+        if (Scope != default)
+        {
+            _internal.scope = Scope;
+        }
+        if (Storage != default)
+        {
+            _internal.storage = Storage;
+        }
+        if (Uuid != default)
         {
             if (Uuid.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(Uuid), "Array is out of bounds. Size should not be more than 16");

@@ -35,11 +35,23 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.hinstance = Hinstance;
-        _internal.hwnd = Hwnd;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Hinstance != default)
+        {
+            _internal.hinstance = Hinstance;
+        }
+        if (Hwnd != default)
+        {
+            _internal.hwnd = Hwnd;
+        }
         return _internal;
     }
 

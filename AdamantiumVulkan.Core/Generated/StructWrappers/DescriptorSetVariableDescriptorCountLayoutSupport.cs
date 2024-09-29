@@ -31,9 +31,15 @@ public unsafe partial class DescriptorSetVariableDescriptorCountLayoutSupport : 
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupport ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupport();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxVariableDescriptorCount = MaxVariableDescriptorCount;
+        if (MaxVariableDescriptorCount != default)
+        {
+            _internal.maxVariableDescriptorCount = MaxVariableDescriptorCount;
+        }
         return _internal;
     }
 

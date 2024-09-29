@@ -38,9 +38,15 @@ public unsafe partial class BindBufferMemoryDeviceGroupInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceIndexCount = DeviceIndexCount;
+        if (DeviceIndexCount != default)
+        {
+            _internal.deviceIndexCount = DeviceIndexCount;
+        }
         _pDeviceIndices.Dispose();
         if (PDeviceIndices.HasValue)
         {

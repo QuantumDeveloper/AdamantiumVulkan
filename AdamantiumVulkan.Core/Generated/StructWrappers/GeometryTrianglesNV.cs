@@ -50,19 +50,55 @@ public unsafe partial class GeometryTrianglesNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.vertexData = VertexData;
-        _internal.vertexOffset = VertexOffset;
-        _internal.vertexCount = VertexCount;
-        _internal.vertexStride = VertexStride;
-        _internal.vertexFormat = VertexFormat;
-        _internal.indexData = IndexData;
-        _internal.indexOffset = IndexOffset;
-        _internal.indexCount = IndexCount;
-        _internal.indexType = IndexType;
-        _internal.transformData = TransformData;
-        _internal.transformOffset = TransformOffset;
+        if (VertexData != default)
+        {
+            _internal.vertexData = VertexData;
+        }
+        if (VertexOffset != (ulong)default)
+        {
+            _internal.vertexOffset = VertexOffset;
+        }
+        if (VertexCount != default)
+        {
+            _internal.vertexCount = VertexCount;
+        }
+        if (VertexStride != (ulong)default)
+        {
+            _internal.vertexStride = VertexStride;
+        }
+        if (VertexFormat != default)
+        {
+            _internal.vertexFormat = VertexFormat;
+        }
+        if (IndexData != default)
+        {
+            _internal.indexData = IndexData;
+        }
+        if (IndexOffset != (ulong)default)
+        {
+            _internal.indexOffset = IndexOffset;
+        }
+        if (IndexCount != default)
+        {
+            _internal.indexCount = IndexCount;
+        }
+        if (IndexType != default)
+        {
+            _internal.indexType = IndexType;
+        }
+        if (TransformData != default)
+        {
+            _internal.transformData = TransformData;
+        }
+        if (TransformOffset != (ulong)default)
+        {
+            _internal.transformOffset = TransformOffset;
+        }
         return _internal;
     }
 

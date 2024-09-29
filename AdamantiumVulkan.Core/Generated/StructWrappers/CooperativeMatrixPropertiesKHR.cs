@@ -47,17 +47,47 @@ public unsafe partial class CooperativeMatrixPropertiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.MSize = MSize;
-        _internal.NSize = NSize;
-        _internal.KSize = KSize;
-        _internal.AType = AType;
-        _internal.BType = BType;
-        _internal.CType = CType;
-        _internal.ResultType = ResultType;
-        _internal.saturatingAccumulation = SaturatingAccumulation;
-        _internal.scope = Scope;
+        if (MSize != default)
+        {
+            _internal.MSize = MSize;
+        }
+        if (NSize != default)
+        {
+            _internal.NSize = NSize;
+        }
+        if (KSize != default)
+        {
+            _internal.KSize = KSize;
+        }
+        if (AType != default)
+        {
+            _internal.AType = AType;
+        }
+        if (BType != default)
+        {
+            _internal.BType = BType;
+        }
+        if (CType != default)
+        {
+            _internal.CType = CType;
+        }
+        if (ResultType != default)
+        {
+            _internal.ResultType = ResultType;
+        }
+        if (SaturatingAccumulation != (uint)default)
+        {
+            _internal.saturatingAccumulation = SaturatingAccumulation;
+        }
+        if (Scope != default)
+        {
+            _internal.scope = Scope;
+        }
         return _internal;
     }
 

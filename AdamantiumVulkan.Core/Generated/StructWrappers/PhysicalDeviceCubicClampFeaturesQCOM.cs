@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceCubicClampFeaturesQCOM : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCubicClampFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCubicClampFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.cubicRangeClamp = CubicRangeClamp;
+        if (CubicRangeClamp != (uint)default)
+        {
+            _internal.cubicRangeClamp = CubicRangeClamp;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class QueueFamilyQueryResultStatusPropertiesKHR : QBDispos
     public AdamantiumVulkan.Core.Interop.VkQueueFamilyQueryResultStatusPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyQueryResultStatusPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.queryResultStatusSupport = QueryResultStatusSupport;
+        if (QueryResultStatusSupport != (uint)default)
+        {
+            _internal.queryResultStatusSupport = QueryResultStatusSupport;
+        }
         return _internal;
     }
 

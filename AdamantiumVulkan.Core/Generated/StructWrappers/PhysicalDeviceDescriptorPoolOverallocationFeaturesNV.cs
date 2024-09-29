@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDescriptorPoolOverallocationFeaturesNV
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorPoolOverallocation = DescriptorPoolOverallocation;
+        if (DescriptorPoolOverallocation != (uint)default)
+        {
+            _internal.descriptorPoolOverallocation = DescriptorPoolOverallocation;
+        }
         return _internal;
     }
 

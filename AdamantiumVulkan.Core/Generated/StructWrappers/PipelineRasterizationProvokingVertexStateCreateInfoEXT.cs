@@ -31,9 +31,15 @@ public unsafe partial class PipelineRasterizationProvokingVertexStateCreateInfoE
     public AdamantiumVulkan.Core.Interop.VkPipelineRasterizationProvokingVertexStateCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRasterizationProvokingVertexStateCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.provokingVertexMode = ProvokingVertexMode;
+        if (ProvokingVertexMode != default)
+        {
+            _internal.provokingVertexMode = ProvokingVertexMode;
+        }
         return _internal;
     }
 

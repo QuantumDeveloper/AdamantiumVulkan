@@ -37,12 +37,27 @@ public unsafe partial class PipelineRobustnessCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineRobustnessCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineRobustnessCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.storageBuffers = StorageBuffers;
-        _internal.uniformBuffers = UniformBuffers;
-        _internal.vertexInputs = VertexInputs;
-        _internal.images = Images;
+        if (StorageBuffers != default)
+        {
+            _internal.storageBuffers = StorageBuffers;
+        }
+        if (UniformBuffers != default)
+        {
+            _internal.uniformBuffers = UniformBuffers;
+        }
+        if (VertexInputs != default)
+        {
+            _internal.vertexInputs = VertexInputs;
+        }
+        if (Images != default)
+        {
+            _internal.images = Images;
+        }
         return _internal;
     }
 

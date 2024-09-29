@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.coverageReductionMode = CoverageReductionMode;
+        if (CoverageReductionMode != (uint)default)
+        {
+            _internal.coverageReductionMode = CoverageReductionMode;
+        }
         return _internal;
     }
 

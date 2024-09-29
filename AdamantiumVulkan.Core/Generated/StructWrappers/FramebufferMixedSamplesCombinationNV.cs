@@ -37,12 +37,27 @@ public unsafe partial class FramebufferMixedSamplesCombinationNV : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.coverageReductionMode = CoverageReductionMode;
-        _internal.rasterizationSamples = RasterizationSamples;
-        _internal.depthStencilSamples = DepthStencilSamples;
-        _internal.colorSamples = ColorSamples;
+        if (CoverageReductionMode != default)
+        {
+            _internal.coverageReductionMode = CoverageReductionMode;
+        }
+        if (RasterizationSamples != default)
+        {
+            _internal.rasterizationSamples = RasterizationSamples;
+        }
+        if (DepthStencilSamples != (uint)default)
+        {
+            _internal.depthStencilSamples = DepthStencilSamples;
+        }
+        if (ColorSamples != (uint)default)
+        {
+            _internal.colorSamples = ColorSamples;
+        }
         return _internal;
     }
 

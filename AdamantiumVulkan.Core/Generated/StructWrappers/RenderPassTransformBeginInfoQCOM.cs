@@ -31,9 +31,15 @@ public unsafe partial class RenderPassTransformBeginInfoQCOM : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkRenderPassTransformBeginInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderPassTransformBeginInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.transform = Transform;
+        if (Transform != default)
+        {
+            _internal.transform = Transform;
+        }
         return _internal;
     }
 

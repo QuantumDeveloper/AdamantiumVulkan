@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class VertexInputBindingDivisorDescriptionKHR
+public unsafe partial class VertexInputBindingDivisorDescriptionKHR : QBDisposableObject
 {
     public VertexInputBindingDivisorDescriptionKHR()
     {
@@ -29,8 +29,14 @@ public unsafe partial class VertexInputBindingDivisorDescriptionKHR
     public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionKHR();
-        _internal.binding = Binding;
-        _internal.divisor = Divisor;
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Divisor != default)
+        {
+            _internal.divisor = Divisor;
+        }
         return _internal;
     }
 

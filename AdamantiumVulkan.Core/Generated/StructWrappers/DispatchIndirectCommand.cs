@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DispatchIndirectCommand
+public unsafe partial class DispatchIndirectCommand : QBDisposableObject
 {
     public DispatchIndirectCommand()
     {
@@ -31,9 +31,18 @@ public unsafe partial class DispatchIndirectCommand
     public AdamantiumVulkan.Core.Interop.VkDispatchIndirectCommand ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDispatchIndirectCommand();
-        _internal.x = X;
-        _internal.y = Y;
-        _internal.z = Z;
+        if (X != default)
+        {
+            _internal.x = X;
+        }
+        if (Y != default)
+        {
+            _internal.y = Y;
+        }
+        if (Z != default)
+        {
+            _internal.z = Z;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class DescriptorSetBindingReferenceVALVE : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorSetLayout = DescriptorSetLayout;
-        _internal.binding = Binding;
+        if (DescriptorSetLayout != default)
+        {
+            _internal.descriptorSetLayout = DescriptorSetLayout;
+        }
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
         return _internal;
     }
 

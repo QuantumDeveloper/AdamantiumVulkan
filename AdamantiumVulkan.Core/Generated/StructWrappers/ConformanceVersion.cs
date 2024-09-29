@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ConformanceVersion
+public unsafe partial class ConformanceVersion : QBDisposableObject
 {
     public ConformanceVersion()
     {
@@ -33,10 +33,22 @@ public unsafe partial class ConformanceVersion
     public AdamantiumVulkan.Core.Interop.VkConformanceVersion ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkConformanceVersion();
-        _internal.major = Major;
-        _internal.minor = Minor;
-        _internal.subminor = Subminor;
-        _internal.patch = Patch;
+        if (Major != default)
+        {
+            _internal.major = Major;
+        }
+        if (Minor != default)
+        {
+            _internal.minor = Minor;
+        }
+        if (Subminor != default)
+        {
+            _internal.subminor = Subminor;
+        }
+        if (Patch != default)
+        {
+            _internal.patch = Patch;
+        }
         return _internal;
     }
 

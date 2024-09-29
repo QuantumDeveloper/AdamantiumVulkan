@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DrawIndirectCommand
+public unsafe partial class DrawIndirectCommand : QBDisposableObject
 {
     public DrawIndirectCommand()
     {
@@ -33,10 +33,22 @@ public unsafe partial class DrawIndirectCommand
     public AdamantiumVulkan.Core.Interop.VkDrawIndirectCommand ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDrawIndirectCommand();
-        _internal.vertexCount = VertexCount;
-        _internal.instanceCount = InstanceCount;
-        _internal.firstVertex = FirstVertex;
-        _internal.firstInstance = FirstInstance;
+        if (VertexCount != default)
+        {
+            _internal.vertexCount = VertexCount;
+        }
+        if (InstanceCount != default)
+        {
+            _internal.instanceCount = InstanceCount;
+        }
+        if (FirstVertex != default)
+        {
+            _internal.firstVertex = FirstVertex;
+        }
+        if (FirstInstance != default)
+        {
+            _internal.firstInstance = FirstInstance;
+        }
         return _internal;
     }
 

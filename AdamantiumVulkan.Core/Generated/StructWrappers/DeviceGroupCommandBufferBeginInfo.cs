@@ -30,9 +30,15 @@ public unsafe partial class DeviceGroupCommandBufferBeginInfo : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.deviceMask = DeviceMask;
+        if (DeviceMask != default)
+        {
+            _internal.deviceMask = DeviceMask;
+        }
         return _internal;
     }
 

@@ -54,12 +54,21 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.viewportCount = ViewportCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (ViewportCount != default)
+        {
+            _internal.viewportCount = ViewportCount;
+        }
         _pViewports.Dispose();
-        if (PViewports != null)
+        if (PViewports != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewport[PViewports.Length];
             for (int i = 0; i < PViewports.Length; ++i)
@@ -69,9 +78,12 @@ public unsafe partial class PipelineViewportStateCreateInfo : QBDisposableObject
             _pViewports = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkViewport>(tmpArray0);
             _internal.pViewports = _pViewports.Handle;
         }
-        _internal.scissorCount = ScissorCount;
+        if (ScissorCount != default)
+        {
+            _internal.scissorCount = ScissorCount;
+        }
         _pScissors.Dispose();
-        if (PScissors != null)
+        if (PScissors != default)
         {
             var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkRect2D[PScissors.Length];
             for (int i = 0; i < PScissors.Length; ++i)

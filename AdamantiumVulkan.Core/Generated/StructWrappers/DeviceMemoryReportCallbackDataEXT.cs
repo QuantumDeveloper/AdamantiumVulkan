@@ -43,15 +43,39 @@ public unsafe partial class DeviceMemoryReportCallbackDataEXT : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.type = Type;
-        _internal.memoryObjectId = MemoryObjectId;
-        _internal.size = Size;
-        _internal.objectType = ObjectType;
-        _internal.objectHandle = ObjectHandle;
-        _internal.heapIndex = HeapIndex;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (MemoryObjectId != default)
+        {
+            _internal.memoryObjectId = MemoryObjectId;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (ObjectType != default)
+        {
+            _internal.objectType = ObjectType;
+        }
+        if (ObjectHandle != default)
+        {
+            _internal.objectHandle = ObjectHandle;
+        }
+        if (HeapIndex != default)
+        {
+            _internal.heapIndex = HeapIndex;
+        }
         return _internal;
     }
 

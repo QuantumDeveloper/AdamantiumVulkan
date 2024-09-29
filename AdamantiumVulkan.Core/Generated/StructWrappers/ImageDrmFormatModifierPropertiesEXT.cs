@@ -30,9 +30,15 @@ public unsafe partial class ImageDrmFormatModifierPropertiesEXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.drmFormatModifier = DrmFormatModifier;
+        if (DrmFormatModifier != default)
+        {
+            _internal.drmFormatModifier = DrmFormatModifier;
+        }
         return _internal;
     }
 

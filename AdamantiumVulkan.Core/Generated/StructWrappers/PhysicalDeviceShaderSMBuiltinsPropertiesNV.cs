@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderSMCount = ShaderSMCount;
-        _internal.shaderWarpsPerSM = ShaderWarpsPerSM;
+        if (ShaderSMCount != default)
+        {
+            _internal.shaderSMCount = ShaderSMCount;
+        }
+        if (ShaderWarpsPerSM != default)
+        {
+            _internal.shaderWarpsPerSM = ShaderWarpsPerSM;
+        }
         return _internal;
     }
 

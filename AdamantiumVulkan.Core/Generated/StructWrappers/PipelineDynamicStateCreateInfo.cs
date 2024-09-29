@@ -36,10 +36,19 @@ public unsafe partial class PipelineDynamicStateCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.dynamicStateCount = DynamicStateCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (DynamicStateCount != default)
+        {
+            _internal.dynamicStateCount = DynamicStateCount;
+        }
         _pDynamicStates.Dispose();
         if (PDynamicStates != null)
         {

@@ -42,11 +42,23 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.drmFormatModifier = DrmFormatModifier;
-        _internal.sharingMode = SharingMode;
-        _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        if (DrmFormatModifier != default)
+        {
+            _internal.drmFormatModifier = DrmFormatModifier;
+        }
+        if (SharingMode != default)
+        {
+            _internal.sharingMode = SharingMode;
+        }
+        if (QueueFamilyIndexCount != default)
+        {
+            _internal.queueFamilyIndexCount = QueueFamilyIndexCount;
+        }
         _pQueueFamilyIndices.Dispose();
         if (PQueueFamilyIndices.HasValue)
         {

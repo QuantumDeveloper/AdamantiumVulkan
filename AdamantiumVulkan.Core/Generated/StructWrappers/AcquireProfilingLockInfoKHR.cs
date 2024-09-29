@@ -33,10 +33,19 @@ public unsafe partial class AcquireProfilingLockInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.timeout = Timeout;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Timeout != default)
+        {
+            _internal.timeout = Timeout;
+        }
         return _internal;
     }
 

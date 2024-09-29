@@ -19,7 +19,6 @@ public unsafe partial class VertexInputBindingDescription2EXT : QBDisposableObje
 
     public VertexInputBindingDescription2EXT(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT _internal)
     {
-        SType = _internal.sType;
         PNext = _internal.pNext;
         Binding = _internal.binding;
         Stride = _internal.stride;
@@ -27,7 +26,7 @@ public unsafe partial class VertexInputBindingDescription2EXT : QBDisposableObje
         Divisor = _internal.divisor;
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VertexInputBindingDescription2Ext;
     public void* PNext { get; set; }
     public uint Binding { get; set; }
     public uint Stride { get; set; }
@@ -37,12 +36,27 @@ public unsafe partial class VertexInputBindingDescription2EXT : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.binding = Binding;
-        _internal.stride = Stride;
-        _internal.inputRate = InputRate;
-        _internal.divisor = Divisor;
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Stride != default)
+        {
+            _internal.stride = Stride;
+        }
+        if (InputRate != default)
+        {
+            _internal.inputRate = InputRate;
+        }
+        if (Divisor != default)
+        {
+            _internal.divisor = Divisor;
+        }
         return _internal;
     }
 

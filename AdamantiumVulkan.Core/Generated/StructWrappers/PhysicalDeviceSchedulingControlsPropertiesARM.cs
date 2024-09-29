@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceSchedulingControlsPropertiesARM : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSchedulingControlsPropertiesARM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSchedulingControlsPropertiesARM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.schedulingControlsFlags = SchedulingControlsFlags;
+        if (SchedulingControlsFlags != (ulong)default)
+        {
+            _internal.schedulingControlsFlags = SchedulingControlsFlags;
+        }
         return _internal;
     }
 

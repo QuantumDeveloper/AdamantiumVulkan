@@ -35,9 +35,15 @@ public unsafe partial class SwapchainPresentModeInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSwapchainPresentModeInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSwapchainPresentModeInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pPresentModes.Dispose();
         if (PresentModes.HasValue)
         {

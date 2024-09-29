@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class MultiDrawInfoEXT
+public unsafe partial class MultiDrawInfoEXT : QBDisposableObject
 {
     public MultiDrawInfoEXT()
     {
@@ -29,8 +29,14 @@ public unsafe partial class MultiDrawInfoEXT
     public AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT();
-        _internal.firstVertex = FirstVertex;
-        _internal.vertexCount = VertexCount;
+        if (FirstVertex != default)
+        {
+            _internal.firstVertex = FirstVertex;
+        }
+        if (VertexCount != default)
+        {
+            _internal.vertexCount = VertexCount;
+        }
         return _internal;
     }
 

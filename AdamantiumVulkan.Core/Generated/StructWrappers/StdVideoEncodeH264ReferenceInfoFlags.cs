@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags
+public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags : QBDisposableObject
 {
     public StdVideoEncodeH264ReferenceInfoFlags()
     {
@@ -29,8 +29,14 @@ public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags
     public AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags();
-        _internal.used_for_long_term_reference = Used_for_long_term_reference;
-        _internal.reserved = Reserved;
+        if (Used_for_long_term_reference != default)
+        {
+            _internal.used_for_long_term_reference = Used_for_long_term_reference;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
         return _internal;
     }
 

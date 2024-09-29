@@ -31,9 +31,15 @@ public unsafe partial class AttachmentReferenceStencilLayout : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkAttachmentReferenceStencilLayout ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentReferenceStencilLayout();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stencilLayout = StencilLayout;
+        if (StencilLayout != default)
+        {
+            _internal.stencilLayout = StencilLayout;
+        }
         return _internal;
     }
 

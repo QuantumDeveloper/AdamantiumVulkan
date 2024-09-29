@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264WeightTableFlags
+public unsafe partial class StdVideoEncodeH264WeightTableFlags : QBDisposableObject
 {
     public StdVideoEncodeH264WeightTableFlags()
     {
@@ -33,10 +33,22 @@ public unsafe partial class StdVideoEncodeH264WeightTableFlags
     public AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTableFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTableFlags();
-        _internal.luma_weight_l0_flag = Luma_weight_l0_flag;
-        _internal.chroma_weight_l0_flag = Chroma_weight_l0_flag;
-        _internal.luma_weight_l1_flag = Luma_weight_l1_flag;
-        _internal.chroma_weight_l1_flag = Chroma_weight_l1_flag;
+        if (Luma_weight_l0_flag != default)
+        {
+            _internal.luma_weight_l0_flag = Luma_weight_l0_flag;
+        }
+        if (Chroma_weight_l0_flag != default)
+        {
+            _internal.chroma_weight_l0_flag = Chroma_weight_l0_flag;
+        }
+        if (Luma_weight_l1_flag != default)
+        {
+            _internal.luma_weight_l1_flag = Luma_weight_l1_flag;
+        }
+        if (Chroma_weight_l1_flag != default)
+        {
+            _internal.chroma_weight_l1_flag = Chroma_weight_l1_flag;
+        }
         return _internal;
     }
 

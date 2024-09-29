@@ -54,33 +54,69 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesNV : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxDrawMeshTasksCount = MaxDrawMeshTasksCount;
-        _internal.maxTaskWorkGroupInvocations = MaxTaskWorkGroupInvocations;
-        if(MaxTaskWorkGroupSize != null)
+        if (MaxDrawMeshTasksCount != default)
+        {
+            _internal.maxDrawMeshTasksCount = MaxDrawMeshTasksCount;
+        }
+        if (MaxTaskWorkGroupInvocations != default)
+        {
+            _internal.maxTaskWorkGroupInvocations = MaxTaskWorkGroupInvocations;
+        }
+        if (MaxTaskWorkGroupSize != default)
         {
             if (MaxTaskWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxTaskWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxTaskWorkGroupSize, 3, MaxTaskWorkGroupSize);
         }
-        _internal.maxTaskTotalMemorySize = MaxTaskTotalMemorySize;
-        _internal.maxTaskOutputCount = MaxTaskOutputCount;
-        _internal.maxMeshWorkGroupInvocations = MaxMeshWorkGroupInvocations;
-        if(MaxMeshWorkGroupSize != null)
+        if (MaxTaskTotalMemorySize != default)
+        {
+            _internal.maxTaskTotalMemorySize = MaxTaskTotalMemorySize;
+        }
+        if (MaxTaskOutputCount != default)
+        {
+            _internal.maxTaskOutputCount = MaxTaskOutputCount;
+        }
+        if (MaxMeshWorkGroupInvocations != default)
+        {
+            _internal.maxMeshWorkGroupInvocations = MaxMeshWorkGroupInvocations;
+        }
+        if (MaxMeshWorkGroupSize != default)
         {
             if (MaxMeshWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxMeshWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxMeshWorkGroupSize, 3, MaxMeshWorkGroupSize);
         }
-        _internal.maxMeshTotalMemorySize = MaxMeshTotalMemorySize;
-        _internal.maxMeshOutputVertices = MaxMeshOutputVertices;
-        _internal.maxMeshOutputPrimitives = MaxMeshOutputPrimitives;
-        _internal.maxMeshMultiviewViewCount = MaxMeshMultiviewViewCount;
-        _internal.meshOutputPerVertexGranularity = MeshOutputPerVertexGranularity;
-        _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
+        if (MaxMeshTotalMemorySize != default)
+        {
+            _internal.maxMeshTotalMemorySize = MaxMeshTotalMemorySize;
+        }
+        if (MaxMeshOutputVertices != default)
+        {
+            _internal.maxMeshOutputVertices = MaxMeshOutputVertices;
+        }
+        if (MaxMeshOutputPrimitives != default)
+        {
+            _internal.maxMeshOutputPrimitives = MaxMeshOutputPrimitives;
+        }
+        if (MaxMeshMultiviewViewCount != default)
+        {
+            _internal.maxMeshMultiviewViewCount = MaxMeshMultiviewViewCount;
+        }
+        if (MeshOutputPerVertexGranularity != default)
+        {
+            _internal.meshOutputPerVertexGranularity = MeshOutputPerVertexGranularity;
+        }
+        if (MeshOutputPerPrimitiveGranularity != default)
+        {
+            _internal.meshOutputPerPrimitiveGranularity = MeshOutputPerPrimitiveGranularity;
+        }
         return _internal;
     }
 

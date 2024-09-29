@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcHlslResourceBindingMapping
+public unsafe partial class SpvcHlslResourceBindingMapping : QBDisposableObject
 {
     public SpvcHlslResourceBindingMapping()
     {
@@ -29,8 +29,14 @@ public unsafe partial class SpvcHlslResourceBindingMapping
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBindingMapping ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBindingMapping();
-        _internal.register_space = Register_space;
-        _internal.register_binding = Register_binding;
+        if (Register_space != default)
+        {
+            _internal.register_space = Register_space;
+        }
+        if (Register_binding != default)
+        {
+            _internal.register_binding = Register_binding;
+        }
         return _internal;
     }
 

@@ -30,14 +30,23 @@ public unsafe partial class SparseImageMemoryRequirements2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (MemoryRequirements != null)
+        if (MemoryRequirements != default)
         {
             _internal.memoryRequirements = MemoryRequirements.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MemoryRequirements?.Dispose();
+    }
+
 
     public static implicit operator SparseImageMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 s)
     {

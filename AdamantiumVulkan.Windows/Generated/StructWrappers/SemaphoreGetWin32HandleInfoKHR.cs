@@ -35,10 +35,19 @@ public unsafe partial class SemaphoreGetWin32HandleInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.semaphore = Semaphore;
-        _internal.handleType = HandleType;
+        if (Semaphore != default)
+        {
+            _internal.semaphore = Semaphore;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

@@ -32,16 +32,22 @@ public unsafe partial class DeviceGroupPresentCapabilitiesKHR : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(PresentMask != null)
+        if (PresentMask != default)
         {
             if (PresentMask.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(PresentMask), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.presentMask, 32, PresentMask);
         }
-        _internal.modes = Modes;
+        if (Modes != (uint)default)
+        {
+            _internal.modes = Modes;
+        }
         return _internal;
     }
 

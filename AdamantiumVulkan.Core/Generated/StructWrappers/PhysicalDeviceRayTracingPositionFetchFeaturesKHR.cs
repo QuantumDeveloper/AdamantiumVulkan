@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceRayTracingPositionFetchFeaturesKHR : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rayTracingPositionFetch = RayTracingPositionFetch;
+        if (RayTracingPositionFetch != (uint)default)
+        {
+            _internal.rayTracingPositionFetch = RayTracingPositionFetch;
+        }
         return _internal;
     }
 

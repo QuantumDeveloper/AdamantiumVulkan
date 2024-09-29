@@ -32,15 +32,27 @@ public unsafe partial class AccelerationStructureCreateInfoNV : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.compactedSize = CompactedSize;
-        if (Info != null)
+        if (CompactedSize != (ulong)default)
+        {
+            _internal.compactedSize = CompactedSize;
+        }
+        if (Info != default)
         {
             _internal.info = Info.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Info?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureCreateInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV a)
     {

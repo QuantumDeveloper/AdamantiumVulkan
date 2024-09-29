@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AccelerationStructureSRTMotionInstanceNV
+public unsafe partial class AccelerationStructureSRTMotionInstanceNV : QBDisposableObject
 {
     public AccelerationStructureSRTMotionInstanceNV()
     {
@@ -39,21 +39,43 @@ public unsafe partial class AccelerationStructureSRTMotionInstanceNV
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureSRTMotionInstanceNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureSRTMotionInstanceNV();
-        if (TransformT0 != null)
+        if (TransformT0 != default)
         {
             _internal.transformT0 = TransformT0.ToNative();
         }
-        if (TransformT1 != null)
+        if (TransformT1 != default)
         {
             _internal.transformT1 = TransformT1.ToNative();
         }
-        _internal.instanceCustomIndex = InstanceCustomIndex;
-        _internal.mask = Mask;
-        _internal.instanceShaderBindingTableRecordOffset = InstanceShaderBindingTableRecordOffset;
-        _internal.flags = Flags;
-        _internal.accelerationStructureReference = AccelerationStructureReference;
+        if (InstanceCustomIndex != default)
+        {
+            _internal.instanceCustomIndex = InstanceCustomIndex;
+        }
+        if (Mask != default)
+        {
+            _internal.mask = Mask;
+        }
+        if (InstanceShaderBindingTableRecordOffset != default)
+        {
+            _internal.instanceShaderBindingTableRecordOffset = InstanceShaderBindingTableRecordOffset;
+        }
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (AccelerationStructureReference != default)
+        {
+            _internal.accelerationStructureReference = AccelerationStructureReference;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        TransformT0?.Dispose();
+        TransformT1?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureSRTMotionInstanceNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureSRTMotionInstanceNV a)
     {

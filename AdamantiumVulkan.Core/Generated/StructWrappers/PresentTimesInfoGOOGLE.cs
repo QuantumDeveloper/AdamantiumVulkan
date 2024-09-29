@@ -35,11 +35,17 @@ public unsafe partial class PresentTimesInfoGOOGLE : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pTimes.Dispose();
-        if (PTimes != null)
+        if (PTimes != default)
         {
             var struct0 = PTimes.ToNative();
             _pTimes = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(struct0);

@@ -33,10 +33,19 @@ public unsafe partial class DescriptorSetLayoutHostMappingInfoVALVE : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorOffset = DescriptorOffset;
-        _internal.descriptorSize = DescriptorSize;
+        if (DescriptorOffset != default)
+        {
+            _internal.descriptorOffset = DescriptorOffset;
+        }
+        if (DescriptorSize != default)
+        {
+            _internal.descriptorSize = DescriptorSize;
+        }
         return _internal;
     }
 

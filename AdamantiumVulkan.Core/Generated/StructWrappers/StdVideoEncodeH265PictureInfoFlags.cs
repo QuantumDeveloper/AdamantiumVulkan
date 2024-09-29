@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH265PictureInfoFlags
+public unsafe partial class StdVideoEncodeH265PictureInfoFlags : QBDisposableObject
 {
     public StdVideoEncodeH265PictureInfoFlags()
     {
@@ -45,16 +45,46 @@ public unsafe partial class StdVideoEncodeH265PictureInfoFlags
     public AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfoFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfoFlags();
-        _internal.is_reference = Is_reference;
-        _internal.IrapPicFlag = IrapPicFlag;
-        _internal.used_for_long_term_reference = Used_for_long_term_reference;
-        _internal.discardable_flag = Discardable_flag;
-        _internal.cross_layer_bla_flag = Cross_layer_bla_flag;
-        _internal.pic_output_flag = Pic_output_flag;
-        _internal.no_output_of_prior_pics_flag = No_output_of_prior_pics_flag;
-        _internal.short_term_ref_pic_set_sps_flag = Short_term_ref_pic_set_sps_flag;
-        _internal.slice_temporal_mvp_enabled_flag = Slice_temporal_mvp_enabled_flag;
-        _internal.reserved = Reserved;
+        if (Is_reference != default)
+        {
+            _internal.is_reference = Is_reference;
+        }
+        if (IrapPicFlag != default)
+        {
+            _internal.IrapPicFlag = IrapPicFlag;
+        }
+        if (Used_for_long_term_reference != default)
+        {
+            _internal.used_for_long_term_reference = Used_for_long_term_reference;
+        }
+        if (Discardable_flag != default)
+        {
+            _internal.discardable_flag = Discardable_flag;
+        }
+        if (Cross_layer_bla_flag != default)
+        {
+            _internal.cross_layer_bla_flag = Cross_layer_bla_flag;
+        }
+        if (Pic_output_flag != default)
+        {
+            _internal.pic_output_flag = Pic_output_flag;
+        }
+        if (No_output_of_prior_pics_flag != default)
+        {
+            _internal.no_output_of_prior_pics_flag = No_output_of_prior_pics_flag;
+        }
+        if (Short_term_ref_pic_set_sps_flag != default)
+        {
+            _internal.short_term_ref_pic_set_sps_flag = Short_term_ref_pic_set_sps_flag;
+        }
+        if (Slice_temporal_mvp_enabled_flag != default)
+        {
+            _internal.slice_temporal_mvp_enabled_flag = Slice_temporal_mvp_enabled_flag;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
         return _internal;
     }
 

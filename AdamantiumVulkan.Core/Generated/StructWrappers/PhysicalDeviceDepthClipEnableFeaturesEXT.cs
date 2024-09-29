@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceDepthClipEnableFeaturesEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.depthClipEnable = DepthClipEnable;
+        if (DepthClipEnable != (uint)default)
+        {
+            _internal.depthClipEnable = DepthClipEnable;
+        }
         return _internal;
     }
 

@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceSamplerYcbcrConversionFeatures : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
+        if (SamplerYcbcrConversion != (uint)default)
+        {
+            _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
+        }
         return _internal;
     }
 

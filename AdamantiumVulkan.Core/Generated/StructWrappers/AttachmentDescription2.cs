@@ -47,17 +47,47 @@ public unsafe partial class AttachmentDescription2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAttachmentDescription2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.format = Format;
-        _internal.samples = Samples;
-        _internal.loadOp = LoadOp;
-        _internal.storeOp = StoreOp;
-        _internal.stencilLoadOp = StencilLoadOp;
-        _internal.stencilStoreOp = StencilStoreOp;
-        _internal.initialLayout = InitialLayout;
-        _internal.finalLayout = FinalLayout;
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Samples != default)
+        {
+            _internal.samples = Samples;
+        }
+        if (LoadOp != default)
+        {
+            _internal.loadOp = LoadOp;
+        }
+        if (StoreOp != default)
+        {
+            _internal.storeOp = StoreOp;
+        }
+        if (StencilLoadOp != default)
+        {
+            _internal.stencilLoadOp = StencilLoadOp;
+        }
+        if (StencilStoreOp != default)
+        {
+            _internal.stencilStoreOp = StencilStoreOp;
+        }
+        if (InitialLayout != default)
+        {
+            _internal.initialLayout = InitialLayout;
+        }
+        if (FinalLayout != default)
+        {
+            _internal.finalLayout = FinalLayout;
+        }
         return _internal;
     }
 

@@ -95,41 +95,143 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.combinedImageSamplerDescriptorSingleArray = CombinedImageSamplerDescriptorSingleArray;
-        _internal.bufferlessPushDescriptors = BufferlessPushDescriptors;
-        _internal.allowSamplerImageViewPostSubmitCreation = AllowSamplerImageViewPostSubmitCreation;
-        _internal.descriptorBufferOffsetAlignment = DescriptorBufferOffsetAlignment;
-        _internal.maxDescriptorBufferBindings = MaxDescriptorBufferBindings;
-        _internal.maxResourceDescriptorBufferBindings = MaxResourceDescriptorBufferBindings;
-        _internal.maxSamplerDescriptorBufferBindings = MaxSamplerDescriptorBufferBindings;
-        _internal.maxEmbeddedImmutableSamplerBindings = MaxEmbeddedImmutableSamplerBindings;
-        _internal.maxEmbeddedImmutableSamplers = MaxEmbeddedImmutableSamplers;
-        _internal.bufferCaptureReplayDescriptorDataSize = BufferCaptureReplayDescriptorDataSize;
-        _internal.imageCaptureReplayDescriptorDataSize = ImageCaptureReplayDescriptorDataSize;
-        _internal.imageViewCaptureReplayDescriptorDataSize = ImageViewCaptureReplayDescriptorDataSize;
-        _internal.samplerCaptureReplayDescriptorDataSize = SamplerCaptureReplayDescriptorDataSize;
-        _internal.accelerationStructureCaptureReplayDescriptorDataSize = AccelerationStructureCaptureReplayDescriptorDataSize;
-        _internal.samplerDescriptorSize = SamplerDescriptorSize;
-        _internal.combinedImageSamplerDescriptorSize = CombinedImageSamplerDescriptorSize;
-        _internal.sampledImageDescriptorSize = SampledImageDescriptorSize;
-        _internal.storageImageDescriptorSize = StorageImageDescriptorSize;
-        _internal.uniformTexelBufferDescriptorSize = UniformTexelBufferDescriptorSize;
-        _internal.robustUniformTexelBufferDescriptorSize = RobustUniformTexelBufferDescriptorSize;
-        _internal.storageTexelBufferDescriptorSize = StorageTexelBufferDescriptorSize;
-        _internal.robustStorageTexelBufferDescriptorSize = RobustStorageTexelBufferDescriptorSize;
-        _internal.uniformBufferDescriptorSize = UniformBufferDescriptorSize;
-        _internal.robustUniformBufferDescriptorSize = RobustUniformBufferDescriptorSize;
-        _internal.storageBufferDescriptorSize = StorageBufferDescriptorSize;
-        _internal.robustStorageBufferDescriptorSize = RobustStorageBufferDescriptorSize;
-        _internal.inputAttachmentDescriptorSize = InputAttachmentDescriptorSize;
-        _internal.accelerationStructureDescriptorSize = AccelerationStructureDescriptorSize;
-        _internal.maxSamplerDescriptorBufferRange = MaxSamplerDescriptorBufferRange;
-        _internal.maxResourceDescriptorBufferRange = MaxResourceDescriptorBufferRange;
-        _internal.samplerDescriptorBufferAddressSpaceSize = SamplerDescriptorBufferAddressSpaceSize;
-        _internal.resourceDescriptorBufferAddressSpaceSize = ResourceDescriptorBufferAddressSpaceSize;
-        _internal.descriptorBufferAddressSpaceSize = DescriptorBufferAddressSpaceSize;
+        if (CombinedImageSamplerDescriptorSingleArray != (uint)default)
+        {
+            _internal.combinedImageSamplerDescriptorSingleArray = CombinedImageSamplerDescriptorSingleArray;
+        }
+        if (BufferlessPushDescriptors != (uint)default)
+        {
+            _internal.bufferlessPushDescriptors = BufferlessPushDescriptors;
+        }
+        if (AllowSamplerImageViewPostSubmitCreation != (uint)default)
+        {
+            _internal.allowSamplerImageViewPostSubmitCreation = AllowSamplerImageViewPostSubmitCreation;
+        }
+        if (DescriptorBufferOffsetAlignment != (ulong)default)
+        {
+            _internal.descriptorBufferOffsetAlignment = DescriptorBufferOffsetAlignment;
+        }
+        if (MaxDescriptorBufferBindings != default)
+        {
+            _internal.maxDescriptorBufferBindings = MaxDescriptorBufferBindings;
+        }
+        if (MaxResourceDescriptorBufferBindings != default)
+        {
+            _internal.maxResourceDescriptorBufferBindings = MaxResourceDescriptorBufferBindings;
+        }
+        if (MaxSamplerDescriptorBufferBindings != default)
+        {
+            _internal.maxSamplerDescriptorBufferBindings = MaxSamplerDescriptorBufferBindings;
+        }
+        if (MaxEmbeddedImmutableSamplerBindings != default)
+        {
+            _internal.maxEmbeddedImmutableSamplerBindings = MaxEmbeddedImmutableSamplerBindings;
+        }
+        if (MaxEmbeddedImmutableSamplers != default)
+        {
+            _internal.maxEmbeddedImmutableSamplers = MaxEmbeddedImmutableSamplers;
+        }
+        if (BufferCaptureReplayDescriptorDataSize != default)
+        {
+            _internal.bufferCaptureReplayDescriptorDataSize = BufferCaptureReplayDescriptorDataSize;
+        }
+        if (ImageCaptureReplayDescriptorDataSize != default)
+        {
+            _internal.imageCaptureReplayDescriptorDataSize = ImageCaptureReplayDescriptorDataSize;
+        }
+        if (ImageViewCaptureReplayDescriptorDataSize != default)
+        {
+            _internal.imageViewCaptureReplayDescriptorDataSize = ImageViewCaptureReplayDescriptorDataSize;
+        }
+        if (SamplerCaptureReplayDescriptorDataSize != default)
+        {
+            _internal.samplerCaptureReplayDescriptorDataSize = SamplerCaptureReplayDescriptorDataSize;
+        }
+        if (AccelerationStructureCaptureReplayDescriptorDataSize != default)
+        {
+            _internal.accelerationStructureCaptureReplayDescriptorDataSize = AccelerationStructureCaptureReplayDescriptorDataSize;
+        }
+        if (SamplerDescriptorSize != default)
+        {
+            _internal.samplerDescriptorSize = SamplerDescriptorSize;
+        }
+        if (CombinedImageSamplerDescriptorSize != default)
+        {
+            _internal.combinedImageSamplerDescriptorSize = CombinedImageSamplerDescriptorSize;
+        }
+        if (SampledImageDescriptorSize != default)
+        {
+            _internal.sampledImageDescriptorSize = SampledImageDescriptorSize;
+        }
+        if (StorageImageDescriptorSize != default)
+        {
+            _internal.storageImageDescriptorSize = StorageImageDescriptorSize;
+        }
+        if (UniformTexelBufferDescriptorSize != default)
+        {
+            _internal.uniformTexelBufferDescriptorSize = UniformTexelBufferDescriptorSize;
+        }
+        if (RobustUniformTexelBufferDescriptorSize != default)
+        {
+            _internal.robustUniformTexelBufferDescriptorSize = RobustUniformTexelBufferDescriptorSize;
+        }
+        if (StorageTexelBufferDescriptorSize != default)
+        {
+            _internal.storageTexelBufferDescriptorSize = StorageTexelBufferDescriptorSize;
+        }
+        if (RobustStorageTexelBufferDescriptorSize != default)
+        {
+            _internal.robustStorageTexelBufferDescriptorSize = RobustStorageTexelBufferDescriptorSize;
+        }
+        if (UniformBufferDescriptorSize != default)
+        {
+            _internal.uniformBufferDescriptorSize = UniformBufferDescriptorSize;
+        }
+        if (RobustUniformBufferDescriptorSize != default)
+        {
+            _internal.robustUniformBufferDescriptorSize = RobustUniformBufferDescriptorSize;
+        }
+        if (StorageBufferDescriptorSize != default)
+        {
+            _internal.storageBufferDescriptorSize = StorageBufferDescriptorSize;
+        }
+        if (RobustStorageBufferDescriptorSize != default)
+        {
+            _internal.robustStorageBufferDescriptorSize = RobustStorageBufferDescriptorSize;
+        }
+        if (InputAttachmentDescriptorSize != default)
+        {
+            _internal.inputAttachmentDescriptorSize = InputAttachmentDescriptorSize;
+        }
+        if (AccelerationStructureDescriptorSize != default)
+        {
+            _internal.accelerationStructureDescriptorSize = AccelerationStructureDescriptorSize;
+        }
+        if (MaxSamplerDescriptorBufferRange != (ulong)default)
+        {
+            _internal.maxSamplerDescriptorBufferRange = MaxSamplerDescriptorBufferRange;
+        }
+        if (MaxResourceDescriptorBufferRange != (ulong)default)
+        {
+            _internal.maxResourceDescriptorBufferRange = MaxResourceDescriptorBufferRange;
+        }
+        if (SamplerDescriptorBufferAddressSpaceSize != (ulong)default)
+        {
+            _internal.samplerDescriptorBufferAddressSpaceSize = SamplerDescriptorBufferAddressSpaceSize;
+        }
+        if (ResourceDescriptorBufferAddressSpaceSize != (ulong)default)
+        {
+            _internal.resourceDescriptorBufferAddressSpaceSize = ResourceDescriptorBufferAddressSpaceSize;
+        }
+        if (DescriptorBufferAddressSpaceSize != (ulong)default)
+        {
+            _internal.descriptorBufferAddressSpaceSize = DescriptorBufferAddressSpaceSize;
+        }
         return _internal;
     }
 

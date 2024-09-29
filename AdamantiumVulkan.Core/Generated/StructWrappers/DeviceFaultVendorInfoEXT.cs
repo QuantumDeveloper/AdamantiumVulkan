@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DeviceFaultVendorInfoEXT
+public unsafe partial class DeviceFaultVendorInfoEXT : QBDisposableObject
 {
     public DeviceFaultVendorInfoEXT()
     {
@@ -31,15 +31,21 @@ public unsafe partial class DeviceFaultVendorInfoEXT
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT();
-        if(Description != null)
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
-        _internal.vendorFaultCode = VendorFaultCode;
-        _internal.vendorFaultData = VendorFaultData;
+        if (VendorFaultCode != default)
+        {
+            _internal.vendorFaultCode = VendorFaultCode;
+        }
+        if (VendorFaultData != default)
+        {
+            _internal.vendorFaultData = VendorFaultData;
+        }
         return _internal;
     }
 

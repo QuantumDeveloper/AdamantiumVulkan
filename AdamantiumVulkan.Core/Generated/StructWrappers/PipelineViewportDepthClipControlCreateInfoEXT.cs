@@ -31,9 +31,15 @@ public unsafe partial class PipelineViewportDepthClipControlCreateInfoEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClipControlCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClipControlCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.negativeOneToOne = NegativeOneToOne;
+        if (NegativeOneToOne != (uint)default)
+        {
+            _internal.negativeOneToOne = NegativeOneToOne;
+        }
         return _internal;
     }
 

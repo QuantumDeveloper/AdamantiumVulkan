@@ -41,14 +41,35 @@ public unsafe partial class MicromapCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.createFlags = CreateFlags;
-        _internal.buffer = Buffer;
-        _internal.offset = Offset;
-        _internal.size = Size;
-        _internal.type = Type;
-        _internal.deviceAddress = DeviceAddress;
+        if (CreateFlags != (uint)default)
+        {
+            _internal.createFlags = CreateFlags;
+        }
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (DeviceAddress != (ulong)default)
+        {
+            _internal.deviceAddress = DeviceAddress;
+        }
         return _internal;
     }
 

@@ -53,27 +53,48 @@ public unsafe partial class VideoSessionCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.queueFamilyIndex = QueueFamilyIndex;
-        _internal.flags = Flags;
+        if (QueueFamilyIndex != default)
+        {
+            _internal.queueFamilyIndex = QueueFamilyIndex;
+        }
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
         _pVideoProfile.Dispose();
-        if (PVideoProfile != null)
+        if (PVideoProfile != default)
         {
             var struct0 = PVideoProfile.ToNative();
             _pVideoProfile = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(struct0);
             _internal.pVideoProfile = _pVideoProfile.Handle;
         }
-        _internal.pictureFormat = PictureFormat;
-        if (MaxCodedExtent != null)
+        if (PictureFormat != default)
+        {
+            _internal.pictureFormat = PictureFormat;
+        }
+        if (MaxCodedExtent != default)
         {
             _internal.maxCodedExtent = MaxCodedExtent.ToNative();
         }
-        _internal.referencePictureFormat = ReferencePictureFormat;
-        _internal.maxDpbSlots = MaxDpbSlots;
-        _internal.maxActiveReferencePictures = MaxActiveReferencePictures;
+        if (ReferencePictureFormat != default)
+        {
+            _internal.referencePictureFormat = ReferencePictureFormat;
+        }
+        if (MaxDpbSlots != default)
+        {
+            _internal.maxDpbSlots = MaxDpbSlots;
+        }
+        if (MaxActiveReferencePictures != default)
+        {
+            _internal.maxActiveReferencePictures = MaxActiveReferencePictures;
+        }
         _pStdHeaderVersion.Dispose();
-        if (PStdHeaderVersion != null)
+        if (PStdHeaderVersion != default)
         {
             var struct1 = PStdHeaderVersion.ToNative();
             _pStdHeaderVersion = new NativeStruct<AdamantiumVulkan.Core.Interop.VkExtensionProperties>(struct1);
@@ -86,6 +107,7 @@ public unsafe partial class VideoSessionCreateInfoKHR : QBDisposableObject
     {
         _pVideoProfile.Dispose();
         _pStdHeaderVersion.Dispose();
+        MaxCodedExtent?.Dispose();
     }
 
 

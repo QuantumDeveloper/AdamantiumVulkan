@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class Extent2D
+public unsafe partial class Extent2D : QBDisposableObject
 {
     public Extent2D()
     {
@@ -29,8 +29,14 @@ public unsafe partial class Extent2D
     public AdamantiumVulkan.Core.Interop.VkExtent2D ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExtent2D();
-        _internal.width = Width;
-        _internal.height = Height;
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
         return _internal;
     }
 

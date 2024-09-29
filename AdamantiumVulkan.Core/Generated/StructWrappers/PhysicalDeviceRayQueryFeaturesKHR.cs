@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceRayQueryFeaturesKHR : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rayQuery = RayQuery;
+        if (RayQuery != (uint)default)
+        {
+            _internal.rayQuery = RayQuery;
+        }
         return _internal;
     }
 

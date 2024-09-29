@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH264SpsFlags
+public unsafe partial class StdVideoH264SpsFlags : QBDisposableObject
 {
     public StdVideoH264SpsFlags()
     {
@@ -57,22 +57,70 @@ public unsafe partial class StdVideoH264SpsFlags
     public AdamantiumVulkan.Interop.StdVideoH264SpsFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH264SpsFlags();
-        _internal.constraint_set0_flag = Constraint_set0_flag;
-        _internal.constraint_set1_flag = Constraint_set1_flag;
-        _internal.constraint_set2_flag = Constraint_set2_flag;
-        _internal.constraint_set3_flag = Constraint_set3_flag;
-        _internal.constraint_set4_flag = Constraint_set4_flag;
-        _internal.constraint_set5_flag = Constraint_set5_flag;
-        _internal.direct_8x8_inference_flag = Direct_8x8_inference_flag;
-        _internal.mb_adaptive_frame_field_flag = Mb_adaptive_frame_field_flag;
-        _internal.frame_mbs_only_flag = Frame_mbs_only_flag;
-        _internal.delta_pic_order_always_zero_flag = Delta_pic_order_always_zero_flag;
-        _internal.separate_colour_plane_flag = Separate_colour_plane_flag;
-        _internal.gaps_in_frame_num_value_allowed_flag = Gaps_in_frame_num_value_allowed_flag;
-        _internal.qpprime_y_zero_transform_bypass_flag = Qpprime_y_zero_transform_bypass_flag;
-        _internal.frame_cropping_flag = Frame_cropping_flag;
-        _internal.seq_scaling_matrix_present_flag = Seq_scaling_matrix_present_flag;
-        _internal.vui_parameters_present_flag = Vui_parameters_present_flag;
+        if (Constraint_set0_flag != default)
+        {
+            _internal.constraint_set0_flag = Constraint_set0_flag;
+        }
+        if (Constraint_set1_flag != default)
+        {
+            _internal.constraint_set1_flag = Constraint_set1_flag;
+        }
+        if (Constraint_set2_flag != default)
+        {
+            _internal.constraint_set2_flag = Constraint_set2_flag;
+        }
+        if (Constraint_set3_flag != default)
+        {
+            _internal.constraint_set3_flag = Constraint_set3_flag;
+        }
+        if (Constraint_set4_flag != default)
+        {
+            _internal.constraint_set4_flag = Constraint_set4_flag;
+        }
+        if (Constraint_set5_flag != default)
+        {
+            _internal.constraint_set5_flag = Constraint_set5_flag;
+        }
+        if (Direct_8x8_inference_flag != default)
+        {
+            _internal.direct_8x8_inference_flag = Direct_8x8_inference_flag;
+        }
+        if (Mb_adaptive_frame_field_flag != default)
+        {
+            _internal.mb_adaptive_frame_field_flag = Mb_adaptive_frame_field_flag;
+        }
+        if (Frame_mbs_only_flag != default)
+        {
+            _internal.frame_mbs_only_flag = Frame_mbs_only_flag;
+        }
+        if (Delta_pic_order_always_zero_flag != default)
+        {
+            _internal.delta_pic_order_always_zero_flag = Delta_pic_order_always_zero_flag;
+        }
+        if (Separate_colour_plane_flag != default)
+        {
+            _internal.separate_colour_plane_flag = Separate_colour_plane_flag;
+        }
+        if (Gaps_in_frame_num_value_allowed_flag != default)
+        {
+            _internal.gaps_in_frame_num_value_allowed_flag = Gaps_in_frame_num_value_allowed_flag;
+        }
+        if (Qpprime_y_zero_transform_bypass_flag != default)
+        {
+            _internal.qpprime_y_zero_transform_bypass_flag = Qpprime_y_zero_transform_bypass_flag;
+        }
+        if (Frame_cropping_flag != default)
+        {
+            _internal.frame_cropping_flag = Frame_cropping_flag;
+        }
+        if (Seq_scaling_matrix_present_flag != default)
+        {
+            _internal.seq_scaling_matrix_present_flag = Seq_scaling_matrix_present_flag;
+        }
+        if (Vui_parameters_present_flag != default)
+        {
+            _internal.vui_parameters_present_flag = Vui_parameters_present_flag;
+        }
         return _internal;
     }
 

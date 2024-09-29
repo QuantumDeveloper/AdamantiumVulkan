@@ -91,39 +91,135 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3FeaturesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.extendedDynamicState3TessellationDomainOrigin = ExtendedDynamicState3TessellationDomainOrigin;
-        _internal.extendedDynamicState3DepthClampEnable = ExtendedDynamicState3DepthClampEnable;
-        _internal.extendedDynamicState3PolygonMode = ExtendedDynamicState3PolygonMode;
-        _internal.extendedDynamicState3RasterizationSamples = ExtendedDynamicState3RasterizationSamples;
-        _internal.extendedDynamicState3SampleMask = ExtendedDynamicState3SampleMask;
-        _internal.extendedDynamicState3AlphaToCoverageEnable = ExtendedDynamicState3AlphaToCoverageEnable;
-        _internal.extendedDynamicState3AlphaToOneEnable = ExtendedDynamicState3AlphaToOneEnable;
-        _internal.extendedDynamicState3LogicOpEnable = ExtendedDynamicState3LogicOpEnable;
-        _internal.extendedDynamicState3ColorBlendEnable = ExtendedDynamicState3ColorBlendEnable;
-        _internal.extendedDynamicState3ColorBlendEquation = ExtendedDynamicState3ColorBlendEquation;
-        _internal.extendedDynamicState3ColorWriteMask = ExtendedDynamicState3ColorWriteMask;
-        _internal.extendedDynamicState3RasterizationStream = ExtendedDynamicState3RasterizationStream;
-        _internal.extendedDynamicState3ConservativeRasterizationMode = ExtendedDynamicState3ConservativeRasterizationMode;
-        _internal.extendedDynamicState3ExtraPrimitiveOverestimationSize = ExtendedDynamicState3ExtraPrimitiveOverestimationSize;
-        _internal.extendedDynamicState3DepthClipEnable = ExtendedDynamicState3DepthClipEnable;
-        _internal.extendedDynamicState3SampleLocationsEnable = ExtendedDynamicState3SampleLocationsEnable;
-        _internal.extendedDynamicState3ColorBlendAdvanced = ExtendedDynamicState3ColorBlendAdvanced;
-        _internal.extendedDynamicState3ProvokingVertexMode = ExtendedDynamicState3ProvokingVertexMode;
-        _internal.extendedDynamicState3LineRasterizationMode = ExtendedDynamicState3LineRasterizationMode;
-        _internal.extendedDynamicState3LineStippleEnable = ExtendedDynamicState3LineStippleEnable;
-        _internal.extendedDynamicState3DepthClipNegativeOneToOne = ExtendedDynamicState3DepthClipNegativeOneToOne;
-        _internal.extendedDynamicState3ViewportWScalingEnable = ExtendedDynamicState3ViewportWScalingEnable;
-        _internal.extendedDynamicState3ViewportSwizzle = ExtendedDynamicState3ViewportSwizzle;
-        _internal.extendedDynamicState3CoverageToColorEnable = ExtendedDynamicState3CoverageToColorEnable;
-        _internal.extendedDynamicState3CoverageToColorLocation = ExtendedDynamicState3CoverageToColorLocation;
-        _internal.extendedDynamicState3CoverageModulationMode = ExtendedDynamicState3CoverageModulationMode;
-        _internal.extendedDynamicState3CoverageModulationTableEnable = ExtendedDynamicState3CoverageModulationTableEnable;
-        _internal.extendedDynamicState3CoverageModulationTable = ExtendedDynamicState3CoverageModulationTable;
-        _internal.extendedDynamicState3CoverageReductionMode = ExtendedDynamicState3CoverageReductionMode;
-        _internal.extendedDynamicState3RepresentativeFragmentTestEnable = ExtendedDynamicState3RepresentativeFragmentTestEnable;
-        _internal.extendedDynamicState3ShadingRateImageEnable = ExtendedDynamicState3ShadingRateImageEnable;
+        if (ExtendedDynamicState3TessellationDomainOrigin != (uint)default)
+        {
+            _internal.extendedDynamicState3TessellationDomainOrigin = ExtendedDynamicState3TessellationDomainOrigin;
+        }
+        if (ExtendedDynamicState3DepthClampEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3DepthClampEnable = ExtendedDynamicState3DepthClampEnable;
+        }
+        if (ExtendedDynamicState3PolygonMode != (uint)default)
+        {
+            _internal.extendedDynamicState3PolygonMode = ExtendedDynamicState3PolygonMode;
+        }
+        if (ExtendedDynamicState3RasterizationSamples != (uint)default)
+        {
+            _internal.extendedDynamicState3RasterizationSamples = ExtendedDynamicState3RasterizationSamples;
+        }
+        if (ExtendedDynamicState3SampleMask != (uint)default)
+        {
+            _internal.extendedDynamicState3SampleMask = ExtendedDynamicState3SampleMask;
+        }
+        if (ExtendedDynamicState3AlphaToCoverageEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3AlphaToCoverageEnable = ExtendedDynamicState3AlphaToCoverageEnable;
+        }
+        if (ExtendedDynamicState3AlphaToOneEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3AlphaToOneEnable = ExtendedDynamicState3AlphaToOneEnable;
+        }
+        if (ExtendedDynamicState3LogicOpEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3LogicOpEnable = ExtendedDynamicState3LogicOpEnable;
+        }
+        if (ExtendedDynamicState3ColorBlendEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3ColorBlendEnable = ExtendedDynamicState3ColorBlendEnable;
+        }
+        if (ExtendedDynamicState3ColorBlendEquation != (uint)default)
+        {
+            _internal.extendedDynamicState3ColorBlendEquation = ExtendedDynamicState3ColorBlendEquation;
+        }
+        if (ExtendedDynamicState3ColorWriteMask != (uint)default)
+        {
+            _internal.extendedDynamicState3ColorWriteMask = ExtendedDynamicState3ColorWriteMask;
+        }
+        if (ExtendedDynamicState3RasterizationStream != (uint)default)
+        {
+            _internal.extendedDynamicState3RasterizationStream = ExtendedDynamicState3RasterizationStream;
+        }
+        if (ExtendedDynamicState3ConservativeRasterizationMode != (uint)default)
+        {
+            _internal.extendedDynamicState3ConservativeRasterizationMode = ExtendedDynamicState3ConservativeRasterizationMode;
+        }
+        if (ExtendedDynamicState3ExtraPrimitiveOverestimationSize != (uint)default)
+        {
+            _internal.extendedDynamicState3ExtraPrimitiveOverestimationSize = ExtendedDynamicState3ExtraPrimitiveOverestimationSize;
+        }
+        if (ExtendedDynamicState3DepthClipEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3DepthClipEnable = ExtendedDynamicState3DepthClipEnable;
+        }
+        if (ExtendedDynamicState3SampleLocationsEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3SampleLocationsEnable = ExtendedDynamicState3SampleLocationsEnable;
+        }
+        if (ExtendedDynamicState3ColorBlendAdvanced != (uint)default)
+        {
+            _internal.extendedDynamicState3ColorBlendAdvanced = ExtendedDynamicState3ColorBlendAdvanced;
+        }
+        if (ExtendedDynamicState3ProvokingVertexMode != (uint)default)
+        {
+            _internal.extendedDynamicState3ProvokingVertexMode = ExtendedDynamicState3ProvokingVertexMode;
+        }
+        if (ExtendedDynamicState3LineRasterizationMode != (uint)default)
+        {
+            _internal.extendedDynamicState3LineRasterizationMode = ExtendedDynamicState3LineRasterizationMode;
+        }
+        if (ExtendedDynamicState3LineStippleEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3LineStippleEnable = ExtendedDynamicState3LineStippleEnable;
+        }
+        if (ExtendedDynamicState3DepthClipNegativeOneToOne != (uint)default)
+        {
+            _internal.extendedDynamicState3DepthClipNegativeOneToOne = ExtendedDynamicState3DepthClipNegativeOneToOne;
+        }
+        if (ExtendedDynamicState3ViewportWScalingEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3ViewportWScalingEnable = ExtendedDynamicState3ViewportWScalingEnable;
+        }
+        if (ExtendedDynamicState3ViewportSwizzle != (uint)default)
+        {
+            _internal.extendedDynamicState3ViewportSwizzle = ExtendedDynamicState3ViewportSwizzle;
+        }
+        if (ExtendedDynamicState3CoverageToColorEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3CoverageToColorEnable = ExtendedDynamicState3CoverageToColorEnable;
+        }
+        if (ExtendedDynamicState3CoverageToColorLocation != (uint)default)
+        {
+            _internal.extendedDynamicState3CoverageToColorLocation = ExtendedDynamicState3CoverageToColorLocation;
+        }
+        if (ExtendedDynamicState3CoverageModulationMode != (uint)default)
+        {
+            _internal.extendedDynamicState3CoverageModulationMode = ExtendedDynamicState3CoverageModulationMode;
+        }
+        if (ExtendedDynamicState3CoverageModulationTableEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3CoverageModulationTableEnable = ExtendedDynamicState3CoverageModulationTableEnable;
+        }
+        if (ExtendedDynamicState3CoverageModulationTable != (uint)default)
+        {
+            _internal.extendedDynamicState3CoverageModulationTable = ExtendedDynamicState3CoverageModulationTable;
+        }
+        if (ExtendedDynamicState3CoverageReductionMode != (uint)default)
+        {
+            _internal.extendedDynamicState3CoverageReductionMode = ExtendedDynamicState3CoverageReductionMode;
+        }
+        if (ExtendedDynamicState3RepresentativeFragmentTestEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3RepresentativeFragmentTestEnable = ExtendedDynamicState3RepresentativeFragmentTestEnable;
+        }
+        if (ExtendedDynamicState3ShadingRateImageEnable != (uint)default)
+        {
+            _internal.extendedDynamicState3ShadingRateImageEnable = ExtendedDynamicState3ShadingRateImageEnable;
+        }
         return _internal;
     }
 

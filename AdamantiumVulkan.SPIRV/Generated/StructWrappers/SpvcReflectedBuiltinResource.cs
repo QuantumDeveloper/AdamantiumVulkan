@@ -12,7 +12,7 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcReflectedBuiltinResource
+public unsafe partial class SpvcReflectedBuiltinResource : QBDisposableObject
 {
     public SpvcReflectedBuiltinResource()
     {
@@ -32,14 +32,26 @@ public unsafe partial class SpvcReflectedBuiltinResource
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource();
-        _internal.builtin = Builtin;
-        _internal.value_type_id = Value_type_id;
-        if (Resource != null)
+        if (Builtin != default)
+        {
+            _internal.builtin = Builtin;
+        }
+        if (Value_type_id != (uint)default)
+        {
+            _internal.value_type_id = Value_type_id;
+        }
+        if (Resource != default)
         {
             _internal.resource = Resource.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Resource?.Dispose();
+    }
+
 
     public static implicit operator SpvcReflectedBuiltinResource(AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource s)
     {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265SubLayerHrdParameters
+public unsafe partial class StdVideoH265SubLayerHrdParameters : QBDisposableObject
 {
     public StdVideoH265SubLayerHrdParameters()
     {
@@ -35,35 +35,38 @@ public unsafe partial class StdVideoH265SubLayerHrdParameters
     public AdamantiumVulkan.Interop.StdVideoH265SubLayerHrdParameters ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265SubLayerHrdParameters();
-        if(Bit_rate_value_minus1 != null)
+        if (Bit_rate_value_minus1 != default)
         {
             if (Bit_rate_value_minus1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Bit_rate_value_minus1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.bit_rate_value_minus1, 32, Bit_rate_value_minus1);
         }
-        if(Cpb_size_value_minus1 != null)
+        if (Cpb_size_value_minus1 != default)
         {
             if (Cpb_size_value_minus1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Cpb_size_value_minus1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.cpb_size_value_minus1, 32, Cpb_size_value_minus1);
         }
-        if(Cpb_size_du_value_minus1 != null)
+        if (Cpb_size_du_value_minus1 != default)
         {
             if (Cpb_size_du_value_minus1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Cpb_size_du_value_minus1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.cpb_size_du_value_minus1, 32, Cpb_size_du_value_minus1);
         }
-        if(Bit_rate_du_value_minus1 != null)
+        if (Bit_rate_du_value_minus1 != default)
         {
             if (Bit_rate_du_value_minus1.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Bit_rate_du_value_minus1), "Array is out of bounds. Size should not be more than 32");
 
             NativeUtils.PrimitiveToFixedArray(_internal.bit_rate_du_value_minus1, 32, Bit_rate_du_value_minus1);
         }
-        _internal.cbr_flag = Cbr_flag;
+        if (Cbr_flag != default)
+        {
+            _internal.cbr_flag = Cbr_flag;
+        }
         return _internal;
     }
 

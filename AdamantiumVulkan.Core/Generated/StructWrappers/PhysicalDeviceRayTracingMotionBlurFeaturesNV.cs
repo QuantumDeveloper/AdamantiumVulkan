@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceRayTracingMotionBlurFeaturesNV : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingMotionBlurFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingMotionBlurFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rayTracingMotionBlur = RayTracingMotionBlur;
-        _internal.rayTracingMotionBlurPipelineTraceRaysIndirect = RayTracingMotionBlurPipelineTraceRaysIndirect;
+        if (RayTracingMotionBlur != (uint)default)
+        {
+            _internal.rayTracingMotionBlur = RayTracingMotionBlur;
+        }
+        if (RayTracingMotionBlurPipelineTraceRaysIndirect != (uint)default)
+        {
+            _internal.rayTracingMotionBlurPipelineTraceRaysIndirect = RayTracingMotionBlurPipelineTraceRaysIndirect;
+        }
         return _internal;
     }
 

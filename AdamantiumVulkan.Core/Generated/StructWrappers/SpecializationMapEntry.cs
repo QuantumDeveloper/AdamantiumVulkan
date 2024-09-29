@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SpecializationMapEntry
+public unsafe partial class SpecializationMapEntry : QBDisposableObject
 {
     public SpecializationMapEntry()
     {
@@ -31,9 +31,18 @@ public unsafe partial class SpecializationMapEntry
     public AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry();
-        _internal.constantID = ConstantID;
-        _internal.offset = Offset;
-        _internal.size = Size;
+        if (ConstantID != default)
+        {
+            _internal.constantID = ConstantID;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

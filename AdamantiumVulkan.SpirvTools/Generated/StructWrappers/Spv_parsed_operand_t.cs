@@ -11,7 +11,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-public unsafe partial class Spv_parsed_operand_t
+public unsafe partial class Spv_parsed_operand_t : QBDisposableObject
 {
     public Spv_parsed_operand_t()
     {
@@ -35,11 +35,26 @@ public unsafe partial class Spv_parsed_operand_t
     public AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t ToNative()
     {
         var _internal = new AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t();
-        _internal.offset = Offset;
-        _internal.num_words = Num_words;
-        _internal.type = Type;
-        _internal.number_kind = Number_kind;
-        _internal.number_bit_width = Number_bit_width;
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Num_words != default)
+        {
+            _internal.num_words = Num_words;
+        }
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Number_kind != default)
+        {
+            _internal.number_kind = Number_kind;
+        }
+        if (Number_bit_width != default)
+        {
+            _internal.number_bit_width = Number_bit_width;
+        }
         return _internal;
     }
 

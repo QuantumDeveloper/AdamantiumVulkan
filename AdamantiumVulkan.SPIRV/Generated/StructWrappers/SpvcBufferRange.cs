@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcBufferRange
+public unsafe partial class SpvcBufferRange : QBDisposableObject
 {
     public SpvcBufferRange()
     {
@@ -31,9 +31,18 @@ public unsafe partial class SpvcBufferRange
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange();
-        _internal.index = Index;
-        _internal.offset = Offset;
-        _internal.range = Range;
+        if (Index != default)
+        {
+            _internal.index = Index;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Range != default)
+        {
+            _internal.range = Range;
+        }
         return _internal;
     }
 

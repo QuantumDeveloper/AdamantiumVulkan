@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ExternalImageFormatPropertiesNV
+public unsafe partial class ExternalImageFormatPropertiesNV : QBDisposableObject
 {
     public ExternalImageFormatPropertiesNV()
     {
@@ -33,15 +33,30 @@ public unsafe partial class ExternalImageFormatPropertiesNV
     public AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV();
-        if (ImageFormatProperties != null)
+        if (ImageFormatProperties != default)
         {
             _internal.imageFormatProperties = ImageFormatProperties.ToNative();
         }
-        _internal.externalMemoryFeatures = ExternalMemoryFeatures;
-        _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
-        _internal.compatibleHandleTypes = CompatibleHandleTypes;
+        if (ExternalMemoryFeatures != (uint)default)
+        {
+            _internal.externalMemoryFeatures = ExternalMemoryFeatures;
+        }
+        if (ExportFromImportedHandleTypes != (uint)default)
+        {
+            _internal.exportFromImportedHandleTypes = ExportFromImportedHandleTypes;
+        }
+        if (CompatibleHandleTypes != (uint)default)
+        {
+            _internal.compatibleHandleTypes = CompatibleHandleTypes;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageFormatProperties?.Dispose();
+    }
+
 
     public static implicit operator ExternalImageFormatPropertiesNV(AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV e)
     {

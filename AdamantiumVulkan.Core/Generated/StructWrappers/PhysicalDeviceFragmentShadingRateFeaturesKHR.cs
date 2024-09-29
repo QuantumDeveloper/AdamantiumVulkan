@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateFeaturesKHR : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineFragmentShadingRate = PipelineFragmentShadingRate;
-        _internal.primitiveFragmentShadingRate = PrimitiveFragmentShadingRate;
-        _internal.attachmentFragmentShadingRate = AttachmentFragmentShadingRate;
+        if (PipelineFragmentShadingRate != (uint)default)
+        {
+            _internal.pipelineFragmentShadingRate = PipelineFragmentShadingRate;
+        }
+        if (PrimitiveFragmentShadingRate != (uint)default)
+        {
+            _internal.primitiveFragmentShadingRate = PrimitiveFragmentShadingRate;
+        }
+        if (AttachmentFragmentShadingRate != (uint)default)
+        {
+            _internal.attachmentFragmentShadingRate = AttachmentFragmentShadingRate;
+        }
         return _internal;
     }
 

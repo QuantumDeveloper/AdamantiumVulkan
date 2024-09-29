@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 17790 Column: 26
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18045 Column: 26
 public unsafe struct PFN_vkCmdSetLineRasterizationModeEXT
 {
     public PFN_vkCmdSetLineRasterizationModeEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LineRasterizationModeEXT, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LineRasterizationModeKHR, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LineRasterizationModeEXT, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LineRasterizationModeKHR, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LineRasterizationModeEXT lineRasterizationMode)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LineRasterizationModeKHR lineRasterizationMode)
     {
          InvokeFunc(commandBuffer, lineRasterizationMode);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LineRasterizationModeEXT lineRasterizationMode)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, LineRasterizationModeKHR lineRasterizationMode)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LineRasterizationModeEXT, void>)ptr)(commandBuffer, lineRasterizationMode);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, LineRasterizationModeKHR, void>)ptr)(commandBuffer, lineRasterizationMode);
     }
 
     public static explicit operator PFN_vkCmdSetLineRasterizationModeEXT(void* ptr) => new(ptr);

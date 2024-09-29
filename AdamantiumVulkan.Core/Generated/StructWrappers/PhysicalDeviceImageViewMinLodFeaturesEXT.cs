@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceImageViewMinLodFeaturesEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewMinLodFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewMinLodFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.minLod = MinLod;
+        if (MinLod != (uint)default)
+        {
+            _internal.minLod = MinLod;
+        }
         return _internal;
     }
 

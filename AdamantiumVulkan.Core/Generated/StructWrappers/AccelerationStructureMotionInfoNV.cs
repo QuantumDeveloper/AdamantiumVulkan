@@ -33,10 +33,19 @@ public unsafe partial class AccelerationStructureMotionInfoNV : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxInstances = MaxInstances;
-        _internal.flags = Flags;
+        if (MaxInstances != default)
+        {
+            _internal.maxInstances = MaxInstances;
+        }
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

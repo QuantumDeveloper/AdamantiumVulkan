@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMutableDescriptorTypeFeaturesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.mutableDescriptorType = MutableDescriptorType;
+        if (MutableDescriptorType != (uint)default)
+        {
+            _internal.mutableDescriptorType = MutableDescriptorType;
+        }
         return _internal;
     }
 

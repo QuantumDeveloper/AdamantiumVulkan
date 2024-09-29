@@ -37,11 +37,17 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.attachmentCount = AttachmentCount;
+        if (AttachmentCount != default)
+        {
+            _internal.attachmentCount = AttachmentCount;
+        }
         _pColorWriteEnables.Dispose();
-        if (PColorWriteEnables != null)
+        if (PColorWriteEnables != default)
         {
             var tmpArray0 = new VkBool32[PColorWriteEnables.Length];
             for (int i = 0; i < PColorWriteEnables.Length; ++i)

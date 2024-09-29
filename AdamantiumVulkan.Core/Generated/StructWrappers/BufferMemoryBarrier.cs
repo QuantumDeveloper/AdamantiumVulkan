@@ -42,15 +42,39 @@ public unsafe partial class BufferMemoryBarrier : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcAccessMask = SrcAccessMask;
-        _internal.dstAccessMask = DstAccessMask;
-        _internal.srcQueueFamilyIndex = SrcQueueFamilyIndex;
-        _internal.dstQueueFamilyIndex = DstQueueFamilyIndex;
-        _internal.buffer = Buffer;
-        _internal.offset = Offset;
-        _internal.size = Size;
+        if (SrcAccessMask != (uint)default)
+        {
+            _internal.srcAccessMask = SrcAccessMask;
+        }
+        if (DstAccessMask != (uint)default)
+        {
+            _internal.dstAccessMask = DstAccessMask;
+        }
+        if (SrcQueueFamilyIndex != default)
+        {
+            _internal.srcQueueFamilyIndex = SrcQueueFamilyIndex;
+        }
+        if (DstQueueFamilyIndex != default)
+        {
+            _internal.dstQueueFamilyIndex = DstQueueFamilyIndex;
+        }
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

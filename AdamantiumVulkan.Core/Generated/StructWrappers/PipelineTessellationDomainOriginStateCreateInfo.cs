@@ -30,9 +30,15 @@ public unsafe partial class PipelineTessellationDomainOriginStateCreateInfo : QB
     public AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.domainOrigin = DomainOrigin;
+        if (DomainOrigin != default)
+        {
+            _internal.domainOrigin = DomainOrigin;
+        }
         return _internal;
     }
 

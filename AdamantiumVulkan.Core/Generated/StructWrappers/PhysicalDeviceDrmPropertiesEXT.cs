@@ -41,14 +41,35 @@ public unsafe partial class PhysicalDeviceDrmPropertiesEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDrmPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDrmPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.hasPrimary = HasPrimary;
-        _internal.hasRender = HasRender;
-        _internal.primaryMajor = PrimaryMajor;
-        _internal.primaryMinor = PrimaryMinor;
-        _internal.renderMajor = RenderMajor;
-        _internal.renderMinor = RenderMinor;
+        if (HasPrimary != (uint)default)
+        {
+            _internal.hasPrimary = HasPrimary;
+        }
+        if (HasRender != (uint)default)
+        {
+            _internal.hasRender = HasRender;
+        }
+        if (PrimaryMajor != default)
+        {
+            _internal.primaryMajor = PrimaryMajor;
+        }
+        if (PrimaryMinor != default)
+        {
+            _internal.primaryMinor = PrimaryMinor;
+        }
+        if (RenderMajor != default)
+        {
+            _internal.renderMajor = RenderMajor;
+        }
+        if (RenderMinor != default)
+        {
+            _internal.renderMinor = RenderMinor;
+        }
         return _internal;
     }
 

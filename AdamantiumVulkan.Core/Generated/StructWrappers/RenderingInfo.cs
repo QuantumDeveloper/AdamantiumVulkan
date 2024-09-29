@@ -59,18 +59,33 @@ public unsafe partial class RenderingInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkRenderingInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRenderingInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        if (RenderArea != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (RenderArea != default)
         {
             _internal.renderArea = RenderArea.ToNative();
         }
-        _internal.layerCount = LayerCount;
-        _internal.viewMask = ViewMask;
-        _internal.colorAttachmentCount = ColorAttachmentCount;
+        if (LayerCount != default)
+        {
+            _internal.layerCount = LayerCount;
+        }
+        if (ViewMask != default)
+        {
+            _internal.viewMask = ViewMask;
+        }
+        if (ColorAttachmentCount != default)
+        {
+            _internal.colorAttachmentCount = ColorAttachmentCount;
+        }
         _pColorAttachments.Dispose();
-        if (PColorAttachments != null)
+        if (PColorAttachments != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo[PColorAttachments.Length];
             for (int i = 0; i < PColorAttachments.Length; ++i)
@@ -81,14 +96,14 @@ public unsafe partial class RenderingInfo : QBDisposableObject
             _internal.pColorAttachments = _pColorAttachments.Handle;
         }
         _pDepthAttachment.Dispose();
-        if (PDepthAttachment != null)
+        if (PDepthAttachment != default)
         {
             var struct0 = PDepthAttachment.ToNative();
             _pDepthAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(struct0);
             _internal.pDepthAttachment = _pDepthAttachment.Handle;
         }
         _pStencilAttachment.Dispose();
-        if (PStencilAttachment != null)
+        if (PStencilAttachment != default)
         {
             var struct1 = PStencilAttachment.ToNative();
             _pStencilAttachment = new NativeStruct<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(struct1);
@@ -102,6 +117,7 @@ public unsafe partial class RenderingInfo : QBDisposableObject
         _pColorAttachments.Dispose();
         _pDepthAttachment.Dispose();
         _pStencilAttachment.Dispose();
+        RenderArea?.Dispose();
     }
 
 

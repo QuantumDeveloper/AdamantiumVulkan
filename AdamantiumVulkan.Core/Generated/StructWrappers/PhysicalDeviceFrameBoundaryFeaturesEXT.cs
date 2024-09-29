@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceFrameBoundaryFeaturesEXT : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFrameBoundaryFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFrameBoundaryFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.frameBoundary = FrameBoundary;
+        if (FrameBoundary != (uint)default)
+        {
+            _internal.frameBoundary = FrameBoundary;
+        }
         return _internal;
     }
 

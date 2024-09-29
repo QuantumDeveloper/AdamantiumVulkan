@@ -34,19 +34,32 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (MinFragmentDensityTexelSize != null)
+        if (MinFragmentDensityTexelSize != default)
         {
             _internal.minFragmentDensityTexelSize = MinFragmentDensityTexelSize.ToNative();
         }
-        if (MaxFragmentDensityTexelSize != null)
+        if (MaxFragmentDensityTexelSize != default)
         {
             _internal.maxFragmentDensityTexelSize = MaxFragmentDensityTexelSize.ToNative();
         }
-        _internal.fragmentDensityInvocations = FragmentDensityInvocations;
+        if (FragmentDensityInvocations != (uint)default)
+        {
+            _internal.fragmentDensityInvocations = FragmentDensityInvocations;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MinFragmentDensityTexelSize?.Dispose();
+        MaxFragmentDensityTexelSize?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceFragmentDensityMapPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT p)
     {

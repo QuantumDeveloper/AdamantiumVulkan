@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.texelBufferAlignment = TexelBufferAlignment;
+        if (TexelBufferAlignment != (uint)default)
+        {
+            _internal.texelBufferAlignment = TexelBufferAlignment;
+        }
         return _internal;
     }
 

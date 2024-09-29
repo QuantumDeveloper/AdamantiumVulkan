@@ -33,10 +33,16 @@ public unsafe partial class ShaderModuleIdentifierEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.identifierSize = IdentifierSize;
-        if(Identifier != null)
+        if (IdentifierSize != default)
+        {
+            _internal.identifierSize = IdentifierSize;
+        }
+        if (Identifier != default)
         {
             if (Identifier.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(Identifier), "Array is out of bounds. Size should not be more than 32");

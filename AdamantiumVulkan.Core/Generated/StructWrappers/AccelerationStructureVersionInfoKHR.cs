@@ -37,7 +37,10 @@ public unsafe partial class AccelerationStructureVersionInfoKHR : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pVersionData.Dispose();
         if (PVersionData.HasValue)

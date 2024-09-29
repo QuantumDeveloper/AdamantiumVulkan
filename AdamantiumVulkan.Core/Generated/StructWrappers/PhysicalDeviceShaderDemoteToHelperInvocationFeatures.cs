@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceShaderDemoteToHelperInvocationFeatures
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderDemoteToHelperInvocation = ShaderDemoteToHelperInvocation;
+        if (ShaderDemoteToHelperInvocation != (uint)default)
+        {
+            _internal.shaderDemoteToHelperInvocation = ShaderDemoteToHelperInvocation;
+        }
         return _internal;
     }
 

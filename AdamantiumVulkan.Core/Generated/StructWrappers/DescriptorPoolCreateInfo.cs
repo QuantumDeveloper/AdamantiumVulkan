@@ -44,13 +44,25 @@ public unsafe partial class DescriptorPoolCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.maxSets = MaxSets;
-        _internal.poolSizeCount = PoolSizeCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (MaxSets != default)
+        {
+            _internal.maxSets = MaxSets;
+        }
+        if (PoolSizeCount != default)
+        {
+            _internal.poolSizeCount = PoolSizeCount;
+        }
         _pPoolSizes.Dispose();
-        if (PoolSizes != null)
+        if (PoolSizes != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize[PoolSizes.Length];
             for (int i = 0; i < PoolSizes.Length; ++i)

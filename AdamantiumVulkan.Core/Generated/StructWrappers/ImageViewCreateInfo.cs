@@ -40,22 +40,44 @@ public unsafe partial class ImageViewCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.image = Image;
-        _internal.viewType = ViewType;
-        _internal.format = Format;
-        if (Components != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
+        if (ViewType != default)
+        {
+            _internal.viewType = ViewType;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Components != default)
         {
             _internal.components = Components.ToNative();
         }
-        if (SubresourceRange != null)
+        if (SubresourceRange != default)
         {
             _internal.subresourceRange = SubresourceRange.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Components?.Dispose();
+        SubresourceRange?.Dispose();
+    }
+
 
     public static implicit operator ImageViewCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo i)
     {

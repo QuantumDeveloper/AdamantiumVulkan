@@ -30,14 +30,23 @@ public unsafe partial class ExternalImageFormatProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (ExternalMemoryProperties != null)
+        if (ExternalMemoryProperties != default)
         {
             _internal.externalMemoryProperties = ExternalMemoryProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ExternalMemoryProperties?.Dispose();
+    }
+
 
     public static implicit operator ExternalImageFormatProperties(AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties e)
     {

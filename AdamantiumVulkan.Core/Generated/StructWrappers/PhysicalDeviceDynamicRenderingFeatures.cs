@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceDynamicRenderingFeatures : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dynamicRendering = DynamicRendering;
+        if (DynamicRendering != (uint)default)
+        {
+            _internal.dynamicRendering = DynamicRendering;
+        }
         return _internal;
     }
 

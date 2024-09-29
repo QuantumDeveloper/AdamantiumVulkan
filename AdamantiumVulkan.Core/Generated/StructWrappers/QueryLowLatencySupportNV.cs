@@ -31,7 +31,10 @@ public unsafe partial class QueryLowLatencySupportNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkQueryLowLatencySupportNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueryLowLatencySupportNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _internal.pQueriedLowLatencyData = PQueriedLowLatencyData;
         return _internal;

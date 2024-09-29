@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoH265ShortTermRefPicSetFlags
+public unsafe partial class StdVideoH265ShortTermRefPicSetFlags : QBDisposableObject
 {
     public StdVideoH265ShortTermRefPicSetFlags()
     {
@@ -29,8 +29,14 @@ public unsafe partial class StdVideoH265ShortTermRefPicSetFlags
     public AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags();
-        _internal.inter_ref_pic_set_prediction_flag = Inter_ref_pic_set_prediction_flag;
-        _internal.delta_rps_sign = Delta_rps_sign;
+        if (Inter_ref_pic_set_prediction_flag != default)
+        {
+            _internal.inter_ref_pic_set_prediction_flag = Inter_ref_pic_set_prediction_flag;
+        }
+        if (Delta_rps_sign != default)
+        {
+            _internal.delta_rps_sign = Delta_rps_sign;
+        }
         return _internal;
     }
 

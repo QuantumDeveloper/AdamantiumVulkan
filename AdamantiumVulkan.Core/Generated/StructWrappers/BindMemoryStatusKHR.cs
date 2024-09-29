@@ -33,7 +33,10 @@ public unsafe partial class BindMemoryStatusKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindMemoryStatusKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindMemoryStatusKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _pResult.Dispose();
         if (PResult.HasValue)

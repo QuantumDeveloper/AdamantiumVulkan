@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDeviceDepthBiasControlFeaturesEXT : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthBiasControlFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthBiasControlFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.depthBiasControl = DepthBiasControl;
-        _internal.leastRepresentableValueForceUnormRepresentation = LeastRepresentableValueForceUnormRepresentation;
-        _internal.floatRepresentation = FloatRepresentation;
-        _internal.depthBiasExact = DepthBiasExact;
+        if (DepthBiasControl != (uint)default)
+        {
+            _internal.depthBiasControl = DepthBiasControl;
+        }
+        if (LeastRepresentableValueForceUnormRepresentation != (uint)default)
+        {
+            _internal.leastRepresentableValueForceUnormRepresentation = LeastRepresentableValueForceUnormRepresentation;
+        }
+        if (FloatRepresentation != (uint)default)
+        {
+            _internal.floatRepresentation = FloatRepresentation;
+        }
+        if (DepthBiasExact != (uint)default)
+        {
+            _internal.depthBiasExact = DepthBiasExact;
+        }
         return _internal;
     }
 

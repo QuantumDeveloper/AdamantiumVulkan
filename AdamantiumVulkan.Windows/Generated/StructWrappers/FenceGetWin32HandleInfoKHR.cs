@@ -35,10 +35,19 @@ public unsafe partial class FenceGetWin32HandleInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fence = Fence;
-        _internal.handleType = HandleType;
+        if (Fence != default)
+        {
+            _internal.fence = Fence;
+        }
+        if (HandleType != default)
+        {
+            _internal.handleType = HandleType;
+        }
         return _internal;
     }
 

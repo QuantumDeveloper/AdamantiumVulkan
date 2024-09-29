@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.descriptorSetHostMapping = DescriptorSetHostMapping;
+        if (DescriptorSetHostMapping != (uint)default)
+        {
+            _internal.descriptorSetHostMapping = DescriptorSetHostMapping;
+        }
         return _internal;
     }
 

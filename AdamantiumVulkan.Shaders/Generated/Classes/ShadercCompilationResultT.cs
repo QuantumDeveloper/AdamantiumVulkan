@@ -13,7 +13,7 @@ using AdamantiumVulkan.Shaders.Interop;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\shaderc\shaderc.h Line: 511 Column: 44
+// File: C:\VulkanSDK\1.3.283.0\Include\shaderc\shaderc.h Line: 511 Column: 44
 ///<summary>
 /// An opaque handle to the results of a call to any shaderc_compile_into_*() function.
 ///</summary>

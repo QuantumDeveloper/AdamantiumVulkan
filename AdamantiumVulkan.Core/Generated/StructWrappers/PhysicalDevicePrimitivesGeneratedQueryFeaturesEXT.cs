@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.primitivesGeneratedQuery = PrimitivesGeneratedQuery;
-        _internal.primitivesGeneratedQueryWithRasterizerDiscard = PrimitivesGeneratedQueryWithRasterizerDiscard;
-        _internal.primitivesGeneratedQueryWithNonZeroStreams = PrimitivesGeneratedQueryWithNonZeroStreams;
+        if (PrimitivesGeneratedQuery != (uint)default)
+        {
+            _internal.primitivesGeneratedQuery = PrimitivesGeneratedQuery;
+        }
+        if (PrimitivesGeneratedQueryWithRasterizerDiscard != (uint)default)
+        {
+            _internal.primitivesGeneratedQueryWithRasterizerDiscard = PrimitivesGeneratedQueryWithRasterizerDiscard;
+        }
+        if (PrimitivesGeneratedQueryWithNonZeroStreams != (uint)default)
+        {
+            _internal.primitivesGeneratedQueryWithNonZeroStreams = PrimitivesGeneratedQueryWithNonZeroStreams;
+        }
         return _internal;
     }
 

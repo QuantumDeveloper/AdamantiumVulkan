@@ -31,9 +31,15 @@ public unsafe partial class VideoEncodeQualityLevelInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.qualityLevel = QualityLevel;
+        if (QualityLevel != default)
+        {
+            _internal.qualityLevel = QualityLevel;
+        }
         return _internal;
     }
 

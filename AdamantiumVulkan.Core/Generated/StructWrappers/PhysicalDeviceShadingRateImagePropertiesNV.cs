@@ -34,16 +34,31 @@ public unsafe partial class PhysicalDeviceShadingRateImagePropertiesNV : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (ShadingRateTexelSize != null)
+        if (ShadingRateTexelSize != default)
         {
             _internal.shadingRateTexelSize = ShadingRateTexelSize.ToNative();
         }
-        _internal.shadingRatePaletteSize = ShadingRatePaletteSize;
-        _internal.shadingRateMaxCoarseSamples = ShadingRateMaxCoarseSamples;
+        if (ShadingRatePaletteSize != default)
+        {
+            _internal.shadingRatePaletteSize = ShadingRatePaletteSize;
+        }
+        if (ShadingRateMaxCoarseSamples != default)
+        {
+            _internal.shadingRateMaxCoarseSamples = ShadingRateMaxCoarseSamples;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ShadingRateTexelSize?.Dispose();
+    }
+
 
     public static implicit operator PhysicalDeviceShadingRateImagePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV p)
     {

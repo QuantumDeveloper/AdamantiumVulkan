@@ -39,31 +39,37 @@ public unsafe partial class PhysicalDeviceToolProperties : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(Name != null)
+        if (Name != default)
         {
             if (Name.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Name), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.name, 256, Name, false);
         }
-        if(Version != null)
+        if (Version != default)
         {
             if (Version.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Version), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.version, 256, Version, false);
         }
-        _internal.purposes = Purposes;
-        if(Description != null)
+        if (Purposes != (uint)default)
+        {
+            _internal.purposes = Purposes;
+        }
+        if (Description != default)
         {
             if (Description.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Description), "Array is out of bounds. Size should not be more than 256");
 
             NativeUtils.StringToFixedArray(_internal.description, 256, Description, false);
         }
-        if(Layer != null)
+        if (Layer != default)
         {
             if (Layer.Length > 256)
                 throw new System.ArgumentOutOfRangeException(nameof(Layer), "Array is out of bounds. Size should not be more than 256");

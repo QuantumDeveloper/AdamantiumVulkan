@@ -53,20 +53,59 @@ public unsafe partial class PhysicalDeviceShaderAtomicFloatFeaturesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicFloatFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicFloatFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderBufferFloat32Atomics = ShaderBufferFloat32Atomics;
-        _internal.shaderBufferFloat32AtomicAdd = ShaderBufferFloat32AtomicAdd;
-        _internal.shaderBufferFloat64Atomics = ShaderBufferFloat64Atomics;
-        _internal.shaderBufferFloat64AtomicAdd = ShaderBufferFloat64AtomicAdd;
-        _internal.shaderSharedFloat32Atomics = ShaderSharedFloat32Atomics;
-        _internal.shaderSharedFloat32AtomicAdd = ShaderSharedFloat32AtomicAdd;
-        _internal.shaderSharedFloat64Atomics = ShaderSharedFloat64Atomics;
-        _internal.shaderSharedFloat64AtomicAdd = ShaderSharedFloat64AtomicAdd;
-        _internal.shaderImageFloat32Atomics = ShaderImageFloat32Atomics;
-        _internal.shaderImageFloat32AtomicAdd = ShaderImageFloat32AtomicAdd;
-        _internal.sparseImageFloat32Atomics = SparseImageFloat32Atomics;
-        _internal.sparseImageFloat32AtomicAdd = SparseImageFloat32AtomicAdd;
+        if (ShaderBufferFloat32Atomics != (uint)default)
+        {
+            _internal.shaderBufferFloat32Atomics = ShaderBufferFloat32Atomics;
+        }
+        if (ShaderBufferFloat32AtomicAdd != (uint)default)
+        {
+            _internal.shaderBufferFloat32AtomicAdd = ShaderBufferFloat32AtomicAdd;
+        }
+        if (ShaderBufferFloat64Atomics != (uint)default)
+        {
+            _internal.shaderBufferFloat64Atomics = ShaderBufferFloat64Atomics;
+        }
+        if (ShaderBufferFloat64AtomicAdd != (uint)default)
+        {
+            _internal.shaderBufferFloat64AtomicAdd = ShaderBufferFloat64AtomicAdd;
+        }
+        if (ShaderSharedFloat32Atomics != (uint)default)
+        {
+            _internal.shaderSharedFloat32Atomics = ShaderSharedFloat32Atomics;
+        }
+        if (ShaderSharedFloat32AtomicAdd != (uint)default)
+        {
+            _internal.shaderSharedFloat32AtomicAdd = ShaderSharedFloat32AtomicAdd;
+        }
+        if (ShaderSharedFloat64Atomics != (uint)default)
+        {
+            _internal.shaderSharedFloat64Atomics = ShaderSharedFloat64Atomics;
+        }
+        if (ShaderSharedFloat64AtomicAdd != (uint)default)
+        {
+            _internal.shaderSharedFloat64AtomicAdd = ShaderSharedFloat64AtomicAdd;
+        }
+        if (ShaderImageFloat32Atomics != (uint)default)
+        {
+            _internal.shaderImageFloat32Atomics = ShaderImageFloat32Atomics;
+        }
+        if (ShaderImageFloat32AtomicAdd != (uint)default)
+        {
+            _internal.shaderImageFloat32AtomicAdd = ShaderImageFloat32AtomicAdd;
+        }
+        if (SparseImageFloat32Atomics != (uint)default)
+        {
+            _internal.sparseImageFloat32Atomics = SparseImageFloat32Atomics;
+        }
+        if (SparseImageFloat32AtomicAdd != (uint)default)
+        {
+            _internal.sparseImageFloat32AtomicAdd = SparseImageFloat32AtomicAdd;
+        }
         return _internal;
     }
 

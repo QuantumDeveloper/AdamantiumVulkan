@@ -32,10 +32,19 @@ public unsafe partial class AccelerationStructureMemoryRequirementsInfoNV : QBDi
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        _internal.accelerationStructure = AccelerationStructure;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (AccelerationStructure != default)
+        {
+            _internal.accelerationStructure = AccelerationStructure;
+        }
         return _internal;
     }
 

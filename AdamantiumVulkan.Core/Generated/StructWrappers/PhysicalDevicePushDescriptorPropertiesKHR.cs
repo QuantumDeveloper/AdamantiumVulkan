@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePushDescriptorPropertiesKHR : QBDispos
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxPushDescriptors = MaxPushDescriptors;
+        if (MaxPushDescriptors != default)
+        {
+            _internal.maxPushDescriptors = MaxPushDescriptors;
+        }
         return _internal;
     }
 

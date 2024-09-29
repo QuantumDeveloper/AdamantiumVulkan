@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceShaderCoreProperties2AMD : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderCoreFeatures = ShaderCoreFeatures;
-        _internal.activeComputeUnitCount = ActiveComputeUnitCount;
+        if (ShaderCoreFeatures != (uint)default)
+        {
+            _internal.shaderCoreFeatures = ShaderCoreFeatures;
+        }
+        if (ActiveComputeUnitCount != default)
+        {
+            _internal.activeComputeUnitCount = ActiveComputeUnitCount;
+        }
         return _internal;
     }
 

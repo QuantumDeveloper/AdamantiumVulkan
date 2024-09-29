@@ -47,31 +47,58 @@ public unsafe partial class VideoCapabilitiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.minBitstreamBufferOffsetAlignment = MinBitstreamBufferOffsetAlignment;
-        _internal.minBitstreamBufferSizeAlignment = MinBitstreamBufferSizeAlignment;
-        if (PictureAccessGranularity != null)
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (MinBitstreamBufferOffsetAlignment != (ulong)default)
+        {
+            _internal.minBitstreamBufferOffsetAlignment = MinBitstreamBufferOffsetAlignment;
+        }
+        if (MinBitstreamBufferSizeAlignment != (ulong)default)
+        {
+            _internal.minBitstreamBufferSizeAlignment = MinBitstreamBufferSizeAlignment;
+        }
+        if (PictureAccessGranularity != default)
         {
             _internal.pictureAccessGranularity = PictureAccessGranularity.ToNative();
         }
-        if (MinCodedExtent != null)
+        if (MinCodedExtent != default)
         {
             _internal.minCodedExtent = MinCodedExtent.ToNative();
         }
-        if (MaxCodedExtent != null)
+        if (MaxCodedExtent != default)
         {
             _internal.maxCodedExtent = MaxCodedExtent.ToNative();
         }
-        _internal.maxDpbSlots = MaxDpbSlots;
-        _internal.maxActiveReferencePictures = MaxActiveReferencePictures;
-        if (StdHeaderVersion != null)
+        if (MaxDpbSlots != default)
+        {
+            _internal.maxDpbSlots = MaxDpbSlots;
+        }
+        if (MaxActiveReferencePictures != default)
+        {
+            _internal.maxActiveReferencePictures = MaxActiveReferencePictures;
+        }
+        if (StdHeaderVersion != default)
         {
             _internal.stdHeaderVersion = StdHeaderVersion.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        PictureAccessGranularity?.Dispose();
+        MinCodedExtent?.Dispose();
+        MaxCodedExtent?.Dispose();
+        StdHeaderVersion?.Dispose();
+    }
+
 
     public static implicit operator VideoCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR v)
     {

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeat
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.attachmentFeedbackLoopDynamicState = AttachmentFeedbackLoopDynamicState;
+        if (AttachmentFeedbackLoopDynamicState != (uint)default)
+        {
+            _internal.attachmentFeedbackLoopDynamicState = AttachmentFeedbackLoopDynamicState;
+        }
         return _internal;
     }
 

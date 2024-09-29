@@ -45,16 +45,43 @@ public unsafe partial class PhysicalDeviceAccelerationStructurePropertiesKHR : Q
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxGeometryCount = MaxGeometryCount;
-        _internal.maxInstanceCount = MaxInstanceCount;
-        _internal.maxPrimitiveCount = MaxPrimitiveCount;
-        _internal.maxPerStageDescriptorAccelerationStructures = MaxPerStageDescriptorAccelerationStructures;
-        _internal.maxPerStageDescriptorUpdateAfterBindAccelerationStructures = MaxPerStageDescriptorUpdateAfterBindAccelerationStructures;
-        _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
-        _internal.maxDescriptorSetUpdateAfterBindAccelerationStructures = MaxDescriptorSetUpdateAfterBindAccelerationStructures;
-        _internal.minAccelerationStructureScratchOffsetAlignment = MinAccelerationStructureScratchOffsetAlignment;
+        if (MaxGeometryCount != default)
+        {
+            _internal.maxGeometryCount = MaxGeometryCount;
+        }
+        if (MaxInstanceCount != default)
+        {
+            _internal.maxInstanceCount = MaxInstanceCount;
+        }
+        if (MaxPrimitiveCount != default)
+        {
+            _internal.maxPrimitiveCount = MaxPrimitiveCount;
+        }
+        if (MaxPerStageDescriptorAccelerationStructures != default)
+        {
+            _internal.maxPerStageDescriptorAccelerationStructures = MaxPerStageDescriptorAccelerationStructures;
+        }
+        if (MaxPerStageDescriptorUpdateAfterBindAccelerationStructures != default)
+        {
+            _internal.maxPerStageDescriptorUpdateAfterBindAccelerationStructures = MaxPerStageDescriptorUpdateAfterBindAccelerationStructures;
+        }
+        if (MaxDescriptorSetAccelerationStructures != default)
+        {
+            _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
+        }
+        if (MaxDescriptorSetUpdateAfterBindAccelerationStructures != default)
+        {
+            _internal.maxDescriptorSetUpdateAfterBindAccelerationStructures = MaxDescriptorSetUpdateAfterBindAccelerationStructures;
+        }
+        if (MinAccelerationStructureScratchOffsetAlignment != default)
+        {
+            _internal.minAccelerationStructureScratchOffsetAlignment = MinAccelerationStructureScratchOffsetAlignment;
+        }
         return _internal;
     }
 

@@ -30,9 +30,15 @@ public unsafe partial class TextureLODGatherFormatPropertiesAMD : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supportsTextureGatherLODBiasAMD = SupportsTextureGatherLODBiasAMD;
+        if (SupportsTextureGatherLODBiasAMD != (uint)default)
+        {
+            _internal.supportsTextureGatherLODBiasAMD = SupportsTextureGatherLODBiasAMD;
+        }
         return _internal;
     }
 

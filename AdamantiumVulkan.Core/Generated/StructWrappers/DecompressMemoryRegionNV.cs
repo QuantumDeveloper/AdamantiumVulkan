@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DecompressMemoryRegionNV
+public unsafe partial class DecompressMemoryRegionNV : QBDisposableObject
 {
     public DecompressMemoryRegionNV()
     {
@@ -35,11 +35,26 @@ public unsafe partial class DecompressMemoryRegionNV
     public AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV();
-        _internal.srcAddress = SrcAddress;
-        _internal.dstAddress = DstAddress;
-        _internal.compressedSize = CompressedSize;
-        _internal.decompressedSize = DecompressedSize;
-        _internal.decompressionMethod = DecompressionMethod;
+        if (SrcAddress != (ulong)default)
+        {
+            _internal.srcAddress = SrcAddress;
+        }
+        if (DstAddress != (ulong)default)
+        {
+            _internal.dstAddress = DstAddress;
+        }
+        if (CompressedSize != (ulong)default)
+        {
+            _internal.compressedSize = CompressedSize;
+        }
+        if (DecompressedSize != (ulong)default)
+        {
+            _internal.decompressedSize = DecompressedSize;
+        }
+        if (DecompressionMethod != (ulong)default)
+        {
+            _internal.decompressionMethod = DecompressionMethod;
+        }
         return _internal;
     }
 

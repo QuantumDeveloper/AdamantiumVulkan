@@ -40,14 +40,35 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.advancedBlendMaxColorAttachments = AdvancedBlendMaxColorAttachments;
-        _internal.advancedBlendIndependentBlend = AdvancedBlendIndependentBlend;
-        _internal.advancedBlendNonPremultipliedSrcColor = AdvancedBlendNonPremultipliedSrcColor;
-        _internal.advancedBlendNonPremultipliedDstColor = AdvancedBlendNonPremultipliedDstColor;
-        _internal.advancedBlendCorrelatedOverlap = AdvancedBlendCorrelatedOverlap;
-        _internal.advancedBlendAllOperations = AdvancedBlendAllOperations;
+        if (AdvancedBlendMaxColorAttachments != default)
+        {
+            _internal.advancedBlendMaxColorAttachments = AdvancedBlendMaxColorAttachments;
+        }
+        if (AdvancedBlendIndependentBlend != (uint)default)
+        {
+            _internal.advancedBlendIndependentBlend = AdvancedBlendIndependentBlend;
+        }
+        if (AdvancedBlendNonPremultipliedSrcColor != (uint)default)
+        {
+            _internal.advancedBlendNonPremultipliedSrcColor = AdvancedBlendNonPremultipliedSrcColor;
+        }
+        if (AdvancedBlendNonPremultipliedDstColor != (uint)default)
+        {
+            _internal.advancedBlendNonPremultipliedDstColor = AdvancedBlendNonPremultipliedDstColor;
+        }
+        if (AdvancedBlendCorrelatedOverlap != (uint)default)
+        {
+            _internal.advancedBlendCorrelatedOverlap = AdvancedBlendCorrelatedOverlap;
+        }
+        if (AdvancedBlendAllOperations != (uint)default)
+        {
+            _internal.advancedBlendAllOperations = AdvancedBlendAllOperations;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceMaintenance4Properties : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance4Properties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance4Properties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxBufferSize = MaxBufferSize;
+        if (MaxBufferSize != (ulong)default)
+        {
+            _internal.maxBufferSize = MaxBufferSize;
+        }
         return _internal;
     }
 

@@ -33,10 +33,19 @@ public unsafe partial class ImageViewSlicedCreateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewSlicedCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewSlicedCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sliceOffset = SliceOffset;
-        _internal.sliceCount = SliceCount;
+        if (SliceOffset != default)
+        {
+            _internal.sliceOffset = SliceOffset;
+        }
+        if (SliceCount != default)
+        {
+            _internal.sliceCount = SliceCount;
+        }
         return _internal;
     }
 

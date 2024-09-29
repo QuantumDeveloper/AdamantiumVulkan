@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class RectLayerKHR
+public unsafe partial class RectLayerKHR : QBDisposableObject
 {
     public RectLayerKHR()
     {
@@ -31,17 +31,27 @@ public unsafe partial class RectLayerKHR
     public AdamantiumVulkan.Core.Interop.VkRectLayerKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRectLayerKHR();
-        if (Offset != null)
+        if (Offset != default)
         {
             _internal.offset = Offset.ToNative();
         }
-        if (Extent != null)
+        if (Extent != default)
         {
             _internal.extent = Extent.ToNative();
         }
-        _internal.layer = Layer;
+        if (Layer != default)
+        {
+            _internal.layer = Layer;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Offset?.Dispose();
+        Extent?.Dispose();
+    }
+
 
     public static implicit operator RectLayerKHR(AdamantiumVulkan.Core.Interop.VkRectLayerKHR r)
     {

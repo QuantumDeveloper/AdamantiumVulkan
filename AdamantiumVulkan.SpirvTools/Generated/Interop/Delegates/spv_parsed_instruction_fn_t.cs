@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv-tools\libspirv.h Line: 914 Column: 24
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 925 Column: 24
 ///<summary>
 /// A pointer to a function that accepts a parsed SPIR-V instruction. The parsed_instruction value is transient: it may be overwritten or released immediately after the function has returned. That also applies to the words array member of the parsed instruction. The function should return SPV_SUCCESS if and only if parsing should continue.
 ///</summary>

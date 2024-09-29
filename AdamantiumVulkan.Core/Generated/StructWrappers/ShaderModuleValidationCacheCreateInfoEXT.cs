@@ -30,9 +30,15 @@ public unsafe partial class ShaderModuleValidationCacheCreateInfoEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.validationCache = ValidationCache;
+        if (ValidationCache != default)
+        {
+            _internal.validationCache = ValidationCache;
+        }
         return _internal;
     }
 

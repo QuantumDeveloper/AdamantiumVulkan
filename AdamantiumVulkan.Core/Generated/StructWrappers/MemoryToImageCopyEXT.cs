@@ -41,25 +41,42 @@ public unsafe partial class MemoryToImageCopyEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryToImageCopyEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryToImageCopyEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _internal.pHostPointer = PHostPointer;
-        _internal.memoryRowLength = MemoryRowLength;
-        _internal.memoryImageHeight = MemoryImageHeight;
-        if (ImageSubresource != null)
+        if (MemoryRowLength != default)
+        {
+            _internal.memoryRowLength = MemoryRowLength;
+        }
+        if (MemoryImageHeight != default)
+        {
+            _internal.memoryImageHeight = MemoryImageHeight;
+        }
+        if (ImageSubresource != default)
         {
             _internal.imageSubresource = ImageSubresource.ToNative();
         }
-        if (ImageOffset != null)
+        if (ImageOffset != default)
         {
             _internal.imageOffset = ImageOffset.ToNative();
         }
-        if (ImageExtent != null)
+        if (ImageExtent != default)
         {
             _internal.imageExtent = ImageExtent.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ImageSubresource?.Dispose();
+        ImageOffset?.Dispose();
+        ImageExtent?.Dispose();
+    }
+
 
     public static implicit operator MemoryToImageCopyEXT(AdamantiumVulkan.Core.Interop.VkMemoryToImageCopyEXT m)
     {

@@ -32,9 +32,15 @@ public unsafe partial class MemoryWin32HandlePropertiesKHR : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memoryTypeBits = MemoryTypeBits;
+        if (MemoryTypeBits != default)
+        {
+            _internal.memoryTypeBits = MemoryTypeBits;
+        }
         return _internal;
     }
 

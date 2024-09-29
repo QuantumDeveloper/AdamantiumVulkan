@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class MemoryRequirements
+public unsafe partial class MemoryRequirements : QBDisposableObject
 {
     public MemoryRequirements()
     {
@@ -31,9 +31,18 @@ public unsafe partial class MemoryRequirements
     public AdamantiumVulkan.Core.Interop.VkMemoryRequirements ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryRequirements();
-        _internal.size = Size;
-        _internal.alignment = Alignment;
-        _internal.memoryTypeBits = MemoryTypeBits;
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (Alignment != (ulong)default)
+        {
+            _internal.alignment = Alignment;
+        }
+        if (MemoryTypeBits != default)
+        {
+            _internal.memoryTypeBits = MemoryTypeBits;
+        }
         return _internal;
     }
 

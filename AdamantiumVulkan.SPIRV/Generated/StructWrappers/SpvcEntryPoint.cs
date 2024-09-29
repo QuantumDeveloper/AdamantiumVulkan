@@ -32,9 +32,12 @@ public unsafe partial class SpvcEntryPoint : QBDisposableObject
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint();
-        _internal.execution_model = Execution_model;
+        if (Execution_model != default)
+        {
+            _internal.execution_model = Execution_model;
+        }
         _name.Dispose();
-        if (Name != null)
+        if (Name != default)
         {
             _name = new MarshaledString(Name, false);
             _internal.name = (sbyte*)_name;

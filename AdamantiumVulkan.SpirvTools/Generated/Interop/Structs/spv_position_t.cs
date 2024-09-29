@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv-tools\libspirv.h Line: 450 Column: 16
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 461 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct spv_position_t
 {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264ReferenceInfo
+public unsafe partial class StdVideoEncodeH264ReferenceInfo : QBDisposableObject
 {
     public StdVideoEncodeH264ReferenceInfo()
     {
@@ -39,18 +39,42 @@ public unsafe partial class StdVideoEncodeH264ReferenceInfo
     public AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfo();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.primary_pic_type = Primary_pic_type;
-        _internal.FrameNum = FrameNum;
-        _internal.PicOrderCnt = PicOrderCnt;
-        _internal.long_term_pic_num = Long_term_pic_num;
-        _internal.long_term_frame_idx = Long_term_frame_idx;
-        _internal.temporal_id = Temporal_id;
+        if (Primary_pic_type != default)
+        {
+            _internal.primary_pic_type = Primary_pic_type;
+        }
+        if (FrameNum != default)
+        {
+            _internal.FrameNum = FrameNum;
+        }
+        if (PicOrderCnt != default)
+        {
+            _internal.PicOrderCnt = PicOrderCnt;
+        }
+        if (Long_term_pic_num != default)
+        {
+            _internal.long_term_pic_num = Long_term_pic_num;
+        }
+        if (Long_term_frame_idx != default)
+        {
+            _internal.long_term_frame_idx = Long_term_frame_idx;
+        }
+        if (Temporal_id != default)
+        {
+            _internal.temporal_id = Temporal_id;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Flags?.Dispose();
+    }
+
 
     public static implicit operator StdVideoEncodeH264ReferenceInfo(AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfo s)
     {

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan;
 
-public unsafe partial class StdVideoEncodeH264SliceHeaderFlags
+public unsafe partial class StdVideoEncodeH264SliceHeaderFlags : QBDisposableObject
 {
     public StdVideoEncodeH264SliceHeaderFlags()
     {
@@ -31,9 +31,18 @@ public unsafe partial class StdVideoEncodeH264SliceHeaderFlags
     public AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeaderFlags ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeaderFlags();
-        _internal.direct_spatial_mv_pred_flag = Direct_spatial_mv_pred_flag;
-        _internal.num_ref_idx_active_override_flag = Num_ref_idx_active_override_flag;
-        _internal.reserved = Reserved;
+        if (Direct_spatial_mv_pred_flag != default)
+        {
+            _internal.direct_spatial_mv_pred_flag = Direct_spatial_mv_pred_flag;
+        }
+        if (Num_ref_idx_active_override_flag != default)
+        {
+            _internal.num_ref_idx_active_override_flag = Num_ref_idx_active_override_flag;
+        }
+        if (Reserved != default)
+        {
+            _internal.reserved = Reserved;
+        }
         return _internal;
     }
 

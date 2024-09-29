@@ -36,11 +36,17 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfoKHR : QBDis
     public AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.vertexBindingDivisorCount = VertexBindingDivisorCount;
+        if (VertexBindingDivisorCount != default)
+        {
+            _internal.vertexBindingDivisorCount = VertexBindingDivisorCount;
+        }
         _pVertexBindingDivisors.Dispose();
-        if (PVertexBindingDivisors != null)
+        if (PVertexBindingDivisors != default)
         {
             var struct0 = PVertexBindingDivisors.ToNative();
             _pVertexBindingDivisors = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescriptionKHR>(struct0);

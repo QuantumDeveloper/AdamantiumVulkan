@@ -13,7 +13,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv-tools\libspirv.h Line: 491 Column: 31
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 502 Column: 31
 public unsafe partial class spv_fuzzer_options
 {
     internal spv_fuzzer_options_t __Instance;

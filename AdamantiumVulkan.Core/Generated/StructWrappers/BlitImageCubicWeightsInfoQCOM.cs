@@ -31,9 +31,15 @@ public unsafe partial class BlitImageCubicWeightsInfoQCOM : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBlitImageCubicWeightsInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBlitImageCubicWeightsInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.cubicWeights = CubicWeights;
+        if (CubicWeights != default)
+        {
+            _internal.cubicWeights = CubicWeights;
+        }
         return _internal;
     }
 

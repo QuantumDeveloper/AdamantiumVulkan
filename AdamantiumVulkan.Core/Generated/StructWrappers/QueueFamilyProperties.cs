@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class QueueFamilyProperties
+public unsafe partial class QueueFamilyProperties : QBDisposableObject
 {
     public QueueFamilyProperties()
     {
@@ -33,15 +33,30 @@ public unsafe partial class QueueFamilyProperties
     public AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties();
-        _internal.queueFlags = QueueFlags;
-        _internal.queueCount = QueueCount;
-        _internal.timestampValidBits = TimestampValidBits;
-        if (MinImageTransferGranularity != null)
+        if (QueueFlags != default)
+        {
+            _internal.queueFlags = QueueFlags;
+        }
+        if (QueueCount != default)
+        {
+            _internal.queueCount = QueueCount;
+        }
+        if (TimestampValidBits != default)
+        {
+            _internal.timestampValidBits = TimestampValidBits;
+        }
+        if (MinImageTransferGranularity != default)
         {
             _internal.minImageTransferGranularity = MinImageTransferGranularity.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        MinImageTransferGranularity?.Dispose();
+    }
+
 
     public static implicit operator QueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties q)
     {

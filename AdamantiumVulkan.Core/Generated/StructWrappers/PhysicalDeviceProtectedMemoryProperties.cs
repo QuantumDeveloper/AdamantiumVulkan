@@ -30,9 +30,15 @@ public unsafe partial class PhysicalDeviceProtectedMemoryProperties : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.protectedNoFault = ProtectedNoFault;
+        if (ProtectedNoFault != (uint)default)
+        {
+            _internal.protectedNoFault = ProtectedNoFault;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class SamplerCubicWeightsCreateInfoQCOM : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkSamplerCubicWeightsCreateInfoQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerCubicWeightsCreateInfoQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.cubicWeights = CubicWeights;
+        if (CubicWeights != default)
+        {
+            _internal.cubicWeights = CubicWeights;
+        }
         return _internal;
     }
 

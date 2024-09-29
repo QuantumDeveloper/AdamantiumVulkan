@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ShaderStatisticsInfoAMD
+public unsafe partial class ShaderStatisticsInfoAMD : QBDisposableObject
 {
     public ShaderStatisticsInfoAMD()
     {
@@ -39,16 +39,31 @@ public unsafe partial class ShaderStatisticsInfoAMD
     public AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD();
-        _internal.shaderStageMask = ShaderStageMask;
-        if (ResourceUsage != null)
+        if (ShaderStageMask != (uint)default)
+        {
+            _internal.shaderStageMask = ShaderStageMask;
+        }
+        if (ResourceUsage != default)
         {
             _internal.resourceUsage = ResourceUsage.ToNative();
         }
-        _internal.numPhysicalVgprs = NumPhysicalVgprs;
-        _internal.numPhysicalSgprs = NumPhysicalSgprs;
-        _internal.numAvailableVgprs = NumAvailableVgprs;
-        _internal.numAvailableSgprs = NumAvailableSgprs;
-        if(ComputeWorkGroupSize != null)
+        if (NumPhysicalVgprs != default)
+        {
+            _internal.numPhysicalVgprs = NumPhysicalVgprs;
+        }
+        if (NumPhysicalSgprs != default)
+        {
+            _internal.numPhysicalSgprs = NumPhysicalSgprs;
+        }
+        if (NumAvailableVgprs != default)
+        {
+            _internal.numAvailableVgprs = NumAvailableVgprs;
+        }
+        if (NumAvailableSgprs != default)
+        {
+            _internal.numAvailableSgprs = NumAvailableSgprs;
+        }
+        if (ComputeWorkGroupSize != default)
         {
             if (ComputeWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(ComputeWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
@@ -57,6 +72,12 @@ public unsafe partial class ShaderStatisticsInfoAMD
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ResourceUsage?.Dispose();
+    }
+
 
     public static implicit operator ShaderStatisticsInfoAMD(AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD s)
     {

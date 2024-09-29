@@ -33,9 +33,15 @@ public unsafe partial class CudaModuleCreateInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.dataSize = DataSize;
+        if (DataSize != default)
+        {
+            _internal.dataSize = DataSize;
+        }
         _internal.pData = PData;
         return _internal;
     }

@@ -34,10 +34,16 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : QBDisposableObject
     public AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
         _internal.pAttributes = PAttributes;
-        _internal.dwAccess = DwAccess;
+        if (DwAccess != default)
+        {
+            _internal.dwAccess = DwAccess;
+        }
         return _internal;
     }
 

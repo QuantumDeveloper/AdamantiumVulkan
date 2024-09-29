@@ -30,9 +30,15 @@ public unsafe partial class ImagePlaneMemoryRequirementsInfo : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.planeAspect = PlaneAspect;
+        if (PlaneAspect != default)
+        {
+            _internal.planeAspect = PlaneAspect;
+        }
         return _internal;
     }
 

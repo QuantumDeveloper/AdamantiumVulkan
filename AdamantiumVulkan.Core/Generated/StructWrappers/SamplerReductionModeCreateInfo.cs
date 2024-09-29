@@ -31,9 +31,15 @@ public unsafe partial class SamplerReductionModeCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.reductionMode = ReductionMode;
+        if (ReductionMode != default)
+        {
+            _internal.reductionMode = ReductionMode;
+        }
         return _internal;
     }
 

@@ -30,9 +30,15 @@ public unsafe partial class ImageViewASTCDecodeModeEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.decodeMode = DecodeMode;
+        if (DecodeMode != default)
+        {
+            _internal.decodeMode = DecodeMode;
+        }
         return _internal;
     }
 

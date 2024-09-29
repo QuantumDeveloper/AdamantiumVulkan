@@ -35,11 +35,23 @@ public unsafe partial class VideoInlineQueryInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoInlineQueryInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoInlineQueryInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.queryPool = QueryPool;
-        _internal.firstQuery = FirstQuery;
-        _internal.queryCount = QueryCount;
+        if (QueryPool != default)
+        {
+            _internal.queryPool = QueryPool;
+        }
+        if (FirstQuery != default)
+        {
+            _internal.firstQuery = FirstQuery;
+        }
+        if (QueryCount != default)
+        {
+            _internal.queryCount = QueryCount;
+        }
         return _internal;
     }
 

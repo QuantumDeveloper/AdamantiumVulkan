@@ -33,10 +33,19 @@ public unsafe partial class CommandBufferSubmitInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.commandBuffer = CommandBuffer;
-        _internal.deviceMask = DeviceMask;
+        if (CommandBuffer != default)
+        {
+            _internal.commandBuffer = CommandBuffer;
+        }
+        if (DeviceMask != default)
+        {
+            _internal.deviceMask = DeviceMask;
+        }
         return _internal;
     }
 

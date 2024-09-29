@@ -34,11 +34,23 @@ public unsafe partial class BindBufferMemoryInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.buffer = Buffer;
-        _internal.memory = Memory;
-        _internal.memoryOffset = MemoryOffset;
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
+        if (MemoryOffset != (ulong)default)
+        {
+            _internal.memoryOffset = MemoryOffset;
+        }
         return _internal;
     }
 

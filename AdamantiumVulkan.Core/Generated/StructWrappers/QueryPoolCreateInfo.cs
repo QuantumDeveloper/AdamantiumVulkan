@@ -36,12 +36,27 @@ public unsafe partial class QueryPoolCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.queryType = QueryType;
-        _internal.queryCount = QueryCount;
-        _internal.pipelineStatistics = PipelineStatistics;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (QueryType != default)
+        {
+            _internal.queryType = QueryType;
+        }
+        if (QueryCount != default)
+        {
+            _internal.queryCount = QueryCount;
+        }
+        if (PipelineStatistics != (uint)default)
+        {
+            _internal.pipelineStatistics = PipelineStatistics;
+        }
         return _internal;
     }
 

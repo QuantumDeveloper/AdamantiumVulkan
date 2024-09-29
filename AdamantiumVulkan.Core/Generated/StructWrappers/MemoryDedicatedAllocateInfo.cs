@@ -32,10 +32,19 @@ public unsafe partial class MemoryDedicatedAllocateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.image = Image;
-        _internal.buffer = Buffer;
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
         return _internal;
     }
 

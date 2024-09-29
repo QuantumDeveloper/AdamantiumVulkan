@@ -39,9 +39,15 @@ public unsafe partial class PresentIdKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPresentIdKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPresentIdKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pPresentIds.Dispose();
         if (PresentIds.HasValue)
         {

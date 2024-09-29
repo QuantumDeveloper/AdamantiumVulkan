@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class MemoryHeap
+public unsafe partial class MemoryHeap : QBDisposableObject
 {
     public MemoryHeap()
     {
@@ -29,8 +29,14 @@ public unsafe partial class MemoryHeap
     public AdamantiumVulkan.Core.Interop.VkMemoryHeap ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryHeap();
-        _internal.size = Size;
-        _internal.flags = Flags;
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
         return _internal;
     }
 

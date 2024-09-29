@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class SubresourceLayout
+public unsafe partial class SubresourceLayout : QBDisposableObject
 {
     public SubresourceLayout()
     {
@@ -35,11 +35,26 @@ public unsafe partial class SubresourceLayout
     public AdamantiumVulkan.Core.Interop.VkSubresourceLayout ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubresourceLayout();
-        _internal.offset = Offset;
-        _internal.size = Size;
-        _internal.rowPitch = RowPitch;
-        _internal.arrayPitch = ArrayPitch;
-        _internal.depthPitch = DepthPitch;
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
+        if (RowPitch != (ulong)default)
+        {
+            _internal.rowPitch = RowPitch;
+        }
+        if (ArrayPitch != (ulong)default)
+        {
+            _internal.arrayPitch = ArrayPitch;
+        }
+        if (DepthPitch != (ulong)default)
+        {
+            _internal.depthPitch = DepthPitch;
+        }
         return _internal;
     }
 

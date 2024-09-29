@@ -30,9 +30,15 @@ public unsafe partial class DeviceMemoryOverallocationCreateInfoAMD : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.overallocationBehavior = OverallocationBehavior;
+        if (OverallocationBehavior != default)
+        {
+            _internal.overallocationBehavior = OverallocationBehavior;
+        }
         return _internal;
     }
 

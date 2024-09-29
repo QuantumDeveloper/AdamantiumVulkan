@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.MacOS.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 30
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 30
 public unsafe struct PFN_vkCreateMacOSSurfaceMVK
 {
     public PFN_vkCreateMacOSSurfaceMVK(void* ptr)

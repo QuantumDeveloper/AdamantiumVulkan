@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class CopyMemoryIndirectCommandNV
+public unsafe partial class CopyMemoryIndirectCommandNV : QBDisposableObject
 {
     public CopyMemoryIndirectCommandNV()
     {
@@ -31,9 +31,18 @@ public unsafe partial class CopyMemoryIndirectCommandNV
     public AdamantiumVulkan.Core.Interop.VkCopyMemoryIndirectCommandNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyMemoryIndirectCommandNV();
-        _internal.srcAddress = SrcAddress;
-        _internal.dstAddress = DstAddress;
-        _internal.size = Size;
+        if (SrcAddress != (ulong)default)
+        {
+            _internal.srcAddress = SrcAddress;
+        }
+        if (DstAddress != (ulong)default)
+        {
+            _internal.dstAddress = DstAddress;
+        }
+        if (Size != (ulong)default)
+        {
+            _internal.size = Size;
+        }
         return _internal;
     }
 

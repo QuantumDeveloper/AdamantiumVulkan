@@ -124,85 +124,178 @@ public unsafe partial class StdVideoH265SequenceParameterSet : QBDisposableObjec
     public AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet ToNative()
     {
         var _internal = new AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet();
-        if (Flags != null)
+        if (Flags != default)
         {
             _internal.flags = Flags.ToNative();
         }
-        _internal.chroma_format_idc = Chroma_format_idc;
-        _internal.pic_width_in_luma_samples = Pic_width_in_luma_samples;
-        _internal.pic_height_in_luma_samples = Pic_height_in_luma_samples;
-        _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
-        _internal.sps_max_sub_layers_minus1 = Sps_max_sub_layers_minus1;
-        _internal.sps_seq_parameter_set_id = Sps_seq_parameter_set_id;
-        _internal.bit_depth_luma_minus8 = Bit_depth_luma_minus8;
-        _internal.bit_depth_chroma_minus8 = Bit_depth_chroma_minus8;
-        _internal.log2_max_pic_order_cnt_lsb_minus4 = Log2_max_pic_order_cnt_lsb_minus4;
-        _internal.log2_min_luma_coding_block_size_minus3 = Log2_min_luma_coding_block_size_minus3;
-        _internal.log2_diff_max_min_luma_coding_block_size = Log2_diff_max_min_luma_coding_block_size;
-        _internal.log2_min_luma_transform_block_size_minus2 = Log2_min_luma_transform_block_size_minus2;
-        _internal.log2_diff_max_min_luma_transform_block_size = Log2_diff_max_min_luma_transform_block_size;
-        _internal.max_transform_hierarchy_depth_inter = Max_transform_hierarchy_depth_inter;
-        _internal.max_transform_hierarchy_depth_intra = Max_transform_hierarchy_depth_intra;
-        _internal.num_short_term_ref_pic_sets = Num_short_term_ref_pic_sets;
-        _internal.num_long_term_ref_pics_sps = Num_long_term_ref_pics_sps;
-        _internal.pcm_sample_bit_depth_luma_minus1 = Pcm_sample_bit_depth_luma_minus1;
-        _internal.pcm_sample_bit_depth_chroma_minus1 = Pcm_sample_bit_depth_chroma_minus1;
-        _internal.log2_min_pcm_luma_coding_block_size_minus3 = Log2_min_pcm_luma_coding_block_size_minus3;
-        _internal.log2_diff_max_min_pcm_luma_coding_block_size = Log2_diff_max_min_pcm_luma_coding_block_size;
-        _internal.reserved1 = Reserved1;
-        _internal.reserved2 = Reserved2;
-        _internal.palette_max_size = Palette_max_size;
-        _internal.delta_palette_max_predictor_size = Delta_palette_max_predictor_size;
-        _internal.motion_vector_resolution_control_idc = Motion_vector_resolution_control_idc;
-        _internal.sps_num_palette_predictor_initializers_minus1 = Sps_num_palette_predictor_initializers_minus1;
-        _internal.conf_win_left_offset = Conf_win_left_offset;
-        _internal.conf_win_right_offset = Conf_win_right_offset;
-        _internal.conf_win_top_offset = Conf_win_top_offset;
-        _internal.conf_win_bottom_offset = Conf_win_bottom_offset;
+        if (Chroma_format_idc != default)
+        {
+            _internal.chroma_format_idc = Chroma_format_idc;
+        }
+        if (Pic_width_in_luma_samples != default)
+        {
+            _internal.pic_width_in_luma_samples = Pic_width_in_luma_samples;
+        }
+        if (Pic_height_in_luma_samples != default)
+        {
+            _internal.pic_height_in_luma_samples = Pic_height_in_luma_samples;
+        }
+        if (Sps_video_parameter_set_id != default)
+        {
+            _internal.sps_video_parameter_set_id = Sps_video_parameter_set_id;
+        }
+        if (Sps_max_sub_layers_minus1 != default)
+        {
+            _internal.sps_max_sub_layers_minus1 = Sps_max_sub_layers_minus1;
+        }
+        if (Sps_seq_parameter_set_id != default)
+        {
+            _internal.sps_seq_parameter_set_id = Sps_seq_parameter_set_id;
+        }
+        if (Bit_depth_luma_minus8 != default)
+        {
+            _internal.bit_depth_luma_minus8 = Bit_depth_luma_minus8;
+        }
+        if (Bit_depth_chroma_minus8 != default)
+        {
+            _internal.bit_depth_chroma_minus8 = Bit_depth_chroma_minus8;
+        }
+        if (Log2_max_pic_order_cnt_lsb_minus4 != default)
+        {
+            _internal.log2_max_pic_order_cnt_lsb_minus4 = Log2_max_pic_order_cnt_lsb_minus4;
+        }
+        if (Log2_min_luma_coding_block_size_minus3 != default)
+        {
+            _internal.log2_min_luma_coding_block_size_minus3 = Log2_min_luma_coding_block_size_minus3;
+        }
+        if (Log2_diff_max_min_luma_coding_block_size != default)
+        {
+            _internal.log2_diff_max_min_luma_coding_block_size = Log2_diff_max_min_luma_coding_block_size;
+        }
+        if (Log2_min_luma_transform_block_size_minus2 != default)
+        {
+            _internal.log2_min_luma_transform_block_size_minus2 = Log2_min_luma_transform_block_size_minus2;
+        }
+        if (Log2_diff_max_min_luma_transform_block_size != default)
+        {
+            _internal.log2_diff_max_min_luma_transform_block_size = Log2_diff_max_min_luma_transform_block_size;
+        }
+        if (Max_transform_hierarchy_depth_inter != default)
+        {
+            _internal.max_transform_hierarchy_depth_inter = Max_transform_hierarchy_depth_inter;
+        }
+        if (Max_transform_hierarchy_depth_intra != default)
+        {
+            _internal.max_transform_hierarchy_depth_intra = Max_transform_hierarchy_depth_intra;
+        }
+        if (Num_short_term_ref_pic_sets != default)
+        {
+            _internal.num_short_term_ref_pic_sets = Num_short_term_ref_pic_sets;
+        }
+        if (Num_long_term_ref_pics_sps != default)
+        {
+            _internal.num_long_term_ref_pics_sps = Num_long_term_ref_pics_sps;
+        }
+        if (Pcm_sample_bit_depth_luma_minus1 != default)
+        {
+            _internal.pcm_sample_bit_depth_luma_minus1 = Pcm_sample_bit_depth_luma_minus1;
+        }
+        if (Pcm_sample_bit_depth_chroma_minus1 != default)
+        {
+            _internal.pcm_sample_bit_depth_chroma_minus1 = Pcm_sample_bit_depth_chroma_minus1;
+        }
+        if (Log2_min_pcm_luma_coding_block_size_minus3 != default)
+        {
+            _internal.log2_min_pcm_luma_coding_block_size_minus3 = Log2_min_pcm_luma_coding_block_size_minus3;
+        }
+        if (Log2_diff_max_min_pcm_luma_coding_block_size != default)
+        {
+            _internal.log2_diff_max_min_pcm_luma_coding_block_size = Log2_diff_max_min_pcm_luma_coding_block_size;
+        }
+        if (Reserved1 != default)
+        {
+            _internal.reserved1 = Reserved1;
+        }
+        if (Reserved2 != default)
+        {
+            _internal.reserved2 = Reserved2;
+        }
+        if (Palette_max_size != default)
+        {
+            _internal.palette_max_size = Palette_max_size;
+        }
+        if (Delta_palette_max_predictor_size != default)
+        {
+            _internal.delta_palette_max_predictor_size = Delta_palette_max_predictor_size;
+        }
+        if (Motion_vector_resolution_control_idc != default)
+        {
+            _internal.motion_vector_resolution_control_idc = Motion_vector_resolution_control_idc;
+        }
+        if (Sps_num_palette_predictor_initializers_minus1 != default)
+        {
+            _internal.sps_num_palette_predictor_initializers_minus1 = Sps_num_palette_predictor_initializers_minus1;
+        }
+        if (Conf_win_left_offset != default)
+        {
+            _internal.conf_win_left_offset = Conf_win_left_offset;
+        }
+        if (Conf_win_right_offset != default)
+        {
+            _internal.conf_win_right_offset = Conf_win_right_offset;
+        }
+        if (Conf_win_top_offset != default)
+        {
+            _internal.conf_win_top_offset = Conf_win_top_offset;
+        }
+        if (Conf_win_bottom_offset != default)
+        {
+            _internal.conf_win_bottom_offset = Conf_win_bottom_offset;
+        }
         _pProfileTierLevel.Dispose();
-        if (ProfileTierLevel != null)
+        if (ProfileTierLevel != default)
         {
             var struct0 = ProfileTierLevel.ToNative();
             _pProfileTierLevel = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel>(struct0);
             _internal.pProfileTierLevel = _pProfileTierLevel.Handle;
         }
         _pDecPicBufMgr.Dispose();
-        if (PDecPicBufMgr != null)
+        if (PDecPicBufMgr != default)
         {
             var struct1 = PDecPicBufMgr.ToNative();
             _pDecPicBufMgr = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>(struct1);
             _internal.pDecPicBufMgr = _pDecPicBufMgr.Handle;
         }
         _pScalingLists.Dispose();
-        if (PScalingLists != null)
+        if (PScalingLists != default)
         {
             var struct2 = PScalingLists.ToNative();
             _pScalingLists = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>(struct2);
             _internal.pScalingLists = _pScalingLists.Handle;
         }
         _pShortTermRefPicSet.Dispose();
-        if (PShortTermRefPicSet != null)
+        if (PShortTermRefPicSet != default)
         {
             var struct3 = PShortTermRefPicSet.ToNative();
             _pShortTermRefPicSet = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet>(struct3);
             _internal.pShortTermRefPicSet = _pShortTermRefPicSet.Handle;
         }
         _pLongTermRefPicsSps.Dispose();
-        if (PLongTermRefPicsSps != null)
+        if (PLongTermRefPicsSps != default)
         {
             var struct4 = PLongTermRefPicsSps.ToNative();
             _pLongTermRefPicsSps = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>(struct4);
             _internal.pLongTermRefPicsSps = _pLongTermRefPicsSps.Handle;
         }
         _pSequenceParameterSetVui.Dispose();
-        if (PSequenceParameterSetVui != null)
+        if (PSequenceParameterSetVui != default)
         {
             var struct5 = PSequenceParameterSetVui.ToNative();
             _pSequenceParameterSetVui = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSetVui>(struct5);
             _internal.pSequenceParameterSetVui = _pSequenceParameterSetVui.Handle;
         }
         _pPredictorPaletteEntries.Dispose();
-        if (PredictorPaletteEntries != null)
+        if (PredictorPaletteEntries != default)
         {
             var struct6 = PredictorPaletteEntries.ToNative();
             _pPredictorPaletteEntries = new NativeStruct<AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries>(struct6);
@@ -220,6 +313,7 @@ public unsafe partial class StdVideoH265SequenceParameterSet : QBDisposableObjec
         _pLongTermRefPicsSps.Dispose();
         _pSequenceParameterSetVui.Dispose();
         _pPredictorPaletteEntries.Dispose();
+        Flags?.Dispose();
     }
 
 

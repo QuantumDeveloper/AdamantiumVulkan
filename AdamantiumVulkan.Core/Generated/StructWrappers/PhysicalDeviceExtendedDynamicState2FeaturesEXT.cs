@@ -35,11 +35,23 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.extendedDynamicState2 = ExtendedDynamicState2;
-        _internal.extendedDynamicState2LogicOp = ExtendedDynamicState2LogicOp;
-        _internal.extendedDynamicState2PatchControlPoints = ExtendedDynamicState2PatchControlPoints;
+        if (ExtendedDynamicState2 != (uint)default)
+        {
+            _internal.extendedDynamicState2 = ExtendedDynamicState2;
+        }
+        if (ExtendedDynamicState2LogicOp != (uint)default)
+        {
+            _internal.extendedDynamicState2LogicOp = ExtendedDynamicState2LogicOp;
+        }
+        if (ExtendedDynamicState2PatchControlPoints != (uint)default)
+        {
+            _internal.extendedDynamicState2PatchControlPoints = ExtendedDynamicState2PatchControlPoints;
+        }
         return _internal;
     }
 

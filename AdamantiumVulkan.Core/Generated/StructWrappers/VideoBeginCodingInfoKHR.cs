@@ -42,14 +42,29 @@ public unsafe partial class VideoBeginCodingInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoBeginCodingInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoBeginCodingInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.videoSession = VideoSession;
-        _internal.videoSessionParameters = VideoSessionParameters;
-        _internal.referenceSlotCount = ReferenceSlotCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (VideoSession != default)
+        {
+            _internal.videoSession = VideoSession;
+        }
+        if (VideoSessionParameters != default)
+        {
+            _internal.videoSessionParameters = VideoSessionParameters;
+        }
+        if (ReferenceSlotCount != default)
+        {
+            _internal.referenceSlotCount = ReferenceSlotCount;
+        }
         _pReferenceSlots.Dispose();
-        if (PReferenceSlots != null)
+        if (PReferenceSlots != default)
         {
             var struct0 = PReferenceSlots.ToNative();
             _pReferenceSlots = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>(struct0);

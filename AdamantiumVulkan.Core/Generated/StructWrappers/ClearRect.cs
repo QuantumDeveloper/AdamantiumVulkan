@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ClearRect
+public unsafe partial class ClearRect : QBDisposableObject
 {
     public ClearRect()
     {
@@ -31,14 +31,26 @@ public unsafe partial class ClearRect
     public AdamantiumVulkan.Core.Interop.VkClearRect ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkClearRect();
-        if (Rect != null)
+        if (Rect != default)
         {
             _internal.rect = Rect.ToNative();
         }
-        _internal.baseArrayLayer = BaseArrayLayer;
-        _internal.layerCount = LayerCount;
+        if (BaseArrayLayer != default)
+        {
+            _internal.baseArrayLayer = BaseArrayLayer;
+        }
+        if (LayerCount != default)
+        {
+            _internal.layerCount = LayerCount;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Rect?.Dispose();
+    }
+
 
     public static implicit operator ClearRect(AdamantiumVulkan.Core.Interop.VkClearRect c)
     {

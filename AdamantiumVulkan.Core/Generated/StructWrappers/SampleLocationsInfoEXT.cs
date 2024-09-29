@@ -39,16 +39,25 @@ public unsafe partial class SampleLocationsInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.sampleLocationsPerPixel = SampleLocationsPerPixel;
-        if (SampleLocationGridSize != null)
+        if (SampleLocationsPerPixel != default)
+        {
+            _internal.sampleLocationsPerPixel = SampleLocationsPerPixel;
+        }
+        if (SampleLocationGridSize != default)
         {
             _internal.sampleLocationGridSize = SampleLocationGridSize.ToNative();
         }
-        _internal.sampleLocationsCount = SampleLocationsCount;
+        if (SampleLocationsCount != default)
+        {
+            _internal.sampleLocationsCount = SampleLocationsCount;
+        }
         _pSampleLocations.Dispose();
-        if (PSampleLocations != null)
+        if (PSampleLocations != default)
         {
             var struct0 = PSampleLocations.ToNative();
             _pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(struct0);
@@ -60,6 +69,7 @@ public unsafe partial class SampleLocationsInfoEXT : QBDisposableObject
     protected override void UnmanagedDisposeOverride()
     {
         _pSampleLocations.Dispose();
+        SampleLocationGridSize?.Dispose();
     }
 
 

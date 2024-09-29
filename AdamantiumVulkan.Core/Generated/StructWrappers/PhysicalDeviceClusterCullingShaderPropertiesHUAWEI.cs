@@ -37,24 +37,33 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(MaxWorkGroupCount != null)
+        if (MaxWorkGroupCount != default)
         {
             if (MaxWorkGroupCount.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxWorkGroupCount), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxWorkGroupCount, 3, MaxWorkGroupCount);
         }
-        if(MaxWorkGroupSize != null)
+        if (MaxWorkGroupSize != default)
         {
             if (MaxWorkGroupSize.Length > 3)
                 throw new System.ArgumentOutOfRangeException(nameof(MaxWorkGroupSize), "Array is out of bounds. Size should not be more than 3");
 
             NativeUtils.PrimitiveToFixedArray(_internal.maxWorkGroupSize, 3, MaxWorkGroupSize);
         }
-        _internal.maxOutputClusterCount = MaxOutputClusterCount;
-        _internal.indirectBufferOffsetAlignment = IndirectBufferOffsetAlignment;
+        if (MaxOutputClusterCount != default)
+        {
+            _internal.maxOutputClusterCount = MaxOutputClusterCount;
+        }
+        if (IndirectBufferOffsetAlignment != (ulong)default)
+        {
+            _internal.indirectBufferOffsetAlignment = IndirectBufferOffsetAlignment;
+        }
         return _internal;
     }
 

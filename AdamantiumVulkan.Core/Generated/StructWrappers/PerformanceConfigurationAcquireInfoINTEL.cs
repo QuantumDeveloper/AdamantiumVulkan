@@ -31,9 +31,15 @@ public unsafe partial class PerformanceConfigurationAcquireInfoINTEL : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
         return _internal;
     }
 

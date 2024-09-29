@@ -44,16 +44,43 @@ public unsafe partial class PhysicalDeviceRayTracingPropertiesNV : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderGroupHandleSize = ShaderGroupHandleSize;
-        _internal.maxRecursionDepth = MaxRecursionDepth;
-        _internal.maxShaderGroupStride = MaxShaderGroupStride;
-        _internal.shaderGroupBaseAlignment = ShaderGroupBaseAlignment;
-        _internal.maxGeometryCount = MaxGeometryCount;
-        _internal.maxInstanceCount = MaxInstanceCount;
-        _internal.maxTriangleCount = MaxTriangleCount;
-        _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
+        if (ShaderGroupHandleSize != default)
+        {
+            _internal.shaderGroupHandleSize = ShaderGroupHandleSize;
+        }
+        if (MaxRecursionDepth != default)
+        {
+            _internal.maxRecursionDepth = MaxRecursionDepth;
+        }
+        if (MaxShaderGroupStride != default)
+        {
+            _internal.maxShaderGroupStride = MaxShaderGroupStride;
+        }
+        if (ShaderGroupBaseAlignment != default)
+        {
+            _internal.shaderGroupBaseAlignment = ShaderGroupBaseAlignment;
+        }
+        if (MaxGeometryCount != default)
+        {
+            _internal.maxGeometryCount = MaxGeometryCount;
+        }
+        if (MaxInstanceCount != default)
+        {
+            _internal.maxInstanceCount = MaxInstanceCount;
+        }
+        if (MaxTriangleCount != default)
+        {
+            _internal.maxTriangleCount = MaxTriangleCount;
+        }
+        if (MaxDescriptorSetAccelerationStructures != default)
+        {
+            _internal.maxDescriptorSetAccelerationStructures = MaxDescriptorSetAccelerationStructures;
+        }
         return _internal;
     }
 

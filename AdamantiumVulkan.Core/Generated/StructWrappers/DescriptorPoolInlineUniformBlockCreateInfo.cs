@@ -31,9 +31,15 @@ public unsafe partial class DescriptorPoolInlineUniformBlockCreateInfo : QBDispo
     public AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.maxInlineUniformBlockBindings = MaxInlineUniformBlockBindings;
+        if (MaxInlineUniformBlockBindings != default)
+        {
+            _internal.maxInlineUniformBlockBindings = MaxInlineUniformBlockBindings;
+        }
         return _internal;
     }
 

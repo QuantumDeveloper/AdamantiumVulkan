@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class IndirectCommandsStreamNV
+public unsafe partial class IndirectCommandsStreamNV : QBDisposableObject
 {
     public IndirectCommandsStreamNV()
     {
@@ -29,8 +29,14 @@ public unsafe partial class IndirectCommandsStreamNV
     public AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV();
-        _internal.buffer = Buffer;
-        _internal.offset = Offset;
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
+        if (Offset != (ulong)default)
+        {
+            _internal.offset = Offset;
+        }
         return _internal;
     }
 

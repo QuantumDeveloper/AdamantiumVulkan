@@ -30,9 +30,15 @@ public unsafe partial class MemoryPriorityAllocateInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.priority = Priority;
+        if (Priority != default)
+        {
+            _internal.priority = Priority;
+        }
         return _internal;
     }
 

@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDeviceTexelBufferAlignmentProperties : QBDis
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.storageTexelBufferOffsetAlignmentBytes = StorageTexelBufferOffsetAlignmentBytes;
-        _internal.storageTexelBufferOffsetSingleTexelAlignment = StorageTexelBufferOffsetSingleTexelAlignment;
-        _internal.uniformTexelBufferOffsetAlignmentBytes = UniformTexelBufferOffsetAlignmentBytes;
-        _internal.uniformTexelBufferOffsetSingleTexelAlignment = UniformTexelBufferOffsetSingleTexelAlignment;
+        if (StorageTexelBufferOffsetAlignmentBytes != (ulong)default)
+        {
+            _internal.storageTexelBufferOffsetAlignmentBytes = StorageTexelBufferOffsetAlignmentBytes;
+        }
+        if (StorageTexelBufferOffsetSingleTexelAlignment != (uint)default)
+        {
+            _internal.storageTexelBufferOffsetSingleTexelAlignment = StorageTexelBufferOffsetSingleTexelAlignment;
+        }
+        if (UniformTexelBufferOffsetAlignmentBytes != (ulong)default)
+        {
+            _internal.uniformTexelBufferOffsetAlignmentBytes = UniformTexelBufferOffsetAlignmentBytes;
+        }
+        if (UniformTexelBufferOffsetSingleTexelAlignment != (uint)default)
+        {
+            _internal.uniformTexelBufferOffsetSingleTexelAlignment = UniformTexelBufferOffsetSingleTexelAlignment;
+        }
         return _internal;
     }
 

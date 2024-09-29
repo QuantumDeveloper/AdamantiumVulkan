@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class VertexInputAttributeDescription
+public unsafe partial class VertexInputAttributeDescription : QBDisposableObject
 {
     public VertexInputAttributeDescription()
     {
@@ -33,10 +33,22 @@ public unsafe partial class VertexInputAttributeDescription
     public AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription();
-        _internal.location = Location;
-        _internal.binding = Binding;
-        _internal.format = Format;
-        _internal.offset = Offset;
+        if (Location != default)
+        {
+            _internal.location = Location;
+        }
+        if (Binding != default)
+        {
+            _internal.binding = Binding;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class ImageCaptureDescriptorDataInfoEXT : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.image = Image;
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
         return _internal;
     }
 

@@ -31,9 +31,15 @@ public unsafe partial class ImageStencilUsageCreateInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stencilUsage = StencilUsage;
+        if (StencilUsage != (uint)default)
+        {
+            _internal.stencilUsage = StencilUsage;
+        }
         return _internal;
     }
 

@@ -39,9 +39,15 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : Q
     public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.identifierSize = IdentifierSize;
+        if (IdentifierSize != default)
+        {
+            _internal.identifierSize = IdentifierSize;
+        }
         _pIdentifier.Dispose();
         if (PIdentifier.HasValue)
         {

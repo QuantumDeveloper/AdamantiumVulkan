@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceRGBA10X6FormatsFeaturesEXT : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.formatRgba10x6WithoutYCbCrSampler = FormatRgba10x6WithoutYCbCrSampler;
+        if (FormatRgba10x6WithoutYCbCrSampler != (uint)default)
+        {
+            _internal.formatRgba10x6WithoutYCbCrSampler = FormatRgba10x6WithoutYCbCrSampler;
+        }
         return _internal;
     }
 

@@ -32,10 +32,19 @@ public unsafe partial class PhysicalDeviceMeshShaderFeaturesNV : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.taskShader = TaskShader;
-        _internal.meshShader = MeshShader;
+        if (TaskShader != (uint)default)
+        {
+            _internal.taskShader = TaskShader;
+        }
+        if (MeshShader != (uint)default)
+        {
+            _internal.meshShader = MeshShader;
+        }
         return _internal;
     }
 

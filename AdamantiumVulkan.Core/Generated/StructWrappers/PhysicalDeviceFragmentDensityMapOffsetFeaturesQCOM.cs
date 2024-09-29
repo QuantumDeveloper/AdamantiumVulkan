@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM :
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fragmentDensityMapOffset = FragmentDensityMapOffset;
+        if (FragmentDensityMapOffset != (uint)default)
+        {
+            _internal.fragmentDensityMapOffset = FragmentDensityMapOffset;
+        }
         return _internal;
     }
 

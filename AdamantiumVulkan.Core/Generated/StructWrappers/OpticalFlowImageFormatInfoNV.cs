@@ -31,9 +31,15 @@ public unsafe partial class OpticalFlowImageFormatInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.usage = Usage;
+        if (Usage != (uint)default)
+        {
+            _internal.usage = Usage;
+        }
         return _internal;
     }
 

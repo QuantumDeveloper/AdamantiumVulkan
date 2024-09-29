@@ -34,10 +34,19 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.pfnCallback = PfnCallback;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (PfnCallback != default)
+        {
+            _internal.pfnCallback = PfnCallback;
+        }
         _internal.pUserData = PUserData;
         return _internal;
     }

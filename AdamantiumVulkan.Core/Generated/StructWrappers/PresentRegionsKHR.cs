@@ -35,11 +35,17 @@ public unsafe partial class PresentRegionsKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pRegions.Dispose();
-        if (PRegions != null)
+        if (PRegions != default)
         {
             var struct0 = PRegions.ToNative();
             _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(struct0);

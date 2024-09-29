@@ -11,7 +11,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-public unsafe partial class SpvcCombinedImageSampler
+public unsafe partial class SpvcCombinedImageSampler : QBDisposableObject
 {
     public SpvcCombinedImageSampler()
     {
@@ -31,9 +31,18 @@ public unsafe partial class SpvcCombinedImageSampler
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler();
-        _internal.combined_id = Combined_id;
-        _internal.image_id = Image_id;
-        _internal.sampler_id = Sampler_id;
+        if (Combined_id != (uint)default)
+        {
+            _internal.combined_id = Combined_id;
+        }
+        if (Image_id != (uint)default)
+        {
+            _internal.image_id = Image_id;
+        }
+        if (Sampler_id != (uint)default)
+        {
+            _internal.sampler_id = Sampler_id;
+        }
         return _internal;
     }
 

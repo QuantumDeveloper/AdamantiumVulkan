@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceSubpassMergeFeedbackFeaturesEXT : QBDi
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.subpassMergeFeedback = SubpassMergeFeedback;
+        if (SubpassMergeFeedback != (uint)default)
+        {
+            _internal.subpassMergeFeedback = SubpassMergeFeedback;
+        }
         return _internal;
     }
 

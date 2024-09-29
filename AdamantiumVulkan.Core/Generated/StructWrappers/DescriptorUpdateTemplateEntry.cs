@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DescriptorUpdateTemplateEntry
+public unsafe partial class DescriptorUpdateTemplateEntry : QBDisposableObject
 {
     public DescriptorUpdateTemplateEntry()
     {
@@ -37,12 +37,30 @@ public unsafe partial class DescriptorUpdateTemplateEntry
     public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry();
-        _internal.dstBinding = DstBinding;
-        _internal.dstArrayElement = DstArrayElement;
-        _internal.descriptorCount = DescriptorCount;
-        _internal.descriptorType = DescriptorType;
-        _internal.offset = Offset;
-        _internal.stride = Stride;
+        if (DstBinding != default)
+        {
+            _internal.dstBinding = DstBinding;
+        }
+        if (DstArrayElement != default)
+        {
+            _internal.dstArrayElement = DstArrayElement;
+        }
+        if (DescriptorCount != default)
+        {
+            _internal.descriptorCount = DescriptorCount;
+        }
+        if (DescriptorType != default)
+        {
+            _internal.descriptorType = DescriptorType;
+        }
+        if (Offset != default)
+        {
+            _internal.offset = Offset;
+        }
+        if (Stride != default)
+        {
+            _internal.stride = Stride;
+        }
         return _internal;
     }
 

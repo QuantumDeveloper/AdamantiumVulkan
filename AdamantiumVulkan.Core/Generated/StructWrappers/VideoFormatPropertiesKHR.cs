@@ -41,19 +41,43 @@ public unsafe partial class VideoFormatPropertiesKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.format = Format;
-        if (ComponentMapping != null)
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
+        if (ComponentMapping != default)
         {
             _internal.componentMapping = ComponentMapping.ToNative();
         }
-        _internal.imageCreateFlags = ImageCreateFlags;
-        _internal.imageType = ImageType;
-        _internal.imageTiling = ImageTiling;
-        _internal.imageUsageFlags = ImageUsageFlags;
+        if (ImageCreateFlags != (uint)default)
+        {
+            _internal.imageCreateFlags = ImageCreateFlags;
+        }
+        if (ImageType != default)
+        {
+            _internal.imageType = ImageType;
+        }
+        if (ImageTiling != default)
+        {
+            _internal.imageTiling = ImageTiling;
+        }
+        if (ImageUsageFlags != (uint)default)
+        {
+            _internal.imageUsageFlags = ImageUsageFlags;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        ComponentMapping?.Dispose();
+    }
+
 
     public static implicit operator VideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR v)
     {

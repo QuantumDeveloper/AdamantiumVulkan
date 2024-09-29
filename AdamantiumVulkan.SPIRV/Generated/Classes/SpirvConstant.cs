@@ -13,7 +13,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\spirv_cross\spirv_cross_c.h Line: 79 Column: 33
+// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 79 Column: 33
 public unsafe partial class SpirvConstant
 {
     internal SpvcConstantS __Instance;
@@ -59,6 +59,11 @@ public unsafe partial class SpirvConstant
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_scalar_i32(this, column, row);
     }
 
+    public long GetScalarI64(uint column, uint row)
+    {
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_scalar_i64(this, column, row);
+    }
+
     public int GetScalarI8(uint column, uint row)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_scalar_i8(this, column, row);
@@ -72,6 +77,11 @@ public unsafe partial class SpirvConstant
     public uint GetScalarU32(uint column, uint row)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_scalar_u32(this, column, row);
+    }
+
+    public ulong GetScalarU64(uint column, uint row)
+    {
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_scalar_u64(this, column, row);
     }
 
     public uint GetScalarU8(uint column, uint row)
@@ -117,6 +127,11 @@ public unsafe partial class SpirvConstant
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_set_scalar_i32(this, column, row, value);
     }
 
+    public void SetScalarI64(uint column, uint row, long value)
+    {
+        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_set_scalar_i64(this, column, row, value);
+    }
+
     public void SetScalarI8(uint column, uint row, bool value)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_set_scalar_i8(this, column, row, value);
@@ -130,6 +145,11 @@ public unsafe partial class SpirvConstant
     public void SetScalarU32(uint column, uint row, uint value)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_set_scalar_u32(this, column, row, value);
+    }
+
+    public void SetScalarU64(uint column, uint row, ulong value)
+    {
+        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_set_scalar_u64(this, column, row, value);
     }
 
     public void SetScalarU8(uint column, uint row, bool value)

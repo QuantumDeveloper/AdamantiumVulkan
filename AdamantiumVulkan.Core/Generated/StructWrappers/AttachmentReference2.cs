@@ -35,11 +35,23 @@ public unsafe partial class AttachmentReference2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAttachmentReference2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAttachmentReference2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.attachment = Attachment;
-        _internal.layout = Layout;
-        _internal.aspectMask = AspectMask;
+        if (Attachment != default)
+        {
+            _internal.attachment = Attachment;
+        }
+        if (Layout != default)
+        {
+            _internal.layout = Layout;
+        }
+        if (AspectMask != (uint)default)
+        {
+            _internal.aspectMask = AspectMask;
+        }
         return _internal;
     }
 

@@ -52,28 +52,43 @@ public unsafe partial class SubmitInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSubmitInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSubmitInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.waitSemaphoreInfoCount = WaitSemaphoreInfoCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (WaitSemaphoreInfoCount != default)
+        {
+            _internal.waitSemaphoreInfoCount = WaitSemaphoreInfoCount;
+        }
         _pWaitSemaphoreInfos.Dispose();
-        if (PWaitSemaphoreInfos != null)
+        if (PWaitSemaphoreInfos != default)
         {
             var struct0 = PWaitSemaphoreInfos.ToNative();
             _pWaitSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct0);
             _internal.pWaitSemaphoreInfos = _pWaitSemaphoreInfos.Handle;
         }
-        _internal.commandBufferInfoCount = CommandBufferInfoCount;
+        if (CommandBufferInfoCount != default)
+        {
+            _internal.commandBufferInfoCount = CommandBufferInfoCount;
+        }
         _pCommandBufferInfos.Dispose();
-        if (PCommandBufferInfos != null)
+        if (PCommandBufferInfos != default)
         {
             var struct1 = PCommandBufferInfos.ToNative();
             _pCommandBufferInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo>(struct1);
             _internal.pCommandBufferInfos = _pCommandBufferInfos.Handle;
         }
-        _internal.signalSemaphoreInfoCount = SignalSemaphoreInfoCount;
+        if (SignalSemaphoreInfoCount != default)
+        {
+            _internal.signalSemaphoreInfoCount = SignalSemaphoreInfoCount;
+        }
         _pSignalSemaphoreInfos.Dispose();
-        if (PSignalSemaphoreInfos != null)
+        if (PSignalSemaphoreInfos != default)
         {
             var struct2 = PSignalSemaphoreInfos.ToNative();
             _pSignalSemaphoreInfos = new NativeStruct<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(struct2);

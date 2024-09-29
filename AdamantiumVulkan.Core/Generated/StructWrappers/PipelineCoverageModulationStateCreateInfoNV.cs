@@ -44,12 +44,27 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.coverageModulationMode = CoverageModulationMode;
-        _internal.coverageModulationTableEnable = CoverageModulationTableEnable;
-        _internal.coverageModulationTableCount = CoverageModulationTableCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (CoverageModulationMode != default)
+        {
+            _internal.coverageModulationMode = CoverageModulationMode;
+        }
+        if (CoverageModulationTableEnable != (uint)default)
+        {
+            _internal.coverageModulationTableEnable = CoverageModulationTableEnable;
+        }
+        if (CoverageModulationTableCount != default)
+        {
+            _internal.coverageModulationTableCount = CoverageModulationTableCount;
+        }
         _pCoverageModulationTable.Dispose();
         if (PCoverageModulationTable.HasValue)
         {

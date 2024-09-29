@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockFeatures : QBDisposa
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeatures ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeatures();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.inlineUniformBlock = InlineUniformBlock;
-        _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
+        if (InlineUniformBlock != (uint)default)
+        {
+            _internal.inlineUniformBlock = InlineUniformBlock;
+        }
+        if (DescriptorBindingInlineUniformBlockUpdateAfterBind != (uint)default)
+        {
+            _internal.descriptorBindingInlineUniformBlockUpdateAfterBind = DescriptorBindingInlineUniformBlockUpdateAfterBind;
+        }
         return _internal;
     }
 

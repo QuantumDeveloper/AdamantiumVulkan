@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceRobustness2PropertiesEXT : QBDisposabl
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRobustness2PropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRobustness2PropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.robustStorageBufferAccessSizeAlignment = RobustStorageBufferAccessSizeAlignment;
-        _internal.robustUniformBufferAccessSizeAlignment = RobustUniformBufferAccessSizeAlignment;
+        if (RobustStorageBufferAccessSizeAlignment != (ulong)default)
+        {
+            _internal.robustStorageBufferAccessSizeAlignment = RobustStorageBufferAccessSizeAlignment;
+        }
+        if (RobustUniformBufferAccessSizeAlignment != (ulong)default)
+        {
+            _internal.robustUniformBufferAccessSizeAlignment = RobustUniformBufferAccessSizeAlignment;
+        }
         return _internal;
     }
 

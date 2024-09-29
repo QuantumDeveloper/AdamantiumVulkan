@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceDepthClampZeroOneFeaturesEXT : QBDispo
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.depthClampZeroOne = DepthClampZeroOne;
+        if (DepthClampZeroOne != (uint)default)
+        {
+            _internal.depthClampZeroOne = DepthClampZeroOne;
+        }
         return _internal;
     }
 

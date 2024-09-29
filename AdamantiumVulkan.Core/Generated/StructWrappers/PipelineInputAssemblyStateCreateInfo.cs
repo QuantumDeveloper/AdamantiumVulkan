@@ -34,11 +34,23 @@ public unsafe partial class PipelineInputAssemblyStateCreateInfo : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.topology = Topology;
-        _internal.primitiveRestartEnable = PrimitiveRestartEnable;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (Topology != default)
+        {
+            _internal.topology = Topology;
+        }
+        if (PrimitiveRestartEnable != (uint)default)
+        {
+            _internal.primitiveRestartEnable = PrimitiveRestartEnable;
+        }
         return _internal;
     }
 

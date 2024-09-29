@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT
+public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT : QBDisposableObject
 {
     public DeviceFaultVendorBinaryHeaderVersionOneEXT()
     {
@@ -47,23 +47,53 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneEXT();
-        _internal.headerSize = HeaderSize;
-        _internal.headerVersion = HeaderVersion;
-        _internal.vendorID = VendorID;
-        _internal.deviceID = DeviceID;
-        _internal.driverVersion = DriverVersion;
-        if(PipelineCacheUUID != null)
+        if (HeaderSize != default)
+        {
+            _internal.headerSize = HeaderSize;
+        }
+        if (HeaderVersion != default)
+        {
+            _internal.headerVersion = HeaderVersion;
+        }
+        if (VendorID != default)
+        {
+            _internal.vendorID = VendorID;
+        }
+        if (DeviceID != default)
+        {
+            _internal.deviceID = DeviceID;
+        }
+        if (DriverVersion != default)
+        {
+            _internal.driverVersion = DriverVersion;
+        }
+        if (PipelineCacheUUID != default)
         {
             if (PipelineCacheUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(PipelineCacheUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.pipelineCacheUUID, 16, PipelineCacheUUID);
         }
-        _internal.applicationNameOffset = ApplicationNameOffset;
-        _internal.applicationVersion = ApplicationVersion;
-        _internal.engineNameOffset = EngineNameOffset;
-        _internal.engineVersion = EngineVersion;
-        _internal.apiVersion = ApiVersion;
+        if (ApplicationNameOffset != default)
+        {
+            _internal.applicationNameOffset = ApplicationNameOffset;
+        }
+        if (ApplicationVersion != default)
+        {
+            _internal.applicationVersion = ApplicationVersion;
+        }
+        if (EngineNameOffset != default)
+        {
+            _internal.engineNameOffset = EngineNameOffset;
+        }
+        if (EngineVersion != default)
+        {
+            _internal.engineVersion = EngineVersion;
+        }
+        if (ApiVersion != default)
+        {
+            _internal.apiVersion = ApiVersion;
+        }
         return _internal;
     }
 

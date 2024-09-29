@@ -37,12 +37,27 @@ public unsafe partial class PhysicalDeviceDepthStencilResolveProperties : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolveProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolveProperties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.supportedDepthResolveModes = SupportedDepthResolveModes;
-        _internal.supportedStencilResolveModes = SupportedStencilResolveModes;
-        _internal.independentResolveNone = IndependentResolveNone;
-        _internal.independentResolve = IndependentResolve;
+        if (SupportedDepthResolveModes != (uint)default)
+        {
+            _internal.supportedDepthResolveModes = SupportedDepthResolveModes;
+        }
+        if (SupportedStencilResolveModes != (uint)default)
+        {
+            _internal.supportedStencilResolveModes = SupportedStencilResolveModes;
+        }
+        if (IndependentResolveNone != (uint)default)
+        {
+            _internal.independentResolveNone = IndependentResolveNone;
+        }
+        if (IndependentResolve != (uint)default)
+        {
+            _internal.independentResolve = IndependentResolve;
+        }
         return _internal;
     }
 

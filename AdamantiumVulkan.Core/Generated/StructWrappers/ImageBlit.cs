@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class ImageBlit
+public unsafe partial class ImageBlit : QBDisposableObject
 {
     public ImageBlit()
     {
@@ -41,11 +41,11 @@ public unsafe partial class ImageBlit
     public AdamantiumVulkan.Core.Interop.VkImageBlit ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkImageBlit();
-        if (SrcSubresource != null)
+        if (SrcSubresource != default)
         {
             _internal.srcSubresource = SrcSubresource.ToNative();
         }
-        if(SrcOffsets != null)
+        if (SrcOffsets != default)
         {
             if (SrcOffsets.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(SrcOffsets), "Array is out of bounds. Size should not be more than 2");
@@ -55,11 +55,11 @@ public unsafe partial class ImageBlit
                 _internal.srcOffsets[i] = SrcOffsets[i].ToNative();
             }
         }
-        if (DstSubresource != null)
+        if (DstSubresource != default)
         {
             _internal.dstSubresource = DstSubresource.ToNative();
         }
-        if(DstOffsets != null)
+        if (DstOffsets != default)
         {
             if (DstOffsets.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(DstOffsets), "Array is out of bounds. Size should not be more than 2");
@@ -71,6 +71,21 @@ public unsafe partial class ImageBlit
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SrcSubresource?.Dispose();
+        foreach(var item in SrcOffsets)
+        {
+        	item.Dispose();
+        }
+        DstSubresource?.Dispose();
+        foreach(var item in DstOffsets)
+        {
+        	item.Dispose();
+        }
+    }
+
 
     public static implicit operator ImageBlit(AdamantiumVulkan.Core.Interop.VkImageBlit i)
     {

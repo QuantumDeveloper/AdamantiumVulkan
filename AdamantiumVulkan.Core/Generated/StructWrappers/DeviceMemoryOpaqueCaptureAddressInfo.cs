@@ -31,9 +31,15 @@ public unsafe partial class DeviceMemoryOpaqueCaptureAddressInfo : QBDisposableO
     public AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.memory = Memory;
+        if (Memory != default)
+        {
+            _internal.memory = Memory;
+        }
         return _internal;
     }
 

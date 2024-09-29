@@ -33,10 +33,19 @@ public unsafe partial class PipelineExecutableInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipeline = Pipeline;
-        _internal.executableIndex = ExecutableIndex;
+        if (Pipeline != default)
+        {
+            _internal.pipeline = Pipeline;
+        }
+        if (ExecutableIndex != default)
+        {
+            _internal.executableIndex = ExecutableIndex;
+        }
         return _internal;
     }
 

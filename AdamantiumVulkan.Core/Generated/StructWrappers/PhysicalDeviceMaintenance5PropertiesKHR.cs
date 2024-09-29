@@ -41,14 +41,35 @@ public unsafe partial class PhysicalDeviceMaintenance5PropertiesKHR : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5PropertiesKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5PropertiesKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.earlyFragmentMultisampleCoverageAfterSampleCounting = EarlyFragmentMultisampleCoverageAfterSampleCounting;
-        _internal.earlyFragmentSampleMaskTestBeforeSampleCounting = EarlyFragmentSampleMaskTestBeforeSampleCounting;
-        _internal.depthStencilSwizzleOneSupport = DepthStencilSwizzleOneSupport;
-        _internal.polygonModePointSize = PolygonModePointSize;
-        _internal.nonStrictSinglePixelWideLinesUseParallelogram = NonStrictSinglePixelWideLinesUseParallelogram;
-        _internal.nonStrictWideLinesUseParallelogram = NonStrictWideLinesUseParallelogram;
+        if (EarlyFragmentMultisampleCoverageAfterSampleCounting != (uint)default)
+        {
+            _internal.earlyFragmentMultisampleCoverageAfterSampleCounting = EarlyFragmentMultisampleCoverageAfterSampleCounting;
+        }
+        if (EarlyFragmentSampleMaskTestBeforeSampleCounting != (uint)default)
+        {
+            _internal.earlyFragmentSampleMaskTestBeforeSampleCounting = EarlyFragmentSampleMaskTestBeforeSampleCounting;
+        }
+        if (DepthStencilSwizzleOneSupport != (uint)default)
+        {
+            _internal.depthStencilSwizzleOneSupport = DepthStencilSwizzleOneSupport;
+        }
+        if (PolygonModePointSize != (uint)default)
+        {
+            _internal.polygonModePointSize = PolygonModePointSize;
+        }
+        if (NonStrictSinglePixelWideLinesUseParallelogram != (uint)default)
+        {
+            _internal.nonStrictSinglePixelWideLinesUseParallelogram = NonStrictSinglePixelWideLinesUseParallelogram;
+        }
+        if (NonStrictWideLinesUseParallelogram != (uint)default)
+        {
+            _internal.nonStrictWideLinesUseParallelogram = NonStrictWideLinesUseParallelogram;
+        }
         return _internal;
     }
 

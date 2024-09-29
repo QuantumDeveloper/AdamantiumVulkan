@@ -31,9 +31,15 @@ public unsafe partial class LatencySubmissionPresentIdNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkLatencySubmissionPresentIdNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLatencySubmissionPresentIdNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.presentID = PresentID;
+        if (PresentID != default)
+        {
+            _internal.presentID = PresentID;
+        }
         return _internal;
     }
 

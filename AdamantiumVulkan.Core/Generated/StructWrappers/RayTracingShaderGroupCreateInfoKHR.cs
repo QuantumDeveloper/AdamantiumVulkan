@@ -41,13 +41,31 @@ public unsafe partial class RayTracingShaderGroupCreateInfoKHR : QBDisposableObj
     public AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        _internal.generalShader = GeneralShader;
-        _internal.closestHitShader = ClosestHitShader;
-        _internal.anyHitShader = AnyHitShader;
-        _internal.intersectionShader = IntersectionShader;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (GeneralShader != default)
+        {
+            _internal.generalShader = GeneralShader;
+        }
+        if (ClosestHitShader != default)
+        {
+            _internal.closestHitShader = ClosestHitShader;
+        }
+        if (AnyHitShader != default)
+        {
+            _internal.anyHitShader = AnyHitShader;
+        }
+        if (IntersectionShader != default)
+        {
+            _internal.intersectionShader = IntersectionShader;
+        }
         _internal.pShaderGroupCaptureReplayHandle = PShaderGroupCaptureReplayHandle;
         return _internal;
     }

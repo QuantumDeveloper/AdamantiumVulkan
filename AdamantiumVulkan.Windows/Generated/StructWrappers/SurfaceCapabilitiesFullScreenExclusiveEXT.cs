@@ -33,9 +33,15 @@ public unsafe partial class SurfaceCapabilitiesFullScreenExclusiveEXT : QBDispos
     public AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.fullScreenExclusiveSupported = FullScreenExclusiveSupported;
+        if (FullScreenExclusiveSupported != (uint)default)
+        {
+            _internal.fullScreenExclusiveSupported = FullScreenExclusiveSupported;
+        }
         return _internal;
     }
 

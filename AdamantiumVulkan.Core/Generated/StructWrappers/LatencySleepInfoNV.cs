@@ -33,10 +33,19 @@ public unsafe partial class LatencySleepInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.signalSemaphore = SignalSemaphore;
-        _internal.value = Value;
+        if (SignalSemaphore != default)
+        {
+            _internal.signalSemaphore = SignalSemaphore;
+        }
+        if (Value != default)
+        {
+            _internal.value = Value;
+        }
         return _internal;
     }
 

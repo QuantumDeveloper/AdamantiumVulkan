@@ -30,14 +30,23 @@ public unsafe partial class SurfaceCapabilities2KHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (SurfaceCapabilities != null)
+        if (SurfaceCapabilities != default)
         {
             _internal.surfaceCapabilities = SurfaceCapabilities.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SurfaceCapabilities?.Dispose();
+    }
+
 
     public static implicit operator SurfaceCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR s)
     {

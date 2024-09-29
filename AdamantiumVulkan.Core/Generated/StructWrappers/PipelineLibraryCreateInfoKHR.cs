@@ -36,11 +36,17 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.libraryCount = LibraryCount;
+        if (LibraryCount != default)
+        {
+            _internal.libraryCount = LibraryCount;
+        }
         _pLibraries.Dispose();
-        if (PLibraries != null)
+        if (PLibraries != default)
         {
             AdamantiumVulkan.Core.Interop.VkPipeline_T struct0 = PLibraries;
             _pLibraries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkPipeline_T>(struct0);

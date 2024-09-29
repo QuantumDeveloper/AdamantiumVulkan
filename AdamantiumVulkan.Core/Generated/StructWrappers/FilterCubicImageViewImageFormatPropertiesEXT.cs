@@ -32,10 +32,19 @@ public unsafe partial class FilterCubicImageViewImageFormatPropertiesEXT : QBDis
     public AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.filterCubic = FilterCubic;
-        _internal.filterCubicMinmax = FilterCubicMinmax;
+        if (FilterCubic != (uint)default)
+        {
+            _internal.filterCubic = FilterCubic;
+        }
+        if (FilterCubicMinmax != (uint)default)
+        {
+            _internal.filterCubicMinmax = FilterCubicMinmax;
+        }
         return _internal;
     }
 

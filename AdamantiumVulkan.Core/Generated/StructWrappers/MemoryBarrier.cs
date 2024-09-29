@@ -32,10 +32,19 @@ public unsafe partial class MemoryBarrier : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkMemoryBarrier ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkMemoryBarrier();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcAccessMask = SrcAccessMask;
-        _internal.dstAccessMask = DstAccessMask;
+        if (SrcAccessMask != (uint)default)
+        {
+            _internal.srcAccessMask = SrcAccessMask;
+        }
+        if (DstAccessMask != (uint)default)
+        {
+            _internal.dstAccessMask = DstAccessMask;
+        }
         return _internal;
     }
 

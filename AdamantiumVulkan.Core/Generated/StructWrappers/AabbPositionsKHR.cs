@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class AabbPositionsKHR
+public unsafe partial class AabbPositionsKHR : QBDisposableObject
 {
     public AabbPositionsKHR()
     {
@@ -37,12 +37,30 @@ public unsafe partial class AabbPositionsKHR
     public AdamantiumVulkan.Core.Interop.VkAabbPositionsKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAabbPositionsKHR();
-        _internal.minX = MinX;
-        _internal.minY = MinY;
-        _internal.minZ = MinZ;
-        _internal.maxX = MaxX;
-        _internal.maxY = MaxY;
-        _internal.maxZ = MaxZ;
+        if (MinX != default)
+        {
+            _internal.minX = MinX;
+        }
+        if (MinY != default)
+        {
+            _internal.minY = MinY;
+        }
+        if (MinZ != default)
+        {
+            _internal.minZ = MinZ;
+        }
+        if (MaxX != default)
+        {
+            _internal.maxX = MaxX;
+        }
+        if (MaxY != default)
+        {
+            _internal.maxY = MaxY;
+        }
+        if (MaxZ != default)
+        {
+            _internal.maxZ = MaxZ;
+        }
         return _internal;
     }
 

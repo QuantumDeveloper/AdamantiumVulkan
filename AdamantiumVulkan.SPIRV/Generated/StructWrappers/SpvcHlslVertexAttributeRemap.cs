@@ -31,9 +31,12 @@ public unsafe partial class SpvcHlslVertexAttributeRemap : QBDisposableObject
     public AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap ToNative()
     {
         var _internal = new AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap();
-        _internal.location = Location;
+        if (Location != default)
+        {
+            _internal.location = Location;
+        }
         _semantic.Dispose();
-        if (Semantic != null)
+        if (Semantic != default)
         {
             _semantic = new MarshaledString(Semantic, false);
             _internal.semantic = (sbyte*)_semantic;

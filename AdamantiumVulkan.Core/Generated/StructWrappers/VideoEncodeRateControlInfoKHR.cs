@@ -44,20 +44,38 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.rateControlMode = RateControlMode;
-        _internal.layerCount = LayerCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (RateControlMode != default)
+        {
+            _internal.rateControlMode = RateControlMode;
+        }
+        if (LayerCount != default)
+        {
+            _internal.layerCount = LayerCount;
+        }
         _pLayers.Dispose();
-        if (PLayers != null)
+        if (PLayers != default)
         {
             var struct0 = PLayers.ToNative();
             _pLayers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>(struct0);
             _internal.pLayers = _pLayers.Handle;
         }
-        _internal.virtualBufferSizeInMs = VirtualBufferSizeInMs;
-        _internal.initialVirtualBufferSizeInMs = InitialVirtualBufferSizeInMs;
+        if (VirtualBufferSizeInMs != default)
+        {
+            _internal.virtualBufferSizeInMs = VirtualBufferSizeInMs;
+        }
+        if (InitialVirtualBufferSizeInMs != default)
+        {
+            _internal.initialVirtualBufferSizeInMs = InitialVirtualBufferSizeInMs;
+        }
         return _internal;
     }
 

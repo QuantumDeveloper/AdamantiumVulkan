@@ -48,14 +48,29 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObje
     public AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.flags = Flags;
-        _internal.logicOpEnable = LogicOpEnable;
-        _internal.logicOp = LogicOp;
-        _internal.attachmentCount = AttachmentCount;
+        if (Flags != (uint)default)
+        {
+            _internal.flags = Flags;
+        }
+        if (LogicOpEnable != (uint)default)
+        {
+            _internal.logicOpEnable = LogicOpEnable;
+        }
+        if (LogicOp != default)
+        {
+            _internal.logicOp = LogicOp;
+        }
+        if (AttachmentCount != default)
+        {
+            _internal.attachmentCount = AttachmentCount;
+        }
         _pAttachments.Dispose();
-        if (PAttachments != null)
+        if (PAttachments != default)
         {
             var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState[PAttachments.Length];
             for (int i = 0; i < PAttachments.Length; ++i)
@@ -65,7 +80,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : QBDisposableObje
             _pAttachments = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState>(tmpArray0);
             _internal.pAttachments = _pAttachments.Handle;
         }
-        if(BlendConstants != null)
+        if (BlendConstants != default)
         {
             if (BlendConstants.Length > 4)
                 throw new System.ArgumentOutOfRangeException(nameof(BlendConstants), "Array is out of bounds. Size should not be more than 4");

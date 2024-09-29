@@ -52,20 +52,59 @@ public unsafe partial class PhysicalDeviceVulkan11Features : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.storageBuffer16BitAccess = StorageBuffer16BitAccess;
-        _internal.uniformAndStorageBuffer16BitAccess = UniformAndStorageBuffer16BitAccess;
-        _internal.storagePushConstant16 = StoragePushConstant16;
-        _internal.storageInputOutput16 = StorageInputOutput16;
-        _internal.multiview = Multiview;
-        _internal.multiviewGeometryShader = MultiviewGeometryShader;
-        _internal.multiviewTessellationShader = MultiviewTessellationShader;
-        _internal.variablePointersStorageBuffer = VariablePointersStorageBuffer;
-        _internal.variablePointers = VariablePointers;
-        _internal.protectedMemory = ProtectedMemory;
-        _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
-        _internal.shaderDrawParameters = ShaderDrawParameters;
+        if (StorageBuffer16BitAccess != (uint)default)
+        {
+            _internal.storageBuffer16BitAccess = StorageBuffer16BitAccess;
+        }
+        if (UniformAndStorageBuffer16BitAccess != (uint)default)
+        {
+            _internal.uniformAndStorageBuffer16BitAccess = UniformAndStorageBuffer16BitAccess;
+        }
+        if (StoragePushConstant16 != (uint)default)
+        {
+            _internal.storagePushConstant16 = StoragePushConstant16;
+        }
+        if (StorageInputOutput16 != (uint)default)
+        {
+            _internal.storageInputOutput16 = StorageInputOutput16;
+        }
+        if (Multiview != (uint)default)
+        {
+            _internal.multiview = Multiview;
+        }
+        if (MultiviewGeometryShader != (uint)default)
+        {
+            _internal.multiviewGeometryShader = MultiviewGeometryShader;
+        }
+        if (MultiviewTessellationShader != (uint)default)
+        {
+            _internal.multiviewTessellationShader = MultiviewTessellationShader;
+        }
+        if (VariablePointersStorageBuffer != (uint)default)
+        {
+            _internal.variablePointersStorageBuffer = VariablePointersStorageBuffer;
+        }
+        if (VariablePointers != (uint)default)
+        {
+            _internal.variablePointers = VariablePointers;
+        }
+        if (ProtectedMemory != (uint)default)
+        {
+            _internal.protectedMemory = ProtectedMemory;
+        }
+        if (SamplerYcbcrConversion != (uint)default)
+        {
+            _internal.samplerYcbcrConversion = SamplerYcbcrConversion;
+        }
+        if (ShaderDrawParameters != (uint)default)
+        {
+            _internal.shaderDrawParameters = ShaderDrawParameters;
+        }
         return _internal;
     }
 

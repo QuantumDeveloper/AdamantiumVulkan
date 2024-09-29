@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceSwapchainMaintenance1FeaturesEXT : QBD
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainMaintenance1 = SwapchainMaintenance1;
+        if (SwapchainMaintenance1 != (uint)default)
+        {
+            _internal.swapchainMaintenance1 = SwapchainMaintenance1;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceMemoryProperties
+public unsafe partial class PhysicalDeviceMemoryProperties : QBDisposableObject
 {
     public PhysicalDeviceMemoryProperties()
     {
@@ -41,8 +41,11 @@ public unsafe partial class PhysicalDeviceMemoryProperties
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties();
-        _internal.memoryTypeCount = MemoryTypeCount;
-        if(MemoryTypes != null)
+        if (MemoryTypeCount != default)
+        {
+            _internal.memoryTypeCount = MemoryTypeCount;
+        }
+        if (MemoryTypes != default)
         {
             if (MemoryTypes.Length > 32)
                 throw new System.ArgumentOutOfRangeException(nameof(MemoryTypes), "Array is out of bounds. Size should not be more than 32");
@@ -52,8 +55,11 @@ public unsafe partial class PhysicalDeviceMemoryProperties
                 _internal.memoryTypes[i] = MemoryTypes[i].ToNative();
             }
         }
-        _internal.memoryHeapCount = MemoryHeapCount;
-        if(MemoryHeaps != null)
+        if (MemoryHeapCount != default)
+        {
+            _internal.memoryHeapCount = MemoryHeapCount;
+        }
+        if (MemoryHeaps != default)
         {
             if (MemoryHeaps.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(MemoryHeaps), "Array is out of bounds. Size should not be more than 16");
@@ -65,6 +71,19 @@ public unsafe partial class PhysicalDeviceMemoryProperties
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        foreach(var item in MemoryTypes)
+        {
+        	item.Dispose();
+        }
+        foreach(var item in MemoryHeaps)
+        {
+        	item.Dispose();
+        }
+    }
+
 
     public static implicit operator PhysicalDeviceMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties p)
     {

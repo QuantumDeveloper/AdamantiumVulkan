@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class RefreshCycleDurationGOOGLE
+public unsafe partial class RefreshCycleDurationGOOGLE : QBDisposableObject
 {
     public RefreshCycleDurationGOOGLE()
     {
@@ -27,7 +27,10 @@ public unsafe partial class RefreshCycleDurationGOOGLE
     public AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE();
-        _internal.refreshDuration = RefreshDuration;
+        if (RefreshDuration != default)
+        {
+            _internal.refreshDuration = RefreshDuration;
+        }
         return _internal;
     }
 

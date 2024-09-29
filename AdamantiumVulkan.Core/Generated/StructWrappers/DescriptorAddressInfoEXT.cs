@@ -35,11 +35,23 @@ public unsafe partial class DescriptorAddressInfoEXT : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.address = Address;
-        _internal.range = Range;
-        _internal.format = Format;
+        if (Address != (ulong)default)
+        {
+            _internal.address = Address;
+        }
+        if (Range != (ulong)default)
+        {
+            _internal.range = Range;
+        }
+        if (Format != default)
+        {
+            _internal.format = Format;
+        }
         return _internal;
     }
 

@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class InputAttachmentAspectReference
+public unsafe partial class InputAttachmentAspectReference : QBDisposableObject
 {
     public InputAttachmentAspectReference()
     {
@@ -31,9 +31,18 @@ public unsafe partial class InputAttachmentAspectReference
     public AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference();
-        _internal.subpass = Subpass;
-        _internal.inputAttachmentIndex = InputAttachmentIndex;
-        _internal.aspectMask = AspectMask;
+        if (Subpass != default)
+        {
+            _internal.subpass = Subpass;
+        }
+        if (InputAttachmentIndex != default)
+        {
+            _internal.inputAttachmentIndex = InputAttachmentIndex;
+        }
+        if (AspectMask != (uint)default)
+        {
+            _internal.aspectMask = AspectMask;
+        }
         return _internal;
     }
 

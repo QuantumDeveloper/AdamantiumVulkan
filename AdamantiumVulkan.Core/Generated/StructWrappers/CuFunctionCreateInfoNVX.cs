@@ -35,11 +35,17 @@ public unsafe partial class CuFunctionCreateInfoNVX : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.module = Module;
+        if (Module != default)
+        {
+            _internal.module = Module;
+        }
         _pName.Dispose();
-        if (PName != null)
+        if (PName != default)
         {
             _pName = new MarshaledString(PName, false);
             _internal.pName = (sbyte*)_pName;

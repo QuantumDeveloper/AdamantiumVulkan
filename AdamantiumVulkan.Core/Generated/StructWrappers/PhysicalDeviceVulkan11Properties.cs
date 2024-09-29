@@ -59,41 +59,80 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if(DeviceUUID != null)
+        if (DeviceUUID != default)
         {
             if (DeviceUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(DeviceUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.deviceUUID, 16, DeviceUUID);
         }
-        if(DriverUUID != null)
+        if (DriverUUID != default)
         {
             if (DriverUUID.Length > 16)
                 throw new System.ArgumentOutOfRangeException(nameof(DriverUUID), "Array is out of bounds. Size should not be more than 16");
 
             NativeUtils.PrimitiveToFixedArray(_internal.driverUUID, 16, DriverUUID);
         }
-        if(DeviceLUID != null)
+        if (DeviceLUID != default)
         {
             if (DeviceLUID.Length > 8)
                 throw new System.ArgumentOutOfRangeException(nameof(DeviceLUID), "Array is out of bounds. Size should not be more than 8");
 
             NativeUtils.PrimitiveToFixedArray(_internal.deviceLUID, 8, DeviceLUID);
         }
-        _internal.deviceNodeMask = DeviceNodeMask;
-        _internal.deviceLUIDValid = DeviceLUIDValid;
-        _internal.subgroupSize = SubgroupSize;
-        _internal.subgroupSupportedStages = SubgroupSupportedStages;
-        _internal.subgroupSupportedOperations = SubgroupSupportedOperations;
-        _internal.subgroupQuadOperationsInAllStages = SubgroupQuadOperationsInAllStages;
-        _internal.pointClippingBehavior = PointClippingBehavior;
-        _internal.maxMultiviewViewCount = MaxMultiviewViewCount;
-        _internal.maxMultiviewInstanceIndex = MaxMultiviewInstanceIndex;
-        _internal.protectedNoFault = ProtectedNoFault;
-        _internal.maxPerSetDescriptors = MaxPerSetDescriptors;
-        _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
+        if (DeviceNodeMask != default)
+        {
+            _internal.deviceNodeMask = DeviceNodeMask;
+        }
+        if (DeviceLUIDValid != (uint)default)
+        {
+            _internal.deviceLUIDValid = DeviceLUIDValid;
+        }
+        if (SubgroupSize != default)
+        {
+            _internal.subgroupSize = SubgroupSize;
+        }
+        if (SubgroupSupportedStages != (uint)default)
+        {
+            _internal.subgroupSupportedStages = SubgroupSupportedStages;
+        }
+        if (SubgroupSupportedOperations != (uint)default)
+        {
+            _internal.subgroupSupportedOperations = SubgroupSupportedOperations;
+        }
+        if (SubgroupQuadOperationsInAllStages != (uint)default)
+        {
+            _internal.subgroupQuadOperationsInAllStages = SubgroupQuadOperationsInAllStages;
+        }
+        if (PointClippingBehavior != default)
+        {
+            _internal.pointClippingBehavior = PointClippingBehavior;
+        }
+        if (MaxMultiviewViewCount != default)
+        {
+            _internal.maxMultiviewViewCount = MaxMultiviewViewCount;
+        }
+        if (MaxMultiviewInstanceIndex != default)
+        {
+            _internal.maxMultiviewInstanceIndex = MaxMultiviewInstanceIndex;
+        }
+        if (ProtectedNoFault != (uint)default)
+        {
+            _internal.protectedNoFault = ProtectedNoFault;
+        }
+        if (MaxPerSetDescriptors != default)
+        {
+            _internal.maxPerSetDescriptors = MaxPerSetDescriptors;
+        }
+        if (MaxMemoryAllocationSize != (ulong)default)
+        {
+            _internal.maxMemoryAllocationSize = MaxMemoryAllocationSize;
+        }
         return _internal;
     }
 

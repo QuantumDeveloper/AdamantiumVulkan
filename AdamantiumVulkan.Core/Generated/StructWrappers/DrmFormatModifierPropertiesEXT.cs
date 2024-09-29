@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class DrmFormatModifierPropertiesEXT
+public unsafe partial class DrmFormatModifierPropertiesEXT : QBDisposableObject
 {
     public DrmFormatModifierPropertiesEXT()
     {
@@ -31,9 +31,18 @@ public unsafe partial class DrmFormatModifierPropertiesEXT
     public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT();
-        _internal.drmFormatModifier = DrmFormatModifier;
-        _internal.drmFormatModifierPlaneCount = DrmFormatModifierPlaneCount;
-        _internal.drmFormatModifierTilingFeatures = DrmFormatModifierTilingFeatures;
+        if (DrmFormatModifier != default)
+        {
+            _internal.drmFormatModifier = DrmFormatModifier;
+        }
+        if (DrmFormatModifierPlaneCount != default)
+        {
+            _internal.drmFormatModifierPlaneCount = DrmFormatModifierPlaneCount;
+        }
+        if (DrmFormatModifierTilingFeatures != (uint)default)
+        {
+            _internal.drmFormatModifierTilingFeatures = DrmFormatModifierTilingFeatures;
+        }
         return _internal;
     }
 

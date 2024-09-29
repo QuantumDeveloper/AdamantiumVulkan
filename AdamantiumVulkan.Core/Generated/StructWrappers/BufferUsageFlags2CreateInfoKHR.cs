@@ -31,9 +31,15 @@ public unsafe partial class BufferUsageFlags2CreateInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBufferUsageFlags2CreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferUsageFlags2CreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.usage = Usage;
+        if (Usage != (ulong)default)
+        {
+            _internal.usage = Usage;
+        }
         return _internal;
     }
 

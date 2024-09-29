@@ -31,14 +31,23 @@ public unsafe partial class AccelerationStructureGeometryMotionTrianglesDataNV :
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryMotionTrianglesDataNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryMotionTrianglesDataNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (VertexData != null)
+        if (VertexData != default)
         {
             _internal.vertexData = VertexData.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        VertexData?.Dispose();
+    }
+
 
     public static implicit operator AccelerationStructureGeometryMotionTrianglesDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryMotionTrianglesDataNV a)
     {

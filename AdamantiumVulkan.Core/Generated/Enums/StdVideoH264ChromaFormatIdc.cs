@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 34 Column: 14
+// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 34 Column: 14
 public enum StdVideoH264ChromaFormatIdc : uint
 {
     Monochrome = 0,

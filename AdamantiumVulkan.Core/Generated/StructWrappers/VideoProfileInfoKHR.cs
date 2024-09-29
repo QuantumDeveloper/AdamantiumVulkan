@@ -37,12 +37,27 @@ public unsafe partial class VideoProfileInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.videoCodecOperation = VideoCodecOperation;
-        _internal.chromaSubsampling = ChromaSubsampling;
-        _internal.lumaBitDepth = LumaBitDepth;
-        _internal.chromaBitDepth = ChromaBitDepth;
+        if (VideoCodecOperation != default)
+        {
+            _internal.videoCodecOperation = VideoCodecOperation;
+        }
+        if (ChromaSubsampling != (uint)default)
+        {
+            _internal.chromaSubsampling = ChromaSubsampling;
+        }
+        if (LumaBitDepth != (uint)default)
+        {
+            _internal.lumaBitDepth = LumaBitDepth;
+        }
+        if (ChromaBitDepth != (uint)default)
+        {
+            _internal.chromaBitDepth = ChromaBitDepth;
+        }
         return _internal;
     }
 

@@ -37,17 +37,35 @@ public unsafe partial class HostImageLayoutTransitionInfoEXT : QBDisposableObjec
     public AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfoEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfoEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.image = Image;
-        _internal.oldLayout = OldLayout;
-        _internal.newLayout = NewLayout;
-        if (SubresourceRange != null)
+        if (Image != default)
+        {
+            _internal.image = Image;
+        }
+        if (OldLayout != default)
+        {
+            _internal.oldLayout = OldLayout;
+        }
+        if (NewLayout != default)
+        {
+            _internal.newLayout = NewLayout;
+        }
+        if (SubresourceRange != default)
         {
             _internal.subresourceRange = SubresourceRange.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        SubresourceRange?.Dispose();
+    }
+
 
     public static implicit operator HostImageLayoutTransitionInfoEXT(AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfoEXT h)
     {

@@ -31,9 +31,15 @@ public unsafe partial class QueryPoolVideoEncodeFeedbackCreateInfoKHR : QBDispos
     public AdamantiumVulkan.Core.Interop.VkQueryPoolVideoEncodeFeedbackCreateInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkQueryPoolVideoEncodeFeedbackCreateInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.encodeFeedbackFlags = EncodeFeedbackFlags;
+        if (EncodeFeedbackFlags != (uint)default)
+        {
+            _internal.encodeFeedbackFlags = EncodeFeedbackFlags;
+        }
         return _internal;
     }
 

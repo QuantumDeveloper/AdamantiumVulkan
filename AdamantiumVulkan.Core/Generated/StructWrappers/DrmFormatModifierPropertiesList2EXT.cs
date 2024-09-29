@@ -36,11 +36,17 @@ public unsafe partial class DrmFormatModifierPropertiesList2EXT : QBDisposableOb
     public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.drmFormatModifierCount = DrmFormatModifierCount;
+        if (DrmFormatModifierCount != default)
+        {
+            _internal.drmFormatModifierCount = DrmFormatModifierCount;
+        }
         _pDrmFormatModifierProperties.Dispose();
-        if (PDrmFormatModifierProperties != null)
+        if (PDrmFormatModifierProperties != default)
         {
             var struct0 = PDrmFormatModifierProperties.ToNative();
             _pDrmFormatModifierProperties = new NativeStruct<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT>(struct0);

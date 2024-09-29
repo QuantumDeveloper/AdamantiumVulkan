@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15871 Column: 26
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16126 Column: 26
 public unsafe struct PFN_vkGetDescriptorSetLayoutBindingOffsetEXT
 {
     public PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, ref VkDeviceSize*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, out VkDeviceSize, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, ref VkDeviceSize*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, out VkDeviceSize, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, ref VkDeviceSize* pOffset)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, out VkDeviceSize pOffset)
     {
-         InvokeFunc(device, layout, binding, ref pOffset);
+         InvokeFunc(device, layout, binding, out pOffset);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, ref VkDeviceSize* pOffset)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, out VkDeviceSize pOffset)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, ref VkDeviceSize*, void>)ptr)(device, layout, binding, ref pOffset);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, uint, out VkDeviceSize, void>)ptr)(device, layout, binding, out pOffset);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(void* ptr) => new(ptr);

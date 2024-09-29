@@ -39,11 +39,20 @@ public unsafe partial class PipelineFragmentShadingRateEnumStateCreateInfoNV : Q
     public AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shadingRateType = ShadingRateType;
-        _internal.shadingRate = ShadingRate;
-        if(CombinerOps != null)
+        if (ShadingRateType != default)
+        {
+            _internal.shadingRateType = ShadingRateType;
+        }
+        if (ShadingRate != default)
+        {
+            _internal.shadingRate = ShadingRate;
+        }
+        if (CombinerOps != default)
         {
             if (CombinerOps.Length > 2)
                 throw new System.ArgumentOutOfRangeException(nameof(CombinerOps), "Array is out of bounds. Size should not be more than 2");

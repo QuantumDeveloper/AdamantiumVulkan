@@ -30,14 +30,23 @@ public unsafe partial class FormatProperties2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkFormatProperties2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkFormatProperties2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (FormatProperties != null)
+        if (FormatProperties != default)
         {
             _internal.formatProperties = FormatProperties.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        FormatProperties?.Dispose();
+    }
+
 
     public static implicit operator FormatProperties2(AdamantiumVulkan.Core.Interop.VkFormatProperties2 f)
     {

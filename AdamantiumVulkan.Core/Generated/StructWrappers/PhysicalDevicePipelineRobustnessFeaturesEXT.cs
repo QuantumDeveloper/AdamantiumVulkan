@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDevicePipelineRobustnessFeaturesEXT : QBDisp
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineRobustnessFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineRobustnessFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.pipelineRobustness = PipelineRobustness;
+        if (PipelineRobustness != (uint)default)
+        {
+            _internal.pipelineRobustness = PipelineRobustness;
+        }
         return _internal;
     }
 

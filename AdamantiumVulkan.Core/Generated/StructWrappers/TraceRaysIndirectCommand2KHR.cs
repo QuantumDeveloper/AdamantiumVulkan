@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class TraceRaysIndirectCommand2KHR
+public unsafe partial class TraceRaysIndirectCommand2KHR : QBDisposableObject
 {
     public TraceRaysIndirectCommand2KHR()
     {
@@ -53,20 +53,62 @@ public unsafe partial class TraceRaysIndirectCommand2KHR
     public AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommand2KHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommand2KHR();
-        _internal.raygenShaderRecordAddress = RaygenShaderRecordAddress;
-        _internal.raygenShaderRecordSize = RaygenShaderRecordSize;
-        _internal.missShaderBindingTableAddress = MissShaderBindingTableAddress;
-        _internal.missShaderBindingTableSize = MissShaderBindingTableSize;
-        _internal.missShaderBindingTableStride = MissShaderBindingTableStride;
-        _internal.hitShaderBindingTableAddress = HitShaderBindingTableAddress;
-        _internal.hitShaderBindingTableSize = HitShaderBindingTableSize;
-        _internal.hitShaderBindingTableStride = HitShaderBindingTableStride;
-        _internal.callableShaderBindingTableAddress = CallableShaderBindingTableAddress;
-        _internal.callableShaderBindingTableSize = CallableShaderBindingTableSize;
-        _internal.callableShaderBindingTableStride = CallableShaderBindingTableStride;
-        _internal.width = Width;
-        _internal.height = Height;
-        _internal.depth = Depth;
+        if (RaygenShaderRecordAddress != (ulong)default)
+        {
+            _internal.raygenShaderRecordAddress = RaygenShaderRecordAddress;
+        }
+        if (RaygenShaderRecordSize != (ulong)default)
+        {
+            _internal.raygenShaderRecordSize = RaygenShaderRecordSize;
+        }
+        if (MissShaderBindingTableAddress != (ulong)default)
+        {
+            _internal.missShaderBindingTableAddress = MissShaderBindingTableAddress;
+        }
+        if (MissShaderBindingTableSize != (ulong)default)
+        {
+            _internal.missShaderBindingTableSize = MissShaderBindingTableSize;
+        }
+        if (MissShaderBindingTableStride != (ulong)default)
+        {
+            _internal.missShaderBindingTableStride = MissShaderBindingTableStride;
+        }
+        if (HitShaderBindingTableAddress != (ulong)default)
+        {
+            _internal.hitShaderBindingTableAddress = HitShaderBindingTableAddress;
+        }
+        if (HitShaderBindingTableSize != (ulong)default)
+        {
+            _internal.hitShaderBindingTableSize = HitShaderBindingTableSize;
+        }
+        if (HitShaderBindingTableStride != (ulong)default)
+        {
+            _internal.hitShaderBindingTableStride = HitShaderBindingTableStride;
+        }
+        if (CallableShaderBindingTableAddress != (ulong)default)
+        {
+            _internal.callableShaderBindingTableAddress = CallableShaderBindingTableAddress;
+        }
+        if (CallableShaderBindingTableSize != (ulong)default)
+        {
+            _internal.callableShaderBindingTableSize = CallableShaderBindingTableSize;
+        }
+        if (CallableShaderBindingTableStride != (ulong)default)
+        {
+            _internal.callableShaderBindingTableStride = CallableShaderBindingTableStride;
+        }
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
+        if (Depth != default)
+        {
+            _internal.depth = Depth;
+        }
         return _internal;
     }
 

@@ -42,14 +42,29 @@ public unsafe partial class CopyBufferToImageInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCopyBufferToImageInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.srcBuffer = SrcBuffer;
-        _internal.dstImage = DstImage;
-        _internal.dstImageLayout = DstImageLayout;
-        _internal.regionCount = RegionCount;
+        if (SrcBuffer != default)
+        {
+            _internal.srcBuffer = SrcBuffer;
+        }
+        if (DstImage != default)
+        {
+            _internal.dstImage = DstImage;
+        }
+        if (DstImageLayout != default)
+        {
+            _internal.dstImageLayout = DstImageLayout;
+        }
+        if (RegionCount != default)
+        {
+            _internal.regionCount = RegionCount;
+        }
         _pRegions.Dispose();
-        if (PRegions != null)
+        if (PRegions != default)
         {
             var struct0 = PRegions.ToNative();
             _pRegions = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferImageCopy2>(struct0);

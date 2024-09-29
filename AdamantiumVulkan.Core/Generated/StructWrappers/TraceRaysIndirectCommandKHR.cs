@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class TraceRaysIndirectCommandKHR
+public unsafe partial class TraceRaysIndirectCommandKHR : QBDisposableObject
 {
     public TraceRaysIndirectCommandKHR()
     {
@@ -31,9 +31,18 @@ public unsafe partial class TraceRaysIndirectCommandKHR
     public AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommandKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommandKHR();
-        _internal.width = Width;
-        _internal.height = Height;
-        _internal.depth = Depth;
+        if (Width != default)
+        {
+            _internal.width = Width;
+        }
+        if (Height != default)
+        {
+            _internal.height = Height;
+        }
+        if (Depth != default)
+        {
+            _internal.depth = Depth;
+        }
         return _internal;
     }
 

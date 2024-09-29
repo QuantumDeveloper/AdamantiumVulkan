@@ -31,9 +31,15 @@ public unsafe partial class PerformanceQuerySubmitInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkPerformanceQuerySubmitInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPerformanceQuerySubmitInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.counterPassIndex = CounterPassIndex;
+        if (CounterPassIndex != default)
+        {
+            _internal.counterPassIndex = CounterPassIndex;
+        }
         return _internal;
     }
 

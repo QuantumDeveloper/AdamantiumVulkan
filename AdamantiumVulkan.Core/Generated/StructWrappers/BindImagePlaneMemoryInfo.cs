@@ -30,9 +30,15 @@ public unsafe partial class BindImagePlaneMemoryInfo : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.planeAspect = PlaneAspect;
+        if (PlaneAspect != default)
+        {
+            _internal.planeAspect = PlaneAspect;
+        }
         return _internal;
     }
 

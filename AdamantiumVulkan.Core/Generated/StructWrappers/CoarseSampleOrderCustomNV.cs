@@ -36,11 +36,20 @@ public unsafe partial class CoarseSampleOrderCustomNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV();
-        _internal.shadingRate = ShadingRate;
-        _internal.sampleCount = SampleCount;
-        _internal.sampleLocationCount = SampleLocationCount;
+        if (ShadingRate != default)
+        {
+            _internal.shadingRate = ShadingRate;
+        }
+        if (SampleCount != default)
+        {
+            _internal.sampleCount = SampleCount;
+        }
+        if (SampleLocationCount != default)
+        {
+            _internal.sampleLocationCount = SampleLocationCount;
+        }
         _pSampleLocations.Dispose();
-        if (PSampleLocations != null)
+        if (PSampleLocations != default)
         {
             var struct0 = PSampleLocations.ToNative();
             _pSampleLocations = new NativeStruct<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(struct0);

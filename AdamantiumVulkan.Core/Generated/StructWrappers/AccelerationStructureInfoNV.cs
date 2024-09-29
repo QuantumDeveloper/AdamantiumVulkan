@@ -41,14 +41,29 @@ public unsafe partial class AccelerationStructureInfoNV : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.type = Type;
-        _internal.flags = Flags;
-        _internal.instanceCount = InstanceCount;
-        _internal.geometryCount = GeometryCount;
+        if (Type != default)
+        {
+            _internal.type = Type;
+        }
+        if (Flags != default)
+        {
+            _internal.flags = Flags;
+        }
+        if (InstanceCount != default)
+        {
+            _internal.instanceCount = InstanceCount;
+        }
+        if (GeometryCount != default)
+        {
+            _internal.geometryCount = GeometryCount;
+        }
         _pGeometries.Dispose();
-        if (PGeometries != null)
+        if (PGeometries != default)
         {
             var struct0 = PGeometries.ToNative();
             _pGeometries = new NativeStruct<AdamantiumVulkan.Core.Interop.VkGeometryNV>(struct0);

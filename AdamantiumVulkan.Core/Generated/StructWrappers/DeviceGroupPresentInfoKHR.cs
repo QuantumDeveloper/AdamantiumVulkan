@@ -40,16 +40,25 @@ public unsafe partial class DeviceGroupPresentInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.swapchainCount = SwapchainCount;
+        if (SwapchainCount != default)
+        {
+            _internal.swapchainCount = SwapchainCount;
+        }
         _pDeviceMasks.Dispose();
         if (PDeviceMasks.HasValue)
         {
             _pDeviceMasks = new NativeStruct<uint>(PDeviceMasks.Value);
             _internal.pDeviceMasks = _pDeviceMasks.Handle;
         }
-        _internal.mode = Mode;
+        if (Mode != default)
+        {
+            _internal.mode = Mode;
+        }
         return _internal;
     }
 

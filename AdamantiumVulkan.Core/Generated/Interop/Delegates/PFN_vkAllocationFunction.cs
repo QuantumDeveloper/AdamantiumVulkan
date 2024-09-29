@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 2896 Column: 27
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 2930 Column: 27
 public unsafe struct PFN_vkAllocationFunction
 {
     public PFN_vkAllocationFunction(void* ptr)

@@ -32,9 +32,15 @@ public unsafe partial class VideoDecodeH265ProfileInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoDecodeH265ProfileInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoDecodeH265ProfileInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.stdProfileIdc = StdProfileIdc;
+        if (StdProfileIdc != default)
+        {
+            _internal.stdProfileIdc = StdProfileIdc;
+        }
         return _internal;
     }
 

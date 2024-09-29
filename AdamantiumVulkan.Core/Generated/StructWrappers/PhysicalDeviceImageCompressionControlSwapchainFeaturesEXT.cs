@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceImageCompressionControlSwapchainFeatur
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.imageCompressionControlSwapchain = ImageCompressionControlSwapchain;
+        if (ImageCompressionControlSwapchain != (uint)default)
+        {
+            _internal.imageCompressionControlSwapchain = ImageCompressionControlSwapchain;
+        }
         return _internal;
     }
 

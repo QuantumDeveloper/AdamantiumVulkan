@@ -31,9 +31,15 @@ public unsafe partial class PhysicalDeviceRayTracingInvocationReorderFeaturesNV 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.rayTracingInvocationReorder = RayTracingInvocationReorder;
+        if (RayTracingInvocationReorder != (uint)default)
+        {
+            _internal.rayTracingInvocationReorder = RayTracingInvocationReorder;
+        }
         return _internal;
     }
 

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.275.0\Include\vulkan/vulkan_core.h Line: 15682 Column: 30
+// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15937 Column: 30
 public unsafe struct PFN_vkCreateCudaFunctionNV
 {
     public PFN_vkCreateCudaFunctionNV(void* ptr)

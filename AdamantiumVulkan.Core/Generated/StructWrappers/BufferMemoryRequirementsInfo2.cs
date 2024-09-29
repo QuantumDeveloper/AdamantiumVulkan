@@ -30,9 +30,15 @@ public unsafe partial class BufferMemoryRequirementsInfo2 : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2 ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.buffer = Buffer;
+        if (Buffer != default)
+        {
+            _internal.buffer = Buffer;
+        }
         return _internal;
     }
 

@@ -37,20 +37,36 @@ public unsafe partial class VideoPictureResourceInfoKHR : QBDisposableObject
     public AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        if (CodedOffset != null)
+        if (CodedOffset != default)
         {
             _internal.codedOffset = CodedOffset.ToNative();
         }
-        if (CodedExtent != null)
+        if (CodedExtent != default)
         {
             _internal.codedExtent = CodedExtent.ToNative();
         }
-        _internal.baseArrayLayer = BaseArrayLayer;
-        _internal.imageViewBinding = ImageViewBinding;
+        if (BaseArrayLayer != default)
+        {
+            _internal.baseArrayLayer = BaseArrayLayer;
+        }
+        if (ImageViewBinding != default)
+        {
+            _internal.imageViewBinding = ImageViewBinding;
+        }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        CodedOffset?.Dispose();
+        CodedExtent?.Dispose();
+    }
+
 
     public static implicit operator VideoPictureResourceInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR v)
     {

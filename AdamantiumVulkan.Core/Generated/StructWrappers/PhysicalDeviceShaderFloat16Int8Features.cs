@@ -33,10 +33,19 @@ public unsafe partial class PhysicalDeviceShaderFloat16Int8Features : QBDisposab
     public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8Features ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8Features();
-        _internal.sType = SType;
+        if (SType != default)
+        {
+            _internal.sType = SType;
+        }
         _internal.pNext = PNext;
-        _internal.shaderFloat16 = ShaderFloat16;
-        _internal.shaderInt8 = ShaderInt8;
+        if (ShaderFloat16 != (uint)default)
+        {
+            _internal.shaderFloat16 = ShaderFloat16;
+        }
+        if (ShaderInt8 != (uint)default)
+        {
+            _internal.shaderInt8 = ShaderInt8;
+        }
         return _internal;
     }
 

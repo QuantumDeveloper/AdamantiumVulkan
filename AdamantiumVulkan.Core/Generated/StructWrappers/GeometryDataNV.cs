@@ -11,7 +11,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class GeometryDataNV
+public unsafe partial class GeometryDataNV : QBDisposableObject
 {
     public GeometryDataNV()
     {
@@ -29,16 +29,23 @@ public unsafe partial class GeometryDataNV
     public AdamantiumVulkan.Core.Interop.VkGeometryDataNV ToNative()
     {
         var _internal = new AdamantiumVulkan.Core.Interop.VkGeometryDataNV();
-        if (Triangles != null)
+        if (Triangles != default)
         {
             _internal.triangles = Triangles.ToNative();
         }
-        if (Aabbs != null)
+        if (Aabbs != default)
         {
             _internal.aabbs = Aabbs.ToNative();
         }
         return _internal;
     }
+
+    protected override void UnmanagedDisposeOverride()
+    {
+        Triangles?.Dispose();
+        Aabbs?.Dispose();
+    }
+
 
     public static implicit operator GeometryDataNV(AdamantiumVulkan.Core.Interop.VkGeometryDataNV g)
     {
