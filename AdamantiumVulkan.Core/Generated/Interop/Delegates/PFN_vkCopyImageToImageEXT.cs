@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 15174 Column: 30
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 16214 Column: 30
 public unsafe struct PFN_vkCopyImageToImageEXT
 {
     public PFN_vkCopyImageToImageEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfoEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfo*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfoEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfo*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfoEXT* pCopyImageToImageInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfo* pCopyImageToImageInfo)
     {
         return InvokeFunc(device, pCopyImageToImageInfo);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfoEXT* pCopyImageToImageInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfo* pCopyImageToImageInfo)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfoEXT*, Result>)ptr)(device, pCopyImageToImageInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfo*, Result>)ptr)(device, pCopyImageToImageInfo);
     }
 
     public static explicit operator PFN_vkCopyImageToImageEXT(void* ptr) => new(ptr);

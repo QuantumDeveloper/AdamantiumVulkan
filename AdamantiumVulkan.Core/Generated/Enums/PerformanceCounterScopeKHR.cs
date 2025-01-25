@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9489 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 10371 Column: 14
 [Flags]
 public enum PerformanceCounterScopeKHR : uint
 {
@@ -21,6 +21,9 @@ public enum PerformanceCounterScopeKHR : uint
 
     CommandKhr = 2,
 
+    ///<summary>
+    /// VK_QUERY_SCOPE_COMMAND_KHR is a deprecated alias
+    ///</summary>
     MaxEnumKhr = 2147483647,
 
 }

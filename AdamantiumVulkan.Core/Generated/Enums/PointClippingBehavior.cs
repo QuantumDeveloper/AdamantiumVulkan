@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 4896 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 5061 Column: 14
 [Flags]
 public enum PointClippingBehavior : uint
 {

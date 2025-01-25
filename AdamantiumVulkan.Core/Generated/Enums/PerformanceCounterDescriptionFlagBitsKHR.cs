@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 9509 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 10394 Column: 14
 [Flags]
 public enum PerformanceCounterDescriptionFlagBitsKHR : uint
 {
@@ -19,6 +19,9 @@ public enum PerformanceCounterDescriptionFlagBitsKHR : uint
 
     ConcurrentlyImpactedBitKhr = 2,
 
+    ///<summary>
+    /// VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR is a deprecated alias
+    ///</summary>
     FlagBitsMaxEnumKhr = 2147483647,
 
 }

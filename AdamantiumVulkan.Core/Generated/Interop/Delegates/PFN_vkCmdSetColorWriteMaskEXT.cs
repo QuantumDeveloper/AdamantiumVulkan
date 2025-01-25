@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 18036 Column: 26
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 19088 Column: 26
 public unsafe struct PFN_vkCmdSetColorWriteMaskEXT
 {
     public PFN_vkCmdSetColorWriteMaskEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, VkColorComponentFlags*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, ColorComponentFlagBits*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, VkColorComponentFlags*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, ColorComponentFlagBits*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorComponentFlags* pColorWriteMasks)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, ColorComponentFlagBits* pColorWriteMasks)
     {
          InvokeFunc(commandBuffer, firstAttachment, attachmentCount, pColorWriteMasks);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, VkColorComponentFlags* pColorWriteMasks)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, ColorComponentFlagBits* pColorWriteMasks)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, VkColorComponentFlags*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorWriteMasks);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, ColorComponentFlagBits*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorWriteMasks);
     }
 
     public static explicit operator PFN_vkCmdSetColorWriteMaskEXT(void* ptr) => new(ptr);

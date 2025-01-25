@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16824 Column: 26
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 17876 Column: 26
 public unsafe struct PFN_vkCmdSubpassShadingHUAWEI
 {
     public PFN_vkCmdSubpassShadingHUAWEI(void* ptr)

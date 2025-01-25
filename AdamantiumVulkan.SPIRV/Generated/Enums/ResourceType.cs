@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 212 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross\spirv_cross_c.h Line: 212 Column: 14
 ///<summary>
 /// Maps to C++ API.
 ///</summary>
@@ -46,6 +46,8 @@ public enum ResourceType : uint
     RayQuery = 13,
 
     ShaderRecordBuffer = 14,
+
+    GlPlainUniform = 15,
 
     IntMax = 2147483647,
 

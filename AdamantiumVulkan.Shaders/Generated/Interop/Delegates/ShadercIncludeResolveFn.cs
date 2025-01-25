@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Shaders.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\shaderc\shaderc.h Line: 375 Column: 35
+// File: C:\VulkanSDK\1.4.304.0\Include\shaderc\shaderc.h Line: 375 Column: 35
 ///<summary>
 /// An includer callback type for mapping an #include request to an include result. The user_data parameter specifies the client context. The requested_source parameter specifies the name of the source being requested. The type parameter specifies the kind of inclusion request being made. The requesting_source parameter specifies the name of the source containing the #include request. The includer owns the result object and its contents, and both must remain valid until the release callback is called on the result object.
 ///</summary>

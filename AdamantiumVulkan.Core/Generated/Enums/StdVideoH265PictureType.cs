@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 94 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 94 Column: 14
 public enum StdVideoH265PictureType : uint
 {
     P = 0,

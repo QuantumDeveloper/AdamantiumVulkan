@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 6708 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 6881 Column: 14
 [Flags]
 public enum RenderingFlagBits : uint
 {
@@ -21,9 +21,9 @@ public enum RenderingFlagBits : uint
 
     ResumingBit = 4,
 
-    ContentsInlineBitExt = 16,
-
     EnableLegacyDitheringBitExt = 8,
+
+    ContentsInlineBitKhr = 16,
 
     FlagBitsMaxEnum = 2147483647,
 

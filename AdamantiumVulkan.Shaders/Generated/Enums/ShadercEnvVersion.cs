@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\shaderc/env.h Line: 37 Column: 9
+// File: C:\VulkanSDK\1.4.304.0\Include\shaderc/env.h Line: 37 Column: 9
 public enum ShadercEnvVersion : uint
 {
     ///<summary>
@@ -33,6 +33,11 @@ public enum ShadercEnvVersion : uint
     /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
     ///</summary>
     Vulkan13 = 4206592,
+
+    ///<summary>
+    /// For Vulkan, use Vulkan's mapping of version numbers to integers. See vulkan.h
+    ///</summary>
+    Vulkan14 = 4210688,
 
     ///<summary>
     /// For OpenGL, use the number from #version in shaders. TODO(dneto): Currently no difference between OpenGL 4.5 and 4.6. See glslang/Standalone/Standalone.cpp TODO(dneto): Glslang doesn't accept a OpenGL client version of 460.

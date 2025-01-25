@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 2814 Column: 17
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 2976 Column: 17
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCommandBufferResetFlags
 {

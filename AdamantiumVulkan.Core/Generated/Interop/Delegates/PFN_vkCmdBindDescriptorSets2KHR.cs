@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11670 Column: 26
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 12613 Column: 26
 public unsafe struct PFN_vkCmdBindDescriptorSets2KHR
 {
     public PFN_vkCmdBindDescriptorSets2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR* pBindDescriptorSetsInfo)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo* pBindDescriptorSetsInfo)
     {
          InvokeFunc(commandBuffer, pBindDescriptorSetsInfo);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR* pBindDescriptorSetsInfo)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo* pBindDescriptorSetsInfo)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfoKHR*, void>)ptr)(commandBuffer, pBindDescriptorSetsInfo);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo*, void>)ptr)(commandBuffer, pBindDescriptorSetsInfo);
     }
 
     public static explicit operator PFN_vkCmdBindDescriptorSets2KHR(void* ptr) => new(ptr);

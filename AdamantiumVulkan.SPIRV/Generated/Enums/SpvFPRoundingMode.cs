@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 428 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 428 Column: 14
 public enum SpvFPRoundingMode : uint
 {
     Rte = 0,

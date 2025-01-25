@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8197 Column: 30
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 9111 Column: 30
 public unsafe struct PFN_vkUpdateVideoSessionParametersKHR
 {
     public PFN_vkUpdateVideoSessionParametersKHR(void* ptr)

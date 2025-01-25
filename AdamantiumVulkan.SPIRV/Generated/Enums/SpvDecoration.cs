@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 462 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 462 Column: 14
 public enum SpvDecoration : uint
 {
     RelaxedPrecision = 0,
@@ -115,6 +115,8 @@ public enum SpvDecoration : uint
     WeightTextureQCOM = 4487,
 
     BlockMatchTextureQCOM = 4488,
+
+    BlockMatchSamplerQCOM = 4499,
 
     ExplicitInterpAMD = 4999,
 

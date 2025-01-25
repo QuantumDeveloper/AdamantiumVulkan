@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11234 Column: 26
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11949 Column: 26
 public unsafe struct PFN_vkGetRenderingAreaGranularityKHR
 {
     public PFN_vkGetRenderingAreaGranularityKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfoKHR*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfoKHR*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfoKHR* pRenderingAreaInfo, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo* pRenderingAreaInfo, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
     {
          InvokeFunc(device, pRenderingAreaInfo, pGranularity);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfoKHR* pRenderingAreaInfo, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo* pRenderingAreaInfo, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfoKHR*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr)(device, pRenderingAreaInfo, pGranularity);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr)(device, pRenderingAreaInfo, pGranularity);
     }
 
     public static explicit operator PFN_vkGetRenderingAreaGranularityKHR(void* ptr) => new(ptr);

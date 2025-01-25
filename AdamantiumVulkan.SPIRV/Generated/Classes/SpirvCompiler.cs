@@ -15,7 +15,7 @@ using AdamantiumVulkan.Spirv.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 74 Column: 33
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross\spirv_cross_c.h Line: 74 Column: 33
 public unsafe partial class SpirvCompiler
 {
     internal SpvcCompilerS __Instance;
@@ -481,10 +481,22 @@ public unsafe partial class SpirvCompiler
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_inline_uniform_block(this, desc_set, binding);
     }
 
+    ///<summary>
+    /// Deprecated; use spvc_compiler_msl_add_resource_binding_2().
+    ///</summary>
     public Result MslAddResourceBinding(in SpvcMslResourceBinding binding)
     {
         var arg1 = ReferenceEquals(binding, null) ? null : NativeUtils.StructOrEnumToPointer(binding.ToNative());
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_resource_binding(this, arg1);
+        binding?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    public Result MslAddResourceBinding2(in SpvcMslResourceBinding2 binding)
+    {
+        var arg1 = ReferenceEquals(binding, null) ? null : NativeUtils.StructOrEnumToPointer(binding.ToNative());
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_resource_binding_2(this, arg1);
         binding?.Dispose();
         NativeUtils.Free(arg1);
         return result;

@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10534 Column: 30
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11380 Column: 30
 public unsafe struct PFN_vkUnmapMemory2KHR
 {
     public PFN_vkUnmapMemory2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfoKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfoKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfoKHR* pMemoryUnmapInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo* pMemoryUnmapInfo)
     {
         return InvokeFunc(device, pMemoryUnmapInfo);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfoKHR* pMemoryUnmapInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo* pMemoryUnmapInfo)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfoKHR*, Result>)ptr)(device, pMemoryUnmapInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo*, Result>)ptr)(device, pMemoryUnmapInfo);
     }
 
     public static explicit operator PFN_vkUnmapMemory2KHR(void* ptr) => new(ptr);

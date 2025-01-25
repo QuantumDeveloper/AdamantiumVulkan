@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 571 Column: 9
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 587 Column: 9
 ///<summary>
 /// SPIR-V Validator can be parameterized with the following Universal Limits.
 ///</summary>

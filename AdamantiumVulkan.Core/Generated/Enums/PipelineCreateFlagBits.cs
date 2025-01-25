@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 2576 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 2733 Column: 14
 [Flags]
 public enum PipelineCreateFlagBits : uint
 {
@@ -29,9 +29,9 @@ public enum PipelineCreateFlagBits : uint
 
     EarlyReturnOnFailureBit = 512,
 
-    RenderingFragmentShadingRateAttachmentBitKhr = 2097152,
+    NoProtectedAccessBit = 134217728,
 
-    RenderingFragmentDensityMapAttachmentBitExt = 4194304,
+    ProtectedAccessOnlyBit = 1073741824,
 
     RayTracingNoNullAnyHitShadersBitKhr = 16384,
 
@@ -48,6 +48,10 @@ public enum PipelineCreateFlagBits : uint
     RayTracingShaderGroupHandleCaptureReplayBitKhr = 524288,
 
     DeferCompileBitNv = 32,
+
+    RenderingFragmentDensityMapAttachmentBitExt = 4194304,
+
+    RenderingFragmentShadingRateAttachmentBitKhr = 2097152,
 
     CaptureStatisticsBitKhr = 64,
 
@@ -71,10 +75,9 @@ public enum PipelineCreateFlagBits : uint
 
     RayTracingOpacityMicromapBitExt = 16777216,
 
-    NoProtectedAccessBitExt = 134217728,
-
-    ProtectedAccessOnlyBitExt = 1073741824,
-
+    ///<summary>
+    /// VK_PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR is a deprecated alias
+    ///</summary>
     FlagBitsMaxEnum = 2147483647,
 
 }

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 839 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 840 Column: 14
 [Flags]
 public enum SpvMemoryAccessMask : uint
 {

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 17350 Column: 30
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 18402 Column: 30
 public unsafe struct PFN_vkWriteMicromapsPropertiesEXT
 {
     public PFN_vkWriteMicromapsPropertiesEXT(void* ptr)

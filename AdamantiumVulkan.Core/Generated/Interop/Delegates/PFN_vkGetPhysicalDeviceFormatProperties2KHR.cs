@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8906 Column: 26
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 9790 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceFormatProperties2KHR
 {
     public PFN_vkGetPhysicalDeviceFormatProperties2KHR(void* ptr)

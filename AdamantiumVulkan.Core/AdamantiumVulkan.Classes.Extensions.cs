@@ -264,9 +264,33 @@ namespace AdamantiumVulkan.Core
         
         protected PFN_vkCmdSetDescriptorBufferOffsetsEXT SetDescriptorBufferOffsetsDelegate { get; private set; }
         
-        protected PFN_vkCmdSetViewportWithCountEXT SetViewportWithCountDelegate { get; set; }
+        protected PFN_vkCmdSetViewportWithCountEXT SetViewportWithCountDelegate { get; private set; }
         
-        protected PFN_vkCmdSetScissorWithCountEXT SetScissorWithCountDelegate { get; set; }
+        protected PFN_vkCmdSetScissorWithCountEXT SetScissorWithCountDelegate { get; private set; }
+        
+        protected PFN_vkCmdSetRasterizerDiscardEnableEXT SetRasterizerDiscardEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetColorBlendEquationEXT SetColorBlendEquationDelegate { get; private set; }
+        
+        protected PFN_vkCmdSetVertexInputEXT SetVertexInputDelegate { get; private set; }
+        protected PFN_vkCmdSetPrimitiveTopologyEXT SetPrimitiveTopologyDelegate { get; private set; }
+        protected PFN_vkCmdSetPrimitiveRestartEnableEXT SetPrimitiveRestartEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetRasterizationSamplesEXT SetRasterizationSamplesDelegate { get; private set; }
+        protected PFN_vkCmdSetSampleMaskEXT SetSampleMaskDelegate { get; private set; }
+        protected PFN_vkCmdSetAlphaToCoverageEnableEXT SetAlphaToCoverageDelegate { get; private set; }
+        protected PFN_vkCmdSetAlphaToOneEnableEXT SetAlphaToOneDelegate { get; private set; }
+        protected PFN_vkCmdSetPolygonModeEXT SetPolygonModeDelegate { get; private set; }
+        protected PFN_vkCmdSetFrontFaceEXT SetFrontFaceDelegate { get; private set; }
+        protected PFN_vkCmdSetCullModeEXT SetCullModeDelegate { get; private set; }
+        
+        protected PFN_vkCmdSetDepthWriteEnableEXT SetDepthWriteEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetDepthTestEnableEXT SetDepthTestEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetDepthCompareOpEXT SetDepthCompareOpDelegate { get; private set; }
+        protected PFN_vkCmdSetDepthBoundsTestEnableEXT SetDepthBoundsTestEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetDepthBiasEnableEXT SetDepthBiasEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetStencilTestEnableEXT SetStencilTestEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetLogicOpEnableEXT SetLogicOpEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetColorBlendEnableEXT SetColorBlendEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetColorWriteMaskEXT SetColorWriteMaskDelegate { get; private set; }
 
         public void InitializeExtensions()
         {
@@ -283,6 +307,31 @@ namespace AdamantiumVulkan.Core
             SetViewportWithCountDelegate =
                 (PFN_vkCmdSetViewportWithCountEXT)GetDeviceProcAddr("vkCmdSetViewportWithCountEXT");
             SetScissorWithCountDelegate = (PFN_vkCmdSetScissorWithCountEXT)GetDeviceProcAddr("vkCmdSetScissorWithCountEXT");
+            SetRasterizerDiscardEnableDelegate =
+                (PFN_vkCmdSetRasterizerDiscardEnableEXT)GetDeviceProcAddr("vkCmdSetRasterizerDiscardEnableEXT");
+            SetColorBlendEquationDelegate =
+                (PFN_vkCmdSetColorBlendEquationEXT)GetDeviceProcAddr("vkCmdSetColorBlendEquationEXT");
+
+            SetVertexInputDelegate = (PFN_vkCmdSetVertexInputEXT)GetDeviceProcAddr("vkCmdSetVertexInputEXT");
+            SetPrimitiveTopologyDelegate = (PFN_vkCmdSetPrimitiveTopologyEXT)GetDeviceProcAddr("vkCmdSetPrimitiveTopologyEXT");
+            SetPrimitiveRestartEnableDelegate = (PFN_vkCmdSetPrimitiveRestartEnableEXT)GetDeviceProcAddr("vkCmdSetPrimitiveRestartEnableEXT");
+            SetRasterizationSamplesDelegate =
+                (PFN_vkCmdSetRasterizationSamplesEXT)GetDeviceProcAddr("vkCmdSetRasterizationSamplesEXT");
+            SetSampleMaskDelegate = (PFN_vkCmdSetSampleMaskEXT)GetDeviceProcAddr("vkCmdSetSampleMaskEXT");
+            SetAlphaToCoverageDelegate = (PFN_vkCmdSetAlphaToCoverageEnableEXT)GetDeviceProcAddr("vkCmdSetAlphaToCoverageEnableEXT");
+            SetAlphaToOneDelegate = (PFN_vkCmdSetAlphaToOneEnableEXT)GetDeviceProcAddr("vkCmdSetAlphaToOneEnableEXT");
+            SetPolygonModeDelegate = (PFN_vkCmdSetPolygonModeEXT)GetDeviceProcAddr("vkCmdSetPolygonModeEXT");
+            SetFrontFaceDelegate = (PFN_vkCmdSetFrontFaceEXT)GetDeviceProcAddr("vkCmdSetFrontFaceEXT");
+            SetCullModeDelegate = (PFN_vkCmdSetCullModeEXT)GetDeviceProcAddr("vkCmdSetCullModeEXT");
+            SetDepthWriteEnableDelegate = (PFN_vkCmdSetDepthWriteEnableEXT)GetDeviceProcAddr("vkCmdSetDepthWriteEnableEXT");
+            SetDepthTestEnableDelegate = (PFN_vkCmdSetDepthTestEnableEXT)GetDeviceProcAddr("vkCmdSetDepthTestEnableEXT");
+            SetDepthCompareOpDelegate = (PFN_vkCmdSetDepthCompareOpEXT)GetDeviceProcAddr("vkCmdSetDepthCompareOpEXT");
+            SetDepthBoundsTestEnableDelegate = (PFN_vkCmdSetDepthBoundsTestEnableEXT)GetDeviceProcAddr("vkCmdSetDepthBoundsTestEnableEXT");
+            SetDepthBiasEnableDelegate = (PFN_vkCmdSetDepthBiasEnableEXT)GetDeviceProcAddr("vkCmdSetDepthBiasEnableEXT");
+            SetStencilTestEnableDelegate = (PFN_vkCmdSetStencilTestEnableEXT)GetDeviceProcAddr("vkCmdSetStencilTestEnableEXT");
+            SetLogicOpEnableDelegate = (PFN_vkCmdSetLogicOpEnableEXT)GetDeviceProcAddr("vkCmdSetLogicOpEnableEXT");
+            SetColorBlendEnableDelegate = (PFN_vkCmdSetColorBlendEnableEXT)GetDeviceProcAddr("vkCmdSetColorBlendEnableEXT");
+            SetColorWriteMaskDelegate = (PFN_vkCmdSetColorWriteMaskEXT)GetDeviceProcAddr("vkCmdSetColorWriteMaskEXT");
         }
         
         public Queue GetDeviceQueue(uint queueFamilyIndex, uint queueIndex)
@@ -388,7 +437,6 @@ namespace AdamantiumVulkan.Core
 
         public void* MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
         {
-            //void** data = default;
             var result = MapMemory(memory, offset, size, flags, out var data);
             ResultHelper.CheckResult(result, nameof(MapMemory));
             return data;
@@ -543,6 +591,8 @@ namespace AdamantiumVulkan.Core
             var stagePtr = NativeUtils.StructOrEnumToPointer(stage);
             VkShaderEXT_T* shadersPtr = NativeUtils.ManagedArrayToPointer(new VkShaderEXT_T[] { shader });
             BindShadersDelegate.Invoke(cmd, 1, stagePtr, shadersPtr);
+            NativeUtils.Free(stagePtr);
+            NativeUtils.Free(shadersPtr);
         }
 
         public uint GetDescriptorSetLayoutSize(DescriptorSetLayout layout)
@@ -584,6 +634,182 @@ namespace AdamantiumVulkan.Core
             SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
             NativeMemory.Free(indicesPtr);
             NativeMemory.Free(offsetsPtr);
+        }
+
+        public void SetViewportWithCountEXT(CommandBuffer commandBuffer, params Viewport[] viewports)
+        {
+            if (viewports == null) return;
+            
+            var vkViewports = new VkViewport[viewports.Length];
+            for (int i = 0; i < viewports.Length; i++)
+            {
+                vkViewports[i] = viewports[i].ToNative();
+            }
+            var nativeViewportsPtr = NativeUtils.ManagedArrayToPointer(vkViewports);
+            SetViewportWithCountDelegate.Invoke(commandBuffer, (uint)viewports.Length, nativeViewportsPtr);
+        }
+
+        public void SetScissorsWithCountEXT(CommandBuffer commandBuffer, params Rect2D[] scissors)
+        {
+            if (scissors == null) return;
+            
+            var vkScissors = new VkRect2D[scissors.Length];
+            for (int i = 0; i < scissors.Length; i++)
+            {
+                vkScissors[i] = scissors[i].ToNative();
+            }
+            var nativeScissorsPtr = NativeUtils.ManagedArrayToPointer(vkScissors);
+            SetScissorWithCountDelegate.Invoke(commandBuffer, (uint)scissors.Length, nativeScissorsPtr);
+        }
+
+        public void SetRasterizerDiscardEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetRasterizerDiscardEnableDelegate.Invoke(commandBuffer, value);
+        }
+        
+        public void SetColorBlendEquationEXT(CommandBuffer commandBuffer, uint firstAttachment, uint attachmentCount, params ColorBlendEquationEXT[] colorBlendEquations)
+        {
+            if (colorBlendEquations == null) return;
+            
+            var items = new VkColorBlendEquationEXT[colorBlendEquations.Length];
+            for (int i = 0; i < colorBlendEquations.Length; i++)
+            {
+                items[i] = colorBlendEquations[i].ToNative();
+            }
+            var nativePtr = NativeUtils.ManagedArrayToPointer(items);
+            SetColorBlendEquationDelegate.Invoke(commandBuffer, firstAttachment, attachmentCount, nativePtr);
+        }
+
+        public void SetVertexInputEXT(CommandBuffer commandBuffer,
+            uint vertexBindingDescriptionCount,
+            in VertexInputBindingDescription2EXT pVertexBindingDescriptions,
+            uint vertexAttributeDescriptionCount,
+            params VertexInputAttributeDescription2EXT[] pVertexAttributeDescriptions)
+        {
+            var arg2 = ReferenceEquals(pVertexBindingDescriptions, null)
+                ? null
+                : NativeUtils.StructOrEnumToPointer(pVertexBindingDescriptions.ToNative());
+            var arg4 = ReferenceEquals(pVertexAttributeDescriptions, null)
+                ? null
+                : NativeUtils.GetPointerToManagedArray<VkVertexInputAttributeDescription2EXT>(
+                        vertexAttributeDescriptionCount);
+            if (!ReferenceEquals(pVertexAttributeDescriptions, null))
+            {
+                for (var i = 0U; i < vertexAttributeDescriptionCount; ++i)
+                {
+                    arg4[i] = pVertexAttributeDescriptions[i].ToNative();
+                }
+            }
+
+            SetVertexInputDelegate.Invoke(commandBuffer, 
+                vertexBindingDescriptionCount, 
+                arg2,
+                vertexAttributeDescriptionCount, 
+                arg4);
+
+            pVertexBindingDescriptions?.Dispose();
+            NativeUtils.Free(arg2);
+            if (!ReferenceEquals(pVertexAttributeDescriptions, null))
+            {
+                for (var i = 0U; i < vertexAttributeDescriptionCount; ++i)
+                {
+                    pVertexAttributeDescriptions[i]?.Dispose();
+                }
+            }
+        }
+
+        public void SetPrimitiveTopologyEXT(CommandBuffer commandBuffer, PrimitiveTopology primitiveTopology)
+        {
+            SetPrimitiveTopologyDelegate.Invoke(commandBuffer, primitiveTopology);
+        }
+
+        public void SetPrimitiveRestartEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetPrimitiveRestartEnableDelegate.Invoke(commandBuffer, value);
+        }
+
+        public void SetRasterizationSamplesEXT(CommandBuffer commandBuffer, SampleCountFlagBits sampleCount)
+        {
+            SetRasterizationSamplesDelegate.Invoke(commandBuffer, sampleCount);
+        }
+
+        public void SetSampleMaskEXT(CommandBuffer commandBuffer, SampleCountFlagBits sampleCount, VkSampleMask[] sampleMasks)
+        {
+            fixed (VkSampleMask* mask = &sampleMasks[0])
+            {
+                SetSampleMaskDelegate.Invoke(commandBuffer, sampleCount, mask);
+            }
+        }
+
+        public void SetAlphaToCoverageEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetAlphaToCoverageDelegate.Invoke(commandBuffer, value);
+        }
+        
+        public void SetAlphaToOneEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetAlphaToOneDelegate.Invoke(commandBuffer, value);
+        }
+
+        public void SetPolygonModeEXT(CommandBuffer commandBuffer, PolygonMode polygonMode)
+        {
+            SetPolygonModeDelegate.Invoke(commandBuffer, polygonMode);
+        }
+        
+        public void SetCullModeEXT(CommandBuffer commandBuffer, CullModeFlagBits cullMode)
+        {
+            SetCullModeDelegate.Invoke(commandBuffer, cullMode);
+        }
+
+        public void SetFrontFaceEXT(CommandBuffer commandBuffer, FrontFace frontFace)
+        {
+            SetFrontFaceDelegate.Invoke(commandBuffer, frontFace);
+        }
+        
+        public void SetDepthWriteEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetDepthWriteEnableDelegate.Invoke(commandBuffer, value);
+        }
+
+        public void SetDepthTestEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetDepthTestEnableDelegate.Invoke(commandBuffer, value);
+        }
+        
+        public void SetDepthCompareOpEXT(CommandBuffer commandBuffer, CompareOp compareOp)
+        {
+            SetDepthCompareOpDelegate.Invoke(commandBuffer, compareOp);
+        }
+        
+        public void SetDepthBoundsTestEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetDepthBoundsTestEnableDelegate.Invoke(commandBuffer, value);
+        }
+        
+        public void SetDepthBiasEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetDepthBiasEnableDelegate.Invoke(commandBuffer, value);
+        }
+        
+        public void SetStencilTestEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetStencilTestEnableDelegate.Invoke(commandBuffer, value);
+        }
+
+        public void SetLogicOpEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetLogicOpEnableDelegate.Invoke(commandBuffer, value);
+        }
+
+        public void SetColorBlendEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            VkBool32 val = value;
+            SetColorBlendEnableDelegate.Invoke(commandBuffer, 0, 1, &val);
+        }
+        
+        public void SetColorWriteMaskEXT(CommandBuffer commandBuffer, ColorComponentFlagBits colorComponents)
+        {
+            SetColorWriteMaskDelegate.Invoke(commandBuffer, 0, 1, &colorComponents);
         }
     }
 

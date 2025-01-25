@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 103 Column: 1
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 107 Column: 1
 public unsafe partial class Device
 {
     internal VkDevice_T __Instance;
@@ -152,6 +152,14 @@ public unsafe partial class Device
         return result;
     }
 
+    public void AntiLagUpdateAMD(in AntiLagDataAMD pData)
+    {
+        var arg1 = ReferenceEquals(pData, null) ? null : NativeUtils.StructOrEnumToPointer(pData.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkAntiLagUpdateAMD(this, arg1);
+        pData?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
     public Result BindAccelerationStructureMemoryNV(uint bindInfoCount, in BindAccelerationStructureMemoryInfoNV pBindInfos)
     {
         var arg2 = ReferenceEquals(pBindInfos, null) ? null : NativeUtils.StructOrEnumToPointer(pBindInfos.ToNative());
@@ -277,7 +285,16 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result CopyImageToImageEXT(in CopyImageToImageInfoEXT pCopyImageToImageInfo)
+    public Result CopyImageToImage(in CopyImageToImageInfo pCopyImageToImageInfo)
+    {
+        var arg1 = ReferenceEquals(pCopyImageToImageInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCopyImageToImageInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyImageToImage(this, arg1);
+        pCopyImageToImageInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    public Result CopyImageToImageEXT(in CopyImageToImageInfo pCopyImageToImageInfo)
     {
         var arg1 = ReferenceEquals(pCopyImageToImageInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCopyImageToImageInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyImageToImageEXT(this, arg1);
@@ -286,7 +303,16 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result CopyImageToMemoryEXT(in CopyImageToMemoryInfoEXT pCopyImageToMemoryInfo)
+    public Result CopyImageToMemory(in CopyImageToMemoryInfo pCopyImageToMemoryInfo)
+    {
+        var arg1 = ReferenceEquals(pCopyImageToMemoryInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCopyImageToMemoryInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyImageToMemory(this, arg1);
+        pCopyImageToMemoryInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    public Result CopyImageToMemoryEXT(in CopyImageToMemoryInfo pCopyImageToMemoryInfo)
     {
         var arg1 = ReferenceEquals(pCopyImageToMemoryInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCopyImageToMemoryInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyImageToMemoryEXT(this, arg1);
@@ -305,7 +331,16 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result CopyMemoryToImageEXT(in CopyMemoryToImageInfoEXT pCopyMemoryToImageInfo)
+    public Result CopyMemoryToImage(in CopyMemoryToImageInfo pCopyMemoryToImageInfo)
+    {
+        var arg1 = ReferenceEquals(pCopyMemoryToImageInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCopyMemoryToImageInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyMemoryToImage(this, arg1);
+        pCopyMemoryToImageInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    public Result CopyMemoryToImageEXT(in CopyMemoryToImageInfo pCopyMemoryToImageInfo)
     {
         var arg1 = ReferenceEquals(pCopyMemoryToImageInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCopyMemoryToImageInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCopyMemoryToImageEXT(this, arg1);
@@ -647,6 +682,20 @@ public unsafe partial class Device
         return result;
     }
 
+    public Result CreateIndirectCommandsLayoutEXT(in IndirectCommandsLayoutCreateInfoEXT pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.IndirectCommandsLayoutEXT pIndirectCommandsLayout)
+    {
+        var arg1 = ReferenceEquals(pCreateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCreateInfo.ToNative());
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        VkIndirectCommandsLayoutEXT_T arg3;
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateIndirectCommandsLayoutEXT(this, arg1, arg2, out arg3);
+        pCreateInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
+        pIndirectCommandsLayout = new IndirectCommandsLayoutEXT(arg3);
+        return result;
+    }
+
     public Result CreateIndirectCommandsLayoutNV(in IndirectCommandsLayoutCreateInfoNV pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.IndirectCommandsLayoutNV pIndirectCommandsLayout)
     {
         var arg1 = ReferenceEquals(pCreateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCreateInfo.ToNative());
@@ -658,6 +707,20 @@ public unsafe partial class Device
         pAllocator?.Dispose();
         NativeUtils.Free(arg2);
         pIndirectCommandsLayout = new IndirectCommandsLayoutNV(arg3);
+        return result;
+    }
+
+    public Result CreateIndirectExecutionSetEXT(in IndirectExecutionSetCreateInfoEXT pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.IndirectExecutionSetEXT pIndirectExecutionSet)
+    {
+        var arg1 = ReferenceEquals(pCreateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCreateInfo.ToNative());
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        VkIndirectExecutionSetEXT_T arg3;
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateIndirectExecutionSetEXT(this, arg1, arg2, out arg3);
+        pCreateInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
+        pIndirectExecutionSet = new IndirectExecutionSetEXT(arg3);
         return result;
     }
 
@@ -686,6 +749,21 @@ public unsafe partial class Device
         pAllocator?.Dispose();
         NativeUtils.Free(arg2);
         pSession = new OpticalFlowSessionNV(arg3);
+        return result;
+    }
+
+    public Result CreatePipelineBinariesKHR(in PipelineBinaryCreateInfoKHR pCreateInfo, in AllocationCallbacks pAllocator, PipelineBinaryHandlesInfoKHR pBinaries)
+    {
+        var arg1 = ReferenceEquals(pCreateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pCreateInfo.ToNative());
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        var arg3 = ReferenceEquals(pBinaries, null) ? null : NativeUtils.StructOrEnumToPointer(pBinaries.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreatePipelineBinariesKHR(this, arg1, arg2, arg3);
+        pCreateInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
+        pBinaries?.Dispose();
+        NativeUtils.Free(arg3);
         return result;
     }
 
@@ -1225,11 +1303,29 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
+    public void DestroyIndirectCommandsLayoutEXT(AdamantiumVulkan.Core.IndirectCommandsLayoutEXT indirectCommandsLayout, in AllocationCallbacks pAllocator)
+    {
+        var arg1 = ReferenceEquals(indirectCommandsLayout, null) ? new VkIndirectCommandsLayoutEXT_T() : (VkIndirectCommandsLayoutEXT_T)indirectCommandsLayout;
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyIndirectCommandsLayoutEXT(this, arg1, arg2);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
     public void DestroyIndirectCommandsLayoutNV(AdamantiumVulkan.Core.IndirectCommandsLayoutNV indirectCommandsLayout, in AllocationCallbacks pAllocator)
     {
         var arg1 = ReferenceEquals(indirectCommandsLayout, null) ? new VkIndirectCommandsLayoutNV_T() : (VkIndirectCommandsLayoutNV_T)indirectCommandsLayout;
         var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyIndirectCommandsLayoutNV(this, arg1, arg2);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
+    public void DestroyIndirectExecutionSetEXT(AdamantiumVulkan.Core.IndirectExecutionSetEXT indirectExecutionSet, in AllocationCallbacks pAllocator)
+    {
+        var arg1 = ReferenceEquals(indirectExecutionSet, null) ? new VkIndirectExecutionSetEXT_T() : (VkIndirectExecutionSetEXT_T)indirectExecutionSet;
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyIndirectExecutionSetEXT(this, arg1, arg2);
         pAllocator?.Dispose();
         NativeUtils.Free(arg2);
     }
@@ -1257,6 +1353,15 @@ public unsafe partial class Device
         var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyPipeline(this, arg1, arg2);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
+    public void DestroyPipelineBinaryKHR(AdamantiumVulkan.Core.PipelineBinaryKHR pipelineBinary, in AllocationCallbacks pAllocator)
+    {
+        var arg1 = ReferenceEquals(pipelineBinary, null) ? new VkPipelineBinaryKHR_T() : (VkPipelineBinaryKHR_T)pipelineBinary;
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyPipelineBinaryKHR(this, arg1, arg2);
         pAllocator?.Dispose();
         NativeUtils.Free(arg2);
     }
@@ -1865,7 +1970,18 @@ public unsafe partial class Device
         NativeUtils.Free(arg3);
     }
 
-    public void GetDeviceImageSubresourceLayoutKHR(in DeviceImageSubresourceInfoKHR pInfo, SubresourceLayout2KHR pLayout)
+    public void GetDeviceImageSubresourceLayout(in DeviceImageSubresourceInfo pInfo, SubresourceLayout2 pLayout)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var arg2 = ReferenceEquals(pLayout, null) ? null : NativeUtils.StructOrEnumToPointer(pLayout.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDeviceImageSubresourceLayout(this, arg1, arg2);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pLayout?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
+    public void GetDeviceImageSubresourceLayoutKHR(in DeviceImageSubresourceInfo pInfo, SubresourceLayout2 pLayout)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
         var arg2 = ReferenceEquals(pLayout, null) ? null : NativeUtils.StructOrEnumToPointer(pLayout.ToNative());
@@ -2019,6 +2135,17 @@ public unsafe partial class Device
         return result;
     }
 
+    public void GetGeneratedCommandsMemoryRequirementsEXT(in GeneratedCommandsMemoryRequirementsInfoEXT pInfo, MemoryRequirements2 pMemoryRequirements)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var arg2 = ReferenceEquals(pMemoryRequirements, null) ? null : NativeUtils.StructOrEnumToPointer(pMemoryRequirements.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetGeneratedCommandsMemoryRequirementsEXT(this, arg1, arg2);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pMemoryRequirements?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
     public void GetGeneratedCommandsMemoryRequirementsNV(in GeneratedCommandsMemoryRequirementsInfoNV pInfo, MemoryRequirements2 pMemoryRequirements)
     {
         var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
@@ -2131,7 +2258,19 @@ public unsafe partial class Device
         NativeUtils.Free(arg3);
     }
 
-    public void GetImageSubresourceLayout2EXT(AdamantiumVulkan.Core.Image image, in ImageSubresource2KHR pSubresource, SubresourceLayout2KHR pLayout)
+    public void GetImageSubresourceLayout2(AdamantiumVulkan.Core.Image image, in ImageSubresource2 pSubresource, SubresourceLayout2 pLayout)
+    {
+        var arg1 = ReferenceEquals(image, null) ? new VkImage_T() : (VkImage_T)image;
+        var arg2 = ReferenceEquals(pSubresource, null) ? null : NativeUtils.StructOrEnumToPointer(pSubresource.ToNative());
+        var arg3 = ReferenceEquals(pLayout, null) ? null : NativeUtils.StructOrEnumToPointer(pLayout.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageSubresourceLayout2(this, arg1, arg2, arg3);
+        pSubresource?.Dispose();
+        NativeUtils.Free(arg2);
+        pLayout?.Dispose();
+        NativeUtils.Free(arg3);
+    }
+
+    public void GetImageSubresourceLayout2EXT(AdamantiumVulkan.Core.Image image, in ImageSubresource2 pSubresource, SubresourceLayout2 pLayout)
     {
         var arg1 = ReferenceEquals(image, null) ? new VkImage_T() : (VkImage_T)image;
         var arg2 = ReferenceEquals(pSubresource, null) ? null : NativeUtils.StructOrEnumToPointer(pSubresource.ToNative());
@@ -2143,7 +2282,7 @@ public unsafe partial class Device
         NativeUtils.Free(arg3);
     }
 
-    public void GetImageSubresourceLayout2KHR(AdamantiumVulkan.Core.Image image, in ImageSubresource2KHR pSubresource, SubresourceLayout2KHR pLayout)
+    public void GetImageSubresourceLayout2KHR(AdamantiumVulkan.Core.Image image, in ImageSubresource2 pSubresource, SubresourceLayout2 pLayout)
     {
         var arg1 = ReferenceEquals(image, null) ? new VkImage_T() : (VkImage_T)image;
         var arg2 = ReferenceEquals(pSubresource, null) ? null : NativeUtils.StructOrEnumToPointer(pSubresource.ToNative());
@@ -2162,6 +2301,15 @@ public unsafe partial class Device
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageViewAddressNVX(this, arg1, arg2);
         pProperties?.Dispose();
         NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public ulong GetImageViewHandle64NVX(in ImageViewHandleInfoNVX pInfo)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetImageViewHandle64NVX(this, arg1);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
         return result;
     }
 
@@ -2266,6 +2414,21 @@ public unsafe partial class Device
         return result;
     }
 
+    public Result GetPipelineBinaryDataKHR(in PipelineBinaryDataInfoKHR pInfo, PipelineBinaryKeyKHR pPipelineBinaryKey, ref ulong pPipelineBinaryDataSize, ref void* pPipelineBinaryData)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var arg2 = ReferenceEquals(pPipelineBinaryKey, null) ? null : NativeUtils.StructOrEnumToPointer(pPipelineBinaryKey.ToNative());
+        var arg3 = NativeUtils.StructOrEnumToPointer(pPipelineBinaryDataSize);
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPipelineBinaryDataKHR(this, arg1, arg2, arg3, pPipelineBinaryData);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pPipelineBinaryKey?.Dispose();
+        NativeUtils.Free(arg2);
+        pPipelineBinaryDataSize = *arg3;
+        NativeUtils.Free(arg3);
+        return result;
+    }
+
     public Result GetPipelineCacheData(AdamantiumVulkan.Core.PipelineCache pipelineCache, ref ulong pDataSize, ref void* pData)
     {
         var arg1 = ReferenceEquals(pipelineCache, null) ? new VkPipelineCache_T() : (VkPipelineCache_T)pipelineCache;
@@ -2339,6 +2502,18 @@ public unsafe partial class Device
         NativeUtils.Free(arg1);
         pMemoryRequirements?.Dispose();
         NativeUtils.Free(arg2);
+    }
+
+    public Result GetPipelineKeyKHR(in PipelineCreateInfoKHR pPipelineCreateInfo, PipelineBinaryKeyKHR pPipelineKey)
+    {
+        var arg1 = ReferenceEquals(pPipelineCreateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPipelineCreateInfo.ToNative());
+        var arg2 = ReferenceEquals(pPipelineKey, null) ? null : NativeUtils.StructOrEnumToPointer(pPipelineKey.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPipelineKeyKHR(this, arg1, arg2);
+        pPipelineCreateInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pPipelineKey?.Dispose();
+        NativeUtils.Free(arg2);
+        return result;
     }
 
     public Result GetPipelinePropertiesEXT(in PipelineInfoKHR pPipelineInfo, BaseOutStructure pPipelineProperties)
@@ -2420,7 +2595,18 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
     }
 
-    public void GetRenderingAreaGranularityKHR(in RenderingAreaInfoKHR pRenderingAreaInfo, Extent2D pGranularity)
+    public void GetRenderingAreaGranularity(in RenderingAreaInfo pRenderingAreaInfo, Extent2D pGranularity)
+    {
+        var arg1 = ReferenceEquals(pRenderingAreaInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pRenderingAreaInfo.ToNative());
+        var arg2 = ReferenceEquals(pGranularity, null) ? null : NativeUtils.StructOrEnumToPointer(pGranularity.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetRenderingAreaGranularity(this, arg1, arg2);
+        pRenderingAreaInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pGranularity?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
+    public void GetRenderingAreaGranularityKHR(in RenderingAreaInfo pRenderingAreaInfo, Extent2D pGranularity)
     {
         var arg1 = ReferenceEquals(pRenderingAreaInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pRenderingAreaInfo.ToNative());
         var arg2 = ReferenceEquals(pGranularity, null) ? null : NativeUtils.StructOrEnumToPointer(pGranularity.ToNative());
@@ -2638,7 +2824,16 @@ public unsafe partial class Device
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkMapMemory(this, arg1, offset, size, flags, out ppData);
     }
 
-    public Result MapMemory2KHR(in MemoryMapInfoKHR pMemoryMapInfo, out void* ppData)
+    public Result MapMemory2(in MemoryMapInfo pMemoryMapInfo, out void* ppData)
+    {
+        var arg1 = ReferenceEquals(pMemoryMapInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pMemoryMapInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkMapMemory2(this, arg1, out ppData);
+        pMemoryMapInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    public Result MapMemory2KHR(in MemoryMapInfo pMemoryMapInfo, out void* ppData)
     {
         var arg1 = ReferenceEquals(pMemoryMapInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pMemoryMapInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkMapMemory2KHR(this, arg1, out ppData);
@@ -2691,6 +2886,18 @@ public unsafe partial class Device
         pAllocator?.Dispose();
         NativeUtils.Free(arg3);
         pFence = new Fence(arg4);
+        return result;
+    }
+
+    public Result ReleaseCapturedPipelineDataKHR(in ReleaseCapturedPipelineDataInfoKHR pInfo, in AllocationCallbacks pAllocator)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var arg2 = ReferenceEquals(pAllocator, null) ? null : NativeUtils.StructOrEnumToPointer(pAllocator.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkReleaseCapturedPipelineDataKHR(this, arg1, arg2);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pAllocator?.Dispose();
+        NativeUtils.Free(arg2);
         return result;
     }
 
@@ -2860,7 +3067,16 @@ public unsafe partial class Device
         return result;
     }
 
-    public Result TransitionImageLayoutEXT(uint transitionCount, in HostImageLayoutTransitionInfoEXT pTransitions)
+    public Result TransitionImageLayout(uint transitionCount, in HostImageLayoutTransitionInfo pTransitions)
+    {
+        var arg2 = ReferenceEquals(pTransitions, null) ? null : NativeUtils.StructOrEnumToPointer(pTransitions.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkTransitionImageLayout(this, transitionCount, arg2);
+        pTransitions?.Dispose();
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result TransitionImageLayoutEXT(uint transitionCount, in HostImageLayoutTransitionInfo pTransitions)
     {
         var arg2 = ReferenceEquals(pTransitions, null) ? null : NativeUtils.StructOrEnumToPointer(pTransitions.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkTransitionImageLayoutEXT(this, transitionCount, arg2);
@@ -2892,7 +3108,16 @@ public unsafe partial class Device
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkUnmapMemory(this, arg1);
     }
 
-    public Result UnmapMemory2KHR(in MemoryUnmapInfoKHR pMemoryUnmapInfo)
+    public Result UnmapMemory2(in MemoryUnmapInfo pMemoryUnmapInfo)
+    {
+        var arg1 = ReferenceEquals(pMemoryUnmapInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pMemoryUnmapInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkUnmapMemory2(this, arg1);
+        pMemoryUnmapInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
+    }
+
+    public Result UnmapMemory2KHR(in MemoryUnmapInfo pMemoryUnmapInfo)
     {
         var arg1 = ReferenceEquals(pMemoryUnmapInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pMemoryUnmapInfo.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkUnmapMemory2KHR(this, arg1);
@@ -2955,6 +3180,24 @@ public unsafe partial class Device
         var arg1 = ReferenceEquals(descriptorSet, null) ? new VkDescriptorSet_T() : (VkDescriptorSet_T)descriptorSet;
         var arg2 = ReferenceEquals(descriptorUpdateTemplate, null) ? new VkDescriptorUpdateTemplate_T() : (VkDescriptorUpdateTemplate_T)descriptorUpdateTemplate;
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkUpdateDescriptorSetWithTemplateKHR(this, arg1, arg2, pData);
+    }
+
+    public void UpdateIndirectExecutionSetPipelineEXT(AdamantiumVulkan.Core.IndirectExecutionSetEXT indirectExecutionSet, uint executionSetWriteCount, in WriteIndirectExecutionSetPipelineEXT pExecutionSetWrites)
+    {
+        var arg1 = ReferenceEquals(indirectExecutionSet, null) ? new VkIndirectExecutionSetEXT_T() : (VkIndirectExecutionSetEXT_T)indirectExecutionSet;
+        var arg3 = ReferenceEquals(pExecutionSetWrites, null) ? null : NativeUtils.StructOrEnumToPointer(pExecutionSetWrites.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkUpdateIndirectExecutionSetPipelineEXT(this, arg1, executionSetWriteCount, arg3);
+        pExecutionSetWrites?.Dispose();
+        NativeUtils.Free(arg3);
+    }
+
+    public void UpdateIndirectExecutionSetShaderEXT(AdamantiumVulkan.Core.IndirectExecutionSetEXT indirectExecutionSet, uint executionSetWriteCount, in WriteIndirectExecutionSetShaderEXT pExecutionSetWrites)
+    {
+        var arg1 = ReferenceEquals(indirectExecutionSet, null) ? new VkIndirectExecutionSetEXT_T() : (VkIndirectExecutionSetEXT_T)indirectExecutionSet;
+        var arg3 = ReferenceEquals(pExecutionSetWrites, null) ? null : NativeUtils.StructOrEnumToPointer(pExecutionSetWrites.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkUpdateIndirectExecutionSetShaderEXT(this, arg1, executionSetWriteCount, arg3);
+        pExecutionSetWrites?.Dispose();
+        NativeUtils.Free(arg3);
     }
 
     public Result UpdateVideoSessionParametersKHR(AdamantiumVulkan.Core.VideoSessionParametersKHR videoSessionParameters, in VideoSessionParametersUpdateInfoKHR pUpdateInfo)

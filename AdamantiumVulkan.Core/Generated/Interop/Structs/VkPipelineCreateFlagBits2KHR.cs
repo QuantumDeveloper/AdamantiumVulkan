@@ -11,10 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11109 Column: 19
-///<summary>
-/// Flag bits for VkPipelineCreateFlagBits2KHR
-///</summary>
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11926 Column: 35
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineCreateFlagBits2KHR
 {

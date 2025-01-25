@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 8031 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 8938 Column: 14
 [Flags]
 public enum VideoSessionCreateFlagBitsKHR : uint
 {
@@ -20,6 +20,10 @@ public enum VideoSessionCreateFlagBitsKHR : uint
     AllowEncodeParameterOptimizationsBitKhr = 2,
 
     InlineQueriesBitKhr = 4,
+
+    AllowEncodeQuantizationDeltaMapBitKhr = 8,
+
+    AllowEncodeEmphasisMapBitKhr = 16,
 
     FlagBitsMaxEnumKhr = 2147483647,
 

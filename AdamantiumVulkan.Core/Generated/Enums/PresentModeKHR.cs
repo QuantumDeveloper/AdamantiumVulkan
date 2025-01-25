@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 7553 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 8455 Column: 14
 public enum PresentModeKHR : uint
 {
     ImmediateKhr = 0,
@@ -25,6 +25,8 @@ public enum PresentModeKHR : uint
     SharedDemandRefreshKhr = 1000111000,
 
     SharedContinuousRefreshKhr = 1000111001,
+
+    FifoLatestReadyExt = 1000361000,
 
     MaxEnumKhr = 2147483647,
 

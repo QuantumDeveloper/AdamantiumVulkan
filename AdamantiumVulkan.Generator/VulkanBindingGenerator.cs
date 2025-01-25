@@ -32,7 +32,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.3.283.0\Include";
+            string vulkanBasePath = @"C:\VulkanSDK\1.4.304.0\Include";
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
