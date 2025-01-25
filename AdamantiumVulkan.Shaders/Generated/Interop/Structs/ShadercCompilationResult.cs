@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\shaderc\shaderc.h Line: 511 Column: 16
+// File: C:\VulkanSDK\1.4.304.0\Include\shaderc\shaderc.h Line: 511 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct ShadercCompilationResult
 {

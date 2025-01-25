@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross/spirv.h Line: 894 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 895 Column: 14
 public enum Apability : uint
 {
     Matrix = 0,
@@ -217,6 +217,8 @@ public enum Apability : uint
     TextureBoxFilterQCOM = 4485,
 
     TextureBlockMatchQCOM = 4486,
+
+    TextureBlockMatch2QCOM = 4498,
 
     Float16ImageAMD = 5008,
 

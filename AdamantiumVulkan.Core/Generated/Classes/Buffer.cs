@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 99 Column: 1
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 103 Column: 1
 public unsafe partial class Buffer
 {
     internal VkBuffer_T __Instance;

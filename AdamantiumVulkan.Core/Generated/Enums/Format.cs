@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1431 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 1573 Column: 14
 public enum Format : uint
 {
     UNDEFINED = 0,
@@ -492,6 +492,10 @@ public enum Format : uint
 
     ASTC_12x12_SFLOAT_BLOCK = 1000066013,
 
+    A1B5G5R5_UNORM_PACK16 = 1000470000,
+
+    A8_UNORM = 1000470001,
+
     PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
 
     PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,
@@ -510,10 +514,9 @@ public enum Format : uint
 
     R16G16_SFIXED5_NV = 1000464000,
 
-    A1B5G5R5_UNORM_PACK16_KHR = 1000470000,
-
-    A8_UNORM_KHR = 1000470001,
-
+    ///<summary>
+    /// VK_FORMAT_R16G16_S10_5_NV is a deprecated alias
+    ///</summary>
     MAX_ENUM = 2147483647,
 
 }

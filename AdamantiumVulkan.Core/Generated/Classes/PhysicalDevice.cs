@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 102 Column: 1
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 106 Column: 1
 public unsafe partial class PhysicalDevice
 {
     internal VkPhysicalDevice_T __Instance;
@@ -230,6 +230,18 @@ public unsafe partial class PhysicalDevice
         {
             pTimeDomains = *arg2;
         }
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(ref uint pPropertyCount, CooperativeMatrixFlexibleDimensionsPropertiesNV pProperties)
+    {
+        var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
+        var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, arg1, arg2);
+        pPropertyCount = *arg1;
+        NativeUtils.Free(arg1);
+        pProperties?.Dispose();
         NativeUtils.Free(arg2);
         return result;
     }

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 606 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross\spirv_cross_c.h Line: 621 Column: 14
 ///<summary>
 /// Maps to the various spirv_cross::Compiler*::Option structures. See C++ API for defaults and details.
 ///</summary>
@@ -404,6 +404,21 @@ public enum CompilerOption : uint
     /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
     ///</summary>
     MslAgxManualCubeGradFixup = 134217816,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    MslForceFragmentWithSideEffectsExecution = 134217817,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    HlslUseEntryPointName = 67108954,
+
+    ///<summary>
+    /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.
+    ///</summary>
+    HlslPreserveStructuredBuffers = 67108955,
 
     ///<summary>
     /// Obsolete. Use MSL_FRAMEBUFFER_FETCH_SUBPASS instead.

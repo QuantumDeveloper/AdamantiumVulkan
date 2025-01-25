@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11710 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 12791 Column: 14
 public enum DebugReportObjectTypeEXT : uint
 {
     UnknownExt = 0,
@@ -96,6 +96,9 @@ public enum DebugReportObjectTypeEXT : uint
 
     BufferCollectionFuchsiaExt = 1000366000,
 
+    ///<summary>
+    /// VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT is a deprecated alias
+    ///</summary>
     MaxEnumExt = 2147483647,
 
 }

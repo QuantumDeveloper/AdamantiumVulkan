@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 123 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 123 Column: 14
 ///<summary>
 /// The kinds of operands that an instruction may have.
 ///</summary>
@@ -188,260 +188,285 @@ public enum spv_operand_type_t : uint
     OperandTypeCapability = 33,
 
     ///<summary>
+    /// SPIR-V Sec 3.51
+    ///</summary>
+    OperandTypeFpencoding = 34,
+
+    ///<summary>
     /// SPIR-V Sec 3.14
     ///</summary>
-    OperandTypeImage = 34,
+    OperandTypeImage = 35,
 
     ///<summary>
     /// SPIR-V Sec 3.15
     ///</summary>
-    OperandTypeFpFastMathMode = 35,
+    OperandTypeFpFastMathMode = 36,
 
     ///<summary>
     /// SPIR-V Sec 3.22
     ///</summary>
-    OperandTypeSelectionControl = 36,
+    OperandTypeSelectionControl = 37,
 
     ///<summary>
     /// SPIR-V Sec 3.23
     ///</summary>
-    OperandTypeLoopControl = 37,
+    OperandTypeLoopControl = 38,
 
     ///<summary>
     /// SPIR-V Sec 3.24
     ///</summary>
-    OperandTypeFunctionControl = 38,
+    OperandTypeFunctionControl = 39,
 
     ///<summary>
     /// SPIR-V Sec 3.26
     ///</summary>
-    OperandTypeMemoryAccess = 39,
+    OperandTypeMemoryAccess = 40,
 
     ///<summary>
     /// SPIR-V Sec 3.FSR
     ///</summary>
-    OperandTypeFragmentShadingRate = 40,
+    OperandTypeFragmentShadingRate = 41,
 
-    OperandTypeOptionalId = 41,
+    OperandTypeOptionalId = 42,
 
     ///<summary>
     /// An optional image operand type.
     ///</summary>
-    OperandTypeOptionalImage = 42,
+    OperandTypeOptionalImage = 43,
 
     ///<summary>
     /// An optional memory access type.
     ///</summary>
-    OperandTypeOptionalMemoryAccess = 43,
+    OperandTypeOptionalMemoryAccess = 44,
 
     ///<summary>
     /// An optional literal integer.
     ///</summary>
-    OperandTypeOptionalLiteralInteger = 44,
+    OperandTypeOptionalLiteralInteger = 45,
 
     ///<summary>
     /// An optional literal number, which may be either integer or floating point.
     ///</summary>
-    OperandTypeOptionalLiteralNumber = 45,
+    OperandTypeOptionalLiteralNumber = 46,
 
     ///<summary>
     /// Like SPV_OPERAND_TYPE_TYPED_LITERAL_NUMBER, but optional, and integral.
     ///</summary>
-    OperandTypeOptionalTypedLiteralInteger = 46,
+    OperandTypeOptionalTypedLiteralInteger = 47,
 
     ///<summary>
     /// An optional literal string.
     ///</summary>
-    OperandTypeOptionalLiteralString = 47,
+    OperandTypeOptionalLiteralString = 48,
 
     ///<summary>
     /// An optional access qualifier
     ///</summary>
-    OperandTypeOptionalAccessQualifier = 48,
+    OperandTypeOptionalAccessQualifier = 49,
 
     ///<summary>
     /// An optional context-independent value, or CIV. CIVs are tokens that we can assemble regardless of where they occur -- literals, IDs, immediate integers, etc.
     ///</summary>
-    OperandTypeOptionalCiv = 49,
+    OperandTypeOptionalCiv = 50,
 
-    OperandTypeVariableId = 50,
+    ///<summary>
+    /// An optional floating point encoding enum
+    ///</summary>
+    OperandTypeOptionalFpencoding = 51,
+
+    OperandTypeVariableId = 52,
 
     ///<summary>
     /// A variable operand represents zero or more logical operands. In an instruction definition, this may only appear at the end of the operand types.
     ///</summary>
-    OperandTypeVariableLiteralInteger = 51,
+    OperandTypeVariableLiteralInteger = 53,
 
     ///<summary>
     /// A sequence of zero or more pairs of (typed literal integer, Id). Expands to zero or more: (SPV_OPERAND_TYPE_TYPED_LITERAL_INTEGER, SPV_OPERAND_TYPE_ID) where the literal number must always be an integer of some sort.
     ///</summary>
-    OperandTypeVariableLiteralIntegerId = 52,
+    OperandTypeVariableLiteralIntegerId = 54,
 
-    OperandTypeVariableIdLiteralInteger = 53,
+    OperandTypeVariableIdLiteralInteger = 55,
 
     ///<summary>
     /// DebugInfo Sec 3.2. A mask.
     ///</summary>
-    OperandTypeDebugInfoFlags = 54,
+    OperandTypeDebugInfoFlags = 56,
 
     ///<summary>
     /// DebugInfo Sec 3.3
     ///</summary>
-    OperandTypeDebugBaseTypeAttributeEncoding = 55,
+    OperandTypeDebugBaseTypeAttributeEncoding = 57,
 
     ///<summary>
     /// DebugInfo Sec 3.4
     ///</summary>
-    OperandTypeDebugCompositeType = 56,
+    OperandTypeDebugCompositeType = 58,
 
     ///<summary>
     /// DebugInfo Sec 3.5
     ///</summary>
-    OperandTypeDebugTypeQualifier = 57,
+    OperandTypeDebugTypeQualifier = 59,
 
     ///<summary>
     /// DebugInfo Sec 3.6
     ///</summary>
-    OperandTypeDebugOperation = 58,
+    OperandTypeDebugOperation = 60,
 
     ///<summary>
     /// Sec 3.2. A Mask
     ///</summary>
-    OperandTypeCldebug100DebugInfoFlags = 59,
+    OperandTypeCldebug100DebugInfoFlags = 61,
 
     ///<summary>
     /// Sec 3.3
     ///</summary>
-    OperandTypeCldebug100DebugBaseTypeAttributeEncoding = 60,
+    OperandTypeCldebug100DebugBaseTypeAttributeEncoding = 62,
 
     ///<summary>
     /// Sec 3.4
     ///</summary>
-    OperandTypeCldebug100DebugCompositeType = 61,
+    OperandTypeCldebug100DebugCompositeType = 63,
 
     ///<summary>
     /// Sec 3.5
     ///</summary>
-    OperandTypeCldebug100DebugTypeQualifier = 62,
+    OperandTypeCldebug100DebugTypeQualifier = 64,
 
     ///<summary>
     /// Sec 3.6
     ///</summary>
-    OperandTypeCldebug100DebugOperation = 63,
+    OperandTypeCldebug100DebugOperation = 65,
 
     ///<summary>
     /// Sec 3.7
     ///</summary>
-    OperandTypeCldebug100DebugImportedEntity = 64,
+    OperandTypeCldebug100DebugImportedEntity = 66,
 
     ///<summary>
     /// Sec 3.17 FP Denorm Mode
     ///</summary>
-    OperandTypeFpdenormMode = 65,
+    OperandTypeFpdenormMode = 67,
 
     ///<summary>
     /// Sec 3.18 FP Operation Mode
     ///</summary>
-    OperandTypeFpoperationMode = 66,
+    OperandTypeFpoperationMode = 68,
 
     ///<summary>
     /// A value enum from https://github.com/KhronosGroup/SPIRV-Headers/pull/177
     ///</summary>
-    OperandTypeQuantizationModes = 67,
+    OperandTypeQuantizationModes = 69,
 
     ///<summary>
     /// A value enum from https://github.com/KhronosGroup/SPIRV-Headers/pull/177
     ///</summary>
-    OperandTypeOverflowModes = 68,
+    OperandTypeOverflowModes = 70,
 
     ///<summary>
     /// SPIR-V Sec 3.RF
     ///</summary>
-    OperandTypeRayFlags = 69,
+    OperandTypeRayFlags = 71,
 
     ///<summary>
     /// SPIR-V Sec 3.RQIntersection
     ///</summary>
-    OperandTypeRayQueryIntersection = 70,
+    OperandTypeRayQueryIntersection = 72,
 
     ///<summary>
     /// SPIR-V Sec 3.RQCommitted
     ///</summary>
-    OperandTypeRayQueryCommittedIntersectionType = 71,
+    OperandTypeRayQueryCommittedIntersectionType = 73,
 
     ///<summary>
     /// SPIR-V Sec 3.RQCandidate
     ///</summary>
-    OperandTypeRayQueryCandidateIntersectionType = 72,
+    OperandTypeRayQueryCandidateIntersectionType = 74,
 
     ///<summary>
     /// SPIR-V Sec 3.x
     ///</summary>
-    OperandTypePackedVectorFormat = 73,
+    OperandTypePackedVectorFormat = 75,
 
     ///<summary>
     /// An optional packed vector format
     ///</summary>
-    OperandTypeOptionalPackedVectorFormat = 74,
+    OperandTypeOptionalPackedVectorFormat = 76,
 
     ///<summary>
     /// Concrete operand types for cooperative matrix.
     ///</summary>
-    OperandTypeCooperativeMatrixOperands = 75,
+    OperandTypeCooperativeMatrixOperands = 77,
 
     ///<summary>
     /// An optional cooperative matrix operands
     ///</summary>
-    OperandTypeOptionalCooperativeMatrixOperands = 76,
+    OperandTypeOptionalCooperativeMatrixOperands = 78,
 
     ///<summary>
     /// An optional cooperative matrix operands
     ///</summary>
-    OperandTypeCooperativeMatrixLayout = 77,
+    OperandTypeCooperativeMatrixLayout = 79,
 
     ///<summary>
     /// An optional cooperative matrix operands
     ///</summary>
-    OperandTypeCooperativeMatrixUse = 78,
+    OperandTypeCooperativeMatrixUse = 80,
 
     ///<summary>
     /// Enum type from SPV_INTEL_global_variable_fpga_decorations
     ///</summary>
-    OperandTypeInitializationModeQualifier = 79,
+    OperandTypeInitializationModeQualifier = 81,
 
     ///<summary>
     /// Enum type from SPV_INTEL_global_variable_host_access
     ///</summary>
-    OperandTypeHostAccessQualifier = 80,
+    OperandTypeHostAccessQualifier = 82,
 
     ///<summary>
     /// Enum type from SPV_INTEL_cache_controls
     ///</summary>
-    OperandTypeLoadCacheControl = 81,
+    OperandTypeLoadCacheControl = 83,
 
     ///<summary>
     /// Enum type from SPV_INTEL_cache_controls
     ///</summary>
-    OperandTypeStoreCacheControl = 82,
+    OperandTypeStoreCacheControl = 84,
 
     ///<summary>
     /// Enum type from SPV_INTEL_maximum_registers
     ///</summary>
-    OperandTypeNamedMaximumNumberOfRegisters = 83,
+    OperandTypeNamedMaximumNumberOfRegisters = 85,
 
     ///<summary>
     /// Enum type from SPV_NV_raw_access_chains
     ///</summary>
-    OperandTypeRawAccessChainOperands = 84,
+    OperandTypeRawAccessChainOperands = 86,
 
     ///<summary>
     /// Optional enum type from SPV_NV_raw_access_chains
     ///</summary>
-    OperandTypeOptionalRawAccessChainOperands = 85,
+    OperandTypeOptionalRawAccessChainOperands = 87,
+
+    ///<summary>
+    /// Enum type from SPV_NV_tensor_addressing
+    ///</summary>
+    OperandTypeTensorClampMode = 88,
+
+    ///<summary>
+    /// Enum type from SPV_NV_cooperative_matrix2
+    ///</summary>
+    OperandTypeCooperativeMatrixReduce = 89,
+
+    ///<summary>
+    /// Enum type from SPV_NV_cooperative_matrix2
+    ///</summary>
+    OperandTypeTensorAddressingOperands = 90,
 
     ///<summary>
     /// This is a sentinel value, and does not represent an operand type. It should come last.
     ///</summary>
-    OperandTypeNumOperandTypes = 86,
+    OperandTypeNumOperandTypes = 91,
 
     Force32bitSpvOperandTypeT = 2147483647,
 

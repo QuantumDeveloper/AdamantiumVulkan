@@ -11,9 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1406 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 1547 Column: 14
 public enum VendorId : uint
 {
+    Khronos = 65536,
+
     Viv = 65537,
 
     Vsi = 65538,

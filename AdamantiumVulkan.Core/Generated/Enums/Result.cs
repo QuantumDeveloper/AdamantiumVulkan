@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 140 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 144 Column: 14
 public enum Result : int
 {
     Success = 0,
@@ -62,6 +62,8 @@ public enum Result : int
 
     PipelineCompileRequired = 1000297000,
 
+    ErrorNotPermitted = -1000174001,
+
     ErrorSurfaceLostKhr = -1000000000,
 
     ErrorNativeWindowInUseKhr = -1000000001,
@@ -90,8 +92,6 @@ public enum Result : int
 
     ErrorInvalidDrmFormatModifierPlaneLayoutExt = -1000158000,
 
-    ErrorNotPermittedKhr = -1000174001,
-
     ErrorFullScreenExclusiveModeLostExt = -1000255000,
 
     ThreadIdleKhr = 1000268000,
@@ -108,6 +108,13 @@ public enum Result : int
 
     IncompatibleShaderBinaryExt = 1000482000,
 
+    PipelineBinaryMissingKhr = 1000483000,
+
+    ErrorNotEnoughSpaceKhr = -1000483000,
+
+    ///<summary>
+    /// VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT is a deprecated alias
+    ///</summary>
     ResultMaxEnum = 2147483647,
 
 }

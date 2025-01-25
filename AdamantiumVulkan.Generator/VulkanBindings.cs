@@ -644,10 +644,29 @@ public static partial class VulkanBindings
             .InterpretAsPointerToArray(new CustomType("VkViewport"),
                 arraySizeSource: "viewportCount");
         
-        api.Delegate("PFN_vkCmdSetViewportWithCountEXT")
-            .WithParameterName("pViewports")
-            .InterpretAsPointerToArray(new CustomType("VkViewport"),
-                arraySizeSource: "viewportCount");
+        api.Delegate("PFN_vkCmdSetCullModeEXT")
+                .WithParameterName("cullMode")
+                .ChangeType(new CustomType("VkCullModeFlagBits"));
+        
+        api.Function("vkCmdSetCullModeEXT")
+            .WithParameterName("cullMode")
+            .ChangeType(new CustomType("VkCullModeFlagBits"));
+
+        api.Delegate("PFN_vkCmdSetColorWriteMaskEXT")
+            .WithParameterName("pColorWriteMasks")
+            .ChangeType(new CustomType("VkColorComponentFlagBits"))
+            .WithParameterName("pColorWriteMasks")
+            .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"), arraySizeSource: "attachmentCount");
+        
+        // api.Delegate("PFN_vkCmdSetColorWriteMaskEXT")
+        //     .WithParameterName("pColorWriteMasks")
+        //     .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"),
+        //         arraySizeSource: "attachmentCount");
+        
+        api.Function("vkCmdSetColorWriteMaskEXT")
+            .WithParameterName("pColorWriteMasks")
+            .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"),
+                arraySizeSource: "attachmentCount");
         
         api.Enum("VkShaderStageFlagBits").SetIsFlagsEnum(true);
         

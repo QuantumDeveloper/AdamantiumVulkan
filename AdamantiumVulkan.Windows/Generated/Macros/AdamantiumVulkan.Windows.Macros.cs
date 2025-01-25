@@ -13,88 +13,88 @@ namespace AdamantiumVulkan.Windows;
 
 public static class Constants
 {
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 2 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 2 Column: 9
     public static uint VULKAN_WIN32_H_ => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 23 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 23 Column: 9
     public static uint VK_KHR_win32_surface => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 24 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 24 Column: 9
     public static uint VK_KHR_WIN32_SURFACE_SPEC_VERSION => 6;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 25 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 25 Column: 9
     public static string VK_KHR_WIN32_SURFACE_EXTENSION_NAME => "VK_KHR_win32_surface";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 52 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 52 Column: 9
     public static uint VK_KHR_external_memory_win32 => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 53 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 53 Column: 9
     public static uint VK_KHR_EXTERNAL_MEMORY_WIN32_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 54 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 54 Column: 9
     public static string VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME => "VK_KHR_external_memory_win32";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 102 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 102 Column: 9
     public static uint VK_KHR_win32_keyed_mutex => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 103 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 103 Column: 9
     public static uint VK_KHR_WIN32_KEYED_MUTEX_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 104 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 104 Column: 9
     public static string VK_KHR_WIN32_KEYED_MUTEX_EXTENSION_NAME => "VK_KHR_win32_keyed_mutex";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 120 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 120 Column: 9
     public static uint VK_KHR_external_semaphore_win32 => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 121 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 121 Column: 9
     public static uint VK_KHR_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 122 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 122 Column: 9
     public static string VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME => "VK_KHR_external_semaphore_win32";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 173 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 173 Column: 9
     public static uint VK_KHR_external_fence_win32 => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 174 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 174 Column: 9
     public static uint VK_KHR_EXTERNAL_FENCE_WIN32_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 175 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 175 Column: 9
     public static string VK_KHR_EXTERNAL_FENCE_WIN32_EXTENSION_NAME => "VK_KHR_external_fence_win32";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 217 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 217 Column: 9
     public static uint VK_NV_external_memory_win32 => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 218 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 218 Column: 9
     public static uint VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 219 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 219 Column: 9
     public static string VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME => "VK_NV_external_memory_win32";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 246 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 246 Column: 9
     public static uint VK_NV_win32_keyed_mutex => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 247 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 247 Column: 9
     public static uint VK_NV_WIN32_KEYED_MUTEX_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 248 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 248 Column: 9
     public static string VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME => "VK_NV_win32_keyed_mutex";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 264 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 264 Column: 9
     public static uint VK_EXT_full_screen_exclusive => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 265 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 265 Column: 9
     public static uint VK_EXT_FULL_SCREEN_EXCLUSIVE_SPEC_VERSION => 4;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 266 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 266 Column: 9
     public static string VK_EXT_FULL_SCREEN_EXCLUSIVE_EXTENSION_NAME => "VK_EXT_full_screen_exclusive";
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 321 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 321 Column: 9
     public static uint VK_NV_acquire_winrt_display => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 322 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 322 Column: 9
     public static uint VK_NV_ACQUIRE_WINRT_DISPLAY_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_win32.h Line: 323 Column: 9
+    // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 323 Column: 9
     public static string VK_NV_ACQUIRE_WINRT_DISPLAY_EXTENSION_NAME => "VK_NV_acquire_winrt_display";
 
 }

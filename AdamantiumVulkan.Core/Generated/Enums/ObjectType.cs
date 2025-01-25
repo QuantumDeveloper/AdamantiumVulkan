@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1348 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 1486 Column: 14
 public enum ObjectType : uint
 {
     Unknown = 0,
@@ -115,6 +115,12 @@ public enum ObjectType : uint
     OpticalFlowSessionNv = 1000464000,
 
     ShaderExt = 1000482000,
+
+    PipelineBinaryKhr = 1000483000,
+
+    IndirectCommandsLayoutExt = 1000572000,
+
+    IndirectExecutionSetExt = 1000572001,
 
     MaxEnum = 2147483647,
 

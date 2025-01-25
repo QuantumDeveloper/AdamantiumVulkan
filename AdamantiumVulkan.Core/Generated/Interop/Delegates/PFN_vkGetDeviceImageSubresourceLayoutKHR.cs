@@ -14,26 +14,26 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 11235 Column: 26
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11950 Column: 26
 public unsafe struct PFN_vkGetDeviceImageSubresourceLayoutKHR
 {
     public PFN_vkGetDeviceImageSubresourceLayoutKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR* pLayout)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo* pInfo, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2* pLayout)
     {
          InvokeFunc(device, pInfo, pLayout);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR* pLayout)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo* pInfo, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2* pLayout)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfoKHR*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2KHR*, void>)ptr)(device, pInfo, pLayout);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2*, void>)ptr)(device, pInfo, pLayout);
     }
 
     public static explicit operator PFN_vkGetDeviceImageSubresourceLayoutKHR(void* ptr) => new(ptr);

@@ -11,13 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10615 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11463 Column: 14
 [Flags]
 public enum VideoEncodeCapabilityFlagBitsKHR : uint
 {
     PrecedingExternallyEncodedBytesBitKhr = 1,
 
     InsufficientBitstreamBufferRangeDetectionBitKhr = 2,
+
+    QuantizationDeltaMapBitKhr = 4,
+
+    EmphasisMapBitKhr = 8,
 
     FlagBitsMaxEnumKhr = 2147483647,
 

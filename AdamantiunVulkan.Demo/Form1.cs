@@ -773,7 +773,7 @@ namespace VulkanEngineTestCore
         private void PickPhysicalDevice()
         {
             var devices = instance.EnumeratePhysicalDevices();
-            physicalDevice = devices[0];
+            physicalDevice = devices.Length > 1 ? devices[1] : devices[0];
             var deviceProperties = physicalDevice.GetPhysicalDeviceProperties();
             uint count = 0;
             var result = physicalDevice.EnumerateDeviceExtensionProperties("", ref count, null);

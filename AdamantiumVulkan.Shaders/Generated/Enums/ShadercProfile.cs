@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\shaderc\shaderc.h Line: 92 Column: 9
+// File: C:\VulkanSDK\1.4.304.0\Include\shaderc\shaderc.h Line: 92 Column: 9
 public enum ShadercProfile : uint
 {
     ///<summary>

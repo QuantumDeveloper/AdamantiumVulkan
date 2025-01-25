@@ -13,7 +13,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 500 Column: 32
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 514 Column: 32
 public unsafe partial class spv_reducer_options
 {
     internal spv_reducer_options_t __Instance;

@@ -13,7 +13,7 @@ using AdamantiumVulkan.Shaders.Interop;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\shaderc\shaderc.h Line: 277 Column: 41
+// File: C:\VulkanSDK\1.4.304.0\Include\shaderc\shaderc.h Line: 277 Column: 41
 ///<summary>
 /// An opaque handle to an object that manages options to a single compilation result.
 ///</summary>

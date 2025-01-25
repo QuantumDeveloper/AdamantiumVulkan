@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 106 Column: 1
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 110 Column: 1
 public unsafe partial class CommandBuffer
 {
     internal VkCommandBuffer_T __Instance;
@@ -176,7 +176,15 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void BindDescriptorSets2KHR(in BindDescriptorSetsInfoKHR pBindDescriptorSetsInfo)
+    public void BindDescriptorSets2(in BindDescriptorSetsInfo pBindDescriptorSetsInfo)
+    {
+        var arg1 = ReferenceEquals(pBindDescriptorSetsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pBindDescriptorSetsInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindDescriptorSets2(this, arg1);
+        pBindDescriptorSetsInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void BindDescriptorSets2KHR(in BindDescriptorSetsInfo pBindDescriptorSetsInfo)
     {
         var arg1 = ReferenceEquals(pBindDescriptorSetsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pBindDescriptorSetsInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindDescriptorSets2KHR(this, arg1);
@@ -188,6 +196,12 @@ public unsafe partial class CommandBuffer
     {
         var arg1 = ReferenceEquals(buffer, null) ? new VkBuffer_T() : (VkBuffer_T)buffer;
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindIndexBuffer(this, arg1, offset, indexType);
+    }
+
+    public void BindIndexBuffer2(AdamantiumVulkan.Core.Buffer buffer, VkDeviceSize offset, VkDeviceSize size, IndexType indexType)
+    {
+        var arg1 = ReferenceEquals(buffer, null) ? new VkBuffer_T() : (VkBuffer_T)buffer;
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBindIndexBuffer2(this, arg1, offset, size, indexType);
     }
 
     public void BindIndexBuffer2KHR(AdamantiumVulkan.Core.Buffer buffer, VkDeviceSize offset, VkDeviceSize size, IndexType indexType)
@@ -1021,6 +1035,14 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg2);
     }
 
+    public void ExecuteGeneratedCommandsEXT(VkBool32 isPreprocessed, in GeneratedCommandsInfoEXT pGeneratedCommandsInfo)
+    {
+        var arg2 = ReferenceEquals(pGeneratedCommandsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pGeneratedCommandsInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdExecuteGeneratedCommandsEXT(this, isPreprocessed, arg2);
+        pGeneratedCommandsInfo?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
     public void ExecuteGeneratedCommandsNV(VkBool32 isPreprocessed, in GeneratedCommandsInfoNV pGeneratedCommandsInfo)
     {
         var arg2 = ReferenceEquals(pGeneratedCommandsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pGeneratedCommandsInfo.ToNative());
@@ -1145,6 +1167,15 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg1);
     }
 
+    public void PreprocessGeneratedCommandsEXT(in GeneratedCommandsInfoEXT pGeneratedCommandsInfo, AdamantiumVulkan.Core.CommandBuffer stateCommandBuffer)
+    {
+        var arg1 = ReferenceEquals(pGeneratedCommandsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pGeneratedCommandsInfo.ToNative());
+        var arg2 = ReferenceEquals(stateCommandBuffer, null) ? new VkCommandBuffer_T() : (VkCommandBuffer_T)stateCommandBuffer;
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPreprocessGeneratedCommandsEXT(this, arg1, arg2);
+        pGeneratedCommandsInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
     public void PreprocessGeneratedCommandsNV(in GeneratedCommandsInfoNV pGeneratedCommandsInfo)
     {
         var arg1 = ReferenceEquals(pGeneratedCommandsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pGeneratedCommandsInfo.ToNative());
@@ -1159,7 +1190,15 @@ public unsafe partial class CommandBuffer
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushConstants(this, arg1, stageFlags, offset, size, pValues);
     }
 
-    public void PushConstants2KHR(in PushConstantsInfoKHR pPushConstantsInfo)
+    public void PushConstants2(in PushConstantsInfo pPushConstantsInfo)
+    {
+        var arg1 = ReferenceEquals(pPushConstantsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPushConstantsInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushConstants2(this, arg1);
+        pPushConstantsInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void PushConstants2KHR(in PushConstantsInfo pPushConstantsInfo)
     {
         var arg1 = ReferenceEquals(pPushConstantsInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPushConstantsInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushConstants2KHR(this, arg1);
@@ -1167,7 +1206,24 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg1);
     }
 
-    public void PushDescriptorSet2KHR(in PushDescriptorSetInfoKHR pPushDescriptorSetInfo)
+    public void PushDescriptorSet(PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.PipelineLayout layout, uint set, uint descriptorWriteCount, in WriteDescriptorSet pDescriptorWrites)
+    {
+        var arg2 = ReferenceEquals(layout, null) ? new VkPipelineLayout_T() : (VkPipelineLayout_T)layout;
+        var arg5 = ReferenceEquals(pDescriptorWrites, null) ? null : NativeUtils.StructOrEnumToPointer(pDescriptorWrites.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSet(this, pipelineBindPoint, arg2, set, descriptorWriteCount, arg5);
+        pDescriptorWrites?.Dispose();
+        NativeUtils.Free(arg5);
+    }
+
+    public void PushDescriptorSet2(in PushDescriptorSetInfo pPushDescriptorSetInfo)
+    {
+        var arg1 = ReferenceEquals(pPushDescriptorSetInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPushDescriptorSetInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSet2(this, arg1);
+        pPushDescriptorSetInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void PushDescriptorSet2KHR(in PushDescriptorSetInfo pPushDescriptorSetInfo)
     {
         var arg1 = ReferenceEquals(pPushDescriptorSetInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPushDescriptorSetInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSet2KHR(this, arg1);
@@ -1184,7 +1240,22 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg5);
     }
 
-    public void PushDescriptorSetWithTemplate2KHR(in PushDescriptorSetWithTemplateInfoKHR pPushDescriptorSetWithTemplateInfo)
+    public void PushDescriptorSetWithTemplate(AdamantiumVulkan.Core.DescriptorUpdateTemplate descriptorUpdateTemplate, AdamantiumVulkan.Core.PipelineLayout layout, uint set, in void* pData)
+    {
+        var arg1 = ReferenceEquals(descriptorUpdateTemplate, null) ? new VkDescriptorUpdateTemplate_T() : (VkDescriptorUpdateTemplate_T)descriptorUpdateTemplate;
+        var arg2 = ReferenceEquals(layout, null) ? new VkPipelineLayout_T() : (VkPipelineLayout_T)layout;
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSetWithTemplate(this, arg1, arg2, set, pData);
+    }
+
+    public void PushDescriptorSetWithTemplate2(in PushDescriptorSetWithTemplateInfo pPushDescriptorSetWithTemplateInfo)
+    {
+        var arg1 = ReferenceEquals(pPushDescriptorSetWithTemplateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPushDescriptorSetWithTemplateInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSetWithTemplate2(this, arg1);
+        pPushDescriptorSetWithTemplateInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void PushDescriptorSetWithTemplate2KHR(in PushDescriptorSetWithTemplateInfo pPushDescriptorSetWithTemplateInfo)
     {
         var arg1 = ReferenceEquals(pPushDescriptorSetWithTemplateInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pPushDescriptorSetWithTemplateInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdPushDescriptorSetWithTemplate2KHR(this, arg1);
@@ -1321,6 +1392,12 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg2);
     }
 
+    public void SetColorWriteMaskEXT(uint firstAttachment, uint attachmentCount, params VkColorComponentFlags[] pColorWriteMasks)
+    {
+        var arg3 = ReferenceEquals(pColorWriteMasks, null) ? null : NativeUtils.ManagedArrayToPointer(pColorWriteMasks);
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetColorWriteMaskEXT(this, firstAttachment, attachmentCount, arg3);
+    }
+
     public void SetColorWriteMaskEXT(uint firstAttachment, uint attachmentCount, in VkColorComponentFlags pColorWriteMasks)
     {
         var arg3 = ReferenceEquals(pColorWriteMasks, null) ? null : NativeUtils.StructOrEnumToPointer(pColorWriteMasks);
@@ -1369,7 +1446,7 @@ public unsafe partial class CommandBuffer
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetCullMode(this, cullMode);
     }
 
-    public void SetCullModeEXT(VkCullModeFlags cullMode)
+    public void SetCullModeEXT(CullModeFlagBits cullMode)
     {
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetCullModeEXT(this, cullMode);
     }
@@ -1415,6 +1492,14 @@ public unsafe partial class CommandBuffer
     public void SetDepthClampEnableEXT(VkBool32 depthClampEnable)
     {
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthClampEnableEXT(this, depthClampEnable);
+    }
+
+    public void SetDepthClampRangeEXT(DepthClampModeEXT depthClampMode, in DepthClampRangeEXT pDepthClampRange)
+    {
+        var arg2 = ReferenceEquals(pDepthClampRange, null) ? null : NativeUtils.StructOrEnumToPointer(pDepthClampRange.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetDepthClampRangeEXT(this, depthClampMode, arg2);
+        pDepthClampRange?.Dispose();
+        NativeUtils.Free(arg2);
     }
 
     public void SetDepthClipEnableEXT(VkBool32 depthClipEnable)
@@ -1577,9 +1662,14 @@ public unsafe partial class CommandBuffer
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetFrontFaceEXT(this, frontFace);
     }
 
-    public void SetLineRasterizationModeEXT(LineRasterizationModeKHR lineRasterizationMode)
+    public void SetLineRasterizationModeEXT(LineRasterizationMode lineRasterizationMode)
     {
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetLineRasterizationModeEXT(this, lineRasterizationMode);
+    }
+
+    public void SetLineStipple(uint lineStippleFactor, ushort lineStipplePattern)
+    {
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetLineStipple(this, lineStippleFactor, lineStipplePattern);
     }
 
     public void SetLineStippleEnableEXT(VkBool32 stippledLineEnable)
@@ -1699,7 +1789,15 @@ public unsafe partial class CommandBuffer
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetRayTracingPipelineStackSizeKHR(this, pipelineStackSize);
     }
 
-    public void SetRenderingAttachmentLocationsKHR(in RenderingAttachmentLocationInfoKHR pLocationInfo)
+    public void SetRenderingAttachmentLocations(in RenderingAttachmentLocationInfo pLocationInfo)
+    {
+        var arg1 = ReferenceEquals(pLocationInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pLocationInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetRenderingAttachmentLocations(this, arg1);
+        pLocationInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void SetRenderingAttachmentLocationsKHR(in RenderingAttachmentLocationInfo pLocationInfo)
     {
         var arg1 = ReferenceEquals(pLocationInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pLocationInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetRenderingAttachmentLocationsKHR(this, arg1);
@@ -1707,11 +1805,19 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg1);
     }
 
-    public void SetRenderingInputAttachmentIndicesKHR(in RenderingInputAttachmentIndexInfoKHR pLocationInfo)
+    public void SetRenderingInputAttachmentIndices(in RenderingInputAttachmentIndexInfo pInputAttachmentIndexInfo)
     {
-        var arg1 = ReferenceEquals(pLocationInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pLocationInfo.ToNative());
+        var arg1 = ReferenceEquals(pInputAttachmentIndexInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInputAttachmentIndexInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetRenderingInputAttachmentIndices(this, arg1);
+        pInputAttachmentIndexInfo?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
+    public void SetRenderingInputAttachmentIndicesKHR(in RenderingInputAttachmentIndexInfo pInputAttachmentIndexInfo)
+    {
+        var arg1 = ReferenceEquals(pInputAttachmentIndexInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInputAttachmentIndexInfo.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdSetRenderingInputAttachmentIndicesKHR(this, arg1);
-        pLocationInfo?.Dispose();
+        pInputAttachmentIndexInfo?.Dispose();
         NativeUtils.Free(arg1);
     }
 

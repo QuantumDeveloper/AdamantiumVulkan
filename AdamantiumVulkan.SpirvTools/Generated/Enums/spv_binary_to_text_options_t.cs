@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv-tools\libspirv.h Line: 371 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 380 Column: 14
 [Flags]
 public enum spv_binary_to_text_options_t : uint
 {
@@ -39,6 +39,16 @@ public enum spv_binary_to_text_options_t : uint
     /// Add some comments to the generated assembly
     ///</summary>
     BinaryToTextOptionComment = 128,
+
+    ///<summary>
+    /// Use nested indentation for more readable SPIR-V
+    ///</summary>
+    BinaryToTextOptionNestedIndent = 256,
+
+    ///<summary>
+    /// Reorder blocks to match the structured control flow of SPIR-V to increase readability.
+    ///</summary>
+    BinaryToTextOptionReorderBlocks = 512,
 
     Force32bitSpvBinaryToTextOptionsT = 2147483647,
 

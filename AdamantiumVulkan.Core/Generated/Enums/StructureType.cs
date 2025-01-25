@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 200 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 208 Column: 14
 public enum StructureType : uint
 {
     ApplicationInfo = 0,
@@ -446,6 +446,106 @@ public enum StructureType : uint
 
     DeviceImageMemoryRequirements = 1000413003,
 
+    PhysicalDeviceVulkan14Features = 55,
+
+    PhysicalDeviceVulkan14Properties = 56,
+
+    DeviceQueueGlobalPriorityCreateInfo = 1000174000,
+
+    PhysicalDeviceGlobalPriorityQueryFeatures = 1000388000,
+
+    QueueFamilyGlobalPriorityProperties = 1000388001,
+
+    PhysicalDeviceShaderSubgroupRotateFeatures = 1000416000,
+
+    PhysicalDeviceShaderFloatControls2Features = 1000528000,
+
+    PhysicalDeviceShaderExpectAssumeFeatures = 1000544000,
+
+    PhysicalDeviceLineRasterizationFeatures = 1000259000,
+
+    PipelineRasterizationLineStateCreateInfo = 1000259001,
+
+    PhysicalDeviceLineRasterizationProperties = 1000259002,
+
+    PhysicalDeviceVertexAttributeDivisorProperties = 1000525000,
+
+    PipelineVertexInputDivisorStateCreateInfo = 1000190001,
+
+    PhysicalDeviceVertexAttributeDivisorFeatures = 1000190002,
+
+    PhysicalDeviceIndexTypeUint8Features = 1000265000,
+
+    MemoryMapInfo = 1000271000,
+
+    MemoryUnmapInfo = 1000271001,
+
+    PhysicalDeviceMaintenance5Features = 1000470000,
+
+    PhysicalDeviceMaintenance5Properties = 1000470001,
+
+    RenderingAreaInfo = 1000470003,
+
+    DeviceImageSubresourceInfo = 1000470004,
+
+    SubresourceLayout2 = 1000338002,
+
+    ImageSubresource2 = 1000338003,
+
+    PipelineCreateFlags2CreateInfo = 1000470005,
+
+    BufferUsageFlags2CreateInfo = 1000470006,
+
+    PhysicalDevicePushDescriptorProperties = 1000080000,
+
+    PhysicalDeviceDynamicRenderingLocalReadFeatures = 1000232000,
+
+    RenderingAttachmentLocationInfo = 1000232001,
+
+    RenderingInputAttachmentIndexInfo = 1000232002,
+
+    PhysicalDeviceMaintenance6Features = 1000545000,
+
+    PhysicalDeviceMaintenance6Properties = 1000545001,
+
+    BindMemoryStatus = 1000545002,
+
+    BindDescriptorSetsInfo = 1000545003,
+
+    PushConstantsInfo = 1000545004,
+
+    PushDescriptorSetInfo = 1000545005,
+
+    PushDescriptorSetWithTemplateInfo = 1000545006,
+
+    PhysicalDevicePipelineProtectedAccessFeatures = 1000466000,
+
+    PipelineRobustnessCreateInfo = 1000068000,
+
+    PhysicalDevicePipelineRobustnessFeatures = 1000068001,
+
+    PhysicalDevicePipelineRobustnessProperties = 1000068002,
+
+    PhysicalDeviceHostImageCopyFeatures = 1000270000,
+
+    PhysicalDeviceHostImageCopyProperties = 1000270001,
+
+    MemoryToImageCopy = 1000270002,
+
+    ImageToMemoryCopy = 1000270003,
+
+    CopyImageToMemoryInfo = 1000270004,
+
+    CopyMemoryToImageInfo = 1000270005,
+
+    HostImageLayoutTransitionInfo = 1000270006,
+
+    CopyImageToImageInfo = 1000270007,
+
+    SubresourceHostMemcpySize = 1000270008,
+
+    HostImageCopyDevicePerformanceQuery = 1000270009,
+
     SwapchainCreateInfoKhr = 1000001000,
 
     PresentInfoKhr = 1000001001,
@@ -546,6 +646,8 @@ public enum StructureType : uint
 
     CuLaunchInfoNvx = 1000029002,
 
+    CuModuleTexturingModeCreateInfoNvx = 1000029004,
+
     ImageViewHandleInfoNvx = 1000030000,
 
     ImageViewAddressPropertiesNvx = 1000030001,
@@ -620,14 +722,6 @@ public enum StructureType : uint
 
     TextureLodGatherFormatPropertiesAmd = 1000041000,
 
-    RenderingFragmentShadingRateAttachmentInfoKhr = 1000044006,
-
-    RenderingFragmentDensityMapAttachmentInfoExt = 1000044007,
-
-    AttachmentSampleCountInfoAmd = 1000044008,
-
-    MultiviewPerViewAttributesInfoNvx = 1000044009,
-
     StreamDescriptorSurfaceCreateInfoGgp = 1000049000,
 
     PhysicalDeviceCornerSampledImageFeaturesNv = 1000050000,
@@ -649,12 +743,6 @@ public enum StructureType : uint
     ImageViewAstcDecodeModeExt = 1000067000,
 
     PhysicalDeviceAstcDecodeFeaturesExt = 1000067001,
-
-    PipelineRobustnessCreateInfoExt = 1000068000,
-
-    PhysicalDevicePipelineRobustnessFeaturesExt = 1000068001,
-
-    PhysicalDevicePipelineRobustnessPropertiesExt = 1000068002,
 
     ImportMemoryWin32HandleInfoKhr = 1000073000,
 
@@ -684,8 +772,6 @@ public enum StructureType : uint
 
     SemaphoreGetFdInfoKhr = 1000079001,
 
-    PhysicalDevicePushDescriptorPropertiesKhr = 1000080000,
-
     CommandBufferInheritanceConditionalRenderingInfoExt = 1000081000,
 
     PhysicalDeviceConditionalRenderingFeaturesExt = 1000081001,
@@ -709,6 +795,8 @@ public enum StructureType : uint
     PresentTimesInfoGoogle = 1000092000,
 
     PhysicalDeviceMultiviewPerViewAttributesPropertiesNvx = 1000097000,
+
+    MultiviewPerViewAttributesInfoNvx = 1000044009,
 
     PipelineViewportSwizzleStateCreateInfoNv = 1000098000,
 
@@ -797,6 +885,8 @@ public enum StructureType : uint
     ExternalFormatAndroid = 1000129005,
 
     AndroidHardwareBufferFormatProperties2Android = 1000129006,
+
+    AttachmentSampleCountInfoAmd = 1000044008,
 
     SampleLocationsInfoExt = 1000143000,
 
@@ -942,19 +1032,11 @@ public enum StructureType : uint
 
     VideoDecodeH265DpbSlotInfoKhr = 1000187005,
 
-    DeviceQueueGlobalPriorityCreateInfoKhr = 1000174000,
-
-    PhysicalDeviceGlobalPriorityQueryFeaturesKhr = 1000388000,
-
-    QueueFamilyGlobalPriorityPropertiesKhr = 1000388001,
-
     DeviceMemoryOverallocationCreateInfoAmd = 1000189000,
 
     PhysicalDeviceVertexAttributeDivisorPropertiesExt = 1000190000,
 
     PresentFrameTokenGgp = 1000191000,
-
-    PhysicalDeviceComputeShaderDerivativesFeaturesNv = 1000201000,
 
     PhysicalDeviceMeshShaderFeaturesNv = 1000202000,
 
@@ -969,6 +1051,10 @@ public enum StructureType : uint
     CheckpointDataNv = 1000206000,
 
     QueueFamilyCheckpointPropertiesNv = 1000206001,
+
+    QueueFamilyCheckpointProperties2Nv = 1000314008,
+
+    CheckpointData2Nv = 1000314009,
 
     PhysicalDeviceShaderIntegerFunctions2FeaturesIntel = 1000209000,
 
@@ -1000,6 +1086,8 @@ public enum StructureType : uint
 
     RenderPassFragmentDensityMapCreateInfoExt = 1000218002,
 
+    RenderingFragmentDensityMapAttachmentInfoExt = 1000044007,
+
     FragmentShadingRateAttachmentInfoKhr = 1000226000,
 
     PipelineFragmentShadingRateStateCreateInfoKhr = 1000226001,
@@ -1010,15 +1098,11 @@ public enum StructureType : uint
 
     PhysicalDeviceFragmentShadingRateKhr = 1000226004,
 
+    RenderingFragmentShadingRateAttachmentInfoKhr = 1000044006,
+
     PhysicalDeviceShaderCoreProperties2Amd = 1000227000,
 
     PhysicalDeviceCoherentMemoryFeaturesAmd = 1000229000,
-
-    PhysicalDeviceDynamicRenderingLocalReadFeaturesKhr = 1000232000,
-
-    RenderingAttachmentLocationInfoKhr = 1000232001,
-
-    RenderingInputAttachmentIndexInfoKhr = 1000232002,
 
     PhysicalDeviceShaderImageAtomicInt64FeaturesExt = 1000234000,
 
@@ -1087,30 +1171,6 @@ public enum StructureType : uint
     PipelineExecutableStatisticKhr = 1000269004,
 
     PipelineExecutableInternalRepresentationKhr = 1000269005,
-
-    PhysicalDeviceHostImageCopyFeaturesExt = 1000270000,
-
-    PhysicalDeviceHostImageCopyPropertiesExt = 1000270001,
-
-    MemoryToImageCopyExt = 1000270002,
-
-    ImageToMemoryCopyExt = 1000270003,
-
-    CopyImageToMemoryInfoExt = 1000270004,
-
-    CopyMemoryToImageInfoExt = 1000270005,
-
-    HostImageLayoutTransitionInfoExt = 1000270006,
-
-    CopyImageToImageInfoExt = 1000270007,
-
-    SubresourceHostMemcpySizeExt = 1000270008,
-
-    HostImageCopyDevicePerformanceQueryExt = 1000270009,
-
-    MemoryMapInfoKhr = 1000271000,
-
-    MemoryUnmapInfoKhr = 1000271001,
 
     PhysicalDeviceMapMemoryPlacedFeaturesExt = 1000272000,
 
@@ -1260,10 +1320,6 @@ public enum StructureType : uint
 
     ImportMetalSharedEventInfoExt = 1000311011,
 
-    QueueFamilyCheckpointProperties2Nv = 1000314008,
-
-    CheckpointData2Nv = 1000314009,
-
     PhysicalDeviceDescriptorBufferPropertiesExt = 1000316000,
 
     PhysicalDeviceDescriptorBufferDensityMapPropertiesExt = 1000316001,
@@ -1367,6 +1423,8 @@ public enum StructureType : uint
     PipelineViewportDepthClipControlCreateInfoExt = 1000355001,
 
     PhysicalDevicePrimitiveTopologyListRestartFeaturesExt = 1000356000,
+
+    PhysicalDevicePresentModeFifoLatestReadyFeaturesExt = 1000361000,
 
     ImportMemoryZirconHandleInfoFuchsia = 1000364000,
 
@@ -1484,8 +1542,6 @@ public enum StructureType : uint
 
     PhysicalDeviceShaderCorePropertiesArm = 1000415000,
 
-    PhysicalDeviceShaderSubgroupRotateFeaturesKhr = 1000416000,
-
     DeviceQueueShaderCoreControlCreateInfoArm = 1000417000,
 
     PhysicalDeviceSchedulingControlsFeaturesArm = 1000417001,
@@ -1596,29 +1652,17 @@ public enum StructureType : uint
 
     PhysicalDeviceLegacyDitheringFeaturesExt = 1000465000,
 
-    PhysicalDevicePipelineProtectedAccessFeaturesExt = 1000466000,
-
     PhysicalDeviceExternalFormatResolveFeaturesAndroid = 1000468000,
 
     PhysicalDeviceExternalFormatResolvePropertiesAndroid = 1000468001,
 
     AndroidHardwareBufferFormatResolvePropertiesAndroid = 1000468002,
 
-    PhysicalDeviceMaintenance5FeaturesKhr = 1000470000,
+    PhysicalDeviceAntiLagFeaturesAmd = 1000476000,
 
-    PhysicalDeviceMaintenance5PropertiesKhr = 1000470001,
+    AntiLagDataAmd = 1000476001,
 
-    RenderingAreaInfoKhr = 1000470003,
-
-    DeviceImageSubresourceInfoKhr = 1000470004,
-
-    SubresourceLayout2Khr = 1000338002,
-
-    ImageSubresource2Khr = 1000338003,
-
-    PipelineCreateFlags2CreateInfoKhr = 1000470005,
-
-    BufferUsageFlags2CreateInfoKhr = 1000470006,
+    AntiLagPresentationInfoAmd = 1000476002,
 
     PhysicalDeviceRayTracingPositionFetchFeaturesKhr = 1000481000,
 
@@ -1627,6 +1671,26 @@ public enum StructureType : uint
     PhysicalDeviceShaderObjectPropertiesExt = 1000482001,
 
     ShaderCreateInfoExt = 1000482002,
+
+    PhysicalDevicePipelineBinaryFeaturesKhr = 1000483000,
+
+    PipelineBinaryCreateInfoKhr = 1000483001,
+
+    PipelineBinaryInfoKhr = 1000483002,
+
+    PipelineBinaryKeyKhr = 1000483003,
+
+    PhysicalDevicePipelineBinaryPropertiesKhr = 1000483004,
+
+    ReleaseCapturedPipelineDataInfoKhr = 1000483005,
+
+    PipelineBinaryDataInfoKhr = 1000483006,
+
+    PipelineCreateInfoKhr = 1000483007,
+
+    DevicePipelineBinaryInternalCacheControlKhr = 1000483008,
+
+    PipelineBinaryHandlesInfoKhr = 1000483009,
 
     PhysicalDeviceTilePropertiesFeaturesQcom = 1000484000,
 
@@ -1649,6 +1713,10 @@ public enum StructureType : uint
     PhysicalDeviceMutableDescriptorTypeFeaturesExt = 1000351000,
 
     MutableDescriptorTypeCreateInfoExt = 1000351002,
+
+    PhysicalDeviceLegacyVertexAttributesFeaturesExt = 1000495000,
+
+    PhysicalDeviceLegacyVertexAttributesPropertiesExt = 1000495001,
 
     LayerSettingsCreateInfoExt = 1000496000,
 
@@ -1688,6 +1756,10 @@ public enum StructureType : uint
 
     MultiviewPerViewRenderAreasRenderPassBeginInfoQcom = 1000510001,
 
+    PhysicalDeviceComputeShaderDerivativesFeaturesKhr = 1000201000,
+
+    PhysicalDeviceComputeShaderDerivativesPropertiesKhr = 1000511000,
+
     VideoDecodeAv1CapabilitiesKhr = 1000512000,
 
     VideoDecodeAv1PictureInfoKhr = 1000512001,
@@ -1697,6 +1769,28 @@ public enum StructureType : uint
     VideoDecodeAv1SessionParametersCreateInfoKhr = 1000512004,
 
     VideoDecodeAv1DpbSlotInfoKhr = 1000512005,
+
+    VideoEncodeAv1CapabilitiesKhr = 1000513000,
+
+    VideoEncodeAv1SessionParametersCreateInfoKhr = 1000513001,
+
+    VideoEncodeAv1PictureInfoKhr = 1000513002,
+
+    VideoEncodeAv1DpbSlotInfoKhr = 1000513003,
+
+    PhysicalDeviceVideoEncodeAv1FeaturesKhr = 1000513004,
+
+    VideoEncodeAv1ProfileInfoKhr = 1000513005,
+
+    VideoEncodeAv1RateControlInfoKhr = 1000513006,
+
+    VideoEncodeAv1RateControlLayerInfoKhr = 1000513007,
+
+    VideoEncodeAv1QualityLevelPropertiesKhr = 1000513008,
+
+    VideoEncodeAv1SessionCreateInfoKhr = 1000513009,
+
+    VideoEncodeAv1GopRemainingFrameInfoKhr = 1000513010,
 
     PhysicalDeviceVideoMaintenance1FeaturesKhr = 1000515000,
 
@@ -1724,14 +1818,6 @@ public enum StructureType : uint
 
     PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesExt = 1000524000,
 
-    PhysicalDeviceVertexAttributeDivisorPropertiesKhr = 1000525000,
-
-    PipelineVertexInputDivisorStateCreateInfoKhr = 1000190001,
-
-    PhysicalDeviceVertexAttributeDivisorFeaturesKhr = 1000190002,
-
-    PhysicalDeviceShaderFloatControls2FeaturesKhr = 1000528000,
-
     ScreenBufferPropertiesQnx = 1000529000,
 
     ScreenBufferFormatPropertiesQnx = 1000529001,
@@ -1744,31 +1830,7 @@ public enum StructureType : uint
 
     PhysicalDeviceLayeredDriverPropertiesMsft = 1000530000,
 
-    PhysicalDeviceIndexTypeUint8FeaturesKhr = 1000265000,
-
-    PhysicalDeviceLineRasterizationFeaturesKhr = 1000259000,
-
-    PipelineRasterizationLineStateCreateInfoKhr = 1000259001,
-
-    PhysicalDeviceLineRasterizationPropertiesKhr = 1000259002,
-
     CalibratedTimestampInfoKhr = 1000184000,
-
-    PhysicalDeviceShaderExpectAssumeFeaturesKhr = 1000544000,
-
-    PhysicalDeviceMaintenance6FeaturesKhr = 1000545000,
-
-    PhysicalDeviceMaintenance6PropertiesKhr = 1000545001,
-
-    BindMemoryStatusKhr = 1000545002,
-
-    BindDescriptorSetsInfoKhr = 1000545003,
-
-    PushConstantsInfoKhr = 1000545004,
-
-    PushDescriptorSetInfoKhr = 1000545005,
-
-    PushDescriptorSetWithTemplateInfoKhr = 1000545006,
 
     SetDescriptorBufferOffsetsInfoExt = 1000545007,
 
@@ -1776,12 +1838,105 @@ public enum StructureType : uint
 
     PhysicalDeviceDescriptorPoolOverallocationFeaturesNv = 1000546000,
 
+    DisplaySurfaceStereoCreateInfoNv = 1000551000,
+
+    DisplayModeStereoPropertiesNv = 1000551001,
+
+    VideoEncodeQuantizationMapCapabilitiesKhr = 1000553000,
+
+    VideoFormatQuantizationMapPropertiesKhr = 1000553001,
+
+    VideoEncodeQuantizationMapInfoKhr = 1000553002,
+
+    VideoEncodeQuantizationMapSessionParametersCreateInfoKhr = 1000553005,
+
+    PhysicalDeviceVideoEncodeQuantizationMapFeaturesKhr = 1000553009,
+
+    VideoEncodeH264QuantizationMapCapabilitiesKhr = 1000553003,
+
+    VideoEncodeH265QuantizationMapCapabilitiesKhr = 1000553004,
+
+    VideoFormatH265QuantizationMapPropertiesKhr = 1000553006,
+
+    VideoEncodeAv1QuantizationMapCapabilitiesKhr = 1000553007,
+
+    VideoFormatAv1QuantizationMapPropertiesKhr = 1000553008,
+
     PhysicalDeviceRawAccessChainsFeaturesNv = 1000555000,
+
+    PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKhr = 1000558000,
+
+    PhysicalDeviceCommandBufferInheritanceFeaturesNv = 1000559000,
+
+    PhysicalDeviceMaintenance7FeaturesKhr = 1000562000,
+
+    PhysicalDeviceMaintenance7PropertiesKhr = 1000562001,
+
+    PhysicalDeviceLayeredApiPropertiesListKhr = 1000562002,
+
+    PhysicalDeviceLayeredApiPropertiesKhr = 1000562003,
+
+    PhysicalDeviceLayeredApiVulkanPropertiesKhr = 1000562004,
 
     PhysicalDeviceShaderAtomicFloat16VectorFeaturesNv = 1000563000,
 
+    PhysicalDeviceShaderReplicatedCompositesFeaturesExt = 1000564000,
+
     PhysicalDeviceRayTracingValidationFeaturesNv = 1000568000,
 
+    PhysicalDeviceDeviceGeneratedCommandsFeaturesExt = 1000572000,
+
+    PhysicalDeviceDeviceGeneratedCommandsPropertiesExt = 1000572001,
+
+    GeneratedCommandsMemoryRequirementsInfoExt = 1000572002,
+
+    IndirectExecutionSetCreateInfoExt = 1000572003,
+
+    GeneratedCommandsInfoExt = 1000572004,
+
+    IndirectCommandsLayoutCreateInfoExt = 1000572006,
+
+    IndirectCommandsLayoutTokenExt = 1000572007,
+
+    WriteIndirectExecutionSetPipelineExt = 1000572008,
+
+    WriteIndirectExecutionSetShaderExt = 1000572009,
+
+    IndirectExecutionSetPipelineInfoExt = 1000572010,
+
+    IndirectExecutionSetShaderInfoExt = 1000572011,
+
+    IndirectExecutionSetShaderLayoutInfoExt = 1000572012,
+
+    GeneratedCommandsPipelineInfoExt = 1000572013,
+
+    GeneratedCommandsShaderInfoExt = 1000572014,
+
+    PhysicalDeviceImageAlignmentControlFeaturesMesa = 1000575000,
+
+    PhysicalDeviceImageAlignmentControlPropertiesMesa = 1000575001,
+
+    ImageAlignmentControlCreateInfoMesa = 1000575002,
+
+    PhysicalDeviceDepthClampControlFeaturesExt = 1000582000,
+
+    PipelineViewportDepthClampControlCreateInfoExt = 1000582001,
+
+    PhysicalDeviceHdrVividFeaturesHuawei = 1000590000,
+
+    HdrVividDynamicMetadataHuawei = 1000590001,
+
+    PhysicalDeviceCooperativeMatrix2FeaturesNv = 1000593000,
+
+    CooperativeMatrixFlexibleDimensionsPropertiesNv = 1000593001,
+
+    PhysicalDeviceCooperativeMatrix2PropertiesNv = 1000593002,
+
+    PhysicalDeviceVertexAttributeRobustnessFeaturesExt = 1000608000,
+
+    ///<summary>
+    /// VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO_INTEL is a deprecated alias
+    ///</summary>
     MaxEnum = 2147483647,
 
 }

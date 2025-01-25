@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 3224 Column: 16
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 3387 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceCreateInfo
 {
@@ -21,7 +21,13 @@ public unsafe partial struct VkDeviceCreateInfo
     public VkDeviceCreateFlags flags;
     public uint queueCreateInfoCount;
     public AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo* pQueueCreateInfos;
+    ///<summary>
+    /// enabledLayerCount is deprecated and should not be used
+    ///</summary>
     public uint enabledLayerCount;
+    ///<summary>
+    /// ppEnabledLayerNames is deprecated and should not be used
+    ///</summary>
     public sbyte** ppEnabledLayerNames;
     public uint enabledExtensionCount;
     public sbyte** ppEnabledExtensionNames;

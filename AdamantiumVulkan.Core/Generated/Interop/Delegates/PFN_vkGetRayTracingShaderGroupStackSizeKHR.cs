@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 19514 Column: 34
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 21098 Column: 34
 public unsafe struct PFN_vkGetRayTracingShaderGroupStackSizeKHR
 {
     public PFN_vkGetRayTracingShaderGroupStackSizeKHR(void* ptr)

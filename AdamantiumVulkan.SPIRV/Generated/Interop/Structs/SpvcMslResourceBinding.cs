@@ -12,9 +12,9 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\spirv_cross\spirv_cross_c.h Line: 384 Column: 16
+// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross\spirv_cross_c.h Line: 386 Column: 16
 ///<summary>
-/// Maps to C++ API.
+/// Maps to C++ API. Deprecated. Use spvc_msl_resource_binding_2.
 ///</summary>
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcMslResourceBinding

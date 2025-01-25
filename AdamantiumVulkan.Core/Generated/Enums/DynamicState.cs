@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1902 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 2047 Column: 14
 public enum DynamicState : uint
 {
     Viewport = 0,
@@ -61,6 +61,8 @@ public enum DynamicState : uint
     DepthBiasEnable = 1000377002,
 
     PrimitiveRestartEnable = 1000377004,
+
+    LineStipple = 1000259000,
 
     ViewportWScalingNv = 1000087000,
 
@@ -156,7 +158,7 @@ public enum DynamicState : uint
 
     AttachmentFeedbackLoopEnableExt = 1000524000,
 
-    LineStippleKhr = 1000259000,
+    DepthClampRangeExt = 1000582000,
 
     MaxEnum = 2147483647,
 

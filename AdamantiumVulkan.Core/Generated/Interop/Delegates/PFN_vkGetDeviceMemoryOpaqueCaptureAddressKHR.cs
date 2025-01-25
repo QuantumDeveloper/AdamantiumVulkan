@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 10363 Column: 30
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11223 Column: 30
 public unsafe struct PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR
 {
     public PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR(void* ptr)

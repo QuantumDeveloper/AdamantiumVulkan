@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 16859 Column: 15
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 17911 Column: 15
 public unsafe partial class RemoteAddressNV
 {
     internal VkRemoteAddressNVImpl __Instance;

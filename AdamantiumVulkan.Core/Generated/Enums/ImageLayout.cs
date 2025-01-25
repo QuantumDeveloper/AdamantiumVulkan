@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.3.283.0\Include\vulkan/vulkan_core.h Line: 1306 Column: 14
+// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 1442 Column: 14
 public enum ImageLayout : uint
 {
     Undefined = 0,
@@ -48,6 +48,8 @@ public enum ImageLayout : uint
 
     AttachmentOptimal = 1000314001,
 
+    RenderingLocalRead = 1000232000,
+
     PresentSrcKhr = 1000001002,
 
     VideoDecodeDstKhr = 1000024000,
@@ -62,8 +64,6 @@ public enum ImageLayout : uint
 
     FragmentShadingRateAttachmentOptimalKhr = 1000164003,
 
-    RenderingLocalReadKhr = 1000232000,
-
     VideoEncodeDstKhr = 1000299000,
 
     VideoEncodeSrcKhr = 1000299001,
@@ -71,6 +71,8 @@ public enum ImageLayout : uint
     VideoEncodeDpbKhr = 1000299002,
 
     AttachmentFeedbackLoopOptimalExt = 1000339000,
+
+    VideoEncodeQuantizationMapKhr = 1000553000,
 
     MaxEnum = 2147483647,
 
