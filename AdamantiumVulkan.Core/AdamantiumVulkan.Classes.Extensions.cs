@@ -627,10 +627,10 @@ namespace AdamantiumVulkan.Core
             NativeMemory.Free(arrayPtr);
         }
 
-        public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, VkDeviceSize[] offsets)
+        public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, ulong[] offsets)
         {
             uint* indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
-            VkDeviceSize* offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
+            var offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
             SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
             NativeMemory.Free(indicesPtr);
             NativeMemory.Free(offsetsPtr);

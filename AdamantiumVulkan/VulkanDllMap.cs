@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan
 {
     public static class VulkanDllMap
     {
-        private static Dictionary<Assembly, LibraryNameResolver> registeredAssemblies;
+        private static readonly Dictionary<Assembly, LibraryNameResolver> registeredAssemblies;
 
         static VulkanDllMap()
         {
             registeredAssemblies = new Dictionary<Assembly, LibraryNameResolver>();
         }
 
-        // Register a call-back for native library resolution.
+        // Register a call
         public static void Register()
         {
             var coreResolver = new LibraryNameResolver("AdamantiumVulkan.Core") { WindowsLibraryName = "vulkan-1", OSXLibraryName = "libvulkan" };
