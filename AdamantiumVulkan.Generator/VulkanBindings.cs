@@ -667,6 +667,9 @@ public static partial class VulkanBindings
             .WithParameterName("pColorWriteMasks")
             .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"),
                 arraySizeSource: "attachmentCount");
+
+        api.Delegate("PFN_vkCmdSetDescriptorBufferOffsetsEXT").WithParameterName("pOffsets")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt64));
         
         api.Enum("VkShaderStageFlagBits").SetIsFlagsEnum(true);
         

@@ -1624,7 +1624,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdBindDescriptorBuffersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint bufferCount, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT* pBindingInfos);
     // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 17169 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkCmdSetDescriptorBufferOffsetsEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, VkDeviceSize* pOffsets);
+    public unsafe delegate void PFN_vkCmdSetDescriptorBufferOffsetsEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint firstSet, uint setCount, uint* pBufferIndices, ulong* pOffsets);
     // File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 17170 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set);
