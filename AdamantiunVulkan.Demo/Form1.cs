@@ -793,7 +793,7 @@ namespace VulkanEngineTestCore
                 var queueCreateInfo = new DeviceQueueCreateInfo();
                 queueCreateInfo.QueueFamilyIndex = queueFamily;
                 queueCreateInfo.QueueCount = 1;
-                queueCreateInfo.PQueuePriorities = queuePriority;
+                queueCreateInfo.PQueuePriorities = [queuePriority];
                 queueInfos.Add(queueCreateInfo);
             }
             
