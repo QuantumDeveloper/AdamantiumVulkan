@@ -13,11 +13,11 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DependencyInfo : QBDisposableObject
 {
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkMemoryBarrier2> _pMemoryBarriers;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkMemoryBarrier2> _pMemoryBarriers;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2> _pBufferMemoryBarriers;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2> _pBufferMemoryBarriers;
 
-    private NativeStruct<AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2> _pImageMemoryBarriers;
+    private NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2> _pImageMemoryBarriers;
 
     public DependencyInfo()
     {
@@ -29,25 +29,19 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         PNext = _internal.pNext;
         DependencyFlags = _internal.dependencyFlags;
         MemoryBarrierCount = _internal.memoryBarrierCount;
-        PMemoryBarriers = new MemoryBarrier2(*_internal.pMemoryBarriers);
-        NativeUtils.Free(_internal.pMemoryBarriers);
         BufferMemoryBarrierCount = _internal.bufferMemoryBarrierCount;
-        PBufferMemoryBarriers = new BufferMemoryBarrier2(*_internal.pBufferMemoryBarriers);
-        NativeUtils.Free(_internal.pBufferMemoryBarriers);
         ImageMemoryBarrierCount = _internal.imageMemoryBarrierCount;
-        PImageMemoryBarriers = new ImageMemoryBarrier2(*_internal.pImageMemoryBarriers);
-        NativeUtils.Free(_internal.pImageMemoryBarriers);
     }
 
     public StructureType SType { get; set; }
     public void* PNext { get; set; }
-    public VkDependencyFlags DependencyFlags { get; set; }
+    public DependencyFlagBits DependencyFlags { get; set; }
     public uint MemoryBarrierCount { get; set; }
-    public MemoryBarrier2 PMemoryBarriers { get; set; }
+    public MemoryBarrier2[] PMemoryBarriers { get; set; }
     public uint BufferMemoryBarrierCount { get; set; }
-    public BufferMemoryBarrier2 PBufferMemoryBarriers { get; set; }
+    public BufferMemoryBarrier2[] PBufferMemoryBarriers { get; set; }
     public uint ImageMemoryBarrierCount { get; set; }
-    public ImageMemoryBarrier2 PImageMemoryBarriers { get; set; }
+    public ImageMemoryBarrier2[] PImageMemoryBarriers { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDependencyInfo ToNative()
     {
@@ -57,7 +51,7 @@ public unsafe partial class DependencyInfo : QBDisposableObject
             _internal.sType = SType;
         }
         _internal.pNext = PNext;
-        if (DependencyFlags != (uint)default)
+        if (DependencyFlags != default)
         {
             _internal.dependencyFlags = DependencyFlags;
         }
@@ -68,8 +62,12 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         _pMemoryBarriers.Dispose();
         if (PMemoryBarriers != default)
         {
-            var struct0 = PMemoryBarriers.ToNative();
-            _pMemoryBarriers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkMemoryBarrier2>(struct0);
+            var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkMemoryBarrier2[PMemoryBarriers.Length];
+            for (int i = 0; i < PMemoryBarriers.Length; ++i)
+            {
+                tmpArray0[i] = PMemoryBarriers[i].ToNative();
+            }
+            _pMemoryBarriers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkMemoryBarrier2>(tmpArray0);
             _internal.pMemoryBarriers = _pMemoryBarriers.Handle;
         }
         if (BufferMemoryBarrierCount != default)
@@ -79,8 +77,12 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         _pBufferMemoryBarriers.Dispose();
         if (PBufferMemoryBarriers != default)
         {
-            var struct1 = PBufferMemoryBarriers.ToNative();
-            _pBufferMemoryBarriers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2>(struct1);
+            var tmpArray1 = new AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2[PBufferMemoryBarriers.Length];
+            for (int i = 0; i < PBufferMemoryBarriers.Length; ++i)
+            {
+                tmpArray1[i] = PBufferMemoryBarriers[i].ToNative();
+            }
+            _pBufferMemoryBarriers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier2>(tmpArray1);
             _internal.pBufferMemoryBarriers = _pBufferMemoryBarriers.Handle;
         }
         if (ImageMemoryBarrierCount != default)
@@ -90,8 +92,12 @@ public unsafe partial class DependencyInfo : QBDisposableObject
         _pImageMemoryBarriers.Dispose();
         if (PImageMemoryBarriers != default)
         {
-            var struct2 = PImageMemoryBarriers.ToNative();
-            _pImageMemoryBarriers = new NativeStruct<AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2>(struct2);
+            var tmpArray2 = new AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2[PImageMemoryBarriers.Length];
+            for (int i = 0; i < PImageMemoryBarriers.Length; ++i)
+            {
+                tmpArray2[i] = PImageMemoryBarriers[i].ToNative();
+            }
+            _pImageMemoryBarriers = new NativeStructArray<AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2>(tmpArray2);
             _internal.pImageMemoryBarriers = _pImageMemoryBarriers.Handle;
         }
         return _internal;

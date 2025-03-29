@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11656 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11706 Column: 26
 public unsafe struct PFN_vkCmdResetEvent2KHR
 {
     public PFN_vkCmdResetEvent2KHR(void* ptr)

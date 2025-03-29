@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 208 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 208 Column: 14
 public enum StructureType : uint
 {
     ApplicationInfo = 0,
@@ -1558,8 +1558,6 @@ public enum StructureType : uint
 
     DescriptorSetLayoutHostMappingInfoValve = 1000420002,
 
-    PhysicalDeviceDepthClampZeroOneFeaturesExt = 1000421000,
-
     PhysicalDeviceNonSeamlessCubeMapFeaturesExt = 1000422000,
 
     PhysicalDeviceRenderPassStripedFeaturesArm = 1000424000,
@@ -1591,6 +1589,12 @@ public enum StructureType : uint
     ComputePipelineIndirectBufferInfoNv = 1000428001,
 
     PipelineIndirectDeviceAddressInfoNv = 1000428002,
+
+    PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNv = 1000429008,
+
+    AccelerationStructureGeometryLinearSweptSpheresDataNv = 1000429009,
+
+    AccelerationStructureGeometrySpheresDataNv = 1000429010,
 
     PhysicalDeviceLinearColorAttachmentFeaturesNv = 1000430000,
 
@@ -1705,6 +1709,14 @@ public enum StructureType : uint
     PhysicalDeviceRayTracingInvocationReorderFeaturesNv = 1000490000,
 
     PhysicalDeviceRayTracingInvocationReorderPropertiesNv = 1000490001,
+
+    PhysicalDeviceCooperativeVectorFeaturesNv = 1000491000,
+
+    PhysicalDeviceCooperativeVectorPropertiesNv = 1000491001,
+
+    CooperativeVectorPropertiesNv = 1000491002,
+
+    ConvertCooperativeVectorMatrixInfoNv = 1000491004,
 
     PhysicalDeviceExtendedSparseAddressSpaceFeaturesNv = 1000492000,
 
@@ -1884,6 +1896,34 @@ public enum StructureType : uint
 
     PhysicalDeviceRayTracingValidationFeaturesNv = 1000568000,
 
+    PhysicalDeviceClusterAccelerationStructureFeaturesNv = 1000569000,
+
+    PhysicalDeviceClusterAccelerationStructurePropertiesNv = 1000569001,
+
+    ClusterAccelerationStructureClustersBottomLevelInputNv = 1000569002,
+
+    ClusterAccelerationStructureTriangleClusterInputNv = 1000569003,
+
+    ClusterAccelerationStructureMoveObjectsInputNv = 1000569004,
+
+    ClusterAccelerationStructureInputInfoNv = 1000569005,
+
+    ClusterAccelerationStructureCommandsInfoNv = 1000569006,
+
+    RayTracingPipelineClusterAccelerationStructureCreateInfoNv = 1000569007,
+
+    PhysicalDevicePartitionedAccelerationStructureFeaturesNv = 1000570000,
+
+    PhysicalDevicePartitionedAccelerationStructurePropertiesNv = 1000570001,
+
+    WriteDescriptorSetPartitionedAccelerationStructureNv = 1000570002,
+
+    PartitionedAccelerationStructureInstancesInputNv = 1000570003,
+
+    BuildPartitionedAccelerationStructureInfoNv = 1000570004,
+
+    PartitionedAccelerationStructureFlagsNv = 1000570005,
+
     PhysicalDeviceDeviceGeneratedCommandsFeaturesExt = 1000572000,
 
     PhysicalDeviceDeviceGeneratedCommandsPropertiesExt = 1000572001,
@@ -1912,6 +1952,10 @@ public enum StructureType : uint
 
     GeneratedCommandsShaderInfoExt = 1000572014,
 
+    PhysicalDeviceMaintenance8FeaturesKhr = 1000574000,
+
+    MemoryBarrierAccessFlags3Khr = 1000574002,
+
     PhysicalDeviceImageAlignmentControlFeaturesMesa = 1000575000,
 
     PhysicalDeviceImageAlignmentControlPropertiesMesa = 1000575001,
@@ -1922,6 +1966,14 @@ public enum StructureType : uint
 
     PipelineViewportDepthClampControlCreateInfoExt = 1000582001,
 
+    PhysicalDeviceVideoMaintenance2FeaturesKhr = 1000586000,
+
+    VideoDecodeH264InlineSessionParametersInfoKhr = 1000586001,
+
+    VideoDecodeH265InlineSessionParametersInfoKhr = 1000586002,
+
+    VideoDecodeAv1InlineSessionParametersInfoKhr = 1000586003,
+
     PhysicalDeviceHdrVividFeaturesHuawei = 1000590000,
 
     HdrVividDynamicMetadataHuawei = 1000590001,
@@ -1931,6 +1983,16 @@ public enum StructureType : uint
     CooperativeMatrixFlexibleDimensionsPropertiesNv = 1000593001,
 
     PhysicalDeviceCooperativeMatrix2PropertiesNv = 1000593002,
+
+    PhysicalDevicePipelineOpacityMicromapFeaturesArm = 1000596000,
+
+    ImportMemoryMetalHandleInfoExt = 1000602000,
+
+    MemoryMetalHandlePropertiesExt = 1000602001,
+
+    MemoryGetMetalHandleInfoExt = 1000602002,
+
+    PhysicalDeviceDepthClampZeroOneFeaturesKhr = 1000421000,
 
     PhysicalDeviceVertexAttributeRobustnessFeaturesExt = 1000608000,
 

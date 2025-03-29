@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 110 Column: 1
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 110 Column: 1
 public unsafe partial class CommandBuffer
 {
     internal VkCommandBuffer_T __Instance;
@@ -449,12 +449,28 @@ public unsafe partial class CommandBuffer
         NativeUtils.Free(arg3);
     }
 
+    public void BuildClusterAccelerationStructureIndirectNV(in ClusterAccelerationStructureCommandsInfoNV pCommandInfos)
+    {
+        var arg1 = ReferenceEquals(pCommandInfos, null) ? null : NativeUtils.StructOrEnumToPointer(pCommandInfos.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildClusterAccelerationStructureIndirectNV(this, arg1);
+        pCommandInfos?.Dispose();
+        NativeUtils.Free(arg1);
+    }
+
     public void BuildMicromapsEXT(uint infoCount, in MicromapBuildInfoEXT pInfos)
     {
         var arg2 = ReferenceEquals(pInfos, null) ? null : NativeUtils.StructOrEnumToPointer(pInfos.ToNative());
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildMicromapsEXT(this, infoCount, arg2);
         pInfos?.Dispose();
         NativeUtils.Free(arg2);
+    }
+
+    public void BuildPartitionedAccelerationStructuresNV(in BuildPartitionedAccelerationStructureInfoNV pBuildInfo)
+    {
+        var arg1 = ReferenceEquals(pBuildInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pBuildInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdBuildPartitionedAccelerationStructuresNV(this, arg1);
+        pBuildInfo?.Dispose();
+        NativeUtils.Free(arg1);
     }
 
     public void ClearAttachments(uint attachmentCount, in ClearAttachment pAttachments, uint rectCount, in ClearRect pRects)
@@ -498,6 +514,14 @@ public unsafe partial class CommandBuffer
         AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdControlVideoCodingKHR(this, arg1);
         pCodingControlInfo?.Dispose();
         NativeUtils.Free(arg1);
+    }
+
+    public void ConvertCooperativeVectorMatrixNV(uint infoCount, in ConvertCooperativeVectorMatrixInfoNV pInfos)
+    {
+        var arg2 = ReferenceEquals(pInfos, null) ? null : NativeUtils.StructOrEnumToPointer(pInfos.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkCmdConvertCooperativeVectorMatrixNV(this, infoCount, arg2);
+        pInfos?.Dispose();
+        NativeUtils.Free(arg2);
     }
 
     public void CopyAccelerationStructureKHR(in CopyAccelerationStructureInfoKHR pInfo)

@@ -14,7 +14,7 @@ using AdamantiumVulkan.SpirvTools;
 
 namespace AdamantiumVulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 965 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 980 Column: 16
 ///<summary>
 /// A pointer to a function that accepts a log message from an optimizer.
 ///</summary>

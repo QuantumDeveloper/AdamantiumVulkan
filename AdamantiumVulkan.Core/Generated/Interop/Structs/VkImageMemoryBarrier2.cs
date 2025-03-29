@@ -12,16 +12,16 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 7124 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7170 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImageMemoryBarrier2
 {
     public StructureType sType;
     public void* pNext;
-    public VkPipelineStageFlags2 srcStageMask;
-    public VkAccessFlags2 srcAccessMask;
-    public VkPipelineStageFlags2 dstStageMask;
-    public VkAccessFlags2 dstAccessMask;
+    public PipelineStageFlagBits2 srcStageMask;
+    public AccessFlagBits2 srcAccessMask;
+    public PipelineStageFlagBits2 dstStageMask;
+    public AccessFlagBits2 dstAccessMask;
     public ImageLayout oldLayout;
     public ImageLayout newLayout;
     public uint srcQueueFamilyIndex;

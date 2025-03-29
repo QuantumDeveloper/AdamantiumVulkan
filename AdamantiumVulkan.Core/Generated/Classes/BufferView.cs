@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 115 Column: 1
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 115 Column: 1
 public unsafe partial class BufferView
 {
     internal VkBufferView_T __Instance;

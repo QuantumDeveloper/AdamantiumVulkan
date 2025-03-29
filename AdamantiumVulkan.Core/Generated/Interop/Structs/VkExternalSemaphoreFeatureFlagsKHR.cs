@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 10027 Column: 41
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10077 Column: 41
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkExternalSemaphoreFeatureFlagsKHR
 {

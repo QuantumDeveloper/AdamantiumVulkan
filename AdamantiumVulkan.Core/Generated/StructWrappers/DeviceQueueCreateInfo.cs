@@ -13,7 +13,7 @@ namespace AdamantiumVulkan.Core;
 
 public unsafe partial class DeviceQueueCreateInfo : QBDisposableObject
 {
-    private NativeStruct<float> _pQueuePriorities;
+    private NativeStructArray<float> _pQueuePriorities;
 
     public DeviceQueueCreateInfo()
     {
@@ -25,11 +25,9 @@ public unsafe partial class DeviceQueueCreateInfo : QBDisposableObject
         Flags = _internal.flags;
         QueueFamilyIndex = _internal.queueFamilyIndex;
         QueueCount = _internal.queueCount;
-        if (_internal.pQueuePriorities != null)
-        {
-            PQueuePriorities = *_internal.pQueuePriorities;
-            NativeUtils.Free(_internal.pQueuePriorities);
-        }
+        PQueuePriorities = new float[_internal.queueCount];
+        PQueuePriorities = NativeUtils.PointerToManagedArray(_internal.pQueuePriorities, (long)_internal.queueCount);
+        NativeUtils.Free(_internal.pQueuePriorities);
     }
 
     public StructureType SType => StructureType.DeviceQueueCreateInfo;
@@ -37,7 +35,7 @@ public unsafe partial class DeviceQueueCreateInfo : QBDisposableObject
     public VkDeviceQueueCreateFlags Flags { get; set; }
     public uint QueueFamilyIndex { get; set; }
     public uint QueueCount { get; set; }
-    public float? PQueuePriorities { get; set; }
+    public float[] PQueuePriorities { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo ToNative()
     {
@@ -60,9 +58,14 @@ public unsafe partial class DeviceQueueCreateInfo : QBDisposableObject
             _internal.queueCount = QueueCount;
         }
         _pQueuePriorities.Dispose();
-        if (PQueuePriorities.HasValue)
+        if (PQueuePriorities != default)
         {
-            _pQueuePriorities = new NativeStruct<float>(PQueuePriorities.Value);
+            var tmpArray0 = new float[PQueuePriorities.Length];
+            for (int i = 0; i < PQueuePriorities.Length; ++i)
+            {
+                tmpArray0[i] = PQueuePriorities[i];
+            }
+            _pQueuePriorities = new NativeStructArray<float>(tmpArray0);
             _internal.pQueuePriorities = _pQueuePriorities.Handle;
         }
         return _internal;

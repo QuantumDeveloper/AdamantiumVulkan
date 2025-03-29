@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 462 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 502 Column: 14
 public enum SpvDecoration : uint
 {
     RelaxedPrecision = 0,
@@ -120,6 +120,22 @@ public enum SpvDecoration : uint
 
     ExplicitInterpAMD = 4999,
 
+    NodeSharesPayloadLimitsWithAMDX = 5019,
+
+    NodeMaxPayloadsAMDX = 5020,
+
+    TrackFinishWritingAMDX = 5078,
+
+    PayloadNodeNameAMDX = 5091,
+
+    PayloadNodeBaseIndexAMDX = 5098,
+
+    PayloadNodeSparseArrayAMDX = 5099,
+
+    PayloadNodeArraySizeAMDX = 5100,
+
+    PayloadDispatchIndirectAMDX = 5105,
+
     OverrideCoverageNV = 5248,
 
     PassthroughNV = 5250,
@@ -141,6 +157,8 @@ public enum SpvDecoration : uint
     RestrictPointer = 5355,
 
     AliasedPointer = 5356,
+
+    HitObjectShaderRecordBufferNV = 5386,
 
     BindlessSamplerNV = 5398,
 
@@ -202,6 +220,12 @@ public enum SpvDecoration : uint
 
     ForcePow2DepthINTEL = 5836,
 
+    StridesizeINTEL = 5883,
+
+    WordsizeINTEL = 5884,
+
+    TrueDualPortINTEL = 5885,
+
     BurstCoalesceINTEL = 5899,
 
     CacheSizeINTEL = 5900,
@@ -214,9 +238,17 @@ public enum SpvDecoration : uint
 
     FuseLoopsInFunctionINTEL = 5907,
 
+    MathOpDSPModeINTEL = 5909,
+
     AliasScopeINTEL = 5914,
 
     NoAliasINTEL = 5915,
+
+    InitiationIntervalINTEL = 5917,
+
+    MaxConcurrencyINTEL = 5918,
+
+    PipelineEnableINTEL = 5919,
 
     BufferLocationINTEL = 5921,
 
@@ -229,6 +261,42 @@ public enum SpvDecoration : uint
     VectorComputeCallableFunctionINTEL = 6087,
 
     MediaBlockIOINTEL = 6140,
+
+    StallFreeINTEL = 6151,
+
+    FPMaxErrorDecorationINTEL = 6170,
+
+    LatencyControlLabelINTEL = 6172,
+
+    LatencyControlConstraintINTEL = 6173,
+
+    ConduitKernelArgumentINTEL = 6175,
+
+    RegisterMapKernelArgumentINTEL = 6176,
+
+    MMHostInterfaceAddressWidthINTEL = 6177,
+
+    MMHostInterfaceDataWidthINTEL = 6178,
+
+    MMHostInterfaceLatencyINTEL = 6179,
+
+    MMHostInterfaceReadWriteModeINTEL = 6180,
+
+    MMHostInterfaceMaxBurstINTEL = 6181,
+
+    MMHostInterfaceWaitRequestINTEL = 6182,
+
+    StableKernelArgumentINTEL = 6183,
+
+    HostAccessINTEL = 6188,
+
+    InitModeINTEL = 6190,
+
+    ImplementInRegisterMapINTEL = 6191,
+
+    CacheControlLoadINTEL = 6442,
+
+    CacheControlStoreINTEL = 6443,
 
     Max = 2147483647,
 

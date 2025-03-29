@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 15462 Column: 15
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15588 Column: 15
 [StructLayout(LayoutKind.Explicit)]
 public unsafe partial struct VkPerformanceValueDataINTEL
 {

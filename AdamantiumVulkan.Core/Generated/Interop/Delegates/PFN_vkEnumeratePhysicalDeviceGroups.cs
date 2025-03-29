@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 5751 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5795 Column: 30
 public unsafe struct PFN_vkEnumeratePhysicalDeviceGroups
 {
     public PFN_vkEnumeratePhysicalDeviceGroups(void* ptr)

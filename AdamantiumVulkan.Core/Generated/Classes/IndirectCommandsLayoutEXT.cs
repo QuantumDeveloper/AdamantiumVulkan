@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 20336 Column: 1
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20944 Column: 1
 public unsafe partial class IndirectCommandsLayoutEXT
 {
     internal VkIndirectCommandsLayoutEXT_T __Instance;

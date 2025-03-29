@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 450 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 489 Column: 14
 public enum SpvFunctionParameterAttribute : uint
 {
     Zext = 0,
@@ -29,6 +29,8 @@ public enum SpvFunctionParameterAttribute : uint
     NoWrite = 6,
 
     NoReadWrite = 7,
+
+    RuntimeAlignedINTEL = 5940,
 
     Max = 2147483647,
 

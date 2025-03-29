@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 4186 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4227 Column: 30
 public unsafe struct PFN_vkCreateDescriptorPool
 {
     public PFN_vkCreateDescriptorPool(void* ptr)

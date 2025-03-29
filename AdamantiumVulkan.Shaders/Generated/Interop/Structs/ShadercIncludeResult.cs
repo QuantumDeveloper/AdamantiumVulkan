@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\shaderc\shaderc.h Line: 345 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 345 Column: 16
 ///<summary>
 /// An include result.
 ///</summary>

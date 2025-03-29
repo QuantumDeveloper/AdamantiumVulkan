@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 14245 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14369 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT
 {
     public PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(void* ptr)

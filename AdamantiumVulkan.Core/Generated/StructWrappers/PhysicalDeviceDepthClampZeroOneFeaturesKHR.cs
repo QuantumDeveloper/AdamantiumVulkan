@@ -11,13 +11,13 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-public unsafe partial class PhysicalDeviceDepthClampZeroOneFeaturesEXT : QBDisposableObject
+public unsafe partial class PhysicalDeviceDepthClampZeroOneFeaturesKHR : QBDisposableObject
 {
-    public PhysicalDeviceDepthClampZeroOneFeaturesEXT()
+    public PhysicalDeviceDepthClampZeroOneFeaturesKHR()
     {
     }
 
-    public PhysicalDeviceDepthClampZeroOneFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesEXT _internal)
+    public PhysicalDeviceDepthClampZeroOneFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesKHR _internal)
     {
         SType = _internal.sType;
         PNext = _internal.pNext;
@@ -28,9 +28,9 @@ public unsafe partial class PhysicalDeviceDepthClampZeroOneFeaturesEXT : QBDispo
     public void* PNext { get; set; }
     public VkBool32 DepthClampZeroOne { get; set; }
 
-    public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesEXT ToNative()
+    public AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesKHR ToNative()
     {
-        var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesEXT();
+        var _internal = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesKHR();
         if (SType != default)
         {
             _internal.sType = SType;
@@ -43,9 +43,9 @@ public unsafe partial class PhysicalDeviceDepthClampZeroOneFeaturesEXT : QBDispo
         return _internal;
     }
 
-    public static implicit operator PhysicalDeviceDepthClampZeroOneFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesEXT p)
+    public static implicit operator PhysicalDeviceDepthClampZeroOneFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesKHR p)
     {
-        return new PhysicalDeviceDepthClampZeroOneFeaturesEXT(p);
+        return new PhysicalDeviceDepthClampZeroOneFeaturesKHR(p);
     }
 
 }

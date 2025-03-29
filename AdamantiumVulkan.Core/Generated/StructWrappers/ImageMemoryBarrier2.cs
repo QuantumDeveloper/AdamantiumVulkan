@@ -35,10 +35,10 @@ public unsafe partial class ImageMemoryBarrier2 : QBDisposableObject
 
     public StructureType SType { get; set; }
     public void* PNext { get; set; }
-    public VkPipelineStageFlags2 SrcStageMask { get; set; }
-    public VkAccessFlags2 SrcAccessMask { get; set; }
-    public VkPipelineStageFlags2 DstStageMask { get; set; }
-    public VkAccessFlags2 DstAccessMask { get; set; }
+    public PipelineStageFlagBits2 SrcStageMask { get; set; }
+    public AccessFlagBits2 SrcAccessMask { get; set; }
+    public PipelineStageFlagBits2 DstStageMask { get; set; }
+    public AccessFlagBits2 DstAccessMask { get; set; }
     public ImageLayout OldLayout { get; set; }
     public ImageLayout NewLayout { get; set; }
     public uint SrcQueueFamilyIndex { get; set; }
@@ -54,19 +54,19 @@ public unsafe partial class ImageMemoryBarrier2 : QBDisposableObject
             _internal.sType = SType;
         }
         _internal.pNext = PNext;
-        if (SrcStageMask != (ulong)default)
+        if (SrcStageMask != default)
         {
             _internal.srcStageMask = SrcStageMask;
         }
-        if (SrcAccessMask != (ulong)default)
+        if (SrcAccessMask != default)
         {
             _internal.srcAccessMask = SrcAccessMask;
         }
-        if (DstStageMask != (ulong)default)
+        if (DstStageMask != default)
         {
             _internal.dstStageMask = DstStageMask;
         }
-        if (DstAccessMask != (ulong)default)
+        if (DstAccessMask != default)
         {
             _internal.dstAccessMask = DstAccessMask;
         }

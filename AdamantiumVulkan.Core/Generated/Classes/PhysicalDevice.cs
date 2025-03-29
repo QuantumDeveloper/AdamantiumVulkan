@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 106 Column: 1
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 106 Column: 1
 public unsafe partial class PhysicalDevice
 {
     internal VkPhysicalDevice_T __Instance;
@@ -263,6 +263,18 @@ public unsafe partial class PhysicalDevice
         var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
         var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
         var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, arg1, arg2);
+        pPropertyCount = *arg1;
+        NativeUtils.Free(arg1);
+        pProperties?.Dispose();
+        NativeUtils.Free(arg2);
+        return result;
+    }
+
+    public Result GetPhysicalDeviceCooperativeVectorPropertiesNV(ref uint pPropertyCount, CooperativeVectorPropertiesNV pProperties)
+    {
+        var arg1 = NativeUtils.StructOrEnumToPointer(pPropertyCount);
+        var arg2 = ReferenceEquals(pProperties, null) ? null : NativeUtils.StructOrEnumToPointer(pProperties.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, arg1, arg2);
         pPropertyCount = *arg1;
         NativeUtils.Free(arg1);
         pProperties?.Dispose();

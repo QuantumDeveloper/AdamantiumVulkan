@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 5754 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5798 Column: 26
 public unsafe struct PFN_vkGetImageSparseMemoryRequirements2
 {
     public PFN_vkGetImageSparseMemoryRequirements2(void* ptr)

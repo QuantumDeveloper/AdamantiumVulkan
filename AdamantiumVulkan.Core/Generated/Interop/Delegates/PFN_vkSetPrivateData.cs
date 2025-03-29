@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 7506 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7552 Column: 30
 public unsafe struct PFN_vkSetPrivateData
 {
     public PFN_vkSetPrivateData(void* ptr)

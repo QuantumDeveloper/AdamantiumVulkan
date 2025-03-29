@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 20908 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21539 Column: 30
 public unsafe struct PFN_vkWriteAccelerationStructuresPropertiesKHR
 {
     public PFN_vkWriteAccelerationStructuresPropertiesKHR(void* ptr)

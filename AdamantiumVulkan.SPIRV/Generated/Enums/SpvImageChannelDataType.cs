@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 337 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 367 Column: 14
 public enum SpvImageChannelDataType : uint
 {
     SnormInt8 = 0,
@@ -47,6 +47,12 @@ public enum SpvImageChannelDataType : uint
     UnormInt24 = 15,
 
     Unormint1010102 = 16,
+
+    UnsignedIntRaw10EXT = 19,
+
+    UnsignedIntRaw12EXT = 20,
+
+    Unormint2101010ext = 21,
 
     Max = 2147483647,
 

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 13166 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13290 Column: 26
 public unsafe struct PFN_vkDestroyCuModuleNVX
 {
     public PFN_vkDestroyCuModuleNVX(void* ptr)

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 9669 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9719 Column: 14
 [Flags]
 public enum VideoDecodeH264PictureLayoutFlagBitsKHR : uint
 {

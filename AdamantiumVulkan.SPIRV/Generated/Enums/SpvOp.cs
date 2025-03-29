@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 1229 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 1487 Column: 14
 public enum SpvOp : uint
 {
     Nop = 0,
@@ -702,11 +702,33 @@ public enum SpvOp : uint
 
     PtrDiff = 403,
 
+    ColorAttachmentReadEXT = 4160,
+
+    DepthAttachmentReadEXT = 4161,
+
+    StencilAttachmentReadEXT = 4162,
+
     TerminateInvocation = 4416,
+
+    TypeUntypedPointerKHR = 4417,
+
+    UntypedVariableKHR = 4418,
+
+    UntypedAccessChainKHR = 4419,
+
+    UntypedInBoundsAccessChainKHR = 4420,
 
     SubgroupBallotKHR = 4421,
 
     SubgroupFirstInvocationKHR = 4422,
+
+    UntypedPtrAccessChainKHR = 4423,
+
+    UntypedInBoundsPtrAccessChainKHR = 4424,
+
+    UntypedArrayLengthKHR = 4425,
+
+    UntypedPrefetchKHR = 4426,
 
     SubgroupAllKHR = 4428,
 
@@ -717,6 +739,8 @@ public enum SpvOp : uint
     GroupNonUniformRotateKHR = 4431,
 
     SubgroupReadInvocationKHR = 4432,
+
+    ExtInstWithForwardRefsKHR = 4433,
 
     TraceRayKHR = 4445,
 
@@ -739,6 +763,22 @@ public enum SpvOp : uint
     UDotAccSat = 4454,
 
     SUDotAccSat = 4455,
+
+    TypeCooperativeMatrixKHR = 4456,
+
+    CooperativeMatrixLoadKHR = 4457,
+
+    CooperativeMatrixStoreKHR = 4458,
+
+    CooperativeMatrixMulAddKHR = 4459,
+
+    CooperativeMatrixLengthKHR = 4460,
+
+    ConstantCompositeReplicateEXT = 4461,
+
+    SpecConstantCompositeReplicateEXT = 4462,
+
+    CompositeConstructReplicateEXT = 4463,
 
     TypeRayQueryKHR = 4472,
 
@@ -792,7 +832,95 @@ public enum SpvOp : uint
 
     ReadClockKHR = 5056,
 
+    AllocateNodePayloadsAMDX = 5074,
+
+    EnqueueNodePayloadsAMDX = 5075,
+
+    TypeNodePayloadArrayAMDX = 5076,
+
+    FinishWritingNodePayloadAMDX = 5078,
+
+    NodePayloadArrayLengthAMDX = 5090,
+
+    IsNodePayloadValidAMDX = 5101,
+
+    ConstantStringAMDX = 5103,
+
+    SpecConstantStringAMDX = 5104,
+
+    GroupNonUniformQuadAllKHR = 5110,
+
+    GroupNonUniformQuadAnyKHR = 5111,
+
+    HitObjectRecordHitMotionNV = 5249,
+
+    HitObjectRecordHitWithIndexMotionNV = 5250,
+
+    HitObjectRecordMissMotionNV = 5251,
+
+    HitObjectGetWorldToObjectNV = 5252,
+
+    HitObjectGetObjectToWorldNV = 5253,
+
+    HitObjectGetObjectRayDirectionNV = 5254,
+
+    HitObjectGetObjectRayOriginNV = 5255,
+
+    HitObjectTraceRayMotionNV = 5256,
+
+    HitObjectGetShaderRecordBufferHandleNV = 5257,
+
+    HitObjectGetShaderBindingTableRecordIndexNV = 5258,
+
+    HitObjectRecordEmptyNV = 5259,
+
+    HitObjectTraceRayNV = 5260,
+
+    HitObjectRecordHitNV = 5261,
+
+    HitObjectRecordHitWithIndexNV = 5262,
+
+    HitObjectRecordMissNV = 5263,
+
+    HitObjectExecuteShaderNV = 5264,
+
+    HitObjectGetCurrentTimeNV = 5265,
+
+    HitObjectGetAttributesNV = 5266,
+
+    HitObjectGetHitKindNV = 5267,
+
+    HitObjectGetPrimitiveIndexNV = 5268,
+
+    HitObjectGetGeometryIndexNV = 5269,
+
+    HitObjectGetInstanceIdNV = 5270,
+
+    HitObjectGetInstanceCustomIndexNV = 5271,
+
+    HitObjectGetWorldRayDirectionNV = 5272,
+
+    HitObjectGetWorldRayOriginNV = 5273,
+
+    HitObjectGetRayTMaxNV = 5274,
+
+    HitObjectGetRayTMinNV = 5275,
+
+    HitObjectIsEmptyNV = 5276,
+
+    HitObjectIsHitNV = 5277,
+
+    HitObjectIsMissNV = 5278,
+
+    ReorderThreadWithHitObjectNV = 5279,
+
+    ReorderThreadWithHintNV = 5280,
+
+    TypeHitObjectNV = 5281,
+
     ImageSampleFootprintNV = 5283,
+
+    CooperativeMatrixConvertNV = 5293,
 
     EmitMeshTasksEXT = 5294,
 
@@ -801,6 +929,10 @@ public enum SpvOp : uint
     GroupNonUniformPartitionNV = 5296,
 
     WritePackedPrimitiveIndices4x8NV = 5299,
+
+    FetchMicroTriangleVertexPositionNV = 5300,
+
+    FetchMicroTriangleVertexBarycentricNV = 5301,
 
     ReportIntersectionKHR = 5334,
 
@@ -813,6 +945,8 @@ public enum SpvOp : uint
     TraceMotionNV = 5338,
 
     TraceRayMotionNV = 5339,
+
+    RayQueryGetIntersectionTriangleVertexPositionsKHR = 5340,
 
     TypeAccelerationStructureKHR = 5341,
 
@@ -832,9 +966,43 @@ public enum SpvOp : uint
 
     EndInvocationInterlockEXT = 5365,
 
+    CooperativeMatrixReduceNV = 5366,
+
+    CooperativeMatrixLoadTensorNV = 5367,
+
+    CooperativeMatrixStoreTensorNV = 5368,
+
+    CooperativeMatrixPerElementOpNV = 5369,
+
+    TypeTensorLayoutNV = 5370,
+
+    TypeTensorViewNV = 5371,
+
+    CreateTensorLayoutNV = 5372,
+
+    TensorLayoutSetDimensionNV = 5373,
+
+    TensorLayoutSetStrideNV = 5374,
+
+    TensorLayoutSliceNV = 5375,
+
+    TensorLayoutSetClampValueNV = 5376,
+
+    CreateTensorViewNV = 5377,
+
+    TensorViewSetDimensionNV = 5378,
+
+    TensorViewSetStrideNV = 5379,
+
     DemoteToHelperInvocation = 5380,
 
     IsHelperInvocationEXT = 5381,
+
+    TensorViewSetClipNV = 5382,
+
+    TensorLayoutSetBlockSizeNV = 5384,
+
+    CooperativeMatrixTransposeNV = 5390,
 
     ConvertUToImageNV = 5391,
 
@@ -849,6 +1017,8 @@ public enum SpvOp : uint
     ConvertSampledImageToUNV = 5396,
 
     SamplerImageAddressingModeNV = 5397,
+
+    RawAccessChainNV = 5398,
 
     SubgroupShuffleINTEL = 5571,
 
@@ -1328,9 +1498,19 @@ public enum SpvOp : uint
 
     SpecConstantCompositeContinuedINTEL = 6092,
 
+    CompositeConstructContinuedINTEL = 6096,
+
+    ConvertFToBF16INTEL = 6116,
+
+    ConvertBF16ToFINTEL = 6117,
+
     ControlBarrierArriveINTEL = 6142,
 
     ControlBarrierWaitINTEL = 6143,
+
+    ArithmeticFenceEXT = 6145,
+
+    SubgroupBlockPrefetchINTEL = 6221,
 
     GroupIMulKHR = 6401,
 
@@ -1347,6 +1527,10 @@ public enum SpvOp : uint
     GroupLogicalOrKHR = 6407,
 
     GroupLogicalXorKHR = 6408,
+
+    MaskedGatherINTEL = 6428,
+
+    MaskedScatterINTEL = 6429,
 
     Max = 2147483647,
 

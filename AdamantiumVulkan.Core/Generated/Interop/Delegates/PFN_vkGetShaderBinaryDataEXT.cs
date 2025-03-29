@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 19693 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19871 Column: 30
 public unsafe struct PFN_vkGetShaderBinaryDataEXT
 {
     public PFN_vkGetShaderBinaryDataEXT(void* ptr)

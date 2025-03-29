@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 12696 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12750 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoFormatH265QuantizationMapPropertiesKHR
 {

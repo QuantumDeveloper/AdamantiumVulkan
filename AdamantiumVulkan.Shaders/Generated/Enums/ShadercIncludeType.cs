@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\shaderc\shaderc.h Line: 362 Column: 6
+// File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 362 Column: 6
 ///<summary>
 /// The kinds of include requests.
 ///</summary>

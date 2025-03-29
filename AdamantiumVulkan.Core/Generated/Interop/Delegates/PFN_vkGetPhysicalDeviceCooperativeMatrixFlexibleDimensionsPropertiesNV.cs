@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 20714 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21322 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
 {
     public PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(void* ptr)

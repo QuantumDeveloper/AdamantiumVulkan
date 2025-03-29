@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 19090 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19268 Column: 26
 public unsafe struct PFN_vkCmdSetRasterizationStreamEXT
 {
     public PFN_vkCmdSetRasterizationStreamEXT(void* ptr)

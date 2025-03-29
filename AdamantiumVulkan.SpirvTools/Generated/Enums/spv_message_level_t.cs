@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 87 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 87 Column: 14
 ///<summary>
 /// Severity levels of messages communicated to the consumer.
 ///</summary>

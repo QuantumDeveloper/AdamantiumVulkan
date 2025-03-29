@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 581 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 655 Column: 14
 public enum SpvBuiltIn : uint
 {
     Position = 0,
@@ -96,6 +96,16 @@ public enum SpvBuiltIn : uint
 
     InstanceIndex = 43,
 
+    CoreIDARM = 4160,
+
+    CoreCountARM = 4161,
+
+    CoreMaxIDARM = 4162,
+
+    WarpIDARM = 4163,
+
+    WarpMaxIDARM = 4164,
+
     SubgroupEqMask = 4416,
 
     SubgroupGeMask = 4417,
@@ -135,6 +145,10 @@ public enum SpvBuiltIn : uint
     BaryCoordPullModelAMD = 4998,
 
     FragStencilRefEXT = 5014,
+
+    RemainingRecursionLevelsAMDX = 5021,
+
+    ShaderIndexAMDX = 5073,
 
     ViewportMaskNV = 5253,
 
@@ -208,6 +222,12 @@ public enum SpvBuiltIn : uint
 
     CurrentRayTimeNV = 5334,
 
+    HitTriangleVertexPositionsKHR = 5335,
+
+    HitMicroTriangleVertexPositionsNV = 5337,
+
+    HitMicroTriangleVertexBarycentricsNV = 5344,
+
     IncomingRayFlagsKHR = 5351,
 
     RayGeometryIndexKHR = 5352,
@@ -219,6 +239,10 @@ public enum SpvBuiltIn : uint
     WarpIDNV = 5376,
 
     Smidnv = 5377,
+
+    HitKindFrontFacingMicroTriangleNV = 5405,
+
+    HitKindBackFacingMicroTriangleNV = 5406,
 
     CullMaskKHR = 6021,
 

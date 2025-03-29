@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 124 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 129 Column: 14
 public enum SpvExecutionMode : uint
 {
     Invocations = 0,
@@ -90,6 +90,12 @@ public enum SpvExecutionMode : uint
 
     LocalSizeHintId = 39,
 
+    NonCoherentColorAttachmentReadEXT = 4169,
+
+    NonCoherentDepthAttachmentReadEXT = 4170,
+
+    NonCoherentStencilAttachmentReadEXT = 4171,
+
     SubgroupUniformControlFlowKHR = 4421,
 
     PostDepthCoverage = 4446,
@@ -108,6 +114,18 @@ public enum SpvExecutionMode : uint
 
     StencilRefReplacingEXT = 5027,
 
+    CoalescingAMDX = 5069,
+
+    IsApiEntryAMDX = 5070,
+
+    MaxNodeRecursionAMDX = 5071,
+
+    StaticNumWorkgroupsAMDX = 5072,
+
+    ShaderIndexAMDX = 5073,
+
+    MaxNumWorkgroupsAMDX = 5077,
+
     StencilRefUnchangedFrontAMD = 5079,
 
     StencilRefGreaterFrontAMD = 5080,
@@ -120,13 +138,19 @@ public enum SpvExecutionMode : uint
 
     StencilRefLessBackAMD = 5084,
 
+    QuadDerivativesKHR = 5088,
+
+    RequireFullQuadsKHR = 5089,
+
+    SharesInputWithAMDX = 5102,
+
     OutputLinesEXT = 5269,
 
     OutputPrimitivesEXT = 5270,
 
-    DerivativeGroupQuadsNV = 5289,
+    DerivativeGroupQuadsKHR = 5289,
 
-    DerivativeGroupLinearNV = 5290,
+    DerivativeGroupLinearKHR = 5290,
 
     OutputTrianglesEXT = 5298,
 
@@ -162,7 +186,21 @@ public enum SpvExecutionMode : uint
 
     SchedulerTargetFmaxMhzINTEL = 5903,
 
+    MaximallyReconvergesKHR = 6023,
+
+    FPFastMathDefault = 6028,
+
+    StreamingInterfaceINTEL = 6154,
+
+    RegisterMapInterfaceINTEL = 6160,
+
     NamedBarrierCountINTEL = 6417,
+
+    MaximumRegistersINTEL = 6461,
+
+    MaximumRegistersIdINTEL = 6462,
+
+    NamedMaximumRegistersINTEL = 6463,
 
     Max = 2147483647,
 

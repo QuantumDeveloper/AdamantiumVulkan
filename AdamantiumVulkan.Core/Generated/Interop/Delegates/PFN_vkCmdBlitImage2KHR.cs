@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 11780 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11830 Column: 26
 public unsafe struct PFN_vkCmdBlitImage2KHR
 {
     public PFN_vkCmdBlitImage2KHR(void* ptr)

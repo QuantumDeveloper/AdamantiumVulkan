@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 380 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 386 Column: 14
 [Flags]
 public enum spv_binary_to_text_options_t : uint
 {
