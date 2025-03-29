@@ -12,13 +12,20 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 18687 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20674 Column: 16
 [StructLayout(LayoutKind.Sequential)]
-public unsafe partial struct VkPhysicalDeviceDepthClampZeroOneFeaturesEXT
+public unsafe partial struct VkClusterAccelerationStructureTriangleClusterInputNV
 {
     public StructureType sType;
     public void* pNext;
-    public VkBool32 depthClampZeroOne;
+    public Format vertexFormat;
+    public uint maxGeometryIndexValue;
+    public uint maxClusterUniqueGeometryCount;
+    public uint maxClusterTriangleCount;
+    public uint maxClusterVertexCount;
+    public uint maxTotalTriangleCount;
+    public uint maxTotalVertexCount;
+    public uint minPositionTruncateBitCount;
 }
 
 

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 774 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 865 Column: 14
 [Flags]
 public enum SpvFunctionControlMask : uint
 {
@@ -25,7 +25,7 @@ public enum SpvFunctionControlMask : uint
 
     ConstMask = 8,
 
-    OptNoneINTELMask = 65536,
+    OptNoneEXTMask = 65536,
 
 }
 

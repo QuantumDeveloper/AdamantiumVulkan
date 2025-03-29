@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 206 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 232 Column: 14
 public enum SpvStorageClass : uint
 {
     UniformConstant = 0,
@@ -40,6 +40,10 @@ public enum SpvStorageClass : uint
 
     StorageBuffer = 12,
 
+    TileImageEXT = 4172,
+
+    NodePayloadAMDX = 5068,
+
     CallableDataKHR = 5328,
 
     IncomingCallableDataKHR = 5329,
@@ -53,6 +57,8 @@ public enum SpvStorageClass : uint
     ShaderRecordBufferKHR = 5343,
 
     PhysicalStorageBuffer = 5349,
+
+    HitObjectAttributeNV = 5385,
 
     TaskPayloadWorkgroupEXT = 5402,
 

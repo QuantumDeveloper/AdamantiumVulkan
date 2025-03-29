@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 417 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 453 Column: 14
 [Flags]
 public enum SpvFPFastMathModeMask : uint
 {
@@ -27,9 +27,11 @@ public enum SpvFPFastMathModeMask : uint
 
     FastMask = 16,
 
-    AllowContractFastINTELMask = 65536,
+    AllowContractMask = 65536,
 
-    AllowReassocINTELMask = 131072,
+    AllowReassocMask = 131072,
+
+    AllowTransformMask = 262144,
 
 }
 

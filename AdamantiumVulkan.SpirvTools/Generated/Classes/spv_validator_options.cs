@@ -13,7 +13,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 510 Column: 34
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 516 Column: 34
 public unsafe partial class spv_validator_options
 {
     internal spv_validator_options_t __Instance;
@@ -48,6 +48,22 @@ public unsafe partial class spv_validator_options
     public void SpvValidatorOptionsSetAllowLocalSizeId(bool val)
     {
         AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidatorOptionsSetAllowLocalSizeId(this, val);
+    }
+
+    ///<summary>
+    /// Allow Offset (in addition to ConstOffset) for texture operations. Was added for VK_KHR_maintenance8
+    ///</summary>
+    public void SpvValidatorOptionsSetAllowOffsetTextureOperand(bool val)
+    {
+        AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidatorOptionsSetAllowOffsetTextureOperand(this, val);
+    }
+
+    ///<summary>
+    /// Allow base operands of some bit operations to be non-32-bit wide.
+    ///</summary>
+    public void SpvValidatorOptionsSetAllowVulkan32BitBitwise(bool val)
+    {
+        AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidatorOptionsSetAllowVulkan32BitBitwise(this, val);
     }
 
     ///<summary>

@@ -38,7 +38,7 @@
         <Field Name="pWaitDstStageMask">
           <Type xsi:type="PointerTypeMap">
             <Pointee xsi:type="ArrayTypeMap">
-              <ElementType xsi:type="BuiltinTypeMap" Type="UInt32"/>
+              <ElementType xsi:type="CustomTypeMap" Name="VkPipelineStageFlagBits"/>
             </Pointee>
           </Type>
         </Field>

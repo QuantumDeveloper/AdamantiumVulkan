@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 6686 Column: 18
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6730 Column: 18
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkFlags64
 {

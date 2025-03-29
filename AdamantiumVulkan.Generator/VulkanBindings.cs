@@ -417,8 +417,6 @@ public static partial class VulkanBindings
             .WithParameterName("pVertexAttributeDescriptions")
             .InterpretAsPointerToArray(new CustomType("VkVertexInputAttributeDescription2EXT"),
                 arraySizeSource: "vertexAttributeDescriptionCount");
-
-        
         
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").
@@ -658,11 +656,6 @@ public static partial class VulkanBindings
             .WithParameterName("pColorWriteMasks")
             .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"), arraySizeSource: "attachmentCount");
         
-        // api.Delegate("PFN_vkCmdSetColorWriteMaskEXT")
-        //     .WithParameterName("pColorWriteMasks")
-        //     .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"),
-        //         arraySizeSource: "attachmentCount");
-        
         api.Function("vkCmdSetColorWriteMaskEXT")
             .WithParameterName("pColorWriteMasks")
             .InterpretAsPointerToArray(new CustomType("VkColorComponentFlagBits"),
@@ -672,6 +665,10 @@ public static partial class VulkanBindings
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt64));
         
         api.Enum("VkShaderStageFlagBits").SetIsFlagsEnum(true);
+                
+        api.Class("VkDeviceQueueCreateInfo")
+            .WithField("pQueuePriorities")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Float), arraySizeSource: "queueCount");
         
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

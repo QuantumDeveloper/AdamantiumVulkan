@@ -1,4 +1,5 @@
 using QuantumBinding.Generator;
+using QuantumBinding.Generator.AST;
 using QuantumBinding.Generator.ProcessingFluentApi;
 using QuantumBinding.Generator.Processors;
 using QuantumBinding.Generator.Types;
@@ -196,6 +197,34 @@ public static partial class VulkanBindings
         api.Class("VkShaderCreateInfoEXT")
             .WithField("nextStage")
             .InterpretAsCustomType("VkShaderStageFlagBits")
+            .ChangeType();
+        
+        api.Class("VkImageMemoryBarrier2")
+            .WithField("srcStageMask")
+            .InterpretAsCustomType("VkPipelineStageFlagBits2")
+            .ChangeType<Enumeration>()
+            .WithField("srcAccessMask")
+            .InterpretAsCustomType("VkAccessFlagBits2")
+            .ChangeType<Enumeration>()
+            .WithField("dstStageMask")
+            .InterpretAsCustomType("VkPipelineStageFlagBits2")
+            .ChangeType<Enumeration>()
+            .WithField("dstAccessMask")
+            .InterpretAsCustomType("VkAccessFlagBits2")
+            .ChangeType<Enumeration>();
+        
+        api.Class("VkDependencyInfo")
+            .WithField("dependencyFlags")
+            .InterpretAsCustomType("VkDependencyFlagBits")
+            .ChangeType<Enumeration>()
+            .WithField("pMemoryBarriers")
+            .InterpretAsPointerToArray(new CustomType("VkMemoryBarrier2"))
+            .ChangeType()
+            .WithField("pBufferMemoryBarriers")
+            .InterpretAsPointerToArray(new CustomType("VkBufferMemoryBarrier2"))
+            .ChangeType()
+            .WithField("pImageMemoryBarriers")
+            .InterpretAsPointerToArray(new CustomType("VkImageMemoryBarrier2"))
             .ChangeType();
 
         var fixingFunctionParameters = new PostProcessingApiPass(api);

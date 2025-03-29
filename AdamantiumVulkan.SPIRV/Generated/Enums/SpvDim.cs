@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 241 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 270 Column: 14
 public enum SpvDim : uint
 {
     _1d = 0,
@@ -27,6 +27,8 @@ public enum SpvDim : uint
     Buffer = 5,
 
     SubpassData = 6,
+
+    TileImageDataEXT = 4173,
 
     Max = 2147483647,
 

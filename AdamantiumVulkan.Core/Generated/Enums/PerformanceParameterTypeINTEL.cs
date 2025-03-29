@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 15448 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15574 Column: 14
 [Flags]
 public enum PerformanceParameterTypeINTEL : uint
 {

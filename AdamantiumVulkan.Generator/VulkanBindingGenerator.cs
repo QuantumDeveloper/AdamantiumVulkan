@@ -32,7 +32,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.4.304.0\Include";
+            string vulkanBasePath = @"C:\VulkanSDK\1.4.309.0\Include";
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
@@ -81,7 +81,6 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.WrapInteropObjects = true;
             vkMainModule.GenerateOverloadsForArrayParams = true;
             vkMainModule.GeneratorSpecializations = GeneratorSpecializations.All;
-            //vkMainModule.SkipGenerationForSimpleTypes = true;
             vkMainModule.OutputPath = corePath;
             
             shaderModule = Module.Create(shadercLibrary);

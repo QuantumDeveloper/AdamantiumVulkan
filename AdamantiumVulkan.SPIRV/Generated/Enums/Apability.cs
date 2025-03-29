@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv_cross/spirv.h Line: 895 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 987 Column: 14
 public enum Apability : uint
 {
     Matrix = 0,
@@ -154,6 +154,16 @@ public enum Apability : uint
 
     UniformDecoration = 71,
 
+    CoreBuiltinsARM = 4165,
+
+    TileImageColorReadAccessEXT = 4166,
+
+    TileImageDepthReadAccessEXT = 4167,
+
+    TileImageStencilReadAccessEXT = 4168,
+
+    CooperativeMatrixLayoutsARM = 4201,
+
     FragmentShadingRateKHR = 4422,
 
     SubgroupBallotKHR = 4423,
@@ -208,6 +218,8 @@ public enum Apability : uint
 
     RayQueryKHR = 4472,
 
+    UntypedPointersKHR = 4473,
+
     RayTraversalPrimitiveCullingKHR = 4478,
 
     RayTracingKHR = 4479,
@@ -234,6 +246,10 @@ public enum Apability : uint
 
     ShaderClockKHR = 5055,
 
+    ShaderEnqueueAMDX = 5067,
+
+    QuadControlKHR = 5087,
+
     SampleMaskOverrideCoverageNV = 5249,
 
     GeometryShaderPassthroughNV = 5251,
@@ -256,7 +272,7 @@ public enum Apability : uint
 
     FragmentBarycentricKHR = 5284,
 
-    ComputeDerivativeGroupQuadsNV = 5288,
+    ComputeDerivativeGroupQuadsKHR = 5288,
 
     FragmentDensityEXT = 5291,
 
@@ -286,6 +302,8 @@ public enum Apability : uint
 
     StorageTexelBufferArrayNonUniformIndexing = 5312,
 
+    RayTracingPositionFetchKHR = 5336,
+
     RayTracingNV = 5340,
 
     RayTracingMotionBlurNV = 5341,
@@ -296,7 +314,7 @@ public enum Apability : uint
 
     PhysicalStorageBufferAddresses = 5347,
 
-    ComputeDerivativeGroupLinearNV = 5350,
+    ComputeDerivativeGroupLinearKHR = 5350,
 
     RayTracingProvisionalKHR = 5353,
 
@@ -312,7 +330,33 @@ public enum Apability : uint
 
     DemoteToHelperInvocation = 5379,
 
+    DisplacementMicromapNV = 5380,
+
+    RayTracingOpacityMicromapEXT = 5381,
+
+    ShaderInvocationReorderNV = 5383,
+
     BindlessTextureNV = 5390,
+
+    RayQueryPositionFetchKHR = 5391,
+
+    AtomicFloat16VectorNV = 5404,
+
+    RayTracingDisplacementMicromapNV = 5409,
+
+    RawAccessChainsNV = 5414,
+
+    CooperativeMatrixReductionsNV = 5430,
+
+    CooperativeMatrixConversionsNV = 5431,
+
+    CooperativeMatrixPerElementOperationsNV = 5432,
+
+    CooperativeMatrixTensorAddressingNV = 5433,
+
+    CooperativeMatrixBlockLoadsNV = 5434,
+
+    TensorAddressingNV = 5439,
 
     SubgroupShuffleINTEL = 5568,
 
@@ -378,13 +422,19 @@ public enum Apability : uint
 
     LoopFuseINTEL = 5906,
 
+    FPGADSPControlINTEL = 5908,
+
     MemoryAccessAliasingINTEL = 5910,
+
+    FPGAInvocationPipeliningAttributesINTEL = 5916,
 
     FPGABufferLocationINTEL = 5920,
 
     ArbitraryPrecisionFixedPointINTEL = 5922,
 
     USMStorageClassesINTEL = 5935,
+
+    RuntimeAlignedAttributeINTEL = 5939,
 
     IOPipesINTEL = 5943,
 
@@ -402,25 +452,57 @@ public enum Apability : uint
 
     RayCullMaskKHR = 6020,
 
+    CooperativeMatrixKHR = 6022,
+
+    ReplicatedCompositesEXT = 6024,
+
     BitInstructions = 6025,
 
     GroupNonUniformRotateKHR = 6026,
+
+    FloatControls2 = 6029,
 
     AtomicFloat32AddEXT = 6033,
 
     AtomicFloat64AddEXT = 6034,
 
-    LongConstantCompositeINTEL = 6089,
+    LongCompositesINTEL = 6089,
 
-    OptNoneINTEL = 6094,
+    OptNoneEXT = 6094,
 
     AtomicFloat16AddEXT = 6095,
 
     DebugInfoModuleINTEL = 6114,
 
+    BFloat16ConversionINTEL = 6115,
+
     SplitBarrierINTEL = 6141,
 
+    ArithmeticFenceEXT = 6144,
+
+    FPGAClusterAttributesV2INTEL = 6150,
+
+    FPGAKernelAttributesv2INTEL = 6161,
+
+    FPMaxErrorINTEL = 6169,
+
+    FPGALatencyControlINTEL = 6171,
+
+    FPGAArgumentInterfacesINTEL = 6174,
+
+    GlobalVariableHostAccessINTEL = 6187,
+
+    GlobalVariableFPGADecorationsINTEL = 6189,
+
+    SubgroupBufferPrefetchINTEL = 6220,
+
     GroupUniformArithmeticKHR = 6400,
+
+    MaskedGatherScatterINTEL = 6427,
+
+    CacheControlsINTEL = 6441,
+
+    RegisterLimitsINTEL = 6460,
 
     Max = 2147483647,
 

@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 201 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 201 Column: 30
 public unsafe struct PFN_vkImportFenceWin32HandleKHR
 {
     public PFN_vkImportFenceWin32HandleKHR(void* ptr)

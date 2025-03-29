@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 3122 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3163 Column: 26
 public unsafe struct PFN_vkVoidFunction
 {
     public PFN_vkVoidFunction(void* ptr)

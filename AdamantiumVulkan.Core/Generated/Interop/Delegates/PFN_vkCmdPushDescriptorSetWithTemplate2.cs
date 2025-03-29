@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 8347 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8396 Column: 26
 public unsafe struct PFN_vkCmdPushDescriptorSetWithTemplate2
 {
     public PFN_vkCmdPushDescriptorSetWithTemplate2(void* ptr)

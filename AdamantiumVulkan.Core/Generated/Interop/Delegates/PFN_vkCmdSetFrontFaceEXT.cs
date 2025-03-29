@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 16106 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16232 Column: 26
 public unsafe struct PFN_vkCmdSetFrontFaceEXT
 {
     public PFN_vkCmdSetFrontFaceEXT(void* ptr)
