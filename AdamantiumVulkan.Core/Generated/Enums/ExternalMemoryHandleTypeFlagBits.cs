@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 5159 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5200 Column: 14
 [Flags]
 public enum ExternalMemoryHandleTypeFlagBits : uint
 {
@@ -42,6 +42,12 @@ public enum ExternalMemoryHandleTypeFlagBits : uint
     RdmaAddressBitNv = 4096,
 
     ScreenBufferBitQnx = 16384,
+
+    MtlbufferBitExt = 65536,
+
+    MtltextureBitExt = 131072,
+
+    MtlheapBitExt = 262144,
 
     FlagBitsMaxEnum = 2147483647,
 

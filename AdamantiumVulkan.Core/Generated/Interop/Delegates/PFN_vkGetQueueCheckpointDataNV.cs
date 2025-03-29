@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 15394 Column: 26
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15520 Column: 26
 public unsafe struct PFN_vkGetQueueCheckpointDataNV
 {
     public PFN_vkGetQueueCheckpointDataNV(void* ptr)

@@ -291,6 +291,8 @@ namespace AdamantiumVulkan.Core
         protected PFN_vkCmdSetLogicOpEnableEXT SetLogicOpEnableDelegate { get; private set; }
         protected PFN_vkCmdSetColorBlendEnableEXT SetColorBlendEnableDelegate { get; private set; }
         protected PFN_vkCmdSetColorWriteMaskEXT SetColorWriteMaskDelegate { get; private set; }
+        
+        protected PFN_vkSetDebugUtilsObjectNameEXT SetDebugUtilsObjectNameDelegate { get; private set; }
 
         public void InitializeExtensions()
         {
@@ -332,6 +334,8 @@ namespace AdamantiumVulkan.Core
             SetLogicOpEnableDelegate = (PFN_vkCmdSetLogicOpEnableEXT)GetDeviceProcAddr("vkCmdSetLogicOpEnableEXT");
             SetColorBlendEnableDelegate = (PFN_vkCmdSetColorBlendEnableEXT)GetDeviceProcAddr("vkCmdSetColorBlendEnableEXT");
             SetColorWriteMaskDelegate = (PFN_vkCmdSetColorWriteMaskEXT)GetDeviceProcAddr("vkCmdSetColorWriteMaskEXT");
+            
+            SetDebugUtilsObjectNameDelegate = (PFN_vkSetDebugUtilsObjectNameEXT)GetDeviceProcAddr("vkSetDebugUtilsObjectNameEXT");
         }
         
         public Queue GetDeviceQueue(uint queueFamilyIndex, uint queueIndex)
@@ -810,6 +814,18 @@ namespace AdamantiumVulkan.Core
         public void SetColorWriteMaskEXT(CommandBuffer commandBuffer, ColorComponentFlagBits colorComponents)
         {
             SetColorWriteMaskDelegate.Invoke(commandBuffer, 0, 1, &colorComponents);
+        }
+        
+        public Result SetObjectDebugNameEXT(ulong objectHandle, ObjectType objectType, string name)
+        {
+            var nameInfo = new DebugUtilsObjectNameInfoEXT();
+            nameInfo.ObjectType = objectType;
+            nameInfo.ObjectHandle = objectHandle;
+            nameInfo.PObjectName = name;
+            var infoPtr = NativeUtils.StructOrEnumToPointer(nameInfo.ToNative());
+            var result = SetDebugUtilsObjectNameDelegate.Invoke(this, infoPtr);
+            NativeUtils.Free(infoPtr);
+            return result;
         }
     }
 

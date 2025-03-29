@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_win32.h Line: 296 Column: 30
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 296 Column: 30
 public unsafe struct PFN_vkGetDeviceGroupSurfacePresentModes2EXT
 {
     public PFN_vkGetDeviceGroupSurfacePresentModes2EXT(void* ptr)

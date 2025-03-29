@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 107 Column: 1
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 107 Column: 1
 public unsafe partial class Device
 {
     internal VkDevice_T __Instance;
@@ -263,6 +263,15 @@ public unsafe partial class Device
     {
         var arg1 = ReferenceEquals(pipeline, null) ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         return AdamantiumVulkan.Core.Interop.VulkanInterop.vkCompileDeferredNV(this, arg1, shader);
+    }
+
+    public Result ConvertCooperativeVectorMatrixNV(in ConvertCooperativeVectorMatrixInfoNV pInfo)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkConvertCooperativeVectorMatrixNV(this, arg1);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        return result;
     }
 
     public Result CopyAccelerationStructureKHR(AdamantiumVulkan.Core.DeferredOperationKHR deferredOperation, in CopyAccelerationStructureInfoKHR pInfo)
@@ -1735,6 +1744,17 @@ public unsafe partial class Device
         return result;
     }
 
+    public void GetClusterAccelerationStructureBuildSizesNV(in ClusterAccelerationStructureInputInfoNV pInfo, AccelerationStructureBuildSizesInfoKHR pSizeInfo)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var arg2 = ReferenceEquals(pSizeInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pSizeInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetClusterAccelerationStructureBuildSizesNV(this, arg1, arg2);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pSizeInfo?.Dispose();
+        NativeUtils.Free(arg2);
+    }
+
     public Result GetCudaModuleCacheNV(AdamantiumVulkan.Core.CudaModuleNV module, ref ulong pCacheSize, ref void* pCacheData)
     {
         var arg1 = ReferenceEquals(module, null) ? new VkCudaModuleNV_T() : (VkCudaModuleNV_T)module;
@@ -2390,6 +2410,17 @@ public unsafe partial class Device
         NativeUtils.Free(arg2);
         pSizeInfo?.Dispose();
         NativeUtils.Free(arg3);
+    }
+
+    public void GetPartitionedAccelerationStructuresBuildSizesNV(in PartitionedAccelerationStructureInstancesInputNV pInfo, AccelerationStructureBuildSizesInfoKHR pSizeInfo)
+    {
+        var arg1 = ReferenceEquals(pInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pInfo.ToNative());
+        var arg2 = ReferenceEquals(pSizeInfo, null) ? null : NativeUtils.StructOrEnumToPointer(pSizeInfo.ToNative());
+        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPartitionedAccelerationStructuresBuildSizesNV(this, arg1, arg2);
+        pInfo?.Dispose();
+        NativeUtils.Free(arg1);
+        pSizeInfo?.Dispose();
+        NativeUtils.Free(arg2);
     }
 
     public Result GetPastPresentationTimingGOOGLE(AdamantiumVulkan.Core.SwapchainKHR swapchain, ref uint pPresentationTimingCount, PastPresentationTimingGOOGLE pPresentationTimings)

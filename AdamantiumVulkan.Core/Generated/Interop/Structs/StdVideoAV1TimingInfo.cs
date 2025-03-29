@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 229 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 229 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoAV1TimingInfo
 {

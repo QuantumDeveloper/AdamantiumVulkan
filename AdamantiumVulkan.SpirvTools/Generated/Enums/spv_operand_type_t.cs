@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\spirv-tools\libspirv.h Line: 123 Column: 14
+// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 123 Column: 14
 ///<summary>
 /// The kinds of operands that an instruction may have.
 ///</summary>
@@ -464,9 +464,29 @@ public enum spv_operand_type_t : uint
     OperandTypeTensorAddressingOperands = 90,
 
     ///<summary>
+    /// Optional types from SPV_INTEL_subgroup_matrix_multiply_accumulate
+    ///</summary>
+    OperandTypeMatrixMultiplyAccumulateOperands = 91,
+
+    ///<summary>
+    /// Optional types from SPV_INTEL_subgroup_matrix_multiply_accumulate
+    ///</summary>
+    OperandTypeOptionalMatrixMultiplyAccumulateOperands = 92,
+
+    ///<summary>
+    /// Optional types from SPV_INTEL_subgroup_matrix_multiply_accumulate
+    ///</summary>
+    OperandTypeCooperativeVectorMatrixLayout = 93,
+
+    ///<summary>
+    /// Optional types from SPV_INTEL_subgroup_matrix_multiply_accumulate
+    ///</summary>
+    OperandTypeComponentType = 94,
+
+    ///<summary>
     /// This is a sentinel value, and does not represent an operand type. It should come last.
     ///</summary>
-    OperandTypeNumOperandTypes = 91,
+    OperandTypeNumOperandTypes = 95,
 
     Force32bitSpvOperandTypeT = 2147483647,
 

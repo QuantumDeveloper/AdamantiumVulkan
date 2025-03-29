@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vulkan/vulkan_core.h Line: 4122 Column: 40
+// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4163 Column: 40
 public unsafe struct PFN_vkGetDeviceProcAddr
 {
     public PFN_vkGetDeviceProcAddr(void* ptr)

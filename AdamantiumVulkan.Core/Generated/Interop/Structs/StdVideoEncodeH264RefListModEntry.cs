@@ -12,7 +12,7 @@ using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Interop;
 
-// File: C:\VulkanSDK\1.4.304.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 77 Column: 16
+// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 77 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH264RefListModEntry
 {
