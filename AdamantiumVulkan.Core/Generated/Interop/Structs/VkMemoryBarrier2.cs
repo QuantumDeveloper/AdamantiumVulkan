@@ -18,10 +18,10 @@ public unsafe partial struct VkMemoryBarrier2
 {
     public StructureType sType;
     public void* pNext;
-    public VkPipelineStageFlags2 srcStageMask;
-    public VkAccessFlags2 srcAccessMask;
-    public VkPipelineStageFlags2 dstStageMask;
-    public VkAccessFlags2 dstAccessMask;
+    public PipelineStageFlagBits2 srcStageMask;
+    public AccessFlagBits2 srcAccessMask;
+    public PipelineStageFlagBits2 dstStageMask;
+    public AccessFlagBits2 dstAccessMask;
 }
 
 
