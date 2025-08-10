@@ -533,7 +533,7 @@ namespace AdamantiumVulkan.Core
 
             SubmitInfo submitInfo = new SubmitInfo();
             submitInfo.CommandBufferCount = 1;
-            submitInfo.PCommandBuffers = new CommandBuffer[] {commandBuffer};
+            submitInfo.PCommandBuffers = [commandBuffer];
 
             var submitInfoArray = new SubmitInfo[1];
             submitInfoArray[0] = submitInfo;

@@ -226,6 +226,20 @@ public static partial class VulkanBindings
             .WithField("pImageMemoryBarriers")
             .InterpretAsPointerToArray(new CustomType("VkImageMemoryBarrier2"))
             .ChangeType();
+        
+        api.Class("VkMemoryBarrier2")
+            .WithField("srcStageMask")
+            .InterpretAsCustomType("VkPipelineStageFlagBits2")
+            .ChangeType<Enumeration>()
+            .WithField("srcAccessMask")
+            .InterpretAsCustomType("VkAccessFlagBits2")
+            .ChangeType<Enumeration>()
+            .WithField("dstStageMask")
+            .InterpretAsCustomType("VkPipelineStageFlagBits2")
+            .ChangeType<Enumeration>()
+            .WithField("dstAccessMask")
+            .InterpretAsCustomType("VkAccessFlagBits2")
+            .ChangeType<Enumeration>();
 
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);
