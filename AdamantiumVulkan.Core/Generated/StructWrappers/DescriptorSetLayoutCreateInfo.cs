@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -24,12 +25,13 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
         PNext = _internal.pNext;
         Flags = _internal.flags;
         BindingCount = _internal.bindingCount;
-        PBindings = new DescriptorSetLayoutBinding[_internal.bindingCount];
+        var tmpPBindings = new DescriptorSetLayoutBinding[_internal.bindingCount];
         var nativeTmpArray0 = NativeUtils.PointerToManagedArray(_internal.pBindings, _internal.bindingCount);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
-            PBindings[i] = new DescriptorSetLayoutBinding(nativeTmpArray0[i]);
+            tmpPBindings[i] = new DescriptorSetLayoutBinding(nativeTmpArray0[i]);
         }
+        PBindings = tmpPBindings;
         NativeUtils.Free(_internal.pBindings);
     }
 
@@ -37,7 +39,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
     public void* PNext { get; set; }
     public DescriptorSetLayoutCreateFlagBits Flags { get; set; }
     public uint BindingCount { get; set; }
-    public DescriptorSetLayoutBinding[] PBindings { get; set; }
+    public IReadOnlyList<DescriptorSetLayoutBinding> PBindings { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo ToNative()
     {
@@ -58,8 +60,8 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : QBDisposableObject
         _pBindings.Dispose();
         if (PBindings != default)
         {
-            var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[PBindings.Length];
-            for (int i = 0; i < PBindings.Length; ++i)
+            var tmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[PBindings.Count];
+            for (int i = 0; i < PBindings.Count; ++i)
             {
                 tmpArray0[i] = PBindings[i].ToNative();
             }
