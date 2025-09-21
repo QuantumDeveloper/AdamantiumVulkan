@@ -2136,11 +2136,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5873 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 pFeatures);
+    internal static extern void vkGetPhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2* pFeatures);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9847 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFeatures2KHR", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceFeatures2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, out AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 pFeatures);
+    internal static extern void vkGetPhysicalDeviceFeatures2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2* pFeatures);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4310 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFormatProperties", ExactSpelling = true)]

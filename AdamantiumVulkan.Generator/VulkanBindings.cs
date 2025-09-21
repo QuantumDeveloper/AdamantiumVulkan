@@ -118,12 +118,12 @@ public static partial class VulkanBindings
         api.Function("vkGetPhysicalDeviceFeatures2KHR").
             WithParameterName("pFeatures").
             InterpretAsIs().
-            SetParameterKind(ParameterKind.Out);
+            SetParameterKind(ParameterKind.Ref);
         
         api.Function("vkGetPhysicalDeviceFeatures2").
             WithParameterName("pFeatures").
             InterpretAsIs().
-            SetParameterKind(ParameterKind.Out);
+            SetParameterKind(ParameterKind.Ref);
         
         api.Function("vkGetInstanceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});
         api.Function("vkGetDeviceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});

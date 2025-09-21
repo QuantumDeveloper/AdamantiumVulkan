@@ -115,6 +115,14 @@ namespace AdamantiumVulkan.Core
             ClearPhysicalDeviceFeatures(deviceFeatures);
             return deviceFeatures;
         }
+        
+        public PhysicalDeviceFeatures2 GetPhysicalDeviceFeatures2()
+        {
+            var deviceFeatures = new PhysicalDeviceFeatures2();
+            GetPhysicalDeviceFeatures2(ref deviceFeatures);
+            ClearPhysicalDeviceFeatures(deviceFeatures.Features);
+            return deviceFeatures;
+        }
 
         public Device CreateDevice(DeviceCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
@@ -161,7 +169,7 @@ namespace AdamantiumVulkan.Core
                 return presentModes;
             }
 
-            return Array.Empty<PresentModeKHR>();
+            return [];
         }
 
         public uint FindCorrespondingMemoryType(uint typeFilter, MemoryPropertyFlagBits properties)
@@ -287,6 +295,7 @@ namespace AdamantiumVulkan.Core
         protected PFN_vkCmdSetDepthCompareOpEXT SetDepthCompareOpDelegate { get; private set; }
         protected PFN_vkCmdSetDepthBoundsTestEnableEXT SetDepthBoundsTestEnableDelegate { get; private set; }
         protected PFN_vkCmdSetDepthBiasEnableEXT SetDepthBiasEnableDelegate { get; private set; }
+        protected PFN_vkCmdSetDepthClampEnableEXT SetDepthClampEnableDelegate { get; private set; }
         protected PFN_vkCmdSetStencilTestEnableEXT SetStencilTestEnableDelegate { get; private set; }
         protected PFN_vkCmdSetLogicOpEnableEXT SetLogicOpEnableDelegate { get; private set; }
         protected PFN_vkCmdSetColorBlendEnableEXT SetColorBlendEnableDelegate { get; private set; }
@@ -330,6 +339,7 @@ namespace AdamantiumVulkan.Core
             SetDepthCompareOpDelegate = (PFN_vkCmdSetDepthCompareOpEXT)GetDeviceProcAddr("vkCmdSetDepthCompareOpEXT");
             SetDepthBoundsTestEnableDelegate = (PFN_vkCmdSetDepthBoundsTestEnableEXT)GetDeviceProcAddr("vkCmdSetDepthBoundsTestEnableEXT");
             SetDepthBiasEnableDelegate = (PFN_vkCmdSetDepthBiasEnableEXT)GetDeviceProcAddr("vkCmdSetDepthBiasEnableEXT");
+            SetDepthClampEnableDelegate = (PFN_vkCmdSetDepthClampEnableEXT)GetDeviceProcAddr("vkCmdSetDepthClampEnableEXT");
             SetStencilTestEnableDelegate = (PFN_vkCmdSetStencilTestEnableEXT)GetDeviceProcAddr("vkCmdSetStencilTestEnableEXT");
             SetLogicOpEnableDelegate = (PFN_vkCmdSetLogicOpEnableEXT)GetDeviceProcAddr("vkCmdSetLogicOpEnableEXT");
             SetColorBlendEnableDelegate = (PFN_vkCmdSetColorBlendEnableEXT)GetDeviceProcAddr("vkCmdSetColorBlendEnableEXT");
@@ -795,6 +805,11 @@ namespace AdamantiumVulkan.Core
             SetDepthBiasEnableDelegate.Invoke(commandBuffer, value);
         }
         
+        public void SetDepthClampEnableEXT(CommandBuffer commandBuffer, bool value)
+        {
+            SetDepthClampEnableDelegate.Invoke(commandBuffer, value);
+        }
+        
         public void SetStencilTestEnableEXT(CommandBuffer commandBuffer, bool value)
         {
             SetStencilTestEnableDelegate.Invoke(commandBuffer, value);
@@ -818,6 +833,11 @@ namespace AdamantiumVulkan.Core
         
         public Result SetObjectDebugNameEXT(ulong objectHandle, ObjectType objectType, string name)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                return Result.Success;;
+            }
+            
             var nameInfo = new DebugUtilsObjectNameInfoEXT();
             nameInfo.ObjectType = objectType;
             nameInfo.ObjectHandle = objectHandle;

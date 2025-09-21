@@ -241,6 +241,11 @@ public static partial class VulkanBindings
             .InterpretAsCustomType("VkAccessFlagBits2")
             .ChangeType<Enumeration>();
 
+        api.Class("VkMemoryAllocateFlagsInfo")
+            .WithField("flags")
+            .InterpretAsCustomType("VkMemoryAllocateFlagBits")
+            .ChangeType<Enumeration>();
+
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);
     }

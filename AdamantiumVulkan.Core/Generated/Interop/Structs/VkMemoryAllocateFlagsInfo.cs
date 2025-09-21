@@ -18,7 +18,7 @@ public unsafe partial struct VkMemoryAllocateFlagsInfo
 {
     public StructureType sType;
     public void* pNext;
-    public VkMemoryAllocateFlags flags;
+    public MemoryAllocateFlagBits flags;
     public uint deviceMask;
 }
 

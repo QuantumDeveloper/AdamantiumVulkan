@@ -26,7 +26,7 @@ public unsafe partial class MemoryAllocateFlagsInfo : QBDisposableObject
 
     public StructureType SType => StructureType.MemoryAllocateFlagsInfo;
     public void* PNext { get; set; }
-    public VkMemoryAllocateFlags Flags { get; set; }
+    public MemoryAllocateFlagBits Flags { get; set; }
     public uint DeviceMask { get; set; }
 
     public AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo ToNative()
@@ -37,7 +37,7 @@ public unsafe partial class MemoryAllocateFlagsInfo : QBDisposableObject
             _internal.sType = SType;
         }
         _internal.pNext = PNext;
-        if (Flags != (uint)default)
+        if (Flags != default)
         {
             _internal.flags = Flags;
         }
