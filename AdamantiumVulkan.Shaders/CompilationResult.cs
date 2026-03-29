@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Text;
 using AdamantiumVulkan.Shaders.Interop;
+using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Shaders
 {
     public class CompilationResult
     {
+        private byte[] _bytecode;
+        
         internal CompilationResult(
             string name,
             string entryPoint,
@@ -18,10 +22,10 @@ namespace AdamantiumVulkan.Shaders
             ulong warningNumbers,
             bool containsTextOutput)
         {
+            _bytecode = bytecode;
             Name = name;
             EntryPoint = entryPoint;
             ShaderStage = shaderStage;
-            Bytecode = bytecode;
             Status = status;
             ErrorsNumber = errorsNumber;
             WarningsNumber = warningNumbers;
@@ -29,9 +33,9 @@ namespace AdamantiumVulkan.Shaders
             ParseMessageString(messages);
         }
 
-        public byte[] Bytecode { get; }
+        public IReadOnlyList<byte> Bytecode => _bytecode;
 
-        public UInt64 Length => (uint)Bytecode.Length;
+        public UInt64 Length => (uint)Bytecode.Count;
 
         public string Name { get; }
         
@@ -55,7 +59,7 @@ namespace AdamantiumVulkan.Shaders
 
         private void ParseMessageString(string message)
         {
-            var messages = message.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var messages = message.Split(['\n'], StringSplitOptions.RemoveEmptyEntries);
             bool lastMessageIsError = false;
             List<string> errors = new List<string>();
             List<string> warnings = new List<string>();
@@ -88,12 +92,12 @@ namespace AdamantiumVulkan.Shaders
 
         public string GetOutputAsString()
         {
-            return Encoding.ASCII.GetString(Bytecode);
+            return Encoding.ASCII.GetString(_bytecode, 0, _bytecode.Length);
         }
 
         public static implicit operator byte[](CompilationResult result)
         {
-            return result.Bytecode;
+            return result._bytecode;
         }
     }
 }

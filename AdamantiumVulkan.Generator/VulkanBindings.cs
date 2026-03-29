@@ -290,7 +290,8 @@ public static partial class VulkanBindings
             "VkAccelerationStructureNV_T"
         };
 
-        api.Classes(structsList).AddField("pointer")
+        api.Classes(structsList)
+            .AddField("pointer")
             .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) });
 
         var classesList = new List<string>()
@@ -337,7 +338,8 @@ public static partial class VulkanBindings
             "VkShaderEXT"
         };
 
-        api.Classes(classesList).AddProperty("NativePointer")
+        api.Classes(classesList)
+            .AddProperty("NativePointer")
             .SetField("__Instance.pointer")
             .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) })
             .SetGetter(new Method());
@@ -582,10 +584,14 @@ public static partial class VulkanBindings
         {
             "spv_binary_t",
             "spv_const_binary_t",
+            "spv_optimizer_t"
         };
 
-        api.Classes(spirvToolsStructsList).AddField("pointer")
+        api.Classes(spirvToolsStructsList)
+            .AddField("pointer")
             .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) });
+
+        api.Wrappers().WithField("pNext").InterpretAsPointerToPrimitiveType(PrimitiveType.Object);
 
         api.Class("spv_parsed_instruction_t").WithField("operands")
             .InterpretAsPointerToArray(new CustomType("spv_parsed_operand_t"));
@@ -601,6 +607,22 @@ public static partial class VulkanBindings
             .CleanObject()
             .CopyFieldsFromLinkedObject()
             .SetClassType(ClassType.Struct);
+
+        api.CreateClass("libspirv", "spv_optimizer", ClassType.Class, "spv_optimizer_t")
+            .AddField("__Instance")
+            .SetType(new CustomType("spv_optimizer_t"))
+            .ChangeType()
+            .Return()
+            .AddOverloadOperator(OperatorKind.Implicit, TransformationKind.FromClassToValue, "__Instance", false)
+            .AddOverloadOperator(OperatorKind.Implicit, TransformationKind.FromValueToClass, "__Instance", true)
+            .AddDefaultConstructor()
+            .AddConstructorWithParameters<Class>("__Instance", ParameterKind.In, new CustomType("spv_optimizer_t"))
+            .AddProperty("NativePointer")
+            .SetField("__Instance.pointer")
+            .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) })
+            .SetGetter(new Method());
+            
+        api.Class("spv_optimizer_t").UpdateLinkedClass("spv_optimizer");
         
         api.Function("spvBinaryToText")
             .WithParameterName("binary")
@@ -611,6 +633,11 @@ public static partial class VulkanBindings
             .WithParameterName("diagnostic")
             .InterpretAsPointerType(new CustomType("spv_diagnostic"), 2)
             .SetParameterKind(ParameterKind.Out);
+
+        api.Function("spvBinaryParse")
+            .WithParameterName("user_data")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.In);
         
         api.Function("VkGetPhysicalDeviceProperties2").
             WithParameterName("pProperties").
@@ -669,6 +696,24 @@ public static partial class VulkanBindings
         api.Class("VkDeviceQueueCreateInfo")
             .WithField("pQueuePriorities")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Float), arraySizeSource: "queueCount");
+        
+        api.Function("spvc_compiler_get_declared_extensions")
+            .WithParameterName("extensions")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Sbyte), pointerDepth: 3, arraySizeSource: "num_extensions", isConst:true)
+            .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("spvOptimizerDestroy")
+            .WithParameterName("optimizer")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.In);
+
+        api.Function("spvc_constant_get_subconstants")
+            .WithParameterName("constituents")
+            .InterpretAsPointerToArray(new CustomType("SpvcConstantId"), pointerDepth: 2, arraySizeSource: "count")
+            .SetParameterKind(ParameterKind.Out)
+            .WithParameterName("count")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Ref);
         
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

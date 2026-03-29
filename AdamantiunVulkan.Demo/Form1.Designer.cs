@@ -1,36 +1,4 @@
-﻿using AdamantiumVulkan.Core;
-using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Windows.Forms;
-using Buffer = AdamantiumVulkan.Core.Buffer;
-using Image = AdamantiumVulkan.Core.Image;
-using Semaphore = AdamantiumVulkan.Core.Semaphore;
-using CoreInterop = AdamantiumVulkan.Core.Interop;
-using System.Collections.Generic;
-using AdamantiumVulkan.Windows;
-using Constants = AdamantiumVulkan.Core.Constants;
-using System.IO;
-using System.Runtime.CompilerServices;
-using Adamantium.DXC;
-using Adamantium.Mathematics;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan.Shaders;
-using AdamantiumVulkan.Shaders.Interop;
-using AdamantiumVulkan.Spirv;
-using AdamantiumVulkan.Spirv.Cross;
-using AdamantiumVulkan.Spirv.Cross.Interop;
-using AdamantiumVulkan.Spirv.Reflection;
-using QuantumBinding.Utils;
-using ImageLayout = AdamantiumVulkan.Core.ImageLayout;
-using Result = AdamantiumVulkan.Core.Result;
-using ShadercIncludeResult = AdamantiumVulkan.Shaders.ShadercIncludeResult;
-
-namespace VulkanEngineTestCore
+﻿namespace AdamantiumVulkan.Demo
 {
     unsafe partial class Form1
     {
