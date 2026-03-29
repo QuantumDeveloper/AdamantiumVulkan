@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core.Interop;
 using QuantumBinding.Utils;
@@ -13,7 +14,7 @@ namespace AdamantiumVulkan.Core
             var result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceLayerProperties));
 
-            LayerProperties[] layers = new LayerProperties[layersCount];
+            var layers = new LayerProperties[layersCount];
             result = VulkanNative.EnumerateInstanceLayerProperties(ref layersCount, layers);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceLayerProperties));
             return layers;
@@ -25,7 +26,7 @@ namespace AdamantiumVulkan.Core
             var result = VulkanNative.EnumerateInstanceExtensionProperties(layerName, ref propertyCount, null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceExtensionProperties));
 
-            ExtensionProperties[] properties = new ExtensionProperties[propertyCount];
+            var properties = new ExtensionProperties[propertyCount];
             result = VulkanNative.EnumerateInstanceExtensionProperties(layerName, ref propertyCount, properties);
             ResultHelper.CheckResult(result, nameof(EnumeratePhysicalDevices));
             return properties;
@@ -37,7 +38,7 @@ namespace AdamantiumVulkan.Core
             var result = VulkanNative.EnumerateInstanceExtensionProperties(null, ref extensionsCount, null);
             ResultHelper.CheckResult(result, nameof(VulkanNative.EnumerateInstanceExtensionProperties));
 
-            ExtensionProperties[] properties = new ExtensionProperties[extensionsCount];
+            var properties = new ExtensionProperties[extensionsCount];
             result = VulkanNative.EnumerateInstanceExtensionProperties(null, ref extensionsCount, properties);
             ResultHelper.CheckResult(result, nameof(EnumeratePhysicalDevices));
             return properties;
@@ -66,7 +67,7 @@ namespace AdamantiumVulkan.Core
         public PhysicalDevice[] EnumeratePhysicalDevices()
         {
             var physicalDeviceCount = PhysicalDeviceCount;
-            PhysicalDevice[] pPhysicalDevices = new PhysicalDevice[physicalDeviceCount];
+            var pPhysicalDevices = new PhysicalDevice[physicalDeviceCount];
             var result = EnumeratePhysicalDevices(ref physicalDeviceCount, pPhysicalDevices);
             ResultHelper.CheckResult(result, nameof(EnumeratePhysicalDevices));
 
@@ -176,13 +177,13 @@ namespace AdamantiumVulkan.Core
         {
             var memProperties = GetPhysicalDeviceMemoryProperties();
 
-            for (uint i = 0; i < memProperties.MemoryTypeCount; i++)
+            for (int i = 0; i < memProperties.MemoryTypeCount; i++)
             {
-                var shift = 1 << (int)i;
+                var shift = 1 << i;
                 if ((typeFilter & shift) > 0 && 
-                    (memProperties.MemoryTypes[i].PropertyFlags).HasFlag(properties))
+                    (memProperties.MemoryTypes.Span[i].PropertyFlags).HasFlag(properties))
                 {
-                    return i;
+                    return (uint)i;
                 }
             }
 
@@ -350,19 +351,19 @@ namespace AdamantiumVulkan.Core
         
         public Queue GetDeviceQueue(uint queueFamilyIndex, uint queueIndex)
         {
-            GetDeviceQueue(queueFamilyIndex, queueIndex, out Queue queue);
+            GetDeviceQueue(queueFamilyIndex, queueIndex, out var queue);
             return queue;
         }
 
         public Queue GetDeviceQueue2(DeviceQueueInfo2 queueInfo)
         {
-            GetDeviceQueue2(queueInfo, out Queue pQueue);
+            GetDeviceQueue2(queueInfo, out var pQueue);
             return pQueue;
         }
 
         public SwapchainKHR CreateSwapchainKHR(SwapchainCreateInfoKHR createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateSwapchainKHR(createInfo, allocator, out SwapchainKHR swapchain);
+            var result = CreateSwapchainKHR(createInfo, allocator, out var swapchain);
             ResultHelper.CheckResult(result, nameof(CreateSwapchainKHR));
             return swapchain;
         }
@@ -382,69 +383,69 @@ namespace AdamantiumVulkan.Core
 
         public ImageView CreateImageView(ImageViewCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateImageView(createInfo, allocator, out ImageView view);
+            var result = CreateImageView(createInfo, allocator, out var view);
             ResultHelper.CheckResult(result, nameof(CreateImageView));
             return view;
         }
 
         public RenderPass CreateRenderPass(RenderPassCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateRenderPass(createInfo, allocator, out RenderPass renderPass);
+            var result = CreateRenderPass(createInfo, allocator, out var renderPass);
             ResultHelper.CheckResult(result, nameof(CreateRenderPass));
             return renderPass;
         }
 
         public PipelineLayout CreatePipelineLayout(PipelineLayoutCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreatePipelineLayout(createInfo, allocator, out PipelineLayout pipelineLayout);
+            var result = CreatePipelineLayout(createInfo, allocator, out var pipelineLayout);
             ResultHelper.CheckResult(result, nameof(CreatePipelineLayout));
             return pipelineLayout;
         }
 
         public Pipeline[] CreateGraphicsPipelines(PipelineCache pipelineCache, uint createInfoCount, GraphicsPipelineCreateInfo createInfos, AllocationCallbacks allocator = null)
         {
-            var result = CreateGraphicsPipelines(pipelineCache, createInfoCount, createInfos, allocator, out Pipeline[] pipelines);
+            var result = CreateGraphicsPipelines(pipelineCache, createInfoCount, createInfos, allocator, out var pipelines);
             ResultHelper.CheckResult(result, nameof(CreateGraphicsPipelines));
             return pipelines;
         }
 
         public Pipeline[] CreateComputePipelines(PipelineCache pipelineCache, uint createInfoCount, ComputePipelineCreateInfo createInfos, AllocationCallbacks allocator = null)
         {
-            var result = CreateComputePipelines(pipelineCache, createInfoCount, createInfos, allocator, out Pipeline[] pipelines);
+            var result = CreateComputePipelines(pipelineCache, createInfoCount, createInfos, allocator, out var pipelines);
             ResultHelper.CheckResult(result, nameof(CreateComputePipelines));
             return pipelines;
         }
 
         public Framebuffer CreateFramebuffer(FramebufferCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateFramebuffer(createInfo, allocator, out Framebuffer framebuffer);
+            var result = CreateFramebuffer(createInfo, allocator, out var framebuffer);
             ResultHelper.CheckResult(result, nameof(CreateFramebuffer));
             return framebuffer;
         }
 
         public CommandPool CreateCommandPool(CommandPoolCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateCommandPool(createInfo, allocator, out CommandPool commandPool);
+            var result = CreateCommandPool(createInfo, allocator, out var commandPool);
             ResultHelper.CheckResult(result, nameof(CreateCommandPool));
             return commandPool;
         }
 
         public Buffer CreateBuffer(BufferCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateBuffer(createInfo, allocator, out Buffer buffer);
+            var result = CreateBuffer(createInfo, allocator, out var buffer);
             ResultHelper.CheckResult(result, nameof(CreateBuffer));
             return buffer;
         }
 
         public MemoryRequirements GetBufferMemoryRequirements(Buffer buffer)
         {
-            GetBufferMemoryRequirements(buffer, out MemoryRequirements memoryRequirements);
+            GetBufferMemoryRequirements(buffer, out var memoryRequirements);
             return memoryRequirements;
         }
 
         public DeviceMemory AllocateMemory(MemoryAllocateInfo allocateInfo, AllocationCallbacks allocator = null)
         {
-            var result = AllocateMemory(allocateInfo, allocator, out DeviceMemory deviceMemory);
+            var result = AllocateMemory(allocateInfo, allocator, out var deviceMemory);
             ResultHelper.CheckResult(result, nameof(AllocateMemory));
             return deviceMemory;
         }
@@ -458,7 +459,7 @@ namespace AdamantiumVulkan.Core
 
         public CommandBuffer[] AllocateCommandBuffers(CommandBufferAllocateInfo allocateInfo)
         {
-            CommandBuffer[] commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
+            var commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
             var result = AllocateCommandBuffers(allocateInfo, commandBuffers);
             ResultHelper.CheckResult(result, nameof(AllocateCommandBuffers));
             return commandBuffers;
@@ -466,7 +467,7 @@ namespace AdamantiumVulkan.Core
 
         public Semaphore CreateSemaphore(SemaphoreCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateSemaphore(createInfo, allocator, out Semaphore semaphore);
+            var result = CreateSemaphore(createInfo, allocator, out var semaphore);
             ResultHelper.CheckResult(result, nameof(CreateSemaphore));
             return semaphore;
         }
@@ -479,7 +480,7 @@ namespace AdamantiumVulkan.Core
             }
 
             var semaphores = new Semaphore[semaphoreCount];
-            for (int i = 0; i < semaphoreCount; ++i)
+            for (var i = 0; i < semaphoreCount; ++i)
             {
                 semaphores[i] = CreateSemaphore(createInfo, allocator);
             }
@@ -489,7 +490,7 @@ namespace AdamantiumVulkan.Core
 
         public Fence CreateFence(FenceCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateFence(createInfo, allocator, out Fence fence);
+            var result = CreateFence(createInfo, allocator, out var fence);
             ResultHelper.CheckResult(result, nameof(CreateFence));
             return fence;
         }
@@ -502,7 +503,7 @@ namespace AdamantiumVulkan.Core
             }
 
             var fences = new Fence[fenceCount];
-            for (int i = 0; i < fenceCount; ++i)
+            for (var i = 0; i < fenceCount; ++i)
             {
                 fences[i] = CreateFence(createInfo, allocator);
             }
@@ -512,7 +513,7 @@ namespace AdamantiumVulkan.Core
 
         public ShaderModule CreateShaderModule(ShaderModuleCreateInfo createInfo, AllocationCallbacks allocator = null)
         {
-            var result = CreateShaderModule(createInfo, allocator, out ShaderModule shaderModule);
+            var result = CreateShaderModule(createInfo, allocator, out var shaderModule);
             ResultHelper.CheckResult(result, nameof(CreateShaderModule));
             return shaderModule;
         }
@@ -541,9 +542,9 @@ namespace AdamantiumVulkan.Core
             var fenceInfo = new FenceCreateInfo();
             var fence = CreateFence(fenceInfo);
 
-            SubmitInfo submitInfo = new SubmitInfo();
+            var submitInfo = new SubmitInfo();
             submitInfo.CommandBufferCount = 1;
-            submitInfo.PCommandBuffers = [commandBuffer];
+            submitInfo.PCommandBuffers = new ReadOnlyMemory<CommandBuffer>([commandBuffer]);
 
             var submitInfoArray = new SubmitInfo[1];
             submitInfoArray[0] = submitInfo;
@@ -570,30 +571,25 @@ namespace AdamantiumVulkan.Core
         
         public ShaderEXT CreateShader(ShaderCreateInfoEXT createInfo, AllocationCallbacks allocator = null)
         {
-            VkShaderCreateInfoEXT* createInfoPtr = NativeUtils.StructOrEnumToPointer(createInfo.ToNative());
-            var shaders = new VkShaderEXT_T[1];
-            var arrayPtr = NativeUtils.ManagedArrayToPointer(shaders);
-            var result = CreateShadersDelegate.Invoke(this, 1, createInfoPtr, null, arrayPtr);
+            using var ctx = new NativeContext(createInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var createInfoPtr = createInfo.MarshalToNative(ctx);
+            var arrayPtr = stackalloc VkShaderEXT_T[1];
+            var result = CreateShadersDelegate.Invoke(this, 1, &createInfoPtr, null, arrayPtr);
             ResultHelper.CheckResult(result, nameof(CreateShader));
-            shaders = NativeUtils.PointerToManagedArray(arrayPtr, 1);
-            return shaders[0];
+            var shader = new ShaderEXT(*arrayPtr);
+            return shader;
         }
         
         public ShaderEXT[] CreateShaders(ShaderCreateInfoEXT[] createInfo, AllocationCallbacks allocator = null)
         {
-            VkShaderCreateInfoEXT[] nativeCreateInfo = new VkShaderCreateInfoEXT[createInfo.Length];
-            for (int i = 0; i < createInfo.Length; i++)
-            {
-                nativeCreateInfo[i] = createInfo[i].ToNative();
-            }
-            VkShaderCreateInfoEXT* createInfoPtr = NativeUtils.ManagedArrayToPointer(nativeCreateInfo);
-            var nativeShaders = new VkShaderEXT_T[createInfo.Length];
-            var arrayPtr = NativeUtils.ManagedArrayToPointer(nativeShaders);
-            var result = CreateShadersDelegate.Invoke(this, (uint)createInfo.Length, createInfoPtr, null, arrayPtr);
+            using var ctx = MarshallingContext.MarshalArray<ShaderCreateInfoEXT, VkShaderCreateInfoEXT>(createInfo, out var createInfoPtr);
+           
+            Span<VkShaderEXT_T> nativeShaders = stackalloc VkShaderEXT_T[createInfo.Length];
+            var nativeShadersPtr = (VkShaderEXT_T*)Unsafe.AsPointer(ref nativeShaders[0]);
+            var result = CreateShadersDelegate.Invoke(this, (uint)createInfo.Length, createInfoPtr, null, nativeShadersPtr);
             ResultHelper.CheckResult(result, nameof(CreateShader));
-            nativeShaders = NativeUtils.PointerToManagedArray(arrayPtr, (uint)createInfo.Length);
-            ShaderEXT[] shaders = new ShaderEXT[createInfo.Length];
-            for (int i = 0; i < createInfo.Length; i++)
+            var shaders = new ShaderEXT[createInfo.Length];
+            for (var i = 0; i < createInfo.Length; i++)
             {
                 shaders[i] = nativeShaders[i];
             }
@@ -603,7 +599,7 @@ namespace AdamantiumVulkan.Core
         public void BindShader(CommandBuffer cmd, ShaderStageFlagBits stage, ShaderEXT shader)
         {
             var stagePtr = NativeUtils.StructOrEnumToPointer(stage);
-            VkShaderEXT_T* shadersPtr = NativeUtils.ManagedArrayToPointer(new VkShaderEXT_T[] { shader });
+            var shadersPtr = NativeUtils.ManagedArrayToPointer(new VkShaderEXT_T[] { shader });
             BindShadersDelegate.Invoke(cmd, 1, stagePtr, shadersPtr);
             NativeUtils.Free(stagePtr);
             NativeUtils.Free(shadersPtr);
@@ -623,27 +619,21 @@ namespace AdamantiumVulkan.Core
 
         public void GetDescriptor(DescriptorGetInfoEXT descriptorInfo, uint descriptorSize, void* descriptorPtr)
         {
-            var infoPtr = NativeUtils.StructOrEnumToPointer(descriptorInfo.ToNative()); 
-            GetDescriptorDelegate.Invoke(this, infoPtr, descriptorSize, descriptorPtr);
-            NativeMemory.Free(infoPtr);
-            descriptorInfo?.Dispose();
+            using var ctx = new NativeContext(descriptorInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var infoPtr = descriptorInfo.MarshalToNative(ctx);
+            GetDescriptorDelegate.Invoke(this, &infoPtr, descriptorSize, descriptorPtr);
         }
         
         public void BindDescriptorBuffers(CommandBuffer commandBuffer, DescriptorBufferBindingInfoEXT[] bindingInfos)
         {
-            var infos = new VkDescriptorBufferBindingInfoEXT[bindingInfos.Length];
-            for (int i = 0; i < bindingInfos.Length; i++)
-            {
-                infos[i] = bindingInfos[i].ToNative();
-            }
-            var arrayPtr = NativeUtils.ManagedArrayToPointer(infos); 
+            using var ctx = MarshallingContext.MarshalArray<DescriptorBufferBindingInfoEXT, VkDescriptorBufferBindingInfoEXT>(bindingInfos, out var arrayPtr);
             BindDescriptorBuffersDelegate.Invoke(commandBuffer, (uint)bindingInfos.Length, arrayPtr);
             NativeMemory.Free(arrayPtr);
         }
 
         public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, ulong[] offsets)
         {
-            uint* indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
+            var indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
             var offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
             SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
             NativeMemory.Free(indicesPtr);
@@ -654,26 +644,21 @@ namespace AdamantiumVulkan.Core
         {
             if (viewports == null) return;
             
-            var vkViewports = new VkViewport[viewports.Length];
-            for (int i = 0; i < viewports.Length; i++)
-            {
-                vkViewports[i] = viewports[i].ToNative();
-            }
-            var nativeViewportsPtr = NativeUtils.ManagedArrayToPointer(vkViewports);
-            SetViewportWithCountDelegate.Invoke(commandBuffer, (uint)viewports.Length, nativeViewportsPtr);
+            using var ctx = new NativeContext(MarshalingUtils.GetTotalSize<Viewport, VkViewport>(viewports), stackalloc byte[1024]);
+            var buffer = ctx.Data;
+            var pNative = MarshalContextUtils.MarshalArrayOfWrappers<Viewport, VkViewport>(viewports, ref buffer);
+            
+            SetViewportWithCountDelegate.Invoke(commandBuffer, (uint)viewports.Length, pNative);
         }
 
         public void SetScissorsWithCountEXT(CommandBuffer commandBuffer, params Rect2D[] scissors)
         {
             if (scissors == null) return;
             
-            var vkScissors = new VkRect2D[scissors.Length];
-            for (int i = 0; i < scissors.Length; i++)
-            {
-                vkScissors[i] = scissors[i].ToNative();
-            }
-            var nativeScissorsPtr = NativeUtils.ManagedArrayToPointer(vkScissors);
-            SetScissorWithCountDelegate.Invoke(commandBuffer, (uint)scissors.Length, nativeScissorsPtr);
+            using var ctx = new NativeContext(MarshalingUtils.GetTotalSize<Rect2D, VkRect2D>(scissors), stackalloc byte[1024]);
+            var buffer = ctx.Data;
+            var pNative = MarshalContextUtils.MarshalArrayOfWrappers<Rect2D, VkRect2D>(scissors, ref buffer);
+            SetScissorWithCountDelegate.Invoke(commandBuffer, (uint)scissors.Length, pNative);
         }
 
         public void SetRasterizerDiscardEnableEXT(CommandBuffer commandBuffer, bool value)
@@ -685,13 +670,11 @@ namespace AdamantiumVulkan.Core
         {
             if (colorBlendEquations == null) return;
             
-            var items = new VkColorBlendEquationEXT[colorBlendEquations.Length];
-            for (int i = 0; i < colorBlendEquations.Length; i++)
-            {
-                items[i] = colorBlendEquations[i].ToNative();
-            }
-            var nativePtr = NativeUtils.ManagedArrayToPointer(items);
-            SetColorBlendEquationDelegate.Invoke(commandBuffer, firstAttachment, attachmentCount, nativePtr);
+            using var ctx = new NativeContext(MarshalingUtils.GetTotalSize<ColorBlendEquationEXT, VkColorBlendEquationEXT>(colorBlendEquations), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var buffer = ctx.Data;
+            var pNative = MarshalContextUtils.MarshalArrayOfWrappers<ColorBlendEquationEXT, VkColorBlendEquationEXT>(colorBlendEquations, ref buffer);
+            
+            SetColorBlendEquationDelegate.Invoke(commandBuffer, firstAttachment, attachmentCount, pNative);
         }
 
         public void SetVertexInputEXT(CommandBuffer commandBuffer,
@@ -700,36 +683,26 @@ namespace AdamantiumVulkan.Core
             uint vertexAttributeDescriptionCount,
             params VertexInputAttributeDescription2EXT[] pVertexAttributeDescriptions)
         {
-            var arg2 = ReferenceEquals(pVertexBindingDescriptions, null)
-                ? null
-                : NativeUtils.StructOrEnumToPointer(pVertexBindingDescriptions.ToNative());
-            var arg4 = ReferenceEquals(pVertexAttributeDescriptions, null)
-                ? null
-                : NativeUtils.GetPointerToManagedArray<VkVertexInputAttributeDescription2EXT>(
-                        vertexAttributeDescriptionCount);
-            if (!ReferenceEquals(pVertexAttributeDescriptions, null))
-            {
-                for (var i = 0U; i < vertexAttributeDescriptionCount; ++i)
-                {
-                    arg4[i] = pVertexAttributeDescriptions[i].ToNative();
-                }
-            }
+            using var ctx0 =
+                new NativeContext(pVertexBindingDescriptions.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var arg2 = pVertexBindingDescriptions.MarshalToNative(ctx0);
 
-            SetVertexInputDelegate.Invoke(commandBuffer, 
-                vertexBindingDescriptionCount, 
-                arg2,
-                vertexAttributeDescriptionCount, 
+            using var ctx =
+                new NativeContext(
+                    MarshalingUtils
+                        .GetTotalSize<VertexInputAttributeDescription2EXT,
+                            VkVertexInputAttributeDescription2EXT>(pVertexAttributeDescriptions),
+                    stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var buffer = ctx.Data;
+            var arg4 = MarshalContextUtils
+                .MarshalArrayOfWrappers<VertexInputAttributeDescription2EXT, VkVertexInputAttributeDescription2EXT>(
+                    pVertexAttributeDescriptions, ref buffer);
+
+            SetVertexInputDelegate.Invoke(commandBuffer,
+                vertexBindingDescriptionCount,
+                &arg2,
+                vertexAttributeDescriptionCount,
                 arg4);
-
-            pVertexBindingDescriptions?.Dispose();
-            NativeUtils.Free(arg2);
-            if (!ReferenceEquals(pVertexAttributeDescriptions, null))
-            {
-                for (var i = 0U; i < vertexAttributeDescriptionCount; ++i)
-                {
-                    pVertexAttributeDescriptions[i]?.Dispose();
-                }
-            }
         }
 
         public void SetPrimitiveTopologyEXT(CommandBuffer commandBuffer, PrimitiveTopology primitiveTopology)
@@ -842,9 +815,10 @@ namespace AdamantiumVulkan.Core
             nameInfo.ObjectType = objectType;
             nameInfo.ObjectHandle = objectHandle;
             nameInfo.PObjectName = name;
-            var infoPtr = NativeUtils.StructOrEnumToPointer(nameInfo.ToNative());
-            var result = SetDebugUtilsObjectNameDelegate.Invoke(this, infoPtr);
-            NativeUtils.Free(infoPtr);
+            using var ctx = new NativeContext(nameInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var infoPtr = nameInfo.MarshalToNative(ctx);
+            var result = SetDebugUtilsObjectNameDelegate.Invoke(this, &infoPtr);
+            
             return result;
         }
     }

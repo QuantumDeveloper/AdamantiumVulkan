@@ -81,12 +81,8 @@ namespace AdamantiumVulkan.Core
             state.LogicOpEnable = VkBool32.FALSE;
             state.LogicOp = LogicOp.Copy;
             state.AttachmentCount = 1;
-            state.PAttachments = new [] { colorBlendAttachment };
+            state.PAttachments =  new System.ReadOnlyMemory<PipelineColorBlendAttachmentState>([colorBlendAttachment]);
             state.BlendConstants = new float[4];
-            state.BlendConstants[0] = 0.0f;
-            state.BlendConstants[1] = 0.0f;
-            state.BlendConstants[2] = 0.0f;
-            state.BlendConstants[3] = 0.0f;
 
             return state;
         }
@@ -94,7 +90,7 @@ namespace AdamantiumVulkan.Core
         public object Clone()
         {
             var colorBlenAttachments = new List<PipelineColorBlendAttachmentState>();
-            foreach (var attachment in PAttachments)
+            foreach (var attachment in PAttachments.Span)
             {
                 var colorBlendAttachment = (PipelineColorBlendAttachmentState)attachment.Clone();
                 colorBlenAttachments.Add(colorBlendAttachment);
@@ -106,11 +102,13 @@ namespace AdamantiumVulkan.Core
             clone.LogicOp = LogicOp.Copy;
             clone.AttachmentCount = AttachmentCount;
             clone.PAttachments = colorBlenAttachments.ToArray();
-            clone.BlendConstants = new float[BlendConstants.Length];
+            var blendConstants = new float[BlendConstants.Length];
             for (int i = 0; i < clone.BlendConstants.Length; ++i)
             {
-                clone.BlendConstants[i] = BlendConstants[i];
+                blendConstants[i] = BlendConstants.Span[i];
             }
+
+            clone.BlendConstants = blendConstants;
 
             return clone;
         }
