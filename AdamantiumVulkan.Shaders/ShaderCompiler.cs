@@ -16,8 +16,9 @@ namespace AdamantiumVulkan.Shaders
         {
             var status = result.GetCompilationStatus();
             var bytecode = NativeUtils.PointerToManagedArray((byte*)result.GetBytes(), (long)result.GetLength());
+            var memorySpan = new System.Span<byte>((byte*)result.GetBytes(), (int)result.GetLength());
             var messages = result.GetErrorMessage();
-            return new CompilationResult(name, entryPoint, bytecode, shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
+            return new CompilationResult(name, entryPoint, memorySpan.ToArray(), shaderKind, status, messages, result.GetNumErrors(), result.GetNumWarnings(), isTextOutput);
         }
 
         ///<summary>
