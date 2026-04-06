@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineViewportExclusiveScissorStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint exclusiveScissorCount;
     public AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors;
 }

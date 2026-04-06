@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDisplaySurfaceCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDisplaySurfaceCreateFlagsKHR flags;
     public VkDisplayModeKHR_T displayMode;
     public uint planeIndex;

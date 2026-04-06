@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDebugUtilsMessengerCallbackDataEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDebugUtilsMessengerCallbackDataFlagsEXT flags;
     public sbyte* pMessageIdName;
     public int messageIdNumber;

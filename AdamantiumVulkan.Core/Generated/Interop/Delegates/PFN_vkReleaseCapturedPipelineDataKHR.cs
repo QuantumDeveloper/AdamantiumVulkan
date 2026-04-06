@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12130 Column: 30
 public unsafe struct PFN_vkReleaseCapturedPipelineDataKHR
 {
+    public PFN_vkReleaseCapturedPipelineDataKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkReleaseCapturedPipelineDataKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkReleaseCapturedPipelineDataKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkReleaseCapturedPipelineDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, Result>)ptr)(device, pInfo, pAllocator);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkReleaseCapturedPipelineDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkReleaseCapturedPipelineDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, Result>)(void*)ptr)(device, pInfo, pAllocator);
+    }
 
     public static explicit operator PFN_vkReleaseCapturedPipelineDataKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkReleaseCapturedPipelineDataKHR(nuint ptr) => new(ptr);
 }
 
 

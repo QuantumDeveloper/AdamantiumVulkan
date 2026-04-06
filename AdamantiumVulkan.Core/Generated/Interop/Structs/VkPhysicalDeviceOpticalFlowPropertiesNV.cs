@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceOpticalFlowPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkOpticalFlowGridSizeFlagsNV supportedOutputGridSizes;
     public VkOpticalFlowGridSizeFlagsNV supportedHintGridSizes;
     public VkBool32 hintSupported;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMapMemoryPlacedFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 memoryMapPlaced;
     public VkBool32 memoryMapRangePlaced;
     public VkBool32 memoryUnmapReserve;

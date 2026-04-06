@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4160 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyProperties
 {
+    public PFN_vkGetPhysicalDeviceQueueFamilyProperties(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceQueueFamilyProperties(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyProperties
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties*, void>)ptr)(physicalDevice, ref pQueueFamilyPropertyCount, pQueueFamilyProperties);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties*, void>)(void*)ptr)(physicalDevice, ref pQueueFamilyPropertyCount, pQueueFamilyProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceQueueFamilyProperties(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceQueueFamilyProperties(nuint ptr) => new(ptr);
 }
 
 

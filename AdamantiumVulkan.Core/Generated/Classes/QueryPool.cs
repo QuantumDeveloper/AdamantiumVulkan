@@ -27,7 +27,7 @@ public unsafe partial class QueryPool : IUnmanagedWrapper<AdamantiumVulkan.Core.
     }
 
     public AdamantiumVulkan.Core.Interop.VkQueryPool_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkQueryPool_T GetPinnableReference() => ref __Instance;
 

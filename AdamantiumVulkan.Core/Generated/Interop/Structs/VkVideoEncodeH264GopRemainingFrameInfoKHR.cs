@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH264GopRemainingFrameInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 useGopRemainingFrames;
     public uint gopRemainingI;
     public uint gopRemainingP;

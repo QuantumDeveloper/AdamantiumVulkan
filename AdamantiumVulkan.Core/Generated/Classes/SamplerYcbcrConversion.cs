@@ -27,7 +27,7 @@ public unsafe partial class SamplerYcbcrConversion : IUnmanagedWrapper<Adamantiu
     }
 
     public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkSamplerYcbcrConversion_T GetPinnableReference() => ref __Instance;
 

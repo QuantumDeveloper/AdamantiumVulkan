@@ -27,7 +27,7 @@ public unsafe partial class ImageView : IUnmanagedWrapper<AdamantiumVulkan.Core.
     }
 
     public AdamantiumVulkan.Core.Interop.VkImageView_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkImageView_T GetPinnableReference() => ref __Instance;
 

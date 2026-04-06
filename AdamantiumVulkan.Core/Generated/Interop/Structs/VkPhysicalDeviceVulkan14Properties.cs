@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceVulkan14Properties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint lineSubPixelPrecisionBits;
     public uint maxVertexAttribDivisor;
     public VkBool32 supportsNonZeroFirstInstance;

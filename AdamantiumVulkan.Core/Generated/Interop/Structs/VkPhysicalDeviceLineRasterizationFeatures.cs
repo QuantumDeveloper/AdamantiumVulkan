@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceLineRasterizationFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 rectangularLines;
     public VkBool32 bresenhamLines;
     public VkBool32 smoothLines;

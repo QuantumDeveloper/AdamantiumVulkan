@@ -185,7 +185,7 @@ namespace AdamantiumVulkan.Shaders
         ///<summary>
         /// Sets includer callback functions.
         ///</summary>
-        public void SetIncludeCallbacks(void* resolver, void* resultReleaser, ref void* userData)
+        public void SetIncludeCallbacks(nuint resolver, nuint resultReleaser, ref nuint userData)
         {
             compileOptions.SetIncludeCallbacks(resolver, resultReleaser, ref userData);
         }

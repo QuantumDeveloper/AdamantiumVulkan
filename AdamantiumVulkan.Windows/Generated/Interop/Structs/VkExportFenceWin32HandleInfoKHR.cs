@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkExportFenceWin32HandleInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
-    public void* pAttributes;
+    public nuint pNext;
+    public nuint pAttributes;
     public uint dwAccess;
     public char name;
 }

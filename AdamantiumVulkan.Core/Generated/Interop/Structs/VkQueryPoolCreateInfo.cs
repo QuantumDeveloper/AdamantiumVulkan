@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkQueryPoolCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkQueryPoolCreateFlags flags;
     public QueryType queryType;
     public uint queryCount;

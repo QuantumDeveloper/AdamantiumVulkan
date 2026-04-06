@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16511 Column: 30
 public unsafe struct PFN_vkReleaseSwapchainImagesEXT
 {
+    public PFN_vkReleaseSwapchainImagesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkReleaseSwapchainImagesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkReleaseSwapchainImagesEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT*, Result>)ptr)(device, pReleaseInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT* pReleaseInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT*, Result>)(void*)ptr)(device, pReleaseInfo);
+    }
 
     public static explicit operator PFN_vkReleaseSwapchainImagesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkReleaseSwapchainImagesEXT(nuint ptr) => new(ptr);
 }
 
 

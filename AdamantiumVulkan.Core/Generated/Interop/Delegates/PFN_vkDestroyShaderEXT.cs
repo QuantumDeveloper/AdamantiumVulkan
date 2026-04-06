@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19870 Column: 26
 public unsafe struct PFN_vkDestroyShaderEXT
 {
+    public PFN_vkDestroyShaderEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyShaderEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyShaderEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, shader, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, shader, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyShaderEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyShaderEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18529 Column: 30
 public unsafe struct PFN_vkWriteMicromapsPropertiesEXT
 {
+    public PFN_vkWriteMicromapsPropertiesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkWriteMicromapsPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, nuint, ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, nuint, ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, nuint pData, ulong stride)
     {
         return InvokeFunc(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, nuint pData, ulong stride)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, void*, ulong, Result>)ptr)(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, nuint, ulong, Result>)ptr)(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, nuint pData, ulong stride)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, ulong, nuint, ulong, Result>)(void*)ptr)(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
     }
 
     public static explicit operator PFN_vkWriteMicromapsPropertiesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkWriteMicromapsPropertiesEXT(nuint ptr) => new(ptr);
 }
 
 

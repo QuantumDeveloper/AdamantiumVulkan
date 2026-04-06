@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandBufferBeginInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public CommandBufferUsageFlagBits flags;
     public AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo* pInheritanceInfo;
 }

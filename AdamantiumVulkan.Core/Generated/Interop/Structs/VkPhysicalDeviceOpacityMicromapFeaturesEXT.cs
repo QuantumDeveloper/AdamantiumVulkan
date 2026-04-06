@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceOpacityMicromapFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 micromap;
     public VkBool32 micromapCaptureReplay;
     public VkBool32 micromapHostCommands;

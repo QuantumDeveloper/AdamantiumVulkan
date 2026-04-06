@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7573 Column: 26
 public unsafe struct PFN_vkCmdBindVertexBuffers2
 {
+    public PFN_vkCmdBindVertexBuffers2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindVertexBuffers2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindVertexBuffers2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, VkDeviceSize*, void>)ptr)(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes, pStrides);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes, VkDeviceSize* pStrides)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T*, VkDeviceSize*, VkDeviceSize*, VkDeviceSize*, void>)(void*)ptr)(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes, pStrides);
+    }
 
     public static explicit operator PFN_vkCmdBindVertexBuffers2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindVertexBuffers2(nuint ptr) => new(ptr);
 }
 
 

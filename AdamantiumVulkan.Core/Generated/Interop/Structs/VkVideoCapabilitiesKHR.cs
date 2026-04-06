@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoCapabilitiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoCapabilityFlagsKHR flags;
     public VkDeviceSize minBitstreamBufferOffsetAlignment;
     public VkDeviceSize minBitstreamBufferSizeAlignment;

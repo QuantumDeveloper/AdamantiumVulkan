@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4250 Column: 26
 public unsafe struct PFN_vkCmdSetDepthBias
 {
+    public PFN_vkCmdSetDepthBias(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDepthBias(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDepthBias
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, float, void>)ptr)(commandBuffer, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, float, void>)(void*)ptr)(commandBuffer, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
+    }
 
     public static explicit operator PFN_vkCmdSetDepthBias(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDepthBias(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineDepthStencilStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineDepthStencilStateCreateFlags flags;
     public VkBool32 depthTestEnable;
     public VkBool32 depthWriteEnable;

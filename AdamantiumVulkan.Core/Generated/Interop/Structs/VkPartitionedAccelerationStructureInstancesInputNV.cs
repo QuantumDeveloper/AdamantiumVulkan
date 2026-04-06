@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPartitionedAccelerationStructureInstancesInputNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBuildAccelerationStructureFlagsKHR flags;
     public uint instanceCount;
     public uint maxInstancePerPartitionCount;

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16242 Column: 26
 public unsafe struct PFN_vkCmdSetStencilOpEXT
 {
+    public PFN_vkCmdSetStencilOpEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetStencilOpEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetStencilOpEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)(void*)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
+    }
 
     public static explicit operator PFN_vkCmdSetStencilOpEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetStencilOpEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMaintenance3Properties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint maxPerSetDescriptors;
     public VkDeviceSize maxMemoryAllocationSize;
 }

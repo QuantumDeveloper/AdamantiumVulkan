@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6646 Column: 30
 public unsafe struct PFN_vkWaitSemaphores
 {
+    public PFN_vkWaitSemaphores(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkWaitSemaphores(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkWaitSemaphores
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo*, ulong, Result>)ptr)(device, pWaitInfo, timeout);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo* pWaitInfo, ulong timeout)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo*, ulong, Result>)(void*)ptr)(device, pWaitInfo, timeout);
+    }
 
     public static explicit operator PFN_vkWaitSemaphores(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkWaitSemaphores(nuint ptr) => new(ptr);
 }
 
 

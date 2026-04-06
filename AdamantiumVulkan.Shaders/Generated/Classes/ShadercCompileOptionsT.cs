@@ -50,7 +50,7 @@ public unsafe partial class ShadercCompileOptionsT : IUnmanagedWrapper<Adamantiu
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(name, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(value, ref currentCursor);
             AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_add_macro_definition(this, arg1, name_length, arg3, value_length);
@@ -196,7 +196,7 @@ public unsafe partial class ShadercCompileOptionsT : IUnmanagedWrapper<Adamantiu
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(reg, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(set, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(binding, ref currentCursor);
@@ -231,7 +231,7 @@ public unsafe partial class ShadercCompileOptionsT : IUnmanagedWrapper<Adamantiu
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(reg, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(set, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(binding, ref currentCursor);
@@ -247,7 +247,7 @@ public unsafe partial class ShadercCompileOptionsT : IUnmanagedWrapper<Adamantiu
     ///<summary>
     /// Sets includer callback functions.
     ///</summary>
-    public void SetIncludeCallbacks(void* resolver, void* result_releaser, ref void* user_data)
+    public void SetIncludeCallbacks(nuint resolver, nuint result_releaser, ref nuint user_data)
     {
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_include_callbacks(this, resolver, result_releaser, user_data);
     }

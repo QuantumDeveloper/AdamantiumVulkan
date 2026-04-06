@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4153 Column: 30
 public unsafe struct PFN_vkCreateInstance
 {
+    public PFN_vkCreateInstance(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateInstance(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateInstance
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)ptr)(pCreateInfo, pAllocator, out pInstance);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)(void*)ptr)(pCreateInfo, pAllocator, out pInstance);
+    }
 
     public static explicit operator PFN_vkCreateInstance(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateInstance(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19925 Column: 30
 public unsafe struct PFN_vkGetFramebufferTilePropertiesQCOM
 {
+    public PFN_vkGetFramebufferTilePropertiesQCOM(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetFramebufferTilePropertiesQCOM(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetFramebufferTilePropertiesQCOM
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, ref uint*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr)(device, framebuffer, ref pPropertiesCount, pProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, ref uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, ref uint*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)(void*)ptr)(device, framebuffer, ref pPropertiesCount, pProperties);
+    }
 
     public static explicit operator PFN_vkGetFramebufferTilePropertiesQCOM(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetFramebufferTilePropertiesQCOM(nuint ptr) => new(ptr);
 }
 
 

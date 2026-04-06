@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4252 Column: 26
 public unsafe struct PFN_vkCmdSetDepthBounds
 {
+    public PFN_vkCmdSetDepthBounds(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDepthBounds(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDepthBounds
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, void>)ptr)(commandBuffer, minDepthBounds, maxDepthBounds);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float minDepthBounds, float maxDepthBounds)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, float, void>)(void*)ptr)(commandBuffer, minDepthBounds, maxDepthBounds);
+    }
 
     public static explicit operator PFN_vkCmdSetDepthBounds(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDepthBounds(nuint ptr) => new(ptr);
 }
 
 

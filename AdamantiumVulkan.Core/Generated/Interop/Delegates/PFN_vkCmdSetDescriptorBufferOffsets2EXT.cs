@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12671 Column: 26
 public unsafe struct PFN_vkCmdSetDescriptorBufferOffsets2EXT
 {
+    public PFN_vkCmdSetDescriptorBufferOffsets2EXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDescriptorBufferOffsets2EXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDescriptorBufferOffsets2EXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT*, void>)ptr)(commandBuffer, pSetDescriptorBufferOffsetsInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT* pSetDescriptorBufferOffsetsInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT*, void>)(void*)ptr)(commandBuffer, pSetDescriptorBufferOffsetsInfo);
+    }
 
     public static explicit operator PFN_vkCmdSetDescriptorBufferOffsets2EXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDescriptorBufferOffsets2EXT(nuint ptr) => new(ptr);
 }
 
 

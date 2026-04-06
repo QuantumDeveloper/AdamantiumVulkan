@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeRateControlLayerInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ulong averageBitrate;
     public ulong maxBitrate;
     public uint frameRateNumerator;

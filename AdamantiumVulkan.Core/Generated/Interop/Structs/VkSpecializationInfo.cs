@@ -18,7 +18,7 @@ public unsafe partial struct VkSpecializationInfo
     public uint mapEntryCount;
     public AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry* pMapEntries;
     public ulong dataSize;
-    public void* pData;
+    public nuint pData;
 }
 
 

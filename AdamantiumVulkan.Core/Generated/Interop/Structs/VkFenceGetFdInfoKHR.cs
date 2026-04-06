@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFenceGetFdInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkFence_T fence;
     public ExternalFenceHandleTypeFlagBits handleType;
 }

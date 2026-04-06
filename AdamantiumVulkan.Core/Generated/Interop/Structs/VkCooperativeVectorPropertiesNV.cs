@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCooperativeVectorPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ComponentTypeKHR inputType;
     public ComponentTypeKHR inputInterpretation;
     public ComponentTypeKHR matrixInterpretation;

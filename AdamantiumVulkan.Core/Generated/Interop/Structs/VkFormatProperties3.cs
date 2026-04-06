@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFormatProperties3
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkFormatFeatureFlags2 linearTilingFeatures;
     public VkFormatFeatureFlags2 optimalTilingFeatures;
     public VkFormatFeatureFlags2 bufferFeatures;

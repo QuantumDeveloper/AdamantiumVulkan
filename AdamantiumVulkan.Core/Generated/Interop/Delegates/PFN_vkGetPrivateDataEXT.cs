@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16980 Column: 26
 public unsafe struct PFN_vkGetPrivateDataEXT
 {
+    public PFN_vkGetPrivateDataEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPrivateDataEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPrivateDataEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)ptr)(device, objectType, objectHandle, privateDataSlot, ref pData);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)(void*)ptr)(device, objectType, objectHandle, privateDataSlot, ref pData);
+    }
 
     public static explicit operator PFN_vkGetPrivateDataEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPrivateDataEXT(nuint ptr) => new(ptr);
 }
 
 

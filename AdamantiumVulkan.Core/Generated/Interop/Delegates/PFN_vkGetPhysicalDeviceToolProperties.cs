@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7549 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceToolProperties
 {
+    public PFN_vkGetPhysicalDeviceToolProperties(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceToolProperties(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceToolProperties
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties*, Result>)ptr)(physicalDevice, ref pToolCount, pToolProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties*, Result>)(void*)ptr)(physicalDevice, ref pToolCount, pToolProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceToolProperties(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceToolProperties(nuint ptr) => new(ptr);
 }
 
 

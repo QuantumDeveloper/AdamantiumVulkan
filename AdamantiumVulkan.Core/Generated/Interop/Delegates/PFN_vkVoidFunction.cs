@@ -16,26 +16,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3163 Column: 26
 public unsafe struct PFN_vkVoidFunction
 {
+    public PFN_vkVoidFunction(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkVoidFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<void*>)ptr;
+        InvokeFunc = (delegate* unmanaged<nuint>)ptr;
     }
 
-    private delegate* unmanaged<void*> InvokeFunc;
+    private delegate* unmanaged<nuint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void* Invoke()
+    public nuint Invoke()
     {
         return InvokeFunc();
     }
-    public static void* Invoke(void* ptr)
+    public static nuint Invoke(void* ptr)
     {
-        return ((delegate* unmanaged<void*>)ptr)();
+        return ((delegate* unmanaged<nuint>)ptr)();
+    }
+    public static nuint Invoke(nuint ptr)
+    {
+        return ((delegate* unmanaged<nuint>)(void*)ptr)();
     }
 
     public static explicit operator PFN_vkVoidFunction(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkVoidFunction(nuint ptr) => new(ptr);
 }
 
 

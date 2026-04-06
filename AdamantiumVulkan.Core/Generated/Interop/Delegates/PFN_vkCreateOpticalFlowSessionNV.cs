@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19698 Column: 30
 public unsafe struct PFN_vkCreateOpticalFlowSessionNV
 {
+    public PFN_vkCreateOpticalFlowSessionNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateOpticalFlowSessionNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateOpticalFlowSessionNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pSession);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T pSession)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pSession);
+    }
 
     public static explicit operator PFN_vkCreateOpticalFlowSessionNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateOpticalFlowSessionNV(nuint ptr) => new(ptr);
 }
 
 

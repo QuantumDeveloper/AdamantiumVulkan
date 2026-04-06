@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18002 Column: 26
 public unsafe struct PFN_vkCmdSubpassShadingHUAWEI
 {
+    public PFN_vkCmdSubpassShadingHUAWEI(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSubpassShadingHUAWEI(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSubpassShadingHUAWEI
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void>)ptr)(commandBuffer);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void>)(void*)ptr)(commandBuffer);
+    }
 
     public static explicit operator PFN_vkCmdSubpassShadingHUAWEI(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSubpassShadingHUAWEI(nuint ptr) => new(ptr);
 }
 
 

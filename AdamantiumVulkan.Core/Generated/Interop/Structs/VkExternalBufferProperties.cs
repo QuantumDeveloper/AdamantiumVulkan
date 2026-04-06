@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkExternalBufferProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkExternalMemoryProperties externalMemoryProperties;
 }
 

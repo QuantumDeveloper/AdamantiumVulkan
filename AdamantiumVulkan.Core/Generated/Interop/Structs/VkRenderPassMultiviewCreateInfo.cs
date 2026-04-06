@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRenderPassMultiviewCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint subpassCount;
     public uint* pViewMasks;
     public uint dependencyCount;

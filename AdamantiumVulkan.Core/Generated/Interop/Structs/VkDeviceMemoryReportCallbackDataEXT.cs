@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceMemoryReportCallbackDataEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceMemoryReportFlagsEXT flags;
     public DeviceMemoryReportEventTypeEXT type;
     public ulong memoryObjectId;

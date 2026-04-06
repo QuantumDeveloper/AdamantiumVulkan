@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeAV1PictureInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VideoEncodeAV1PredictionModeKHR predictionMode;
     public VideoEncodeAV1RateControlGroupKHR rateControlGroup;
     public uint constantQIndex;

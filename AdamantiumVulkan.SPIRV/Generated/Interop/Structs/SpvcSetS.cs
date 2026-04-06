@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcSetS
 {
-    public void* pointer;
+    public nuint pointer;
 }
 
 

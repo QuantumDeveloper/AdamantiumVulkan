@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureGeometryKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public GeometryTypeKHR geometryType;
     public VkAccelerationStructureGeometryDataKHR geometry;
     public GeometryFlagBitsKHR flags;

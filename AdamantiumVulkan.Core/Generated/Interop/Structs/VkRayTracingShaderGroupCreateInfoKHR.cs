@@ -17,13 +17,13 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRayTracingShaderGroupCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public RayTracingShaderGroupTypeKHR type;
     public uint generalShader;
     public uint closestHitShader;
     public uint anyHitShader;
     public uint intersectionShader;
-    public void* pShaderGroupCaptureReplayHandle;
+    public nuint pShaderGroupCaptureReplayHandle;
 }
 
 

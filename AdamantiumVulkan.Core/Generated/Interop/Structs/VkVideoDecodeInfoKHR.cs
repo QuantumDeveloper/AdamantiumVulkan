@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoDecodeInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoDecodeFlagsKHR flags;
     public VkBuffer_T srcBuffer;
     public VkDeviceSize srcBufferOffset;

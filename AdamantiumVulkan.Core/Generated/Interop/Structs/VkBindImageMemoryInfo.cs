@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkBindImageMemoryInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkImage_T image;
     public VkDeviceMemory_T memory;
     public VkDeviceSize memoryOffset;

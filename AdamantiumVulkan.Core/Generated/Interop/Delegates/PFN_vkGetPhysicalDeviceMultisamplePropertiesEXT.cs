@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14369 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT
 {
+    public PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, SampleCountFlagBits, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT*, void>)ptr)(physicalDevice, samples, pMultisampleProperties);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, SampleCountFlagBits samples, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT* pMultisampleProperties)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, SampleCountFlagBits, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT*, void>)(void*)ptr)(physicalDevice, samples, pMultisampleProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT(nuint ptr) => new(ptr);
 }
 
 

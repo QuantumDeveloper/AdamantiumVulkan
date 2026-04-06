@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7566 Column: 26
 public unsafe struct PFN_vkCmdBeginRendering
 {
+    public PFN_vkCmdBeginRendering(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBeginRendering(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBeginRendering
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, void>)ptr)(commandBuffer, pRenderingInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, void>)(void*)ptr)(commandBuffer, pRenderingInfo);
+    }
 
     public static explicit operator PFN_vkCmdBeginRendering(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBeginRendering(nuint ptr) => new(ptr);
 }
 
 

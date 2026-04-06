@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14188 Column: 30
 public unsafe struct PFN_vkSetDebugUtilsObjectNameEXT
 {
+    public PFN_vkSetDebugUtilsObjectNameEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkSetDebugUtilsObjectNameEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkSetDebugUtilsObjectNameEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT*, Result>)ptr)(device, pNameInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT* pNameInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT*, Result>)(void*)ptr)(device, pNameInfo);
+    }
 
     public static explicit operator PFN_vkSetDebugUtilsObjectNameEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkSetDebugUtilsObjectNameEXT(nuint ptr) => new(ptr);
 }
 
 

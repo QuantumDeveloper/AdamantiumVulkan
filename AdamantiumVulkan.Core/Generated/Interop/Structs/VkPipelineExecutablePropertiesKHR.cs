@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineExecutablePropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkShaderStageFlags stages;
     public unsafe fixed sbyte name[256];
     public unsafe fixed sbyte description[256];

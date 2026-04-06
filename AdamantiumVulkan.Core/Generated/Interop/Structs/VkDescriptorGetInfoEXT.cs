@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDescriptorGetInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public DescriptorType type;
     public VkDescriptorDataEXT data;
 }

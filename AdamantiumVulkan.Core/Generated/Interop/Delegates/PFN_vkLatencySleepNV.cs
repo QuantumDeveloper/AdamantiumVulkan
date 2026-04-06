@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20295 Column: 30
 public unsafe struct PFN_vkLatencySleepNV
 {
+    public PFN_vkLatencySleepNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkLatencySleepNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkLatencySleepNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV*, Result>)ptr)(device, swapchain, pSleepInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV* pSleepInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV*, Result>)(void*)ptr)(device, swapchain, pSleepInfo);
+    }
 
     public static explicit operator PFN_vkLatencySleepNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkLatencySleepNV(nuint ptr) => new(ptr);
 }
 
 

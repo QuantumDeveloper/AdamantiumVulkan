@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4184 Column: 26
 public unsafe struct PFN_vkGetImageMemoryRequirements
 {
+    public PFN_vkGetImageMemoryRequirements(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetImageMemoryRequirements(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetImageMemoryRequirements
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void>)ptr)(device, image, pMemoryRequirements);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkMemoryRequirements* pMemoryRequirements)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void>)(void*)ptr)(device, image, pMemoryRequirements);
+    }
 
     public static explicit operator PFN_vkGetImageMemoryRequirements(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetImageMemoryRequirements(nuint ptr) => new(ptr);
 }
 
 

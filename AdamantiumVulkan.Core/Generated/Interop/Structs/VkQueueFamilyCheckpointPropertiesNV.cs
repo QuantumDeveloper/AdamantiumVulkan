@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkQueueFamilyCheckpointPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineStageFlags checkpointExecutionStageMask;
 }
 

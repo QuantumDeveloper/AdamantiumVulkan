@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10127 Column: 30
 public unsafe struct PFN_vkImportSemaphoreFdKHR
 {
+    public PFN_vkImportSemaphoreFdKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkImportSemaphoreFdKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkImportSemaphoreFdKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR*, Result>)ptr)(device, pImportSemaphoreFdInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR*, Result>)(void*)ptr)(device, pImportSemaphoreFdInfo);
+    }
 
     public static explicit operator PFN_vkImportSemaphoreFdKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkImportSemaphoreFdKHR(nuint ptr) => new(ptr);
 }
 
 

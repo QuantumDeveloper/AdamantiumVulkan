@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17291 Column: 26
 public unsafe struct PFN_vkGetDescriptorSetLayoutSizeEXT
 {
+    public PFN_vkGetDescriptorSetLayoutSizeEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDescriptorSetLayoutSizeEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutSizeEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, out VkDeviceSize, void>)ptr)(device, layout, out pLayoutSizeInBytes);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, out VkDeviceSize pLayoutSizeInBytes)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, out VkDeviceSize, void>)(void*)ptr)(device, layout, out pLayoutSizeInBytes);
+    }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutSizeEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDescriptorSetLayoutSizeEXT(nuint ptr) => new(ptr);
 }
 
 

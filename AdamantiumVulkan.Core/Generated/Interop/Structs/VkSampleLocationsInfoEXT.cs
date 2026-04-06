@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSampleLocationsInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public SampleCountFlagBits sampleLocationsPerPixel;
     public VkExtent2D sampleLocationGridSize;
     public uint sampleLocationsCount;

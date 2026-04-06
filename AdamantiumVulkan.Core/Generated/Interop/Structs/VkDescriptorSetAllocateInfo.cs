@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDescriptorSetAllocateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDescriptorPool_T descriptorPool;
     public uint descriptorSetCount;
     public VkDescriptorSetLayout_T* pSetLayouts;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkImageCopy2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkImageSubresourceLayers srcSubresource;
     public VkOffset3D srcOffset;
     public VkImageSubresourceLayers dstSubresource;

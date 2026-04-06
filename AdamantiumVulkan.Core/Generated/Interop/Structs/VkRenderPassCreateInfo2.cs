@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRenderPassCreateInfo2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkRenderPassCreateFlags flags;
     public uint attachmentCount;
     public AdamantiumVulkan.Core.Interop.VkAttachmentDescription2* pAttachments;

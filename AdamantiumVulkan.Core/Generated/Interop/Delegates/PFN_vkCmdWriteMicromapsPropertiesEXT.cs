@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18533 Column: 26
 public unsafe struct PFN_vkCmdWriteMicromapsPropertiesEXT
 {
+    public PFN_vkCmdWriteMicromapsPropertiesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdWriteMicromapsPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdWriteMicromapsPropertiesEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr)(commandBuffer, micromapCount, pMicromaps, queryType, queryPool, firstQuery);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T*, QueryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)(void*)ptr)(commandBuffer, micromapCount, pMicromaps, queryType, queryPool, firstQuery);
+    }
 
     public static explicit operator PFN_vkCmdWriteMicromapsPropertiesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdWriteMicromapsPropertiesEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5810 Column: 30
 public unsafe struct PFN_vkCreateDescriptorUpdateTemplate
 {
+    public PFN_vkCreateDescriptorUpdateTemplate(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateDescriptorUpdateTemplate(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateDescriptorUpdateTemplate
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pDescriptorUpdateTemplate);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T pDescriptorUpdateTemplate)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pDescriptorUpdateTemplate);
+    }
 
     public static explicit operator PFN_vkCreateDescriptorUpdateTemplate(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateDescriptorUpdateTemplate(nuint ptr) => new(ptr);
 }
 
 

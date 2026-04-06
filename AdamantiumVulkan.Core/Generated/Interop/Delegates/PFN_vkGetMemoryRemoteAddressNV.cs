@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18053 Column: 30
 public unsafe struct PFN_vkGetMemoryRemoteAddressNV
 {
+    public PFN_vkGetMemoryRemoteAddressNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetMemoryRemoteAddressNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetMemoryRemoteAddressNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV*, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl, Result>)ptr)(device, pMemoryGetRemoteAddressInfo, out pAddress);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl pAddress)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV*, out AdamantiumVulkan.Core.Interop.VkRemoteAddressNVImpl, Result>)(void*)ptr)(device, pMemoryGetRemoteAddressInfo, out pAddress);
+    }
 
     public static explicit operator PFN_vkGetMemoryRemoteAddressNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetMemoryRemoteAddressNV(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16061 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
 {
+    public PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesComb
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV*, Result>)ptr)(physicalDevice, ref pCombinationCount, pCombinations);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV*, Result>)(void*)ptr)(physicalDevice, ref pCombinationCount, pCombinations);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(nuint ptr) => new(ptr);
 }
 
 

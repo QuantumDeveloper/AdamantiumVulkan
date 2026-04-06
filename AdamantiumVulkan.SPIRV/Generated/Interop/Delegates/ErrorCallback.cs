@@ -19,28 +19,30 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop;
 ///</summary>
 public unsafe struct ErrorCallback
 {
+    public ErrorCallback(nuint ptr) : this((void*) ptr) { }
+
     public ErrorCallback(void* ptr)
     {
         NativePointer = ptr;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            InvokeStdcall = (delegate* unmanaged[Stdcall]<void*, out sbyte, void>)ptr;
+            InvokeStdcall = (delegate* unmanaged[Stdcall]<nuint, out sbyte, void>)ptr;
             InvokeCdecl = default;
         }
         else
         {
-            InvokeCdecl = (delegate* unmanaged[Cdecl]<void*, out sbyte, void>)ptr;
+            InvokeCdecl = (delegate* unmanaged[Cdecl]<nuint, out sbyte, void>)ptr;
             InvokeStdcall = default;
         }
     }
 
-    private delegate* unmanaged[Stdcall]<void*, out sbyte, void> InvokeStdcall;
+    private delegate* unmanaged[Stdcall]<nuint, out sbyte, void> InvokeStdcall;
 
-    private delegate* unmanaged[Cdecl]<void*, out sbyte, void> InvokeCdecl;
+    private delegate* unmanaged[Cdecl]<nuint, out sbyte, void> InvokeCdecl;
 
     public void* NativePointer { get; }
 
-    public void Invoke(void* userdata, out sbyte error)
+    public void Invoke(nuint userdata, out sbyte error)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -52,19 +54,32 @@ public unsafe struct ErrorCallback
         }
     }
 
-    public static void Invoke(void* ptr, void* userdata, out sbyte error)
+    public static void Invoke(void* ptr, nuint userdata, out sbyte error)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-             ((delegate* unmanaged[Stdcall]<void*, out sbyte, void>)ptr)(userdata, out error);
+             ((delegate* unmanaged[Stdcall]<nuint, out sbyte, void>)ptr)(userdata, out error);
         }
         else
         {
-             ((delegate* unmanaged[Cdecl]<void*, out sbyte, void>)ptr)(userdata, out error);
+             ((delegate* unmanaged[Cdecl]<nuint, out sbyte, void>)ptr)(userdata, out error);
+        }
+    }
+    public static void Invoke(nuint ptr, nuint userdata, out sbyte error)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+             ((delegate* unmanaged[Stdcall]<nuint, out sbyte, void>)(void*)ptr)(userdata, out error);
+        }
+        else
+        {
+             ((delegate* unmanaged[Cdecl]<nuint, out sbyte, void>)(void*)ptr)(userdata, out error);
         }
     }
 
     public static explicit operator ErrorCallback(void* ptr) => new(ptr);
+
+    public static explicit operator ErrorCallback(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVertexInputAttributeDescription2EXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint location;
     public uint binding;
     public Format format;

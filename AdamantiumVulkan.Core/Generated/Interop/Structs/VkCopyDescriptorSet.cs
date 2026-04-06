@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCopyDescriptorSet
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDescriptorSet_T srcSet;
     public uint srcBinding;
     public uint srcArrayElement;

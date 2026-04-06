@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRenderingAreaInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint viewMask;
     public uint colorAttachmentCount;
     public Format* pColorAttachmentFormats;

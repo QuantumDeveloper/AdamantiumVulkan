@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineCoverageModulationStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineCoverageModulationStateCreateFlagsNV flags;
     public CoverageModulationModeNV coverageModulationMode;
     public VkBool32 coverageModulationTableEnable;

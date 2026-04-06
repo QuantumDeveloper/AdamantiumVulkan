@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkGraphicsPipelineShaderGroupsCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint groupCount;
     public AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV* pGroups;
     public uint pipelineCount;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkApplicationInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public sbyte* pApplicationName;
     public uint applicationVersion;
     public sbyte* pEngineName;

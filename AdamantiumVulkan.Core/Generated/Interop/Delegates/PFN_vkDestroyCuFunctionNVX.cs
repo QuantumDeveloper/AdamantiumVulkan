@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13291 Column: 26
 public unsafe struct PFN_vkDestroyCuFunctionNVX
 {
+    public PFN_vkDestroyCuFunctionNVX(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyCuFunctionNVX(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyCuFunctionNVX
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, function, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T function, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuFunctionNVX_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, function, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyCuFunctionNVX(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyCuFunctionNVX(nuint ptr) => new(ptr);
 }
 
 

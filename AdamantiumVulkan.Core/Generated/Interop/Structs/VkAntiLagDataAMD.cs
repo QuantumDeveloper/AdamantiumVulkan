@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAntiLagDataAMD
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AntiLagModeAMD mode;
     public uint maxFPS;
     public AdamantiumVulkan.Core.Interop.VkAntiLagPresentationInfoAMD* pPresentationInfo;

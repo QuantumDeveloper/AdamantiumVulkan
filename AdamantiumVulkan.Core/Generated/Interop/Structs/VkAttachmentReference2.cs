@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAttachmentReference2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint attachment;
     public ImageLayout layout;
     public VkImageAspectFlags aspectMask;

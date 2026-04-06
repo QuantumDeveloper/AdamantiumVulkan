@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7560 Column: 26
 public unsafe struct PFN_vkCmdCopyBuffer2
 {
+    public PFN_vkCmdCopyBuffer2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCopyBuffer2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCopyBuffer2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2*, void>)ptr)(commandBuffer, pCopyBufferInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2* pCopyBufferInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2*, void>)(void*)ptr)(commandBuffer, pCopyBufferInfo);
+    }
 
     public static explicit operator PFN_vkCmdCopyBuffer2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCopyBuffer2(nuint ptr) => new(ptr);
 }
 
 

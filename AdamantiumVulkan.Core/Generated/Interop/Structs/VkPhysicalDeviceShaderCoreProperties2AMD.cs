@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderCoreProperties2AMD
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkShaderCorePropertiesFlagsAMD shaderCoreFeatures;
     public uint activeComputeUnitCount;
 }

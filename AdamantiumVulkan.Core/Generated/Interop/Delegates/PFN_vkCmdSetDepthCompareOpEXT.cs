@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16239 Column: 26
 public unsafe struct PFN_vkCmdSetDepthCompareOpEXT
 {
+    public PFN_vkCmdSetDepthCompareOpEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDepthCompareOpEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDepthCompareOpEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CompareOp, void>)ptr)(commandBuffer, depthCompareOp);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CompareOp depthCompareOp)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CompareOp, void>)(void*)ptr)(commandBuffer, depthCompareOp);
+    }
 
     public static explicit operator PFN_vkCmdSetDepthCompareOpEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDepthCompareOpEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15016 Column: 30
 public unsafe struct PFN_vkBindAccelerationStructureMemoryNV
 {
+    public PFN_vkBindAccelerationStructureMemoryNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkBindAccelerationStructureMemoryNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkBindAccelerationStructureMemoryNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV*, Result>)ptr)(device, bindInfoCount, pBindInfos);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV* pBindInfos)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV*, Result>)(void*)ptr)(device, bindInfoCount, pBindInfos);
+    }
 
     public static explicit operator PFN_vkBindAccelerationStructureMemoryNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkBindAccelerationStructureMemoryNV(nuint ptr) => new(ptr);
 }
 
 

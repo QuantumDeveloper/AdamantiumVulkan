@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineViewportDepthClampControlCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public DepthClampModeEXT depthClampMode;
     public AdamantiumVulkan.Core.Interop.VkDepthClampRangeEXT* pDepthClampRange;
 }

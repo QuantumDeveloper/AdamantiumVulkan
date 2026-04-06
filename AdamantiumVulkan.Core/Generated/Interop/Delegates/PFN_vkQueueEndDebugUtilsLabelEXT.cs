@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14191 Column: 26
 public unsafe struct PFN_vkQueueEndDebugUtilsLabelEXT
 {
+    public PFN_vkQueueEndDebugUtilsLabelEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkQueueEndDebugUtilsLabelEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkQueueEndDebugUtilsLabelEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr)(queue);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, void>)(void*)ptr)(queue);
+    }
 
     public static explicit operator PFN_vkQueueEndDebugUtilsLabelEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkQueueEndDebugUtilsLabelEXT(nuint ptr) => new(ptr);
 }
 
 

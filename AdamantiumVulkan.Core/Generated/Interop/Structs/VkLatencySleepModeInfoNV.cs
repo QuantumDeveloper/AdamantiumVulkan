@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkLatencySleepModeInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 lowLatencyMode;
     public VkBool32 lowLatencyBoost;
     public uint minimumIntervalUs;

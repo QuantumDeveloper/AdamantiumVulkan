@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4246 Column: 26
 public unsafe struct PFN_vkCmdBindPipeline
 {
+    public PFN_vkCmdBindPipeline(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindPipeline(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindPipeline
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, void>)ptr)(commandBuffer, pipelineBindPoint, pipeline);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipeline_T, void>)(void*)ptr)(commandBuffer, pipelineBindPoint, pipeline);
+    }
 
     public static explicit operator PFN_vkCmdBindPipeline(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindPipeline(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineCreationFeedbackCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback* pPipelineCreationFeedback;
     public uint pipelineStageCreationFeedbackCount;
     public AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback* pPipelineStageCreationFeedbacks;

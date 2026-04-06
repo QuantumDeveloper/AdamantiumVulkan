@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4179 Column: 30
 public unsafe struct PFN_vkInvalidateMappedMemoryRanges
 {
+    public PFN_vkInvalidateMappedMemoryRanges(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkInvalidateMappedMemoryRanges(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkInvalidateMappedMemoryRanges
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange*, Result>)ptr)(device, memoryRangeCount, pMemoryRanges);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint memoryRangeCount, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange* pMemoryRanges)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkMappedMemoryRange*, Result>)(void*)ptr)(device, memoryRangeCount, pMemoryRanges);
+    }
 
     public static explicit operator PFN_vkInvalidateMappedMemoryRanges(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkInvalidateMappedMemoryRanges(nuint ptr) => new(ptr);
 }
 
 

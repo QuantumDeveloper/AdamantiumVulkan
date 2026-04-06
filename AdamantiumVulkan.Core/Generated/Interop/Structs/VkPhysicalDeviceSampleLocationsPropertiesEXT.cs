@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceSampleLocationsPropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSampleCountFlags sampleLocationSampleCounts;
     public VkExtent2D maxSampleLocationGridSize;
     public unsafe fixed float sampleLocationCoordinateRange[2];

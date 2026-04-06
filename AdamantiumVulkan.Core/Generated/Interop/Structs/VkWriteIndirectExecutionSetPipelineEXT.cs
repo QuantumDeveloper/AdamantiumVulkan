@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkWriteIndirectExecutionSetPipelineEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint index;
     public VkPipeline_T pipeline;
 }

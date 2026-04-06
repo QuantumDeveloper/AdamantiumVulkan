@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18287 Column: 26
 public unsafe struct PFN_vkCmdDrawMultiIndexedEXT
 {
+    public PFN_vkCmdDrawMultiIndexedEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDrawMultiIndexedEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDrawMultiIndexedEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMultiDrawIndexedInfoEXT*, uint, uint, uint, int*, void>)ptr)(commandBuffer, drawCount, pIndexInfo, instanceCount, firstInstance, stride, pVertexOffset);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint drawCount, AdamantiumVulkan.Core.Interop.VkMultiDrawIndexedInfoEXT* pIndexInfo, uint instanceCount, uint firstInstance, uint stride, int* pVertexOffset)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkMultiDrawIndexedInfoEXT*, uint, uint, uint, int*, void>)(void*)ptr)(commandBuffer, drawCount, pIndexInfo, instanceCount, firstInstance, stride, pVertexOffset);
+    }
 
     public static explicit operator PFN_vkCmdDrawMultiIndexedEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDrawMultiIndexedEXT(nuint ptr) => new(ptr);
 }
 
 

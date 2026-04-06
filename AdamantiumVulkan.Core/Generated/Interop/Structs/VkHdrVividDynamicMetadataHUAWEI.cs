@@ -17,9 +17,9 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkHdrVividDynamicMetadataHUAWEI
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ulong dynamicMetadataSize;
-    public void* pDynamicMetadata;
+    public nuint pDynamicMetadata;
 }
 
 

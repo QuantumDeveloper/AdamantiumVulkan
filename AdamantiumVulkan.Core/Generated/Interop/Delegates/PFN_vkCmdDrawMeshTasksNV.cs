@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15406 Column: 26
 public unsafe struct PFN_vkCmdDrawMeshTasksNV
 {
+    public PFN_vkCmdDrawMeshTasksNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDrawMeshTasksNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDrawMeshTasksNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, void>)ptr)(commandBuffer, taskCount, firstTask);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint taskCount, uint firstTask)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, void>)(void*)ptr)(commandBuffer, taskCount, firstTask);
+    }
 
     public static explicit operator PFN_vkCmdDrawMeshTasksNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDrawMeshTasksNV(nuint ptr) => new(ptr);
 }
 
 

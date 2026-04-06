@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAntiLagPresentationInfoAMD
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AntiLagStageAMD stage;
     public ulong frameIndex;
 }

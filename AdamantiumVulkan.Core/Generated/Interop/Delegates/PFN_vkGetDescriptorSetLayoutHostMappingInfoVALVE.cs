@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18794 Column: 26
 public unsafe struct PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE
 {
+    public PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE*, void>)ptr)(device, pBindingReference, pHostMapping);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE* pBindingReference, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE*, void>)(void*)ptr)(device, pBindingReference, pHostMapping);
+    }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(nuint ptr) => new(ptr);
 }
 
 

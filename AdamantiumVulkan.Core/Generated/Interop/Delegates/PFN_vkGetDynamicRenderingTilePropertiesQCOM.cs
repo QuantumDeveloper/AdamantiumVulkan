@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19926 Column: 30
 public unsafe struct PFN_vkGetDynamicRenderingTilePropertiesQCOM
 {
+    public PFN_vkGetDynamicRenderingTilePropertiesQCOM(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDynamicRenderingTilePropertiesQCOM(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDynamicRenderingTilePropertiesQCOM
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr)(device, pRenderingInfo, pProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingInfo*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)(void*)ptr)(device, pRenderingInfo, pProperties);
+    }
 
     public static explicit operator PFN_vkGetDynamicRenderingTilePropertiesQCOM(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDynamicRenderingTilePropertiesQCOM(nuint ptr) => new(ptr);
 }
 
 

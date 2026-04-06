@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed uint maxWorkGroupCount[3];
     public unsafe fixed uint maxWorkGroupSize[3];
     public uint maxOutputClusterCount;

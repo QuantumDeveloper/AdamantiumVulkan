@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineViewportStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineViewportStateCreateFlags flags;
     public uint viewportCount;
     public AdamantiumVulkan.Core.Interop.VkViewport* pViewports;

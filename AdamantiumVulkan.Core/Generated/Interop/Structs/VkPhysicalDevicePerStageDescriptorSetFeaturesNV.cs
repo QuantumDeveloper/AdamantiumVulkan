@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevicePerStageDescriptorSetFeaturesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 perStageDescriptorSet;
     public VkBool32 dynamicPipelineLayout;
 }

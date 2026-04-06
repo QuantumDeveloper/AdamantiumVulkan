@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11296 Column: 26
 public unsafe struct PFN_vkDestroyDeferredOperationKHR
 {
+    public PFN_vkDestroyDeferredOperationKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyDeferredOperationKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyDeferredOperationKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, operation, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, operation, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyDeferredOperationKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyDeferredOperationKHR(nuint ptr) => new(ptr);
 }
 
 

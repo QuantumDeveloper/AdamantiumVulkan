@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkIndirectCommandsLayoutTokenEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public IndirectCommandsTokenTypeEXT type;
     public VkIndirectCommandsTokenDataEXT data;
     public uint offset;

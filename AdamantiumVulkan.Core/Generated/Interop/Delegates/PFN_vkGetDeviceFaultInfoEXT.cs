@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17777 Column: 30
 public unsafe struct PFN_vkGetDeviceFaultInfoEXT
 {
+    public PFN_vkGetDeviceFaultInfoEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceFaultInfoEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceFaultInfoEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT*, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT*, Result>)ptr)(device, pFaultCounts, pFaultInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT* pFaultCounts, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT* pFaultInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT*, AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT*, Result>)(void*)ptr)(device, pFaultCounts, pFaultInfo);
+    }
 
     public static explicit operator PFN_vkGetDeviceFaultInfoEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceFaultInfoEXT(nuint ptr) => new(ptr);
 }
 
 

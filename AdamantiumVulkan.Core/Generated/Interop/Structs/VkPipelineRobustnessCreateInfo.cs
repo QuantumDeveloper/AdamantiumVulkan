@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineRobustnessCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public PipelineRobustnessBufferBehavior storageBuffers;
     public PipelineRobustnessBufferBehavior uniformBuffers;
     public PipelineRobustnessBufferBehavior vertexInputs;

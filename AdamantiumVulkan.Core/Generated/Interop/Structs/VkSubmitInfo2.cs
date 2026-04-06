@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSubmitInfo2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSubmitFlags flags;
     public uint waitSemaphoreInfoCount;
     public AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo* pWaitSemaphoreInfos;

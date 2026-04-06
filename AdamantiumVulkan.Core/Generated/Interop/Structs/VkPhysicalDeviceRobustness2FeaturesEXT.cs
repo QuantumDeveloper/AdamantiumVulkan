@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceRobustness2FeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 robustBufferAccess2;
     public VkBool32 robustImageAccess2;
     public VkBool32 nullDescriptor;

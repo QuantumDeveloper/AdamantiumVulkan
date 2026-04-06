@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13651 Column: 26
 public unsafe struct PFN_vkCmdBeginConditionalRenderingEXT
 {
+    public PFN_vkCmdBeginConditionalRenderingEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBeginConditionalRenderingEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBeginConditionalRenderingEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT*, void>)ptr)(commandBuffer, pConditionalRenderingBegin);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT*, void>)(void*)ptr)(commandBuffer, pConditionalRenderingBegin);
+    }
 
     public static explicit operator PFN_vkCmdBeginConditionalRenderingEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBeginConditionalRenderingEXT(nuint ptr) => new(ptr);
 }
 
 

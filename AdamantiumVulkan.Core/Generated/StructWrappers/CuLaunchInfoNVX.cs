@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -33,9 +34,9 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
     public uint BlockDimZ { get; set; }
     public uint SharedMemBytes { get; set; }
     public ulong ParamCount { get; set; }
-    public void** Params { get; set; }
+    public nuint Params { get; set; }
     public ulong ExtraCount { get; set; }
-    public void** PExtras { get; set; }
+    public nuint PExtras { get; set; }
 
     public static implicit operator CuLaunchInfoNVX(AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX c)
     {
@@ -75,14 +76,14 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
         PExtras = native.pExtras;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCuLaunchInfoNVXMarshaller
     {
@@ -96,7 +97,11 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
             }
             else if (cuLaunchInfoNVX.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (cuLaunchInfoNVX.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (cuLaunchInfoNVX.Function != default)

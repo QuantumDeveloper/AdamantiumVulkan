@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3150 Column: 26
 public unsafe struct PFN_vkInternalFreeNotification
 {
+    public PFN_vkInternalFreeNotification(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkInternalFreeNotification(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<void*, ulong, InternalAllocationType, SystemAllocationScope, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void>)ptr;
     }
 
-    private delegate* unmanaged<void*, ulong, InternalAllocationType, SystemAllocationScope, void> InvokeFunc;
+    private delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(void* pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope)
+    public void Invoke(nuint pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope)
     {
          InvokeFunc(pUserData, size, allocationType, allocationScope);
     }
-    public static void Invoke(void* ptr, void* pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope)
+    public static void Invoke(void* ptr, nuint pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope)
     {
-         ((delegate* unmanaged<void*, ulong, InternalAllocationType, SystemAllocationScope, void>)ptr)(pUserData, size, allocationType, allocationScope);
+         ((delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void>)ptr)(pUserData, size, allocationType, allocationScope);
+    }
+    public static void Invoke(nuint ptr, nuint pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope)
+    {
+         ((delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void>)(void*)ptr)(pUserData, size, allocationType, allocationScope);
     }
 
     public static explicit operator PFN_vkInternalFreeNotification(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkInternalFreeNotification(nuint ptr) => new(ptr);
 }
 
 

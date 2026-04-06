@@ -17,10 +17,10 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkValidationCacheCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkValidationCacheCreateFlagsEXT flags;
     public ulong initialDataSize;
-    public void* pInitialData;
+    public nuint pInitialData;
 }
 
 

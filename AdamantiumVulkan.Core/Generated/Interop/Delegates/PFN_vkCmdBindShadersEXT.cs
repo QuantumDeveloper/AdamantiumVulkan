@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19872 Column: 26
 public unsafe struct PFN_vkCmdBindShadersEXT
 {
+    public PFN_vkCmdBindShadersEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindShadersEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindShadersEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, ShaderStageFlagBits*, AdamantiumVulkan.Core.Interop.VkShaderEXT_T*, void>)ptr)(commandBuffer, stageCount, pStages, pShaders);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint stageCount, ShaderStageFlagBits* pStages, AdamantiumVulkan.Core.Interop.VkShaderEXT_T* pShaders)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, ShaderStageFlagBits*, AdamantiumVulkan.Core.Interop.VkShaderEXT_T*, void>)(void*)ptr)(commandBuffer, stageCount, pStages, pShaders);
+    }
 
     public static explicit operator PFN_vkCmdBindShadersEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindShadersEXT(nuint ptr) => new(ptr);
 }
 
 

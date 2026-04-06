@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8400 Column: 30
 public unsafe struct PFN_vkTransitionImageLayout
 {
+    public PFN_vkTransitionImageLayout(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkTransitionImageLayout(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkTransitionImageLayout
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfo*, Result>)ptr)(device, transitionCount, pTransitions);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint transitionCount, AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfo* pTransitions)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfo*, Result>)(void*)ptr)(device, transitionCount, pTransitions);
+    }
 
     public static explicit operator PFN_vkTransitionImageLayout(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkTransitionImageLayout(nuint ptr) => new(ptr);
 }
 
 

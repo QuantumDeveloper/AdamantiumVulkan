@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSubpassDescription2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSubpassDescriptionFlags flags;
     public PipelineBindPoint pipelineBindPoint;
     public uint viewMask;

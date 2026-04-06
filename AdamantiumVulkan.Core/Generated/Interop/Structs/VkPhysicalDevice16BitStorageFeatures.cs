@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevice16BitStorageFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 storageBuffer16BitAccess;
     public VkBool32 uniformAndStorageBuffer16BitAccess;
     public VkBool32 storagePushConstant16;

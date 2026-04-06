@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20298 Column: 26
 public unsafe struct PFN_vkQueueNotifyOutOfBandNV
 {
+    public PFN_vkQueueNotifyOutOfBandNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkQueueNotifyOutOfBandNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkQueueNotifyOutOfBandNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV*, void>)ptr)(queue, pQueueTypeInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV* pQueueTypeInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV*, void>)(void*)ptr)(queue, pQueueTypeInfo);
+    }
 
     public static explicit operator PFN_vkQueueNotifyOutOfBandNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkQueueNotifyOutOfBandNV(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMicromapBuildSizesInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceSize micromapSize;
     public VkDeviceSize buildScratchSize;
     public VkBool32 discardable;

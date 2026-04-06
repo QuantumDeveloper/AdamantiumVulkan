@@ -17,10 +17,10 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceDeviceMemoryReportCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceMemoryReportFlagsEXT flags;
-    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> pfnUserCallback;
-    public void* pUserData;
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, nuint, void> pfnUserCallback;
+    public nuint pUserData;
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17873 Column: 26
 public unsafe struct PFN_vkCmdSetVertexInputEXT
 {
+    public PFN_vkCmdSetVertexInputEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetVertexInputEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetVertexInputEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT*, uint, AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT*, void>)ptr)(commandBuffer, vertexBindingDescriptionCount, pVertexBindingDescriptions, vertexAttributeDescriptionCount, pVertexAttributeDescriptions);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint vertexBindingDescriptionCount, AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT* pVertexBindingDescriptions, uint vertexAttributeDescriptionCount, AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT* pVertexAttributeDescriptions)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT*, uint, AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT*, void>)(void*)ptr)(commandBuffer, vertexBindingDescriptionCount, pVertexBindingDescriptions, vertexAttributeDescriptionCount, pVertexAttributeDescriptions);
+    }
 
     public static explicit operator PFN_vkCmdSetVertexInputEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetVertexInputEXT(nuint ptr) => new(ptr);
 }
 
 

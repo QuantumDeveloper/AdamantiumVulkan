@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19265 Column: 26
 public unsafe struct PFN_vkCmdSetColorBlendEquationEXT
 {
+    public PFN_vkCmdSetColorBlendEquationEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetColorBlendEquationEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetColorBlendEquationEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT*, void>)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendEquations);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstAttachment, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT* pColorBlendEquations)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT*, void>)(void*)ptr)(commandBuffer, firstAttachment, attachmentCount, pColorBlendEquations);
+    }
 
     public static explicit operator PFN_vkCmdSetColorBlendEquationEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetColorBlendEquationEXT(nuint ptr) => new(ptr);
 }
 
 

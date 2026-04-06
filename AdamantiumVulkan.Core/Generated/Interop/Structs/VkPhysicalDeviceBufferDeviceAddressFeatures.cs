@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceBufferDeviceAddressFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 bufferDeviceAddress;
     public VkBool32 bufferDeviceAddressCaptureReplay;
     public VkBool32 bufferDeviceAddressMultiDevice;

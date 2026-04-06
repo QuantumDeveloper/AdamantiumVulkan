@@ -17,11 +17,11 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPushDescriptorSetWithTemplateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDescriptorUpdateTemplate_T descriptorUpdateTemplate;
     public VkPipelineLayout_T layout;
     public uint set;
-    public void* pData;
+    public nuint pData;
 }
 
 

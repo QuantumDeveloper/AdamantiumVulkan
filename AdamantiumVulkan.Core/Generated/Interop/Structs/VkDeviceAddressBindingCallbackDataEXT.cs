@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceAddressBindingCallbackDataEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceAddressBindingFlagsEXT flags;
     public VkDeviceAddress baseAddress;
     public VkDeviceSize size;

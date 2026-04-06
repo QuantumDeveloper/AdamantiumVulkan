@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureVersionInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public byte* pVersionData;
 }
 

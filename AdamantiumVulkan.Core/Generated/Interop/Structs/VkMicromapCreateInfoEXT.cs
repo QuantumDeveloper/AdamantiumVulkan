@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMicromapCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkMicromapCreateFlagsEXT createFlags;
     public VkBuffer_T buffer;
     public VkDeviceSize offset;

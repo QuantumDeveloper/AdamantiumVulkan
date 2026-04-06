@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4177 Column: 26
 public unsafe struct PFN_vkUnmapMemory
 {
+    public PFN_vkUnmapMemory(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkUnmapMemory(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkUnmapMemory
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, void>)ptr)(device, memory);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, void>)(void*)ptr)(device, memory);
+    }
 
     public static explicit operator PFN_vkUnmapMemory(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkUnmapMemory(nuint ptr) => new(ptr);
 }
 
 

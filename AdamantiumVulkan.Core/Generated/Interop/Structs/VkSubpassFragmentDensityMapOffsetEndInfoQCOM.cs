@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSubpassFragmentDensityMapOffsetEndInfoQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint fragmentDensityOffsetCount;
     public AdamantiumVulkan.Core.Interop.VkOffset2D* pFragmentDensityOffsets;
 }

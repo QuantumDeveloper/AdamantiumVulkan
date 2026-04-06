@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15520 Column: 26
 public unsafe struct PFN_vkGetQueueCheckpointDataNV
 {
+    public PFN_vkGetQueueCheckpointDataNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetQueueCheckpointDataNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetQueueCheckpointDataNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV*, void>)ptr)(queue, ref pCheckpointDataCount, pCheckpointData);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV*, void>)(void*)ptr)(queue, ref pCheckpointDataCount, pCheckpointData);
+    }
 
     public static explicit operator PFN_vkGetQueueCheckpointDataNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetQueueCheckpointDataNV(nuint ptr) => new(ptr);
 }
 
 

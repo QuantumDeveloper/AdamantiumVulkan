@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderIntegerDotProductProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 integerDotProduct8BitUnsignedAccelerated;
     public VkBool32 integerDotProduct8BitSignedAccelerated;
     public VkBool32 integerDotProduct8BitMixedSignednessAccelerated;

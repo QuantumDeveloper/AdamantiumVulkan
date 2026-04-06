@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4186 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceSparseImageFormatProperties
 {
+    public PFN_vkGetPhysicalDeviceSparseImageFormatProperties(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceSparseImageFormatProperties(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceSparseImageFormatProperties
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties*, void>)ptr)(physicalDevice, format, type, samples, usage, tiling, ref pPropertyCount, pProperties);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, SampleCountFlagBits, VkImageUsageFlags, ImageTiling, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties*, void>)(void*)ptr)(physicalDevice, format, type, samples, usage, tiling, ref pPropertyCount, pProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSparseImageFormatProperties(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceSparseImageFormatProperties(nuint ptr) => new(ptr);
 }
 
 

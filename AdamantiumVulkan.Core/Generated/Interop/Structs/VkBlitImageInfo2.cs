@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkBlitImageInfo2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkImage_T srcImage;
     public ImageLayout srcImageLayout;
     public VkImage_T dstImage;

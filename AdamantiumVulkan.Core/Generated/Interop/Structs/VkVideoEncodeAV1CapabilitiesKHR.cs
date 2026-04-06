@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeAV1CapabilitiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoEncodeAV1CapabilityFlagsKHR flags;
     public StdVideoAV1Level maxLevel;
     public VkExtent2D codedPictureAlignment;

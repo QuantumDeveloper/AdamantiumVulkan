@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21542 Column: 26
 public unsafe struct PFN_vkCmdCopyMemoryToAccelerationStructureKHR
 {
+    public PFN_vkCmdCopyMemoryToAccelerationStructureKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCopyMemoryToAccelerationStructureKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCopyMemoryToAccelerationStructureKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR*, void>)ptr)(commandBuffer, pInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR* pInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR*, void>)(void*)ptr)(commandBuffer, pInfo);
+    }
 
     public static explicit operator PFN_vkCmdCopyMemoryToAccelerationStructureKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCopyMemoryToAccelerationStructureKHR(nuint ptr) => new(ptr);
 }
 
 

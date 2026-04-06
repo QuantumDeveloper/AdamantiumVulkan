@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceDescriptorIndexingFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 shaderInputAttachmentArrayDynamicIndexing;
     public VkBool32 shaderUniformTexelBufferArrayDynamicIndexing;
     public VkBool32 shaderStorageTexelBufferArrayDynamicIndexing;

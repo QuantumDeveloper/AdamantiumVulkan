@@ -27,7 +27,7 @@ public unsafe partial class DisplayKHR : IUnmanagedWrapper<AdamantiumVulkan.Core
     }
 
     public AdamantiumVulkan.Core.Interop.VkDisplayKHR_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkDisplayKHR_T GetPinnableReference() => ref __Instance;
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandBufferInheritanceRenderingInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public RenderingFlagBits flags;
     public uint viewMask;
     public uint colorAttachmentCount;

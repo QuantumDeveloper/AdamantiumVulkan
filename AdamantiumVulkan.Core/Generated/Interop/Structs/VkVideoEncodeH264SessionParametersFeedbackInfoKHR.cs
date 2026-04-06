@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH264SessionParametersFeedbackInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 hasStdSPSOverrides;
     public VkBool32 hasStdPPSOverrides;
 }

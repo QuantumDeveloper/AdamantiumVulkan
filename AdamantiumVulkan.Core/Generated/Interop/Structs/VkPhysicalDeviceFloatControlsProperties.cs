@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceFloatControlsProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ShaderFloatControlsIndependence denormBehaviorIndependence;
     public ShaderFloatControlsIndependence roundingModeIndependence;
     public VkBool32 shaderSignedZeroInfNanPreserveFloat16;

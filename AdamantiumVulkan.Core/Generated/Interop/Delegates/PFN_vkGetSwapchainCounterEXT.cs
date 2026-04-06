@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13791 Column: 30
 public unsafe struct PFN_vkGetSwapchainCounterEXT
 {
+    public PFN_vkGetSwapchainCounterEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetSwapchainCounterEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetSwapchainCounterEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr)(device, swapchain, counter, ref pCounterValue);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)(void*)ptr)(device, swapchain, counter, ref pCounterValue);
+    }
 
     public static explicit operator PFN_vkGetSwapchainCounterEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetSwapchainCounterEXT(nuint ptr) => new(ptr);
 }
 
 

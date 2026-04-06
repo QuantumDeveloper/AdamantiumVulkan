@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -25,7 +26,7 @@ public unsafe partial class ImportMemoryHostPointerInfoEXT : IMarshallableObject
     public StructureType SType => StructureType.ImportMemoryHostPointerInfoExt;
     public object PNext { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
-    public void* PHostPointer { get; set; }
+    public nuint PHostPointer { get; set; }
 
     public static implicit operator ImportMemoryHostPointerInfoEXT(AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT i)
     {
@@ -54,14 +55,14 @@ public unsafe partial class ImportMemoryHostPointerInfoEXT : IMarshallableObject
         PHostPointer = native.pHostPointer;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImportMemoryHostPointerInfoEXTMarshaller
     {
@@ -75,7 +76,11 @@ public unsafe partial class ImportMemoryHostPointerInfoEXT : IMarshallableObject
             }
             else if (importMemoryHostPointerInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (importMemoryHostPointerInfoEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].handleType = importMemoryHostPointerInfoEXT.HandleType;

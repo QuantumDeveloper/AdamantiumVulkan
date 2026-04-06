@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6649 Column: 30
 public unsafe struct PFN_vkGetBufferOpaqueCaptureAddress
 {
+    public PFN_vkGetBufferOpaqueCaptureAddress(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetBufferOpaqueCaptureAddress(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetBufferOpaqueCaptureAddress
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo*, ulong>)ptr)(device, pInfo);
     }
+    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo*, ulong>)(void*)ptr)(device, pInfo);
+    }
 
     public static explicit operator PFN_vkGetBufferOpaqueCaptureAddress(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetBufferOpaqueCaptureAddress(nuint ptr) => new(ptr);
 }
 
 

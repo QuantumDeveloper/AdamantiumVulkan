@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceToolProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed sbyte name[256];
     public unsafe fixed sbyte version[256];
     public VkToolPurposeFlags purposes;

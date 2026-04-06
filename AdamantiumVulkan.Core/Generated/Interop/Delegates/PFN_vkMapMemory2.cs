@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8383 Column: 30
 public unsafe struct PFN_vkMapMemory2
 {
+    public PFN_vkMapMemory2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkMapMemory2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out void* ppData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData)
     {
         return InvokeFunc(device, pMemoryMapInfo, out ppData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out void* ppData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out void*, Result>)ptr)(device, pMemoryMapInfo, out ppData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out nuint, Result>)ptr)(device, pMemoryMapInfo, out ppData);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo*, out nuint, Result>)(void*)ptr)(device, pMemoryMapInfo, out ppData);
     }
 
     public static explicit operator PFN_vkMapMemory2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkMapMemory2(nuint ptr) => new(ptr);
 }
 
 

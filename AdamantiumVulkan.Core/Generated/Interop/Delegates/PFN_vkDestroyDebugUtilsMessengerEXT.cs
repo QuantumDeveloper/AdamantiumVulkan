@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14197 Column: 26
 public unsafe struct PFN_vkDestroyDebugUtilsMessengerEXT
 {
+    public PFN_vkDestroyDebugUtilsMessengerEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyDebugUtilsMessengerEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyDebugUtilsMessengerEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(instance, messenger, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T messenger, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(instance, messenger, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyDebugUtilsMessengerEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyDebugUtilsMessengerEXT(nuint ptr) => new(ptr);
 }
 
 

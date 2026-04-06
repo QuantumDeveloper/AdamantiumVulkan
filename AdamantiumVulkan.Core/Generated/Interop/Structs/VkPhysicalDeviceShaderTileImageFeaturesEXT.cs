@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderTileImageFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 shaderTileImageColorReadAccess;
     public VkBool32 shaderTileImageDepthReadAccess;
     public VkBool32 shaderTileImageStencilReadAccess;

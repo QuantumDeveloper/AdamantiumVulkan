@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineRasterizationConservativeStateCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineRasterizationConservativeStateCreateFlagsEXT flags;
     public ConservativeRasterizationModeEXT conservativeRasterizationMode;
     public float extraPrimitiveOverestimationSize;

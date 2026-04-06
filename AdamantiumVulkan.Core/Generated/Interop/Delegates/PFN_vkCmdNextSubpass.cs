@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4287 Column: 26
 public unsafe struct PFN_vkCmdNextSubpass
 {
+    public PFN_vkCmdNextSubpass(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdNextSubpass(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdNextSubpass
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SubpassContents, void>)ptr)(commandBuffer, contents);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, SubpassContents contents)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, SubpassContents, void>)(void*)ptr)(commandBuffer, contents);
+    }
 
     public static explicit operator PFN_vkCmdNextSubpass(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdNextSubpass(nuint ptr) => new(ptr);
 }
 
 

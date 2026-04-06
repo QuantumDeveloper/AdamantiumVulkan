@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6638 Column: 26
 public unsafe struct PFN_vkCmdDrawIndirectCount
 {
+    public PFN_vkCmdDrawIndirectCount(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDrawIndirectCount(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDrawIndirectCount
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr)(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)(void*)ptr)(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
+    }
 
     public static explicit operator PFN_vkCmdDrawIndirectCount(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDrawIndirectCount(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18160 Column: 26
 public unsafe struct PFN_vkCmdSetPatchControlPointsEXT
 {
+    public PFN_vkCmdSetPatchControlPointsEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetPatchControlPointsEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetPatchControlPointsEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, patchControlPoints);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint patchControlPoints)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)(void*)ptr)(commandBuffer, patchControlPoints);
+    }
 
     public static explicit operator PFN_vkCmdSetPatchControlPointsEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetPatchControlPointsEXT(nuint ptr) => new(ptr);
 }
 
 

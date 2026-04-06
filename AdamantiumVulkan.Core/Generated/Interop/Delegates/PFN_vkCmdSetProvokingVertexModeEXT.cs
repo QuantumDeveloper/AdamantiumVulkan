@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19274 Column: 26
 public unsafe struct PFN_vkCmdSetProvokingVertexModeEXT
 {
+    public PFN_vkCmdSetProvokingVertexModeEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetProvokingVertexModeEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetProvokingVertexModeEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ProvokingVertexModeEXT, void>)ptr)(commandBuffer, provokingVertexMode);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ProvokingVertexModeEXT provokingVertexMode)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ProvokingVertexModeEXT, void>)(void*)ptr)(commandBuffer, provokingVertexMode);
+    }
 
     public static explicit operator PFN_vkCmdSetProvokingVertexModeEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetProvokingVertexModeEXT(nuint ptr) => new(ptr);
 }
 
 

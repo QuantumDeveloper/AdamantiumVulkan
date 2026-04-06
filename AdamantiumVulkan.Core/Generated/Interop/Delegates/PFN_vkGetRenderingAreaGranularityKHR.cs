@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11999 Column: 26
 public unsafe struct PFN_vkGetRenderingAreaGranularityKHR
 {
+    public PFN_vkGetRenderingAreaGranularityKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetRenderingAreaGranularityKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetRenderingAreaGranularityKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)ptr)(device, pRenderingAreaInfo, pGranularity);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo* pRenderingAreaInfo, AdamantiumVulkan.Core.Interop.VkExtent2D* pGranularity)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo*, AdamantiumVulkan.Core.Interop.VkExtent2D*, void>)(void*)ptr)(device, pRenderingAreaInfo, pGranularity);
+    }
 
     public static explicit operator PFN_vkGetRenderingAreaGranularityKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetRenderingAreaGranularityKHR(nuint ptr) => new(ptr);
 }
 
 

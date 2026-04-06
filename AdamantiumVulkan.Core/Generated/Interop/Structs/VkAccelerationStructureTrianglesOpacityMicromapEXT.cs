@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureTrianglesOpacityMicromapEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public IndexType indexType;
     public VkDeviceOrHostAddressConstKHR indexBuffer;
     public VkDeviceSize indexStride;

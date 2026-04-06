@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkMemoryWin32HandlePropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint memoryTypeBits;
 }
 

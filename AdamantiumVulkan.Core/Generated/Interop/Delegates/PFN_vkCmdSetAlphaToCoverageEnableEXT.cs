@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19261 Column: 26
 public unsafe struct PFN_vkCmdSetAlphaToCoverageEnableEXT
 {
+    public PFN_vkCmdSetAlphaToCoverageEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetAlphaToCoverageEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetAlphaToCoverageEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, alphaToCoverageEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 alphaToCoverageEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, alphaToCoverageEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetAlphaToCoverageEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetAlphaToCoverageEnableEXT(nuint ptr) => new(ptr);
 }
 
 

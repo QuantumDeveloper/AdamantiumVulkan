@@ -17,9 +17,9 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkWriteDescriptorSetInlineUniformBlock
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint dataSize;
-    public void* pData;
+    public nuint pData;
 }
 
 

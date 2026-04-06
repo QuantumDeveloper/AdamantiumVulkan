@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkBindAccelerationStructureMemoryInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkAccelerationStructureNV_T accelerationStructure;
     public VkDeviceMemory_T memory;
     public VkDeviceSize memoryOffset;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMaintenance5Properties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 earlyFragmentMultisampleCoverageAfterSampleCounting;
     public VkBool32 earlyFragmentSampleMaskTestBeforeSampleCounting;
     public VkBool32 depthStencilSwizzleOneSupport;

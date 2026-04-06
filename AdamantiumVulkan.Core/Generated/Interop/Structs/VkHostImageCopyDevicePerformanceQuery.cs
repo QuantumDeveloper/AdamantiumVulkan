@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkHostImageCopyDevicePerformanceQuery
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 optimalDeviceAccess;
     public VkBool32 identicalMemoryLayout;
 }

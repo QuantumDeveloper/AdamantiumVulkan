@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4279 Column: 26
 public unsafe struct PFN_vkCmdPipelineBarrier
 {
+    public PFN_vkCmdPipelineBarrier(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdPipelineBarrier(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdPipelineBarrier
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags, VkPipelineStageFlags, VkDependencyFlags, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)ptr)(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags, VkPipelineStageFlags, VkDependencyFlags, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)(void*)ptr)(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
+    }
 
     public static explicit operator PFN_vkCmdPipelineBarrier(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdPipelineBarrier(nuint ptr) => new(ptr);
 }
 
 

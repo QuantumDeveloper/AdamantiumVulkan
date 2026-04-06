@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12126 Column: 30
 public unsafe struct PFN_vkCreatePipelineBinariesKHR
 {
+    public PFN_vkCreatePipelineBinariesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreatePipelineBinariesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreatePipelineBinariesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryHandlesInfoKHR*, Result>)ptr)(device, pCreateInfo, pAllocator, pBinaries);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkPipelineBinaryHandlesInfoKHR* pBinaries)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryHandlesInfoKHR*, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, pBinaries);
+    }
 
     public static explicit operator PFN_vkCreatePipelineBinariesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreatePipelineBinariesKHR(nuint ptr) => new(ptr);
 }
 
 

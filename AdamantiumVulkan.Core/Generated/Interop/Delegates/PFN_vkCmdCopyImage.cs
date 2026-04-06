@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4266 Column: 26
 public unsafe struct PFN_vkCmdCopyImage
 {
+    public PFN_vkCmdCopyImage(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCopyImage(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCopyImage
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageCopy*, void>)ptr)(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageCopy* pRegions)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageCopy*, void>)(void*)ptr)(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+    }
 
     public static explicit operator PFN_vkCmdCopyImage(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCopyImage(nuint ptr) => new(ptr);
 }
 
 

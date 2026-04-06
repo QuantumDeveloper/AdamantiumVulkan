@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceFragmentDensityMapFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 fragmentDensityMap;
     public VkBool32 fragmentDensityMapDynamic;
     public VkBool32 fragmentDensityMapNonSubsampledImages;

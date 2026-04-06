@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCooperativeMatrixFlexibleDimensionsPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint MGranularity;
     public uint NGranularity;
     public uint KGranularity;

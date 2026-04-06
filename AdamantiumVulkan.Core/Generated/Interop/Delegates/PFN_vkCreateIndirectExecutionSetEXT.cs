@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21164 Column: 30
 public unsafe struct PFN_vkCreateIndirectExecutionSetEXT
 {
+    public PFN_vkCreateIndirectExecutionSetEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateIndirectExecutionSetEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateIndirectExecutionSetEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetEXT_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pIndirectExecutionSet);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetEXT_T pIndirectExecutionSet)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetEXT_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pIndirectExecutionSet);
+    }
 
     public static explicit operator PFN_vkCreateIndirectExecutionSetEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateIndirectExecutionSetEXT(nuint ptr) => new(ptr);
 }
 
 

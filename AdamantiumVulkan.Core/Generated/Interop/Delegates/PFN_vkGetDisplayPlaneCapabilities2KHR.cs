@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10658 Column: 30
 public unsafe struct PFN_vkGetDisplayPlaneCapabilities2KHR
 {
+    public PFN_vkGetDisplayPlaneCapabilities2KHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDisplayPlaneCapabilities2KHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDisplayPlaneCapabilities2KHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR*, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR*, Result>)ptr)(physicalDevice, pDisplayPlaneInfo, pCapabilities);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR* pCapabilities)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR*, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR*, Result>)(void*)ptr)(physicalDevice, pDisplayPlaneInfo, pCapabilities);
+    }
 
     public static explicit operator PFN_vkGetDisplayPlaneCapabilities2KHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDisplayPlaneCapabilities2KHR(nuint ptr) => new(ptr);
 }
 
 

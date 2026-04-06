@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMemoryBarrierAccessFlags3KHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkAccessFlags3KHR srcAccessMask3;
     public VkAccessFlags3KHR dstAccessMask3;
 }

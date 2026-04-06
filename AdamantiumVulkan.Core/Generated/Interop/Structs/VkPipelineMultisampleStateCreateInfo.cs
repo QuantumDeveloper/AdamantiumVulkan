@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineMultisampleStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineMultisampleStateCreateFlags flags;
     public SampleCountFlagBits rasterizationSamples;
     public VkBool32 sampleShadingEnable;

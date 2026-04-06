@@ -27,7 +27,7 @@ public unsafe partial class DescriptorUpdateTemplate : IUnmanagedWrapper<Adamant
     }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkDescriptorUpdateTemplate_T GetPinnableReference() => ref __Instance;
 

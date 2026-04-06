@@ -16,7 +16,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineBinaryDataKHR
 {
     public ulong dataSize;
-    public void* pData;
+    public nuint pData;
 }
 
 

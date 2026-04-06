@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Windows.Interop;
@@ -25,7 +26,7 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
 
     public StructureType SType { get; set; }
     public object PNext { get; set; }
-    public void* PAttributes { get; set; }
+    public nuint PAttributes { get; set; }
     public uint DwAccess { get; set; }
 
     public static implicit operator ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV e)
@@ -56,14 +57,14 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
         DwAccess = native.dwAccess;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExportMemoryWin32HandleInfoNVMarshaller
     {
@@ -77,7 +78,11 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
             }
             else if (exportMemoryWin32HandleInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (exportMemoryWin32HandleInfoNV.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].pAttributes = exportMemoryWin32HandleInfoNV.PAttributes;

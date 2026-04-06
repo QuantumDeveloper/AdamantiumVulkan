@@ -170,7 +170,7 @@ public static unsafe partial class VulkanShadersInterop
     /// Sets includer callback functions.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_include_callbacks", ExactSpelling = true)]
-    internal static extern void shaderc_compile_options_set_include_callbacks(AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, void* resolver, void* result_releaser, void* user_data);
+    internal static extern void shaderc_compile_options_set_include_callbacks(AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, nuint resolver, nuint result_releaser, nuint user_data);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 499 Column: 21
     ///<summary>

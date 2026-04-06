@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineColorBlendStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineColorBlendStateCreateFlags flags;
     public VkBool32 logicOpEnable;
     public LogicOp logicOp;

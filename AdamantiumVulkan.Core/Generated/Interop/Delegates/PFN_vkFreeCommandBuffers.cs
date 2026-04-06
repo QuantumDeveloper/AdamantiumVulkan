@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4242 Column: 26
 public unsafe struct PFN_vkFreeCommandBuffers
 {
+    public PFN_vkFreeCommandBuffers(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkFreeCommandBuffers(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkFreeCommandBuffers
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, uint, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, void>)ptr)(device, commandPool, commandBufferCount, pCommandBuffers);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, uint commandBufferCount, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, uint, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, void>)(void*)ptr)(device, commandPool, commandBufferCount, pCommandBuffers);
+    }
 
     public static explicit operator PFN_vkFreeCommandBuffers(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkFreeCommandBuffers(nuint ptr) => new(ptr);
 }
 
 

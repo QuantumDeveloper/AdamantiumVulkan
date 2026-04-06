@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21545 Column: 26
 public unsafe struct PFN_vkGetDeviceAccelerationStructureCompatibilityKHR
 {
+    public PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceAccelerationStructureCompatibilityKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR*, void>)ptr)(device, pVersionInfo, ref pCompatibility);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR*, ref AccelerationStructureCompatibilityKHR*, void>)(void*)ptr)(device, pVersionInfo, ref pCompatibility);
+    }
 
     public static explicit operator PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(nuint ptr) => new(ptr);
 }
 
 

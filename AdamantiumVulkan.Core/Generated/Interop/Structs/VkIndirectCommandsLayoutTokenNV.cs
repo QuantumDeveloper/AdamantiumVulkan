@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkIndirectCommandsLayoutTokenNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public IndirectCommandsTokenTypeNV tokenType;
     public uint stream;
     public uint offset;

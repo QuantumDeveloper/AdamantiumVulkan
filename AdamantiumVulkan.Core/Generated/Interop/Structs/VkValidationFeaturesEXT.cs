@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkValidationFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint enabledValidationFeatureCount;
     public ValidationFeatureEnableEXT* pEnabledValidationFeatures;
     public uint disabledValidationFeatureCount;

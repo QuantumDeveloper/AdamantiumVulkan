@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkShaderModuleIdentifierEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint identifierSize;
     public unsafe fixed byte identifier[32];
 }

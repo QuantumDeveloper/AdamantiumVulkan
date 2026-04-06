@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9278 Column: 26
 public unsafe struct PFN_vkCmdDecodeVideoKHR
 {
+    public PFN_vkCmdDecodeVideoKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDecodeVideoKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDecodeVideoKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR*, void>)ptr)(commandBuffer, pDecodeInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR* pDecodeInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR*, void>)(void*)ptr)(commandBuffer, pDecodeInfo);
+    }
 
     public static explicit operator PFN_vkCmdDecodeVideoKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDecodeVideoKHR(nuint ptr) => new(ptr);
 }
 
 

@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -74,35 +75,34 @@ public unsafe partial class SubmitInfo : IMarshallableObject, IMarshallable<Adam
         PWaitSemaphores = tmpPWaitSemaphores;
         var tmpPWaitDstStageMask = new PipelineStageFlagBits[native.waitSemaphoreCount];
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitDstStageMask, native.waitSemaphoreCount, tmpPWaitDstStageMask);
-        PWaitDstStageMask = tmpPWaitDstStageMask;
         CommandBufferCount = native.commandBufferCount;
         var tmpPCommandBuffers = new CommandBuffer[native.commandBufferCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[native.commandBufferCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCommandBuffers, native.commandBufferCount, nativeTmpArray1);
-        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkCommandBuffer_T[native.commandBufferCount];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCommandBuffers, native.commandBufferCount, nativeTmpArray2);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
         {
-            tmpPCommandBuffers[i] = new CommandBuffer(in nativeTmpArray1[i]);
+            tmpPCommandBuffers[i] = new CommandBuffer(in nativeTmpArray2[i]);
         }
         PCommandBuffers = tmpPCommandBuffers;
         SignalSemaphoreCount = native.signalSemaphoreCount;
         var tmpPSignalSemaphores = new Semaphore[native.signalSemaphoreCount];
-        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[native.signalSemaphoreCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSignalSemaphores, native.signalSemaphoreCount, nativeTmpArray2);
-        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        var nativeTmpArray3 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[native.signalSemaphoreCount];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSignalSemaphores, native.signalSemaphoreCount, nativeTmpArray3);
+        for (int i = 0; i < nativeTmpArray3.Length; ++i)
         {
-            tmpPSignalSemaphores[i] = new Semaphore(in nativeTmpArray2[i]);
+            tmpPSignalSemaphores[i] = new Semaphore(in nativeTmpArray3[i]);
         }
         PSignalSemaphores = tmpPSignalSemaphores;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubmitInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubmitInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubmitInfoMarshaller
     {
@@ -116,7 +116,11 @@ public unsafe partial class SubmitInfo : IMarshallableObject, IMarshallable<Adam
             }
             else if (submitInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (submitInfo.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].waitSemaphoreCount = submitInfo.WaitSemaphoreCount;

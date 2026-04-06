@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAcquireNextImageInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSwapchainKHR_T swapchain;
     public ulong timeout;
     public VkSemaphore_T semaphore;

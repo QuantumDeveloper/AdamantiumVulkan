@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20815 Column: 26
 public unsafe struct PFN_vkCmdBuildClusterAccelerationStructureIndirectNV
 {
+    public PFN_vkCmdBuildClusterAccelerationStructureIndirectNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBuildClusterAccelerationStructureIndirectNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBuildClusterAccelerationStructureIndirectNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureCommandsInfoNV*, void>)ptr)(commandBuffer, pCommandInfos);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureCommandsInfoNV* pCommandInfos)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureCommandsInfoNV*, void>)(void*)ptr)(commandBuffer, pCommandInfos);
+    }
 
     public static explicit operator PFN_vkCmdBuildClusterAccelerationStructureIndirectNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBuildClusterAccelerationStructureIndirectNV(nuint ptr) => new(ptr);
 }
 
 

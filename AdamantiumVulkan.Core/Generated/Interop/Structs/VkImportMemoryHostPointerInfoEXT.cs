@@ -17,9 +17,9 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkImportMemoryHostPointerInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ExternalMemoryHandleTypeFlagBits handleType;
-    public void* pHostPointer;
+    public nuint pHostPointer;
 }
 
 

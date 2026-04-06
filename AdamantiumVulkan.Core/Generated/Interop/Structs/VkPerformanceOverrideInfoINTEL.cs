@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPerformanceOverrideInfoINTEL
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public PerformanceOverrideTypeINTEL type;
     public VkBool32 enable;
     public ulong parameter;

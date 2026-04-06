@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCudaLaunchInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkCudaFunctionNV_T function;
     public uint gridDimX;
     public uint gridDimY;
@@ -27,9 +27,9 @@ public unsafe partial struct VkCudaLaunchInfoNV
     public uint blockDimZ;
     public uint sharedMemBytes;
     public ulong paramCount;
-    public void** pParams;
+    public nuint pParams;
     public ulong extraCount;
-    public void** pExtras;
+    public nuint pExtras;
 }
 
 

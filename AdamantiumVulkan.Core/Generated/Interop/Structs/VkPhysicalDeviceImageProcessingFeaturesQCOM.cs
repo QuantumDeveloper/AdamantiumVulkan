@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceImageProcessingFeaturesQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 textureSampleWeighted;
     public VkBool32 textureBoxFilter;
     public VkBool32 textureBlockMatch;

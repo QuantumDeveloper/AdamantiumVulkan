@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH264CapabilitiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoEncodeH264CapabilityFlagsKHR flags;
     public StdVideoH264LevelIdc maxLevelIdc;
     public uint maxSliceCount;

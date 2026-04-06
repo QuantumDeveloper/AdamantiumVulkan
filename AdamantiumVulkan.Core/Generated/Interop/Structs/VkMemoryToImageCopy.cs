@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMemoryToImageCopy
 {
     public StructureType sType;
-    public void* pNext;
-    public void* pHostPointer;
+    public nuint pNext;
+    public nuint pHostPointer;
     public uint memoryRowLength;
     public uint memoryImageHeight;
     public VkImageSubresourceLayers imageSubresource;

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11039 Column: 30
 public unsafe struct PFN_vkSignalSemaphoreKHR
 {
+    public PFN_vkSignalSemaphoreKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkSignalSemaphoreKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkSignalSemaphoreKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo*, Result>)ptr)(device, pSignalInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo* pSignalInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo*, Result>)(void*)ptr)(device, pSignalInfo);
+    }
 
     public static explicit operator PFN_vkSignalSemaphoreKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkSignalSemaphoreKHR(nuint ptr) => new(ptr);
 }
 
 

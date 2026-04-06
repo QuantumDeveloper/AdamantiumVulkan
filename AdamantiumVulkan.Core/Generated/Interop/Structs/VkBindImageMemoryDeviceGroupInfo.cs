@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkBindImageMemoryDeviceGroupInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint deviceIndexCount;
     public uint* pDeviceIndices;
     public uint splitInstanceBindRegionCount;

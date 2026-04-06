@@ -17,10 +17,10 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDebugReportCallbackCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDebugReportFlagsEXT flags;
-    public delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void*, uint> pfnCallback;
-    public void* pUserData;
+    public delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, nuint, uint> pfnCallback;
+    public nuint pUserData;
 }
 
 

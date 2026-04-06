@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18025 Column: 26
 public unsafe struct PFN_vkCmdBindInvocationMaskHUAWEI
 {
+    public PFN_vkCmdBindInvocationMaskHUAWEI(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindInvocationMaskHUAWEI(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindInvocationMaskHUAWEI
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, void>)ptr)(commandBuffer, imageView, imageLayout);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, ImageLayout imageLayout)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, void>)(void*)ptr)(commandBuffer, imageView, imageLayout);
+    }
 
     public static explicit operator PFN_vkCmdBindInvocationMaskHUAWEI(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindInvocationMaskHUAWEI(nuint ptr) => new(ptr);
 }
 
 

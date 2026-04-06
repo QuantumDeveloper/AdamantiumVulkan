@@ -17,9 +17,9 @@ namespace AdamantiumVulkan.MacOS.Interop;
 public unsafe partial struct VkMacOSSurfaceCreateInfoMVK
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkMacOSSurfaceCreateFlagsMVK flags;
-    public void* pView;
+    public nuint pView;
 }
 
 

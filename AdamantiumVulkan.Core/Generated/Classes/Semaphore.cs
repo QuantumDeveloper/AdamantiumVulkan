@@ -27,7 +27,7 @@ public unsafe partial class Semaphore : IUnmanagedWrapper<AdamantiumVulkan.Core.
     }
 
     public AdamantiumVulkan.Core.Interop.VkSemaphore_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkSemaphore_T GetPinnableReference() => ref __Instance;
 

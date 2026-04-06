@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4155 Column: 30
 public unsafe struct PFN_vkEnumeratePhysicalDevices
 {
+    public PFN_vkEnumeratePhysicalDevices(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkEnumeratePhysicalDevices(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkEnumeratePhysicalDevices
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Result>)ptr)(instance, ref pPhysicalDeviceCount, out pPhysicalDevices);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceCount, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T pPhysicalDevices)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Result>)(void*)ptr)(instance, ref pPhysicalDeviceCount, out pPhysicalDevices);
+    }
 
     public static explicit operator PFN_vkEnumeratePhysicalDevices(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkEnumeratePhysicalDevices(nuint ptr) => new(ptr);
 }
 
 

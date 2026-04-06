@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10149 Column: 26
 public unsafe struct PFN_vkCmdPushDescriptorSetWithTemplateKHR
 {
+    public PFN_vkCmdPushDescriptorSetWithTemplateKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdPushDescriptorSetWithTemplateKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, nuint, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, nuint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData)
     {
          InvokeFunc(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void*, void>)ptr)(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, nuint, void>)ptr)(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
+    }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, nuint, void>)(void*)ptr)(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
     }
 
     public static explicit operator PFN_vkCmdPushDescriptorSetWithTemplateKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdPushDescriptorSetWithTemplateKHR(nuint ptr) => new(ptr);
 }
 
 

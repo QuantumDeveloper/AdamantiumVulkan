@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5802 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceImageFormatProperties2
 {
+    public PFN_vkGetPhysicalDeviceImageFormatProperties2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceImageFormatProperties2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceImageFormatProperties2
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2*, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2*, Result>)ptr)(physicalDevice, pImageFormatInfo, pImageFormatProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2* pImageFormatProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2*, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2*, Result>)(void*)ptr)(physicalDevice, pImageFormatInfo, pImageFormatProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceImageFormatProperties2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceImageFormatProperties2(nuint ptr) => new(ptr);
 }
 
 

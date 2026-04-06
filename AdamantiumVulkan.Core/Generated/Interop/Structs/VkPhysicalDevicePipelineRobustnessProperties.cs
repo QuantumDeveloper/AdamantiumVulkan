@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevicePipelineRobustnessProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public PipelineRobustnessBufferBehavior defaultRobustnessStorageBuffers;
     public PipelineRobustnessBufferBehavior defaultRobustnessUniformBuffers;
     public PipelineRobustnessBufferBehavior defaultRobustnessVertexInputs;

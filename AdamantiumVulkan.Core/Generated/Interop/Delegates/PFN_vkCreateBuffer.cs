@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4203 Column: 30
 public unsafe struct PFN_vkCreateBuffer
 {
+    public PFN_vkCreateBuffer(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateBuffer(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateBuffer
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkBuffer_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pBuffer);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkBuffer_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pBuffer);
+    }
 
     public static explicit operator PFN_vkCreateBuffer(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateBuffer(nuint ptr) => new(ptr);
 }
 
 

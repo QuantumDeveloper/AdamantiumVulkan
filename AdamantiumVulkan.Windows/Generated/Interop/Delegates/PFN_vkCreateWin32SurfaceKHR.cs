@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 35 Column: 30
 public unsafe struct PFN_vkCreateWin32SurfaceKHR
 {
+    public PFN_vkCreateWin32SurfaceKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateWin32SurfaceKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkCreateWin32SurfaceKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)ptr)(instance, pCreateInfo, pAllocator, out pSurface);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)(void*)ptr)(instance, pCreateInfo, pAllocator, out pSurface);
+    }
 
     public static explicit operator PFN_vkCreateWin32SurfaceKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateWin32SurfaceKHR(nuint ptr) => new(ptr);
 }
 
 

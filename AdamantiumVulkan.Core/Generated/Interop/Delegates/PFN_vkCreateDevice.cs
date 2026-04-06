@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4164 Column: 30
 public unsafe struct PFN_vkCreateDevice
 {
+    public PFN_vkCreateDevice(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateDevice(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateDevice
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDevice_T, Result>)ptr)(physicalDevice, pCreateInfo, pAllocator, out pDevice);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDevice_T, Result>)(void*)ptr)(physicalDevice, pCreateInfo, pAllocator, out pDevice);
+    }
 
     public static explicit operator PFN_vkCreateDevice(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateDevice(nuint ptr) => new(ptr);
 }
 
 

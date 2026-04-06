@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9156 Column: 30
 public unsafe struct PFN_vkCreateVideoSessionKHR
 {
+    public PFN_vkCreateVideoSessionKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateVideoSessionKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateVideoSessionKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pVideoSession);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T pVideoSession)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pVideoSession);
+    }
 
     public static explicit operator PFN_vkCreateVideoSessionKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateVideoSessionKHR(nuint ptr) => new(ptr);
 }
 
 

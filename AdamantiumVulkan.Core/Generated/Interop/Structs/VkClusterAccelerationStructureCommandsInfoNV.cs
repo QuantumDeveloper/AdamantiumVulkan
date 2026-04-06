@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkClusterAccelerationStructureCommandsInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkClusterAccelerationStructureInputInfoNV input;
     public VkDeviceAddress dstImplicitData;
     public VkDeviceAddress scratchData;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFramebufferMixedSamplesCombinationNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public CoverageReductionModeNV coverageReductionMode;
     public SampleCountFlagBits rasterizationSamples;
     public VkSampleCountFlags depthStencilSamples;

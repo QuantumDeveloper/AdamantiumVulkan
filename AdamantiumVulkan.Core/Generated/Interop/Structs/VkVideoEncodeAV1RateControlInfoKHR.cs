@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeAV1RateControlInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoEncodeAV1RateControlFlagsKHR flags;
     public uint gopFrameCount;
     public uint keyFramePeriod;

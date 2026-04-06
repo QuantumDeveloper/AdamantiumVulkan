@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5793 Column: 26
 public unsafe struct PFN_vkCmdSetDeviceMask
 {
+    public PFN_vkCmdSetDeviceMask(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDeviceMask(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDeviceMask
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, deviceMask);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint deviceMask)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)(void*)ptr)(commandBuffer, deviceMask);
+    }
 
     public static explicit operator PFN_vkCmdSetDeviceMask(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDeviceMask(nuint ptr) => new(ptr);
 }
 
 

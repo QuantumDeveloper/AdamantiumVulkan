@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8584 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceSurfacePresentModesKHR
 {
+    public PFN_vkGetPhysicalDeviceSurfacePresentModesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceSurfacePresentModesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceSurfacePresentModesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, ref PresentModeKHR*, Result>)ptr)(physicalDevice, surface, ref pPresentModeCount, ref pPresentModes);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint* pPresentModeCount, ref PresentModeKHR* pPresentModes)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint*, ref PresentModeKHR*, Result>)(void*)ptr)(physicalDevice, surface, ref pPresentModeCount, ref pPresentModes);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceSurfacePresentModesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceSurfacePresentModesKHR(nuint ptr) => new(ptr);
 }
 
 

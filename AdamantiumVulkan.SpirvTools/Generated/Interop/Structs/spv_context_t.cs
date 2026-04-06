@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.SpirvTools.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct spv_context_t
 {
-    public void* pointer;
+    public nuint pointer;
 }
 
 

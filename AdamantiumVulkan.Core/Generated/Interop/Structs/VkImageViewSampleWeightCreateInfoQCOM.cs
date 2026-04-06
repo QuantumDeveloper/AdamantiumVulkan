@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkImageViewSampleWeightCreateInfoQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkOffset2D filterCenter;
     public VkExtent2D filterSize;
     public uint numPhases;

@@ -652,7 +652,7 @@ public static unsafe partial class SpirvCrossInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 776 Column: 22
     [DllImport(LibraryPath, EntryPoint = "spvc_context_set_error_callback", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
-    internal static extern void spvc_context_set_error_callback(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context, void* cb, void* userdata);
+    internal static extern void spvc_context_set_error_callback(AdamantiumVulkan.Spirv.Cross.Interop.SpvcContextS context, nuint cb, nuint userdata);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 69 Column: 29
     ///<summary>

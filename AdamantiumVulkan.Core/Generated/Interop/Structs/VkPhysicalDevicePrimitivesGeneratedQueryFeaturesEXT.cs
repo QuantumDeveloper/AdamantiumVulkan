@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 primitivesGeneratedQuery;
     public VkBool32 primitivesGeneratedQueryWithRasterizerDiscard;
     public VkBool32 primitivesGeneratedQueryWithNonZeroStreams;

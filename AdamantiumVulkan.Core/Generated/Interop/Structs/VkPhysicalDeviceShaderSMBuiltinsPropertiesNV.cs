@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderSMBuiltinsPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint shaderSMCount;
     public uint shaderWarpsPerSM;
 }

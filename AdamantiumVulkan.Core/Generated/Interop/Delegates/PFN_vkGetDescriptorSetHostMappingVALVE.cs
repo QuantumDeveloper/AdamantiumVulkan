@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18795 Column: 26
 public unsafe struct PFN_vkGetDescriptorSetHostMappingVALVE
 {
+    public PFN_vkGetDescriptorSetHostMappingVALVE(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDescriptorSetHostMappingVALVE(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out void*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out nuint, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out void*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out nuint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out nuint ppData)
     {
          InvokeFunc(device, descriptorSet, out ppData);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out nuint ppData)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out void*, void>)ptr)(device, descriptorSet, out ppData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out nuint, void>)ptr)(device, descriptorSet, out ppData);
+    }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out nuint ppData)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T, out nuint, void>)(void*)ptr)(device, descriptorSet, out ppData);
     }
 
     public static explicit operator PFN_vkGetDescriptorSetHostMappingVALVE(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDescriptorSetHostMappingVALVE(nuint ptr) => new(ptr);
 }
 
 

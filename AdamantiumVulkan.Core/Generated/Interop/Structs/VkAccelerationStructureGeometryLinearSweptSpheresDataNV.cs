@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureGeometryLinearSweptSpheresDataNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public Format vertexFormat;
     public VkDeviceOrHostAddressConstKHR vertexData;
     public VkDeviceSize vertexStride;

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4226 Column: 26
 public unsafe struct PFN_vkDestroyDescriptorSetLayout
 {
+    public PFN_vkDestroyDescriptorSetLayout(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyDescriptorSetLayout(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyDescriptorSetLayout
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, descriptorSetLayout, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T descriptorSetLayout, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, descriptorSetLayout, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyDescriptorSetLayout(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyDescriptorSetLayout(nuint ptr) => new(ptr);
 }
 
 

@@ -30,7 +30,7 @@ public static unsafe partial class SpirvToolsInterop
     /// Parses a SPIR-V binary, specified as counted sequence of 32-bit words. Parsing feedback is provided via two callbacks provided as function pointers. Each callback function pointer can be a null pointer, in which case it is never called. Otherwise, in a valid parse the parsed-header callback is called once, and then the parsed-instruction callback once for each instruction in the stream. The user_data parameter is supplied as context to the callbacks. Returns SPV_SUCCESS on successful parse where the callbacks always return SPV_SUCCESS. For an invalid parse, returns a status code other than SPV_SUCCESS, and if diagnostic is non-null also emits a diagnostic. If diagnostic is null the context's message consumer will be used to emit any errors. If a callback returns anything other than SPV_SUCCESS, then that status code is returned, no further callbacks are issued, and no additional diagnostics are emitted.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "spvBinaryParse", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
-    internal static extern spv_result_t spvBinaryParse(AdamantiumVulkan.SpirvTools.Interop.spv_context_t context, void* user_data, uint* words, ulong num_words, void* parse_header, void* parse_instruction, out AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic diagnostic);
+    internal static extern spv_result_t spvBinaryParse(AdamantiumVulkan.SpirvTools.Interop.spv_context_t context, nuint user_data, uint* words, ulong num_words, nuint parse_header, nuint parse_instruction, out AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic diagnostic);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 879 Column: 33
     ///<summary>
@@ -268,7 +268,7 @@ public static unsafe partial class SpirvToolsInterop
     /// Sets an spv_message_consumer on an optimizer object.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "spvOptimizerSetMessageConsumer", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
-    internal static extern void spvOptimizerSetMessageConsumer(AdamantiumVulkan.SpirvTools.Interop.spv_optimizer_t* optimizer, void* consumer);
+    internal static extern void spvOptimizerSetMessageConsumer(AdamantiumVulkan.SpirvTools.Interop.spv_optimizer_t* optimizer, nuint consumer);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 610 Column: 25
     ///<summary>

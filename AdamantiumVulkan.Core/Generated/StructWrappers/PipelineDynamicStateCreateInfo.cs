@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -57,17 +58,16 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
         DynamicStateCount = native.dynamicStateCount;
         var tmpPDynamicStates = new DynamicState[native.dynamicStateCount];
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDynamicStates, native.dynamicStateCount, tmpPDynamicStates);
-        PDynamicStates = tmpPDynamicStates;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineDynamicStateCreateInfoMarshaller
     {
@@ -81,7 +81,11 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
             }
             else if (pipelineDynamicStateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (pipelineDynamicStateCreateInfo.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (pipelineDynamicStateCreateInfo.Flags != (uint)default)

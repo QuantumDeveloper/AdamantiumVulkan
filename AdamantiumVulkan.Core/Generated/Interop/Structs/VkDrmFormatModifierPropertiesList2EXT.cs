@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDrmFormatModifierPropertiesList2EXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint drmFormatModifierCount;
     public AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT* pDrmFormatModifierProperties;
 }

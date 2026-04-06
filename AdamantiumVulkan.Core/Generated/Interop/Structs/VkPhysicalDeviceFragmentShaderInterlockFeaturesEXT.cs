@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 fragmentShaderSampleInterlock;
     public VkBool32 fragmentShaderPixelInterlock;
     public VkBool32 fragmentShaderShadingRateInterlock;

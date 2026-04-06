@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7564 Column: 26
 public unsafe struct PFN_vkCmdBlitImage2
 {
+    public PFN_vkCmdBlitImage2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBlitImage2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBlitImage2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBlitImageInfo2*, void>)ptr)(commandBuffer, pBlitImageInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBlitImageInfo2* pBlitImageInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBlitImageInfo2*, void>)(void*)ptr)(commandBuffer, pBlitImageInfo);
+    }
 
     public static explicit operator PFN_vkCmdBlitImage2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBlitImage2(nuint ptr) => new(ptr);
 }
 
 

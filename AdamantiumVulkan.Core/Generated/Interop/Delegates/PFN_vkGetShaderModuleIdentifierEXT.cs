@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19548 Column: 26
 public unsafe struct PFN_vkGetShaderModuleIdentifierEXT
 {
+    public PFN_vkGetShaderModuleIdentifierEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetShaderModuleIdentifierEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetShaderModuleIdentifierEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModule_T, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void>)ptr)(device, shaderModule, pIdentifier);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkShaderModule_T, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT*, void>)(void*)ptr)(device, shaderModule, pIdentifier);
+    }
 
     public static explicit operator PFN_vkGetShaderModuleIdentifierEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetShaderModuleIdentifierEXT(nuint ptr) => new(ptr);
 }
 
 

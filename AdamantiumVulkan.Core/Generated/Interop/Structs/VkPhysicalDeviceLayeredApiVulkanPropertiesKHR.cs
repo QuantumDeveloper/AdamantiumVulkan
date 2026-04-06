@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceLayeredApiVulkanPropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPhysicalDeviceProperties2 properties;
 }
 

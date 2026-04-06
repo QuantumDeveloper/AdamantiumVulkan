@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9908 Column: 26
 public unsafe struct PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR
 {
+    public PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, ref VkPeerMemoryFeatureFlags*, void>)ptr)(device, heapIndex, localDeviceIndex, remoteDeviceIndex, ref pPeerMemoryFeatures);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags* pPeerMemoryFeatures)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, ref VkPeerMemoryFeatureFlags*, void>)(void*)ptr)(device, heapIndex, localDeviceIndex, remoteDeviceIndex, ref pPeerMemoryFeatures);
+    }
 
     public static explicit operator PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR(nuint ptr) => new(ptr);
 }
 
 

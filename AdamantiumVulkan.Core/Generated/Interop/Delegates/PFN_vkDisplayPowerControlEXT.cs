@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13788 Column: 30
 public unsafe struct PFN_vkDisplayPowerControlEXT
 {
+    public PFN_vkDisplayPowerControlEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDisplayPowerControlEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDisplayPowerControlEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT*, Result>)ptr)(device, display, pDisplayPowerInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT* pDisplayPowerInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT*, Result>)(void*)ptr)(device, display, pDisplayPowerInfo);
+    }
 
     public static explicit operator PFN_vkDisplayPowerControlEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDisplayPowerControlEXT(nuint ptr) => new(ptr);
 }
 
 

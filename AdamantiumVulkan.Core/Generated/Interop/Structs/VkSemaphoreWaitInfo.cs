@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSemaphoreWaitInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSemaphoreWaitFlags flags;
     public uint semaphoreCount;
     public VkSemaphore_T* pSemaphores;

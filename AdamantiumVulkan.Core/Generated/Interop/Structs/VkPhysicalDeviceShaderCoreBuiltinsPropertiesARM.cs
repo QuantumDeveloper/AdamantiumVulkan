@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ulong shaderCoreMask;
     public uint shaderCoreCount;
     public uint shaderWarpsPerCore;

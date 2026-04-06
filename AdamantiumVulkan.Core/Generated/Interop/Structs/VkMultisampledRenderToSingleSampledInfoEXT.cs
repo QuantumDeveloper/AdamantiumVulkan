@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMultisampledRenderToSingleSampledInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 multisampledRenderToSingleSampledEnable;
     public SampleCountFlagBits rasterizationSamples;
 }

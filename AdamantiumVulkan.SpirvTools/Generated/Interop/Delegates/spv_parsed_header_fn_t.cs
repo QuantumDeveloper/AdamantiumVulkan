@@ -20,28 +20,30 @@ namespace AdamantiumVulkan.SpirvTools.Interop;
 ///</summary>
 public unsafe struct spv_parsed_header_fn_t
 {
+    public spv_parsed_header_fn_t(nuint ptr) : this((void*) ptr) { }
+
     public spv_parsed_header_fn_t(void* ptr)
     {
         NativePointer = ptr;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            InvokeStdcall = (delegate* unmanaged[Stdcall]<void*, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr;
+            InvokeStdcall = (delegate* unmanaged[Stdcall]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr;
             InvokeCdecl = default;
         }
         else
         {
-            InvokeCdecl = (delegate* unmanaged[Cdecl]<void*, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr;
+            InvokeCdecl = (delegate* unmanaged[Cdecl]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr;
             InvokeStdcall = default;
         }
     }
 
-    private delegate* unmanaged[Stdcall]<void*, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t> InvokeStdcall;
+    private delegate* unmanaged[Stdcall]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t> InvokeStdcall;
 
-    private delegate* unmanaged[Cdecl]<void*, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t> InvokeCdecl;
+    private delegate* unmanaged[Cdecl]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t> InvokeCdecl;
 
     public void* NativePointer { get; }
 
-    public spv_result_t Invoke(void* user_data, spv_endianness_t endian, uint magic, uint version, uint generator, uint id_bound, uint reserved)
+    public spv_result_t Invoke(nuint user_data, spv_endianness_t endian, uint magic, uint version, uint generator, uint id_bound, uint reserved)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -53,19 +55,32 @@ public unsafe struct spv_parsed_header_fn_t
         }
     }
 
-    public static spv_result_t Invoke(void* ptr, void* user_data, spv_endianness_t endian, uint magic, uint version, uint generator, uint id_bound, uint reserved)
+    public static spv_result_t Invoke(void* ptr, nuint user_data, spv_endianness_t endian, uint magic, uint version, uint generator, uint id_bound, uint reserved)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            return ((delegate* unmanaged[Stdcall]<void*, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr)(user_data, endian, magic, version, generator, id_bound, reserved);
+            return ((delegate* unmanaged[Stdcall]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr)(user_data, endian, magic, version, generator, id_bound, reserved);
         }
         else
         {
-            return ((delegate* unmanaged[Cdecl]<void*, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr)(user_data, endian, magic, version, generator, id_bound, reserved);
+            return ((delegate* unmanaged[Cdecl]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)ptr)(user_data, endian, magic, version, generator, id_bound, reserved);
+        }
+    }
+    public static spv_result_t Invoke(nuint ptr, nuint user_data, spv_endianness_t endian, uint magic, uint version, uint generator, uint id_bound, uint reserved)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return ((delegate* unmanaged[Stdcall]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)(void*)ptr)(user_data, endian, magic, version, generator, id_bound, reserved);
+        }
+        else
+        {
+            return ((delegate* unmanaged[Cdecl]<nuint, spv_endianness_t, uint, uint, uint, uint, uint, spv_result_t>)(void*)ptr)(user_data, endian, magic, version, generator, id_bound, reserved);
         }
     }
 
     public static explicit operator spv_parsed_header_fn_t(void* ptr) => new(ptr);
+
+    public static explicit operator spv_parsed_header_fn_t(nuint ptr) => new(ptr);
 }
 
 

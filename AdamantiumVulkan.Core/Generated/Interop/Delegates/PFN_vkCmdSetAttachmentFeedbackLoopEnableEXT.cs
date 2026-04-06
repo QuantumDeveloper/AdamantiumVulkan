@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20463 Column: 26
 public unsafe struct PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT
 {
+    public PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkImageAspectFlags, void>)ptr)(commandBuffer, aspectMask);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkImageAspectFlags aspectMask)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkImageAspectFlags, void>)(void*)ptr)(commandBuffer, aspectMask);
+    }
 
     public static explicit operator PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(nuint ptr) => new(ptr);
 }
 
 

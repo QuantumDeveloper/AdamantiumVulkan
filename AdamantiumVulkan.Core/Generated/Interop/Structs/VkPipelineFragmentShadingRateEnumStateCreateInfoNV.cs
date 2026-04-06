@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineFragmentShadingRateEnumStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public FragmentShadingRateTypeNV shadingRateType;
     public FragmentShadingRateNV shadingRate;
     public FragmentShadingRateCombinerOpKHR0__FixedBuffer combinerOps;

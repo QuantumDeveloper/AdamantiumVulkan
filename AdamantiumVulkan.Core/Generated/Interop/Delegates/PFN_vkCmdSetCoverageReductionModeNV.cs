@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19287 Column: 26
 public unsafe struct PFN_vkCmdSetCoverageReductionModeNV
 {
+    public PFN_vkCmdSetCoverageReductionModeNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetCoverageReductionModeNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetCoverageReductionModeNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoverageReductionModeNV, void>)ptr)(commandBuffer, coverageReductionMode);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoverageReductionModeNV coverageReductionMode)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoverageReductionModeNV, void>)(void*)ptr)(commandBuffer, coverageReductionMode);
+    }
 
     public static explicit operator PFN_vkCmdSetCoverageReductionModeNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetCoverageReductionModeNV(nuint ptr) => new(ptr);
 }
 
 

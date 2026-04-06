@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkWin32SurfaceCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkWin32SurfaceCreateFlagsKHR flags;
     public System.IntPtr hinstance;
     public System.IntPtr hwnd;

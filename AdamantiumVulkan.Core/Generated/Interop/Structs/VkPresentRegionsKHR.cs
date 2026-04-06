@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPresentRegionsKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint swapchainCount;
     public AdamantiumVulkan.Core.Interop.VkPresentRegionKHR* pRegions;
 }

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4180 Column: 26
 public unsafe struct PFN_vkGetDeviceMemoryCommitment
 {
+    public PFN_vkGetDeviceMemoryCommitment(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceMemoryCommitment(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceMemoryCommitment
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ref VkDeviceSize*, void>)ptr)(device, memory, ref pCommittedMemoryInBytes);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ref VkDeviceSize* pCommittedMemoryInBytes)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ref VkDeviceSize*, void>)(void*)ptr)(device, memory, ref pCommittedMemoryInBytes);
+    }
 
     public static explicit operator PFN_vkGetDeviceMemoryCommitment(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceMemoryCommitment(nuint ptr) => new(ptr);
 }
 
 

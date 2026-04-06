@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceRayTracingPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint shaderGroupHandleSize;
     public uint maxRecursionDepth;
     public uint maxShaderGroupStride;

@@ -27,7 +27,7 @@ public unsafe partial class Buffer : IUnmanagedWrapper<AdamantiumVulkan.Core.Int
     }
 
     public AdamantiumVulkan.Core.Interop.VkBuffer_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkBuffer_T GetPinnableReference() => ref __Instance;
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoFormatPropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public Format format;
     public VkComponentMapping componentMapping;
     public VkImageCreateFlags imageCreateFlags;

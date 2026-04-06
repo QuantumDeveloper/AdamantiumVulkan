@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMemoryAllocateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceSize allocationSize;
     public uint memoryTypeIndex;
 }

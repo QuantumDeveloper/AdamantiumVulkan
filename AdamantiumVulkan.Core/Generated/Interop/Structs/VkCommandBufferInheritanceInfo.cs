@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandBufferInheritanceInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkRenderPass_T renderPass;
     public uint subpass;
     public VkFramebuffer_T framebuffer;

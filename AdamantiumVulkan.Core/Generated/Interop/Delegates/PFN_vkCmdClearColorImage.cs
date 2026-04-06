@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4272 Column: 26
 public unsafe struct PFN_vkCmdClearColorImage
 {
+    public PFN_vkCmdClearColorImage(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdClearColorImage(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdClearColorImage
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void>)ptr)(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T image, ImageLayout imageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue* pColor, uint rangeCount, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange* pRanges)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkClearColorValue*, uint, AdamantiumVulkan.Core.Interop.VkImageSubresourceRange*, void>)(void*)ptr)(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
+    }
 
     public static explicit operator PFN_vkCmdClearColorImage(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdClearColorImage(nuint ptr) => new(ptr);
 }
 
 

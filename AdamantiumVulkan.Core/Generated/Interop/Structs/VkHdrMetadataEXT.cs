@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkHdrMetadataEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkXYColorEXT displayPrimaryRed;
     public VkXYColorEXT displayPrimaryGreen;
     public VkXYColorEXT displayPrimaryBlue;

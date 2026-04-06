@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4171 Column: 30
 public unsafe struct PFN_vkQueueSubmit
 {
+    public PFN_vkQueueSubmit(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkQueueSubmit(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkQueueSubmit
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkSubmitInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr)(queue, submitCount, pSubmits, fence);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint submitCount, AdamantiumVulkan.Core.Interop.VkSubmitInfo* pSubmits, AdamantiumVulkan.Core.Interop.VkFence_T fence)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkSubmitInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)(void*)ptr)(queue, submitCount, pSubmits, fence);
+    }
 
     public static explicit operator PFN_vkQueueSubmit(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkQueueSubmit(nuint ptr) => new(ptr);
 }
 
 

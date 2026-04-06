@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPresentTimesInfoGOOGLE
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint swapchainCount;
     public AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE* pTimes;
 }

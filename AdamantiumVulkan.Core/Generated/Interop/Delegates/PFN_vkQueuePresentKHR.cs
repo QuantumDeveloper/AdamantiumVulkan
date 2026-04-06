@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8720 Column: 30
 public unsafe struct PFN_vkQueuePresentKHR
 {
+    public PFN_vkQueuePresentKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkQueuePresentKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkQueuePresentKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR*, Result>)ptr)(queue, pPresentInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR* pPresentInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR*, Result>)(void*)ptr)(queue, pPresentInfo);
+    }
 
     public static explicit operator PFN_vkQueuePresentKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkQueuePresentKHR(nuint ptr) => new(ptr);
 }
 
 

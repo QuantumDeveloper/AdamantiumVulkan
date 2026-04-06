@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkImageViewHandleInfoNVX
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkImageView_T imageView;
     public DescriptorType descriptorType;
     public VkSampler_T sampler;

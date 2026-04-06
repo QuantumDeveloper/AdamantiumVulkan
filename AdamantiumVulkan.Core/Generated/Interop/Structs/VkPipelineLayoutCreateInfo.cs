@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineLayoutCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public PipelineLayoutCreateFlagBits flags;
     public uint setLayoutCount;
     public VkDescriptorSetLayout_T* pSetLayouts;

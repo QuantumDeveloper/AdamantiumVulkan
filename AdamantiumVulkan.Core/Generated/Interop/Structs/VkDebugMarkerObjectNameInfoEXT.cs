@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDebugMarkerObjectNameInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public DebugReportObjectTypeEXT objectType;
     public ulong @object;
     public sbyte* pObjectName;

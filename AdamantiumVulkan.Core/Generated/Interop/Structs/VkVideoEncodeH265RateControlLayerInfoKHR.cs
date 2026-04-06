@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH265RateControlLayerInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 useMinQp;
     public VkVideoEncodeH265QpKHR minQp;
     public VkBool32 useMaxQp;

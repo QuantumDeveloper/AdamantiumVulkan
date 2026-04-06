@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMaintenance7PropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 robustFragmentShadingRateAttachmentAccess;
     public VkBool32 separateDepthStencilAttachmentAccess;
     public uint maxDescriptorSetTotalUniformBuffersDynamic;

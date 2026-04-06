@@ -27,7 +27,7 @@ public unsafe partial class CommandPool : IUnmanagedWrapper<AdamantiumVulkan.Cor
     }
 
     public AdamantiumVulkan.Core.Interop.VkCommandPool_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkCommandPool_T GetPinnableReference() => ref __Instance;
 

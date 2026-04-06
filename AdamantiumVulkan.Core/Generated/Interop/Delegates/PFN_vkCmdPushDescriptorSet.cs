@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8389 Column: 26
 public unsafe struct PFN_vkCmdPushDescriptorSet
 {
+    public PFN_vkCmdPushDescriptorSet(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdPushDescriptorSet(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdPushDescriptorSet
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, void>)ptr)(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, uint, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*, void>)(void*)ptr)(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
+    }
 
     public static explicit operator PFN_vkCmdPushDescriptorSet(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdPushDescriptorSet(nuint ptr) => new(ptr);
 }
 
 

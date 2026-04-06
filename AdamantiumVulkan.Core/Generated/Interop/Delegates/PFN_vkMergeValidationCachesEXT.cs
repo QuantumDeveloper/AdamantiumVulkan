@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14591 Column: 30
 public unsafe struct PFN_vkMergeValidationCachesEXT
 {
+    public PFN_vkMergeValidationCachesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkMergeValidationCachesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkMergeValidationCachesEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, uint, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T*, Result>)ptr)(device, dstCache, srcCacheCount, pSrcCaches);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T* pSrcCaches)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T, uint, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T*, Result>)(void*)ptr)(device, dstCache, srcCacheCount, pSrcCaches);
+    }
 
     public static explicit operator PFN_vkMergeValidationCachesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkMergeValidationCachesEXT(nuint ptr) => new(ptr);
 }
 
 

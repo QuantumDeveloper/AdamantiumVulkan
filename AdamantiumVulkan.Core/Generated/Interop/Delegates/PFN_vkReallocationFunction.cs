@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3156 Column: 27
 public unsafe struct PFN_vkReallocationFunction
 {
+    public PFN_vkReallocationFunction(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkReallocationFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<void*, void*, ulong, ulong, SystemAllocationScope, void*>)ptr;
+        InvokeFunc = (delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr;
     }
 
-    private delegate* unmanaged<void*, void*, ulong, ulong, SystemAllocationScope, void*> InvokeFunc;
+    private delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void* Invoke(void* pUserData, void* pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public nuint Invoke(nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
     {
         return InvokeFunc(pUserData, pOriginal, size, alignment, allocationScope);
     }
-    public static void* Invoke(void* ptr, void* pUserData, void* pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public static nuint Invoke(void* ptr, nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
     {
-        return ((delegate* unmanaged<void*, void*, ulong, ulong, SystemAllocationScope, void*>)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
+        return ((delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
+    }
+    public static nuint Invoke(nuint ptr, nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    {
+        return ((delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint>)(void*)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
     }
 
     public static explicit operator PFN_vkReallocationFunction(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkReallocationFunction(nuint ptr) => new(ptr);
 }
 
 

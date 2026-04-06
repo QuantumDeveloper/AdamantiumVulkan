@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14554 Column: 30
 public unsafe struct PFN_vkGetImageDrmFormatModifierPropertiesEXT
 {
+    public PFN_vkGetImageDrmFormatModifierPropertiesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetImageDrmFormatModifierPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetImageDrmFormatModifierPropertiesEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT*, Result>)ptr)(device, image, pProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT* pProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT*, Result>)(void*)ptr)(device, image, pProperties);
+    }
 
     public static explicit operator PFN_vkGetImageDrmFormatModifierPropertiesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetImageDrmFormatModifierPropertiesEXT(nuint ptr) => new(ptr);
 }
 
 

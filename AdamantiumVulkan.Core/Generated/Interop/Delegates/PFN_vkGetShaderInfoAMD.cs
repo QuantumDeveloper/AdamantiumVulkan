@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13449 Column: 30
 public unsafe struct PFN_vkGetShaderInfoAMD
 {
+    public PFN_vkGetShaderInfoAMD(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetShaderInfoAMD(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, void* pInfo)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, nuint pInfo)
     {
         return InvokeFunc(device, pipeline, shaderStage, infoType, ref pInfoSize, pInfo);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, void* pInfo)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, nuint pInfo)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, void*, Result>)ptr)(device, pipeline, shaderStage, infoType, ref pInfoSize, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, nuint, Result>)ptr)(device, pipeline, shaderStage, infoType, ref pInfoSize, pInfo);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, nuint pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, ShaderStageFlagBits, ShaderInfoTypeAMD, ref ulong*, nuint, Result>)(void*)ptr)(device, pipeline, shaderStage, infoType, ref pInfoSize, pInfo);
     }
 
     public static explicit operator PFN_vkGetShaderInfoAMD(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetShaderInfoAMD(nuint ptr) => new(ptr);
 }
 
 

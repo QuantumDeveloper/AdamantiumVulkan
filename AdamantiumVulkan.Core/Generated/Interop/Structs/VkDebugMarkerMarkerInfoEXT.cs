@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDebugMarkerMarkerInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public sbyte* pMarkerName;
     public unsafe fixed float color[4];
 }

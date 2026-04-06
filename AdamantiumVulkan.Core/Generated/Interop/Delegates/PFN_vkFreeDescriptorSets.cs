@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4231 Column: 30
 public unsafe struct PFN_vkFreeDescriptorSets
 {
+    public PFN_vkFreeDescriptorSets(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkFreeDescriptorSets(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkFreeDescriptorSets
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*, Result>)ptr)(device, descriptorPool, descriptorSetCount, pDescriptorSets);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T descriptorPool, uint descriptorSetCount, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T* pDescriptorSets)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*, Result>)(void*)ptr)(device, descriptorPool, descriptorSetCount, pDescriptorSets);
+    }
 
     public static explicit operator PFN_vkFreeDescriptorSets(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkFreeDescriptorSets(nuint ptr) => new(ptr);
 }
 
 

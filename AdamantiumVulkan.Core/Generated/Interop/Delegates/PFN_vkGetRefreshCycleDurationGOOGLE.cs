@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13848 Column: 30
 public unsafe struct PFN_vkGetRefreshCycleDurationGOOGLE
 {
+    public PFN_vkGetRefreshCycleDurationGOOGLE(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetRefreshCycleDurationGOOGLE(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetRefreshCycleDurationGOOGLE
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE*, Result>)ptr)(device, swapchain, pDisplayTimingProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE*, Result>)(void*)ptr)(device, swapchain, pDisplayTimingProperties);
+    }
 
     public static explicit operator PFN_vkGetRefreshCycleDurationGOOGLE(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetRefreshCycleDurationGOOGLE(nuint ptr) => new(ptr);
 }
 
 

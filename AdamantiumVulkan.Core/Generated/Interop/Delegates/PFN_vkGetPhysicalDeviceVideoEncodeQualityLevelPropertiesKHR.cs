@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11650 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR
 {
+    public PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR*, Result>)ptr)(physicalDevice, pQualityLevelInfo, pQualityLevelProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR* pQualityLevelInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR* pQualityLevelProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR*, Result>)(void*)ptr)(physicalDevice, pQualityLevelInfo, pQualityLevelProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(nuint ptr) => new(ptr);
 }
 
 

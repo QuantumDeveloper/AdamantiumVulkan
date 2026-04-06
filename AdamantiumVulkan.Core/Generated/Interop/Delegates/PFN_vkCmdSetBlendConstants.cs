@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4251 Column: 26
 public unsafe struct PFN_vkCmdSetBlendConstants
 {
+    public PFN_vkCmdSetBlendConstants(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetBlendConstants(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetBlendConstants
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float[], void>)ptr)(commandBuffer, blendConstants);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float[] blendConstants)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float[], void>)(void*)ptr)(commandBuffer, blendConstants);
+    }
 
     public static explicit operator PFN_vkCmdSetBlendConstants(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetBlendConstants(nuint ptr) => new(ptr);
 }
 
 

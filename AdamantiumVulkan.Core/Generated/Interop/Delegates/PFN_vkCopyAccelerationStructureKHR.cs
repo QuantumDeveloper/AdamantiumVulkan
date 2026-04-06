@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21536 Column: 30
 public unsafe struct PFN_vkCopyAccelerationStructureKHR
 {
+    public PFN_vkCopyAccelerationStructureKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCopyAccelerationStructureKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCopyAccelerationStructureKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR*, Result>)ptr)(device, deferredOperation, pInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR*, Result>)(void*)ptr)(device, deferredOperation, pInfo);
+    }
 
     public static explicit operator PFN_vkCopyAccelerationStructureKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCopyAccelerationStructureKHR(nuint ptr) => new(ptr);
 }
 
 

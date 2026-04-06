@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4173 Column: 30
 public unsafe struct PFN_vkDeviceWaitIdle
 {
+    public PFN_vkDeviceWaitIdle(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDeviceWaitIdle(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDeviceWaitIdle
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, Result>)ptr)(device);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, Result>)(void*)ptr)(device);
+    }
 
     public static explicit operator PFN_vkDeviceWaitIdle(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDeviceWaitIdle(nuint ptr) => new(ptr);
 }
 
 

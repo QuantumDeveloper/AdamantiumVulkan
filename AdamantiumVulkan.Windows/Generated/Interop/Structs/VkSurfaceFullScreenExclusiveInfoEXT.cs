@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkSurfaceFullScreenExclusiveInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public FullScreenExclusiveEXT fullScreenExclusive;
 }
 

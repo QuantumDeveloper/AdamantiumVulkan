@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13288 Column: 30
 public unsafe struct PFN_vkCreateCuModuleNVX
 {
+    public PFN_vkCreateCuModuleNVX(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateCuModuleNVX(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateCuModuleNVX
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkCuModuleNVX_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pModule);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCuModuleNVX_T pModule)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkCuModuleNVX_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pModule);
+    }
 
     public static explicit operator PFN_vkCreateCuModuleNVX(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateCuModuleNVX(nuint ptr) => new(ptr);
 }
 
 

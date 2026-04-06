@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkInitializePerformanceApiInfoINTEL
 {
     public StructureType sType;
-    public void* pNext;
-    public void* pUserData;
+    public nuint pNext;
+    public nuint pUserData;
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkReleaseSwapchainImagesInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSwapchainKHR_T swapchain;
     public uint imageIndexCount;
     public uint* pImageIndices;

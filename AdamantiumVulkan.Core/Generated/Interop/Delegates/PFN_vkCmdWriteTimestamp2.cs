@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7558 Column: 26
 public unsafe struct PFN_vkCmdWriteTimestamp2
 {
+    public PFN_vkCmdWriteTimestamp2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdWriteTimestamp2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdWriteTimestamp2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)ptr)(commandBuffer, stage, queryPool, query);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkPipelineStageFlags2, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, void>)(void*)ptr)(commandBuffer, stage, queryPool, query);
+    }
 
     public static explicit operator PFN_vkCmdWriteTimestamp2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdWriteTimestamp2(nuint ptr) => new(ptr);
 }
 
 

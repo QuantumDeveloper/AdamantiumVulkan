@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 36 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR
 {
+    public PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)ptr)(physicalDevice, queueFamilyIndex);
     }
+    public static uint Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)(void*)ptr)(physicalDevice, queueFamilyIndex);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(nuint ptr) => new(ptr);
 }
 
 

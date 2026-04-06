@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 157 Column: 30
 public unsafe struct PFN_vkImportSemaphoreWin32HandleKHR
 {
+    public PFN_vkImportSemaphoreWin32HandleKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkImportSemaphoreWin32HandleKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkImportSemaphoreWin32HandleKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR*, Result>)ptr)(device, pImportSemaphoreWin32HandleInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR* pImportSemaphoreWin32HandleInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR*, Result>)(void*)ptr)(device, pImportSemaphoreWin32HandleInfo);
+    }
 
     public static explicit operator PFN_vkImportSemaphoreWin32HandleKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkImportSemaphoreWin32HandleKHR(nuint ptr) => new(ptr);
 }
 
 

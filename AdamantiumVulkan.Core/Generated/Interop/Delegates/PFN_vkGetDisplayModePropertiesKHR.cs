@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8855 Column: 30
 public unsafe struct PFN_vkGetDisplayModePropertiesKHR
 {
+    public PFN_vkGetDisplayModePropertiesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDisplayModePropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDisplayModePropertiesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR*, Result>)ptr)(physicalDevice, display, ref pPropertyCount, pProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR* pProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR*, Result>)(void*)ptr)(physicalDevice, display, ref pPropertyCount, pProperties);
+    }
 
     public static explicit operator PFN_vkGetDisplayModePropertiesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDisplayModePropertiesKHR(nuint ptr) => new(ptr);
 }
 
 

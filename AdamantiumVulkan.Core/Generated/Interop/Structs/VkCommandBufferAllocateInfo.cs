@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandBufferAllocateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkCommandPool_T commandPool;
     public CommandBufferLevel level;
     public uint commandBufferCount;

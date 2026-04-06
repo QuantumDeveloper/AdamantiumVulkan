@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevicePipelineBinaryPropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 pipelineBinaryInternalCache;
     public VkBool32 pipelineBinaryInternalCacheControl;
     public VkBool32 pipelineBinaryPrefersInternalCache;

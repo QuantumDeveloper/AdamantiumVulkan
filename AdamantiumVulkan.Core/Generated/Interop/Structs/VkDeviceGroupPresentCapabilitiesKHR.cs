@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceGroupPresentCapabilitiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed uint presentMask[32];
     public VkDeviceGroupPresentModeFlagsKHR modes;
 }

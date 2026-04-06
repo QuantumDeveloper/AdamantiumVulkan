@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20055 Column: 26
 public unsafe struct PFN_vkCmdConvertCooperativeVectorMatrixNV
 {
+    public PFN_vkCmdConvertCooperativeVectorMatrixNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdConvertCooperativeVectorMatrixNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdConvertCooperativeVectorMatrixNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV*, void>)ptr)(commandBuffer, infoCount, pInfos);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV* pInfos)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV*, void>)(void*)ptr)(commandBuffer, infoCount, pInfos);
+    }
 
     public static explicit operator PFN_vkCmdConvertCooperativeVectorMatrixNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdConvertCooperativeVectorMatrixNV(nuint ptr) => new(ptr);
 }
 
 

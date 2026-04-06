@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoDecodeH265SessionParametersCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint maxStdVPSCount;
     public uint maxStdSPSCount;
     public uint maxStdPPSCount;

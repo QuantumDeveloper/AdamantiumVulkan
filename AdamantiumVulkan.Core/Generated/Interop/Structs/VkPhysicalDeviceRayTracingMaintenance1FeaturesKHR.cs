@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 rayTracingMaintenance1;
     public VkBool32 rayTracingPipelineTraceRaysIndirect2;
 }

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10522 Column: 30
 public unsafe struct PFN_vkAcquireProfilingLockKHR
 {
+    public PFN_vkAcquireProfilingLockKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkAcquireProfilingLockKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkAcquireProfilingLockKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR*, Result>)ptr)(device, pInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR*, Result>)(void*)ptr)(device, pInfo);
+    }
 
     public static explicit operator PFN_vkAcquireProfilingLockKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkAcquireProfilingLockKHR(nuint ptr) => new(ptr);
 }
 
 

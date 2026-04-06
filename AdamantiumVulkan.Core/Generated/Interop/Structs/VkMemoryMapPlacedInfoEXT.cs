@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMemoryMapPlacedInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
-    public void* pPlacedAddress;
+    public nuint pNext;
+    public nuint pPlacedAddress;
 }
 
 

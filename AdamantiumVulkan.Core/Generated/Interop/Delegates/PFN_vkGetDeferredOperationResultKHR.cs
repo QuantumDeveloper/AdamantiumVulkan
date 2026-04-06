@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11298 Column: 30
 public unsafe struct PFN_vkGetDeferredOperationResultKHR
 {
+    public PFN_vkGetDeferredOperationResultKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeferredOperationResultKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeferredOperationResultKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, Result>)ptr)(device, operation);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, Result>)(void*)ptr)(device, operation);
+    }
 
     public static explicit operator PFN_vkGetDeferredOperationResultKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeferredOperationResultKHR(nuint ptr) => new(ptr);
 }
 
 

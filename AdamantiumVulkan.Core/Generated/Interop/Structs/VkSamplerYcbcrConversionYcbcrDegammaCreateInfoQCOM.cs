@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 enableYDegamma;
     public VkBool32 enableCbCrDegamma;
 }

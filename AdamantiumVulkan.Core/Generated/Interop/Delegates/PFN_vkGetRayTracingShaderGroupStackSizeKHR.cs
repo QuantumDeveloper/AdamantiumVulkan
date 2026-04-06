@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21723 Column: 34
 public unsafe struct PFN_vkGetRayTracingShaderGroupStackSizeKHR
 {
+    public PFN_vkGetRayTracingShaderGroupStackSizeKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetRayTracingShaderGroupStackSizeKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetRayTracingShaderGroupStackSizeKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, ShaderGroupShaderKHR, ulong>)ptr)(device, pipeline, group, groupShader);
     }
+    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint group, ShaderGroupShaderKHR groupShader)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, ShaderGroupShaderKHR, ulong>)(void*)ptr)(device, pipeline, group, groupShader);
+    }
 
     public static explicit operator PFN_vkGetRayTracingShaderGroupStackSizeKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetRayTracingShaderGroupStackSizeKHR(nuint ptr) => new(ptr);
 }
 
 

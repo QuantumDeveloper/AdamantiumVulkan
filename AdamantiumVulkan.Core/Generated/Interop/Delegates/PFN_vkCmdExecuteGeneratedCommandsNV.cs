@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16683 Column: 26
 public unsafe struct PFN_vkCmdExecuteGeneratedCommandsNV
 {
+    public PFN_vkCmdExecuteGeneratedCommandsNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdExecuteGeneratedCommandsNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdExecuteGeneratedCommandsNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV*, void>)ptr)(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 isPreprocessed, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV*, void>)(void*)ptr)(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
+    }
 
     public static explicit operator PFN_vkCmdExecuteGeneratedCommandsNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdExecuteGeneratedCommandsNV(nuint ptr) => new(ptr);
 }
 
 

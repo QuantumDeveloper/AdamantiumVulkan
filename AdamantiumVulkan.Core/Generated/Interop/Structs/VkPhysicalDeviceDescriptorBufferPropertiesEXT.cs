@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceDescriptorBufferPropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 combinedImageSamplerDescriptorSingleArray;
     public VkBool32 bufferlessPushDescriptors;
     public VkBool32 allowSamplerImageViewPostSubmitCreation;

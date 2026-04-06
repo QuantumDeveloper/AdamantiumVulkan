@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5808 Column: 30
 public unsafe struct PFN_vkCreateSamplerYcbcrConversion
 {
+    public PFN_vkCreateSamplerYcbcrConversion(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateSamplerYcbcrConversion(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateSamplerYcbcrConversion
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pYcbcrConversion);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T pYcbcrConversion)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pYcbcrConversion);
+    }
 
     public static explicit operator PFN_vkCreateSamplerYcbcrConversion(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateSamplerYcbcrConversion(nuint ptr) => new(ptr);
 }
 
 

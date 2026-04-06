@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8718 Column: 30
 public unsafe struct PFN_vkGetSwapchainImagesKHR
 {
+    public PFN_vkGetSwapchainImagesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetSwapchainImagesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetSwapchainImagesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr)(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out AdamantiumVulkan.Core.Interop.VkImage_T pSwapchainImages)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)(void*)ptr)(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
+    }
 
     public static explicit operator PFN_vkGetSwapchainImagesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetSwapchainImagesKHR(nuint ptr) => new(ptr);
 }
 
 

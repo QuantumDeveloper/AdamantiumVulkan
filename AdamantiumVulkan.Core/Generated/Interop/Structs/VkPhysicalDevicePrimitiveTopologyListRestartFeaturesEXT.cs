@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 primitiveTopologyListRestart;
     public VkBool32 primitiveTopologyPatchListRestart;
 }

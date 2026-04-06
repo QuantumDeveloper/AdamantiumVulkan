@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19869 Column: 30
 public unsafe struct PFN_vkCreateShadersEXT
 {
+    public PFN_vkCreateShadersEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateShadersEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateShadersEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkShaderEXT_T*, Result>)ptr)(device, createInfoCount, pCreateInfos, pAllocator, pShaders);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkShaderEXT_T* pShaders)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkShaderEXT_T*, Result>)(void*)ptr)(device, createInfoCount, pCreateInfos, pAllocator, pShaders);
+    }
 
     public static explicit operator PFN_vkCreateShadersEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateShadersEXT(nuint ptr) => new(ptr);
 }
 
 

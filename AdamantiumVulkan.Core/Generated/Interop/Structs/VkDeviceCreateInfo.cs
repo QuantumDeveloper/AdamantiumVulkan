@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceCreateFlags flags;
     public uint queueCreateInfoCount;
     public AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo* pQueueCreateInfos;

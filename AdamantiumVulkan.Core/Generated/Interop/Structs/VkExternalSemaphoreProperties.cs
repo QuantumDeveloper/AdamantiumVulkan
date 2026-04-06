@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkExternalSemaphoreProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkExternalSemaphoreHandleTypeFlags exportFromImportedHandleTypes;
     public VkExternalSemaphoreHandleTypeFlags compatibleHandleTypes;
     public VkExternalSemaphoreFeatureFlags externalSemaphoreFeatures;

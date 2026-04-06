@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11297 Column: 30
 public unsafe struct PFN_vkGetDeferredOperationMaxConcurrencyKHR
 {
+    public PFN_vkGetDeferredOperationMaxConcurrencyKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeferredOperationMaxConcurrencyKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeferredOperationMaxConcurrencyKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint>)ptr)(device, operation);
     }
+    public static uint Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T operation)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint>)(void*)ptr)(device, operation);
+    }
 
     public static explicit operator PFN_vkGetDeferredOperationMaxConcurrencyKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeferredOperationMaxConcurrencyKHR(nuint ptr) => new(ptr);
 }
 
 

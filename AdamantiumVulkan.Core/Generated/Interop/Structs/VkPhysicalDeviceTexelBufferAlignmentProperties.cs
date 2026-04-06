@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceTexelBufferAlignmentProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceSize storageTexelBufferOffsetAlignmentBytes;
     public VkBool32 storageTexelBufferOffsetSingleTexelAlignment;
     public VkDeviceSize uniformTexelBufferOffsetAlignmentBytes;

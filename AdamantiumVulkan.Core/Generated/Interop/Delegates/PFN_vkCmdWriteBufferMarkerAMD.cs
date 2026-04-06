@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15219 Column: 26
 public unsafe struct PFN_vkCmdWriteBufferMarkerAMD
 {
+    public PFN_vkCmdWriteBufferMarkerAMD(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdWriteBufferMarkerAMD(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdWriteBufferMarkerAMD
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineStageFlagBits, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, void>)ptr)(commandBuffer, pipelineStage, dstBuffer, dstOffset, marker);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineStageFlagBits pipelineStage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineStageFlagBits, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, void>)(void*)ptr)(commandBuffer, pipelineStage, dstBuffer, dstOffset, marker);
+    }
 
     public static explicit operator PFN_vkCmdWriteBufferMarkerAMD(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdWriteBufferMarkerAMD(nuint ptr) => new(ptr);
 }
 
 
