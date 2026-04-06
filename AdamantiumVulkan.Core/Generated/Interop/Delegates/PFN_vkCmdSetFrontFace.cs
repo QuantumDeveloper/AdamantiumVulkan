@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7569 Column: 26
 public unsafe struct PFN_vkCmdSetFrontFace
 {
+    public PFN_vkCmdSetFrontFace(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetFrontFace(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetFrontFace
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FrontFace, void>)ptr)(commandBuffer, frontFace);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FrontFace frontFace)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FrontFace, void>)(void*)ptr)(commandBuffer, frontFace);
+    }
 
     public static explicit operator PFN_vkCmdSetFrontFace(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetFrontFace(nuint ptr) => new(ptr);
 }
 
 

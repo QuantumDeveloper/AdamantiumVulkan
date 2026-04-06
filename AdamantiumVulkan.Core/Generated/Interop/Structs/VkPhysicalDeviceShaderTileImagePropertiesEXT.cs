@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderTileImagePropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 shaderTileImageCoherentReadAccelerated;
     public VkBool32 shaderTileImageReadSampleFromPixelRateInvocation;
     public VkBool32 shaderTileImageReadFromHelperInvocation;

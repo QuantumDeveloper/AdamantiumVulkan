@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19497 Column: 40
 public unsafe struct PFN_vkGetInstanceProcAddrLUNARG
 {
+    public PFN_vkGetInstanceProcAddrLUNARG(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetInstanceProcAddrLUNARG(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void*>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, nuint>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void*> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, nuint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void* Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
+    public nuint Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
     {
         return InvokeFunc(instance, pName);
     }
-    public static void* Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
+    public static nuint Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void*>)ptr)(instance, pName);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, nuint>)ptr)(instance, pName);
+    }
+    public static nuint Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, nuint>)(void*)ptr)(instance, pName);
     }
 
     public static explicit operator PFN_vkGetInstanceProcAddrLUNARG(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetInstanceProcAddrLUNARG(nuint ptr) => new(ptr);
 }
 
 

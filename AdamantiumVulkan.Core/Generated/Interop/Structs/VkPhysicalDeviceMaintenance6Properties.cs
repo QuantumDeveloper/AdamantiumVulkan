@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMaintenance6Properties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 blockTexelViewCompatibleMultipleLayers;
     public uint maxCombinedImageSamplerDescriptorCount;
     public VkBool32 fragmentShadingRateClampCombinerInputs;

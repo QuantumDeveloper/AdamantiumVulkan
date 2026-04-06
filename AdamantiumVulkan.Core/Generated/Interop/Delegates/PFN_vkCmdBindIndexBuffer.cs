@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4257 Column: 26
 public unsafe struct PFN_vkCmdBindIndexBuffer
 {
+    public PFN_vkCmdBindIndexBuffer(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindIndexBuffer(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindIndexBuffer
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, IndexType, void>)ptr)(commandBuffer, buffer, offset, indexType);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, IndexType indexType)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, IndexType, void>)(void*)ptr)(commandBuffer, buffer, offset, indexType);
+    }
 
     public static explicit operator PFN_vkCmdBindIndexBuffer(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindIndexBuffer(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7568 Column: 26
 public unsafe struct PFN_vkCmdSetCullMode
 {
+    public PFN_vkCmdSetCullMode(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetCullMode(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetCullMode
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCullModeFlags, void>)ptr)(commandBuffer, cullMode);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkCullModeFlags cullMode)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkCullModeFlags, void>)(void*)ptr)(commandBuffer, cullMode);
+    }
 
     public static explicit operator PFN_vkCmdSetCullMode(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetCullMode(nuint ptr) => new(ptr);
 }
 
 

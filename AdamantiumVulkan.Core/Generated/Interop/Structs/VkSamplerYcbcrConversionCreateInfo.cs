@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSamplerYcbcrConversionCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public Format format;
     public SamplerYcbcrModelConversion ycbcrModel;
     public SamplerYcbcrRange ycbcrRange;

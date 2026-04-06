@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRayTracingPipelineInterfaceCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint maxPipelineRayPayloadSize;
     public uint maxPipelineRayHitAttributeSize;
 }

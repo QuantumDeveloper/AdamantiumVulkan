@@ -19,28 +19,30 @@ namespace AdamantiumVulkan.SpirvTools.Interop;
 ///</summary>
 public unsafe struct spv_parsed_instruction_fn_t
 {
+    public spv_parsed_instruction_fn_t(nuint ptr) : this((void*) ptr) { }
+
     public spv_parsed_instruction_fn_t(void* ptr)
     {
         NativePointer = ptr;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            InvokeStdcall = (delegate* unmanaged[Stdcall]<void*, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr;
+            InvokeStdcall = (delegate* unmanaged[Stdcall]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr;
             InvokeCdecl = default;
         }
         else
         {
-            InvokeCdecl = (delegate* unmanaged[Cdecl]<void*, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr;
+            InvokeCdecl = (delegate* unmanaged[Cdecl]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr;
             InvokeStdcall = default;
         }
     }
 
-    private delegate* unmanaged[Stdcall]<void*, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t> InvokeStdcall;
+    private delegate* unmanaged[Stdcall]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t> InvokeStdcall;
 
-    private delegate* unmanaged[Cdecl]<void*, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t> InvokeCdecl;
+    private delegate* unmanaged[Cdecl]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t> InvokeCdecl;
 
     public void* NativePointer { get; }
 
-    public spv_result_t Invoke(void* user_data, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t* parsed_instruction)
+    public spv_result_t Invoke(nuint user_data, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t* parsed_instruction)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -52,19 +54,32 @@ public unsafe struct spv_parsed_instruction_fn_t
         }
     }
 
-    public static spv_result_t Invoke(void* ptr, void* user_data, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t* parsed_instruction)
+    public static spv_result_t Invoke(void* ptr, nuint user_data, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t* parsed_instruction)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            return ((delegate* unmanaged[Stdcall]<void*, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr)(user_data, parsed_instruction);
+            return ((delegate* unmanaged[Stdcall]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr)(user_data, parsed_instruction);
         }
         else
         {
-            return ((delegate* unmanaged[Cdecl]<void*, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr)(user_data, parsed_instruction);
+            return ((delegate* unmanaged[Cdecl]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)ptr)(user_data, parsed_instruction);
+        }
+    }
+    public static spv_result_t Invoke(nuint ptr, nuint user_data, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t* parsed_instruction)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return ((delegate* unmanaged[Stdcall]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)(void*)ptr)(user_data, parsed_instruction);
+        }
+        else
+        {
+            return ((delegate* unmanaged[Cdecl]<nuint, AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t*, spv_result_t>)(void*)ptr)(user_data, parsed_instruction);
         }
     }
 
     public static explicit operator spv_parsed_instruction_fn_t(void* ptr) => new(ptr);
+
+    public static explicit operator spv_parsed_instruction_fn_t(nuint ptr) => new(ptr);
 }
 
 

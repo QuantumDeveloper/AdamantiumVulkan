@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21724 Column: 26
 public unsafe struct PFN_vkCmdSetRayTracingPipelineStackSizeKHR
 {
+    public PFN_vkCmdSetRayTracingPipelineStackSizeKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetRayTracingPipelineStackSizeKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetRayTracingPipelineStackSizeKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, pipelineStackSize);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint pipelineStackSize)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)(void*)ptr)(commandBuffer, pipelineStackSize);
+    }
 
     public static explicit operator PFN_vkCmdSetRayTracingPipelineStackSizeKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetRayTracingPipelineStackSizeKHR(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21533 Column: 26
 public unsafe struct PFN_vkCmdBuildAccelerationStructuresKHR
 {
+    public PFN_vkCmdBuildAccelerationStructuresKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBuildAccelerationStructuresKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBuildAccelerationStructuresKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, void>)ptr)(commandBuffer, infoCount, pInfos, ppBuildRangeInfos);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, void>)(void*)ptr)(commandBuffer, infoCount, pInfos, ppBuildRangeInfos);
+    }
 
     public static explicit operator PFN_vkCmdBuildAccelerationStructuresKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBuildAccelerationStructuresKHR(nuint ptr) => new(ptr);
 }
 
 

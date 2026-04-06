@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSetPresentConfigNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint numFramesPerBatch;
     public uint presentConfigFeedback;
 }

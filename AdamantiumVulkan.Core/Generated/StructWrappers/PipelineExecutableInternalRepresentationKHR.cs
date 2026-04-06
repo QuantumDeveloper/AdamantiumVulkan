@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -28,7 +29,7 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
     public string Description { get; set; }
     public VkBool32 IsText { get; set; }
     public ulong DataSize { get; set; }
-    public void* PData { get; set; }
+    public nuint PData { get; set; }
 
     public static implicit operator PipelineExecutableInternalRepresentationKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR p)
     {
@@ -67,14 +68,14 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
         PData = native.pData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineExecutableInternalRepresentationKHRMarshaller
     {
@@ -88,7 +89,11 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
             }
             else if (pipelineExecutableInternalRepresentationKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (pipelineExecutableInternalRepresentationKHR.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];

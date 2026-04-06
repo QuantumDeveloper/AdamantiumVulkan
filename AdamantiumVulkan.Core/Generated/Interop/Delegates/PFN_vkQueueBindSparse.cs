@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4187 Column: 30
 public unsafe struct PFN_vkQueueBindSparse
 {
+    public PFN_vkQueueBindSparse(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkQueueBindSparse(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkQueueBindSparse
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkBindSparseInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr)(queue, bindInfoCount, pBindInfo, fence);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindSparseInfo* pBindInfo, AdamantiumVulkan.Core.Interop.VkFence_T fence)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkQueue_T, uint, AdamantiumVulkan.Core.Interop.VkBindSparseInfo*, AdamantiumVulkan.Core.Interop.VkFence_T, Result>)(void*)ptr)(queue, bindInfoCount, pBindInfo, fence);
+    }
 
     public static explicit operator PFN_vkQueueBindSparse(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkQueueBindSparse(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12668 Column: 26
 public unsafe struct PFN_vkCmdPushConstants2KHR
 {
+    public PFN_vkCmdPushConstants2KHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdPushConstants2KHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdPushConstants2KHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPushConstantsInfo*, void>)ptr)(commandBuffer, pPushConstantsInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPushConstantsInfo* pPushConstantsInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPushConstantsInfo*, void>)(void*)ptr)(commandBuffer, pPushConstantsInfo);
+    }
 
     public static explicit operator PFN_vkCmdPushConstants2KHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdPushConstants2KHR(nuint ptr) => new(ptr);
 }
 
 

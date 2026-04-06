@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -32,7 +33,7 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
     public Buffer PBuffers { get; set; }
     public ulong TagName { get; set; }
     public ulong TagSize { get; set; }
-    public void* PTag { get; set; }
+    public nuint PTag { get; set; }
 
     public static implicit operator FrameBoundaryEXT(AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT f)
     {
@@ -71,14 +72,14 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
         PTag = native.pTag;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFrameBoundaryEXTMarshaller
     {
@@ -92,7 +93,11 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
             }
             else if (frameBoundaryEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (frameBoundaryEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (frameBoundaryEXT.Flags != (uint)default)

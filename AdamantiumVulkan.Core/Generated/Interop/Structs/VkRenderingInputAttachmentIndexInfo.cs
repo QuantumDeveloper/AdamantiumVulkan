@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRenderingInputAttachmentIndexInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint colorAttachmentCount;
     public uint* pColorAttachmentInputIndices;
     public uint* pDepthInputAttachmentIndex;

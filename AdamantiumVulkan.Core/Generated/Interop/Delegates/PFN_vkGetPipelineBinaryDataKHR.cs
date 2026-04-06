@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12129 Column: 30
 public unsafe struct PFN_vkGetPipelineBinaryDataKHR
 {
+    public PFN_vkGetPipelineBinaryDataKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPipelineBinaryDataKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, void* pPipelineBinaryData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, nuint pPipelineBinaryData)
     {
         return InvokeFunc(device, pInfo, pPipelineBinaryKey, ref pPipelineBinaryDataSize, pPipelineBinaryData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, void* pPipelineBinaryData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, nuint pPipelineBinaryData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, void*, Result>)ptr)(device, pInfo, pPipelineBinaryKey, ref pPipelineBinaryDataSize, pPipelineBinaryData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, nuint, Result>)ptr)(device, pInfo, pPipelineBinaryKey, ref pPipelineBinaryDataSize, pPipelineBinaryData);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, nuint pPipelineBinaryData)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, ref ulong*, nuint, Result>)(void*)ptr)(device, pInfo, pPipelineBinaryKey, ref pPipelineBinaryDataSize, pPipelineBinaryData);
     }
 
     public static explicit operator PFN_vkGetPipelineBinaryDataKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPipelineBinaryDataKHR(nuint ptr) => new(ptr);
 }
 
 

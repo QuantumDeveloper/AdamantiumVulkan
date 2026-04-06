@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceIDProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed byte deviceUUID[16];
     public unsafe fixed byte driverUUID[16];
     public unsafe fixed byte deviceLUID[8];

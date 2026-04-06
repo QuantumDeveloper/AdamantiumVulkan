@@ -17,7 +17,7 @@ public unsafe partial struct spv_const_binary_t
 {
     public uint* code;
     public ulong wordCount;
-    public void* pointer;
+    public nuint pointer;
 }
 
 

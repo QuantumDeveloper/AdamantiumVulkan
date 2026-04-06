@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkClusterAccelerationStructureTriangleClusterInputNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public Format vertexFormat;
     public uint maxGeometryIndexValue;
     public uint maxClusterUniqueGeometryCount;

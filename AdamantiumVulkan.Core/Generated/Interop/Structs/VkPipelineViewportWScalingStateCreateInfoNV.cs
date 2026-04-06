@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineViewportWScalingStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 viewportWScalingEnable;
     public uint viewportCount;
     public AdamantiumVulkan.Core.Interop.VkViewportWScalingNV* pViewportWScalings;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkGeometryAABBNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBuffer_T aabbData;
     public uint numAABBs;
     public uint stride;

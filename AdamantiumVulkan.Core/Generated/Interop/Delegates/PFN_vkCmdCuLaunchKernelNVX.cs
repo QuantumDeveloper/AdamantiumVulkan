@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13292 Column: 26
 public unsafe struct PFN_vkCmdCuLaunchKernelNVX
 {
+    public PFN_vkCmdCuLaunchKernelNVX(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCuLaunchKernelNVX(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCuLaunchKernelNVX
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX*, void>)ptr)(commandBuffer, pLaunchInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX* pLaunchInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX*, void>)(void*)ptr)(commandBuffer, pLaunchInfo);
+    }
 
     public static explicit operator PFN_vkCmdCuLaunchKernelNVX(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCuLaunchKernelNVX(nuint ptr) => new(ptr);
 }
 
 

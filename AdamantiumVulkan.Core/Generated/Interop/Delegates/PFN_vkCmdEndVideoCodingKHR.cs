@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9164 Column: 26
 public unsafe struct PFN_vkCmdEndVideoCodingKHR
 {
+    public PFN_vkCmdEndVideoCodingKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdEndVideoCodingKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdEndVideoCodingKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkVideoEndCodingInfoKHR*, void>)ptr)(commandBuffer, pEndCodingInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoEndCodingInfoKHR* pEndCodingInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkVideoEndCodingInfoKHR*, void>)(void*)ptr)(commandBuffer, pEndCodingInfo);
+    }
 
     public static explicit operator PFN_vkCmdEndVideoCodingKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdEndVideoCodingKHR(nuint ptr) => new(ptr);
 }
 
 

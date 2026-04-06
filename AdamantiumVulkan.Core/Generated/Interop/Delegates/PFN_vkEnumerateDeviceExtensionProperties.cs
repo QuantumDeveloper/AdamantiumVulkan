@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4167 Column: 30
 public unsafe struct PFN_vkEnumerateDeviceExtensionProperties
 {
+    public PFN_vkEnumerateDeviceExtensionProperties(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkEnumerateDeviceExtensionProperties(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkEnumerateDeviceExtensionProperties
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, sbyte*, ref uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr)(physicalDevice, pLayerName, ref pPropertyCount, pProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, sbyte*, ref uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)(void*)ptr)(physicalDevice, pLayerName, ref pPropertyCount, pProperties);
+    }
 
     public static explicit operator PFN_vkEnumerateDeviceExtensionProperties(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkEnumerateDeviceExtensionProperties(nuint ptr) => new(ptr);
 }
 
 

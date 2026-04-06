@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineSampleLocationsStateCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 sampleLocationsEnable;
     public VkSampleLocationsInfoEXT sampleLocationsInfo;
 }

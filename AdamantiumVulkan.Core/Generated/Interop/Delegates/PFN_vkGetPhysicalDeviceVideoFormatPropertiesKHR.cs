@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9155 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR
 {
+    public PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)ptr)(physicalDevice, pVideoFormatInfo, ref pVideoFormatPropertyCount, pVideoFormatProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, ref uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)(void*)ptr)(physicalDevice, pVideoFormatInfo, ref pVideoFormatPropertyCount, pVideoFormatProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(nuint ptr) => new(ptr);
 }
 
 

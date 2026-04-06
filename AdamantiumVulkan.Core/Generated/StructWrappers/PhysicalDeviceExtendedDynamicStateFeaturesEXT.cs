@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -53,14 +54,14 @@ public unsafe partial class PhysicalDeviceExtendedDynamicStateFeaturesEXT : IMar
         ExtendedDynamicState = native.extendedDynamicState;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicStateFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicStateFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceExtendedDynamicStateFeaturesEXTMarshaller
     {
@@ -74,7 +75,11 @@ public unsafe partial class PhysicalDeviceExtendedDynamicStateFeaturesEXT : IMar
             }
             else if (physicalDeviceExtendedDynamicStateFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (physicalDeviceExtendedDynamicStateFeaturesEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (physicalDeviceExtendedDynamicStateFeaturesEXT.ExtendedDynamicState != (uint)default)

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15722 Column: 26
 public unsafe struct PFN_vkSetLocalDimmingAMD
 {
+    public PFN_vkSetLocalDimmingAMD(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkSetLocalDimmingAMD(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkSetLocalDimmingAMD
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, VkBool32, void>)ptr)(device, swapChain, localDimmingEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, VkBool32, void>)(void*)ptr)(device, swapChain, localDimmingEnable);
+    }
 
     public static explicit operator PFN_vkSetLocalDimmingAMD(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkSetLocalDimmingAMD(nuint ptr) => new(ptr);
 }
 
 

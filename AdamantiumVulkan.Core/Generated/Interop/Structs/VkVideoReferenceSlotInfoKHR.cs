@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoReferenceSlotInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public int slotIndex;
     public AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR* pPictureResource;
 }

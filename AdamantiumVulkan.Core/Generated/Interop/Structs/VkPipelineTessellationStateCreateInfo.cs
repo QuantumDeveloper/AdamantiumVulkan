@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineTessellationStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineTessellationStateCreateFlags flags;
     public uint patchControlPoints;
 }

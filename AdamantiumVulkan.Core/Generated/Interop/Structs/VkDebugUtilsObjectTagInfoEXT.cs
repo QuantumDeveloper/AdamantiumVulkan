@@ -17,12 +17,12 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDebugUtilsObjectTagInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ObjectType objectType;
     public ulong objectHandle;
     public ulong tagName;
     public ulong tagSize;
-    public void* pTag;
+    public nuint pTag;
 }
 
 

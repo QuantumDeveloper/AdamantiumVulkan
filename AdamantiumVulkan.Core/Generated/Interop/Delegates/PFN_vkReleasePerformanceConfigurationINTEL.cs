@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15647 Column: 30
 public unsafe struct PFN_vkReleasePerformanceConfigurationINTEL
 {
+    public PFN_vkReleasePerformanceConfigurationINTEL(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkReleasePerformanceConfigurationINTEL(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkReleasePerformanceConfigurationINTEL
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result>)ptr)(device, configuration);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T configuration)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result>)(void*)ptr)(device, configuration);
+    }
 
     public static explicit operator PFN_vkReleasePerformanceConfigurationINTEL(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkReleasePerformanceConfigurationINTEL(nuint ptr) => new(ptr);
 }
 
 

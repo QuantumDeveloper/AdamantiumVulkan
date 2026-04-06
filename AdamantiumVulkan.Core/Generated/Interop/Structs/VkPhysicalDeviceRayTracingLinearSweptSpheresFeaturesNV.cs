@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 spheres;
     public VkBool32 linearSweptSpheres;
 }

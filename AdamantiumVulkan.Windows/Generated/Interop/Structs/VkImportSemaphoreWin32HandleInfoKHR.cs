@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkImportSemaphoreWin32HandleInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSemaphore_T semaphore;
     public VkSemaphoreImportFlags flags;
     public ExternalSemaphoreHandleTypeFlagBits handleType;

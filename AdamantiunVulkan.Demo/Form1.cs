@@ -90,7 +90,7 @@ public unsafe partial class Form1 : Form
     //private PFN_vkDebugUtilsMessengerCallbackEXT debugCallback;
 
     private delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, VkDebugUtilsMessengerCallbackDataEXT*,
-        void*, uint> debugCallback;
+        nuint, uint> debugCallback;
         
     private string[] validationLayers = new[]
     {
@@ -756,7 +756,7 @@ public unsafe partial class Form1 : Form
     }
 
     [UnmanagedCallersOnly]
-    private static unsafe uint DebugCallback(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
+    private static unsafe uint DebugCallback(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, nuint pUserData)
     {
         var data = *pCallbackData;
         Console.WriteLine(new string(data.pMessage));
@@ -1290,7 +1290,7 @@ public unsafe partial class Form1 : Form
         unsafe
         {
             var data = logicalDevice.MapMemory(stagingBufferMemory, 0, (ulong)img.TotalSizeInBytes, 0);
-            System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), data, (long)img.TotalSizeInBytes, (long)img.TotalSizeInBytes);
+            System.Buffer.MemoryCopy(img.DataPointer.ToPointer(), (void*)data, img.TotalSizeInBytes, img.TotalSizeInBytes);
             logicalDevice.UnmapMemory(stagingBufferMemory);
         }
 
@@ -1477,7 +1477,7 @@ public unsafe partial class Form1 : Form
         {
             var sourcePtr = GCHandle.Alloc(vertices, GCHandleType.Pinned);
             var handle = sourcePtr.AddrOfPinnedObject();
-            System.Buffer.MemoryCopy(handle.ToPointer(), data, (long)bufferSize, (long)bufferSize);
+            System.Buffer.MemoryCopy(handle.ToPointer(), (void*)data, (long)bufferSize, (long)bufferSize);
             sourcePtr.Free();
         }
 
@@ -1504,7 +1504,7 @@ public unsafe partial class Form1 : Form
         {
             var sourcePtr = GCHandle.Alloc(vertices, GCHandleType.Pinned);
             var handle = sourcePtr.AddrOfPinnedObject();
-            System.Buffer.MemoryCopy(handle.ToPointer(), data, (long)bufferSize, (long)bufferSize);
+            System.Buffer.MemoryCopy((void*)handle, (void*)data, (long)bufferSize, (long)bufferSize);
             sourcePtr.Free();
         }
 
@@ -1532,7 +1532,7 @@ public unsafe partial class Form1 : Form
         {
             var sourcePtr = GCHandle.Alloc(indices, GCHandleType.Pinned);
             var handle = sourcePtr.AddrOfPinnedObject();
-            System.Buffer.MemoryCopy(handle.ToPointer(), data, (long)bufferSize, (long)bufferSize);
+            System.Buffer.MemoryCopy(handle.ToPointer(), (void*)data, (long)bufferSize, (long)bufferSize);
             sourcePtr.Free();
         }
 

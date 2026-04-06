@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4259 Column: 26
 public unsafe struct PFN_vkCmdDraw
 {
+    public PFN_vkCmdDraw(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDraw(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDraw
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, uint, uint, void>)ptr)(commandBuffer, vertexCount, instanceCount, firstVertex, firstInstance);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, uint, uint, void>)(void*)ptr)(commandBuffer, vertexCount, instanceCount, firstVertex, firstInstance);
+    }
 
     public static explicit operator PFN_vkCmdDraw(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDraw(nuint ptr) => new(ptr);
 }
 
 

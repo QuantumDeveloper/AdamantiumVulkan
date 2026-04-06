@@ -16,6 +16,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4168 Column: 30
 public unsafe struct PFN_vkEnumerateInstanceLayerProperties
 {
+    public PFN_vkEnumerateInstanceLayerProperties(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkEnumerateInstanceLayerProperties(void* ptr)
     {
         NativePointer = ptr;
@@ -34,8 +36,14 @@ public unsafe struct PFN_vkEnumerateInstanceLayerProperties
     {
         return ((delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr)(ref pPropertyCount, pProperties);
     }
+    public static Result Invoke(nuint ptr, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    {
+        return ((delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)(void*)ptr)(ref pPropertyCount, pProperties);
+    }
 
     public static explicit operator PFN_vkEnumerateInstanceLayerProperties(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkEnumerateInstanceLayerProperties(nuint ptr) => new(ptr);
 }
 
 

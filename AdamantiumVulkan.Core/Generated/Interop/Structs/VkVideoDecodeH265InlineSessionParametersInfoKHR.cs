@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoDecodeH265InlineSessionParametersInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Interop.StdVideoH265VideoParameterSet* pStdVPS;
     public AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet* pStdSPS;
     public AdamantiumVulkan.Interop.StdVideoH265PictureParameterSet* pStdPPS;

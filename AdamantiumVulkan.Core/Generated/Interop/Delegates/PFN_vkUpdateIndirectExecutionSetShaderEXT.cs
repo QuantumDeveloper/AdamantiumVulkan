@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21167 Column: 26
 public unsafe struct PFN_vkUpdateIndirectExecutionSetShaderEXT
 {
+    public PFN_vkUpdateIndirectExecutionSetShaderEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkUpdateIndirectExecutionSetShaderEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkUpdateIndirectExecutionSetShaderEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetEXT_T, uint, AdamantiumVulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT*, void>)ptr)(device, indirectExecutionSet, executionSetWriteCount, pExecutionSetWrites);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetEXT_T indirectExecutionSet, uint executionSetWriteCount, AdamantiumVulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT* pExecutionSetWrites)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetEXT_T, uint, AdamantiumVulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT*, void>)(void*)ptr)(device, indirectExecutionSet, executionSetWriteCount, pExecutionSetWrites);
+    }
 
     public static explicit operator PFN_vkUpdateIndirectExecutionSetShaderEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkUpdateIndirectExecutionSetShaderEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkAccelerationStructureCreateFlagsKHR createFlags;
     public VkBuffer_T buffer;
     public VkDeviceSize offset;

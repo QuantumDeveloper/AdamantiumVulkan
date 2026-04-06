@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15025 Column: 30
 public unsafe struct PFN_vkCompileDeferredNV
 {
+    public PFN_vkCompileDeferredNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCompileDeferredNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCompileDeferredNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, Result>)ptr)(device, pipeline, shader);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint shader)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, Result>)(void*)ptr)(device, pipeline, shader);
+    }
 
     public static explicit operator PFN_vkCompileDeferredNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCompileDeferredNV(nuint ptr) => new(ptr);
 }
 
 

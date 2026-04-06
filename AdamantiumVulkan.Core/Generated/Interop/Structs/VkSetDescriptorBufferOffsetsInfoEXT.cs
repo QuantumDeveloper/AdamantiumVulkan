@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSetDescriptorBufferOffsetsInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkShaderStageFlags stageFlags;
     public VkPipelineLayout_T layout;
     public uint firstSet;

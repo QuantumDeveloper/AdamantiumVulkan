@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8717 Column: 26
 public unsafe struct PFN_vkDestroySwapchainKHR
 {
+    public PFN_vkDestroySwapchainKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroySwapchainKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroySwapchainKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, swapchain, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, swapchain, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroySwapchainKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroySwapchainKHR(nuint ptr) => new(ptr);
 }
 
 

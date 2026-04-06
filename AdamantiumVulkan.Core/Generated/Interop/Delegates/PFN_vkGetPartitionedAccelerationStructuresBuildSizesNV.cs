@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20926 Column: 26
 public unsafe struct PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV
 {
+    public PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureInstancesInputNV*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR*, void>)ptr)(device, pInfo, pSizeInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureInstancesInputNV* pInfo, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR* pSizeInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureInstancesInputNV*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR*, void>)(void*)ptr)(device, pInfo, pSizeInfo);
+    }
 
     public static explicit operator PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV(nuint ptr) => new(ptr);
 }
 
 

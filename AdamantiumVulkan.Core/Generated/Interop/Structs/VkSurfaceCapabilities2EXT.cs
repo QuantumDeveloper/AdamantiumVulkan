@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSurfaceCapabilities2EXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint minImageCount;
     public uint maxImageCount;
     public VkExtent2D currentExtent;

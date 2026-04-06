@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkExportMemoryWin32HandleInfoNV
 {
     public StructureType sType;
-    public void* pNext;
-    public void* pAttributes;
+    public nuint pNext;
+    public nuint pAttributes;
     public uint dwAccess;
 }
 

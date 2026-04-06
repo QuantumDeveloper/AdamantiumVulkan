@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceFragmentShadingRateFeaturesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 pipelineFragmentShadingRate;
     public VkBool32 primitiveFragmentShadingRate;
     public VkBool32 attachmentFragmentShadingRate;

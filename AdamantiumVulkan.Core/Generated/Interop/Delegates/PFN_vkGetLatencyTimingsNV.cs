@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20297 Column: 26
 public unsafe struct PFN_vkGetLatencyTimingsNV
 {
+    public PFN_vkGetLatencyTimingsNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetLatencyTimingsNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetLatencyTimingsNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV*, void>)ptr)(device, swapchain, pLatencyMarkerInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV* pLatencyMarkerInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV*, void>)(void*)ptr)(device, swapchain, pLatencyMarkerInfo);
+    }
 
     public static explicit operator PFN_vkGetLatencyTimingsNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetLatencyTimingsNV(nuint ptr) => new(ptr);
 }
 
 

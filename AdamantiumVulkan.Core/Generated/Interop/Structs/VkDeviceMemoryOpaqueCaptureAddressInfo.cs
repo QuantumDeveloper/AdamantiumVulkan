@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceMemoryOpaqueCaptureAddressInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceMemory_T memory;
 }
 

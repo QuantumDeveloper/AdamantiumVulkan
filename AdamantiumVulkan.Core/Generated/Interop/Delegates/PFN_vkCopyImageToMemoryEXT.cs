@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16339 Column: 30
 public unsafe struct PFN_vkCopyImageToMemoryEXT
 {
+    public PFN_vkCopyImageToMemoryEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCopyImageToMemoryEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCopyImageToMemoryEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToMemoryInfo*, Result>)ptr)(device, pCopyImageToMemoryInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyImageToMemoryInfo* pCopyImageToMemoryInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCopyImageToMemoryInfo*, Result>)(void*)ptr)(device, pCopyImageToMemoryInfo);
+    }
 
     public static explicit operator PFN_vkCopyImageToMemoryEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCopyImageToMemoryEXT(nuint ptr) => new(ptr);
 }
 
 

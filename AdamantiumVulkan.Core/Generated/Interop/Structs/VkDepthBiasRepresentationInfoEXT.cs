@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDepthBiasRepresentationInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public DepthBiasRepresentationEXT depthBiasRepresentation;
     public VkBool32 depthBiasExact;
 }

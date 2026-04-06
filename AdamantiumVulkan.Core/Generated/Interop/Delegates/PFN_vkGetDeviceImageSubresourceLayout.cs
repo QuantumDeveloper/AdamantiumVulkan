@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8387 Column: 26
 public unsafe struct PFN_vkGetDeviceImageSubresourceLayout
 {
+    public PFN_vkGetDeviceImageSubresourceLayout(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceImageSubresourceLayout(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceImageSubresourceLayout
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2*, void>)ptr)(device, pInfo, pLayout);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo* pInfo, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2* pLayout)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo*, AdamantiumVulkan.Core.Interop.VkSubresourceLayout2*, void>)(void*)ptr)(device, pInfo, pLayout);
+    }
 
     public static explicit operator PFN_vkGetDeviceImageSubresourceLayout(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceImageSubresourceLayout(nuint ptr) => new(ptr);
 }
 
 

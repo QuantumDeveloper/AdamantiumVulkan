@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkIndirectExecutionSetShaderInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint shaderCount;
     public VkShaderEXT_T* pInitialShaders;
     public AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetShaderLayoutInfoEXT* pSetLayoutInfos;

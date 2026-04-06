@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceDrmPropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 hasPrimary;
     public VkBool32 hasRender;
     public long primaryMajor;

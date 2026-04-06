@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4214 Column: 30
 public unsafe struct PFN_vkCreatePipelineCache
 {
+    public PFN_vkCreatePipelineCache(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreatePipelineCache(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreatePipelineCache
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipelineCache_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pPipelineCache);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipelineCache_T pPipelineCache)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPipelineCache_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pPipelineCache);
+    }
 
     public static explicit operator PFN_vkCreatePipelineCache(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreatePipelineCache(nuint ptr) => new(ptr);
 }
 
 

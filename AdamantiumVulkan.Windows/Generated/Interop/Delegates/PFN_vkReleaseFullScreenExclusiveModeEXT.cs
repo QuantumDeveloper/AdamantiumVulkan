@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 295 Column: 30
 public unsafe struct PFN_vkReleaseFullScreenExclusiveModeEXT
 {
+    public PFN_vkReleaseFullScreenExclusiveModeEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkReleaseFullScreenExclusiveModeEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkReleaseFullScreenExclusiveModeEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)ptr)(device, swapchain);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)(void*)ptr)(device, swapchain);
+    }
 
     public static explicit operator PFN_vkReleaseFullScreenExclusiveModeEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkReleaseFullScreenExclusiveModeEXT(nuint ptr) => new(ptr);
 }
 
 

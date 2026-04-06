@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11172 Column: 26
 public unsafe struct PFN_vkCmdSetRenderingAttachmentLocationsKHR
 {
+    public PFN_vkCmdSetRenderingAttachmentLocationsKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetRenderingAttachmentLocationsKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetRenderingAttachmentLocationsKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo*, void>)ptr)(commandBuffer, pLocationInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo* pLocationInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo*, void>)(void*)ptr)(commandBuffer, pLocationInfo);
+    }
 
     public static explicit operator PFN_vkCmdSetRenderingAttachmentLocationsKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetRenderingAttachmentLocationsKHR(nuint ptr) => new(ptr);
 }
 
 

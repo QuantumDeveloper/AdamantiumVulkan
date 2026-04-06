@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceGroupDeviceCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint physicalDeviceCount;
     public VkPhysicalDevice_T* pPhysicalDevices;
 }

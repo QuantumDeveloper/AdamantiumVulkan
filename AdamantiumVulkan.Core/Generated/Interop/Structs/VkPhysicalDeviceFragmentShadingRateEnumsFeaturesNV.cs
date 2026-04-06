@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 fragmentShadingRateEnums;
     public VkBool32 supersampleFragmentShadingRates;
     public VkBool32 noInvocationFragmentShadingRates;

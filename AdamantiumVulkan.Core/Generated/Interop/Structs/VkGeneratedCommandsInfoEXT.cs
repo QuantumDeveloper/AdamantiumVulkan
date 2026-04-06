@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkGeneratedCommandsInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkShaderStageFlags shaderStages;
     public VkIndirectExecutionSetEXT_T indirectExecutionSet;
     public VkIndirectCommandsLayoutEXT_T indirectCommandsLayout;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkBufferViewCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public BufferUsageFlagBits flags;
     public VkBuffer_T buffer;
     public Format format;

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15641 Column: 30
 public unsafe struct PFN_vkInitializePerformanceApiINTEL
 {
+    public PFN_vkInitializePerformanceApiINTEL(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkInitializePerformanceApiINTEL(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkInitializePerformanceApiINTEL
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL*, Result>)ptr)(device, pInitializeInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL* pInitializeInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL*, Result>)(void*)ptr)(device, pInitializeInfo);
+    }
 
     public static explicit operator PFN_vkInitializePerformanceApiINTEL(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkInitializePerformanceApiINTEL(nuint ptr) => new(ptr);
 }
 
 

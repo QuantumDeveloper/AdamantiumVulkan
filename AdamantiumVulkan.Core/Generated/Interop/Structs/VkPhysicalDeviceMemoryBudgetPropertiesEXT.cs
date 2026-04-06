@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMemoryBudgetPropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed ulong heapBudget[16];
     public unsafe fixed ulong heapUsage[16];
 }

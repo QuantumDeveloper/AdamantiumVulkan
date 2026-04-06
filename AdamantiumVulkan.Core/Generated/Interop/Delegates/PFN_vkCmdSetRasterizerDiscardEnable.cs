@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7580 Column: 26
 public unsafe struct PFN_vkCmdSetRasterizerDiscardEnable
 {
+    public PFN_vkCmdSetRasterizerDiscardEnable(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetRasterizerDiscardEnable(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetRasterizerDiscardEnable
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, rasterizerDiscardEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 rasterizerDiscardEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, rasterizerDiscardEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetRasterizerDiscardEnable(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetRasterizerDiscardEnable(nuint ptr) => new(ptr);
 }
 
 

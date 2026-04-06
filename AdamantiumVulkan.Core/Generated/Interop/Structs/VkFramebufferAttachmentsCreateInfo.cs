@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFramebufferAttachmentsCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint attachmentImageInfoCount;
     public AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo* pAttachmentImageInfos;
 }

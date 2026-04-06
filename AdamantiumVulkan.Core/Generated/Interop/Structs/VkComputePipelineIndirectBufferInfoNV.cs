@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkComputePipelineIndirectBufferInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceAddress deviceAddress;
     public VkDeviceSize size;
     public VkDeviceAddress pipelineDeviceAddressCaptureReplay;

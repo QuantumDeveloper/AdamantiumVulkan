@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14725 Column: 26
 public unsafe struct PFN_vkCmdSetCoarseSampleOrderNV
 {
+    public PFN_vkCmdSetCoarseSampleOrderNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetCoarseSampleOrderNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetCoarseSampleOrderNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV*, void>)ptr)(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoarseSampleOrderTypeNV sampleOrderType, uint customSampleOrderCount, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV* pCustomSampleOrders)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, CoarseSampleOrderTypeNV, uint, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV*, void>)(void*)ptr)(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
+    }
 
     public static explicit operator PFN_vkCmdSetCoarseSampleOrderNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetCoarseSampleOrderNV(nuint ptr) => new(ptr);
 }
 
 

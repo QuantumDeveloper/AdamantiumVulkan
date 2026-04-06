@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceInlineUniformBlockFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 inlineUniformBlock;
     public VkBool32 descriptorBindingInlineUniformBlockUpdateAfterBind;
 }

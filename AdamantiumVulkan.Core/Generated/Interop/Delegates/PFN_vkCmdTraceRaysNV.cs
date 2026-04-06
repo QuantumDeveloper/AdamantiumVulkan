@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15019 Column: 26
 public unsafe struct PFN_vkCmdTraceRaysNV
 {
+    public PFN_vkCmdTraceRaysNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdTraceRaysNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdTraceRaysNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, uint, uint, uint, void>)ptr)(commandBuffer, raygenShaderBindingTableBuffer, raygenShaderBindingOffset, missShaderBindingTableBuffer, missShaderBindingOffset, missShaderBindingStride, hitShaderBindingTableBuffer, hitShaderBindingOffset, hitShaderBindingStride, callableShaderBindingTableBuffer, callableShaderBindingOffset, callableShaderBindingStride, width, height, depth);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T raygenShaderBindingTableBuffer, VkDeviceSize raygenShaderBindingOffset, AdamantiumVulkan.Core.Interop.VkBuffer_T missShaderBindingTableBuffer, VkDeviceSize missShaderBindingOffset, VkDeviceSize missShaderBindingStride, AdamantiumVulkan.Core.Interop.VkBuffer_T hitShaderBindingTableBuffer, VkDeviceSize hitShaderBindingOffset, VkDeviceSize hitShaderBindingStride, AdamantiumVulkan.Core.Interop.VkBuffer_T callableShaderBindingTableBuffer, VkDeviceSize callableShaderBindingOffset, VkDeviceSize callableShaderBindingStride, uint width, uint height, uint depth)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, uint, uint, uint, void>)(void*)ptr)(commandBuffer, raygenShaderBindingTableBuffer, raygenShaderBindingOffset, missShaderBindingTableBuffer, missShaderBindingOffset, missShaderBindingStride, hitShaderBindingTableBuffer, hitShaderBindingOffset, hitShaderBindingStride, callableShaderBindingTableBuffer, callableShaderBindingOffset, callableShaderBindingStride, width, height, depth);
+    }
 
     public static explicit operator PFN_vkCmdTraceRaysNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdTraceRaysNV(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint perViewRenderAreaCount;
     public AdamantiumVulkan.Core.Interop.VkRect2D* pPerViewRenderAreas;
 }

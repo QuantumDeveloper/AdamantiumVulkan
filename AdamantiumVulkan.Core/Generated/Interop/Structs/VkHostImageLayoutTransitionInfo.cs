@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkHostImageLayoutTransitionInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkImage_T image;
     public ImageLayout oldLayout;
     public ImageLayout newLayout;

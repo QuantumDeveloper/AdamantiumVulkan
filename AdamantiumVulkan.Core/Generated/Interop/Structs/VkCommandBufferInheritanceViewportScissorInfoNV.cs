@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandBufferInheritanceViewportScissorInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 viewportScissor2D;
     public uint viewportDepthCount;
     public AdamantiumVulkan.Core.Interop.VkViewport* pViewportDepths;

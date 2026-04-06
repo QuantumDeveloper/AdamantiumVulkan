@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRayTracingPipelineCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineCreateFlags flags;
     public uint stageCount;
     public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo* pStages;

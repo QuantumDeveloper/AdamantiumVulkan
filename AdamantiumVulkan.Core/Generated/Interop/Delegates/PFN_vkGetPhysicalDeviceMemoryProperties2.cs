@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5804 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceMemoryProperties2
 {
+    public PFN_vkGetPhysicalDeviceMemoryProperties2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceMemoryProperties2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceMemoryProperties2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2*, void>)ptr)(physicalDevice, pMemoryProperties);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2* pMemoryProperties)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2*, void>)(void*)ptr)(physicalDevice, pMemoryProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceMemoryProperties2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceMemoryProperties2(nuint ptr) => new(ptr);
 }
 
 

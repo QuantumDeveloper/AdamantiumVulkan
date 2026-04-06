@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Interop;
@@ -47,14 +48,14 @@ public unsafe partial class StdVideoEncodeAV1ExtensionHeader : IMarshallableObje
         Spatial_id = native.spatial_id;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeAV1ExtensionHeaderMarshaller
     {

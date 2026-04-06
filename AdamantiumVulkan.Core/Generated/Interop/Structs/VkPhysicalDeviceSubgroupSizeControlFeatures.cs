@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceSubgroupSizeControlFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 subgroupSizeControl;
     public VkBool32 computeFullSubgroups;
 }

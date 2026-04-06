@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21719 Column: 26
 public unsafe struct PFN_vkCmdTraceRaysKHR
 {
+    public PFN_vkCmdTraceRaysKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdTraceRaysKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdTraceRaysKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, uint, uint, uint, void>)ptr)(commandBuffer, pRaygenShaderBindingTable, pMissShaderBindingTable, pHitShaderBindingTable, pCallableShaderBindingTable, width, height, depth);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, uint width, uint height, uint depth)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR*, uint, uint, uint, void>)(void*)ptr)(commandBuffer, pRaygenShaderBindingTable, pMissShaderBindingTable, pHitShaderBindingTable, pCallableShaderBindingTable, width, height, depth);
+    }
 
     public static explicit operator PFN_vkCmdTraceRaysKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdTraceRaysKHR(nuint ptr) => new(ptr);
 }
 
 

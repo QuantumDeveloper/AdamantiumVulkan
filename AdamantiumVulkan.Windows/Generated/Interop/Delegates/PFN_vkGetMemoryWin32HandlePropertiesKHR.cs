@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 85 Column: 30
 public unsafe struct PFN_vkGetMemoryWin32HandlePropertiesKHR
 {
+    public PFN_vkGetMemoryWin32HandlePropertiesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetMemoryWin32HandlePropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkGetMemoryWin32HandlePropertiesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, System.IntPtr, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)ptr)(device, handleType, handle, pMemoryWin32HandleProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, System.IntPtr, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)(void*)ptr)(device, handleType, handle, pMemoryWin32HandleProperties);
+    }
 
     public static explicit operator PFN_vkGetMemoryWin32HandlePropertiesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetMemoryWin32HandlePropertiesKHR(nuint ptr) => new(ptr);
 }
 
 

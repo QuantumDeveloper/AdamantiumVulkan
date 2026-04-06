@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMemoryDecompressionPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkMemoryDecompressionMethodFlagsNV decompressionMethods;
     public ulong maxDecompressionIndirectCount;
 }

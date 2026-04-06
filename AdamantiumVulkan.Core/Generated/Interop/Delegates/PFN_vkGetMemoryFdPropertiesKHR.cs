@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10053 Column: 30
 public unsafe struct PFN_vkGetMemoryFdPropertiesKHR
 {
+    public PFN_vkGetMemoryFdPropertiesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetMemoryFdPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetMemoryFdPropertiesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR*, Result>)ptr)(device, handleType, fd, pMemoryFdProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR* pMemoryFdProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, int, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR*, Result>)(void*)ptr)(device, handleType, fd, pMemoryFdProperties);
+    }
 
     public static explicit operator PFN_vkGetMemoryFdPropertiesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetMemoryFdPropertiesKHR(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFenceCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public FenceCreateFlagBits flags;
 }
 

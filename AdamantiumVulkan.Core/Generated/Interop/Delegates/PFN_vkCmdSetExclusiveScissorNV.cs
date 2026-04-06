@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15472 Column: 26
 public unsafe struct PFN_vkCmdSetExclusiveScissorNV
 {
+    public PFN_vkCmdSetExclusiveScissorNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetExclusiveScissorNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetExclusiveScissorNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)ptr)(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkRect2D*, void>)(void*)ptr)(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
+    }
 
     public static explicit operator PFN_vkCmdSetExclusiveScissorNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetExclusiveScissorNV(nuint ptr) => new(ptr);
 }
 
 

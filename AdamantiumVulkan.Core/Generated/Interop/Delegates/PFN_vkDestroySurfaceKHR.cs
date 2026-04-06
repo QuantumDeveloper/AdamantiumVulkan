@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8580 Column: 26
 public unsafe struct PFN_vkDestroySurfaceKHR
 {
+    public PFN_vkDestroySurfaceKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroySurfaceKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroySurfaceKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(instance, surface, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(instance, surface, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroySurfaceKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroySurfaceKHR(nuint ptr) => new(ptr);
 }
 
 

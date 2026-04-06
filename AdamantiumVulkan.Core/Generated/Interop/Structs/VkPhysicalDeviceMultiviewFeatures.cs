@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMultiviewFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 multiview;
     public VkBool32 multiviewGeometryShader;
     public VkBool32 multiviewTessellationShader;

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12604 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR
 {
+    public PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainKHR*, Result>)ptr)(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainKHR* pTimeDomains)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainKHR*, Result>)(void*)ptr)(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(nuint ptr) => new(ptr);
 }
 
 

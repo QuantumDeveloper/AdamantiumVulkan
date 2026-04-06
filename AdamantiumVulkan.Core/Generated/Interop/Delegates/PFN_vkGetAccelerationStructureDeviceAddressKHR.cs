@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21543 Column: 37
 public unsafe struct PFN_vkGetAccelerationStructureDeviceAddressKHR
 {
+    public PFN_vkGetAccelerationStructureDeviceAddressKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetAccelerationStructureDeviceAddressKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetAccelerationStructureDeviceAddressKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR*, ulong>)ptr)(device, pInfo);
     }
+    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR*, ulong>)(void*)ptr)(device, pInfo);
+    }
 
     public static explicit operator PFN_vkGetAccelerationStructureDeviceAddressKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetAccelerationStructureDeviceAddressKHR(nuint ptr) => new(ptr);
 }
 
 

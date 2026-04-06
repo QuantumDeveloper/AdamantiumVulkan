@@ -17,11 +17,11 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceFaultInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed sbyte description[256];
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT* pAddressInfos;
     public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT* pVendorInfos;
-    public void* pVendorBinaryData;
+    public nuint pVendorBinaryData;
 }
 
 

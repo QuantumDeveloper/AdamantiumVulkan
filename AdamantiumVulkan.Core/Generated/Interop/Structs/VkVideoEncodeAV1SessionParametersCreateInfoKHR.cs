@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeAV1SessionParametersCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader* pStdSequenceHeader;
     public AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo* pStdDecoderModelInfo;
     public uint stdOperatingPointCount;

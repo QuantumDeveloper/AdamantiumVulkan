@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 workgroupMemoryExplicitLayout;
     public VkBool32 workgroupMemoryExplicitLayoutScalarBlockLayout;
     public VkBool32 workgroupMemoryExplicitLayout8BitAccess;

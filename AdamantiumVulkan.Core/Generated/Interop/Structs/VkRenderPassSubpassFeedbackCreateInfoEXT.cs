@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRenderPassSubpassFeedbackCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT* pSubpassFeedback;
 }
 

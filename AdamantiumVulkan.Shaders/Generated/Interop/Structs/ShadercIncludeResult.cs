@@ -31,7 +31,7 @@ public unsafe partial struct ShadercIncludeResult
     ///<summary>
     /// User data to be passed along with this request.
     ///</summary>
-    public void* user_data;
+    public nuint user_data;
 }
 
 

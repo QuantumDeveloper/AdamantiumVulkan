@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14368 Column: 26
 public unsafe struct PFN_vkCmdSetSampleLocationsEXT
 {
+    public PFN_vkCmdSetSampleLocationsEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetSampleLocationsEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetSampleLocationsEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT*, void>)ptr)(commandBuffer, pSampleLocationsInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT* pSampleLocationsInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT*, void>)(void*)ptr)(commandBuffer, pSampleLocationsInfo);
+    }
 
     public static explicit operator PFN_vkCmdSetSampleLocationsEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetSampleLocationsEXT(nuint ptr) => new(ptr);
 }
 
 

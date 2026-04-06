@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineRasterizationDepthClipStateCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineRasterizationDepthClipStateCreateFlagsEXT flags;
     public VkBool32 depthClipEnable;
 }

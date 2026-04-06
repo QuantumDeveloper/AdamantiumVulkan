@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15021 Column: 30
 public unsafe struct PFN_vkGetRayTracingShaderGroupHandlesKHR
 {
+    public PFN_vkGetRayTracingShaderGroupHandlesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetRayTracingShaderGroupHandlesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData)
     {
         return InvokeFunc(device, pipeline, firstGroup, groupCount, dataSize, pData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, void*, Result>)ptr)(device, pipeline, firstGroup, groupCount, dataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, nuint, Result>)ptr)(device, pipeline, firstGroup, groupCount, dataSize, pData);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipeline_T, uint, uint, ulong, nuint, Result>)(void*)ptr)(device, pipeline, firstGroup, groupCount, dataSize, pData);
     }
 
     public static explicit operator PFN_vkGetRayTracingShaderGroupHandlesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetRayTracingShaderGroupHandlesKHR(nuint ptr) => new(ptr);
 }
 
 

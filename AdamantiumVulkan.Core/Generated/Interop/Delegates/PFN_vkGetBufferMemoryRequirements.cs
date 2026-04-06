@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4183 Column: 26
 public unsafe struct PFN_vkGetBufferMemoryRequirements
 {
+    public PFN_vkGetBufferMemoryRequirements(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetBufferMemoryRequirements(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetBufferMemoryRequirements
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void>)ptr)(device, buffer, pMemoryRequirements);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkMemoryRequirements* pMemoryRequirements)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkMemoryRequirements*, void>)(void*)ptr)(device, buffer, pMemoryRequirements);
+    }
 
     public static explicit operator PFN_vkGetBufferMemoryRequirements(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetBufferMemoryRequirements(nuint ptr) => new(ptr);
 }
 
 

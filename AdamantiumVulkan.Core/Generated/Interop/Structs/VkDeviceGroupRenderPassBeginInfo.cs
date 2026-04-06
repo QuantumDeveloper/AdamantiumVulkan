@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceGroupRenderPassBeginInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint deviceMask;
     public uint deviceRenderAreaCount;
     public AdamantiumVulkan.Core.Interop.VkRect2D* pDeviceRenderAreas;

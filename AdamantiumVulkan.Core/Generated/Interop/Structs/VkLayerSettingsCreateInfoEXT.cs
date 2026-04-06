@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkLayerSettingsCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint settingCount;
     public AdamantiumVulkan.Core.Interop.VkLayerSettingEXT* pSettings;
 }

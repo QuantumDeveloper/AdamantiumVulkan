@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineViewportShadingRateImageStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 shadingRateImageEnable;
     public uint viewportCount;
     public AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV* pShadingRatePalettes;

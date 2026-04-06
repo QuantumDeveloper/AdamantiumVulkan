@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceVulkan14Features
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 globalPriorityQuery;
     public VkBool32 shaderSubgroupRotate;
     public VkBool32 shaderSubgroupRotateClustered;

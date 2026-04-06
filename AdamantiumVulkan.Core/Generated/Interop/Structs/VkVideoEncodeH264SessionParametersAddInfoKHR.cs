@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH264SessionParametersAddInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint stdSPSCount;
     public AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet* pStdSPSs;
     public uint stdPPSCount;

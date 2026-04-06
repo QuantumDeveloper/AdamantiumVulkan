@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19268 Column: 26
 public unsafe struct PFN_vkCmdSetRasterizationStreamEXT
 {
+    public PFN_vkCmdSetRasterizationStreamEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetRasterizationStreamEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetRasterizationStreamEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)ptr)(commandBuffer, rasterizationStream);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint rasterizationStream)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, void>)(void*)ptr)(commandBuffer, rasterizationStream);
+    }
 
     public static explicit operator PFN_vkCmdSetRasterizationStreamEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetRasterizationStreamEXT(nuint ptr) => new(ptr);
 }
 
 

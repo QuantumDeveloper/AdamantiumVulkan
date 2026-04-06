@@ -47,7 +47,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(line, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_add_header_line(this, arg1);
         }
@@ -105,7 +105,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         int CalculateSize(string[] source)
         {
             int totalSize = 0;
-            totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(source);
+            QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(source);
             return totalSize;
         }
 
@@ -114,7 +114,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(source, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_compile(this, arg1);
         }
@@ -176,7 +176,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcBufferRange, AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange>(ranges, ref currentCursor);
             var arg3 = stackalloc ulong[1];
             *arg3 = num_ranges;
@@ -242,7 +242,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(name, ref currentCursor);
             var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_cleansed_entry_point_name(this, arg1, model);
             return new string(result);
@@ -269,7 +269,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcCombinedImageSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler>(samplers, ref currentCursor);
             var arg2 = stackalloc ulong[1];
             *arg2 = num_samplers;
@@ -387,7 +387,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcEntryPoint, AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint>(entry_points, ref currentCursor);
             var arg2 = stackalloc ulong[1];
             *arg2 = num_entry_points;
@@ -488,7 +488,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcSpecializationConstant, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>(constants, ref currentCursor);
             var arg2 = stackalloc ulong[1];
             *arg2 = num_constants;
@@ -530,7 +530,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcSpecializationConstant, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>(x, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcSpecializationConstant, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>(y, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcSpecializationConstant, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>(z, ref currentCursor);
@@ -573,7 +573,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcHlslResourceBinding, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding>(binding, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_add_resource_binding(this, arg1);
         }
@@ -599,7 +599,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcHlslVertexAttributeRemap, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap>(remap, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_add_vertex_attribute_remap(this, arg1, remaps);
         }
@@ -643,7 +643,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcHlslRootConstants, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants>(constant_info, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_set_root_constants_layout(this, arg1, count);
         }
@@ -706,7 +706,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslResourceBinding, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding>(binding, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_resource_binding(this, arg1);
         }
@@ -732,7 +732,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslResourceBinding2, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding2>(binding, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_resource_binding_2(this, arg1);
         }
@@ -761,7 +761,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslShaderInterfaceVar, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar>(input, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_input(this, arg1);
         }
@@ -787,7 +787,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslShaderInterfaceVar2, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2>(input, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_input_2(this, arg1);
         }
@@ -832,7 +832,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslVertexAttribute, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute>(attrs, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_vertex_attribute(this, arg1);
         }
@@ -938,7 +938,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslConstexprSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>(sampler, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler(this, id, arg2);
         }
@@ -964,7 +964,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslConstexprSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>(sampler, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler_by_binding(this, desc_set, binding, arg3);
         }
@@ -992,7 +992,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslConstexprSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>(sampler, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslSamplerYcbcrConversion, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion>(conv, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler_by_binding_ycbcr(this, desc_set, binding, arg3, arg4);
@@ -1021,7 +1021,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslConstexprSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>(sampler, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslSamplerYcbcrConversion, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion>(conv, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_remap_constexpr_sampler_ycbcr(this, id, arg2, arg3);
@@ -1053,7 +1053,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(suffix, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_set_combined_sampler_suffix(this, arg1);
         }
@@ -1086,7 +1086,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(old_name, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(new_name, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_rename_entry_point(this, arg1, arg2, model);
@@ -1113,7 +1113,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(ext, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_require_extension(this, arg1);
         }
@@ -1147,7 +1147,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(argument, ref currentCursor);
             AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_decoration_string(this, id, decoration, arg3);
         }
@@ -1179,7 +1179,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(name, ref currentCursor);
             return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_entry_point(this, arg1, model);
         }
@@ -1220,7 +1220,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(argument, ref currentCursor);
             AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_member_decoration_string(this, id, member_index, decoration, arg4);
         }
@@ -1246,7 +1246,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(argument, ref currentCursor);
             AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_member_name(this, id, member_index, arg3);
         }
@@ -1272,7 +1272,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(argument, ref currentCursor);
             AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_name(this, id, arg2);
         }

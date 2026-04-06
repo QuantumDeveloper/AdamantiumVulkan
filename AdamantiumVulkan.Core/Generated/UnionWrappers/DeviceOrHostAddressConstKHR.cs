@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -23,7 +24,7 @@ public unsafe partial class DeviceOrHostAddressConstKHR : IMarshallableObject, I
     }
 
     public VkDeviceAddress DeviceAddress { get; set; }
-    public void* HostAddress { get; set; }
+    public nuint HostAddress { get; set; }
 
     public static implicit operator DeviceOrHostAddressConstKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR d)
     {
@@ -47,14 +48,14 @@ public unsafe partial class DeviceOrHostAddressConstKHR : IMarshallableObject, I
         HostAddress = native.hostAddress;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceOrHostAddressConstKHRMarshaller
     {

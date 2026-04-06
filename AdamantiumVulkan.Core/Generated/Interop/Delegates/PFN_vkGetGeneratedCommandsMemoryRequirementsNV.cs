@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16681 Column: 26
 public unsafe struct PFN_vkGetGeneratedCommandsMemoryRequirementsNV
 {
+    public PFN_vkGetGeneratedCommandsMemoryRequirementsNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetGeneratedCommandsMemoryRequirementsNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetGeneratedCommandsMemoryRequirementsNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void>)ptr)(device, pInfo, pMemoryRequirements);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV*, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2*, void>)(void*)ptr)(device, pInfo, pMemoryRequirements);
+    }
 
     public static explicit operator PFN_vkGetGeneratedCommandsMemoryRequirementsNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetGeneratedCommandsMemoryRequirementsNV(nuint ptr) => new(ptr);
 }
 
 

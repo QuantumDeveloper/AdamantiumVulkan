@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5807 Column: 26
 public unsafe struct PFN_vkGetDeviceQueue2
 {
+    public PFN_vkGetDeviceQueue2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceQueue2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceQueue2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr)(device, pQueueInfo, out pQueue);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)(void*)ptr)(device, pQueueInfo, out pQueue);
+    }
 
     public static explicit operator PFN_vkGetDeviceQueue2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceQueue2(nuint ptr) => new(ptr);
 }
 
 

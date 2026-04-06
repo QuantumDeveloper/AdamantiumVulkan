@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSemaphoreSignalInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSemaphore_T semaphore;
     public ulong value;
 }

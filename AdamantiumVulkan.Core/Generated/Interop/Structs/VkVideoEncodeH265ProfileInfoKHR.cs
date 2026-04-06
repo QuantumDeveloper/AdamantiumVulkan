@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH265ProfileInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public StdVideoH265ProfileIdc stdProfileIdc;
 }
 

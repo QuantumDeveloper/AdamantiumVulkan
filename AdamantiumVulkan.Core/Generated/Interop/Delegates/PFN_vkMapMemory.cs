@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4176 Column: 30
 public unsafe struct PFN_vkMapMemory
 {
+    public PFN_vkMapMemory(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkMapMemory(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out nuint ppData)
     {
         return InvokeFunc(device, memory, offset, size, flags, out ppData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out nuint ppData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out void*, Result>)ptr)(device, memory, offset, size, flags, out ppData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out nuint, Result>)ptr)(device, memory, offset, size, flags, out ppData);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out nuint ppData)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, VkDeviceSize, VkMemoryMapFlags, out nuint, Result>)(void*)ptr)(device, memory, offset, size, flags, out ppData);
     }
 
     public static explicit operator PFN_vkMapMemory(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkMapMemory(nuint ptr) => new(ptr);
 }
 
 

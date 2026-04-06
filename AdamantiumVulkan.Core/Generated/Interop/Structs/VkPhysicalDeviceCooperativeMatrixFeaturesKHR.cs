@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceCooperativeMatrixFeaturesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 cooperativeMatrix;
     public VkBool32 cooperativeMatrixRobustBufferAccess;
 }

@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17297 Column: 30
 public unsafe struct PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT
 {
+    public PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, nuint pData)
     {
         return InvokeFunc(device, pInfo, pData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, nuint pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, void*, Result>)ptr)(device, pInfo, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, nuint, Result>)ptr)(device, pInfo, pData);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, nuint pData)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT*, nuint, Result>)(void*)ptr)(device, pInfo, pData);
     }
 
     public static explicit operator PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(nuint ptr) => new(ptr);
 }
 
 

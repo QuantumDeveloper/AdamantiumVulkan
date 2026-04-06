@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.MacOS.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 30
 public unsafe struct PFN_vkCreateMacOSSurfaceMVK
 {
+    public PFN_vkCreateMacOSSurfaceMVK(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateMacOSSurfaceMVK(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkCreateMacOSSurfaceMVK
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)ptr)(instance, pCreateInfo, pAllocator, out pSurface);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)(void*)ptr)(instance, pCreateInfo, pAllocator, out pSurface);
+    }
 
     public static explicit operator PFN_vkCreateMacOSSurfaceMVK(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateMacOSSurfaceMVK(nuint ptr) => new(ptr);
 }
 
 

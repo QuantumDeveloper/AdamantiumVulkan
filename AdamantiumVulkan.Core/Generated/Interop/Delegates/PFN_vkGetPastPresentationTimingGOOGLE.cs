@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13849 Column: 30
 public unsafe struct PFN_vkGetPastPresentationTimingGOOGLE
 {
+    public PFN_vkGetPastPresentationTimingGOOGLE(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPastPresentationTimingGOOGLE(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPastPresentationTimingGOOGLE
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)ptr)(device, swapchain, ref pPresentationTimingCount, pPresentationTimings);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)(void*)ptr)(device, swapchain, ref pPresentationTimingCount, pPresentationTimings);
+    }
 
     public static explicit operator PFN_vkGetPastPresentationTimingGOOGLE(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPastPresentationTimingGOOGLE(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18977 Column: 26
 public unsafe struct PFN_vkCmdDecompressMemoryNV
 {
+    public PFN_vkCmdDecompressMemoryNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDecompressMemoryNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDecompressMemoryNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV*, void>)ptr)(commandBuffer, decompressRegionCount, pDecompressMemoryRegions);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint decompressRegionCount, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV* pDecompressMemoryRegions)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV*, void>)(void*)ptr)(commandBuffer, decompressRegionCount, pDecompressMemoryRegions);
+    }
 
     public static explicit operator PFN_vkCmdDecompressMemoryNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDecompressMemoryNV(nuint ptr) => new(ptr);
 }
 
 

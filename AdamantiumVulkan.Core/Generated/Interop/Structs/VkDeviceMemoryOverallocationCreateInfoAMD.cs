@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDeviceMemoryOverallocationCreateInfoAMD
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public MemoryOverallocationBehaviorAMD overallocationBehavior;
 }
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4282 Column: 26
 public unsafe struct PFN_vkCmdResetQueryPool
 {
+    public PFN_vkCmdResetQueryPool(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdResetQueryPool(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdResetQueryPool
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void>)ptr)(commandBuffer, queryPool, firstQuery, queryCount);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, uint, void>)(void*)ptr)(commandBuffer, queryPool, firstQuery, queryCount);
+    }
 
     public static explicit operator PFN_vkCmdResetQueryPool(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdResetQueryPool(nuint ptr) => new(ptr);
 }
 
 

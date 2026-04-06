@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13194 Column: 26
 public unsafe struct PFN_vkCmdBeginQueryIndexedEXT
 {
+    public PFN_vkCmdBeginQueryIndexedEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBeginQueryIndexedEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBeginQueryIndexedEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, uint, void>)ptr)(commandBuffer, queryPool, query, flags, index);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags, uint index)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, uint, void>)(void*)ptr)(commandBuffer, queryPool, query, flags, index);
+    }
 
     public static explicit operator PFN_vkCmdBeginQueryIndexedEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBeginQueryIndexedEXT(nuint ptr) => new(ptr);
 }
 
 

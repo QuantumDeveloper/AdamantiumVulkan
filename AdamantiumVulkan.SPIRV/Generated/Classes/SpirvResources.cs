@@ -42,7 +42,7 @@ public unsafe partial class SpirvResources : IUnmanagedWrapper<AdamantiumVulkan.
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcReflectedBuiltinResource, AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource>(resource_list, ref currentCursor);
             var arg3 = stackalloc ulong[1];
             *arg3 = resource_size;

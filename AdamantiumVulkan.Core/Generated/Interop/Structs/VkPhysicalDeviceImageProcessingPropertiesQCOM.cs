@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceImageProcessingPropertiesQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint maxWeightFilterPhases;
     public VkExtent2D maxWeightFilterDimension;
     public VkExtent2D maxBlockMatchRegion;

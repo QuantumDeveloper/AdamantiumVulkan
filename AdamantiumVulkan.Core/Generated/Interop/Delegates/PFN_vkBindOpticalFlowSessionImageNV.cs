@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19700 Column: 30
 public unsafe struct PFN_vkBindOpticalFlowSessionImageNV
 {
+    public PFN_vkBindOpticalFlowSessionImageNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkBindOpticalFlowSessionImageNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkBindOpticalFlowSessionImageNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, Result>)ptr)(device, session, bindingPoint, view, layout);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T session, OpticalFlowSessionBindingPointNV bindingPoint, AdamantiumVulkan.Core.Interop.VkImageView_T view, ImageLayout layout)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T, OpticalFlowSessionBindingPointNV, AdamantiumVulkan.Core.Interop.VkImageView_T, ImageLayout, Result>)(void*)ptr)(device, session, bindingPoint, view, layout);
+    }
 
     public static explicit operator PFN_vkBindOpticalFlowSessionImageNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkBindOpticalFlowSessionImageNV(nuint ptr) => new(ptr);
 }
 
 

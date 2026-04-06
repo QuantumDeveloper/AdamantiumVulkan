@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDependencyInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public DependencyFlagBits dependencyFlags;
     public uint memoryBarrierCount;
     public AdamantiumVulkan.Core.Interop.VkMemoryBarrier2* pMemoryBarriers;

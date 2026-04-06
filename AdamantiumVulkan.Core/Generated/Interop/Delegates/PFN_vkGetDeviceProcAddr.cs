@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4163 Column: 40
 public unsafe struct PFN_vkGetDeviceProcAddr
 {
+    public PFN_vkGetDeviceProcAddr(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceProcAddr(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, void*>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, nuint>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, void*> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, nuint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void* Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName)
+    public nuint Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName)
     {
         return InvokeFunc(device, pName);
     }
-    public static void* Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName)
+    public static nuint Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, void*>)ptr)(device, pName);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, nuint>)ptr)(device, pName);
+    }
+    public static nuint Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, sbyte*, nuint>)(void*)ptr)(device, pName);
     }
 
     public static explicit operator PFN_vkGetDeviceProcAddr(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceProcAddr(nuint ptr) => new(ptr);
 }
 
 

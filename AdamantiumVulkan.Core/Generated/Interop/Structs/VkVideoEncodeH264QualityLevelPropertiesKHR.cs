@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeH264QualityLevelPropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoEncodeH264RateControlFlagsKHR preferredRateControlFlags;
     public uint preferredGopFrameCount;
     public uint preferredIdrPeriod;

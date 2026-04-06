@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.MacOS.Interop;
@@ -26,7 +27,7 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
     public StructureType SType => StructureType.MacosSurfaceCreateInfoMvk;
     public object PNext { get; set; }
     public VkMacOSSurfaceCreateFlagsMVK Flags { get; set; }
-    public void* PView { get; set; }
+    public nuint PView { get; set; }
 
     public static implicit operator MacOSSurfaceCreateInfoMVK(AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK m)
     {
@@ -55,14 +56,14 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
         PView = native.pView;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMacOSSurfaceCreateInfoMVKMarshaller
     {
@@ -76,7 +77,11 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
             }
             else if (macOSSurfaceCreateInfoMVK.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (macOSSurfaceCreateInfoMVK.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (macOSSurfaceCreateInfoMVK.Flags != (uint)default)

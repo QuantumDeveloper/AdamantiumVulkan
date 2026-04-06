@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -25,7 +26,7 @@ public unsafe partial class CuModuleCreateInfoNVX : IMarshallableObject, IMarsha
     public StructureType SType { get; set; }
     public object PNext { get; set; }
     public ulong DataSize { get; set; }
-    public void* PData { get; set; }
+    public nuint PData { get; set; }
 
     public static implicit operator CuModuleCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX c)
     {
@@ -55,14 +56,14 @@ public unsafe partial class CuModuleCreateInfoNVX : IMarshallableObject, IMarsha
         PData = native.pData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCuModuleCreateInfoNVXMarshaller
     {
@@ -76,7 +77,11 @@ public unsafe partial class CuModuleCreateInfoNVX : IMarshallableObject, IMarsha
             }
             else if (cuModuleCreateInfoNVX.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (cuModuleCreateInfoNVX.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].dataSize = cuModuleCreateInfoNVX.DataSize;

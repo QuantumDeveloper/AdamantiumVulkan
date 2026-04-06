@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15646 Column: 30
 public unsafe struct PFN_vkAcquirePerformanceConfigurationINTEL
 {
+    public PFN_vkAcquirePerformanceConfigurationINTEL(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkAcquirePerformanceConfigurationINTEL(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkAcquirePerformanceConfigurationINTEL
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL*, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result>)ptr)(device, pAcquireInfo, out pConfiguration);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T pConfiguration)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL*, out AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T, Result>)(void*)ptr)(device, pAcquireInfo, out pConfiguration);
+    }
 
     public static explicit operator PFN_vkAcquirePerformanceConfigurationINTEL(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkAcquirePerformanceConfigurationINTEL(nuint ptr) => new(ptr);
 }
 
 

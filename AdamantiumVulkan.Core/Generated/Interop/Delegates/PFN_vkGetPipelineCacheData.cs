@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4216 Column: 30
 public unsafe struct PFN_vkGetPipelineCacheData
 {
+    public PFN_vkGetPipelineCacheData(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPipelineCacheData(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, void*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, void*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, nuint pData)
     {
         return InvokeFunc(device, pipelineCache, ref pDataSize, pData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, nuint pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, void*, Result>)ptr)(device, pipelineCache, ref pDataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, nuint, Result>)ptr)(device, pipelineCache, ref pDataSize, pData);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, nuint pData)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineCache_T, ref ulong*, nuint, Result>)(void*)ptr)(device, pipelineCache, ref pDataSize, pData);
     }
 
     public static explicit operator PFN_vkGetPipelineCacheData(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPipelineCacheData(nuint ptr) => new(ptr);
 }
 
 

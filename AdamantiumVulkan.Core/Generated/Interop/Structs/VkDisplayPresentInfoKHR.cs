@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDisplayPresentInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkRect2D srcRect;
     public VkRect2D dstRect;
     public VkBool32 persistent;

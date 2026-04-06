@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceAccelerationStructurePropertiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ulong maxGeometryCount;
     public ulong maxInstanceCount;
     public ulong maxPrimitiveCount;

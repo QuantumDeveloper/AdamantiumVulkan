@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceDepthStencilResolveProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkResolveModeFlags supportedDepthResolveModes;
     public VkResolveModeFlags supportedStencilResolveModes;
     public VkBool32 independentResolveNone;

@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkWin32KeyedMutexAcquireReleaseInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint acquireCount;
     public VkDeviceMemory_T* pAcquireSyncs;
     public ulong* pAcquireKeys;

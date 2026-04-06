@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9951 Column: 26
 public unsafe struct PFN_vkTrimCommandPoolKHR
 {
+    public PFN_vkTrimCommandPoolKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkTrimCommandPoolKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkTrimCommandPoolKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolTrimFlags, void>)ptr)(device, commandPool, flags);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolTrimFlags flags)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolTrimFlags, void>)(void*)ptr)(device, commandPool, flags);
+    }
 
     public static explicit operator PFN_vkTrimCommandPoolKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkTrimCommandPoolKHR(nuint ptr) => new(ptr);
 }
 
 

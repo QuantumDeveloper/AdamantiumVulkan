@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18925 Column: 26
 public unsafe struct PFN_vkCmdCopyMemoryIndirectNV
 {
+    public PFN_vkCmdCopyMemoryIndirectNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCopyMemoryIndirectNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCopyMemoryIndirectNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, void>)ptr)(commandBuffer, copyBufferAddress, copyCount, stride);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, void>)(void*)ptr)(commandBuffer, copyBufferAddress, copyCount, stride);
+    }
 
     public static explicit operator PFN_vkCmdCopyMemoryIndirectNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCopyMemoryIndirectNV(nuint ptr) => new(ptr);
 }
 
 

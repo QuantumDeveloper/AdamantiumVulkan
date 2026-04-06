@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkInstanceCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkInstanceCreateFlags flags;
     public AdamantiumVulkan.Core.Interop.VkApplicationInfo* pApplicationInfo;
     public uint enabledLayerCount;

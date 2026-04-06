@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17294 Column: 26
 public unsafe struct PFN_vkCmdBindDescriptorBuffersEXT
 {
+    public PFN_vkCmdBindDescriptorBuffersEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindDescriptorBuffersEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindDescriptorBuffersEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT*, void>)ptr)(commandBuffer, bufferCount, pBindingInfos);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint bufferCount, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT* pBindingInfos)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT*, void>)(void*)ptr)(commandBuffer, bufferCount, pBindingInfos);
+    }
 
     public static explicit operator PFN_vkCmdBindDescriptorBuffersEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindDescriptorBuffersEXT(nuint ptr) => new(ptr);
 }
 
 

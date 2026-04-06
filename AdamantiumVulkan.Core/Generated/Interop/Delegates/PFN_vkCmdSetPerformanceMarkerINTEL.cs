@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15643 Column: 30
 public unsafe struct PFN_vkCmdSetPerformanceMarkerINTEL
 {
+    public PFN_vkCmdSetPerformanceMarkerINTEL(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetPerformanceMarkerINTEL(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetPerformanceMarkerINTEL
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL*, Result>)ptr)(commandBuffer, pMarkerInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL* pMarkerInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL*, Result>)(void*)ptr)(commandBuffer, pMarkerInfo);
+    }
 
     public static explicit operator PFN_vkCmdSetPerformanceMarkerINTEL(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetPerformanceMarkerINTEL(nuint ptr) => new(ptr);
 }
 
 

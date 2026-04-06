@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4192 Column: 30
 public unsafe struct PFN_vkWaitForFences
 {
+    public PFN_vkWaitForFences(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkWaitForFences(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkWaitForFences
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, VkBool32, ulong, Result>)ptr)(device, fenceCount, pFences, waitAll, timeout);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint fenceCount, AdamantiumVulkan.Core.Interop.VkFence_T* pFences, VkBool32 waitAll, ulong timeout)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkFence_T*, VkBool32, ulong, Result>)(void*)ptr)(device, fenceCount, pFences, waitAll, timeout);
+    }
 
     public static explicit operator PFN_vkWaitForFences(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkWaitForFences(nuint ptr) => new(ptr);
 }
 
 

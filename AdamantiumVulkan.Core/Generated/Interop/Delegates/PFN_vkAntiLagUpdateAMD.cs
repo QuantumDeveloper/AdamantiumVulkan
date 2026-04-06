@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19793 Column: 26
 public unsafe struct PFN_vkAntiLagUpdateAMD
 {
+    public PFN_vkAntiLagUpdateAMD(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkAntiLagUpdateAMD(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkAntiLagUpdateAMD
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD*, void>)ptr)(device, pData);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD* pData)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD*, void>)(void*)ptr)(device, pData);
+    }
 
     public static explicit operator PFN_vkAntiLagUpdateAMD(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkAntiLagUpdateAMD(nuint ptr) => new(ptr);
 }
 
 

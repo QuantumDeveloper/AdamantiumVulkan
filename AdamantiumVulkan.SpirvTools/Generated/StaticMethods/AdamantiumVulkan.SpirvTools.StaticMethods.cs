@@ -76,7 +76,7 @@ public unsafe static class SpirvToolsNative
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(s, ref currentCursor);
             var arg1 = stackalloc AdamantiumVulkan.SpirvTools.spv_target_env[1];
             *arg1 = env;

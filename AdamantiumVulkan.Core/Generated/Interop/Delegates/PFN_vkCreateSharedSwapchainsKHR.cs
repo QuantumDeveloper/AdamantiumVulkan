@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8916 Column: 30
 public unsafe struct PFN_vkCreateSharedSwapchainsKHR
 {
+    public PFN_vkCreateSharedSwapchainsKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateSharedSwapchainsKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateSharedSwapchainsKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)ptr)(device, swapchainCount, pCreateInfos, pAllocator, out pSwapchains);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T pSwapchains)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, Result>)(void*)ptr)(device, swapchainCount, pCreateInfos, pAllocator, out pSwapchains);
+    }
 
     public static explicit operator PFN_vkCreateSharedSwapchainsKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateSharedSwapchainsKHR(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16977 Column: 30
 public unsafe struct PFN_vkCreatePrivateDataSlotEXT
 {
+    public PFN_vkCreatePrivateDataSlotEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreatePrivateDataSlotEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreatePrivateDataSlotEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pPrivateDataSlot);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T pPrivateDataSlot)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pPrivateDataSlot);
+    }
 
     public static explicit operator PFN_vkCreatePrivateDataSlotEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreatePrivateDataSlotEXT(nuint ptr) => new(ptr);
 }
 
 

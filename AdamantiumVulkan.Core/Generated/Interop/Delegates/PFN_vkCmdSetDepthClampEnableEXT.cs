@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19257 Column: 26
 public unsafe struct PFN_vkCmdSetDepthClampEnableEXT
 {
+    public PFN_vkCmdSetDepthClampEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDepthClampEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDepthClampEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, depthClampEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthClampEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, depthClampEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetDepthClampEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDepthClampEnableEXT(nuint ptr) => new(ptr);
 }
 
 

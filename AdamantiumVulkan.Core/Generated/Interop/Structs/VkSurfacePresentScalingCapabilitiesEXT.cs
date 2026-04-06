@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSurfacePresentScalingCapabilitiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPresentScalingFlagsEXT supportedPresentScaling;
     public VkPresentGravityFlagsEXT supportedPresentGravityX;
     public VkPresentGravityFlagsEXT supportedPresentGravityY;

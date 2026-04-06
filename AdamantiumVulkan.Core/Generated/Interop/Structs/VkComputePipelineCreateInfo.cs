@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkComputePipelineCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineCreateFlags flags;
     public VkPipelineShaderStageCreateInfo stage;
     public VkPipelineLayout_T layout;

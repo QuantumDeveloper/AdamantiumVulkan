@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12995 Column: 26
 public unsafe struct PFN_vkDebugReportMessageEXT
 {
+    public PFN_vkDebugReportMessageEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDebugReportMessageEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDebugReportMessageEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void>)ptr)(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void>)(void*)ptr)(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
+    }
 
     public static explicit operator PFN_vkDebugReportMessageEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDebugReportMessageEXT(nuint ptr) => new(ptr);
 }
 
 

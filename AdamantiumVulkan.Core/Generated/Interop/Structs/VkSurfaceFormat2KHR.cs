@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSurfaceFormat2KHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkSurfaceFormatKHR surfaceFormat;
 }
 

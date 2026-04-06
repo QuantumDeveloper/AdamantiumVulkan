@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9161 Column: 30
 public unsafe struct PFN_vkUpdateVideoSessionParametersKHR
 {
+    public PFN_vkUpdateVideoSessionParametersKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkUpdateVideoSessionParametersKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkUpdateVideoSessionParametersKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR*, Result>)ptr)(device, videoSessionParameters, pUpdateInfo);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T videoSessionParameters, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR*, Result>)(void*)ptr)(device, videoSessionParameters, pUpdateInfo);
+    }
 
     public static explicit operator PFN_vkUpdateVideoSessionParametersKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkUpdateVideoSessionParametersKHR(nuint ptr) => new(ptr);
 }
 
 

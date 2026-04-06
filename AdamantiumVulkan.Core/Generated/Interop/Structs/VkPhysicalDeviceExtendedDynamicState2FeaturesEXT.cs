@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceExtendedDynamicState2FeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 extendedDynamicState2;
     public VkBool32 extendedDynamicState2LogicOp;
     public VkBool32 extendedDynamicState2PatchControlPoints;

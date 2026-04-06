@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -24,7 +25,7 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
 
     public StructureType SType { get; set; }
     public object PNext { get; set; }
-    public void* PHostPointer { get; set; }
+    public nuint PHostPointer { get; set; }
     public uint MemoryRowLength { get; set; }
     public uint MemoryImageHeight { get; set; }
     public ImageSubresourceLayers ImageSubresource { get; set; }
@@ -63,14 +64,14 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
         ImageExtent = new Extent3D(native.imageExtent);
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageToMemoryCopy>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageToMemoryCopy>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageToMemoryCopyMarshaller
     {
@@ -84,7 +85,11 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
             }
             else if (imageToMemoryCopy.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (imageToMemoryCopy.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].pHostPointer = imageToMemoryCopy.PHostPointer;

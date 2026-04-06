@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineCoverageToColorStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineCoverageToColorStateCreateFlagsNV flags;
     public VkBool32 coverageToColorEnable;
     public uint coverageToColorLocation;

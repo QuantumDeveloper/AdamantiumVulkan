@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14195 Column: 26
 public unsafe struct PFN_vkCmdInsertDebugUtilsLabelEXT
 {
+    public PFN_vkCmdInsertDebugUtilsLabelEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdInsertDebugUtilsLabelEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdInsertDebugUtilsLabelEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void>)ptr)(commandBuffer, pLabelInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT* pLabelInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*, void>)(void*)ptr)(commandBuffer, pLabelInfo);
+    }
 
     public static explicit operator PFN_vkCmdInsertDebugUtilsLabelEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdInsertDebugUtilsLabelEXT(nuint ptr) => new(ptr);
 }
 
 
