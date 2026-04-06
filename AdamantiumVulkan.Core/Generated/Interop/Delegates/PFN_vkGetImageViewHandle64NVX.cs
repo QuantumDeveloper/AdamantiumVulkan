@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13343 Column: 30
 public unsafe struct PFN_vkGetImageViewHandle64NVX
 {
+    public PFN_vkGetImageViewHandle64NVX(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetImageViewHandle64NVX(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetImageViewHandle64NVX
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX*, ulong>)ptr)(device, pInfo);
     }
+    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX*, ulong>)(void*)ptr)(device, pInfo);
+    }
 
     public static explicit operator PFN_vkGetImageViewHandle64NVX(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetImageViewHandle64NVX(nuint ptr) => new(ptr);
 }
 
 

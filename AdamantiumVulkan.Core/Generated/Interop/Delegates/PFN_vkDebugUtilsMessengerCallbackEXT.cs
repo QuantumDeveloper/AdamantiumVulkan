@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14162 Column: 30
 public unsafe struct PFN_vkDebugUtilsMessengerCallbackEXT
 {
+    public PFN_vkDebugUtilsMessengerCallbackEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDebugUtilsMessengerCallbackEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, uint>)ptr;
+        InvokeFunc = (delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, nuint, uint>)ptr;
     }
 
-    private delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, uint> InvokeFunc;
+    private delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, nuint, uint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public uint Invoke(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
+    public uint Invoke(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, nuint pUserData)
     {
         return InvokeFunc(messageSeverity, messageTypes, pCallbackData, pUserData);
     }
-    public static uint Invoke(void* ptr, DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
+    public static uint Invoke(void* ptr, DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, nuint pUserData)
     {
-        return ((delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, uint>)ptr)(messageSeverity, messageTypes, pCallbackData, pUserData);
+        return ((delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, nuint, uint>)ptr)(messageSeverity, messageTypes, pCallbackData, pUserData);
+    }
+    public static uint Invoke(nuint ptr, DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, nuint pUserData)
+    {
+        return ((delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, nuint, uint>)(void*)ptr)(messageSeverity, messageTypes, pCallbackData, pUserData);
     }
 
     public static explicit operator PFN_vkDebugUtilsMessengerCallbackEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDebugUtilsMessengerCallbackEXT(nuint ptr) => new(ptr);
 }
 
 

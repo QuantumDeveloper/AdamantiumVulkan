@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4271 Column: 26
 public unsafe struct PFN_vkCmdFillBuffer
 {
+    public PFN_vkCmdFillBuffer(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdFillBuffer(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdFillBuffer
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, uint, void>)ptr)(commandBuffer, dstBuffer, dstOffset, size, data);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize size, uint data)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, uint, void>)(void*)ptr)(commandBuffer, dstBuffer, dstOffset, size, data);
+    }
 
     public static explicit operator PFN_vkCmdFillBuffer(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdFillBuffer(nuint ptr) => new(ptr);
 }
 
 

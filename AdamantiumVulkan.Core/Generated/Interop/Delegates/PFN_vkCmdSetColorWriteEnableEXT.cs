@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18206 Column: 61
 public unsafe struct PFN_vkCmdSetColorWriteEnableEXT
 {
+    public PFN_vkCmdSetColorWriteEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetColorWriteEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetColorWriteEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, VkBool32*, void>)ptr)(commandBuffer, attachmentCount, pColorWriteEnables);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, VkBool32* pColorWriteEnables)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, VkBool32*, void>)(void*)ptr)(commandBuffer, attachmentCount, pColorWriteEnables);
+    }
 
     public static explicit operator PFN_vkCmdSetColorWriteEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetColorWriteEnableEXT(nuint ptr) => new(ptr);
 }
 
 

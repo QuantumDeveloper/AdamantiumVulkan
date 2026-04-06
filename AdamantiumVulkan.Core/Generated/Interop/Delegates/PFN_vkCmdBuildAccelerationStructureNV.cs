@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15017 Column: 26
 public unsafe struct PFN_vkCmdBuildAccelerationStructureNV
 {
+    public PFN_vkCmdBuildAccelerationStructureNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBuildAccelerationStructureNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBuildAccelerationStructureNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV*, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkBool32, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void>)ptr)(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV* pInfo, AdamantiumVulkan.Core.Interop.VkBuffer_T instanceData, VkDeviceSize instanceOffset, VkBool32 update, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T dst, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T src, AdamantiumVulkan.Core.Interop.VkBuffer_T scratch, VkDeviceSize scratchOffset)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV*, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkBool32, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, void>)(void*)ptr)(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
+    }
 
     public static explicit operator PFN_vkCmdBuildAccelerationStructureNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBuildAccelerationStructureNV(nuint ptr) => new(ptr);
 }
 
 

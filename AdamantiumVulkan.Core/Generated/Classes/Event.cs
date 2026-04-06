@@ -27,7 +27,7 @@ public unsafe partial class Event : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
     }
 
     public AdamantiumVulkan.Core.Interop.VkEvent_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkEvent_T GetPinnableReference() => ref __Instance;
 

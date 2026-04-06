@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkQueryPoolPerformanceCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint queueFamilyIndex;
     public uint counterIndexCount;
     public uint* pCounterIndices;

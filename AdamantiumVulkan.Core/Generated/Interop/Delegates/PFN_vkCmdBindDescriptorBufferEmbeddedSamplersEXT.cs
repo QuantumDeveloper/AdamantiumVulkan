@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17296 Column: 26
 public unsafe struct PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT
 {
+    public PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void>)ptr)(commandBuffer, pipelineBindPoint, layout, set);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, PipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, uint, void>)(void*)ptr)(commandBuffer, pipelineBindPoint, layout, set);
+    }
 
     public static explicit operator PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(nuint ptr) => new(ptr);
 }
 
 

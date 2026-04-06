@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineVertexInputStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineVertexInputStateCreateFlags flags;
     public uint vertexBindingDescriptionCount;
     public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription* pVertexBindingDescriptions;

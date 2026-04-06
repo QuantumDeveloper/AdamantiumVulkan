@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10281 Column: 30
 public unsafe struct PFN_vkCreateRenderPass2KHR
 {
+    public PFN_vkCreateRenderPass2KHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateRenderPass2KHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateRenderPass2KHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkRenderPass_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pRenderPass);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkRenderPass_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pRenderPass);
+    }
 
     public static explicit operator PFN_vkCreateRenderPass2KHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateRenderPass2KHR(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkSurfaceFullScreenExclusiveWin32InfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public System.IntPtr hmonitor;
 }
 

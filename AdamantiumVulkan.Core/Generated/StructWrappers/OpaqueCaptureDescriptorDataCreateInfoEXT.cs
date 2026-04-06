@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -24,7 +25,7 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
 
     public StructureType SType { get; set; }
     public object PNext { get; set; }
-    public void* OpaqueCaptureDescriptorData { get; set; }
+    public nuint OpaqueCaptureDescriptorData { get; set; }
 
     public static implicit operator OpaqueCaptureDescriptorDataCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT o)
     {
@@ -53,14 +54,14 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
         OpaqueCaptureDescriptorData = native.opaqueCaptureDescriptorData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpaqueCaptureDescriptorDataCreateInfoEXTMarshaller
     {
@@ -74,7 +75,11 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
             }
             else if (opaqueCaptureDescriptorDataCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (opaqueCaptureDescriptorDataCreateInfoEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].opaqueCaptureDescriptorData = opaqueCaptureDescriptorDataCreateInfoEXT.OpaqueCaptureDescriptorData;

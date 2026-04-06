@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -29,7 +30,7 @@ public unsafe partial class RayTracingShaderGroupCreateInfoKHR : IMarshallableOb
     public uint ClosestHitShader { get; set; }
     public uint AnyHitShader { get; set; }
     public uint IntersectionShader { get; set; }
-    public void* PShaderGroupCaptureReplayHandle { get; set; }
+    public nuint PShaderGroupCaptureReplayHandle { get; set; }
 
     public static implicit operator RayTracingShaderGroupCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR r)
     {
@@ -63,14 +64,14 @@ public unsafe partial class RayTracingShaderGroupCreateInfoKHR : IMarshallableOb
         PShaderGroupCaptureReplayHandle = native.pShaderGroupCaptureReplayHandle;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRayTracingShaderGroupCreateInfoKHRMarshaller
     {
@@ -84,7 +85,11 @@ public unsafe partial class RayTracingShaderGroupCreateInfoKHR : IMarshallableOb
             }
             else if (rayTracingShaderGroupCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (rayTracingShaderGroupCreateInfoKHR.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].type = rayTracingShaderGroupCreateInfoKHR.Type;

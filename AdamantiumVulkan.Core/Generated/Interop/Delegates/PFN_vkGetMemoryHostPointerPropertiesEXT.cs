@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15204 Column: 30
 public unsafe struct PFN_vkGetMemoryHostPointerPropertiesEXT
 {
+    public PFN_vkGetMemoryHostPointerPropertiesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetMemoryHostPointerPropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, void*, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, void*, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, void* pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties)
     {
         return InvokeFunc(device, handleType, pHostPointer, pMemoryHostPointerProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, void* pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, void*, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result>)ptr)(device, handleType, pHostPointer, pMemoryHostPointerProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result>)ptr)(device, handleType, pHostPointer, pMemoryHostPointerProperties);
+    }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT*, Result>)(void*)ptr)(device, handleType, pHostPointer, pMemoryHostPointerProperties);
     }
 
     public static explicit operator PFN_vkGetMemoryHostPointerPropertiesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetMemoryHostPointerPropertiesEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Shaders.Interop;
@@ -26,7 +27,7 @@ public unsafe partial class ShadercIncludeResult : IMarshallable<AdamantiumVulka
     public ulong Source_name_length { get; set; }
     public string Content { get; set; }
     public ulong Content_length { get; set; }
-    public void* User_data { get; set; }
+    public nuint User_data { get; set; }
 
     public static implicit operator ShadercIncludeResult(AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult s)
     {

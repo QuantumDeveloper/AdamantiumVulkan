@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceMeshShaderPropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint maxTaskWorkGroupTotalCount;
     public unsafe fixed uint maxTaskWorkGroupCount[3];
     public uint maxTaskWorkGroupInvocations;

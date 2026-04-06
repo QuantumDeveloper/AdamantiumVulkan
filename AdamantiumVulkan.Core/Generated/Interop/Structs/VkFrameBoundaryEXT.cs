@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFrameBoundaryEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkFrameBoundaryFlagsEXT flags;
     public ulong frameID;
     public uint imageCount;
@@ -26,7 +26,7 @@ public unsafe partial struct VkFrameBoundaryEXT
     public VkBuffer_T* pBuffers;
     public ulong tagName;
     public ulong tagSize;
-    public void* pTag;
+    public nuint pTag;
 }
 
 

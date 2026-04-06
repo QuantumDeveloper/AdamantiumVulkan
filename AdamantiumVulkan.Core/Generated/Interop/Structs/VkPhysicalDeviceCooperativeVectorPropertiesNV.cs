@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceCooperativeVectorPropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkShaderStageFlags cooperativeVectorSupportedStages;
     public VkBool32 cooperativeVectorTrainingFloat16Accumulation;
     public VkBool32 cooperativeVectorTrainingFloat32Accumulation;

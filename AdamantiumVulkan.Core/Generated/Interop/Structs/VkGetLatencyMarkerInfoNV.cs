@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkGetLatencyMarkerInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint timingCount;
     public AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV* pTimings;
 }

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceCustomBorderColorFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 customBorderColors;
     public VkBool32 customBorderColorWithoutFormat;
 }

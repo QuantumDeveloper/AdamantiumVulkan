@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20927 Column: 26
 public unsafe struct PFN_vkCmdBuildPartitionedAccelerationStructuresNV
 {
+    public PFN_vkCmdBuildPartitionedAccelerationStructuresNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdBuildPartitionedAccelerationStructuresNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdBuildPartitionedAccelerationStructuresNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuildPartitionedAccelerationStructureInfoNV*, void>)ptr)(commandBuffer, pBuildInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuildPartitionedAccelerationStructureInfoNV* pBuildInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuildPartitionedAccelerationStructureInfoNV*, void>)(void*)ptr)(commandBuffer, pBuildInfo);
+    }
 
     public static explicit operator PFN_vkCmdBuildPartitionedAccelerationStructuresNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdBuildPartitionedAccelerationStructuresNV(nuint ptr) => new(ptr);
 }
 
 

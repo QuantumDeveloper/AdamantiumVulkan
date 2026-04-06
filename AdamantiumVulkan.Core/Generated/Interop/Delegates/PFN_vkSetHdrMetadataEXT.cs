@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14071 Column: 26
 public unsafe struct PFN_vkSetHdrMetadataEXT
 {
+    public PFN_vkSetHdrMetadataEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkSetHdrMetadataEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkSetHdrMetadataEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T*, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT*, void>)ptr)(device, swapchainCount, pSwapchains, pMetadata);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T* pSwapchains, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT* pMetadata)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T*, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT*, void>)(void*)ptr)(device, swapchainCount, pSwapchains, pMetadata);
+    }
 
     public static explicit operator PFN_vkSetHdrMetadataEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkSetHdrMetadataEXT(nuint ptr) => new(ptr);
 }
 
 

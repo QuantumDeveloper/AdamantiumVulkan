@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12605 Column: 30
 public unsafe struct PFN_vkGetCalibratedTimestampsKHR
 {
+    public PFN_vkGetCalibratedTimestampsKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetCalibratedTimestampsKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetCalibratedTimestampsKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR*, ref ulong*, ref ulong*, Result>)ptr)(device, timestampCount, pTimestampInfos, ref pTimestamps, ref pMaxDeviation);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ref ulong* pTimestamps, ref ulong* pMaxDeviation)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR*, ref ulong*, ref ulong*, Result>)(void*)ptr)(device, timestampCount, pTimestampInfos, ref pTimestamps, ref pMaxDeviation);
+    }
 
     public static explicit operator PFN_vkGetCalibratedTimestampsKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetCalibratedTimestampsKHR(nuint ptr) => new(ptr);
 }
 
 

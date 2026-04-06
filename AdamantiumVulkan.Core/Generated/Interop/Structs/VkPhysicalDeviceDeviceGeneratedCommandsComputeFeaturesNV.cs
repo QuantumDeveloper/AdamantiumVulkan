@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 deviceGeneratedCompute;
     public VkBool32 deviceGeneratedComputePipelines;
     public VkBool32 deviceGeneratedComputeCaptureReplay;

@@ -27,7 +27,7 @@ public unsafe partial class DescriptorPool : IUnmanagedWrapper<AdamantiumVulkan.
     }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorPool_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkDescriptorPool_T GetPinnableReference() => ref __Instance;
 

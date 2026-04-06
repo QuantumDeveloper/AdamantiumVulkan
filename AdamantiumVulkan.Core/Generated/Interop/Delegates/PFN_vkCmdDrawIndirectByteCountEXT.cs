@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13196 Column: 26
 public unsafe struct PFN_vkCmdDrawIndirectByteCountEXT
 {
+    public PFN_vkCmdDrawIndirectByteCountEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdDrawIndirectByteCountEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdDrawIndirectByteCountEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)ptr)(commandBuffer, instanceCount, firstInstance, counterBuffer, counterBufferOffset, counterOffset, vertexStride);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint instanceCount, uint firstInstance, AdamantiumVulkan.Core.Interop.VkBuffer_T counterBuffer, VkDeviceSize counterBufferOffset, uint counterOffset, uint vertexStride)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, uint, uint, void>)(void*)ptr)(commandBuffer, instanceCount, firstInstance, counterBuffer, counterBufferOffset, counterOffset, vertexStride);
+    }
 
     public static explicit operator PFN_vkCmdDrawIndirectByteCountEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdDrawIndirectByteCountEXT(nuint ptr) => new(ptr);
 }
 
 

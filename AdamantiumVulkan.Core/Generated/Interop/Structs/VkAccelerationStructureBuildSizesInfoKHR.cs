@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureBuildSizesInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceSize accelerationStructureSize;
     public VkDeviceSize updateScratchSize;
     public VkDeviceSize buildScratchSize;

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkRenderPassStripeBeginInfoARM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint stripeInfoCount;
     public AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM* pStripeInfos;
 }

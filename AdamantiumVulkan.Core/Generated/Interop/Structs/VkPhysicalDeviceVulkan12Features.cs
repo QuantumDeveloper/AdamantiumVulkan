@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceVulkan12Features
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 samplerMirrorClampToEdge;
     public VkBool32 drawIndirectCount;
     public VkBool32 storageBuffer8BitAccess;

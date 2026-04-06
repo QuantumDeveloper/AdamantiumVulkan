@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkImportMemoryWin32HandleInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ExternalMemoryHandleTypeFlagBits handleType;
     public System.IntPtr handle;
     public char name;

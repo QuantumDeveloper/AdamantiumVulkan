@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11146 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR
 {
+    public PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR*, Result>)ptr)(physicalDevice, ref pFragmentShadingRateCount, pFragmentShadingRates);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR*, Result>)(void*)ptr)(physicalDevice, ref pFragmentShadingRateCount, pFragmentShadingRates);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(nuint ptr) => new(ptr);
 }
 
 

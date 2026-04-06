@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13967 Column: 26
 public unsafe struct PFN_vkCmdSetDiscardRectangleEnableEXT
 {
+    public PFN_vkCmdSetDiscardRectangleEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDiscardRectangleEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDiscardRectangleEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, discardRectangleEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 discardRectangleEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, discardRectangleEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetDiscardRectangleEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDiscardRectangleEnableEXT(nuint ptr) => new(ptr);
 }
 
 

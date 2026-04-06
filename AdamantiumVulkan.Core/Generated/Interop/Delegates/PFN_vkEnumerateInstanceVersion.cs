@@ -16,6 +16,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5789 Column: 30
 public unsafe struct PFN_vkEnumerateInstanceVersion
 {
+    public PFN_vkEnumerateInstanceVersion(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkEnumerateInstanceVersion(void* ptr)
     {
         NativePointer = ptr;
@@ -34,8 +36,14 @@ public unsafe struct PFN_vkEnumerateInstanceVersion
     {
         return ((delegate* unmanaged<ref uint*, Result>)ptr)(ref pApiVersion);
     }
+    public static Result Invoke(nuint ptr, ref uint* pApiVersion)
+    {
+        return ((delegate* unmanaged<ref uint*, Result>)(void*)ptr)(ref pApiVersion);
+    }
 
     public static explicit operator PFN_vkEnumerateInstanceVersion(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkEnumerateInstanceVersion(nuint ptr) => new(ptr);
 }
 
 

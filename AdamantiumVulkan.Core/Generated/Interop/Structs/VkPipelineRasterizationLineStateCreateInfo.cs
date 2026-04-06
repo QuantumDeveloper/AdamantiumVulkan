@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineRasterizationLineStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public LineRasterizationMode lineRasterizationMode;
     public VkBool32 stippledLineEnable;
     public uint lineStippleFactor;

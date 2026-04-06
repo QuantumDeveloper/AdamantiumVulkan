@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCopyMicromapInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkMicromapEXT_T src;
     public VkMicromapEXT_T dst;
     public CopyMicromapModeEXT mode;

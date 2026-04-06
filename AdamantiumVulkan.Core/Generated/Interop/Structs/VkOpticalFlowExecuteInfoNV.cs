@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkOpticalFlowExecuteInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkOpticalFlowExecuteFlagsNV flags;
     public uint regionCount;
     public AdamantiumVulkan.Core.Interop.VkRect2D* pRegions;

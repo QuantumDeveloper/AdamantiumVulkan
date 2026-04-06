@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkIndirectCommandsLayoutCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkIndirectCommandsLayoutUsageFlagsNV flags;
     public PipelineBindPoint pipelineBindPoint;
     public uint tokenCount;

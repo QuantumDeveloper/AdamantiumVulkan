@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkBufferImageCopy2
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDeviceSize bufferOffset;
     public uint bufferRowLength;
     public uint bufferImageHeight;

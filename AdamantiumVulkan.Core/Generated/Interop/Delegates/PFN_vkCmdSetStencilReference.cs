@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4255 Column: 26
 public unsafe struct PFN_vkCmdSetStencilReference
 {
+    public PFN_vkCmdSetStencilReference(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetStencilReference(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetStencilReference
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr)(commandBuffer, faceMask, reference);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint reference)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)(void*)ptr)(commandBuffer, faceMask, reference);
+    }
 
     public static explicit operator PFN_vkCmdSetStencilReference(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetStencilReference(nuint ptr) => new(ptr);
 }
 
 

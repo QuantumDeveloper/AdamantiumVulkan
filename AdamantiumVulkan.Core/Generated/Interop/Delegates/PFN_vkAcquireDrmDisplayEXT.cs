@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16869 Column: 30
 public unsafe struct PFN_vkAcquireDrmDisplayEXT
 {
+    public PFN_vkAcquireDrmDisplayEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkAcquireDrmDisplayEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkAcquireDrmDisplayEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, int, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr)(physicalDevice, drmFd, display);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, int drmFd, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, int, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)(void*)ptr)(physicalDevice, drmFd, display);
+    }
 
     public static explicit operator PFN_vkAcquireDrmDisplayEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkAcquireDrmDisplayEXT(nuint ptr) => new(ptr);
 }
 
 

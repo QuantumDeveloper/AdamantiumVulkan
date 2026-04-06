@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19280 Column: 26
 public unsafe struct PFN_vkCmdSetCoverageToColorEnableNV
 {
+    public PFN_vkCmdSetCoverageToColorEnableNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetCoverageToColorEnableNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetCoverageToColorEnableNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, coverageToColorEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 coverageToColorEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, coverageToColorEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetCoverageToColorEnableNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetCoverageToColorEnableNV(nuint ptr) => new(ptr);
 }
 
 

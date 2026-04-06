@@ -18,7 +18,7 @@ public unsafe partial struct VkDeviceOrHostAddressConstKHR
     [FieldOffset(0)]
     public VkDeviceAddress deviceAddress;
     [FieldOffset(0)]
-    public void* hostAddress;
+    public nuint hostAddress;
 }
 
 

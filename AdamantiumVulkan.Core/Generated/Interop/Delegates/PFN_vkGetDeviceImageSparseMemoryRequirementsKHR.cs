@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11929 Column: 26
 public unsafe struct PFN_vkGetDeviceImageSparseMemoryRequirementsKHR
 {
+    public PFN_vkGetDeviceImageSparseMemoryRequirementsKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceImageSparseMemoryRequirementsKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceImageSparseMemoryRequirementsKHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements*, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2*, void>)ptr)(device, pInfo, ref pSparseMemoryRequirementCount, pSparseMemoryRequirements);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, ref uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements*, ref uint*, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2*, void>)(void*)ptr)(device, pInfo, ref pSparseMemoryRequirementCount, pSparseMemoryRequirements);
+    }
 
     public static explicit operator PFN_vkGetDeviceImageSparseMemoryRequirementsKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceImageSparseMemoryRequirementsKHR(nuint ptr) => new(ptr);
 }
 
 

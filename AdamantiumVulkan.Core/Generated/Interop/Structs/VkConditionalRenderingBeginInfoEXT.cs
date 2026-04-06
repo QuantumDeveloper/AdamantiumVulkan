@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkConditionalRenderingBeginInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBuffer_T buffer;
     public VkDeviceSize offset;
     public VkConditionalRenderingFlagsEXT flags;

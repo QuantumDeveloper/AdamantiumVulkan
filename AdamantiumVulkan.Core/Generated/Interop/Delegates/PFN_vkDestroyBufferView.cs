@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4206 Column: 26
 public unsafe struct PFN_vkDestroyBufferView
 {
+    public PFN_vkDestroyBufferView(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyBufferView(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyBufferView
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferView_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, bufferView, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferView_T bufferView, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferView_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, bufferView, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyBufferView(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyBufferView(nuint ptr) => new(ptr);
 }
 
 

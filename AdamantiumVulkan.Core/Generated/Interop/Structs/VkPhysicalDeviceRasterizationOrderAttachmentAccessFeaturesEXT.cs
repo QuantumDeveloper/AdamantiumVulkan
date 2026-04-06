@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 rasterizationOrderColorAttachmentAccess;
     public VkBool32 rasterizationOrderDepthAttachmentAccess;
     public VkBool32 rasterizationOrderStencilAttachmentAccess;

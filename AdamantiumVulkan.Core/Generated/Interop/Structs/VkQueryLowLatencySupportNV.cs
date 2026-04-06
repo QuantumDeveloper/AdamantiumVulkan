@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkQueryLowLatencySupportNV
 {
     public StructureType sType;
-    public void* pNext;
-    public void* pQueriedLowLatencyData;
+    public nuint pNext;
+    public nuint pQueriedLowLatencyData;
 }
 
 

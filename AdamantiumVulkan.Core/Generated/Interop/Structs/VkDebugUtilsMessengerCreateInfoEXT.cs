@@ -17,12 +17,12 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDebugUtilsMessengerCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDebugUtilsMessengerCreateFlagsEXT flags;
     public DebugUtilsMessageSeverityFlagBitsEXT messageSeverity;
     public DebugUtilsMessageTypeFlagBitsEXT messageType;
-    public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, uint> pfnUserCallback;
-    public void* pUserData;
+    public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, nuint, uint> pfnUserCallback;
+    public nuint pUserData;
 }
 
 

@@ -32,7 +32,7 @@ public unsafe static class VulkanNative
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.InstanceCreateInfo, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo>(pCreateInfo, ref currentCursor);
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
             VkInstance_T arg2;
@@ -69,7 +69,7 @@ public unsafe static class VulkanNative
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerName, ref currentCursor);
             var arg1 = stackalloc uint[1];
             *arg1 = pPropertyCount;
@@ -109,7 +109,7 @@ public unsafe static class VulkanNative
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = stackalloc uint[1];
             *arg0 = pPropertyCount;
             var arg1 = stackalloc AdamantiumVulkan.Core.Interop.VkLayerProperties[(int)pProperties.Length];

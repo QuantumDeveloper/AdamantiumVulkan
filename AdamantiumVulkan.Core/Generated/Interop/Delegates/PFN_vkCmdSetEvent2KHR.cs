@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11705 Column: 26
 public unsafe struct PFN_vkCmdSetEvent2KHR
 {
+    public PFN_vkCmdSetEvent2KHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetEvent2KHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetEvent2KHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void>)ptr)(commandBuffer, @event, pDependencyInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void>)(void*)ptr)(commandBuffer, @event, pDependencyInfo);
+    }
 
     public static explicit operator PFN_vkCmdSetEvent2KHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetEvent2KHR(nuint ptr) => new(ptr);
 }
 
 

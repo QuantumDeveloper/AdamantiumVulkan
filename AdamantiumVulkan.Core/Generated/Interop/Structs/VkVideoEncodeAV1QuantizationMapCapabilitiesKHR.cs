@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoEncodeAV1QuantizationMapCapabilitiesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public int minQIndexDelta;
     public int maxQIndexDelta;
 }

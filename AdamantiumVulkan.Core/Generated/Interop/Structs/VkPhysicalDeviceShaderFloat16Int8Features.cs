@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceShaderFloat16Int8Features
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 shaderFloat16;
     public VkBool32 shaderInt8;
 }

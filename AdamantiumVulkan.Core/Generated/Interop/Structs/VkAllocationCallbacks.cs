@@ -15,12 +15,12 @@ namespace AdamantiumVulkan.Core.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkAllocationCallbacks
 {
-    public void* pUserData;
-    public delegate* unmanaged<void*, ulong, ulong, SystemAllocationScope, void> pfnAllocation;
-    public delegate* unmanaged<void*, void*, ulong, ulong, SystemAllocationScope, void> pfnReallocation;
-    public delegate* unmanaged<void*, void*, void> pfnFree;
-    public delegate* unmanaged<void*, ulong, InternalAllocationType, SystemAllocationScope, void> pfnInternalAllocation;
-    public delegate* unmanaged<void*, ulong, InternalAllocationType, SystemAllocationScope, void> pfnInternalFree;
+    public nuint pUserData;
+    public delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint> pfnAllocation;
+    public delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint> pfnReallocation;
+    public delegate* unmanaged<nuint, nuint, void> pfnFree;
+    public delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> pfnInternalAllocation;
+    public delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> pfnInternalFree;
 }
 
 

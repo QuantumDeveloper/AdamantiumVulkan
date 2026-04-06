@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineViewportCoarseSampleOrderStateCreateInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public CoarseSampleOrderTypeNV sampleOrderType;
     public uint customSampleOrderCount;
     public AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV* pCustomSampleOrders;

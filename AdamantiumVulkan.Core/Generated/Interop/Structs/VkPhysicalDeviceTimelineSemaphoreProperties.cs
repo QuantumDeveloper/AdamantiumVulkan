@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceTimelineSemaphoreProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ulong maxTimelineSemaphoreValueDifference;
 }
 

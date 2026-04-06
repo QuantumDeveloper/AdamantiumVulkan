@@ -48,7 +48,7 @@ public unsafe partial class ShadercCompilerT : IUnmanagedWrapper<AdamantiumVulka
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(source_assembly, ref currentCursor);
             var arg3 = additional_options == null ? new ShadercCompileOptions() : (ShadercCompileOptions)additional_options;
             return AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_assemble_into_spv(this, arg1, source_assembly_size, arg3);
@@ -82,7 +82,7 @@ public unsafe partial class ShadercCompilerT : IUnmanagedWrapper<AdamantiumVulka
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(source_text, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(input_file_name, ref currentCursor);
             var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(entry_point_name, ref currentCursor);
@@ -118,7 +118,7 @@ public unsafe partial class ShadercCompilerT : IUnmanagedWrapper<AdamantiumVulka
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(source_text, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(input_file_name, ref currentCursor);
             var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(entry_point_name, ref currentCursor);
@@ -154,7 +154,7 @@ public unsafe partial class ShadercCompilerT : IUnmanagedWrapper<AdamantiumVulka
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(source_text, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(input_file_name, ref currentCursor);
             var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(entry_point_name, ref currentCursor);

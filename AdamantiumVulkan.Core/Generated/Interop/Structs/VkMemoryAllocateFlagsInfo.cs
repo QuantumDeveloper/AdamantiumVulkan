@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMemoryAllocateFlagsInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public MemoryAllocateFlagBits flags;
     public uint deviceMask;
 }

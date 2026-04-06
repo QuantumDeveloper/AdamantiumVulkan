@@ -17,9 +17,9 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCheckpointDataNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public PipelineStageFlagBits stage;
-    public void* pCheckpointMarker;
+    public nuint pCheckpointMarker;
 }
 
 

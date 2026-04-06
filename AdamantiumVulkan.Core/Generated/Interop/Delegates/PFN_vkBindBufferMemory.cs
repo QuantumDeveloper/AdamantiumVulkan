@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4181 Column: 30
 public unsafe struct PFN_vkBindBufferMemory
 {
+    public PFN_vkBindBufferMemory(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkBindBufferMemory(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkBindBufferMemory
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)ptr)(device, buffer, memory, memoryOffset);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)(void*)ptr)(device, buffer, memory, memoryOffset);
+    }
 
     public static explicit operator PFN_vkBindBufferMemory(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkBindBufferMemory(nuint ptr) => new(ptr);
 }
 
 

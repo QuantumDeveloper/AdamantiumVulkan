@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkAccelerationStructureCaptureDescriptorDataInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkAccelerationStructureKHR_T accelerationStructure;
     public VkAccelerationStructureNV_T accelerationStructureNV;
 }

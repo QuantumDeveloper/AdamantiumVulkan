@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -25,8 +26,8 @@ public unsafe partial class DeviceDeviceMemoryReportCreateInfoEXT : IMarshallabl
     public StructureType SType { get; set; }
     public object PNext { get; set; }
     public VkDeviceMemoryReportFlagsEXT Flags { get; set; }
-    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> PfnUserCallback { get; set; }
-    public void* PUserData { get; set; }
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, nuint, void> PfnUserCallback { get; set; }
+    public nuint PUserData { get; set; }
 
     public static implicit operator DeviceDeviceMemoryReportCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT d)
     {
@@ -57,14 +58,14 @@ public unsafe partial class DeviceDeviceMemoryReportCreateInfoEXT : IMarshallabl
         PUserData = native.pUserData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceDeviceMemoryReportCreateInfoEXTMarshaller
     {
@@ -78,7 +79,11 @@ public unsafe partial class DeviceDeviceMemoryReportCreateInfoEXT : IMarshallabl
             }
             else if (deviceDeviceMemoryReportCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (deviceDeviceMemoryReportCreateInfoEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (deviceDeviceMemoryReportCreateInfoEXT.Flags != (uint)default)

@@ -20,7 +20,7 @@ public unsafe partial struct VkLayerSettingEXT
     public sbyte* pSettingName;
     public LayerSettingTypeEXT type;
     public uint valueCount;
-    public void* pValues;
+    public nuint pValues;
 }
 
 

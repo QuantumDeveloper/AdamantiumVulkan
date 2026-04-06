@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19027 Column: 37
 public unsafe struct PFN_vkGetPipelineIndirectDeviceAddressNV
 {
+    public PFN_vkGetPipelineIndirectDeviceAddressNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPipelineIndirectDeviceAddressNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPipelineIndirectDeviceAddressNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, ulong>)ptr)(device, pInfo);
     }
+    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, ulong>)(void*)ptr)(device, pInfo);
+    }
 
     public static explicit operator PFN_vkGetPipelineIndirectDeviceAddressNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPipelineIndirectDeviceAddressNV(nuint ptr) => new(ptr);
 }
 
 

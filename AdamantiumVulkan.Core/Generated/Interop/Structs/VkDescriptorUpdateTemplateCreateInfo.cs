@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDescriptorUpdateTemplateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDescriptorUpdateTemplateCreateFlags flags;
     public uint descriptorUpdateEntryCount;
     public AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry* pDescriptorUpdateEntries;

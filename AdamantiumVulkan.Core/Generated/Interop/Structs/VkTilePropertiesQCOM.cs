@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkTilePropertiesQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkExtent3D tileSize;
     public VkExtent2D apronSize;
     public VkOffset2D origin;

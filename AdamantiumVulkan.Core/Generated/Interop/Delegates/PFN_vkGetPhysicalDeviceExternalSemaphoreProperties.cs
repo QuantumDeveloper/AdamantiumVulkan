@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5815 Column: 26
 public unsafe struct PFN_vkGetPhysicalDeviceExternalSemaphoreProperties
 {
+    public PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceExternalSemaphoreProperties
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo*, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties*, void>)ptr)(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties* pExternalSemaphoreProperties)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo*, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties*, void>)(void*)ptr)(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(nuint ptr) => new(ptr);
 }
 
 

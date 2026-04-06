@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkImageCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public ImageCreateFlagBits flags;
     public ImageType imageType;
     public Format format;

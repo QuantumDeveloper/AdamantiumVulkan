@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkGeometryTrianglesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBuffer_T vertexData;
     public VkDeviceSize vertexOffset;
     public uint vertexCount;

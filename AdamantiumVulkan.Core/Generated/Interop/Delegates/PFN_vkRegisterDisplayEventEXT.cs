@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13790 Column: 30
 public unsafe struct PFN_vkRegisterDisplayEventEXT
 {
+    public PFN_vkRegisterDisplayEventEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkRegisterDisplayEventEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkRegisterDisplayEventEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkFence_T, Result>)ptr)(device, display, pDisplayEventInfo, pAllocator, out pFence);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT* pDisplayEventInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkFence_T pFence)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkFence_T, Result>)(void*)ptr)(device, display, pDisplayEventInfo, pAllocator, out pFence);
+    }
 
     public static explicit operator PFN_vkRegisterDisplayEventEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkRegisterDisplayEventEXT(nuint ptr) => new(ptr);
 }
 
 

@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -59,14 +60,14 @@ public unsafe partial class GeneratedCommandsMemoryRequirementsInfoNV : IMarshal
         MaxSequencesCount = native.maxSequencesCount;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGeneratedCommandsMemoryRequirementsInfoNVMarshaller
     {
@@ -80,7 +81,11 @@ public unsafe partial class GeneratedCommandsMemoryRequirementsInfoNV : IMarshal
             }
             else if (generatedCommandsMemoryRequirementsInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (generatedCommandsMemoryRequirementsInfoNV.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].pipelineBindPoint = generatedCommandsMemoryRequirementsInfoNV.PipelineBindPoint;

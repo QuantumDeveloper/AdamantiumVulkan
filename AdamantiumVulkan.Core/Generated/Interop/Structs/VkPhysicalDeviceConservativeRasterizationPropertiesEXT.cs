@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceConservativeRasterizationPropertiesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public float primitiveOverestimationSize;
     public float maxExtraPrimitiveOverestimationSize;
     public float extraPrimitiveOverestimationSizeGranularity;

@@ -17,12 +17,12 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPushConstantsInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineLayout_T layout;
     public VkShaderStageFlags stageFlags;
     public uint offset;
     public uint size;
-    public void* pValues;
+    public nuint pValues;
 }
 
 

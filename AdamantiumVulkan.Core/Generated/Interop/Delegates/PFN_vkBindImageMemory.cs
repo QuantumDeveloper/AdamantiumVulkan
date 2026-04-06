@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4182 Column: 30
 public unsafe struct PFN_vkBindImageMemory
 {
+    public PFN_vkBindImageMemory(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkBindImageMemory(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkBindImageMemory
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)ptr)(device, image, memory, memoryOffset);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkImage_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkDeviceSize, Result>)(void*)ptr)(device, image, memory, memoryOffset);
+    }
 
     public static explicit operator PFN_vkBindImageMemory(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkBindImageMemory(nuint ptr) => new(ptr);
 }
 
 

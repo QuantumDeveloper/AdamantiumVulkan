@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7557 Column: 26
 public unsafe struct PFN_vkCmdPipelineBarrier2
 {
+    public PFN_vkCmdPipelineBarrier2(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdPipelineBarrier2(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdPipelineBarrier2
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void>)ptr)(commandBuffer, pDependencyInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDependencyInfo* pDependencyInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkDependencyInfo*, void>)(void*)ptr)(commandBuffer, pDependencyInfo);
+    }
 
     public static explicit operator PFN_vkCmdPipelineBarrier2(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdPipelineBarrier2(nuint ptr) => new(ptr);
 }
 
 

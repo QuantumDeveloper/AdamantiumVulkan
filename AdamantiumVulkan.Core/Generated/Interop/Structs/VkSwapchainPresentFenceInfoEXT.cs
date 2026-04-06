@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSwapchainPresentFenceInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint swapchainCount;
     public VkFence_T* pFences;
 }

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDescriptorPoolCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDescriptorPoolCreateFlags flags;
     public uint maxSets;
     public uint poolSizeCount;

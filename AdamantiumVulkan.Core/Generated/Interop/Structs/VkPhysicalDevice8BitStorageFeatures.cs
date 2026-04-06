@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDevice8BitStorageFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 storageBuffer8BitAccess;
     public VkBool32 uniformAndStorageBuffer8BitAccess;
     public VkBool32 storagePushConstant8;

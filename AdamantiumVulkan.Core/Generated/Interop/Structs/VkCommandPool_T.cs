@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.Core.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCommandPool_T
 {
-    public void* pointer;
+    public nuint pointer;
 }
 
 

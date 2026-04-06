@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4275 Column: 26
 public unsafe struct PFN_vkCmdResolveImage
 {
+    public PFN_vkCmdResolveImage(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdResolveImage(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdResolveImage
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageResolve*, void>)ptr)(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, uint regionCount, AdamantiumVulkan.Core.Interop.VkImageResolve* pRegions)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, uint, AdamantiumVulkan.Core.Interop.VkImageResolve*, void>)(void*)ptr)(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+    }
 
     public static explicit operator PFN_vkCmdResolveImage(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdResolveImage(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandPoolCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public CommandPoolCreateFlagBits flags;
     public uint queueFamilyIndex;
 }

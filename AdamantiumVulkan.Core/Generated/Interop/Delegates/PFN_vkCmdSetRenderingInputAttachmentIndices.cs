@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8392 Column: 26
 public unsafe struct PFN_vkCmdSetRenderingInputAttachmentIndices
 {
+    public PFN_vkCmdSetRenderingInputAttachmentIndices(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetRenderingInputAttachmentIndices(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetRenderingInputAttachmentIndices
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo*, void>)ptr)(commandBuffer, pInputAttachmentIndexInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo* pInputAttachmentIndexInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo*, void>)(void*)ptr)(commandBuffer, pInputAttachmentIndexInfo);
+    }
 
     public static explicit operator PFN_vkCmdSetRenderingInputAttachmentIndices(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetRenderingInputAttachmentIndices(nuint ptr) => new(ptr);
 }
 
 

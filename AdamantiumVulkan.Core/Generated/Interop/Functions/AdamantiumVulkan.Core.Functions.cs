@@ -600,7 +600,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5064 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushConstants", ExactSpelling = true)]
-    internal static extern void vkCmdPushConstants(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues);
+    internal static extern void vkCmdPushConstants(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, nuint pValues);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8467 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushConstants2", ExactSpelling = true)]
@@ -628,7 +628,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8448 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplate", ExactSpelling = true)]
-    internal static extern void vkCmdPushDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData);
+    internal static extern void vkCmdPushDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8475 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplate2", ExactSpelling = true)]
@@ -640,7 +640,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10160 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdPushDescriptorSetWithTemplateKHR", ExactSpelling = true)]
-    internal static extern void vkCmdPushDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData);
+    internal static extern void vkCmdPushDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5001 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdResetEvent", ExactSpelling = true)]
@@ -688,7 +688,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15524 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCheckpointNV", ExactSpelling = true)]
-    internal static extern void vkCmdSetCheckpointNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker);
+    internal static extern void vkCmdSetCheckpointNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, nuint pCheckpointMarker);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14739 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdSetCoarseSampleOrderNV", ExactSpelling = true)]
@@ -1112,7 +1112,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4950 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdUpdateBuffer", ExactSpelling = true)]
-    internal static extern void vkCmdUpdateBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, void* pData);
+    internal static extern void vkCmdUpdateBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19035 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkCmdUpdatePipelineIndirectBufferNV", ExactSpelling = true)]
@@ -1716,7 +1716,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15107 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureHandleNV", ExactSpelling = true)]
-    internal static extern Result vkGetAccelerationStructureHandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData);
+    internal static extern Result vkGetAccelerationStructureHandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15039 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureMemoryRequirementsNV", ExactSpelling = true)]
@@ -1724,7 +1724,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17361 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    internal static extern Result vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6711 Column: 39
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferDeviceAddress", ExactSpelling = true)]
@@ -1760,7 +1760,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17341 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetBufferOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetBufferOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    internal static extern Result vkGetBufferOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15273 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetCalibratedTimestampsEXT", ExactSpelling = true)]
@@ -1776,7 +1776,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17115 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetCudaModuleCacheNV", ExactSpelling = true)]
-    internal static extern Result vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, ulong* pCacheSize, void* pCacheData);
+    internal static extern Result vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, ulong* pCacheSize, nuint pCacheData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11312 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetDeferredOperationMaxConcurrencyKHR", ExactSpelling = true)]
@@ -1788,11 +1788,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17315 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorEXT", ExactSpelling = true)]
-    internal static extern void vkGetDescriptorEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, void* pDescriptor);
+    internal static extern void vkGetDescriptorEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, nuint pDescriptor);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18803 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetHostMappingVALVE", ExactSpelling = true)]
-    internal static extern void vkGetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData);
+    internal static extern void vkGetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out nuint ppData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17309 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDescriptorSetLayoutBindingOffsetEXT", ExactSpelling = true)]
@@ -1888,7 +1888,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4341 Column: 42
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceProcAddr", ExactSpelling = true)]
-    internal static extern void* vkGetDeviceProcAddr(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName);
+    internal static extern nuint vkGetDeviceProcAddr(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4375 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceQueue", ExactSpelling = true)]
@@ -1932,7 +1932,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11660 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetEncodedVideoSessionParametersKHR", ExactSpelling = true)]
-    internal static extern Result vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ulong* pDataSize, void* pData);
+    internal static extern Result vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ulong* pDataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4524 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetEventStatus", ExactSpelling = true)]
@@ -1976,7 +1976,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17346 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetImageOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    internal static extern Result vkGetImageOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4453 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements", ExactSpelling = true)]
@@ -2020,11 +2020,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17351 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetImageViewOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetImageViewOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    internal static extern Result vkGetImageViewOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4337 Column: 42
     [DllImport(LibraryPath, EntryPoint = "vkGetInstanceProcAddr", ExactSpelling = true)]
-    internal static extern void* vkGetInstanceProcAddr(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
+    internal static extern nuint vkGetInstanceProcAddr(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20316 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetLatencyTimingsNV", ExactSpelling = true)]
@@ -2040,7 +2040,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15207 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryHostPointerPropertiesEXT", ExactSpelling = true)]
-    internal static extern Result vkGetMemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, void* pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties);
+    internal static extern Result vkGetMemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18056 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryRemoteAddressNV", ExactSpelling = true)]
@@ -2288,11 +2288,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12149 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineBinaryDataKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ulong* pPipelineBinaryDataSize, void* pPipelineBinaryData);
+    internal static extern Result vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ulong* pPipelineBinaryDataSize, nuint pPipelineBinaryData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4629 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineCacheData", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ulong* pDataSize, void* pData);
+    internal static extern Result vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ulong* pDataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11409 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableInternalRepresentationsKHR", ExactSpelling = true)]
@@ -2332,7 +2332,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4547 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetQueryPoolResults", ExactSpelling = true)]
-    internal static extern Result vkGetQueryPoolResults(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, ulong dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags);
+    internal static extern Result vkGetQueryPoolResults(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, ulong dataSize, nuint pData, VkDeviceSize stride, VkQueryResultFlags flags);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15533 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointData2NV", ExactSpelling = true)]
@@ -2344,15 +2344,15 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21746 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
+    internal static extern Result vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15091 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
+    internal static extern Result vkGetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15099 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupHandlesNV", ExactSpelling = true)]
-    internal static extern Result vkGetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
+    internal static extern Result vkGetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21762 Column: 36
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingShaderGroupStackSizeKHR", ExactSpelling = true)]
@@ -2376,7 +2376,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17356 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSamplerOpaqueCaptureDescriptorDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetSamplerOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    internal static extern Result vkGetSamplerOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6697 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreCounterValue", ExactSpelling = true)]
@@ -2392,11 +2392,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19888 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderBinaryDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, ulong* pDataSize, void* pData);
+    internal static extern Result vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, ulong* pDataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13452 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderInfoAMD", ExactSpelling = true)]
-    internal static extern Result vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ulong* pInfoSize, void* pInfo);
+    internal static extern Result vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ulong* pInfoSize, nuint pInfo);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19557 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderModuleCreateInfoIdentifierEXT", ExactSpelling = true)]
@@ -2420,7 +2420,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14612 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetValidationCacheDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ulong* pDataSize, void* pData);
+    internal static extern Result vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ulong* pDataSize, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9190 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkGetVideoSessionMemoryRequirementsKHR", ExactSpelling = true)]
@@ -2448,15 +2448,15 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4404 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMapMemory", ExactSpelling = true)]
-    internal static extern Result vkMapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData);
+    internal static extern Result vkMapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out nuint ppData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8408 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMapMemory2", ExactSpelling = true)]
-    internal static extern Result vkMapMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out void* ppData);
+    internal static extern Result vkMapMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11433 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMapMemory2KHR", ExactSpelling = true)]
-    internal static extern Result vkMapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out void* ppData);
+    internal static extern Result vkMapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4635 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkMergePipelineCaches", ExactSpelling = true)]
@@ -2656,11 +2656,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5938 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSetWithTemplate", ExactSpelling = true)]
-    internal static extern void vkUpdateDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData);
+    internal static extern void vkUpdateDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10241 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUpdateDescriptorSetWithTemplateKHR", ExactSpelling = true)]
-    internal static extern void vkUpdateDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData);
+    internal static extern void vkUpdateDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, nuint pData);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21207 Column: 28
     [DllImport(LibraryPath, EntryPoint = "vkUpdateIndirectExecutionSetPipelineEXT", ExactSpelling = true)]
@@ -2692,11 +2692,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21596 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWriteAccelerationStructuresPropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkWriteAccelerationStructuresPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, void* pData, ulong stride);
+    internal static extern Result vkWriteAccelerationStructuresPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, nuint pData, ulong stride);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18575 Column: 32
     [DllImport(LibraryPath, EntryPoint = "vkWriteMicromapsPropertiesEXT", ExactSpelling = true)]
-    internal static extern Result vkWriteMicromapsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride);
+    internal static extern Result vkWriteMicromapsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, nuint pData, ulong stride);
 
 }
 

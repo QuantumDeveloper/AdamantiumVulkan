@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16240 Column: 26
 public unsafe struct PFN_vkCmdSetDepthBoundsTestEnableEXT
 {
+    public PFN_vkCmdSetDepthBoundsTestEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetDepthBoundsTestEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetDepthBoundsTestEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, depthBoundsTestEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 depthBoundsTestEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, depthBoundsTestEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetDepthBoundsTestEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetDepthBoundsTestEnableEXT(nuint ptr) => new(ptr);
 }
 
 

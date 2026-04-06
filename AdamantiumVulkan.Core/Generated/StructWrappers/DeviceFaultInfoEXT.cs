@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -27,7 +28,7 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
     public string Description { get; set; }
     public DeviceFaultAddressInfoEXT PAddressInfos { get; set; }
     public DeviceFaultVendorInfoEXT PVendorInfos { get; set; }
-    public void* PVendorBinaryData { get; set; }
+    public nuint PVendorBinaryData { get; set; }
 
     public static implicit operator DeviceFaultInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT d)
     {
@@ -72,14 +73,14 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
         PVendorBinaryData = native.pVendorBinaryData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceFaultInfoEXTMarshaller
     {
@@ -93,7 +94,11 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
             }
             else if (deviceFaultInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (deviceFaultInfoEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];

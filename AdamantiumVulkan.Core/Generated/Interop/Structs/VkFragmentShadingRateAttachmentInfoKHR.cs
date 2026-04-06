@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkFragmentShadingRateAttachmentInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Core.Interop.VkAttachmentReference2* pFragmentShadingRateAttachment;
     public VkExtent2D shadingRateAttachmentTexelSize;
 }

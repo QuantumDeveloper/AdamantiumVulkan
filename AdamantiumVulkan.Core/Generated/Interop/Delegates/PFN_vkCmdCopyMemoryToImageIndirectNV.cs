@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18926 Column: 26
 public unsafe struct PFN_vkCmdCopyMemoryToImageIndirectNV
 {
+    public PFN_vkCmdCopyMemoryToImageIndirectNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCopyMemoryToImageIndirectNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCopyMemoryToImageIndirectNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers*, void>)ptr)(commandBuffer, copyBufferAddress, copyCount, stride, dstImage, dstImageLayout, pImageSubresources);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride, AdamantiumVulkan.Core.Interop.VkImage_T dstImage, ImageLayout dstImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers* pImageSubresources)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkDeviceAddress, uint, uint, AdamantiumVulkan.Core.Interop.VkImage_T, ImageLayout, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers*, void>)(void*)ptr)(commandBuffer, copyBufferAddress, copyCount, stride, dstImage, dstImageLayout, pImageSubresources);
+    }
 
     public static explicit operator PFN_vkCmdCopyMemoryToImageIndirectNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCopyMemoryToImageIndirectNV(nuint ptr) => new(ptr);
 }
 
 

@@ -17,10 +17,10 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkOpticalFlowSessionCreatePrivateDataInfoNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint id;
     public uint size;
-    public void* pPrivateData;
+    public nuint pPrivateData;
 }
 
 

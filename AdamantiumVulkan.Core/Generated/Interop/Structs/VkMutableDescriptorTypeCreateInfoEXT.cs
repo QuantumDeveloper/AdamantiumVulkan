@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMutableDescriptorTypeCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint mutableDescriptorTypeListCount;
     public AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT* pMutableDescriptorTypeLists;
 }

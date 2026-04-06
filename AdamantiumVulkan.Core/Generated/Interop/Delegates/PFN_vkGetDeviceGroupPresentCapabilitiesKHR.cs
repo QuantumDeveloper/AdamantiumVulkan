@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8721 Column: 30
 public unsafe struct PFN_vkGetDeviceGroupPresentCapabilitiesKHR
 {
+    public PFN_vkGetDeviceGroupPresentCapabilitiesKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceGroupPresentCapabilitiesKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceGroupPresentCapabilitiesKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR*, Result>)ptr)(device, pDeviceGroupPresentCapabilities);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR*, Result>)(void*)ptr)(device, pDeviceGroupPresentCapabilities);
+    }
 
     public static explicit operator PFN_vkGetDeviceGroupPresentCapabilitiesKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceGroupPresentCapabilitiesKHR(nuint ptr) => new(ptr);
 }
 
 

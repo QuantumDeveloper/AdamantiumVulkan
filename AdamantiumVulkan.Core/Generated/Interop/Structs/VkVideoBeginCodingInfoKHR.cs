@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoBeginCodingInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkVideoBeginCodingFlagsKHR flags;
     public VkVideoSessionKHR_T videoSession;
     public VkVideoSessionParametersKHR_T videoSessionParameters;

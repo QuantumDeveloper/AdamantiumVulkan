@@ -27,7 +27,7 @@ public unsafe partial class SurfaceKHR : IUnmanagedWrapper<AdamantiumVulkan.Core
     }
 
     public AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkSurfaceKHR_T GetPinnableReference() => ref __Instance;
 

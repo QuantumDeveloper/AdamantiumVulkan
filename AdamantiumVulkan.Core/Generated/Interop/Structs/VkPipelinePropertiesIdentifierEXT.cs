@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelinePropertiesIdentifierEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public unsafe fixed byte pipelineIdentifier[16];
 }
 

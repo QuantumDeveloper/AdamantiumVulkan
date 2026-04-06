@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18534 Column: 26
 public unsafe struct PFN_vkGetDeviceMicromapCompatibilityEXT
 {
+    public PFN_vkGetDeviceMicromapCompatibilityEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceMicromapCompatibilityEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceMicromapCompatibilityEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)ptr)(device, pVersionInfo, ref pCompatibility);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)(void*)ptr)(device, pVersionInfo, ref pCompatibility);
+    }
 
     public static explicit operator PFN_vkGetDeviceMicromapCompatibilityEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceMicromapCompatibilityEXT(nuint ptr) => new(ptr);
 }
 
 

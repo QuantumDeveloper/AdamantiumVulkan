@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkSwapchainPresentScalingCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPresentScalingFlagsEXT scalingBehavior;
     public VkPresentGravityFlagsEXT presentGravityX;
     public VkPresentGravityFlagsEXT presentGravityY;

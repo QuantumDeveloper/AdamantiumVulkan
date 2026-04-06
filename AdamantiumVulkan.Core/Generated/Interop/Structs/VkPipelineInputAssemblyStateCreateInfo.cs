@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineInputAssemblyStateCreateInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPipelineInputAssemblyStateCreateFlags flags;
     public PrimitiveTopology topology;
     public VkBool32 primitiveRestartEnable;

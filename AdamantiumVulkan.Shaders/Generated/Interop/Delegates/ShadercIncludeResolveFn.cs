@@ -19,28 +19,30 @@ namespace AdamantiumVulkan.Shaders.Interop;
 ///</summary>
 public unsafe struct ShadercIncludeResolveFn
 {
+    public ShadercIncludeResolveFn(nuint ptr) : this((void*) ptr) { }
+
     public ShadercIncludeResolveFn(void* ptr)
     {
         NativePointer = ptr;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            InvokeStdcall = (delegate* unmanaged[Stdcall]<void*, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr;
+            InvokeStdcall = (delegate* unmanaged[Stdcall]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr;
             InvokeCdecl = default;
         }
         else
         {
-            InvokeCdecl = (delegate* unmanaged[Cdecl]<void*, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr;
+            InvokeCdecl = (delegate* unmanaged[Cdecl]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr;
             InvokeStdcall = default;
         }
     }
 
-    private delegate* unmanaged[Stdcall]<void*, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*> InvokeStdcall;
+    private delegate* unmanaged[Stdcall]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*> InvokeStdcall;
 
-    private delegate* unmanaged[Cdecl]<void*, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*> InvokeCdecl;
+    private delegate* unmanaged[Cdecl]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*> InvokeCdecl;
 
     public void* NativePointer { get; }
 
-    public ShadercIncludeResult* Invoke(void* user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
+    public ShadercIncludeResult* Invoke(nuint user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -52,19 +54,32 @@ public unsafe struct ShadercIncludeResolveFn
         }
     }
 
-    public static ShadercIncludeResult* Invoke(void* ptr, void* user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
+    public static ShadercIncludeResult* Invoke(void* ptr, nuint user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            return ((delegate* unmanaged[Stdcall]<void*, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr)(user_data, requested_source, type, requesting_source, include_depth);
+            return ((delegate* unmanaged[Stdcall]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr)(user_data, requested_source, type, requesting_source, include_depth);
         }
         else
         {
-            return ((delegate* unmanaged[Cdecl]<void*, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr)(user_data, requested_source, type, requesting_source, include_depth);
+            return ((delegate* unmanaged[Cdecl]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)ptr)(user_data, requested_source, type, requesting_source, include_depth);
+        }
+    }
+    public static ShadercIncludeResult* Invoke(nuint ptr, nuint user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return ((delegate* unmanaged[Stdcall]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)(void*)ptr)(user_data, requested_source, type, requesting_source, include_depth);
+        }
+        else
+        {
+            return ((delegate* unmanaged[Cdecl]<nuint, sbyte*, int, sbyte*, ulong, ShadercIncludeResult*>)(void*)ptr)(user_data, requested_source, type, requesting_source, include_depth);
         }
     }
 
     public static explicit operator ShadercIncludeResolveFn(void* ptr) => new(ptr);
+
+    public static explicit operator ShadercIncludeResolveFn(nuint ptr) => new(ptr);
 }
 
 

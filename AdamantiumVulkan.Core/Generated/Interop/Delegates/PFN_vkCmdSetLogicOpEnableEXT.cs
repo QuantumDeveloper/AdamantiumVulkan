@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19263 Column: 26
 public unsafe struct PFN_vkCmdSetLogicOpEnableEXT
 {
+    public PFN_vkCmdSetLogicOpEnableEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetLogicOpEnableEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetLogicOpEnableEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)ptr)(commandBuffer, logicOpEnable);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkBool32 logicOpEnable)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkBool32, void>)(void*)ptr)(commandBuffer, logicOpEnable);
+    }
 
     public static explicit operator PFN_vkCmdSetLogicOpEnableEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetLogicOpEnableEXT(nuint ptr) => new(ptr);
 }
 
 

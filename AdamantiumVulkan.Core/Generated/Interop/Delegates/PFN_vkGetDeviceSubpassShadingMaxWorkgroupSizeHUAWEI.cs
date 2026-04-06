@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18001 Column: 30
 public unsafe struct PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI
 {
+    public PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, Result>)ptr)(device, renderpass, pMaxWorkgroupSize);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPass_T renderpass, AdamantiumVulkan.Core.Interop.VkExtent2D* pMaxWorkgroupSize)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkRenderPass_T, AdamantiumVulkan.Core.Interop.VkExtent2D*, Result>)(void*)ptr)(device, renderpass, pMaxWorkgroupSize);
+    }
 
     public static explicit operator PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(nuint ptr) => new(ptr);
 }
 
 

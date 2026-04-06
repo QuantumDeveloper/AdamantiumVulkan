@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkCommandBufferInheritanceRenderPassTransformInfoQCOM
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public SurfaceTransformFlagBitsKHR transform;
     public VkRect2D renderArea;
 }

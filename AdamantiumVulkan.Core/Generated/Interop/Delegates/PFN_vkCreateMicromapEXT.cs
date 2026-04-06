@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18522 Column: 30
 public unsafe struct PFN_vkCreateMicromapEXT
 {
+    public PFN_vkCreateMicromapEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateMicromapEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateMicromapEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkMicromapEXT_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pMicromap);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkMicromapEXT_T pMicromap)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkMicromapEXT_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pMicromap);
+    }
 
     public static explicit operator PFN_vkCreateMicromapEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateMicromapEXT(nuint ptr) => new(ptr);
 }
 
 

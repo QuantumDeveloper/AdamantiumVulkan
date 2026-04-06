@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18535 Column: 26
 public unsafe struct PFN_vkGetMicromapBuildSizesEXT
 {
+    public PFN_vkGetMicromapBuildSizesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetMicromapBuildSizesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetMicromapBuildSizesEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AccelerationStructureBuildTypeKHR, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT*, void>)ptr)(device, buildType, pBuildInfo, pSizeInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AccelerationStructureBuildTypeKHR buildType, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT* pBuildInfo, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT* pSizeInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AccelerationStructureBuildTypeKHR, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT*, AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT*, void>)(void*)ptr)(device, buildType, pBuildInfo, pSizeInfo);
+    }
 
     public static explicit operator PFN_vkGetMicromapBuildSizesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetMicromapBuildSizesEXT(nuint ptr) => new(ptr);
 }
 
 

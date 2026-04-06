@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10520 Column: 30
 public unsafe struct PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
 {
+    public PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCou
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR*, Result>)ptr)(physicalDevice, queueFamilyIndex, ref pCounterCount, pCounters, pCounterDescriptions);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint* pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR*, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR*, Result>)(void*)ptr)(physicalDevice, queueFamilyIndex, ref pCounterCount, pCounters, pCounterDescriptions);
+    }
 
     public static explicit operator PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(nuint ptr) => new(ptr);
 }
 
 

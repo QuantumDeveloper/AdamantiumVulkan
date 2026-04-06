@@ -18,7 +18,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkVideoDecodeAV1PictureInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Interop.StdVideoDecodeAV1PictureInfo* pStdPictureInfo;
     public unsafe fixed int referenceNameSlotIndices[7];
     public uint frameHeaderOffset;

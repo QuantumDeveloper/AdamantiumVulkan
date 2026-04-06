@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkMemoryUnmapInfo
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkMemoryUnmapFlags flags;
     public VkDeviceMemory_T memory;
 }

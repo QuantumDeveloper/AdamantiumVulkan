@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16685 Column: 30
 public unsafe struct PFN_vkCreateIndirectCommandsLayoutNV
 {
+    public PFN_vkCreateIndirectCommandsLayoutNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateIndirectCommandsLayoutNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateIndirectCommandsLayoutNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pIndirectCommandsLayout);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T pIndirectCommandsLayout)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutNV_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pIndirectCommandsLayout);
+    }
 
     public static explicit operator PFN_vkCreateIndirectCommandsLayoutNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateIndirectCommandsLayoutNV(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14198 Column: 26
 public unsafe struct PFN_vkSubmitDebugUtilsMessageEXT
 {
+    public PFN_vkSubmitDebugUtilsMessageEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkSubmitDebugUtilsMessageEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkSubmitDebugUtilsMessageEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, DebugUtilsMessageSeverityFlagBitsEXT, VkDebugUtilsMessageTypeFlagsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void>)ptr)(instance, messageSeverity, messageTypes, pCallbackData);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, DebugUtilsMessageSeverityFlagBitsEXT, VkDebugUtilsMessageTypeFlagsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void>)(void*)ptr)(instance, messageSeverity, messageTypes, pCallbackData);
+    }
 
     public static explicit operator PFN_vkSubmitDebugUtilsMessageEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkSubmitDebugUtilsMessageEXT(nuint ptr) => new(ptr);
 }
 
 

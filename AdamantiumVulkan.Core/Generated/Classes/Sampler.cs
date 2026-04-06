@@ -27,7 +27,7 @@ public unsafe partial class Sampler : IUnmanagedWrapper<AdamantiumVulkan.Core.In
     }
 
     public AdamantiumVulkan.Core.Interop.VkSampler_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkSampler_T GetPinnableReference() => ref __Instance;
 

@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -25,8 +26,8 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObje
     public StructureType SType => StructureType.DebugReportCallbackCreateInfoExt;
     public object PNext { get; set; }
     public VkDebugReportFlagsEXT Flags { get; set; }
-    public delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void*, uint> PfnCallback { get; set; }
-    public void* PUserData { get; set; }
+    public delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, nuint, uint> PfnCallback { get; set; }
+    public nuint PUserData { get; set; }
 
     public static implicit operator DebugReportCallbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT d)
     {
@@ -56,14 +57,14 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObje
         PUserData = native.pUserData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDebugReportCallbackCreateInfoEXTMarshaller
     {
@@ -77,7 +78,11 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObje
             }
             else if (debugReportCallbackCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (debugReportCallbackCreateInfoEXT.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (debugReportCallbackCreateInfoEXT.Flags != (uint)default)

@@ -18,6 +18,8 @@ namespace AdamantiumVulkan.Windows.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 325 Column: 30
 public unsafe struct PFN_vkGetWinrtDisplayNV
 {
+    public PFN_vkGetWinrtDisplayNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetWinrtDisplayNV(void* ptr)
     {
         NativePointer = ptr;
@@ -36,8 +38,14 @@ public unsafe struct PFN_vkGetWinrtDisplayNV
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr)(physicalDevice, deviceRelativeId, out pDisplay);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)(void*)ptr)(physicalDevice, deviceRelativeId, out pDisplay);
+    }
 
     public static explicit operator PFN_vkGetWinrtDisplayNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetWinrtDisplayNV(nuint ptr) => new(ptr);
 }
 
 

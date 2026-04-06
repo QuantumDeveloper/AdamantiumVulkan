@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkIndirectExecutionSetShaderLayoutInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint setLayoutCount;
     public VkDescriptorSetLayout_T* pSetLayouts;
 }

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceCooperativeMatrix2PropertiesNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint cooperativeMatrixWorkgroupScopeMaxWorkgroupSize;
     public uint cooperativeMatrixFlexibleDimensionsMaxDimension;
     public uint cooperativeMatrixWorkgroupScopeReservedSharedMemory;

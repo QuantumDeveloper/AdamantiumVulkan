@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPipelineBinaryCreateInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR* pKeysAndDataInfo;
     public VkPipeline_T pipeline;
     public AdamantiumVulkan.Core.Interop.VkPipelineCreateInfoKHR* pPipelineCreateInfo;

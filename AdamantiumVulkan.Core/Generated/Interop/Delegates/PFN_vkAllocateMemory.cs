@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4174 Column: 30
 public unsafe struct PFN_vkAllocateMemory
 {
+    public PFN_vkAllocateMemory(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkAllocateMemory(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkAllocateMemory
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, Result>)ptr)(device, pAllocateInfo, pAllocator, out pMemory);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDeviceMemory_T pMemory)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, Result>)(void*)ptr)(device, pAllocateInfo, pAllocator, out pMemory);
+    }
 
     public static explicit operator PFN_vkAllocateMemory(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkAllocateMemory(nuint ptr) => new(ptr);
 }
 
 

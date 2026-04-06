@@ -27,7 +27,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
     }
 
     public AdamantiumVulkan.SpirvTools.Interop.spv_optimizer_t GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     ///<summary>
     /// Destroys the given optimizer object.
@@ -55,7 +55,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         int CalculateSize(string[] flags)
         {
             int totalSize = 0;
-            totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
+            QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
             return totalSize;
         }
 
@@ -64,7 +64,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var nativeInstance = GetNativeValue();
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(flags, ref currentCursor);
             return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlags(&nativeInstance, arg1, flag_count);
@@ -84,7 +84,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         int CalculateSize(string[] flags)
         {
             int totalSize = 0;
-            totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
+            QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
             return totalSize;
         }
 
@@ -93,7 +93,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var nativeInstance = GetNativeValue();
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(flags, ref currentCursor);
             return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlagsWhilePreservingTheInterface(&nativeInstance, arg1, flag_count);
@@ -123,7 +123,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var nativeInstance = GetNativeValue();
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(flag, ref currentCursor);
             return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassFromFlag(&nativeInstance, arg1);
@@ -171,7 +171,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
     ///<summary>
     /// Sets an spv_message_consumer on an optimizer object.
     ///</summary>
-    public void SpvOptimizerSetMessageConsumer(void* consumer)
+    public void SpvOptimizerSetMessageConsumer(nuint consumer)
     {
         var nativeInstance = GetNativeValue();
         AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerSetMessageConsumer(&nativeInstance, consumer);

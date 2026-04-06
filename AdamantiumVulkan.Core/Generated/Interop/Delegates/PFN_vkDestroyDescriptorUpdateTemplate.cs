@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5811 Column: 26
 public unsafe struct PFN_vkDestroyDescriptorUpdateTemplate
 {
+    public PFN_vkDestroyDescriptorUpdateTemplate(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyDescriptorUpdateTemplate(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyDescriptorUpdateTemplate
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, descriptorUpdateTemplate, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, descriptorUpdateTemplate, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyDescriptorUpdateTemplate(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyDescriptorUpdateTemplate(nuint ptr) => new(ptr);
 }
 
 

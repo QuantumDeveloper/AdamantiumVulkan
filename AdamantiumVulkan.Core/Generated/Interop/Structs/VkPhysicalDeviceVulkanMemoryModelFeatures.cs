@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceVulkanMemoryModelFeatures
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 vulkanMemoryModel;
     public VkBool32 vulkanMemoryModelDeviceScope;
     public VkBool32 vulkanMemoryModelAvailabilityVisibilityChains;

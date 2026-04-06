@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21535 Column: 30
 public unsafe struct PFN_vkBuildAccelerationStructuresKHR
 {
+    public PFN_vkBuildAccelerationStructuresKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkBuildAccelerationStructuresKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkBuildAccelerationStructuresKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, Result>)ptr)(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, Result>)(void*)ptr)(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
+    }
 
     public static explicit operator PFN_vkBuildAccelerationStructuresKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkBuildAccelerationStructuresKHR(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkWriteDescriptorSetPartitionedAccelerationStructureNV
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint accelerationStructureCount;
     public AdamantiumVulkan.Core.Interop.VkDeviceAddress* pAccelerationStructures;
 }

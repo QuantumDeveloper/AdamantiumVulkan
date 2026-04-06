@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceDepthBiasControlFeaturesEXT
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 depthBiasControl;
     public VkBool32 leastRepresentableValueForceUnormRepresentation;
     public VkBool32 floatRepresentation;

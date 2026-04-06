@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17104 Column: 26
 public unsafe struct PFN_vkDestroyCudaModuleNV
 {
+    public PFN_vkDestroyCudaModuleNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkDestroyCudaModuleNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkDestroyCudaModuleNV
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)ptr)(device, module, pAllocator);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, void>)(void*)ptr)(device, module, pAllocator);
+    }
 
     public static explicit operator PFN_vkDestroyCudaModuleNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkDestroyCudaModuleNV(nuint ptr) => new(ptr);
 }
 
 

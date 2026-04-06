@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9158 Column: 30
 public unsafe struct PFN_vkGetVideoSessionMemoryRequirementsKHR
 {
+    public PFN_vkGetVideoSessionMemoryRequirementsKHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetVideoSessionMemoryRequirementsKHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetVideoSessionMemoryRequirementsKHR
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)ptr)(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)(void*)ptr)(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
+    }
 
     public static explicit operator PFN_vkGetVideoSessionMemoryRequirementsKHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetVideoSessionMemoryRequirementsKHR(nuint ptr) => new(ptr);
 }
 
 

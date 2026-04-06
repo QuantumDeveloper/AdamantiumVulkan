@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4227 Column: 30
 public unsafe struct PFN_vkCreateDescriptorPool
 {
+    public PFN_vkCreateDescriptorPool(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCreateDescriptorPool(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCreateDescriptorPool
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pDescriptorPool);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T pDescriptorPool)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkDescriptorPool_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pDescriptorPool);
+    }
 
     public static explicit operator PFN_vkCreateDescriptorPool(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCreateDescriptorPool(nuint ptr) => new(ptr);
 }
 
 

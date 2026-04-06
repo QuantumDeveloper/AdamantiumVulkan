@@ -17,9 +17,9 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkDirectDriverLoadingInfoLUNARG
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkDirectDriverLoadingFlagsLUNARG flags;
-    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, void> pfnGetInstanceProcAddr;
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, nuint> pfnGetInstanceProcAddr;
 }
 
 

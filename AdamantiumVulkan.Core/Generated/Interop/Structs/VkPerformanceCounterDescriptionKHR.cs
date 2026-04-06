@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPerformanceCounterDescriptionKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkPerformanceCounterDescriptionFlagsKHR flags;
     public unsafe fixed sbyte name[256];
     public unsafe fixed sbyte category[256];

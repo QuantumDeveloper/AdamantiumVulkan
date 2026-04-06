@@ -16,22 +16,22 @@ public static unsafe class Delegates
 {
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3134 Column: 27
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void* PFN_vkAllocationFunction(void* pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope);
+    public unsafe delegate nuint PFN_vkAllocationFunction(nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3140 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkFreeFunction(void* pUserData, void* pMemory);
+    public unsafe delegate void PFN_vkFreeFunction(nuint pUserData, nuint pMemory);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3144 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkInternalAllocationNotification(void* pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope);
+    public unsafe delegate void PFN_vkInternalAllocationNotification(nuint pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3150 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkInternalFreeNotification(void* pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope);
+    public unsafe delegate void PFN_vkInternalFreeNotification(nuint pUserData, ulong size, InternalAllocationType allocationType, SystemAllocationScope allocationScope);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3156 Column: 27
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void* PFN_vkReallocationFunction(void* pUserData, void* pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope);
+    public unsafe delegate nuint PFN_vkReallocationFunction(nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3163 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void* PFN_vkVoidFunction();
+    public unsafe delegate nuint PFN_vkVoidFunction();
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4153 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateInstance(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance);
@@ -61,10 +61,10 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetPhysicalDeviceMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties* pMemoryProperties);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4162 Column: 40
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void* PFN_vkGetInstanceProcAddr(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
+    public unsafe delegate nuint PFN_vkGetInstanceProcAddr(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4163 Column: 40
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void* PFN_vkGetDeviceProcAddr(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName);
+    public unsafe delegate nuint PFN_vkGetDeviceProcAddr(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4164 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateDevice(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDevice_T pDevice);
@@ -103,7 +103,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkFreeMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4176 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkMapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData);
+    public unsafe delegate Result PFN_vkMapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out nuint ppData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4177 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkUnmapMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory);
@@ -181,7 +181,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyQueryPool(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4202 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetQueryPoolResults(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, ulong dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags);
+    public unsafe delegate Result PFN_vkGetQueryPoolResults(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, ulong dataSize, nuint pData, VkDeviceSize stride, VkQueryResultFlags flags);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4203 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateBuffer(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkBuffer_T pBuffer);
@@ -223,7 +223,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyPipelineCache(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4216 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, ref ulong* pDataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4217 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkMergePipelineCaches(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkPipelineCache_T* pSrcCaches);
@@ -385,7 +385,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdCopyImageToBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImage_T srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, uint regionCount, AdamantiumVulkan.Core.Interop.VkBufferImageCopy* pRegions);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4270 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkCmdUpdateBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, void* pData);
+    public unsafe delegate void PFN_vkCmdUpdateBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4271 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdFillBuffer(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize size, uint data);
@@ -430,7 +430,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdCopyQueryPoolResults(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery, uint queryCount, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4285 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkCmdPushConstants(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, void* pValues);
+    public unsafe delegate void PFN_vkCmdPushConstants(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, nuint pValues);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4286 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBeginRenderPass(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo* pRenderPassBegin, SubpassContents contents);
@@ -514,7 +514,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyDescriptorUpdateTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5812 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkUpdateDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData);
+    public unsafe delegate void PFN_vkUpdateDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5813 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetPhysicalDeviceExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties* pExternalBufferProperties);
@@ -682,7 +682,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetLineStipple(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8383 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkMapMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out void* ppData);
+    public unsafe delegate Result PFN_vkMapMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8384 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkUnmapMemory2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo* pMemoryUnmapInfo);
@@ -703,7 +703,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdPushDescriptorSet(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8390 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkCmdPushDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData);
+    public unsafe delegate void PFN_vkCmdPushDescriptorSetWithTemplate(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8391 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdSetRenderingAttachmentLocations(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo* pLocationInfo);
@@ -904,7 +904,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdPushDescriptorSetKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10149 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkCmdPushDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, void* pData);
+    public unsafe delegate void PFN_vkCmdPushDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10225 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateDescriptorUpdateTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T pDescriptorUpdateTemplate);
@@ -913,7 +913,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyDescriptorUpdateTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10227 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkUpdateDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, void* pData);
+    public unsafe delegate void PFN_vkUpdateDescriptorSetWithTemplateKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T descriptorUpdateTemplate, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10281 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateRenderPass2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkRenderPass_T pRenderPass);
@@ -1057,7 +1057,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPipelineExecutableInternalRepresentationsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11429 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkMapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out void* ppData);
+    public unsafe delegate Result PFN_vkMapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryMapInfo* pMemoryMapInfo, out nuint ppData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11430 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkUnmapMemory2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo* pMemoryUnmapInfo);
@@ -1066,7 +1066,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR* pQualityLevelInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR* pQualityLevelProperties);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11651 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ref ulong* pDataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ref ulong* pDataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11652 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdEncodeVideoKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkVideoEncodeInfoKHR* pEncodeInfo);
@@ -1141,7 +1141,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPipelineKeyKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCreateInfoKHR* pPipelineCreateInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineKey);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12129 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, void* pPipelineBinaryData);
+    public unsafe delegate Result PFN_vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, ref ulong* pPipelineBinaryDataSize, nuint pPipelineBinaryData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12130 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkReleaseCapturedPipelineDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkReleaseCapturedPipelineDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
@@ -1177,7 +1177,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT* pBindDescriptorBufferEmbeddedSamplersInfo);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12975 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate uint PFN_vkDebugReportCallbackEXT(VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, void* pUserData);
+    public unsafe delegate uint PFN_vkDebugReportCallbackEXT(VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, nuint pUserData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12993 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateDebugReportCallbackEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkDebugReportCallbackEXT_T pCallback);
@@ -1252,7 +1252,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdDrawIndexedIndirectCountAMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Interop.VkBuffer_T countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13449 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, void* pInfo);
+    public unsafe delegate Result PFN_vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, ref ulong* pInfoSize, nuint pInfo);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13514 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties);
@@ -1303,7 +1303,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkSetHdrMetadataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint swapchainCount, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T* pSwapchains, AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT* pMetadata);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14162 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate uint PFN_vkDebugUtilsMessengerCallbackEXT(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData);
+    public unsafe delegate uint PFN_vkDebugUtilsMessengerCallbackEXT(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, nuint pUserData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14188 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkSetDebugUtilsObjectNameEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT* pNameInfo);
@@ -1357,7 +1357,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkMergeValidationCachesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T* pSrcCaches);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14592 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ref ulong* pDataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, ref ulong* pDataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14723 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindShadingRateImageNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, ImageLayout imageLayout);
@@ -1393,13 +1393,13 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCreateRayTracingPipelinesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15021 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetRayTracingShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15022 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetRayTracingShaderGroupHandlesNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15023 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetAccelerationStructureHandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetAccelerationStructureHandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T accelerationStructure, ulong dataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15024 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdWriteAccelerationStructuresPropertiesNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T* pAccelerationStructures, QueryType queryType, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint firstQuery);
@@ -1408,7 +1408,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCompileDeferredNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint shader);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15204 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetMemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, void* pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties);
+    public unsafe delegate Result PFN_vkGetMemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint pHostPointer, AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15219 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdWriteBufferMarkerAMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineStageFlagBits pipelineStage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker);
@@ -1438,7 +1438,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetExclusiveScissorNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstExclusiveScissor, uint exclusiveScissorCount, AdamantiumVulkan.Core.Interop.VkRect2D* pExclusiveScissors);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15519 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkCmdSetCheckpointNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker);
+    public unsafe delegate void PFN_vkCmdSetCheckpointNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, nuint pCheckpointMarker);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15520 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetQueueCheckpointDataNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData);
@@ -1573,7 +1573,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetDepthBias2EXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkDepthBiasInfoEXT* pDepthBiasInfo);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16851 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkDeviceMemoryReportCallbackEXT(AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT* pCallbackData, void* pUserData);
+    public unsafe delegate void PFN_vkDeviceMemoryReportCallbackEXT(AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT* pCallbackData, nuint pUserData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16869 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkAcquireDrmDisplayEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, int drmFd, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
@@ -1597,7 +1597,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCreateCudaModuleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T pModule);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17102 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, ref ulong* pCacheSize, void* pCacheData);
+    public unsafe delegate Result PFN_vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, ref ulong* pCacheSize, nuint pCacheData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17103 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateCudaFunctionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaFunctionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkCudaFunctionNV_T pFunction);
@@ -1618,7 +1618,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T layout, uint binding, out VkDeviceSize pOffset);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17293 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetDescriptorEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, void* pDescriptor);
+    public unsafe delegate void PFN_vkGetDescriptorEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, nuint pDescriptor);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17294 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindDescriptorBuffersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint bufferCount, AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT* pBindingInfos);
@@ -1630,19 +1630,19 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17297 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    public unsafe delegate Result PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17298 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetImageOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    public unsafe delegate Result PFN_vkGetImageOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17299 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    public unsafe delegate Result PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageViewCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17300 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    public unsafe delegate Result PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17301 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData);
+    public unsafe delegate Result PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17462 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdSetFragmentShadingRateEnumNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR[] combinerOps);
@@ -1714,7 +1714,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCopyMemoryToMicromapEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT* pInfo);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18529 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkWriteMicromapsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, void* pData, ulong stride);
+    public unsafe delegate Result PFN_vkWriteMicromapsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint micromapCount, AdamantiumVulkan.Core.Interop.VkMicromapEXT_T* pMicromaps, QueryType queryType, ulong dataSize, nuint pData, ulong stride);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18530 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdCopyMicromapEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMicromapInfoEXT* pInfo);
@@ -1747,7 +1747,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE* pBindingReference, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18795 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out void* ppData);
+    public unsafe delegate void PFN_vkGetDescriptorSetHostMappingVALVE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T descriptorSet, out nuint ppData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18925 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdCopyMemoryIndirectNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkDeviceAddress copyBufferAddress, uint copyCount, uint stride);
@@ -1864,7 +1864,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetCoverageReductionModeNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, CoverageReductionModeNV coverageReductionMode);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19497 Column: 40
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void* PFN_vkGetInstanceProcAddrLUNARG(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
+    public unsafe delegate nuint PFN_vkGetInstanceProcAddrLUNARG(AdamantiumVulkan.Core.Interop.VkInstance_T instance, sbyte* pName);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19548 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetShaderModuleIdentifierEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderModule_T shaderModule, AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT* pIdentifier);
@@ -1897,7 +1897,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyShaderEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19871 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, ref ulong* pDataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, ref ulong* pDataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19872 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindShadersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint stageCount, ShaderStageFlagBits* pStages, AdamantiumVulkan.Core.Interop.VkShaderEXT_T* pShaders);
@@ -2005,7 +2005,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCopyMemoryToAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR* pInfo);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21539 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkWriteAccelerationStructuresPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, void* pData, ulong stride);
+    public unsafe delegate Result PFN_vkWriteAccelerationStructuresPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, nuint pData, ulong stride);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21540 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdCopyAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR* pInfo);
@@ -2035,7 +2035,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCreateRayTracingPipelinesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkPipeline_T pPipelines);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21721 Column: 30
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, void* pData);
+    public unsafe delegate Result PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, uint firstGroup, uint groupCount, ulong dataSize, nuint pData);
     // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21722 Column: 26
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdTraceRaysIndirectKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, VkDeviceAddress indirectDeviceAddress);

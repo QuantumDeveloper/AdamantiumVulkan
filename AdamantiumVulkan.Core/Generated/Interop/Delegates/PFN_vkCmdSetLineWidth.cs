@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4249 Column: 26
 public unsafe struct PFN_vkCmdSetLineWidth
 {
+    public PFN_vkCmdSetLineWidth(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetLineWidth(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetLineWidth
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, void>)ptr)(commandBuffer, lineWidth);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, float lineWidth)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, float, void>)(void*)ptr)(commandBuffer, lineWidth);
+    }
 
     public static explicit operator PFN_vkCmdSetLineWidth(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetLineWidth(nuint ptr) => new(ptr);
 }
 
 

@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15911 Column: 37
 public unsafe struct PFN_vkGetBufferDeviceAddressEXT
 {
+    public PFN_vkGetBufferDeviceAddressEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetBufferDeviceAddressEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetBufferDeviceAddressEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo*, ulong>)ptr)(device, pInfo);
     }
+    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo* pInfo)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressInfo*, ulong>)(void*)ptr)(device, pInfo);
+    }
 
     public static explicit operator PFN_vkGetBufferDeviceAddressEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetBufferDeviceAddressEXT(nuint ptr) => new(ptr);
 }
 
 

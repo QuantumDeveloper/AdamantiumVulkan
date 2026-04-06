@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Windows.Interop;
 public unsafe partial struct VkD3D12FenceSubmitInfoKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint waitSemaphoreValuesCount;
     public ulong* pWaitSemaphoreValues;
     public uint signalSemaphoreValuesCount;

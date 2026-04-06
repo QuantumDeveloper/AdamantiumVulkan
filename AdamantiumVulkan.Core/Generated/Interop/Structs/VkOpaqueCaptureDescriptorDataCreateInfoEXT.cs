@@ -17,8 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkOpaqueCaptureDescriptorDataCreateInfoEXT
 {
     public StructureType sType;
-    public void* pNext;
-    public void* opaqueCaptureDescriptorData;
+    public nuint pNext;
+    public nuint opaqueCaptureDescriptorData;
 }
 
 

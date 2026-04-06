@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceAccelerationStructureFeaturesKHR
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 accelerationStructure;
     public VkBool32 accelerationStructureCaptureReplay;
     public VkBool32 accelerationStructureIndirectBuild;

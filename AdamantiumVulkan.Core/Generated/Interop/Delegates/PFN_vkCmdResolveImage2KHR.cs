@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11831 Column: 26
 public unsafe struct PFN_vkCmdResolveImage2KHR
 {
+    public PFN_vkCmdResolveImage2KHR(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdResolveImage2KHR(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdResolveImage2KHR
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2*, void>)ptr)(commandBuffer, pResolveImageInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2* pResolveImageInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2*, void>)(void*)ptr)(commandBuffer, pResolveImageInfo);
+    }
 
     public static explicit operator PFN_vkCmdResolveImage2KHR(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdResolveImage2KHR(nuint ptr) => new(ptr);
 }
 
 

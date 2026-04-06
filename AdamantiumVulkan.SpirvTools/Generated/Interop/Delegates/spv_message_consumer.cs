@@ -20,6 +20,8 @@ namespace AdamantiumVulkan.SpirvTools.Interop;
 ///</summary>
 public unsafe struct spv_message_consumer
 {
+    public spv_message_consumer(nuint ptr) : this((void*) ptr) { }
+
     public spv_message_consumer(void* ptr)
     {
         NativePointer = ptr;
@@ -64,8 +66,21 @@ public unsafe struct spv_message_consumer
              ((delegate* unmanaged[Cdecl]<spv_message_level_t, sbyte*, AdamantiumVulkan.SpirvTools.Interop.spv_position_t*, sbyte*, void>)ptr)(param0, param1, param2, param3);
         }
     }
+    public static void Invoke(nuint ptr, spv_message_level_t param0, sbyte* param1, AdamantiumVulkan.SpirvTools.Interop.spv_position_t* param2, sbyte* param3)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+             ((delegate* unmanaged[Stdcall]<spv_message_level_t, sbyte*, AdamantiumVulkan.SpirvTools.Interop.spv_position_t*, sbyte*, void>)(void*)ptr)(param0, param1, param2, param3);
+        }
+        else
+        {
+             ((delegate* unmanaged[Cdecl]<spv_message_level_t, sbyte*, AdamantiumVulkan.SpirvTools.Interop.spv_position_t*, sbyte*, void>)(void*)ptr)(param0, param1, param2, param3);
+        }
+    }
 
     public static explicit operator spv_message_consumer(void* ptr) => new(ptr);
+
+    public static explicit operator spv_message_consumer(nuint ptr) => new(ptr);
 }
 
 

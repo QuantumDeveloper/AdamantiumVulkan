@@ -27,7 +27,7 @@ public unsafe partial class PipelineCache : IUnmanagedWrapper<AdamantiumVulkan.C
     }
 
     public AdamantiumVulkan.Core.Interop.VkPipelineCache_T GetNativeValue() => __Instance;
-    public void* NativePointer => __Instance.pointer;
+    public nuint NativePointer => __Instance.pointer;
 
     public ref readonly VkPipelineCache_T GetPinnableReference() => ref __Instance;
 

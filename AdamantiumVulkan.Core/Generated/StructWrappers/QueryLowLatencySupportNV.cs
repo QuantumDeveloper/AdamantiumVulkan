@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -24,7 +25,7 @@ public unsafe partial class QueryLowLatencySupportNV : IMarshallableObject, IMar
 
     public StructureType SType { get; set; }
     public object PNext { get; set; }
-    public void* PQueriedLowLatencyData { get; set; }
+    public nuint PQueriedLowLatencyData { get; set; }
 
     public static implicit operator QueryLowLatencySupportNV(AdamantiumVulkan.Core.Interop.VkQueryLowLatencySupportNV q)
     {
@@ -53,14 +54,14 @@ public unsafe partial class QueryLowLatencySupportNV : IMarshallableObject, IMar
         PQueriedLowLatencyData = native.pQueriedLowLatencyData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkQueryLowLatencySupportNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkQueryLowLatencySupportNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkQueryLowLatencySupportNVMarshaller
     {
@@ -74,7 +75,11 @@ public unsafe partial class QueryLowLatencySupportNV : IMarshallableObject, IMar
             }
             else if (queryLowLatencySupportNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (queryLowLatencySupportNV.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].pQueriedLowLatencyData = queryLowLatencySupportNV.PQueriedLowLatencyData;

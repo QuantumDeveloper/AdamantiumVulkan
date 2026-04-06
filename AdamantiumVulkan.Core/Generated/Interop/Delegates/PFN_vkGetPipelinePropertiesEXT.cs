@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18081 Column: 30
 public unsafe struct PFN_vkGetPipelinePropertiesEXT
 {
+    public PFN_vkGetPipelinePropertiesEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPipelinePropertiesEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPipelinePropertiesEXT
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, AdamantiumVulkan.Core.Interop.VkBaseOutStructure*, Result>)ptr)(device, pPipelineInfo, pPipelineProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, AdamantiumVulkan.Core.Interop.VkBaseOutStructure* pPipelineProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, AdamantiumVulkan.Core.Interop.VkBaseOutStructure*, Result>)(void*)ptr)(device, pPipelineInfo, pPipelineProperties);
+    }
 
     public static explicit operator PFN_vkGetPipelinePropertiesEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPipelinePropertiesEXT(nuint ptr) => new(ptr);
 }
 
 

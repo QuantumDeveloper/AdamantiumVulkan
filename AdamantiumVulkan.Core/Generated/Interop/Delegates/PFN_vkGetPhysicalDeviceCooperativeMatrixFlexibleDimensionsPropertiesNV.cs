@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21322 Column: 30
 public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
 {
+    public PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsP
     {
         return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
     }
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties)
+    {
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV*, Result>)(void*)ptr)(physicalDevice, ref pPropertyCount, pProperties);
+    }
 
     public static explicit operator PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(nuint ptr) => new(ptr);
 }
 
 

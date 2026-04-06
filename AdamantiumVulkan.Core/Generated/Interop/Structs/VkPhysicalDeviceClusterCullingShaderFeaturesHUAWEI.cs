@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public VkBool32 clustercullingShader;
     public VkBool32 multiviewClusterCullingShader;
 }

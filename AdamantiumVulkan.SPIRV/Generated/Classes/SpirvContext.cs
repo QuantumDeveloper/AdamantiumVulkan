@@ -88,7 +88,7 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
-            ref Span<byte> currentCursor = ref mainBuffer;
+            ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(spirv, ref currentCursor);
             SpvcParsedIrS arg3;
             var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_parse_spirv(this, arg1, word_count, out arg3);
@@ -110,7 +110,7 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_release_allocations(this);
     }
 
-    public void SetErrorCallback(void* cb, ref void* userdata)
+    public void SetErrorCallback(nuint cb, ref nuint userdata)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_set_error_callback(this, cb, userdata);
     }

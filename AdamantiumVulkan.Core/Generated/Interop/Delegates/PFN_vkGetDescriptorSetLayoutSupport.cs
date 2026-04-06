@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5816 Column: 26
 public unsafe struct PFN_vkGetDescriptorSetLayoutSupport
 {
+    public PFN_vkGetDescriptorSetLayoutSupport(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkGetDescriptorSetLayoutSupport(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkGetDescriptorSetLayoutSupport
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport*, void>)ptr)(device, pCreateInfo, pSupport);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport* pSupport)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo*, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport*, void>)(void*)ptr)(device, pCreateInfo, pSupport);
+    }
 
     public static explicit operator PFN_vkGetDescriptorSetLayoutSupport(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkGetDescriptorSetLayoutSupport(nuint ptr) => new(ptr);
 }
 
 

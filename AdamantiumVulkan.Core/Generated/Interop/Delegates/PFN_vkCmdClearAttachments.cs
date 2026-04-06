@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4274 Column: 26
 public unsafe struct PFN_vkCmdClearAttachments
 {
+    public PFN_vkCmdClearAttachments(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdClearAttachments(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdClearAttachments
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkClearAttachment*, uint, AdamantiumVulkan.Core.Interop.VkClearRect*, void>)ptr)(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint attachmentCount, AdamantiumVulkan.Core.Interop.VkClearAttachment* pAttachments, uint rectCount, AdamantiumVulkan.Core.Interop.VkClearRect* pRects)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkClearAttachment*, uint, AdamantiumVulkan.Core.Interop.VkClearRect*, void>)(void*)ptr)(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
+    }
 
     public static explicit operator PFN_vkCmdClearAttachments(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdClearAttachments(nuint ptr) => new(ptr);
 }
 
 

@@ -17,7 +17,7 @@ namespace AdamantiumVulkan.Core.Interop;
 public unsafe partial struct VkPhysicalDeviceSubgroupProperties
 {
     public StructureType sType;
-    public void* pNext;
+    public nuint pNext;
     public uint subgroupSize;
     public VkShaderStageFlags supportedStages;
     public VkSubgroupFeatureFlags supportedOperations;

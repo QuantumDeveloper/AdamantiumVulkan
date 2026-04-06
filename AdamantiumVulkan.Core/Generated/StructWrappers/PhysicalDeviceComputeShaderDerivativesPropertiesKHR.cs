@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -53,14 +54,14 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesPropertiesKHR 
         MeshAndTaskShaderDerivatives = native.meshAndTaskShaderDerivatives;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceComputeShaderDerivativesPropertiesKHRMarshaller
     {
@@ -74,7 +75,11 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesPropertiesKHR 
             }
             else if (physicalDeviceComputeShaderDerivativesPropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (physicalDeviceComputeShaderDerivativesPropertiesKHR.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             if (physicalDeviceComputeShaderDerivativesPropertiesKHR.MeshAndTaskShaderDerivatives != (uint)default)

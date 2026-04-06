@@ -5,6 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------------------------
 
+using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
@@ -26,7 +27,7 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
     public object PNext { get; set; }
     public uint Id { get; set; }
     public uint Size { get; set; }
-    public void* PrivateData { get; set; }
+    public nuint PrivateData { get; set; }
 
     public static implicit operator OpticalFlowSessionCreatePrivateDataInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV o)
     {
@@ -57,14 +58,14 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
         PrivateData = native.pPrivateData;
 
     }
-    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpticalFlowSessionCreatePrivateDataInfoNVMarshaller
     {
@@ -78,7 +79,11 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
             }
             else if (opticalFlowSessionCreatePrivateDataInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (void*)ptr;
+                context.Destination[0].pNext = (nuint)ptr;
+            }
+            else if (opticalFlowSessionCreatePrivateDataInfoNV.PNext is nuint nPtr)
+            {
+                context.Destination[0].pNext = (nuint)nPtr;
             }
 
             context.Destination[0].id = opticalFlowSessionCreatePrivateDataInfoNV.Id;

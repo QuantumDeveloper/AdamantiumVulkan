@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18531 Column: 26
 public unsafe struct PFN_vkCmdCopyMicromapToMemoryEXT
 {
+    public PFN_vkCmdCopyMicromapToMemoryEXT(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdCopyMicromapToMemoryEXT(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdCopyMicromapToMemoryEXT
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT*, void>)ptr)(commandBuffer, pInfo);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT* pInfo)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT*, void>)(void*)ptr)(commandBuffer, pInfo);
+    }
 
     public static explicit operator PFN_vkCmdCopyMicromapToMemoryEXT(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdCopyMicromapToMemoryEXT(nuint ptr) => new(ptr);
 }
 
 

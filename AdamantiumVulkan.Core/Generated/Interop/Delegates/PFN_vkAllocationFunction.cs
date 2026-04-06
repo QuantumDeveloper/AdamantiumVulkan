@@ -17,26 +17,34 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3134 Column: 27
 public unsafe struct PFN_vkAllocationFunction
 {
+    public PFN_vkAllocationFunction(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkAllocationFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<void*, ulong, ulong, SystemAllocationScope, void*>)ptr;
+        InvokeFunc = (delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr;
     }
 
-    private delegate* unmanaged<void*, ulong, ulong, SystemAllocationScope, void*> InvokeFunc;
+    private delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void* Invoke(void* pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public nuint Invoke(nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
     {
         return InvokeFunc(pUserData, size, alignment, allocationScope);
     }
-    public static void* Invoke(void* ptr, void* pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public static nuint Invoke(void* ptr, nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
     {
-        return ((delegate* unmanaged<void*, ulong, ulong, SystemAllocationScope, void*>)ptr)(pUserData, size, alignment, allocationScope);
+        return ((delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr)(pUserData, size, alignment, allocationScope);
+    }
+    public static nuint Invoke(nuint ptr, nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    {
+        return ((delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint>)(void*)ptr)(pUserData, size, alignment, allocationScope);
     }
 
     public static explicit operator PFN_vkAllocationFunction(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkAllocationFunction(nuint ptr) => new(ptr);
 }
 
 

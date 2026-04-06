@@ -17,6 +17,8 @@ namespace AdamantiumVulkan.Core.Interop;
 // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4247 Column: 26
 public unsafe struct PFN_vkCmdSetViewport
 {
+    public PFN_vkCmdSetViewport(nuint ptr) : this((void*) ptr) { }
+
     public PFN_vkCmdSetViewport(void* ptr)
     {
         NativePointer = ptr;
@@ -35,8 +37,14 @@ public unsafe struct PFN_vkCmdSetViewport
     {
          ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewport*, void>)ptr)(commandBuffer, firstViewport, viewportCount, pViewports);
     }
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewport* pViewports)
+    {
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, uint, AdamantiumVulkan.Core.Interop.VkViewport*, void>)(void*)ptr)(commandBuffer, firstViewport, viewportCount, pViewports);
+    }
 
     public static explicit operator PFN_vkCmdSetViewport(void* ptr) => new(ptr);
+
+    public static explicit operator PFN_vkCmdSetViewport(nuint ptr) => new(ptr);
 }
 
 
