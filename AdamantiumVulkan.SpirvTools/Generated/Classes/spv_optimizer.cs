@@ -55,7 +55,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         int CalculateSize(string[] flags)
         {
             int totalSize = 0;
-            QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
+            totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
             return totalSize;
         }
 
@@ -84,7 +84,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         int CalculateSize(string[] flags)
         {
             int totalSize = 0;
-            QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
+            totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(flags);
             return totalSize;
         }
 
