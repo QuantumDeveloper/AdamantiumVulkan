@@ -105,7 +105,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         int CalculateSize(string[] source)
         {
             int totalSize = 0;
-            QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(source);
+            totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(source);
             return totalSize;
         }
 
